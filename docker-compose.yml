@@ -1,0 +1,55 @@
+services:
+
+  mysql:
+    image: mysql:8.4
+    container_name: jp_mysql_vocabulary
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  flyway-vocabulary:
+    image: flyway/flyway:latest
+    container_name: jp_flyway_vocabulary
+    command:
+      - "-url=jdbc:mysql://mysql:3306/${MYSQL_DATABASE}"
+      - "-user=${MYSQL_USER}"
+      - "-password=${MYSQL_PASSWORD}"
+      - "-connectRetries=60"
+      - "migrate"
+    volumes:
+      - ${QUARKUS_MIGRATION_PATH}:/flyway/sql
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: jp_sqlserver_user
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+  flyway-user:
+    image: flyway/flyway:latest
+    container_name: japanese-learning-user-flyway
+    command:
+      - "-url=jdbc:sqlserver://sqlserver:1433;databaseName=JapaneseLearningUser;encrypt=false;trustServerCertificate=true"
+      - "-user=sa"
+      - "-password=${MSSQL_SA_PASSWORD}"
+      - "-connectRetries=60"
+      - "migrate"
+    volumes:
+      - ${DOTNET_MIGRATION_PATH}:/flyway/sql
+
+volumes:
+  mysql_data:
+  sqlserver_data:

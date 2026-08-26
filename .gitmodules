@@ -1,0 +1,9 @@
+[submodule "dotnet"]
+	path = dotnet
+	url = https://github.com/phat-dat-ag/japanese-learning-dotnet.git
+[submodule "quarkus"]
+	path = quarkus
+	url = https://github.com/phat-dat-ag/japanese-learning-quarkus.git
+[submodule "angular"]
+	path = angular
+	url = https://github.com/phat-dat-ag/japanese-learning-angular.git
