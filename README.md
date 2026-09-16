@@ -54,7 +54,7 @@ Both applications retain their Dockerfile non-root users and share the default
 Compose network. Quarkus obtains public keys only from
 `http://user-api:8080/.well-known/jwks.json`. JWT issuer/audience values in `.env`
 configure both services consistently. Authentication and role restrictions remain
-enabled. Angular and an API gateway are not part of this stack.
+enabled. Angular is not part of this stack.
 
 Stop containers with `docker compose stop`, or remove containers and the network
 with `docker compose down`. Database named volumes survive both operations.
@@ -62,6 +62,47 @@ with `docker compose down`. Database named volumes survive both operations.
 do not use it unless intentionally resetting all local data.
 
 ---
+
+## API Gateway
+
+NGINX (official `nginx:stable-alpine`) is the client-facing backend entry point:
+**http://localhost:8080** (host 8080 to container 80). Start it with the same
+`docker compose up --build -d` command. Direct ports 8081/8082 remain available
+for backend debugging; clients should use the Gateway.
+
+| Gateway path | Owner / internal upstream |
+| --- | --- |
+| `/api/auth` and descendants | .NET, `user-api:8080` |
+| `/api/v1/flashcards` and descendants | Quarkus, `vocabulary-api:8080` |
+| `/api/v1/jlpt-levels` and descendants | Quarkus, `vocabulary-api:8080` |
+| `/api/v1/lessons` and descendants | Quarkus, `vocabulary-api:8080` |
+| `/api/vocabularies` and descendants (including import) | Quarkus, `vocabulary-api:8080` |
+| `/health` | Static Gateway process health (200) |
+| Other paths | 404 |
+
+Paths, query parameters, and Authorization are preserved. NGINX forwards Host,
+X-Real-IP, X-Forwarded-For, and X-Forwarded-Proto; as the edge proxy it replaces
+client-supplied forwarding headers. Backends retain their current proxy-trust
+settings. Uploads are capped at 10 MiB. Standard stdout/stderr logging is used;
+access logs omit query strings, request bodies, and credential headers.
+
+.NET still issues and validates JWTs; Quarkus still validates RS256 and enforces
+User/Admin access and Admin-only import. NGINX performs no JWT or role checks
+and mounts no RSA keys. Quarkus continues to fetch JWKS directly from
+`http://user-api:8080/.well-known/jwks.json`. Current clients do not need public
+JWKS through the Gateway, so that path returns 404 there; the existing .NET
+debug port still exposes public JWKS.
+
+Gateway startup waits for Quarkus readiness and .NET container startup (the
+.NET runtime has no HTTP healthcheck tool). Gateway health is independent of
+backend readiness; use the direct health URLs above to diagnose backends.
+Docker DNS refresh handles upstream container IP changes without an NGINX restart.
+Check configuration with `docker compose exec gateway nginx -t`.
+
+Neither backend currently configures CORS. Step 6 leaves CORS unchanged.
+For Step 7, prefer same-origin frontend/API hosting; if Angular runs on another
+origin, configure an explicit origin allowlist and preflight handling once at
+the Gateway, without duplicating policies in the services. Angular is unchanged.
 
 # GIT SUBMODULE CHEAT SHEET
 

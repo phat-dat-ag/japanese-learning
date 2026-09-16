@@ -148,6 +148,30 @@ services:
       retries: 12
       start_period: 30s
 
+  gateway:
+    image: nginx:stable-alpine
+    restart: unless-stopped
+    depends_on:
+      user-api:
+        condition: service_started
+      vocabulary-api:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    volumes:
+      - type: bind
+        source: ./gateway/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+        bind:
+          create_host_path: false
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
 volumes:
   mysql_data:
   sqlserver_data:
