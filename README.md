@@ -33,7 +33,8 @@ Application SDKs are not needed to build the images.
 
 Readiness and public keys:
 
-- .NET SQL-backed readiness: http://localhost:8081/health
+- .NET liveness: http://localhost:8081/health/live
+- .NET SQL-backed readiness: http://localhost:8081/health/ready (`/health` remains an alias)
 - Public JWKS: http://localhost:8081/.well-known/jwks.json
 - Quarkus health: http://localhost:8082/q/health
 - Quarkus liveness: http://localhost:8082/q/health/live
@@ -46,15 +47,67 @@ Each application waits for its database healthcheck and successful Flyway exit.
 Flyway and the database initializer are one-shot containers with no automatic
 restart; an exit code of 0 is expected. Migration failures block application startup.
 
-Quarkus starts after the .NET container starts and retries initial JWKS access
-for up to 60 seconds; container startup alone does not guarantee Auth readiness.
-The .NET runtime has no HTTP probe utility, so check its `/health` endpoint
-externally. Quarkus uses its runtime's existing curl for a readiness healthcheck.
+Quarkus starts after .NET readiness passes and retains its 60-second initial
+JWKS retry window. Both application Docker healthchecks use their readiness
+endpoints through curl and discard response bodies. .NET installs curl in its
+runtime image; Quarkus uses the runtime's existing curl.
 Both applications retain their Dockerfile non-root users and share the default
 Compose network. Quarkus obtains public keys only from
 `http://user-api:8080/.well-known/jwks.json`. JWT issuer/audience values in `.env`
 configure both services consistently. Authentication and role restrictions remain
 enabled. Angular is not part of this stack.
+
+Health and failure behavior:
+
+- .NET `/health/live` performs no dependency I/O. `/health/ready` and `/health`
+  open the configured application database connection, with a three-second check
+  timeout. Responses contain only `Healthy` or `Unhealthy` (200 or 503).
+  Required options and RSA keys must pass startup validation before HTTP serves.
+- Quarkus `/q/health/live` is independent of MySQL and JWKS. `/q/health/ready`
+  uses the built-in reactive MySQL check; `/q/health` aggregates checks and must
+  not be used as liveness. Health JSON exposes only status and check names.
+- JWKS is fetched at Quarkus initialization and cached. No health request calls
+  Auth. During an Auth outage, valid tokens using cached keys can still work;
+  unknown keys requiring refresh cannot be verified while JWKS is unavailable.
+- SQL/MySQL outages fail the respective readiness probe while application
+  liveness remains healthy. Recovery is detected by subsequent probes.
+- Compose gates initial startup on health and successful one-shot completion.
+  It does not continuously gate traffic or stop dependents after an outage.
+  `restart: unless-stopped` restarts exited processes, not unhealthy containers.
+  Application probes retain 12 consecutive failures before Docker marks them
+  unhealthy. Endpoint readiness can fail earlier. Curl stops waiting after five
+  seconds; the built-in Quarkus datasource check can take up to 20 seconds during
+  connection failure. These probe deadlines do not change application liveness.
+- NGINX stays alive during backend outages; affected proxied requests can return
+  502 (connection failure) or 504 (timeout). It does not aggregate backend health.
+- Readiness checks connectivity, not migration history or every business query.
+  Successful Flyway completion is the schema readiness gate. When manually
+  running applications outside Compose, apply migrations first.
+
+Startup dependencies (arrows mean the preceding condition must pass):
+
+```mermaid
+flowchart TD
+    mysql[MySQL healthy] --> vocabFlyway[Vocabulary Flyway completed]
+    sql[SQL Server healthy] --> init[SQL init completed]
+    init --> userFlyway[User Flyway completed]
+    userFlyway --> dotnet[.NET ready]
+    vocabFlyway --> quarkus[Quarkus ready]
+    dotnet --> quarkus
+    dotnet --> gateway[Gateway starts]
+    quarkus --> gateway
+```
+
+Quarkus requires both vocabulary Flyway completion and .NET readiness. Gateway
+requires both backend readiness checks. Init/Flyway jobs have `restart: "no"`
+and no healthcheck; failed jobs block new dependent application startup.
+
+For safe fresh-volume checks, use a separate Compose project **and** override
+fixed `container_name` entries and host ports. A project name alone is insufficient
+because this file has fixed DB/Flyway names. Keep its volumes separate from normal
+`mysql_data` and `sqlserver_data`; stop dependencies only in the disposable project.
+Never print resolved Compose configuration containing passwords: use
+`docker compose config --quiet` for validation.
 
 Stop containers with `docker compose stop`, or remove containers and the network
 with `docker compose down`. Database named volumes survive both operations.
@@ -93,9 +146,9 @@ and mounts no RSA keys. Quarkus continues to fetch JWKS directly from
 JWKS through the Gateway, so that path returns 404 there; the existing .NET
 debug port still exposes public JWKS.
 
-Gateway startup waits for Quarkus readiness and .NET container startup (the
-.NET runtime has no HTTP healthcheck tool). Gateway health is independent of
-backend readiness; use the direct health URLs above to diagnose backends.
+Gateway startup waits for both .NET and Quarkus readiness. Gateway `/health`
+only proves NGINX can serve HTTP; it does not prove whole-system readiness.
+Use the direct health URLs above to diagnose backends.
 Docker DNS refresh handles upstream container IP changes without an NGINX restart.
 Check configuration with `docker compose exec gateway nginx -t`.
 
