@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def request(port, path, values, method="GET", body=None):
+    if port == 8080:
+        time.sleep(0.06)  # Ordinary smoke traffic stays below the 20 requests/second budget.
     connection = http.client.HTTPConnection("localhost", port, timeout=15)
     try:
         connection.putrequest(method, path)

@@ -223,13 +223,75 @@ No real credentials, keys, or application records are needed. The isolated
 containers/network are removed afterward. `docker compose config --quiet` validates
 Compose without printing resolved secrets.
 
-TLS/HSTS, frontend CSP/Permissions-Policy, CORS changes, rate limiting, WAF, and
+TLS/HSTS, frontend CSP/Permissions-Policy, CORS changes, WAF, and
 backend security changes are intentionally absent. Angular's existing `/api` dev
 proxy remains compatible. Direct backend/database ports are still development
 exposures that bypass gateway controls; restrict them when deploying. HTTP provides
 no transport confidentiality. Raw request error diagnostics are deliberately lost
 in favor of sanitized access logs; body/upstream timeout behavior and an Angular
 browser session are not covered by the smoke script.
+
+## Gateway rate limiting and basic abuse protection (Step 8.4)
+
+The gateway layers endpoint-specific budgets on a general per-client-IP budget.
+The client identity is the TCP peer (`$binary_remote_addr`), never a forwarded IP,
+JWT, correlation ID, query string, or user-supplied account name. Normalized paths
+and case-insensitive sensitive-route matching cover ASP.NET's route variants.
+Login and registration share one budget; refresh and import have separate budgets.
+Successful and unsuccessful attempts both count, without inspecting credentials.
+
+| Proxied requests | Sustained rate per IP | Immediate burst allowance |
+| --- | --- | --- |
+| All API traffic except OPTIONS | 20/second | 40 excess requests |
+| Login + registration combined | 10/minute | 5 excess requests |
+| Token refresh | 60/minute | 10 excess requests |
+| Vocabulary import | 2/minute | 1 excess request |
+
+NGINX uses leaky buckets, not fixed minute windows. From an idle bucket the first
+request plus the burst allowance can pass immediately; excess requests return
+HTTP **429**. `nodelay` avoids keeping a queue of delayed requests. Budgets refill
+continuously: roughly one slot per 6 seconds for login/registration, 1 second for
+refresh, 30 seconds for imports, and 50 ms for ordinary API requests. Clients should
+back off after 429 rather than retry immediately; another client sharing their IP
+can consume recovered capacity. Standard NGINX error bodies retain all Step 8.3
+security headers and the selected `X-Correlation-ID`.
+
+Active proxied requests are also capped at **20 per IP**, **200 across this gateway**,
+and **2 concurrent imports across this gateway**. The shared counters cover all
+workers. Requests count after their full headers arrive, including requests waiting
+for a body or upstream. Slots are released when requests finish/disconnect.
+OPTIONS bypasses rate and import-specific budgets but still obeys the broad active
+request caps; its backend routing/authentication behavior is unchanged. `/health`
+is exempt from every new limiter and stays a cheap static response. Local 404 and
+method rejections remain fast returns without consuming upstream budgets.
+
+All zones and limits are in `gateway/nginx.conf`; shared memory is bounded (52 MiB
+configured across request and connection zones). Keep `limit_req` and `limit_conn`
+directives together at server scope: child-level directives replace inheritance
+for that directive family. Safe access logs include rate/connection admission
+outcomes, with no credential data. Existing timeouts and buffer/body limits remain.
+
+Verify with `python -B scripts/verify-gateway-rate-limits.py`, followed by
+`python scripts/verify-gateway-security.py --live` against the reloaded local stack.
+The isolated rate test uses the exact gateway configuration, synthetic NGINX
+upstreams, and a disposable `python:3.14-alpine` test client. It checks every real
+burst/refill interval, independent source IPs, spoof resistance, all three active
+request caps and recovery, health/OPTIONS behavior, and headers on 429 responses.
+It holds at most 200 synthetic incomplete bodies, writes no application data, and
+removes its test containers/network. Existing live smoke tests are paced below
+the general rate instead of bypassing the limiter. Validate Compose with
+`docker compose config --quiet` to avoid printing resolved credentials.
+
+These are initial limits for this architecture, not load-tested capacity figures.
+Shared NATs (including Docker/Angular dev proxies) share budgets. State is local
+to one gateway instance, survives a normal config reload, and resets on restart;
+multiple replicas do not share counters. Published backend ports still bypass
+these controls. Partial-header/idle connections are governed by the existing
+worker and timeout bounds rather than `limit_conn`. This is application-level
+abuse protection, not protection against network saturation or a distributed
+botnet. No WAF/CDN, Redis, CAPTCHA, account lockout, backend limits, TLS, or telemetry
+has been added. A future trusted upstream proxy requires deliberate real-IP trust
+configuration; do not simply trust client-supplied forwarding headers.
 
 # GIT SUBMODULE CHEAT SHEET
 
