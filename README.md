@@ -293,6 +293,41 @@ botnet. No WAF/CDN, Redis, CAPTCHA, account lockout, backend limits, TLS, or tel
 has been added. A future trusted upstream proxy requires deliberate real-IP trust
 configuration; do not simply trust client-supplied forwarding headers.
 
+## Production API errors (Step 8.5)
+
+Both backends reuse their existing `success: false` / `error` envelope. Errors have
+`code`, a safe `message`, and optional validation `details`. The .NET response
+keeps `traceId` equal to `X-Correlation-ID`; Quarkus keeps its existing
+`meta.timestamp`, `meta.traceId`, and `meta.correlationId`. Error responses carry
+the same sanitized `X-Correlation-ID` as request logs, including rejected tokens.
+
+Validation/binding failures return 400 (existing Quarkus query-conversion 404s are
+preserved), authentication 401, authorization 403, missing resources 404, business
+conflicts 409, and unexpected failures 500. Explicit framework statuses such as
+405, 413, 415, and 503 remain intact. Existing business codes/messages remain;
+framework messages are replaced with fixed text. MVC/framework validation does
+not echo submitted values. Invalid vocabulary JSON/data and missing upload files
+return 400; file-system or persistence failures remain server errors.
+
+Authentication decisions and bearer challenges remain unchanged; .NET omits
+challenge diagnostic details. Quarkus proactive authentication stays enabled and
+its failure response customization is non-blocking. Unexpected exceptions are
+logged once with bounded exception types/code locations and request IDs, without
+exception messages, source paths, payloads, or credentials. Expected business and
+validation failures use normal completion logs rather than error-level dumps.
+Business error messages and future validator messages must stay safe for clients.
+
+Gateway-generated errors and health responses keep their existing formats. The
+API contract cannot replace transport errors that occur before application
+middleware or responses that have already started. No Gateway or Angular runtime
+changes are required.
+
+Verify with `dotnet test dotnet/JapaneseLearning.User.sln --configuration Release`,
+`quarkus/mvnw.cmd -f quarkus/pom.xml verify`, and
+`python -B scripts/verify-correlation.py` against rebuilt local containers.
+The Quarkus suite has two existing fixture failures in `VocabularyFileReaderTest`
+and `VocabularyImportValidatorTest`; these are unrelated to error handling.
+
 # GIT SUBMODULE CHEAT SHEET
 
 ## Clone Repository + All Submodules

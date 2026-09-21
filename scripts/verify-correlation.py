@@ -80,9 +80,6 @@ def main():
                            for line in result.stdout.splitlines()):
                     missing.append(service)
             assert "correlation-probe-not-a-real-password" not in result.stdout, "Credential sentinel leaked to logs"
-            if service == "user-api" and not any(marker in line and "Exception" in line
-                                                  for line in result.stdout.splitlines()):
-                missing.append("user-api application error")
         if not missing:
             break
         time.sleep(0.2)
