@@ -157,6 +157,32 @@ For Step 7, prefer same-origin frontend/API hosting; if Angular runs on another
 origin, configure an explicit origin allowlist and preflight handling once at
 the Gateway, without duplicating policies in the services. Angular is unchanged.
 
+## Logging and correlation IDs (Step 8.2)
+
+NGINX and both services preserve a single `X-Correlation-ID` containing 1?64
+ASCII letters, digits, underscores, or hyphens. Missing, empty, invalid,
+overlong, and duplicate values are replaced with a random 32-character hex ID.
+The gateway forwards its selected ID and returns exactly one response header,
+including on error responses. Direct backend requests follow the same rules.
+Angular needs no change: requests without a header receive a generated ID.
+
+.NET uses the ID as its existing `traceId` and includes `CorrelationId` in JSON
+console logging scopes. Quarkus keeps its existing `meta.traceId` and
+`meta.correlationId` contract; `X-Trace-Id` is also validated. Its HTTP filter
+runs before authentication and uses Quarkus reactive MDC for application logs.
+Request completion logs contain status, duration, and correlation context;
+application error logs use exception types instead of potentially sensitive
+exception messages. The .NET framework's duplicate raw exception dump is disabled.
+No credential headers, request bodies, tokens, or configuration secrets are added
+to these logs. IDs are diagnostic labels, not authentication or trusted identity.
+
+After rebuilding the services and reloading NGINX, run
+`python scripts/verify-correlation.py` against the local Compose ports. It checks
+valid/missing/invalid/duplicate IDs, direct requests, gateway errors, a .NET
+validation response, and matching gateway/backend request logs without credentials
+or database writes. Backend test suites also cover error metadata, authentication
+regressions, and concurrent asynchronous logging context.
+
 # GIT SUBMODULE CHEAT SHEET
 
 ## Clone Repository + All Submodules
