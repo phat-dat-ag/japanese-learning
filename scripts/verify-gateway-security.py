@@ -73,6 +73,8 @@ def docker(*args):
 
 
 def request(port, path, method="GET", headers=(), body=None):
+    if port == 8080:
+        time.sleep(0.06)  # Ordinary smoke traffic stays below the 20 requests/second budget.
     connection = http.client.HTTPConnection("127.0.0.1", port, timeout=15)
     try:
         connection.putrequest(method, path)
