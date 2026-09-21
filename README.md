@@ -136,8 +136,11 @@ for backend debugging; clients should use the Gateway.
 Paths, query parameters, and Authorization are preserved. NGINX forwards Host,
 X-Real-IP, X-Forwarded-For, and X-Forwarded-Proto; as the edge proxy it replaces
 client-supplied forwarding headers. Backends retain their current proxy-trust
-settings. Uploads are capped at 10 MiB. Standard stdout/stderr logging is used;
-access logs omit query strings, request bodies, and credential headers.
+settings. Uploads are capped at 10 MiB. Access logs use fixed route families,
+status/upstream status, timing, and correlation IDs; they omit arbitrary URLs,
+request bodies, and credential headers. Raw per-request NGINX error logging is
+disabled because it can include request lines or headers; global startup and
+configuration errors still go to stderr.
 
 .NET still issues and validates JWTs; Quarkus still validates RS256 and enforces
 User/Admin access and Admin-only import. NGINX performs no JWT or role checks
@@ -182,6 +185,51 @@ valid/missing/invalid/duplicate IDs, direct requests, gateway errors, a .NET
 validation response, and matching gateway/backend request logs without credentials
 or database writes. Backend test suites also cover error metadata, authentication
 regressions, and concurrent asynchronous logging context.
+
+## Gateway security hardening (Step 8.3)
+
+All gateway responses, including API errors and `/health`, receive
+`X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
+`Referrer-Policy: no-referrer`, and `Cache-Control: no-store`. These protect API
+responses and gateway error documents; the gateway does not host Angular HTML.
+Conflicting upstream versions of these headers and `Expires` are hidden, as is
+`X-Powered-By`. NGINX's version stays hidden with `server_tokens off`; the stock
+image still identifies itself as `Server: nginx` and in generated error pages.
+
+GET, HEAD, POST, PUT, PATCH, DELETE, and OPTIONS reach the existing routes.
+Other methods receive 405 with an Allow header (some malformed requests, including
+CONNECT, are rejected earlier by NGINX). Backend route-specific methods and
+Authorization/JWT handling are unchanged. NGINX's parser rejects ambiguous body
+framing and duplicate Host headers; invalid/underscore header names are ignored.
+Client-supplied Forwarded, X-Forwarded-Host/Port, Proxy, Upgrade, TE, and Trailer
+headers are removed. Host (including the dev port), Authorization, and the selected
+correlation ID are preserved; edge IP/protocol headers are overwritten as before.
+
+Limits are 10 MiB per body and four 8 KiB large header buffers (each individual
+header/request line must fit one buffer). Header reading has a 10-second deadline;
+body reads, response writes, and idle keep-alive use 30 seconds. Upstream connection
+timeout is 5 seconds; upstream send/read inactivity remains 60 seconds so the
+existing import window is preserved. These are mostly inactivity limits, not a
+total request deadline. Request buffering stays enabled, proxy caching stays off,
+and upstream retries are disabled to avoid replaying auth/import operations.
+
+Run `python scripts/verify-gateway-security.py --live` after validating and reloading
+NGINX (`docker compose exec gateway nginx -t`, then `nginx -s reload` through the
+same command). The script uses the exact gateway config with disposable isolated
+NGINX upstreams to check forwarding, conflicting headers, malformed requests,
+limits, timeout, and log redaction. It then checks the local Compose routes,
+missing/invalid-token rejection, OPTIONS parity, and the Step 8.2 regression.
+No real credentials, keys, or application records are needed. The isolated
+containers/network are removed afterward. `docker compose config --quiet` validates
+Compose without printing resolved secrets.
+
+TLS/HSTS, frontend CSP/Permissions-Policy, CORS changes, rate limiting, WAF, and
+backend security changes are intentionally absent. Angular's existing `/api` dev
+proxy remains compatible. Direct backend/database ports are still development
+exposures that bypass gateway controls; restrict them when deploying. HTTP provides
+no transport confidentiality. Raw request error diagnostics are deliberately lost
+in favor of sanitized access logs; body/upstream timeout behavior and an Angular
+browser session are not covered by the smoke script.
 
 # GIT SUBMODULE CHEAT SHEET
 
