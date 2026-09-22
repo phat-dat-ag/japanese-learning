@@ -459,3 +459,53 @@ does not establish compatibility with every rootless engine or host filesystem.
 
     git fetch origin
     git switch -c <BRANCH> --track origin/<BRANCH>
+## Configuration and secrets
+
+`.env.example` contains blank password placeholders and non-sensitive defaults.
+Supply all three DB passwords locally; never paste resolved `docker compose config`,
+container environments, or private key contents into logs/issues. Use
+`docker compose config --quiet` to validate without printing credentials.
+Compose environment values remain visible to Docker administrators; protect host
+access and `.env` with owner-only permissions. Git ignore rules are a guard against
+accidental additions, not protection against `git add -f` or secrets pasted into code.
+
+The pinned MySQL initializer does not escape SQL password literals or its client
+option file. A small Compose entrypoint guard rejects quotes, backslashes, control
+characters and blank MySQL passwords before initialization, with setting names only
+in errors. MySQL database/user names use 1-64 ASCII letters/digits/underscores/hyphens.
+This restriction does not apply to SQL Server passwords. Keep existing volume
+credentials; do not change passwords in `.env` as a substitute for database rotation.
+
+Compose passes .NET database server/name/user/password separately. SqlClient builds
+and escapes the connection string, including passwords containing quotes or semicolons.
+For standalone .NET development use `Database__ConnectionString` **or** the four
+`Database__Server`, `Database__Name`, `Database__User`, `Database__Password` settings;
+do not mix both forms. `Database__TrustServerCertificate=true` retains the current
+local SQL Server behavior. No passwords belong in appsettings files.
+Quarkus uses `DB_USERNAME`, `DB_PASSWORD`, and a credential-free
+`DB_REACTIVE_URL=mysql://host:port/database`. `AUTH_SERVER_URL` and `AUTH_JWKS_URL`
+accept HTTP/HTTPS URLs without user information, queries, or fragments; credentials
+must never be embedded in URLs. Existing localhost auth defaults remain available.
+
+Both services validate required settings at startup without echoing rejected values.
+.NET also validates connection-string syntax and RSA key pairs. JWT key IDs use
+1-128 ASCII letters/digits/hyphens/underscores; issuer/audience values are bounded to
+256 characters without control characters. Access lifetime is 1-1440 minutes;
+refresh lifetime is 1-365 days (`Jwt__RefreshTokenExpirationDays`, default 7).
+The services must share issuer/audience values. Configuration validation does not
+prove connectivity: authenticated readiness checks still verify databases.
+
+The key generator uses exclusive file creation and a unique temporary build directory.
+New private keys are owner-only on Unix (0600) and Windows (a protected owner ACL).
+On Linux, grant only the container UID 1654 read access and directory traversal
+before startup, using ownership or a narrow ACL; do not make private keys world-readable.
+Generation never overwrites existing keys. Existing keys/permissions are not changed.
+Back up signing keys securely; changing them invalidates existing access tokens.
+
+Run `python -B scripts/verify-configuration.py` to audit tracked files and ignore
+rules without printing secrets. After building images, add `--startup` to exercise
+safe startup failures in disposable containers. Existing root verification scripts
+cover gateway security, correlation, rate limits, and isolated full-stack auth flows.
+The database accounts and existing volumes retain their current credentials;
+credential rotation and provisioning less-privileged SQL Server accounts require
+separate coordinated database administration.
