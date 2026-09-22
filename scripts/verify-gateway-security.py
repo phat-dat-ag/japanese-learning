@@ -107,6 +107,22 @@ def check_response(result, expected, correlation=ID):
     return body
 
 
+def gateway_runtime_args():
+    # Exercise the actual Compose security/resource policy without exposing resolved credentials.
+    gateway = json.loads(docker("compose", "config", "--format", "json"))["services"]["gateway"]
+    args = ["--user", gateway["user"], "--read-only", "--init",
+            "--memory", str(gateway["mem_limit"]), "--memory-swap", str(gateway["memswap_limit"]),
+            "--cpus", str(gateway["cpus"]), "--pids-limit", str(gateway["pids_limit"]),
+            "--ulimit", "core=0:0", "--stop-signal", "SIGQUIT", "--entrypoint", "nginx"]
+    for capability in gateway["cap_drop"]:
+        args += ["--cap-drop", capability]
+    for option in gateway["security_opt"]:
+        args += ["--security-opt", option]
+    for mount in gateway["tmpfs"]:
+        args += ["--tmpfs", mount]
+    return args + [gateway["image"], "-g", "daemon off;"]
+
+
 def isolated_checks():
     name = "jp-gateway-security-" + uuid.uuid4().hex[:12]
     upstream, gateway = name + "-upstream", name + "-gateway"
@@ -122,11 +138,11 @@ def isolated_checks():
                    "--network-alias", "user-api", "--network-alias", "vocabulary-api",
                    "--mount", f"type=bind,source={stub},target=/etc/nginx/nginx.conf,readonly", IMAGE)
             created.append(upstream)
-            docker("run", "-d", "--name", gateway, "--network", name, "-p", "127.0.0.1::80",
-                   "--mount", f"type=bind,source={ROOT / 'gateway/nginx.conf'},target=/etc/nginx/nginx.conf,readonly", IMAGE)
+            docker("run", "-d", "--name", gateway, "--network", name, "-p", "127.0.0.1::8080",
+                   "--mount", f"type=bind,source={ROOT / 'gateway/nginx.conf'},target=/etc/nginx/nginx.conf,readonly", *gateway_runtime_args())
             created.append(gateway)
             docker("exec", gateway, "nginx", "-t")
-            port = int(docker("port", gateway, "80/tcp").rsplit(":", 1)[1])
+            port = int(docker("port", gateway, "8080/tcp").rsplit(":", 1)[1])
             for attempt in range(30):
                 try:
                     if request(port, "/health")[0] == 200:
