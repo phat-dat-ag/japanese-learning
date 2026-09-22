@@ -23,7 +23,7 @@ ID = "gateway-rate-check"
 
 
 def request(ip, path, method="GET", headers=(), body=None):
-    connection = http.client.HTTPConnection("127.0.0.1", 80, timeout=5, source_address=(ip, 0))
+    connection = http.client.HTTPConnection("127.0.0.1", 8080, timeout=5, source_address=(ip, 0))
     try:
         connection.request(method, path, body=body,
                            headers={"X-Correlation-ID": ID, **dict(headers)})
@@ -78,7 +78,7 @@ def rate_case(ip, path, burst, rate, interval):
 
 
 def hold_request(ip, path):
-    connection = socket.create_connection(("127.0.0.1", 80), timeout=5, source_address=(ip, 0))
+    connection = socket.create_connection(("127.0.0.1", 8080), timeout=5, source_address=(ip, 0))
     try:
         connection.sendall((f"POST {path} HTTP/1.1\r\nHost: localhost\r\n"
                             f"X-Correlation-ID: {ID}\r\nContent-Length: 1\r\n"
@@ -166,7 +166,7 @@ def isolated_checks():
             created.append(upstream)
             security.docker("run", "-d", "--name", gateway, "--network", name,
                             "--mount", f"type=bind,source={security.ROOT / 'gateway/nginx.conf'},target=/etc/nginx/nginx.conf,readonly",
-                            security.IMAGE)
+                            *security.gateway_runtime_args())
             created.append(gateway)
             security.docker("exec", gateway, "nginx", "-t")
             # Only test scripts are mounted; the test client cannot read repository secrets.

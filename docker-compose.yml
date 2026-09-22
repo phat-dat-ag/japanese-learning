@@ -1,6 +1,25 @@
+# Shared runtime restrictions; writable state is declared explicitly per service.
+x-container-security: &container-security
+  init: true
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  ulimits:
+    core: 0
+
 services:
   mysql:
-    image: mysql:8.4
+    <<: *container-security
+    user: "999:999"
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpus: 2
+    pids_limit: 256
+    stop_grace_period: 60s
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
+      - /var/run/mysqld:rw,noexec,nosuid,nodev,size=16m,uid=999,gid=999,mode=0750
+    image: mysql:8.4@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb
     container_name: jp_mysql_vocabulary
     restart: unless-stopped
     environment:
@@ -9,7 +28,7 @@ services:
       MYSQL_USER: ${MYSQL_USER:-japanese_learning}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -20,7 +39,18 @@ services:
       start_period: 30s
 
   flyway-vocabulary:
-    image: flyway/flyway:latest
+    <<: *container-security
+    user: "10001:10001"
+    working_dir: /tmp
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 1
+    pids_limit: 128
+    stop_grace_period: 30s
+    tmpfs:
+      # Java native libraries may require executable mappings from temporary storage.
+      - /tmp:rw,nosuid,nodev,size=128m,mode=1777
+    image: flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959
     container_name: jp_flyway_vocabulary
     restart: "no"
     depends_on:
@@ -31,19 +61,35 @@ services:
       FLYWAY_USER: ${MYSQL_USER:-japanese_learning}
       FLYWAY_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
       FLYWAY_CONNECT_RETRIES: "60"
+      FLYWAY_LOCATIONS: filesystem:/flyway/sql
+      JAVA_ARGS: -Duser.home=/tmp
     command: ["migrate"]
     volumes:
       - ${QUARKUS_MIGRATION_PATH:-./quarkus/src/main/resources/db/migration}:/flyway/sql:ro
 
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    <<: *container-security
+    # The vendor binary has cap_net_bind_service=ep; an empty bounding set makes exec fail.
+    # Retain only this capability, with no-new-privileges and the non-root image user.
+    cap_add: [NET_BIND_SERVICE]
+    # Database creation remains in sqlserver-init. Deliver SIGTERM directly to SQL Server.
+    entrypoint: ["/opt/mssql/bin/sqlservr"]
+    mem_limit: 3g
+    memswap_limit: 3g
+    cpus: 2
+    pids_limit: 512
+    stop_grace_period: 60s
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=128m,mode=1777
+    image: mcr.microsoft.com/mssql/server:2022-latest@sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89
     container_name: jp_sqlserver_user
     restart: unless-stopped
     environment:
       ACCEPT_EULA: "Y"
+      MSSQL_MEMORY_LIMIT_MB: "2048"
       MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     ports:
-      - "1433:1433"
+      - "127.0.0.1:1433:1433"
     volumes:
       - sqlserver_data:/var/opt/mssql
     healthcheck:
@@ -55,7 +101,15 @@ services:
 
   # SQL Server does not create the application database from an environment variable.
   sqlserver-init:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    <<: *container-security
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 1
+    pids_limit: 64
+    stop_grace_period: 30s
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=16m,mode=1777
+    image: mcr.microsoft.com/mssql/server:2022-latest@sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89
     restart: "no"
     depends_on:
       sqlserver:
@@ -66,7 +120,18 @@ services:
     command: ["-S", "sqlserver,1433", "-U", "sa", "-C", "-b", "-Q", "IF DB_ID(N'JapaneseLearningUser') IS NULL CREATE DATABASE [JapaneseLearningUser];"]
 
   flyway-user:
-    image: flyway/flyway:latest
+    <<: *container-security
+    user: "10001:10001"
+    working_dir: /tmp
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 1
+    pids_limit: 128
+    stop_grace_period: 30s
+    tmpfs:
+      # Java native libraries may require executable mappings from temporary storage.
+      - /tmp:rw,nosuid,nodev,size=128m,mode=1777
+    image: flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959
     container_name: japanese-learning-user-flyway
     restart: "no"
     depends_on:
@@ -79,11 +144,23 @@ services:
       FLYWAY_USER: sa
       FLYWAY_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
       FLYWAY_CONNECT_RETRIES: "60"
+      FLYWAY_LOCATIONS: filesystem:/flyway/sql
+      JAVA_ARGS: -Duser.home=/tmp
     command: ["migrate"]
     volumes:
       - ${DOTNET_MIGRATION_PATH:-./dotnet/db/migration}:/flyway/sql:ro
 
   user-api:
+    <<: *container-security
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 2
+    pids_limit: 256
+    stop_grace_period: 45s
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
+      # Framework Data Protection keys are transient, as before; JWT uses the read-only PEM binds.
+      - /home/app/.aspnet:rw,noexec,nosuid,nodev,size=1m,uid=1654,gid=1654,mode=0700
     build:
       context: ./dotnet
       dockerfile: Dockerfile
@@ -108,7 +185,7 @@ services:
       retries: 12
       start_period: 30s
     ports:
-      - "8081:8080"
+      - "127.0.0.1:8081:8080"
     volumes:
       - type: bind
         source: ./secrets/jwt/private.pem
@@ -124,6 +201,15 @@ services:
           create_host_path: false
 
   vocabulary-api:
+    <<: *container-security
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpus: 2
+    pids_limit: 256
+    stop_grace_period: 45s
+    tmpfs:
+      # JVM/Netty may load native libraries here; uploads/cache are bounded by this same mount.
+      - /tmp:rw,nosuid,nodev,size=256m,mode=1777
     build:
       context: ./quarkus
       dockerfile: Dockerfile
@@ -144,8 +230,9 @@ services:
       AUTH_JWT_ISSUER: ${JWT_ISSUER:-JapaneseLearning.User}
       AUTH_JWT_AUDIENCE: ${JWT_AUDIENCE:-JapaneseLearning}
       QUARKUS_OIDC_CONNECTION_DELAY: 60S
+      QUARKUS_SHUTDOWN_TIMEOUT: 20S
     ports:
-      - "8082:8080"
+      - "127.0.0.1:8082:8080"
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "--output", "/dev/null", "--max-time", "5", "http://127.0.0.1:8080/q/health/ready"]
       interval: 10s
@@ -154,7 +241,19 @@ services:
       start_period: 30s
 
   gateway:
-    image: nginx:stable-alpine
+    <<: *container-security
+    user: "101:101"
+    # The complete config is mounted; skip the image's root-oriented template/setup scripts.
+    entrypoint: ["nginx", "-g", "daemon off;"]
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 1
+    pids_limit: 128
+    stop_signal: SIGQUIT
+    stop_grace_period: 75s
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=128m,uid=101,gid=101,mode=0700
+    image: nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f
     restart: unless-stopped
     depends_on:
       user-api:
@@ -162,7 +261,7 @@ services:
       vocabulary-api:
         condition: service_healthy
     ports:
-      - "8080:80"
+      - "8080:8080"
     volumes:
       - type: bind
         source: ./gateway/nginx.conf
@@ -171,7 +270,7 @@ services:
         bind:
           create_host_path: false
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/health"]
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/health"]
       interval: 10s
       timeout: 5s
       retries: 3

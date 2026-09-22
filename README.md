@@ -119,7 +119,7 @@ do not use it unless intentionally resetting all local data.
 ## API Gateway
 
 NGINX (official `nginx:stable-alpine`) is the client-facing backend entry point:
-**http://localhost:8080** (host 8080 to container 80). Start it with the same
+**http://localhost:8080** (host 8080 to container 8080). Start it with the same
 `docker compose up --build -d` command. Direct ports 8081/8082 remain available
 for backend debugging; clients should use the Gateway.
 
@@ -327,6 +327,78 @@ Verify with `dotnet test dotnet/JapaneseLearning.User.sln --configuration Releas
 `python -B scripts/verify-correlation.py` against rebuilt local containers.
 The Quarkus suite has two existing fixture failures in `VocabularyFileReaderTest`
 and `VocabularyImportValidatorTest`; these are unrelated to error handling.
+
+## Container hardening (Step 8.6)
+
+All eight Compose services run as non-root with a read-only root filesystem,
+`no-new-privileges`, an init process, disabled kernel core dumps, and explicit
+CPU, memory (including swap), and process limits. All Linux capabilities are
+removed except `NET_BIND_SERVICE` on SQL Server: the pinned vendor executable
+has `cap_net_bind_service=ep`, so removing it from the bounding set causes
+`exec` to fail with `Operation not permitted`. No root, privileged mode, or
+`SYS_PTRACE` exception is needed. See the Linux
+[capability execution rules](https://man7.org/linux/man-pages/man7/capabilities.7.html).
+
+| Service | Memory ceiling | CPUs | Process/thread ceiling |
+| --- | --- | --- | --- |
+| Gateway | 256 MiB | 1 | 128 |
+| .NET API | 512 MiB | 2 | 256 |
+| Quarkus API | 1 GiB | 2 | 256 |
+| MySQL | 1 GiB | 2 | 256 |
+| SQL Server | 3 GiB | 2 | 512 |
+| Each Flyway job | 512 MiB | 1 | 128 |
+| SQL initializer | 256 MiB | 1 | 64 |
+
+These are initial development-stack budgets, not measured production capacity.
+SQL Server's internal memory budget is 2048 MiB, leaving container headroom.
+Tmpfs usage counts against container memory. Tune budgets together under real load.
+
+The existing database named volumes remain writable and unchanged. MySQL uses
+its image UID/GID 999 directly; existing volumes must already be owned accordingly.
+SQL Server retains its image user. No automatic recursive ownership changes are
+performed. Temporary paths are explicit, bounded tmpfs mounts: gateway PID/body
+buffers, MySQL sockets, API/framework temporary files, and Java working files.
+JVM tmpfs mounts allow native-library mappings; other temporary mounts are
+`noexec`. All use `nosuid,nodev`. The .NET Data Protection directory remains
+transient as it was on container recreation; JWT signing still uses the existing
+read-only PEM mounts and does not depend on those framework keys.
+
+NGINX now runs entirely as UID 101 on container port 8080; the host gateway URL
+stays `http://localhost:8080`. Its mounted configuration bypasses image startup
+scripts, with logs on stdout/stderr. Database and direct-backend published ports
+bind only to `127.0.0.1`, retaining local tools and Angular development access.
+The gateway remains the externally exposed entry point. Network segmentation,
+secret delivery, database-account privilege changes, and TLS are outside this step.
+
+Graceful-stop budgets are 75 seconds for NGINX (SIGQUIT, workers bounded to 65s),
+45s for APIs (Quarkus drains for up to 20s), 60s for databases, and 30s for jobs.
+SQL Server executes directly so stop signals reach the server; database creation
+continues through the separate initializer and Flyway jobs. Long-running services
+keep `unless-stopped`; completed jobs keep `restart: no`. Image bases and vendor
+services are pinned to the inspected digests. Refresh these deliberately for
+security updates; pinning is not vulnerability scanning. Quarkus application files
+are root-owned and readable, but not writable, by its runtime user.
+
+Verification (build first with `docker compose build`):
+
+- `python -B scripts/verify-container-hardening.py --fresh` starts a separate stack
+  with generated DB credentials, no fixed names/ports, and tmpfs databases. It
+  exercises first initialization, migrations, real register/login/refresh, JWKS,
+  authorization, and API recreation. It creates/deletes no Docker volumes and
+  does not change existing application data; it does reuse read-only JWT binds.
+- `python -B scripts/verify-container-hardening.py` checks the running stack's
+  actual restrictions, health, and completed jobs.
+- Use `--snapshot <temporary-file>` before and `--compare <temporary-file>` after
+  recreating the existing DB containers to compare volume identities and aggregate
+  fingerprints of account/token and selected vocabulary tables. No row data or
+  credentials are saved. Concurrent application writes can invalidate comparison.
+- `python -B scripts/verify-gateway-security.py --live` and
+  `python -B scripts/verify-gateway-rate-limits.py` exercise the gateway with its
+  actual Compose runtime restrictions, including correlation and limiter recovery.
+
+Never use volume deletion to resolve permission failures. On other hosts, verify
+bind permissions and UID ownership before starting; Docker Desktop verification
+does not establish compatibility with every rootless engine or host filesystem.
 
 # GIT SUBMODULE CHEAT SHEET
 
