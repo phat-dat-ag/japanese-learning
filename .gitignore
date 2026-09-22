@@ -9,5 +9,16 @@
 .DS_Store
 Thumbs.db
 
-# Local JWT signing keys
+# Local secrets (examples contain placeholders only)
+.env.*
+!.env.example
 secrets/
+*.[pP][eE][mM]
+*.key
+*.pfx
+*.p12
+*.jks
+appsettings.Local.json
+application-local.properties
+application-local.yaml
+application-local.yml

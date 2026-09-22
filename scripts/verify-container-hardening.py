@@ -31,7 +31,7 @@ def docker(*args, input=None):
                       for value in service.get("environment", {}).values() if value is not None]
             for value in sorted(values, key=len, reverse=True):
                 if len(value) >= 4:
-                    diagnostic = diagnostic.replace(value, "[redacted]")
+                    diagnostic = diagnostic.replace(value, "[redacted]").replace(value.replace("$$", "$"), "[redacted]")
             message += "\n" + diagnostic[-1800:]
         raise RuntimeError(message)
     return (result.stdout + (result.stderr if args[0] == "logs" else "")).strip()
@@ -123,7 +123,8 @@ def fresh_check():
     config["name"] = project
     config.pop("volumes", None)
     config["networks"] = {"default": {}}
-    db_password = "Aa1!" + secrets.token_hex(20)
+    db_password = "Aa1!;\"'$;" + secrets.token_hex(20)
+    mysql_password = "Aa1!;$;" + secrets.token_hex(20)
     for name, service in config["services"].items():
         # Compose 5 serializes a zero core limit as {}, which cannot be read back as input.
         service["ulimits"]["core"] = 0
@@ -135,16 +136,21 @@ def fresh_check():
         env = service.get("environment", {})
         for key in ("MYSQL_ROOT_PASSWORD", "MYSQL_PASSWORD", "MSSQL_SA_PASSWORD", "SQLCMDPASSWORD", "FLYWAY_PASSWORD"):
             if key in env:
-                env[key] = db_password
+                env[key] = mysql_password if name in ("mysql", "flyway-vocabulary") else db_password
         if name == "user-api":
-            env["Database__ConnectionString"] = "Server=sqlserver,1433;Database=JapaneseLearningUser;User Id=sa;Password='" + db_password + "';TrustServerCertificate=True"
+            env["Database__Password"] = db_password
         if name in ("mysql", "sqlserver"):
             service.pop("volumes", None)
             mount = "/var/lib/mysql:rw,nosuid,nodev,size=1g,uid=999,gid=999,mode=0750" if name == "mysql" else "/var/opt/mssql:rw,nosuid,nodev,size=1g,uid=10001,gid=10001,mode=0770"
             service["tmpfs"].append(mount)
         if name == "vocabulary-api":
-            env["DB_PASSWORD"] = db_password
+            env["DB_PASSWORD"] = mysql_password
     config["services"]["gateway"]["ports"] = ["127.0.0.1::8080"]
+    # Resolved environment values are literal; healthcheck commands already retain
+    # Compose's $$ escaping and must not be escaped a second time.
+    for service in config["services"].values():
+        service["environment"] = {key: value.replace("$", "$$") if isinstance(value, str) else value
+                                  for key, value in service.get("environment", {}).items()}
     encoded = json.dumps(config)
     try:
         # Configuration travels over stdin, not a credential-bearing temporary file or argv.
@@ -164,6 +170,12 @@ def fresh_check():
         refreshed = api(port, "/api/auth/refresh", 200, {"refreshToken": login["refreshToken"]})
         api(port, "/api/v1/jlpt-levels", 200, token=refreshed["accessToken"])
         api(port, "/health", 200)
+        # Prove that environment credentials and issued tokens never enter service logs.
+        sensitive = (db_password, mysql_password, account["password"], token, login["refreshToken"],
+                     refreshed["accessToken"], refreshed["refreshToken"])
+        for item in state.values():
+            logs = docker("logs", item["Id"])
+            assert not any(value in logs for value in sensitive), "A service log contains a credential or token"
         # A real account in the isolated database remains usable after stateless API recreation.
         docker("compose", "-p", project, "-f", "-", "up", "-d", "--no-build", "--no-deps", "--force-recreate", "--wait", "user-api", "vocabulary-api", input=encoded)
         # Allow the gateway's existing 10-second Docker DNS cache to refresh.

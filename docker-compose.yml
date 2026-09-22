@@ -10,6 +10,27 @@ x-container-security: &container-security
 services:
   mysql:
     <<: *container-security
+    # The pinned vendor initializer interpolates SQL literals and a quoted option
+    # file. Reject unsupported values before it can echo a credential in an error.
+    entrypoint:
+      - /bin/bash
+      - -ec
+      - |
+        for name in MYSQL_DATABASE MYSQL_USER; do
+          value="$${!name-}"
+          if [[ ! "$$value" =~ ^[A-Za-z0-9_-]{1,64}$$ ]]; then
+            echo "Invalid $$name: use 1-64 ASCII letters, digits, underscores or hyphens." >&2
+            exit 64
+          fi
+        done
+        for name in MYSQL_ROOT_PASSWORD MYSQL_PASSWORD; do
+          value="$${!name-}"
+          if [[ -z "$${value//[[:space:]]/}" || "$$value" == *"'"* || "$$value" == *'"'* || "$$value" == *'\'* || "$$value" =~ [[:cntrl:]] ]]; then
+            echo "Invalid $$name: a nonblank password without quotes, backslashes or control characters is required by this MySQL image." >&2
+            exit 64
+          fi
+        done
+        exec /usr/local/bin/docker-entrypoint.sh mysqld
     user: "999:999"
     mem_limit: 1g
     memswap_limit: 1g
@@ -171,7 +192,11 @@ services:
       flyway-user:
         condition: service_completed_successfully
     environment:
-      Database__ConnectionString: "Server=sqlserver,1433;Database=JapaneseLearningUser;User Id=sa;Password='${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}';TrustServerCertificate=True"
+      Database__Server: sqlserver,1433
+      Database__Name: JapaneseLearningUser
+      Database__User: sa
+      Database__Password: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
+      Database__TrustServerCertificate: "true"
       Jwt__Issuer: ${JWT_ISSUER:-JapaneseLearning.User}
       Jwt__Audience: ${JWT_AUDIENCE:-JapaneseLearning}
       Jwt__PrivateKeyPath: /app/secrets/jwt/private.pem

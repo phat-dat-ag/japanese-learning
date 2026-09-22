@@ -2,7 +2,8 @@ $ErrorActionPreference = "Stop"
 
 $RootDirectory = Split-Path -Parent $PSScriptRoot
 $KeyDirectory = Join-Path $RootDirectory "secrets\jwt"
-$TempDirectory = Join-Path $env:TEMP "japanese-learning-jwt-keygen"
+$TempRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
+$TempDirectory = Join-Path $TempRoot ("japanese-learning-jwt-keygen-" + [guid]::NewGuid().ToString("N"))
 
 $PrivateKeyPath = Join-Path $KeyDirectory "private.pem"
 $PublicKeyPath = Join-Path $KeyDirectory "public.pem"
@@ -19,7 +20,6 @@ if (-not (Get-Command dotnet -ErrorAction SilentlyContinue)) {
 
 Write-Host "Generating RSA 2048-bit key pair..."
 
-Remove-Item $TempDirectory -Recurse -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $TempDirectory | Out-Null
 
 $ProjectFile = Join-Path $TempDirectory "KeyGenerator.csproj"
@@ -37,6 +37,8 @@ $ProgramFile = Join-Path $TempDirectory "Program.cs"
 
 @'
 using System.Security.Cryptography;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 if (args.Length != 2)
 {
@@ -48,13 +50,29 @@ var publicKeyPath = args[1];
 
 using var rsa = RSA.Create(2048);
 
-File.WriteAllText(
-    privateKeyPath,
-    rsa.ExportPkcs8PrivateKeyPem());
+// Exclusive creation also protects against concurrent generators overwriting keys.
+static void WriteNewKey(string path, string pem, bool isPrivate)
+{
+    var options = new FileStreamOptions { Mode = FileMode.CreateNew, Access = FileAccess.Write };
+    if (!OperatingSystem.IsWindows())
+        options.UnixCreateMode = isPrivate
+            ? UnixFileMode.UserRead | UnixFileMode.UserWrite
+            : UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.GroupRead | UnixFileMode.OtherRead;
+    using var stream = new FileStream(path, options);
+    if (isPrivate && OperatingSystem.IsWindows())
+    {
+        var security = new FileSecurity();
+        security.SetAccessRuleProtection(isProtected: true, preserveInheritance: false);
+        security.AddAccessRule(new FileSystemAccessRule(
+            WindowsIdentity.GetCurrent().User!, FileSystemRights.FullControl, AccessControlType.Allow));
+        new FileInfo(path).SetAccessControl(security);
+    }
+    using var writer = new StreamWriter(stream);
+    writer.Write(pem);
+}
 
-File.WriteAllText(
-    publicKeyPath,
-    rsa.ExportSubjectPublicKeyInfoPem());
+WriteNewKey(privateKeyPath, rsa.ExportPkcs8PrivateKeyPem(), true);
+WriteNewKey(publicKeyPath, rsa.ExportSubjectPublicKeyInfoPem(), false);
 '@ | Set-Content -Path $ProgramFile -Encoding UTF8
 
 try {
@@ -73,5 +91,9 @@ try {
     Write-Host "Public key : $PublicKeyPath"
 }
 finally {
-    Remove-Item $TempDirectory -Recurse -Force -ErrorAction SilentlyContinue
+    $ResolvedTempDirectory = [System.IO.Path]::GetFullPath($TempDirectory)
+    if ([System.IO.Path]::GetDirectoryName($ResolvedTempDirectory) -ne $TempRoot.TrimEnd([System.IO.Path]::DirectorySeparatorChar)) {
+        throw "Refusing to clean a key generator directory outside the temporary directory."
+    }
+    Remove-Item -LiteralPath $ResolvedTempDirectory -Recurse -Force -ErrorAction SilentlyContinue
 }
