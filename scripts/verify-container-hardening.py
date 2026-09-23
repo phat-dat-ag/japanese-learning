@@ -176,6 +176,10 @@ def fresh_check():
         for item in state.values():
             logs = docker("logs", item["Id"])
             assert not any(value in logs for value in sensitive), "A service log contains a credential or token"
+        for name, path in (("user-api", "/metrics"), ("vocabulary-api", "/q/metrics")):
+            metrics = docker("exec", state[name]["Id"], "curl", "-fsS", "http://127.0.0.1:8080" + path)
+            assert not any(value in metrics for value in sensitive), "An API metric contains a credential or token"
+            assert "container-hardening-check" not in metrics, "A correlation ID entered metrics"
         # A real account in the isolated database remains usable after stateless API recreation.
         docker("compose", "-p", project, "-f", "-", "up", "-d", "--no-build", "--no-deps", "--force-recreate", "--wait", "user-api", "vocabulary-api", input=encoded)
         # Allow the gateway's existing 10-second Docker DNS cache to refresh.
