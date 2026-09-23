@@ -509,3 +509,65 @@ cover gateway security, correlation, rate limits, and isolated full-stack auth f
 The database accounts and existing volumes retain their current credentials;
 credential rotation and provisioning less-privileged SQL Server accounts require
 separate coordinated database administration.
+
+## Local observability and metrics
+
+Both APIs export Prometheus-format metrics on their existing backend listeners:
+.NET at http://localhost:8081/metrics (Docker user-api:8080/metrics), and Quarkus
+at http://localhost:8082/q/metrics (Docker vocabulary-api:8080/q/metrics).
+These anonymous scrape endpoints are for the trusted Compose network and localhost
+debugging only. The Gateway returns 404 for both paths. Keep backend ports bound to
+localhost; this setup is not a public monitoring deployment. Existing health paths,
+JWT/JWKS behavior, structured logs, and correlation IDs are unchanged.
+
+.NET uses prometheus-net's HTTP middleware and process/GC collector in a dedicated
+registry; arbitrary .NET Meters/EventCounters are not automatically exported.
+Quarkus uses its Micrometer Prometheus extension, Vert.x HTTP instrumentation and
+JVM/system binders. A filter permits only HTTP and runtime metrics. HTTP labels
+contain fixed route groups, standard methods (others collapse to OTHER) and
+bounded status codes. They contain no paths, query strings, identities, exception
+messages, credentials or correlation IDs. Health and scrape traffic is excluded
+from application HTTP metrics. Correlation IDs remain in logs, not metric labels
+or HTTP exemplars. No tracing pipeline is installed.
+
+| Metric family | Purpose |
+| --- | --- |
+| .NET http_requests_received_total, http_request_duration_seconds, http_requests_in_progress | Completed requests, status/error counts, latency buckets, active requests |
+| Quarkus http_server_requests_seconds | Request/status counts and latency buckets |
+| .NET process_*, dotnet_* | CPU, process/managed memory, threads, GC collections, start time |
+| Quarkus jvm_*, process_*, system_* | Heap, GC, threads, uptime, CPU and runtime resource use |
+| Prometheus up | Scrape availability; this is not database readiness |
+
+To enable the optional local dashboard, set a strong GRAFANA_ADMIN_PASSWORD in
+the ignored .env, then run:
+
+    docker compose -f docker-compose.yml -f compose.observability.yml config --quiet
+    docker compose -f docker-compose.yml -f compose.observability.yml up -d --build
+
+Prometheus is at http://localhost:9090; Grafana is at http://localhost:3000
+(username admin, password from .env). Grafana requires authentication and
+has a provisioned **Japanese Learning APIs** dashboard in the **Japanese Learning**
+folder. It shows scrape availability, request/4xx/5xx rates, p95 latency, memory,
+CPU, GC and threads. Generate normal API traffic and allow at least two 15-second
+scrapes for rate panels; empty error series mean no such events have been observed.
+
+The overlay leaves the default development stack unchanged. Both new containers
+are non-root, read-only apart from data volumes/tmpfs, drop capabilities and have
+resource limits. Images are version/digest pinned. Scrapes have sample/label/size
+limits; Prometheus retains two days or 512 MB of blocks, whichever limit is reached
+(WAL/head data can use additional space). The prometheus_data and grafana_data volumes persist.
+Changing the Grafana password environment variable does not rotate an already
+initialized admin account; use Grafana's password-change workflow. Do not delete
+volumes to change credentials. Grafana analytics and plugin preinstallation are disabled.
+
+Run `python -B scripts/verify-observability.py` after starting the base stack with
+the rebuilt images. It tests metric label safety, Gateway exclusion, and disposable
+Prometheus/Grafana containers that scrape the running APIs. It uses generated
+credentials and tmpfs data, queries every dashboard panel through authenticated
+Grafana, and removes only its test containers/network. It never changes .env or
+existing volumes. `verify-container-hardening.py --fresh` additionally verifies real
+register/login/refresh/JWKS/role flows and checks their credentials/tokens against
+both backend metrics and service logs.
+
+References: [prometheus-net](https://github.com/prometheus-net/prometheus-net),
+[Quarkus Micrometer](https://quarkus.io/guides/telemetry-micrometer/).

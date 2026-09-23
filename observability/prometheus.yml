@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 5s
+  evaluation_interval: 15s
+
+# Fixed targets and paths only. Never send authentication tokens with scrapes.
+scrape_configs:
+  - job_name: user-api
+    metrics_path: /metrics
+    sample_limit: 5000
+    body_size_limit: 5MB
+    label_limit: 16
+    label_value_length_limit: 128
+    static_configs:
+      - targets: ["user-api:8080"]
+  - job_name: vocabulary-api
+    metrics_path: /q/metrics
+    sample_limit: 5000
+    body_size_limit: 5MB
+    label_limit: 16
+    label_value_length_limit: 128
+    static_configs:
+      - targets: ["vocabulary-api:8080"]
