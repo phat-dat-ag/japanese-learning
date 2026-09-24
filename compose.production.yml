@@ -1,0 +1,94 @@
+# Apply after docker-compose.yml. Compose >= 2.24.4 is required for !override.
+# Never start production using the development file alone.
+x-production-logging: &production-logging
+  driver: local
+  options:
+    max-size: "10m"
+    max-file: "5"
+services:
+  mysql:
+    container_name: !reset null
+    ports: !reset []
+    networks: !override [mysql]
+    logging: *production-logging
+  flyway-vocabulary:
+    container_name: !reset null
+    networks: !override [mysql]
+    logging: *production-logging
+  sqlserver:
+    container_name: !reset null
+    ports: !reset []
+    networks: !override [sqlserver]
+    environment:
+      MSSQL_PID: ${MSSQL_PID:?Set a licensed production SQL Server edition (for example Express or Standard)}
+    logging: *production-logging
+  sqlserver-init:
+    networks: !override [sqlserver]
+    logging: *production-logging
+  flyway-user:
+    container_name: !reset null
+    networks: !override [sqlserver]
+    logging: *production-logging
+  user-api:
+    image: japanese-learning/user-api:${RELEASE_TAG:?Set an immutable release tag}
+    ports: !reset []
+    networks: !override [api, sqlserver]
+    environment:
+      Jwt__Issuer: ${JWT_ISSUER:?Set production JWT_ISSUER}
+      Jwt__Audience: ${JWT_AUDIENCE:?Set production JWT_AUDIENCE}
+      Jwt__KeyId: ${JWT_KEY_ID:?Set production JWT_KEY_ID}
+      Jwt__RefreshTokenExpirationDays: ${JWT_REFRESH_TOKEN_EXPIRATION_DAYS:-7}
+    logging: *production-logging
+  vocabulary-api:
+    image: japanese-learning/vocabulary-api:${RELEASE_TAG:?Set an immutable release tag}
+    ports: !reset []
+    networks: !override [api, mysql]
+    logging: *production-logging
+  gateway:
+    ports: !reset []
+    networks: !override [frontend, api]
+    logging: *production-logging
+  frontend:
+    image: japanese-learning/frontend:${RELEASE_TAG:?Set an immutable release tag}
+    build:
+      context: ./angular
+      dockerfile: Dockerfile
+    user: "101:101"
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    ulimits:
+      core: 0
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 1
+    pids_limit: 128
+    stop_signal: SIGQUIT
+    stop_grace_period: 75s
+    restart: unless-stopped
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=128m,uid=101,gid=101,mode=0700
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT:-8088}:8080"
+    networks: [edge, frontend]
+    depends_on:
+      gateway:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    logging: *production-logging
+networks:
+  edge:
+  frontend:
+    internal: true
+  api:
+    internal: true
+  mysql:
+    internal: true
+  sqlserver:
+    internal: true
