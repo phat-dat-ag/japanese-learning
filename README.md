@@ -1,5 +1,8 @@
 # Japanese Learning backend stack
 
+For Step 8.9 production deployment on a Linux server, see [the production runbook](deployment/README.md).
+The instructions below retain the local development workflow.
+
 Prerequisites: Docker with Linux containers and Docker Compose v2 or newer,
 plus initialized Git submodules (`git submodule update --init --recursive`).
 Application SDKs are not needed to build the images.

@@ -1,0 +1,18 @@
+# Order: base, production, observability, production-observability.
+services:
+  prometheus:
+    networks: !override [api, monitoring]
+    ports: !reset []
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "5"}
+  grafana:
+    networks: !override [monitoring, monitoring-access]
+    # Existing observability overlay publishes only 127.0.0.1:3000.
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "5"}
+networks:
+  monitoring:
+    internal: true
+  monitoring-access:

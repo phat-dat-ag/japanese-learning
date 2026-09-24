@@ -28,7 +28,7 @@ def sensitive_values(config):
             if "PASSWORD" in key.upper() and value and len(str(value)) >= 8}
 
 
-def audit(config):
+def audit(config, check_compose=True):
     values = sensitive_values(config)
     count = 0
     for repo in (".", "dotnet", "quarkus", "angular"):
@@ -50,17 +50,20 @@ def audit(config):
                 result = run(["git", "-C", repo, "check-ignore", "--quiet", name])
                 assert result.returncode == 0, "Secret path is not ignored: " + repo + "/" + name
             assert run(["git", "-C", repo, "check-ignore", "--quiet", ".env.example"]).returncode == 1
-    for line in (ROOT / ".env.example").read_text().splitlines():
-        if re.match(r"[A-Z_]*PASSWORD=", line):
-            assert not line.split("=", 1)[1].strip(), "Example password must remain blank."
-    # Empty required Compose settings must fail without revealing any other setting.
-    import os
-    env = os.environ.copy()
-    env["MYSQL_PASSWORD"] = ""
-    result = run(["docker", "compose", "config", "--quiet"], env=env)
-    assert result.returncode != 0 and "MYSQL_PASSWORD" in result.stderr
-    assert not any(value in result.stdout + result.stderr for value in values)
-    print(f"PASS: {count} source files audited; local DB secrets/private key blocks absent; secret paths ignored; example safe; missing Compose password rejected.", flush=True)
+    for example in (ROOT / ".env.example", ROOT / "deployment/production.env.example"):
+        if example.is_file():
+            for line in example.read_text().splitlines():
+                if re.match(r"[A-Z_]*PASSWORD=", line):
+                    assert not line.split("=", 1)[1].strip(), "Example password must remain blank."
+    if check_compose:
+        # Empty required Compose settings must fail without revealing any other setting.
+        import os
+        env = os.environ.copy()
+        env["MYSQL_PASSWORD"] = ""
+        result = run(["docker", "compose", "config", "--quiet"], env=env)
+        assert result.returncode != 0 and "MYSQL_PASSWORD" in result.stderr
+        assert not any(value in result.stdout + result.stderr for value in values)
+    print(f"PASS: {count} source files audited; local DB secrets/private key blocks absent; secret paths ignored; example safe.", flush=True)
 
 
 def startup_checks(config):
