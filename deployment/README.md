@@ -246,3 +246,29 @@ recreation. It never changes the development project's database. Retained test v
 contain generated test data only and are reported by project name. Actual TLS renewal,
 Linux bind ownership/SELinux/firewall, backup restoration, sizing and licensed SQL Server
 edition behavior must still be accepted on the target host.
+
+## Final fresh verification (Step 8.10)
+
+Run `python3 -B scripts/verify-final-e2e.py` from the root for the fresh-source
+acceptance suite; on Windows use `python -X utf8 -B scripts/verify-final-e2e.py`.
+Prerequisites are the production build prerequisites above plus a running Docker
+Linux engine. This maintainer workflow also expects the existing local development
+SQL Server/MySQL environment and its ignored local configuration, solely to record
+read-only data fingerprints before and after testing. Keep that environment idle
+while verifying so unrelated user writes do not invalidate the comparison.
+
+The runner records protected resource identities in ignored
+`secrets/final-e2e/baseline.json`, generates an independently protected temporary
+environment/RSA pair, builds all three application images with `--no-cache` and
+unique tags, then boots a new `jp-final-e2e-*` project with fresh volumes. Only
+loopback test ports and test key mount paths differ from production. It exercises
+the production operator workflow with optional monitoring and captures diagnostics
+privately. Never run Python with optimization (`-O`), which disables assertions.
+
+It stops only its own containers/networks and retains every volume, test image and
+protected test fixture, including on failure. It does not reset databases or delete
+volumes. Repeated runs consume disk; inventory retained test resources separately.
+The baseline deliberately fails closed if a protected resource or database changed;
+review that change before intentionally creating a new baseline for a later session.
+No generated credentials, keys or runtime configurations belong in Git.
+See [the acceptance report](FINAL-E2E-VERIFICATION.md) for exact results and limits.
