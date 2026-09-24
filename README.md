@@ -1,6 +1,7 @@
 # Japanese Learning backend stack
 
 For Step 8.9 production deployment on a Linux server, see [the production runbook](deployment/README.md).
+For Step 8.10 fresh verification, see [the final E2E report](deployment/FINAL-E2E-VERIFICATION.md).
 The instructions below retain the local development workflow.
 
 Prerequisites: Docker with Linux containers and Docker Compose v2 or newer,
@@ -328,8 +329,9 @@ changes are required.
 Verify with `dotnet test dotnet/JapaneseLearning.User.sln --configuration Release`,
 `quarkus/mvnw.cmd -f quarkus/pom.xml verify`, and
 `python -B scripts/verify-correlation.py` against rebuilt local containers.
-The Quarkus suite has two existing fixture failures in `VocabularyFileReaderTest`
-and `VocabularyImportValidatorTest`; these are unrelated to error handling.
+Step 8.10 corrected the two stale import fixtures and the missing-upload validation
+annotation; the complete Quarkus suite now passes. Use
+`-Dquarkus.http.test-port=0` when port 8081 is occupied by the development API.
 
 ## Container hardening (Step 8.6)
 
