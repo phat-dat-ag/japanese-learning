@@ -1,4 +1,4 @@
-# Japanese Learning backend stack
+# Japanese Learning application stack
 
 For Step 8.9 production deployment on a Linux server, see [the production runbook](deployment/README.md).
 For Step 8.10 fresh verification, see [the final E2E report](deployment/FINAL-E2E-VERIFICATION.md).
@@ -22,14 +22,41 @@ Application SDKs are not needed to build the images.
 3. Start from this directory:
 
    ```sh
-   docker compose up --build
+   docker compose up -d --build
    ```
 
-   Use `docker compose up --build -d` for detached mode, `docker compose ps -a`
+   Use `docker compose ps -a`
    for status, and `docker compose logs user-api vocabulary-api` for app logs.
+
+Open **http://localhost:8088** for Angular (`FRONTEND_PORT` overrides port 8088).
+The frontend binds to loopback, matching the existing production convention.
+The API Gateway remains directly accessible at **http://localhost:8080**.
+Use `docker compose logs -f frontend` for frontend logs and `docker compose stop`
+to stop the stack; `docker compose down` also removes containers and the network
+while retaining database volumes.
+
+```text
+Browser -> frontend NGINX :8088 -> /api/* -> Gateway :8080
+                                           -> User API -> SQL Server
+                                           -> Vocabulary API -> MySQL
+```
+
+Angular uses the same-origin `/api` base URL. Only NGINX resolves `gateway` on
+Docker's network; browser code contains no Docker hostname. NGINX serves the
+production build and falls back to `index.html` for client-side routes. Missing
+static assets return 404. `/health` checks the frontend NGINX process, independently
+of backend readiness. The service starts after Gateway is healthy and uses the
+same non-root, read-only runtime restrictions as Gateway.
+
+For local Angular development, use `npm ci` and `npm start` in `angular/` and open
+http://localhost:4200. Its existing development proxy forwards `/api/**` to the
+host Gateway at http://localhost:8080. The production container uses `angular/nginx.conf`
+instead. No Angular environment files or secrets are needed for either mode.
 
 | Service | Host address | Container address |
 | --- | --- | --- |
+| Angular frontend | http://localhost:8088 | http://frontend:8080 |
+| API Gateway | http://localhost:8080 | http://gateway:8080 |
 | MySQL (vocabulary only) | localhost:3306 | mysql:3306 |
 | SQL Server (users only) | localhost:1433 | sqlserver:1433 |
 | .NET User/Auth | http://localhost:8081 | http://user-api:8080 |
@@ -59,7 +86,7 @@ Both applications retain their Dockerfile non-root users and share the default
 Compose network. Quarkus obtains public keys only from
 `http://user-api:8080/.well-known/jwks.json`. JWT issuer/audience values in `.env`
 configure both services consistently. Authentication and role restrictions remain
-enabled. Angular is not part of this stack.
+enabled. Angular is served by the frontend NGINX container.
 
 Health and failure behavior:
 
@@ -124,7 +151,7 @@ do not use it unless intentionally resetting all local data.
 
 NGINX (official `nginx:stable-alpine`) is the client-facing backend entry point:
 **http://localhost:8080** (host 8080 to container 8080). Start it with the same
-`docker compose up --build -d` command. Direct ports 8081/8082 remain available
+`docker compose up -d --build` command. Direct ports 8081/8082 remain available
 for backend debugging; clients should use the Gateway.
 
 | Gateway path | Owner / internal upstream |
