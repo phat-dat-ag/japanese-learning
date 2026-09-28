@@ -192,6 +192,7 @@ services:
       flyway-user:
         condition: service_completed_successfully
     environment:
+      LogFiles__Directory: /app/logs
       Database__Server: sqlserver,1433
       Database__Name: JapaneseLearningUser
       Database__User: sa
@@ -212,6 +213,7 @@ services:
     ports:
       - "127.0.0.1:8081:8080"
     volumes:
+      - user_api_logs:/app/logs
       - type: bind
         source: ./secrets/jwt/private.pem
         target: /app/secrets/jwt/private.pem
@@ -331,3 +333,4 @@ services:
 volumes:
   mysql_data:
   sqlserver_data:
+  user_api_logs:
