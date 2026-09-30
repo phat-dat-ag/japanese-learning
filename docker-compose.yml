@@ -138,7 +138,7 @@ services:
     environment:
       SQLCMDPASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     entrypoint: ["/opt/mssql-tools18/bin/sqlcmd"]
-    command: ["-S", "sqlserver,1433", "-U", "sa", "-C", "-b", "-Q", "IF DB_ID(N'JapaneseLearningUser') IS NULL CREATE DATABASE [JapaneseLearningUser];"]
+    command: ["-S", "sqlserver,1433", "-U", "sa", "-C", "-b", "-Q", "IF DB_ID(N'${MSSQL_DATABASE:-JapaneseLearningUser}') IS NULL CREATE DATABASE [JapaneseLearningUser];"]
 
   flyway-user:
     <<: *container-security
@@ -161,7 +161,7 @@ services:
       sqlserver-init:
         condition: service_completed_successfully
     environment:
-      FLYWAY_URL: jdbc:sqlserver://sqlserver:1433;databaseName=JapaneseLearningUser;encrypt=false;trustServerCertificate=true
+      FLYWAY_URL: jdbc:sqlserver://sqlserver:1433;databaseName=${MSSQL_DATABASE:-JapaneseLearningUser};encrypt=false;trustServerCertificate=true
       FLYWAY_USER: sa
       FLYWAY_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
       FLYWAY_CONNECT_RETRIES: "60"
@@ -194,7 +194,7 @@ services:
     environment:
       LogFiles__Directory: /app/logs
       Database__Server: sqlserver,1433
-      Database__Name: JapaneseLearningUser
+      Database__Name: ${MSSQL_DATABASE:-JapaneseLearningUser}
       Database__User: sa
       Database__Password: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
       Database__TrustServerCertificate: "true"
