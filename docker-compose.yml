@@ -41,7 +41,6 @@ services:
       - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
       - /var/run/mysqld:rw,noexec,nosuid,nodev,size=16m,uid=999,gid=999,mode=0750
     image: mysql:8.4@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb
-    container_name: jp_mysql_vocabulary
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE:-japanese_learning}
@@ -49,7 +48,7 @@ services:
       MYSQL_USER: ${MYSQL_USER:-japanese_learning}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
     ports:
-      - "127.0.0.1:3306:3306"
+      - "127.0.0.1:${MYSQL_HOST_PORT:-3306}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -72,7 +71,6 @@ services:
       # Java native libraries may require executable mappings from temporary storage.
       - /tmp:rw,nosuid,nodev,size=128m,mode=1777
     image: flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959
-    container_name: jp_flyway_vocabulary
     restart: "no"
     depends_on:
       mysql:
@@ -103,14 +101,13 @@ services:
     tmpfs:
       - /tmp:rw,noexec,nosuid,nodev,size=128m,mode=1777
     image: mcr.microsoft.com/mssql/server:2022-latest@sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89
-    container_name: jp_sqlserver_user
     restart: unless-stopped
     environment:
       ACCEPT_EULA: "Y"
       MSSQL_MEMORY_LIMIT_MB: "2048"
       MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     ports:
-      - "127.0.0.1:1433:1433"
+      - "127.0.0.1:${MSSQL_HOST_PORT:-1433}:1433"
     volumes:
       - sqlserver_data:/var/opt/mssql
     healthcheck:
@@ -138,7 +135,7 @@ services:
     environment:
       SQLCMDPASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     entrypoint: ["/opt/mssql-tools18/bin/sqlcmd"]
-    command: ["-S", "sqlserver,1433", "-U", "sa", "-C", "-b", "-Q", "IF DB_ID(N'${MSSQL_DATABASE:-JapaneseLearningUser}') IS NULL CREATE DATABASE [JapaneseLearningUser];"]
+    command: ["-S", "sqlserver,1433", "-U", "sa", "-C", "-b", "-Q", "IF DB_ID(N'${MSSQL_DATABASE:-JapaneseLearningUser}') IS NULL CREATE DATABASE [${MSSQL_DATABASE:-JapaneseLearningUser}];"]
 
   flyway-user:
     <<: *container-security
@@ -153,7 +150,6 @@ services:
       # Java native libraries may require executable mappings from temporary storage.
       - /tmp:rw,nosuid,nodev,size=128m,mode=1777
     image: flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959
-    container_name: japanese-learning-user-flyway
     restart: "no"
     depends_on:
       sqlserver:
@@ -211,7 +207,7 @@ services:
       retries: 12
       start_period: 30s
     ports:
-      - "127.0.0.1:8081:8080"
+      - "127.0.0.1:${USER_API_HOST_PORT:-8081}:8080"
     volumes:
       - user_api_logs:/app/logs
       - type: bind
@@ -259,7 +255,7 @@ services:
       QUARKUS_OIDC_CONNECTION_DELAY: 60S
       QUARKUS_SHUTDOWN_TIMEOUT: 20S
     ports:
-      - "127.0.0.1:8082:8080"
+      - "127.0.0.1:${VOCABULARY_API_HOST_PORT:-8082}:8080"
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "--output", "/dev/null", "--max-time", "5", "http://127.0.0.1:8080/q/health/ready"]
       interval: 10s
@@ -288,7 +284,7 @@ services:
       vocabulary-api:
         condition: service_healthy
     ports:
-      - "8080:8080"
+      - "127.0.0.1:${GATEWAY_HOST_PORT:-8080}:8080"
     volumes:
       - type: bind
         source: ./gateway/nginx.conf
