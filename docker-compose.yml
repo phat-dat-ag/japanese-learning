@@ -244,7 +244,10 @@ services:
         condition: service_completed_successfully
       user-api:
         condition: service_healthy
+    volumes:
+      - vocabulary_api_logs:/deployments/data/logs
     environment:
+      APP_LOG_DIR: /deployments/data/logs
       DB_USERNAME: ${MYSQL_USER:-japanese_learning}
       DB_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
       DB_REACTIVE_URL: mysql://mysql:3306/${MYSQL_DATABASE:-japanese_learning}
@@ -330,3 +333,4 @@ volumes:
   mysql_data:
   sqlserver_data:
   user_api_logs:
+  vocabulary_api_logs:
