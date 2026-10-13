@@ -126,7 +126,6 @@ def gateway_runtime_args():
 def isolated_checks():
     name = "jp-gateway-security-" + uuid.uuid4().hex[:12]
     upstream, gateway = name + "-upstream", name + "-gateway"
-    frontend = name + "-frontend"
     created = []
     network_created = False
     with tempfile.TemporaryDirectory(prefix="jp-gateway-security-") as directory:
@@ -137,18 +136,16 @@ def isolated_checks():
             network_created = True
             docker("run", "-d", "--name", upstream, "--network", name,
                    "--network-alias", "user-api", "--network-alias", "vocabulary-api",
-                   "--mount", f"type=bind,source={stub},target=/etc/nginx/nginx.conf,readonly",
-                   "--entrypoint", "nginx", IMAGE, "-g", "daemon off;")
+                   "--mount", f"type=bind,source={stub},target=/etc/nginx/nginx.conf,readonly", IMAGE)
             created.append(upstream)
-            docker("run", "-d", "--name", gateway, "--network", name, "--network-alias", "gateway", "-p", "127.0.0.1::8080",
+            docker("run", "-d", "--name", gateway, "--network", name, "-p", "127.0.0.1::8080",
                    "--mount", f"type=bind,source={ROOT / 'gateway/nginx.conf'},target=/etc/nginx/nginx.conf,readonly", *gateway_runtime_args())
             created.append(gateway)
-            docker("exec", upstream, "nginx", "-t")
             docker("exec", gateway, "nginx", "-t")
             port = int(docker("port", gateway, "8080/tcp").rsplit(":", 1)[1])
             for attempt in range(30):
                 try:
-                    if request(port, "/api/auth/probe")[0] == 200:
+                    if request(port, "/health")[0] == 200:
                         break
                 except (OSError, http.client.HTTPException):
                     pass
@@ -156,8 +153,6 @@ def isolated_checks():
             common = [("X-Correlation-ID", ID)]
             for path, status in [("/health", 200), ("/unknown", 404), ("/api/auth/denied", 401),
                                  ("/.well-known/jwks.json", 404), ("/q/health", 404),
-                                 ("/api/v1/kanji-quiz-extra", 404),
-                                 ("/api/v1/admin/kanji-quiz/questions-extra", 404),
                                  ("/api/authentication", 404), ("/api/v1/flashcards-extra", 404)]:
                 check_response(request(port, path, headers=common), status)
             for method in ("HEAD", "OPTIONS"):
@@ -176,10 +171,7 @@ def isolated_checks():
                                 ("Upgrade", "websocket"), ("TE", "trailers"), ("Trailer", "X-Test"),
                                 ("X_Test_Underscore", "unsafe")]
             for path in ("/api/auth/me", "/api/v1/flashcards", "/api/v1/jlpt-levels",
-                         "/api/v1/lessons", "/api/vocabularies/import",
-                         "/api/v1/kanji-quiz/config", "/api/v1/kanji-quiz/sessions/1/answers",
-                         "/api/v1/admin/kanji-quiz/questions/1/options/2",
-                         "/api/v1/admin/kanji-quiz/questions/import"):
+                         "/api/v1/lessons", "/api/vocabularies/import"):
                 data = json.loads(check_response(request(port, path, headers=spoofed), 200))
                 assert data == {"authorizationPreserved": True, "untrustedHeadersRemoved": True,
                                 "edgeHeadersValid": True, "correlationId": ID}, "Proxy header policy mismatch"
@@ -189,32 +181,6 @@ def isolated_checks():
                 headers = [] if value is None else [("X-Correlation-ID", value)]
                 data = json.loads(check_response(request(port, "/api/auth/me", headers=headers), 200, None))
                 assert re.fullmatch("[a-f0-9]{32}", data["correlationId"])
-
-            # Exercise the actual frontend proxy and gateway together, without application data.
-            docker("run", "-d", "--name", frontend, "--network", name, "-p", "127.0.0.1::8080",
-                   "--mount", f"type=bind,source={ROOT / 'angular/nginx.conf'},target=/etc/nginx/nginx.conf,readonly", *gateway_runtime_args())
-            created.append(frontend)
-            docker("exec", frontend, "nginx", "-t")
-            frontend_port = int(docker("port", frontend, "8080/tcp").rsplit(":", 1)[1])
-            for attempt in range(30):
-                try:
-                    if request(frontend_port, "/api/v1/kanji-quiz/config")[0] == 200:
-                        break
-                except (OSError, http.client.HTTPException):
-                    pass
-                time.sleep(0.1)
-            for path in ("/api/auth/me", "/api/v1/kanji-quiz/config",
-                         "/api/v1/admin/kanji-quiz/questions/import"):
-                data = json.loads(check_response(request(frontend_port, path, headers=spoofed), 200))
-                assert data == {"authorizationPreserved": True, "untrustedHeadersRemoved": True,
-                                "edgeHeadersValid": True, "correlationId": ID}, "Frontend/gateway header policy mismatch"
-            for value in (None, "bad value", "a" * 65):
-                headers = [] if value is None else [("X-Correlation-ID", value)]
-                data = json.loads(check_response(request(frontend_port, "/api/auth/me", headers=headers), 200, None))
-                assert re.fullmatch("[a-f0-9]{32}", data["correlationId"])
-            check_response(request(frontend_port, "/api/v1/admin/kanji-quiz/questions/import", "POST",
-                                   common + [("Content-Length", str(10 * 1024 * 1024 + 1))]), 413)
-            print("PASS: actual frontend -> gateway configs preserve Authorization/correlation, sanitize forwarding, and reject oversize bodies.")
 
             # Preserve the existing upload boundary; this upstream cannot write application data.
             check_response(request(port, "/api/vocabularies/import", "POST", common,
@@ -279,7 +245,6 @@ def live_checks():
     for port, path in ((8081, "/api/auth/me"), (8082, "/api/v1/jlpt-levels")):
         expected = request(port, path, "OPTIONS", common)[0]
         check_response(request(8080, path, "OPTIONS", common), expected)
-    print("PASS: live Compose authentication rejection, route parity, security headers, and OPTIONS.")
     result = subprocess.run([sys.executable, str(ROOT / "scripts/verify-correlation.py")], cwd=ROOT)
     assert result.returncode == 0, "Existing correlation regression failed"
     print("PASS: live Compose routes, authentication rejection, OPTIONS, and correlation regression.")

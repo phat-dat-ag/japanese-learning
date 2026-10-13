@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def request(port, path, values, method="GET", body=None):
     if port == 8080:
         time.sleep(0.06)  # Ordinary smoke traffic stays below the 20 requests/second budget.
-    connection = http.client.HTTPConnection("127.0.0.1", port, timeout=15)
+    connection = http.client.HTTPConnection("localhost", port, timeout=15)
     try:
         connection.putrequest(method, path)
         for value in values:
@@ -69,14 +69,12 @@ def main():
     assert json.loads(data)["traceId"] == correlation == marker
     assert json.loads(data)["error"]["code"] == "VALIDATION_ERROR"
 
-    print(f"PASS: {count + 2} HTTP correlation/validation cases; checking request logs separately.")
-    # Use bounded UTF-8 logs: Windows localhost/relative-time defaults are unreliable.
     # Docker logging can arrive just after response completion; bounded retries only.
     for attempt in range(10):
         missing = []
         for service, ids in expected_logs.items():
-            result = subprocess.run(["docker", "compose", "logs", "--tail", "1000", "--no-color", service],
-                                    cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=True)
+            result = subprocess.run(["docker", "compose", "logs", "--since", "2m", "--no-color", service],
+                                    cwd=ROOT, capture_output=True, text=True, check=True)
             for correlation in ids:
                 if not any(correlation in line and (service == "gateway" or "HTTP request completed" in line)
                            for line in result.stdout.splitlines()):
