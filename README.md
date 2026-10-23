@@ -1,605 +1,395 @@
-# Japanese Learning application stack
+﻿# Japanese Learning Application
 
-For Step 8.9 production deployment on a Linux server, see [the production runbook](deployment/README.md).
-For Step 8.10 fresh verification, see [the final E2E report](deployment/FINAL-E2E-VERIFICATION.md).
-The instructions below retain the local development workflow.
+Japanese Learning is a microservices-based application for account registration and sign-in, JLPT vocabulary and lesson browsing, flashcard study, and Kanji Context Quizzes with history and progress. Administration features cover vocabulary editing/import, lesson import, and quiz question management.
 
-Prerequisites: Docker with Linux containers and Docker Compose v2 or newer,
-plus initialized Git submodules (`git submodule update --init --recursive`).
-Application SDKs are not needed to build the images.
+The system separates the browser application, account/token management, and learning APIs into independently built repositories. This root repository pins those repositories as Git submodules and owns full-system orchestration, the API Gateway, database initialization/migrations, monitoring configuration, and deployment tools.
 
-1. Copy `.env.example` to `.env` and set all three database passwords.
-   Keep existing passwords when reusing database volumes; changing `.env`
-   does not change stored database credentials. Follow the quoting notes in
-   `.env.example`.
-2. Provide a matching RSA PEM pair (at least 2048 bits, unencrypted private key):
-   `secrets/jwt/private.pem` and `secrets/jwt/public.pem`.
-   Alternatively run `pwsh -File ./scripts/generate-jwt-keys.ps1` (requires
-   PowerShell and the .NET 9 SDK; refuses to overwrite existing keys).
-   Both files must be readable by the .NET container user, UID 1654, with
-   directory traversal permission. They are mounted read-only only into .NET.
-   `.env` and `secrets/` are gitignored. Restart .NET after replacing keys.
-3. Start from this directory:
+Account-management and settings screens are placeholders. Password reset, email verification, profile editing, and role-management APIs are not implemented. Quarkus learning features run together as **one backend application**, not separate services.
 
-   ```sh
-   docker compose up -d --build
-   ```
+## System architecture
 
-   Use `docker compose ps -a`
-   for status, and `docker compose logs user-api vocabulary-api` for app logs.
-
-Open **http://localhost:8088** for Angular (`FRONTEND_PORT` overrides port 8088).
-The frontend binds to loopback, matching the existing production convention.
-The API Gateway remains directly accessible at **http://localhost:8080**.
-Use `docker compose logs -f frontend` for frontend logs and `docker compose stop`
-to stop the stack; `docker compose down` also removes containers and the network
-while retaining database volumes.
-
-```text
-Browser -> frontend NGINX :8088 -> /api/* -> Gateway :8080
-                                           -> User API -> SQL Server
-                                           -> Vocabulary API -> MySQL
-```
-
-Angular uses the same-origin `/api` base URL. Only NGINX resolves `gateway` on
-Docker's network; browser code contains no Docker hostname. NGINX serves the
-production build and falls back to `index.html` for client-side routes. Missing
-static assets return 404. `/health` checks the frontend NGINX process, independently
-of backend readiness. The service starts after Gateway is healthy and uses the
-same non-root, read-only runtime restrictions as Gateway.
-
-For local Angular development, use `npm ci` and `npm start` in `angular/` and open
-http://localhost:4200. Its existing development proxy forwards `/api/**` to the
-host Gateway at http://localhost:8080. The production container uses `angular/nginx.conf`
-instead. No Angular environment files or secrets are needed for either mode.
-
-| Service | Host address | Container address |
-| --- | --- | --- |
-| Angular frontend | http://localhost:8088 | http://frontend:8080 |
-| API Gateway | http://localhost:8080 | http://gateway:8080 |
-| MySQL (vocabulary only) | localhost:3306 | mysql:3306 |
-| SQL Server (users only) | localhost:1433 | sqlserver:1433 |
-| .NET User/Auth | http://localhost:8081 | http://user-api:8080 |
-| Quarkus Vocabulary/Flashcard | http://localhost:8082 | http://vocabulary-api:8080 |
-
-Readiness and public keys:
-
-- .NET liveness: http://localhost:8081/health/live
-- .NET SQL-backed readiness: http://localhost:8081/health/ready (`/health` remains an alias)
-- Public JWKS: http://localhost:8081/.well-known/jwks.json
-- Quarkus health: http://localhost:8082/q/health
-- Quarkus liveness: http://localhost:8082/q/health/live
-- Quarkus readiness: http://localhost:8082/q/health/ready
-
-Database healthchecks execute authenticated SQL queries. MySQL must be healthy
-before vocabulary Flyway runs. SQL Server must be healthy before the idempotent
-`sqlserver-init` creates `JapaneseLearningUser` if absent, then user Flyway runs.
-Each application waits for its database healthcheck and successful Flyway exit.
-Flyway and the database initializer are one-shot containers with no automatic
-restart; an exit code of 0 is expected. Migration failures block application startup.
-
-Quarkus starts after .NET readiness passes and retains its 60-second initial
-JWKS retry window. Both application Docker healthchecks use their readiness
-endpoints through curl and discard response bodies. .NET installs curl in its
-runtime image; Quarkus uses the runtime's existing curl.
-Both applications retain their Dockerfile non-root users and share the default
-Compose network. Quarkus obtains public keys only from
-`http://user-api:8080/.well-known/jwks.json`. JWT issuer/audience values in `.env`
-configure both services consistently. Authentication and role restrictions remain
-enabled. Angular is served by the frontend NGINX container.
-
-Health and failure behavior:
-
-- .NET `/health/live` performs no dependency I/O. `/health/ready` and `/health`
-  open the configured application database connection, with a three-second check
-  timeout. Responses contain only `Healthy` or `Unhealthy` (200 or 503).
-  Required options and RSA keys must pass startup validation before HTTP serves.
-- Quarkus `/q/health/live` is independent of MySQL and JWKS. `/q/health/ready`
-  uses the built-in reactive MySQL check; `/q/health` aggregates checks and must
-  not be used as liveness. Health JSON exposes only status and check names.
-- JWKS is fetched at Quarkus initialization and cached. No health request calls
-  Auth. During an Auth outage, valid tokens using cached keys can still work;
-  unknown keys requiring refresh cannot be verified while JWKS is unavailable.
-- SQL/MySQL outages fail the respective readiness probe while application
-  liveness remains healthy. Recovery is detected by subsequent probes.
-- Compose gates initial startup on health and successful one-shot completion.
-  It does not continuously gate traffic or stop dependents after an outage.
-  `restart: unless-stopped` restarts exited processes, not unhealthy containers.
-  Application probes retain 12 consecutive failures before Docker marks them
-  unhealthy. Endpoint readiness can fail earlier. Curl stops waiting after five
-  seconds; the built-in Quarkus datasource check can take up to 20 seconds during
-  connection failure. These probe deadlines do not change application liveness.
-- NGINX stays alive during backend outages; affected proxied requests can return
-  502 (connection failure) or 504 (timeout). It does not aggregate backend health.
-- Readiness checks connectivity, not migration history or every business query.
-  Successful Flyway completion is the schema readiness gate. When manually
-  running applications outside Compose, apply migrations first.
-
-Startup dependencies (arrows mean the preceding condition must pass):
+The implemented API Gateway is **root-managed NGINX**, not a Quarkus application.
 
 ```mermaid
-flowchart TD
-    mysql[MySQL healthy] --> vocabFlyway[Vocabulary Flyway completed]
-    sql[SQL Server healthy] --> init[SQL init completed]
-    init --> userFlyway[User Flyway completed]
-    userFlyway --> dotnet[.NET ready]
-    vocabFlyway --> quarkus[Quarkus ready]
-    dotnet --> quarkus
-    dotnet --> gateway[Gateway starts]
-    quarkus --> gateway
+flowchart LR
+    Browser["Browser"] -->|HTTP| Frontend["Angular served by frontend NGINX"]
+    Frontend -->|"/api"| Gateway["NGINX API Gateway"]
+    Gateway -->|"/api/auth"| Auth[".NET User/Auth API"]
+    Gateway -->|"Learning API routes"| Learning["Quarkus learning API"]
+    Auth --> SQL[("SQL Server")]
+    Learning --> MySQL[("MySQL")]
+    Learning -->|"Fetch public JWKS over HTTP"| Auth
+    Prometheus["Prometheus (optional)"] -->|"/metrics"| Auth
+    Prometheus -->|"/q/metrics"| Learning
+    Grafana["Grafana (optional)"] -->|"Query metrics"| Prometheus
 ```
 
-Quarkus requires both vocabulary Flyway completion and .NET readiness. Gateway
-requires both backend readiness checks. Init/Flyway jobs have `restart: "no"`
-and no healthcheck; failed jobs block new dependent application startup.
+Angular uses same-origin `/api` requests. Containerized frontend NGINX forwards them to `gateway:8080`; Angular's development proxy forwards them to `http://localhost:8080`. Only the proxies resolve Docker service names. The APIs have separate databases; learning requests derive user identity from JWT claims rather than querying SQL Server or calling Auth for every request.
 
-For safe fresh-volume checks, use a separate Compose project **and** override
-fixed `container_name` entries and host ports. A project name alone is insufficient
-because this file has fixed DB/Flyway names. Keep its volumes separate from normal
-`mysql_data` and `sqlserver_data`; stop dependencies only in the disposable project.
-Never print resolved Compose configuration containing passwords: use
-`docker compose config --quiet` for validation.
+The base Compose stack shares its default network. Production adds internal network segmentation and requires a separately configured host HTTPS reverse proxy; see [Deployment](#deployment).
 
-Stop containers with `docker compose stop`, or remove containers and the network
-with `docker compose down`. Database named volumes survive both operations.
-`docker compose down -v` deletes those volumes and their database contents;
-do not use it unless intentionally resetting all local data.
+## Technology stack
 
----
-
-## API Gateway
-
-NGINX (official `nginx:stable-alpine`) is the client-facing backend entry point:
-**http://localhost:8080** (host 8080 to container 8080). Start it with the same
-`docker compose up -d --build` command. Direct ports 8081/8082 remain available
-for backend debugging; clients should use the Gateway.
-
-| Gateway path | Owner / internal upstream |
+| Area | Technology |
 | --- | --- |
-| `/api/auth` and descendants | .NET, `user-api:8080` |
-| `/api/v1/flashcards` and descendants | Quarkus, `vocabulary-api:8080` |
-| `/api/v1/jlpt-levels` and descendants | Quarkus, `vocabulary-api:8080` |
-| `/api/v1/lessons` and descendants | Quarkus, `vocabulary-api:8080` |
-| `/api/vocabularies` and descendants (including import) | Quarkus, `vocabulary-api:8080` |
-| `/health` | Static Gateway process health (200) |
+| Frontend | Angular 22.1.1, TypeScript 6.0.3, Tailwind CSS 4 |
+| Accounts/authentication | ASP.NET Core / .NET 9, Dapper, RS256 JWT |
+| Learning API | Quarkus 3.38.2, Java 17, Hibernate Reactive/Panache, MySQL client |
+| API Gateway / static hosting | NGINX; Gateway uses digest-pinned `nginx:stable-alpine` |
+| Databases | Digest-pinned MySQL 8.4 and SQL Server 2022 images |
+| Schema migrations | External Flyway containers, image pinned by digest (tag is `latest`) |
+| Optional monitoring | Prometheus 3.14.0, Grafana 13.2.2 |
+| Build / operations | Git submodules, Docker Compose, npm, Maven Wrapper, .NET CLI, Python, PowerShell/Bash key helpers |
+
+Service-specific dependency versions and conventions live in the submodule READMEs.
+
+## Repository structure
+
+```text
+.
+|-- README.md
+|-- .gitmodules                      # Submodule paths and remotes
+|-- .env.example                     # Local Compose configuration template
+|-- .gitignore / .gitattributes       # Secret exclusions and Git settings
+|-- docker-compose.yml               # Complete local stack
+|-- compose.observability.yml         # Optional Prometheus/Grafana
+|-- compose.production.yml           # Single-host production overlay
+|-- compose.production-observability.yml
+|-- angular/                         # Frontend Git submodule
+|-- dotnet/                          # User/Auth Git submodule
+|-- quarkus/                         # Learning API Git submodule
+|-- gateway/nginx.conf               # API routes, limits, headers and logs
+|-- observability/                   # Scrapes, Grafana provisioning/dashboard
+|-- deployment/                      # Production template, runbook, E2E report
+|-- scripts/                         # Key helpers, operations and verification
+`-- secrets/                         # Ignored local key/test material
+```
+
+Local `.env`, additional `.env.*` files, and `.vscode/` are ignored workspace configuration, not shared deployment inputs. Compose reads `.env` by default; another environment file requires explicit selection. No root Dockerfile, CI/CD workflow, Kubernetes manifests, message broker, or centralized log collector is checked in.
+
+## Services and components
+
+| Compose service | Responsibility and dependencies | Documentation |
+| --- | --- | --- |
+| `frontend` | Compiled Angular served by NGINX; waits for Gateway health | [Angular](angular/README.md) |
+| `gateway` | Routes API traffic, limits requests and supplies correlation/security headers; waits for both APIs | [NGINX configuration](gateway/nginx.conf) |
+| `user-api` | Accounts, login, token issuance/refresh/logout, public JWKS; requires SQL Server, migrations and RSA keys | [.NET](dotnet/README.md) |
+| `vocabulary-api` | Vocabulary, lessons, flashcards, quiz administration/gameplay/history/progress; requires MySQL, migrations and Auth JWKS | [Quarkus](quarkus/README.md) |
+| `mysql` | Learning data, including quiz state | [Base Compose](docker-compose.yml) |
+| `sqlserver` | Users, password hashes and hashed refresh tokens | [Base Compose](docker-compose.yml) |
+| `sqlserver-init` | Creates the configured SQL database if absent | [Base Compose](docker-compose.yml) |
+| `flyway-user`, `flyway-vocabulary` | One-shot schema migrations from the respective submodules | [Base Compose](docker-compose.yml) |
+| `prometheus`, `grafana` | Optional API metrics collection and provisioned dashboard | [Monitoring overlay](compose.observability.yml) |
+
+### Gateway routes
+
+The following paths and their descendants are forwarded unchanged, including query parameters and Authorization:
+
+| Path | Destination |
+| --- | --- |
+| `/api/auth` | `user-api:8080` |
+| `/api/v1/flashcards`, `/api/v1/jlpt-levels`, `/api/v1/lessons` | `vocabulary-api:8080` |
+| `/api/vocabularies` (including import) | `vocabulary-api:8080` |
+| `/api/v1/admin/vocabularies` | `vocabulary-api:8080` |
+| `/api/v1/kanji-quiz`, `/api/v1/admin/kanji-quiz/questions` | `vocabulary-api:8080` |
+| `/health` | Gateway process health only |
 | Other paths | 404 |
 
-Paths, query parameters, and Authorization are preserved. NGINX forwards Host,
-X-Real-IP, X-Forwarded-For, and X-Forwarded-Proto; as the edge proxy it replaces
-client-supplied forwarding headers. Backends retain their current proxy-trust
-settings. Uploads are capped at 10 MiB. Access logs use fixed route families,
-status/upstream status, timing, and correlation IDs; they omit arbitrary URLs,
-request bodies, and credential headers. Raw per-request NGINX error logging is
-disabled because it can include request lines or headers; global startup and
-configuration errors still go to stderr.
+Backend Swagger, health, metrics and JWKS are not routed through the Gateway.
 
-.NET still issues and validates JWTs; Quarkus still validates RS256 and enforces
-User/Admin access and Admin-only import. NGINX performs no JWT or role checks
-and mounts no RSA keys. Quarkus continues to fetch JWKS directly from
-`http://user-api:8080/.well-known/jwks.json`. Current clients do not need public
-JWKS through the Gateway, so that path returns 404 there; the existing .NET
-debug port still exposes public JWKS.
+## Prerequisites
 
-Gateway startup waits for both .NET and Quarkus readiness. Gateway `/health`
-only proves NGINX can serve HTTP; it does not prove whole-system readiness.
-Use the direct health URLs above to diagnose backends.
-Docker DNS refresh handles upstream container IP changes without an NGINX restart.
-Check configuration with `docker compose exec gateway nginx -t`.
+**Containerized execution:** Git, Docker with Linux containers, and Docker Compose v2. Production overlays require Compose **2.24.4 or later**. Image builds supply application SDKs; host Node/Java/.NET installations are unnecessary unless developing natively or using the PowerShell key generator.
 
-Neither backend currently configures CORS. Step 6 leaves CORS unchanged.
-For Step 7, prefer same-origin frontend/API hosting; if Angular runs on another
-origin, configure an explicit origin allowlist and preflight handling once at
-the Gateway, without duplicating policies in the services. Angular is unchanged.
+**Native development:** install only the tools for the component being changed:
 
-## Logging and correlation IDs (Step 8.2)
+- Angular: Node.js **24.15.0 or newer within 24.x**, npm **11.12.1**.
+- .NET: **.NET 9 SDK**; the HTTPS launch profile also needs a trusted development certificate.
+- Quarkus: **JDK 17** with `JAVA_HOME`; use the supplied Maven Wrapper.
+- Root Python tooling: Python **3.10+**. Key helpers require PowerShell plus .NET 9, or Bash/OpenSSL for the production Linux helper.
 
-NGINX and both services preserve a single `X-Correlation-ID` containing 1?64
-ASCII letters, digits, underscores, or hyphens. Missing, empty, invalid,
-overlong, and duplicate values are replaced with a random 32-character hex ID.
-The gateway forwards its selected ID and returns exactly one response header,
-including on error responses. Direct backend requests follow the same rules.
-Angular needs no change: requests without a header receive a generated ID.
+Native backends still need initialized databases and matching authentication configuration. See the [production runbook](deployment/README.md) for Linux platform, capacity and host-tool requirements.
 
-.NET uses the ID as its existing `traceId` and includes `CorrelationId` in JSON
-console logging scopes. Quarkus keeps its existing `meta.traceId` and
-`meta.correlationId` contract; `X-Trace-Id` is also validated. Its HTTP filter
-runs before authentication and uses Quarkus reactive MDC for application logs.
-Request completion logs contain status, duration, and correlation context;
-application error logs use exception types instead of potentially sensitive
-exception messages. The .NET framework's duplicate raw exception dump is disabled.
-No credential headers, request bodies, tokens, or configuration secrets are added
-to these logs. IDs are diagnostic labels, not authentication or trusted identity.
+## Getting started
 
-After rebuilding the services and reloading NGINX, run
-`python scripts/verify-correlation.py` against the local Compose ports. It checks
-valid/missing/invalid/duplicate IDs, direct requests, gateway errors, a .NET
-validation response, and matching gateway/backend request logs without credentials
-or database writes. Backend test suites also cover error metadata, authentication
-regressions, and concurrent asynchronous logging context.
+Run root commands from this directory. The following starts the complete local system, including migrations.
 
-## Gateway security hardening (Step 8.3)
+1. Clone and initialize the pinned submodule revisions:
 
-All gateway responses, including API errors and `/health`, receive
-`X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
-`Referrer-Policy: no-referrer`, and `Cache-Control: no-store`. These protect API
-responses and gateway error documents; the gateway does not host Angular HTML.
-Conflicting upstream versions of these headers and `Expires` are hidden, as is
-`X-Powered-By`. NGINX's version stays hidden with `server_tokens off`; the stock
-image still identifies itself as `Server: nginx` and in generated error pages.
+   ```sh
+   git clone --recurse-submodules https://github.com/phat-dat-ag/japanese-learning.git
+   cd japanese-learning
+   git submodule update --init --recursive
+   ```
 
-GET, HEAD, POST, PUT, PATCH, DELETE, and OPTIONS reach the existing routes.
-Other methods receive 405 with an Allow header (some malformed requests, including
-CONNECT, are rejected earlier by NGINX). Backend route-specific methods and
-Authorization/JWT handling are unchanged. NGINX's parser rejects ambiguous body
-framing and duplicate Host headers; invalid/underscore header names are ignored.
-Client-supplied Forwarded, X-Forwarded-Host/Port, Proxy, Upgrade, TE, and Trailer
-headers are removed. Host (including the dev port), Authorization, and the selected
-correlation ID are preserved; edge IP/protocol headers are overwritten as before.
+2. Copy the environment template, unless a configured `.env` already exists:
 
-Limits are 10 MiB per body and four 8 KiB large header buffers (each individual
-header/request line must fit one buffer). Header reading has a 10-second deadline;
-body reads, response writes, and idle keep-alive use 30 seconds. Upstream connection
-timeout is 5 seconds; upstream send/read inactivity remains 60 seconds so the
-existing import window is preserved. These are mostly inactivity limits, not a
-total request deadline. Request buffering stays enabled, proxy caching stays off,
-and upstream retries are disabled to avoid replaying auth/import operations.
+   ```powershell
+   Copy-Item .env.example .env
+   ```
 
-Run `python scripts/verify-gateway-security.py --live` after validating and reloading
-NGINX (`docker compose exec gateway nginx -t`, then `nginx -s reload` through the
-same command). The script uses the exact gateway config with disposable isolated
-NGINX upstreams to check forwarding, conflicting headers, malformed requests,
-limits, timeout, and log redaction. It then checks the local Compose routes,
-missing/invalid-token rejection, OPTIONS parity, and the Step 8.2 regression.
-No real credentials, keys, or application records are needed. The isolated
-containers/network are removed afterward. `docker compose config --quiet` validates
-Compose without printing resolved secrets.
+   On Unix use `cp .env.example .env`. Edit the file privately and set `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, and `MSSQL_SA_PASSWORD`. Preserve existing credentials when reusing database volumes. See [Environment configuration](#environment-configuration).
 
-TLS/HSTS, frontend CSP/Permissions-Policy, CORS changes, WAF, and
-backend security changes are intentionally absent. Angular's existing `/api` dev
-proxy remains compatible. Direct backend/database ports are still development
-exposures that bypass gateway controls; restrict them when deploying. HTTP provides
-no transport confidentiality. Raw request error diagnostics are deliberately lost
-in favor of sanitized access logs; body/upstream timeout behavior and an Angular
-browser session are not covered by the smoke script.
+3. Provision a matching, unencrypted RSA PEM pair of at least 2048 bits at `secrets/jwt/private.pem` and `secrets/jwt/public.pem`. Alternatively, with PowerShell and .NET 9 installed:
 
-## Gateway rate limiting and basic abuse protection (Step 8.4)
+   ```powershell
+   pwsh -File ./scripts/generate-jwt-keys.ps1
+   ```
 
-The gateway layers endpoint-specific budgets on a general per-client-IP budget.
-The client identity is the TCP peer (`$binary_remote_addr`), never a forwarded IP,
-JWT, correlation ID, query string, or user-supplied account name. Normalized paths
-and case-insensitive sensitive-route matching cover ASP.NET's route variants.
-Login and registration share one budget; refresh and import have separate budgets.
-Successful and unsuccessful attempts both count, without inspecting credentials.
+   The helper refuses existing keys. Both files must be readable by the .NET container user (UID 1654), with directory traversal permission. On Linux, grant narrowly scoped ownership/ACL access; the generated private key starts owner-only. Restart Auth after replacing keys.
 
-| Proxied requests | Sustained rate per IP | Immediate burst allowance |
+4. Validate and start:
+
+   ```sh
+   docker compose config --quiet
+   docker compose up -d --build
+   docker compose ps -a
+   ```
+
+   Compose starts databases, runs initialization/migrations, then gates API, Gateway and frontend startup on readiness. Initialization and Flyway containers should finish with exit code **0**; they do not remain running.
+
+5. Open **http://localhost:8088**, register, then sign in. Registration creates a `User`, not an `Admin`. No automatic Admin provisioning procedure is supplied. Fresh migrations seed reference data, but do not populate lessons, vocabulary or quiz questions; an authorized Admin must supply learning content.
+
+### Local addresses
+
+All base Compose published ports bind to `127.0.0.1`. These are defaults; the environment variables below can change them.
+
+| Component | Host address | Port variable |
 | --- | --- | --- |
-| All API traffic except OPTIONS | 20/second | 40 excess requests |
-| Login + registration combined | 10/minute | 5 excess requests |
-| Token refresh | 60/minute | 10 excess requests |
-| Vocabulary import | 2/minute | 1 excess request |
+| Frontend | http://localhost:8088 | `FRONTEND_PORT` |
+| Gateway | http://localhost:8080 | `GATEWAY_HOST_PORT` |
+| User/Auth API | http://localhost:8081 | `USER_API_HOST_PORT` |
+| Learning API | http://localhost:8082 | `VOCABULARY_API_HOST_PORT` |
+| MySQL | `localhost:3306` | `MYSQL_HOST_PORT` |
+| SQL Server | `localhost:1433` | `MSSQL_HOST_PORT` |
 
-NGINX uses leaky buckets, not fixed minute windows. From an idle bucket the first
-request plus the burst allowance can pass immediately; excess requests return
-HTTP **429**. `nodelay` avoids keeping a queue of delayed requests. Budgets refill
-continuously: roughly one slot per 6 seconds for login/registration, 1 second for
-refresh, 30 seconds for imports, and 50 ms for ordinary API requests. Clients should
-back off after 429 rather than retry immediately; another client sharing their IP
-can consume recovered capacity. Standard NGINX error bodies retain all Step 8.3
-security headers and the selected `X-Correlation-ID`.
+Host port overrides do not change internal service ports. Changing `GATEWAY_HOST_PORT` also requires updating Angular's development proxy when using `npm start`.
 
-Active proxied requests are also capped at **20 per IP**, **200 across this gateway**,
-and **2 concurrent imports across this gateway**. The shared counters cover all
-workers. Requests count after their full headers arrive, including requests waiting
-for a body or upstream. Slots are released when requests finish/disconnect.
-OPTIONS bypasses rate and import-specific budgets but still obeys the broad active
-request caps; its backend routing/authentication behavior is unchanged. `/health`
-is exempt from every new limiter and stays a cheap static response. Local 404 and
-method rejections remain fast returns without consuming upstream budgets.
+## Environment configuration
 
-All zones and limits are in `gateway/nginx.conf`; shared memory is bounded (52 MiB
-configured across request and connection zones). Keep `limit_req` and `limit_conn`
-directives together at server scope: child-level directives replace inheritance
-for that directive family. Safe access logs include rate/connection admission
-outcomes, with no credential data. Existing timeouts and buffer/body limits remain.
+[.env.example](.env.example) supplies local Compose defaults. Root `.env` is used for Compose interpolation; it is not automatically loaded by native .NET or Angular processes. Shell variables take precedence over dotenv values. Keep actual environment files and PEM files out of Git and never publish resolved Compose output; use `config --quiet`.
 
-Verify with `python -B scripts/verify-gateway-rate-limits.py`, followed by
-`python scripts/verify-gateway-security.py --live` against the reloaded local stack.
-The isolated rate test uses the exact gateway configuration, synthetic NGINX
-upstreams, and a disposable `python:3.14-alpine` test client. It checks every real
-burst/refill interval, independent source IPs, spoof resistance, all three active
-request caps and recovery, health/OPTIONS behavior, and headers on 429 responses.
-It holds at most 200 synthetic incomplete bodies, writes no application data, and
-removes its test containers/network. Existing live smoke tests are paced below
-the general rate instead of bypassing the limiter. Validate Compose with
-`docker compose config --quiet` to avoid printing resolved credentials.
-
-These are initial limits for this architecture, not load-tested capacity figures.
-Shared NATs (including Docker/Angular dev proxies) share budgets. State is local
-to one gateway instance, survives a normal config reload, and resets on restart;
-multiple replicas do not share counters. Published backend ports still bypass
-these controls. Partial-header/idle connections are governed by the existing
-worker and timeout bounds rather than `limit_conn`. This is application-level
-abuse protection, not protection against network saturation or a distributed
-botnet. No WAF/CDN, Redis, CAPTCHA, account lockout, backend limits, TLS, or telemetry
-has been added. A future trusted upstream proxy requires deliberate real-IP trust
-configuration; do not simply trust client-supplied forwarding headers.
-
-## Production API errors (Step 8.5)
-
-Both backends reuse their existing `success: false` / `error` envelope. Errors have
-`code`, a safe `message`, and optional validation `details`. The .NET response
-keeps `traceId` equal to `X-Correlation-ID`; Quarkus keeps its existing
-`meta.timestamp`, `meta.traceId`, and `meta.correlationId`. Error responses carry
-the same sanitized `X-Correlation-ID` as request logs, including rejected tokens.
-
-Validation/binding failures return 400 (existing Quarkus query-conversion 404s are
-preserved), authentication 401, authorization 403, missing resources 404, business
-conflicts 409, and unexpected failures 500. Explicit framework statuses such as
-405, 413, 415, and 503 remain intact. Existing business codes/messages remain;
-framework messages are replaced with fixed text. MVC/framework validation does
-not echo submitted values. Invalid vocabulary JSON/data and missing upload files
-return 400; file-system or persistence failures remain server errors.
-
-Authentication decisions and bearer challenges remain unchanged; .NET omits
-challenge diagnostic details. Quarkus proactive authentication stays enabled and
-its failure response customization is non-blocking. Unexpected exceptions are
-logged once with bounded exception types/code locations and request IDs, without
-exception messages, source paths, payloads, or credentials. Expected business and
-validation failures use normal completion logs rather than error-level dumps.
-Business error messages and future validator messages must stay safe for clients.
-
-Gateway-generated errors and health responses keep their existing formats. The
-API contract cannot replace transport errors that occur before application
-middleware or responses that have already started. No Gateway or Angular runtime
-changes are required.
-
-Verify with `dotnet test dotnet/JapaneseLearning.User.sln --configuration Release`,
-`quarkus/mvnw.cmd -f quarkus/pom.xml verify`, and
-`python -B scripts/verify-correlation.py` against rebuilt local containers.
-Step 8.10 corrected the two stale import fixtures and the missing-upload validation
-annotation; the complete Quarkus suite now passes. Use
-`-Dquarkus.http.test-port=0` when port 8081 is occupied by the development API.
-
-## Container hardening (Step 8.6)
-
-All eight Compose services run as non-root with a read-only root filesystem,
-`no-new-privileges`, an init process, disabled kernel core dumps, and explicit
-CPU, memory (including swap), and process limits. All Linux capabilities are
-removed except `NET_BIND_SERVICE` on SQL Server: the pinned vendor executable
-has `cap_net_bind_service=ep`, so removing it from the bounding set causes
-`exec` to fail with `Operation not permitted`. No root, privileged mode, or
-`SYS_PTRACE` exception is needed. See the Linux
-[capability execution rules](https://man7.org/linux/man-pages/man7/capabilities.7.html).
-
-| Service | Memory ceiling | CPUs | Process/thread ceiling |
-| --- | --- | --- | --- |
-| Gateway | 256 MiB | 1 | 128 |
-| .NET API | 512 MiB | 2 | 256 |
-| Quarkus API | 1 GiB | 2 | 256 |
-| MySQL | 1 GiB | 2 | 256 |
-| SQL Server | 3 GiB | 2 | 512 |
-| Each Flyway job | 512 MiB | 1 | 128 |
-| SQL initializer | 256 MiB | 1 | 64 |
-
-These are initial development-stack budgets, not measured production capacity.
-SQL Server's internal memory budget is 2048 MiB, leaving container headroom.
-Tmpfs usage counts against container memory. Tune budgets together under real load.
-
-The existing database named volumes remain writable and unchanged. MySQL uses
-its image UID/GID 999 directly; existing volumes must already be owned accordingly.
-SQL Server retains its image user. No automatic recursive ownership changes are
-performed. Temporary paths are explicit, bounded tmpfs mounts: gateway PID/body
-buffers, MySQL sockets, API/framework temporary files, and Java working files.
-JVM tmpfs mounts allow native-library mappings; other temporary mounts are
-`noexec`. All use `nosuid,nodev`. The .NET Data Protection directory remains
-transient as it was on container recreation; JWT signing still uses the existing
-read-only PEM mounts and does not depend on those framework keys.
-
-NGINX now runs entirely as UID 101 on container port 8080; the host gateway URL
-stays `http://localhost:8080`. Its mounted configuration bypasses image startup
-scripts, with logs on stdout/stderr. Database and direct-backend published ports
-bind only to `127.0.0.1`, retaining local tools and Angular development access.
-The gateway remains the externally exposed entry point. Network segmentation,
-secret delivery, database-account privilege changes, and TLS are outside this step.
-
-Graceful-stop budgets are 75 seconds for NGINX (SIGQUIT, workers bounded to 65s),
-45s for APIs (Quarkus drains for up to 20s), 60s for databases, and 30s for jobs.
-SQL Server executes directly so stop signals reach the server; database creation
-continues through the separate initializer and Flyway jobs. Long-running services
-keep `unless-stopped`; completed jobs keep `restart: no`. Image bases and vendor
-services are pinned to the inspected digests. Refresh these deliberately for
-security updates; pinning is not vulnerability scanning. Quarkus application files
-are root-owned and readable, but not writable, by its runtime user.
-
-Verification (build first with `docker compose build`):
-
-- `python -B scripts/verify-container-hardening.py --fresh` starts a separate stack
-  with generated DB credentials, no fixed names/ports, and tmpfs databases. It
-  exercises first initialization, migrations, real register/login/refresh, JWKS,
-  authorization, and API recreation. It creates/deletes no Docker volumes and
-  does not change existing application data; it does reuse read-only JWT binds.
-- `python -B scripts/verify-container-hardening.py` checks the running stack's
-  actual restrictions, health, and completed jobs.
-- Use `--snapshot <temporary-file>` before and `--compare <temporary-file>` after
-  recreating the existing DB containers to compare volume identities and aggregate
-  fingerprints of account/token and selected vocabulary tables. No row data or
-  credentials are saved. Concurrent application writes can invalidate comparison.
-- `python -B scripts/verify-gateway-security.py --live` and
-  `python -B scripts/verify-gateway-rate-limits.py` exercise the gateway with its
-  actual Compose runtime restrictions, including correlation and limiter recovery.
-
-Never use volume deletion to resolve permission failures. On other hosts, verify
-bind permissions and UID ownership before starting; Docker Desktop verification
-does not establish compatibility with every rootless engine or host filesystem.
-
-# GIT SUBMODULE CHEAT SHEET
-
-## Clone Repository + All Submodules
-
-    git clone --recurse-submodules <REPOSITORY-URL>
-
-## Initialize Submodules After Cloning
-
-    git submodule update --init --recursive
-
-## Check Submodule Status
-
-    git submodule status
-
-## Update All Submodules
-
-    git submodule update --remote
-
-## Update a Specific Submodule
-
-    git submodule update --remote <SUBMODULE>
-
-## Work in a Submodule
-
-    cd <SUBMODULE>
-
-    git switch <BRANCH>
-
-    git pull
-
-## Create a Feature Branch
-
-    git switch -c feature/<FEATURE-NAME>
-
-## Push a Branch for the First Time
-
-    git push -u origin <BRANCH>
-
-## Commit and Push Changes
-
-    git add .
-    git commit -m "<COMMIT-MESSAGE>"
-    git push
-
-## Return to Root Repository
-
-    cd ..
-
-## Update Root Repository with Submodule Changes
-
-    git status
-    git add <SUBMODULE>
-    git commit -m "chore: update <SUBMODULE> submodule"
-    git push
-
-## Recreate a Local Branch from Remote
-
-    git fetch origin
-    git switch -c <BRANCH> --track origin/<BRANCH>
-## Configuration and secrets
-
-`.env.example` contains blank password placeholders and non-sensitive defaults.
-Supply all three DB passwords locally; never paste resolved `docker compose config`,
-container environments, or private key contents into logs/issues. Use
-`docker compose config --quiet` to validate without printing credentials.
-Compose environment values remain visible to Docker administrators; protect host
-access and `.env` with owner-only permissions. Git ignore rules are a guard against
-accidental additions, not protection against `git add -f` or secrets pasted into code.
-
-The pinned MySQL initializer does not escape SQL password literals or its client
-option file. A small Compose entrypoint guard rejects quotes, backslashes, control
-characters and blank MySQL passwords before initialization, with setting names only
-in errors. MySQL database/user names use 1-64 ASCII letters/digits/underscores/hyphens.
-This restriction does not apply to SQL Server passwords. Keep existing volume
-credentials; do not change passwords in `.env` as a substitute for database rotation.
-
-Compose passes .NET database server/name/user/password separately. SqlClient builds
-and escapes the connection string, including passwords containing quotes or semicolons.
-For standalone .NET development use `Database__ConnectionString` **or** the four
-`Database__Server`, `Database__Name`, `Database__User`, `Database__Password` settings;
-do not mix both forms. `Database__TrustServerCertificate=true` retains the current
-local SQL Server behavior. No passwords belong in appsettings files.
-Quarkus uses `DB_USERNAME`, `DB_PASSWORD`, and a credential-free
-`DB_REACTIVE_URL=mysql://host:port/database`. `AUTH_SERVER_URL` and `AUTH_JWKS_URL`
-accept HTTP/HTTPS URLs without user information, queries, or fragments; credentials
-must never be embedded in URLs. Existing localhost auth defaults remain available.
-
-Both services validate required settings at startup without echoing rejected values.
-.NET also validates connection-string syntax and RSA key pairs. JWT key IDs use
-1-128 ASCII letters/digits/hyphens/underscores; issuer/audience values are bounded to
-256 characters without control characters. Access lifetime is 1-1440 minutes;
-refresh lifetime is 1-365 days (`Jwt__RefreshTokenExpirationDays`, default 7).
-The services must share issuer/audience values. Configuration validation does not
-prove connectivity: authenticated readiness checks still verify databases.
-
-The key generator uses exclusive file creation and a unique temporary build directory.
-New private keys are owner-only on Unix (0600) and Windows (a protected owner ACL).
-On Linux, grant only the container UID 1654 read access and directory traversal
-before startup, using ownership or a narrow ACL; do not make private keys world-readable.
-Generation never overwrites existing keys. Existing keys/permissions are not changed.
-Back up signing keys securely; changing them invalidates existing access tokens.
-
-Run `python -B scripts/verify-configuration.py` to audit tracked files and ignore
-rules without printing secrets. After building images, add `--startup` to exercise
-safe startup failures in disposable containers. Existing root verification scripts
-cover gateway security, correlation, rate limits, and isolated full-stack auth flows.
-The database accounts and existing volumes retain their current credentials;
-credential rotation and provisioning less-privileged SQL Server accounts require
-separate coordinated database administration.
-
-## Local observability and metrics
-
-Both APIs export Prometheus-format metrics on their existing backend listeners:
-.NET at http://localhost:8081/metrics (Docker user-api:8080/metrics), and Quarkus
-at http://localhost:8082/q/metrics (Docker vocabulary-api:8080/q/metrics).
-These anonymous scrape endpoints are for the trusted Compose network and localhost
-debugging only. The Gateway returns 404 for both paths. Keep backend ports bound to
-localhost; this setup is not a public monitoring deployment. Existing health paths,
-JWT/JWKS behavior, structured logs, and correlation IDs are unchanged.
-
-.NET uses prometheus-net's HTTP middleware and process/GC collector in a dedicated
-registry; arbitrary .NET Meters/EventCounters are not automatically exported.
-Quarkus uses its Micrometer Prometheus extension, Vert.x HTTP instrumentation and
-JVM/system binders. A filter permits only HTTP and runtime metrics. HTTP labels
-contain fixed route groups, standard methods (others collapse to OTHER) and
-bounded status codes. They contain no paths, query strings, identities, exception
-messages, credentials or correlation IDs. Health and scrape traffic is excluded
-from application HTTP metrics. Correlation IDs remain in logs, not metric labels
-or HTTP exemplars. No tracing pipeline is installed.
-
-| Metric family | Purpose |
+| Settings | Consumers / behavior |
 | --- | --- |
-| .NET http_requests_received_total, http_request_duration_seconds, http_requests_in_progress | Completed requests, status/error counts, latency buckets, active requests |
-| Quarkus http_server_requests_seconds | Request/status counts and latency buckets |
-| .NET process_*, dotnet_* | CPU, process/managed memory, threads, GC collections, start time |
-| Quarkus jvm_*, process_*, system_* | Heap, GC, threads, uptime, CPU and runtime resource use |
-| Prometheus up | Scrape availability; this is not database readiness |
+| `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` | MySQL initialization; application user/password also used by vocabulary Flyway and Quarkus |
+| `MSSQL_SA_PASSWORD`, `MSSQL_DATABASE` | SQL Server initialization, user Flyway and .NET; database defaults to `JapaneseLearningUser` |
+| `JWT_ISSUER`, `JWT_AUDIENCE` | Shared .NET issuance and Quarkus verification contract |
+| `JWT_KEY_ID`, `JWT_ACCESS_TOKEN_EXPIRATION_MINUTES` | .NET signing key identifier and access lifetime |
+| `QUARKUS_MIGRATION_PATH`, `DOTNET_MIGRATION_PATH` | Read-only Flyway SQL mounts; defaults point into the submodules |
+| Host port variables above | Local published ports |
+| `GRAFANA_ADMIN_PASSWORD` | Required only with the monitoring overlay |
+| `MSSQL_PID`, `RELEASE_TAG`, `JWT_REFRESH_TOKEN_EXPIRATION_DAYS` | Consumed by the production overlay; present in the local template but **not passed by base Compose** |
 
-To enable the optional local dashboard, set a strong GRAFANA_ADMIN_PASSWORD in
-the ignored .env, then run:
+MySQL names accept 1–64 ASCII letters, digits, underscores or hyphens. Its initializer rejects blank passwords, quotes, backslashes and control characters. SQL Server requires a password accepted by its password policy. Single-quote dotenv values containing `$` to prevent interpolation. Editing dotenv does not rotate credentials already stored in database volumes.
 
-    docker compose -f docker-compose.yml -f compose.observability.yml config --quiet
-    docker compose -f docker-compose.yml -f compose.observability.yml up -d --build
+Compose supplies .NET split `Database__*` settings and container PEM paths. Quarkus receives `DB_USERNAME`, `DB_PASSWORD`, `DB_REACTIVE_URL=mysql://mysql:3306/<database>`, `AUTH_SERVER_URL=http://user-api:8080`, and `AUTH_JWKS_URL=http://user-api:8080/.well-known/jwks.json`. Private signing keys are mounted only into .NET.
 
-Prometheus is at http://localhost:9090; Grafana is at http://localhost:3000
-(username admin, password from .env). Grafana requires authentication and
-has a provisioned **Japanese Learning APIs** dashboard in the **Japanese Learning**
-folder. It shows scrape availability, request/4xx/5xx rates, p95 latency, memory,
-CPU, GC and threads. Generate normal API traffic and allow at least two 15-second
-scrapes for rate panels; empty error series mean no such events have been observed.
+For native configuration, follow the [.NET environment guide](dotnet/README.md#environment-configuration) and [Quarkus environment guide](quarkus/README.md#environment-configuration). Use host database addresses and explicit matching issuer/audience values; .NET accepts either a full connection string or split settings, not both. Angular has no dotenv or runtime environment loader and needs no secrets.
 
-The overlay leaves the default development stack unchanged. Both new containers
-are non-root, read-only apart from data volumes/tmpfs, drop capabilities and have
-resource limits. Images are version/digest pinned. Scrapes have sample/label/size
-limits; Prometheus retains two days or 512 MB of blocks, whichever limit is reached
-(WAL/head data can use additional space). The prometheus_data and grafana_data volumes persist.
-Changing the Grafana password environment variable does not rotate an already
-initialized admin account; use Grafana's password-change workflow. Do not delete
-volumes to change credentials. Grafana analytics and plugin preinstallation are disabled.
+## Local development workflow
 
-Run `python -B scripts/verify-observability.py` after starting the base stack with
-the rebuilt images. It tests metric label safety, Gateway exclusion, and disposable
-Prometheus/Grafana containers that scrape the running APIs. It uses generated
-credentials and tmpfs data, queries every dashboard panel through authenticated
-Grafana, and removes only its test containers/network. It never changes .env or
-existing volumes. `verify-container-hardening.py --fresh` additionally verifies real
-register/login/refresh/JWKS/role flows and checks their credentials/tokens against
-both backend metrics and service logs.
+### Angular locally, backends in containers
 
-References: [prometheus-net](https://github.com/prometheus-net/prometheus-net),
-[Quarkus Micrometer](https://quarkus.io/guides/telemetry-micrometer/).
+```sh
+docker compose up -d --build gateway
+cd angular
+npm ci
+npm start
+```
+
+Gateway dependencies bring up both APIs, databases and migration jobs. Open http://localhost:4200. The development proxy keeps browser API calls same-origin; starting Angular alone does not start backend services.
+
+### Native backend development
+
+Start database infrastructure independently:
+
+```sh
+docker compose up -d mysql sqlserver
+docker compose up -d flyway-user flyway-vocabulary
+docker compose ps -a
+```
+
+Wait for both Flyway jobs and `sqlserver-init` to exit successfully before starting APIs. Configure local credentials and key paths as described above, then:
+
+1. In `dotnet/`, use `dotnet run --project src/JapaneseLearning.User.Api --launch-profile https`. This profile exposes HTTPS 7066 and HTTP 5116. For intentional HTTP-only development, set `Http__RedirectToHttps=false` and use `--launch-profile http`.
+2. In `quarkus/`, point the database at localhost and Auth/JWKS at the reachable .NET listener, then use `./mvnw quarkus:dev` (PowerShell: `.\mvnw.cmd quarkus:dev`).
+
+Quarkus defaults to port 8080, which conflicts with the container Gateway. The checked-in Gateway targets Docker service names, not host-native APIs: no root override wiring a fully native stack through that Gateway is supplied. Use native services directly for service development; use the container backend workflow above for complete browser integration.
+
+### Rebuild, inspect and stop
+
+```sh
+docker compose build
+docker compose up -d --build
+docker compose logs --tail 100 gateway user-api vocabulary-api frontend
+docker compose exec gateway nginx -t
+docker compose stop
+```
+
+For schema changes, explicitly rerun the relevant Flyway job before restarting dependent APIs; image rebuilds do not establish migration success. The production operator handles that order automatically.
+
+`docker compose down` removes containers/network while retaining named volumes. Adding `-v` deletes database and log volumes; it is not a troubleshooting step.
+
+| Check | Default local URL |
+| --- | --- |
+| Frontend / Gateway process health | http://localhost:8088/health / http://localhost:8080/health |
+| Auth liveness / readiness | http://localhost:8081/health/live / http://localhost:8081/health/ready |
+| Learning liveness / readiness | http://localhost:8082/q/health/live / http://localhost:8082/q/health/ready |
+| Auth Swagger | http://localhost:8081/swagger |
+| Learning Swagger / OpenAPI | http://localhost:8082/q/swagger-ui / http://localhost:8082/q/openapi |
+| Public JWKS (direct Auth port) | http://localhost:8081/.well-known/jwks.json |
+
+Readiness checks database connectivity, not every business query or migration version. Frontend/Gateway health checks only their own NGINX processes. Compose gates initial startup; it does not remove traffic from unhealthy services or restart a container merely because it is unhealthy.
+
+## Authentication and request flow
+
+1. Angular sends registration/login requests through its same-origin proxy and Gateway to .NET.
+2. .NET verifies accounts in SQL Server and returns an RS256 access token and refresh token. Angular calls `/api/auth/me` for identity/role and stores session state **in memory only**; reloading requires sign-in.
+3. Angular attaches the bearer token to protected API requests. Gateway forwards it unchanged and performs **no JWT or role validation**.
+4. .NET validates its protected routes. Quarkus verifies signature, issuer, audience and lifetime using .NET's public JWKS; User/Admin policies and subject-scoped quiz ownership are enforced in Quarkus.
+5. Angular coordinates refresh after a 401 and retries once. Logout revokes the refresh token; already-issued access tokens remain valid until expiry.
+
+JWKS is fetched at Quarkus initialization and cached. Cached-key verification can continue during an Auth outage; a required key refresh cannot. No private key is shared with Gateway, Quarkus or Angular. See the submodule authentication sections for token and authorization details.
+
+Gateway enforces a 10 MiB request-body limit, timeouts, security headers and bounded correlation IDs. Its sustained limits are 20 API requests/second, 10 combined login/registration requests/minute, 60 refreshes/minute and 2 vocabulary imports/minute, with configured bursts and connection caps. Limits use the TCP peer: browsers behind the frontend proxy share its budgets. HTTP 429 requires backoff. The import-specific budget covers `/api/vocabularies/import`, not every feature import endpoint. See [gateway/nginx.conf](gateway/nginx.conf) for exact rules.
+
+## Infrastructure and databases
+
+Startup dependencies are:
+
+```text
+MySQL healthy -> vocabulary Flyway succeeds ----------------------+
+SQL Server healthy -> SQL init succeeds -> user Flyway succeeds   |
+                                         -> Auth ready ----------+-> Quarkus ready
+Auth ready + Quarkus ready -> Gateway healthy -> Frontend
+```
+
+Migrations are mounted from [dotnet/db/migration](dotnet/db/migration) and [quarkus/src/main/resources/db/migration](quarkus/src/main/resources/db/migration). Neither API applies migrations at startup. The READMEs document SQL migrations V1–V4 and MySQL V1–V8. Do not edit previously applied migrations.
+
+Named volumes preserve `mysql_data`, `sqlserver_data`, `user_api_logs` and `vocabulary_api_logs`. They are scoped by the Compose project name; changing that name selects different storage. Keep the project name stable. Volumes are not backups.
+
+The current .NET runtime and user migration job use SQL `sa`; the MySQL application account also runs migrations. Separate runtime/migration privileges require coordinated database configuration. Containers use non-root users, read-only root filesystems, explicit writable mounts, resource limits and dropped capabilities; SQL Server retains `NET_BIND_SERVICE`.
+
+### Optional monitoring and logging
+
+Set `GRAFANA_ADMIN_PASSWORD` in `.env`, then:
+
+```sh
+docker compose -f docker-compose.yml -f compose.observability.yml config --quiet
+docker compose -f docker-compose.yml -f compose.observability.yml up -d --build
+```
+
+Prometheus is at http://localhost:9090 and Grafana at http://localhost:3000 (user `admin`, configured password), both loopback-only. Prometheus scrapes `user-api:8080/metrics` and `vocabulary-api:8080/q/metrics` every 15 seconds. Grafana provisions the **Japanese Learning APIs** dashboard. Monitoring adds `prometheus_data` and `grafana_data`; Prometheus retention is bounded to two days / 512 MB. Scrape availability does not prove database readiness.
+
+Use the same two-file Compose combination for monitoring status/stop operations. Omitting the overlay later does not stop existing monitoring containers. Changing the initial Grafana password variable does not rotate an existing account.
+
+Both APIs write console and retained file logs. Gateway logs fixed route families, status, timings and correlation IDs instead of request bodies or arbitrary URLs. Use `X-Correlation-ID` to relate proxy/backend events. API file retention is documented in each submodule; Quarkus age-based retention does not impose a total disk quota. Production additionally rotates Docker logs at 10 MB × 5 files per service. No central logging or tracing backend is provided.
+
+## Build and testing
+
+Run from the stated directory; detailed test prerequisites and opt-in integration suites are in the linked READMEs.
+
+| Directory | Build | Tests |
+| --- | --- | --- |
+| Root | `docker compose build` | No unified application test command |
+| `angular/` | `npm ci`, then `npm run build` | `npm test -- --watch=false` |
+| `dotnet/` | `dotnet build JapaneseLearning.User.sln -c Release` | `dotnet test JapaneseLearning.User.sln -c Release` |
+| `quarkus/` | `./mvnw package` | `./mvnw verify "-Dquarkus.http.test-port=0"` |
+
+Container builds are not a substitute for service test suites. Use `mvnw.cmd` on Windows. Root checks include:
+
+- `docker compose config --quiet`: Compose syntax/interpolation validation without displaying secrets.
+- `python -B scripts/test-production.py`: mocked deployment failure/order tests; no Docker calls.
+- `python -B scripts/verify-configuration.py`: configuration/secret-exclusion audit; `--startup` additionally starts disposable test containers.
+- `python -B scripts/verify-correlation.py`: checks the running local stack without application data writes.
+- [Gateway security](scripts/verify-gateway-security.py), [rate limits](scripts/verify-gateway-rate-limits.py), [container hardening](scripts/verify-container-hardening.py) and [observability](scripts/verify-observability.py) scripts provide targeted runtime checks; some create isolated containers.
+- [Production verification](scripts/verify-production.py) and [fresh E2E verification](scripts/verify-final-e2e.py) build/use isolated deployments and retain test resources. Follow the [runbook](deployment/README.md) before running them.
+
+Some integration tests create accounts/content or retain test volumes. Their prerequisites and isolation differ; they are not interchangeable smoke tests. The [historical E2E report](deployment/FINAL-E2E-VERIFICATION.md) records an earlier working tree, not proof that the current checkout passes.
+
+## Deployment
+
+The supported resources describe a **single Linux host with maintenance-window deployments**. Follow [deployment/README.md](deployment/README.md) for provisioning, HTTPS, backups, updates and rollback.
+
+Copy [deployment/production.env.example](deployment/production.env.example) to protected `.env.production`, provision keys, choose a production-permitted SQL Server edition and a unique `RELEASE_TAG`, then run from the root:
+
+```sh
+python3 -B scripts/production.py validate
+python3 -B scripts/production.py build
+python3 -B scripts/production.py deploy
+python3 -B scripts/production.py status
+python3 -B scripts/production.py verify
+```
+
+The operator combines base and production Compose files, builds locally tagged `japanese-learning/{frontend,user-api,vocabulary-api}:<RELEASE_TAG>` images, stops application traffic, recreates init/migration jobs, and starts services in readiness order. Reusing existing release tags is rejected. No registry publishing or CI/CD pipeline is configured.
+
+Production removes backend, database, Gateway and Prometheus host ports. It uses separate edge/frontend/API/database networks; only frontend HTTP remains at loopback port 8088. A host-managed TLS reverse proxy, certificates, domain and firewall are external requirements, not supplied configurations.
+
+For optional monitoring, consistently add `--monitoring` before the operator action; it applies both monitoring overlays in the required order. Grafana remains loopback-only for SSH-tunnel access. Keep the production project name/configuration stable, preserve keys and database backups, and use the runbook's migration-compatible rollback procedure.
+
+## Git submodule workflow
+
+[.gitmodules](.gitmodules) maps `angular`, `dotnet` and `quarkus` to the corresponding `phat-dat-ag/japanese-learning-*` GitHub repositories. Each has independent history; the root records a commit reference, not its files.
+
+```sh
+# After cloning without --recurse-submodules, or pulling a root revision:
+git submodule update --init --recursive
+git submodule status
+git status --short
+
+# Intentionally select upstream changes (review before recording):
+git submodule update --remote angular
+# All three, only when deliberately upgrading them together:
+git submodule update --remote
+```
+
+For reproducible onboarding/releases, use pinned revisions via `--init --recursive`, not `--remote`. A leading `-` in submodule status means uninitialized; `+` means the checkout differs from the root pin. Preserve local submodule work before switching revisions.
+
+To contribute, create a branch inside the relevant submodule, commit and push there first, then record its new revision in the root. Example:
+
+```sh
+git -C angular switch -c feature/example
+# Edit and commit intended files inside angular, then:
+git -C angular push -u origin feature/example
+git add angular
+git commit -m "chore: update Angular submodule"
+```
+
+Push the root commit through the normal review workflow after the referenced submodule commit is available remotely.
+
+## Troubleshooting
+
+| Symptom | Check / action |
+| --- | --- |
+| Missing build context or migration files | Run `git submodule update --init --recursive`; verify submodule status |
+| Compose reports required variables missing | Create/fill `.env`; check shell overrides and validate with `config --quiet` |
+| Auth fails before HTTP starts | Check database settings, matching RSA files and UID 1654 read/traversal access |
+| Migration job exits nonzero | Inspect its restricted logs locally; verify target database/credentials and migration history before restarting dependent APIs |
+| Database authentication fails after editing dotenv | Persisted credentials did not change; restore matching configuration or perform deliberate database credential rotation |
+| Port already allocated | Check the host-port variables; native Quarkus uses 8080 and its default test port can conflict with Auth on 8081 |
+| Gateway/frontend returns 502 or 504 | Check API readiness and upstream logs; NGINX health alone does not prove backend availability |
+| Angular development API calls fail | Ensure Gateway is on the configured port, requests use `/api`, and restart `npm start` after proxy edits |
+| 401 / 403 | Check token lifetime, issuer/audience/JWKS and clocks / required role; registered accounts start as User |
+| 429 during sign-in or imports | Wait for rate budgets to recover; frontend-proxied browsers share Gateway limits |
+| Fresh application has no learning content | Migrations seed reference data only; create/import content with an authorized Admin |
+| Sign-in disappears after reload | Expected: Angular stores its session in memory |
+| Filesystem permission failure | Check non-root mount ownership; do not delete database volumes or make private keys world-readable |
+
+## Documentation index and known gaps
+
+- [Angular README](angular/README.md): frontend setup, session behavior, UI features and browser tests.
+- [.NET README](dotnet/README.md): account/token contracts, SQL configuration, keys and tests.
+- [Quarkus README](quarkus/README.md): learning APIs, authorization, migrations and feature documentation links.
+- [Production runbook](deployment/README.md): deployment, monitoring, backups and rollback.
+- [Historical E2E report](deployment/FINAL-E2E-VERIFICATION.md): recorded results and host-specific limits.
+- [Local environment template](.env.example) and [production template](deployment/production.env.example).
+- [Gateway configuration](gateway/nginx.conf), [Prometheus configuration](observability/prometheus.yml) and [Grafana dashboard](observability/grafana/dashboards/apis.json).
+
+Known documentation/operational gaps:
+
+- The .NET README attributes Gateway ownership to Quarkus; root configuration establishes NGINX as the actual Gateway. Submodule statements about absent orchestration apply to their standalone repositories.
+- No supported first-Admin provisioning workflow or automatic learning-content seed is documented.
+- No checked-in Gateway override connects a complete host-native backend stack.
+- The September 2026 E2E report covers MySQL migrations through V5; the current Quarkus README documents V8 and quiz features. Current full-stack behavior needs fresh verification.
+- `.env.example` repeats `FRONTEND_PORT` and includes production-only variables; the environment table above identifies their actual consumers.
+- Production domain/TLS configuration, backup restoration, host permissions/firewall and capacity must be verified on the target host. The repository does not establish that a production environment is deployed.
