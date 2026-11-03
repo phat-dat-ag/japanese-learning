@@ -110,7 +110,10 @@ Run Python with `-X utf8` on Windows if using the scripts with Docker Desktop.
 - `MSSQL_PID` selects the permitted production edition. SQL Server license acceptance
   remains in the base Compose file. Confirm entitlement before starting.
 - Set bounded `JWT_ISSUER`, `JWT_AUDIENCE`, unique `JWT_KEY_ID`, and token lifetimes.
-  Both backends share the contract; key paths remain `/app/secrets/jwt/{private,public}.pem`.
+  Both backends share the contract. The .NET signing directory is mounted read-only
+  at `/run/keys/jwt`; legacy mode uses `{private,public}.pem` there. For indexed
+  signing, set `USER_API_SIGNING_ENV_FILE` to a production-specific env file and
+  configure exactly one active entry whose public key/kid is published by JWKS.
   URLs remain internal: `mysql://mysql:3306/<database>`, `sqlserver,1433`,
   `http://jwks-api:8080`, and `http://jwks-api:8080/.well-known/jwks.json`.
   No browser-specific backend URL is needed. Public hostname and certificates belong
