@@ -112,7 +112,7 @@ def main():
         sensitive += [refreshed['accessToken'], refreshed['refreshToken']]
         api('/api/auth/logout', 204, {'refreshToken': refreshed['refreshToken']})
         api('/api/auth/refresh', 401, {'refreshToken': refreshed['refreshToken']})
-        jwks = json.loads(docker('exec', state['user-api']['Id'], 'curl', '-fsS', 'http://127.0.0.1:8080/.well-known/jwks.json'))
+        jwks = json.loads(docker('exec', state['jwks-api']['Id'], 'curl', '-fsS', 'http://127.0.0.1:8080/.well-known/jwks.json'))
         assert jwks['keys'] and all('d' not in key for key in jwks['keys'])
         # Only the generated account in this disposable project's DB is promoted.
         docker('exec', state['sqlserver']['Id'], 'sh', '-c',

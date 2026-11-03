@@ -183,7 +183,7 @@ def authentication(e, client):
     client.request('/api/v1/jlpt-levels', 200, token=refreshed['accessToken'])
     client.request('/api/auth/logout', 204, body={'refreshToken': refreshed['refreshToken']})
     client.request('/api/auth/refresh', 401, body={'refreshToken': refreshed['refreshToken']})
-    jwks = json.loads(e.execute('user-api', 'curl', '-fsS', 'http://localhost:8080/.well-known/jwks.json'))
+    jwks = json.loads(e.execute('jwks-api', 'curl', '-fsS', 'http://localhost:8080/.well-known/jwks.json'))
     decode = lambda value: base64.urlsafe_b64decode(value + '=' * (-len(value) % 4))
     header_part, payload_part, signature_part = token.split('.')
     header, payload = json.loads(decode(header_part)), json.loads(decode(payload_part))

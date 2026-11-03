@@ -1,8 +1,8 @@
-# Independent development JWKS service
+# JWKS deployment and JWT verification
 
 `jwks-api` builds `springboot-jwks-api/Dockerfile` using Java 17 and its Maven
-wrapper. It has no service dependencies and does not change authentication in
-any existing application. This document describes this root deployment; the
+wrapper. It has no service dependencies. .NET remains the issuer; .NET and
+Quarkus now retrieve verification keys from this service. This document describes this root deployment; the
 submodule README's other-root `./key` mount and port 8783 do not apply here.
 There is no submodule `docs/INTEGRATION.md` in the current checkout.
 
@@ -94,11 +94,13 @@ file, 30-day history, 2 GB archive cap). Restart policy is `unless-stopped`.
 Healthcheck uses curl supplied by the submodule image, every 10 seconds, with a
 6-second timeout, 12 retries and 30-second start period.
 
-No production, observability, gateway, or consumer configuration is changed.
-Production deployment and network isolation require a separate review; this
-development integration is inherited if overlays are combined with the base file.
+The production overlay places JWKS on the existing internal `api` network,
+removes its host port, and tags its image with `RELEASE_TAG`. Production tooling
+builds and checks the JWKS release image, starts it before consumers, and includes
+its health in verification. No production deployment was executed. Observability,
+Gateway and Angular configuration are unchanged.
 
-## Validation performed (2026-11-03)
+## Infrastructure-phase validation (2026-11-03, before consumer migration)
 
 - Base Compose syntax and resolved JWKS environment: passed.
 - Observability overlay: passed with a temporary validation-only Grafana password;
@@ -117,3 +119,166 @@ development integration is inherited if overlays are combined with the base file
   restarted or removed, and no existing data volumes were mounted by JWKS.
 - Submodule working tree is unchanged; `git diff --check` passed. Production
   deployment was not started or changed.
+
+## Consumer migration (2026-11-03)
+
+Previously .NET issued RS256 JWTs and verified them with the local public key.
+It never consumed its own JWKS endpoint. Quarkus used OIDC bearer verification
+against that .NET endpoint. Now both services retrieve keys from Spring JWKS,
+while .NET issuance, claims, refresh/logout, role policies and the legacy endpoint
+are preserved. No new package, discovery document, JWT algorithm or production
+endpoint is introduced. A small .NET `IConfigurationRetriever` adapts the raw JWK
+Set to IdentityModel's existing configuration manager; framework code performs
+signature verification, caching and refresh.
+
+| Root `.env` variable | Default | Consumer |
+| --- | --- | --- |
+| `JWT_JWKS_URL` | `http://jwks-api:8080/.well-known/jwks.json` | .NET `Jwt__JwksUrl`, Quarkus `AUTH_JWKS_URL` |
+| `JWT_JWKS_REQUIRE_HTTPS` | `false` | .NET `Jwt__RequireHttpsMetadata`; HTTP only on trusted internal/local network |
+| `JWKS_API_INTERNAL_URL` | `http://jwks-api:8080` | Quarkus `AUTH_SERVER_URL` (base URL, not JWT issuer) |
+| `AUTH_JWKS_CACHE_TTL` | `10M` | Quarkus lazy per-key cache TTL |
+
+Native local .NET development defaults to `http://localhost:8083/.well-known/jwks.json`;
+other environments must supply `Jwt__JwksUrl`. HTTPS is required by default outside
+the explicit local/internal overrides. Native Quarkus uses `AUTH_SERVER_URL` and
+`AUTH_JWKS_URL`, defaulting to the independent service on localhost port 8083.
+Existing Quarkus local `.env` files may override defaults: update old .NET URLs
+when running outside Docker. Issuer/audience remain the .NET token contract,
+not the JWKS URL. The production environment example documents the same inputs.
+
+Both frameworks fetch keys lazily; no new Compose `depends_on` is introduced.
+.NET uses a five-second HTTP timeout, a 15-minute automatic configuration refresh
+interval and a one-minute requested-refresh interval. Automatic refresh is
+on demand, not a polling timer. Superseded last-known-good configuration fallback
+is disabled; cached current keys may continue working during outages. Quarkus
+caches keys for 10 minutes by default and retrieves uncached key IDs from JWKS.
+Neither verifier bypasses signature/issuer/audience/expiry checks during outages,
+nor falls back to local or .NET JWKS keys. A cold verifier or unknown key cannot
+authenticate when required retrieval fails. .NET login remains available with
+its local signing key even if JWKS is unavailable; protected endpoints may reject
+new tokens until the public key can be fetched.
+
+For rotation, publish old and new public keys with distinct IDs in Spring, keeping
+exactly one active entry. Recreate JWKS, allow verifier caches to refresh, then
+change the .NET signing pair and `JWT_KEY_ID` together. Retain the old public key
+until all old access tokens expire plus cache/rollout time. Spring's active flag
+does not configure the .NET signer. Do not expect key removal to revoke cached
+tokens immediately. Protect the JWKS directory and endpoint as security-critical
+configuration; use HTTPS for remote networks. No keys were generated or replaced
+by this migration. Disposable RSA keys in automated fixtures are test-only.
+
+### Verification results
+
+- Before edits, live .NET and Spring JWKS matched `kid`, `kty`, `alg`, `n`, `e`.
+  The ID is `japanese-learning-local-1`. .NET's unchanged startup loader also
+  enforces matching private/public keys of at least 2048 bits.
+- Full .NET suite: **91 passed**, including issuance/claim mapping, issuer,
+  audience, required expiry, invalid signature/algorithm, unknown kid, cached vs
+  cold outage behavior, remote-key authority, and refresh after rotation.
+- Focused Quarkus suite: **43 passed** across JwtSecurityTest (21),
+  SafeConfigurationTest (11), OpenApiSecurityTest (5), HealthResponseFilterTest (2),
+  and CorrelationIdTest (4). Security tests include signatures, unknown keys,
+  issuer/audience/expiry/nbf, case-sensitive roles, caching, rotation overlap and
+  cached/uncached behavior during a simulated JWKS outage.
+- Full Quarkus suite attempted but **blocked during discovery** by the existing
+  MySQL test profile requiring a dedicated `vocabulary_import_test` database.
+  Application databases were not used for those tests.
+- Both Docker images built; only `jp_dev` .NET and Quarkus containers were
+  recreated with `--no-deps`. All three JWT-related services are healthy with
+  zero restarts. No databases, Gateway, Angular, or other-root services restarted.
+- `python scripts/verify-jwks-migration.py`: **passed** real registration/login,
+  public-key signature and kid verification, `/api/auth/me` and
+  `/api/v1/jlpt-levels` with the same token, User/Admin restrictions,
+  missing-token/invalid-signature rejection, refresh and logout/revoked refresh.
+  The initial attempt sent JSON to a multipart endpoint and got 415; the harness
+  was corrected to send multipart and the complete run passed. Unique development
+  test accounts are retained; tokens/credentials are never printed or committed.
+- Running container configuration points both verifiers at Spring. Spring logs
+  show key requests from the two API containers. The .NET legacy JWKS endpoint
+  received **zero requests since consumer recreation**.
+- Base, production, observability, and combined production/observability Compose
+  syntax passed. Monitoring validation needed a temporary Grafana password
+  placeholder because the existing root `.env` leaves it unset. Production JWKS
+  has only the internal `api` network and no published port. No production rollout
+  or full production integration suite was run.
+- Production operation tests pass; all three repositories pass `git diff --check`.
+- Postman CLI verification/simulation unavailable: managed Private Cloud manifest
+  could not be read. Existing real-HTTP loopback fixtures exercise remote failures
+  instead. No Postman workspace or external service was changed.
+
+### Changed files
+
+Root repository:
+`docker-compose.yml`, `compose.production.yml`, `.env.example`, `README.md`,
+`deployment/production.env.example`, `deployment/README.md`, `docs/JWKS.md`,
+`scripts/production.py`, `scripts/test-production.py`,
+`scripts/verify-jwks-migration.py` (new).
+
+.NET submodule:
+`src/JapaneseLearning.User.Api/Authentication/AuthenticationExtensions.cs`,
+`src/JapaneseLearning.User.Api/Authentication/JwksConfigurationRetriever.cs` (new),
+`src/JapaneseLearning.User.Api/appsettings.json`,
+`src/JapaneseLearning.User.Api/appsettings.Development.json`,
+`src/JapaneseLearning.User.Infrastructure/Configuration/JwtOptions.cs`,
+`src/JapaneseLearning.User.Infrastructure/DependencyInjection.cs`, `README.md`,
+`tests/JapaneseLearning.User.UnitTests/Security/{JwtContractTests,JwtRsaStartupTests,JwksEndpointTests,RsaKeyFixture}.cs`,
+`tests/JapaneseLearning.User.UnitTests/Health/HealthEndpointTests.cs`,
+`tests/JapaneseLearning.User.UnitTests/Logging/CorrelationIdTests.cs`.
+The pre-existing `Program.cs` edit was preserved without further changes.
+
+Quarkus submodule:
+`src/main/resources/application.properties`, `README.md`,
+`src/test/java/com/japaneselearning/security/JwksTestResource.java`,
+`src/test/java/com/japaneselearning/security/JwtSecurityTest.java`.
+Spring JWKS, Angular and Gateway working trees are unchanged.
+
+### Legacy endpoint and rollout prerequisites
+
+The former .NET `/.well-known/jwks.json` endpoint was removed in the follow-up
+cleanup authorized after this migration. Only Spring JWKS publishes keys now.
+The root checks in `scripts/final_e2e_checks.py` and `scripts/verify-production.py`
+now fetch keys from `jwks-api`. The .NET endpoint contract tests were replaced
+by a regression test that checks 404 for anonymous/authenticated requests, absence
+from Swagger and successful remote-JWKS bearer validation. External consumers of
+the retired .NET URL must use the independent endpoint.
+Historical isolated production/E2E provisioning scripts were not fully migrated or run;
+their custom issuer keys/kid must also be provisioned into independent JWKS
+before those old harnesses can establish a migrated full-stack result.
+
+Before another environment rolls out, provision `.env.jwks-api` and public files
+that match that environment's actual issuer signing key and `JWT_KEY_ID`. This
+development copy is not an automatically synchronized key store. The production
+launcher now includes JWKS among release images; build every image with a fresh
+`RELEASE_TAG` and review the public-only mount before deployment. Repository-local
+submodule changes must be committed in their own repositories and their pointers
+recorded by the root before a clean clone can reproduce the migration; no commits,
+staging or pushes were performed here.
+
+### Legacy cleanup
+
+Removed .NET `Controllers/JwksController.cs`, `JwtRsaKeys.GetPublicJsonWebKey`,
+the retained local `ValidationKey` copy, and the endpoint-specific metrics label.
+The signing pair is still loaded and checked for matching RSA parameters and
+minimum size at startup. Issuance and remote JWKS validation remain unchanged.
+The test fixture now builds public-only JWK responses from its disposable RSA
+test key, with no production publication helper.
+
+The full .NET suite passes **90 tests** after replacing the two legacy endpoint
+tests with one retired-route regression test. The .NET Docker image builds with
+zero warnings/errors. Only the .NET development container was recreated. The live
+verification script additionally checks the retired URL and Swagger document,
+then exercises login, both protected services, authorization, invalid signatures,
+refresh and logout against independent JWKS.
+
+The cleaned live flow passed, including anonymous and authenticated 404 checks
+for the retired endpoint and absence from the .NET Swagger document. All seven
+running development services are healthy; .NET, Quarkus and Spring JWKS each
+have zero restarts. Frontend page/health and Gateway health return 200, and
+unauthenticated protected routes through Gateway correctly return 401. Database
+containers/volumes and Gateway/Angular configuration were not changed by cleanup.
+
+Cleanup files: .NET `JwtRsaKeys.cs`, `ApplicationMetrics.cs`, `RsaKeyFixture.cs`,
+`README.md`, deleted `JwksController.cs` and `JwksEndpointTests.cs`, new
+`RetiredJwksEndpointTests.cs`; root `scripts/final_e2e_checks.py`,
+`scripts/verify-production.py`, `scripts/verify-jwks-migration.py`, `README.md`
+and this document. Earlier migration verification above remains historical evidence.

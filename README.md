@@ -18,7 +18,8 @@ flowchart LR
     Gateway -->|"Learning API routes"| Learning["Quarkus learning API"]
     Auth --> SQL[("SQL Server")]
     Learning --> MySQL[("MySQL")]
-    Learning -->|"Fetch public JWKS over HTTP"| Auth
+    Learning -->|"Fetch public JWKS over HTTP"| JWKS["Spring JWKS API"]
+    Auth -->|"Fetch verification keys"| JWKS
     Prometheus["Prometheus (optional)"] -->|"/metrics"| Auth
     Prometheus -->|"/q/metrics"| Learning
     Grafana["Grafana (optional)"] -->|"Query metrics"| Prometheus
@@ -73,8 +74,8 @@ Local `.env`, additional `.env.*` files, and `.vscode/` are ignored workspace co
 | --- | --- | --- |
 | `frontend` | Compiled Angular served by NGINX; waits for Gateway health | [Angular](angular/README.md) |
 | `gateway` | Routes API traffic, limits requests and supplies correlation/security headers; waits for both APIs | [NGINX configuration](gateway/nginx.conf) |
-| `user-api` | Accounts, login, token issuance/refresh/logout, public JWKS; requires SQL Server, migrations and RSA keys | [.NET](dotnet/README.md) |
-| `vocabulary-api` | Vocabulary, lessons, flashcards, quiz administration/gameplay/history/progress; requires MySQL, migrations and Auth JWKS | [Quarkus](quarkus/README.md) |
+| `user-api` | Accounts, login, token issuance/refresh/logout, remote JWKS verification; requires SQL Server, migrations and RSA keys | [.NET](dotnet/README.md) |
+| `vocabulary-api` | Vocabulary, lessons, flashcards, quiz administration/gameplay/history/progress; requires MySQL, migrations and independent JWKS | [Quarkus](quarkus/README.md) |
 | `mysql` | Learning data, including quiz state | [Base Compose](docker-compose.yml) |
 | `sqlserver` | Users, password hashes and hashed refresh tokens | [Base Compose](docker-compose.yml) |
 | `sqlserver-init` | Creates the configured SQL database if absent | [Base Compose](docker-compose.yml) |
@@ -182,7 +183,7 @@ Host port overrides do not change internal service ports. Changing `GATEWAY_HOST
 
 MySQL names accept 1–64 ASCII letters, digits, underscores or hyphens. Its initializer rejects blank passwords, quotes, backslashes and control characters. SQL Server requires a password accepted by its password policy. Single-quote dotenv values containing `$` to prevent interpolation. Editing dotenv does not rotate credentials already stored in database volumes.
 
-Compose supplies .NET split `Database__*` settings and container PEM paths. Quarkus receives `DB_USERNAME`, `DB_PASSWORD`, `DB_REACTIVE_URL=mysql://mysql:3306/<database>`, `AUTH_SERVER_URL=http://user-api:8080`, and `AUTH_JWKS_URL=http://user-api:8080/.well-known/jwks.json`. Private signing keys are mounted only into .NET.
+Compose supplies .NET split `Database__*` settings, signing PEM paths, and `Jwt__JwksUrl`. Quarkus receives `DB_USERNAME`, `DB_PASSWORD`, `DB_REACTIVE_URL=mysql://mysql:3306/<database>`, `AUTH_SERVER_URL=http://jwks-api:8080`, and `AUTH_JWKS_URL=http://jwks-api:8080/.well-known/jwks.json`. Private signing keys are mounted only into .NET; JWKS mounts a separate public-only directory.
 
 For native configuration, follow the [.NET environment guide](dotnet/README.md#environment-configuration) and [Quarkus environment guide](quarkus/README.md#environment-configuration). Use host database addresses and explicit matching issuer/audience values; .NET accepts either a full connection string or split settings, not both. Angular has no dotenv or runtime environment loader and needs no secrets.
 
@@ -212,7 +213,7 @@ docker compose ps -a
 Wait for both Flyway jobs and `sqlserver-init` to exit successfully before starting APIs. Configure local credentials and key paths as described above, then:
 
 1. In `dotnet/`, use `dotnet run --project src/JapaneseLearning.User.Api --launch-profile https`. This profile exposes HTTPS 7066 and HTTP 5116. For intentional HTTP-only development, set `Http__RedirectToHttps=false` and use `--launch-profile http`.
-2. In `quarkus/`, point the database at localhost and Auth/JWKS at the reachable .NET listener, then use `./mvnw quarkus:dev` (PowerShell: `.\mvnw.cmd quarkus:dev`).
+2. In `quarkus/`, point the database at localhost and JWKS at the independent service on port 8083, then use `./mvnw quarkus:dev` (PowerShell: `.\mvnw.cmd quarkus:dev`).
 
 Quarkus defaults to port 8080, which conflicts with the container Gateway. The checked-in Gateway targets Docker service names, not host-native APIs: no root override wiring a fully native stack through that Gateway is supplied. Use native services directly for service development; use the container backend workflow above for complete browser integration.
 
@@ -237,7 +238,7 @@ For schema changes, explicitly rerun the relevant Flyway job before restarting d
 | Learning liveness / readiness | http://localhost:8082/q/health/live / http://localhost:8082/q/health/ready |
 | Auth Swagger | http://localhost:8081/swagger |
 | Learning Swagger / OpenAPI | http://localhost:8082/q/swagger-ui / http://localhost:8082/q/openapi |
-| Public JWKS (direct Auth port) | http://localhost:8081/.well-known/jwks.json |
+| Public JWKS (independent service) | http://localhost:8083/.well-known/jwks.json |
 
 Readiness checks database connectivity, not every business query or migration version. Frontend/Gateway health checks only their own NGINX processes. Compose gates initial startup; it does not remove traffic from unhealthy services or restart a container merely because it is unhealthy.
 
@@ -246,10 +247,10 @@ Readiness checks database connectivity, not every business query or migration ve
 1. Angular sends registration/login requests through its same-origin proxy and Gateway to .NET.
 2. .NET verifies accounts in SQL Server and returns an RS256 access token and refresh token. Angular calls `/api/auth/me` for identity/role and stores session state **in memory only**; reloading requires sign-in.
 3. Angular attaches the bearer token to protected API requests. Gateway forwards it unchanged and performs **no JWT or role validation**.
-4. .NET validates its protected routes. Quarkus verifies signature, issuer, audience and lifetime using .NET's public JWKS; User/Admin policies and subject-scoped quiz ownership are enforced in Quarkus.
+4. .NET and Quarkus validate protected routes using public keys from the independent Spring JWKS service. .NET remains the RS256 issuer; issuer, audience, lifetime, User/Admin policies and subject-scoped quiz ownership remain unchanged.
 5. Angular coordinates refresh after a 401 and retries once. Logout revokes the refresh token; already-issued access tokens remain valid until expiry.
 
-JWKS is fetched at Quarkus initialization and cached. Cached-key verification can continue during an Auth outage; a required key refresh cannot. No private key is shared with Gateway, Quarkus or Angular. See the submodule authentication sections for token and authorization details.
+JWKS is fetched lazily and cached by both verifiers. Cached-key verification can continue during a JWKS outage; a required key fetch cannot. The internal endpoint is `http://jwks-api:8080/.well-known/jwks.json`; the former .NET JWKS endpoint is removed. No private key is shared with JWKS, Gateway, Quarkus or Angular. See [JWKS setup and migration](docs/JWKS.md) and the submodule authentication sections for configuration, rotation and availability details.
 
 Gateway enforces a 10 MiB request-body limit, timeouts, security headers and bounded correlation IDs. Its sustained limits are 20 API requests/second, 10 combined login/registration requests/minute, 60 refreshes/minute and 2 vocabulary imports/minute, with configured bursts and connection caps. Limits use the TCP peer: browsers behind the frontend proxy share its budgets. HTTP 429 requires backoff. The import-specific budget covers `/api/vocabularies/import`, not every feature import endpoint. See [gateway/nginx.conf](gateway/nginx.conf) for exact rules.
 

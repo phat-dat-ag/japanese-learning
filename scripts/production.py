@@ -13,7 +13,8 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 JOBS = ('sqlserver-init', 'flyway-user', 'flyway-vocabulary')
-APPS = ('user-api', 'vocabulary-api', 'gateway', 'frontend')
+APPS = ('jwks-api', 'user-api', 'vocabulary-api', 'gateway', 'frontend')
+RELEASE_APPS = ('frontend', 'user-api', 'vocabulary-api', 'jwks-api')
 
 
 def run(args, *, input=None):
@@ -106,7 +107,7 @@ def verify(project, monitoring=False):
 
 def deploy(cmd, config, project, monitoring=False):
     # Check all release images before entering the maintenance window.
-    for name in ('frontend', 'user-api', 'vocabulary-api'):
+    for name in RELEASE_APPS:
         run(['docker', 'image', 'inspect', config['services'][name]['image']])
     print('Entering maintenance window; a failure leaves application traffic stopped.', flush=True)
     try:
@@ -149,12 +150,12 @@ def main():
     if args.action == 'validate':
         print('PASS: production Compose and configuration contract validated.')
     elif args.action == 'build':
-        for name in ('frontend', 'user-api', 'vocabulary-api'):
+        for name in RELEASE_APPS:
             exists = subprocess.run(['docker', 'image', 'inspect', config['services'][name]['image']], capture_output=True)
             if exists.returncode == 0:
                 raise RuntimeError('Release image tag already exists; choose a new RELEASE_TAG before building.')
-        run(cmd + ['build', 'frontend', 'user-api', 'vocabulary-api'])
-        print('PASS: all three release images built.')
+        run(cmd + ['build', *RELEASE_APPS])
+        print('PASS: all release images built.')
     elif args.action == 'deploy':
         deploy(cmd, config, args.project, args.monitoring)
     elif args.action == 'verify':

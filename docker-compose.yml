@@ -240,6 +240,8 @@ services:
       Jwt__PrivateKeyPath: /app/secrets/jwt/private.pem
       Jwt__PublicKeyPath: /app/secrets/jwt/public.pem
       Jwt__KeyId: ${JWT_KEY_ID:-japanese-learning-local-1}
+      Jwt__JwksUrl: ${JWT_JWKS_URL:-http://jwks-api:8080/.well-known/jwks.json}
+      Jwt__RequireHttpsMetadata: ${JWT_JWKS_REQUIRE_HTTPS:-false}
       Jwt__AccessTokenExpirationMinutes: ${JWT_ACCESS_TOKEN_EXPIRATION_MINUTES:-15}
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "--output", "/dev/null", "--max-time", "5", "http://127.0.0.1:8080/health/ready"]
@@ -292,8 +294,9 @@ services:
       DB_USERNAME: ${MYSQL_USER:-japanese_learning}
       DB_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
       DB_REACTIVE_URL: mysql://mysql:3306/${MYSQL_DATABASE:-japanese_learning}
-      AUTH_SERVER_URL: http://user-api:8080
-      AUTH_JWKS_URL: http://user-api:8080/.well-known/jwks.json
+      AUTH_SERVER_URL: ${JWKS_API_INTERNAL_URL:-http://jwks-api:8080}
+      AUTH_JWKS_URL: ${JWT_JWKS_URL:-http://jwks-api:8080/.well-known/jwks.json}
+      AUTH_JWKS_CACHE_TTL: ${AUTH_JWKS_CACHE_TTL:-10M}
       AUTH_JWT_ISSUER: ${JWT_ISSUER:-JapaneseLearning.User}
       AUTH_JWT_AUDIENCE: ${JWT_AUDIENCE:-JapaneseLearning}
       QUARKUS_OIDC_CONNECTION_DELAY: 60S

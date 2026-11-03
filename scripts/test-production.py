@@ -13,7 +13,7 @@ class DeploymentSafetyTests(unittest.TestCase):
     def setUp(self):
         self.cmd = ['docker', 'compose']
         self.config = {'services': {name: {'image': 'test/' + name + ':release'}
-                                   for name in ('frontend', 'user-api', 'vocabulary-api')}}
+                                   for name in production.RELEASE_APPS}}
 
     def test_missing_release_image_does_not_stop_running_application(self):
         with patch.object(production, 'run', side_effect=RuntimeError('missing image')) as run:
@@ -48,6 +48,16 @@ class DeploymentSafetyTests(unittest.TestCase):
         jobs = [call.args[0] for call in run.call_args_list if '--exit-code-from' in call.args[0]]
         self.assertEqual([args[-1] for args in jobs], list(production.JOBS) * 2)
         self.assertTrue(all('--force-recreate' in args and '--no-deps' in args for args in jobs))
+
+    def test_jwks_release_is_checked_and_started_with_consumers(self):
+        with patch.object(production, 'run', return_value='') as run, patch.object(production, 'verify'):
+            production.deploy(self.cmd, self.config, 'isolated-test')
+        calls = [call.args[0] for call in run.call_args_list]
+        inspected = [args[-1] for args in calls if args[:3] == ['docker', 'image', 'inspect']]
+        self.assertIn('test/jwks-api:release', inspected)
+        started = [args[-1] for args in calls if 'up' in args and '--no-build' in args]
+        self.assertEqual(started, list(production.APPS))
+        self.assertLess(started.index('jwks-api'), started.index('user-api'))
 
 
 if __name__ == '__main__':

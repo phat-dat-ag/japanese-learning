@@ -4,7 +4,10 @@
 
 Browser -> HTTPS host reverse proxy -> frontend NGINX (compiled Angular)
 -> NGINX API Gateway -> .NET / Quarkus -> SQL Server / MySQL.
-Quarkus continues to fetch JWKS directly from .NET on the internal API network.
+Both .NET and Quarkus fetch verification keys from the independent `jwks-api`
+service on the internal API network. .NET remains the issuer. JWKS has no published
+production port. Provision `.env.jwks-api` and the public-only directory as described
+in [JWKS setup](../docs/JWKS.md); its public keys and kid must match the issuer.
 Angular uses the existing same-origin `/api` root. No database URL, backend hostname,
 secret, or deployment environment file is compiled into the frontend. The multi-stage
 Angular Dockerfile runs `npm ci` and the existing Angular `production` configuration;
@@ -109,7 +112,7 @@ Run Python with `-X utf8` on Windows if using the scripts with Docker Desktop.
 - Set bounded `JWT_ISSUER`, `JWT_AUDIENCE`, unique `JWT_KEY_ID`, and token lifetimes.
   Both backends share the contract; key paths remain `/app/secrets/jwt/{private,public}.pem`.
   URLs remain internal: `mysql://mysql:3306/<database>`, `sqlserver,1433`,
-  `http://user-api:8080`, and `http://user-api:8080/.well-known/jwks.json`.
+  `http://jwks-api:8080`, and `http://jwks-api:8080/.well-known/jwks.json`.
   No browser-specific backend URL is needed. Public hostname and certificates belong
   to the host TLS proxy; `FRONTEND_PORT` controls only the loopback HTTP binding.
 - Use a unique `RELEASE_TAG` for each build. Never reuse a tag or use `latest`.

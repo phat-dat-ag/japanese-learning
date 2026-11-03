@@ -6,6 +6,11 @@ x-production-logging: &production-logging
     max-size: "10m"
     max-file: "5"
 services:
+  jwks-api:
+    image: japanese-learning/jwks-api:${RELEASE_TAG:?Set an immutable release tag}
+    ports: !reset []
+    networks: !override [api]
+    logging: *production-logging
   mysql:
     container_name: !reset null
     ports: !reset []
