@@ -7,3 +7,7 @@
 [submodule "angular"]
 	path = angular
 	url = https://github.com/phat-dat-ag/japanese-learning-angular.git
+[submodule "springboot-jwks-api"]
+	path = springboot-jwks-api
+	url = https://github.com/phat-dat-ag/springboot-jwks-api.git
+	branch = develop

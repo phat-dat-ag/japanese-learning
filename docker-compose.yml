@@ -8,6 +8,47 @@ x-container-security: &container-security
     core: 0
 
 services:
+  jwks-api:
+    <<: *container-security
+    build:
+      context: ./springboot-jwks-api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 2
+    pids_limit: 256
+    stop_grace_period: 45s
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=128m,mode=1777
+    # Uses the existing implicit default network; no application dependencies.
+    env_file:
+      - ./.env.jwks-api
+    environment:
+      SERVER_ADDRESS: 0.0.0.0
+      SERVER_PORT: "8080"
+      SPRING_PROFILES_ACTIVE: ${JWKS_API_SPRING_PROFILES_ACTIVE:-default}
+      APP_LOG_DIR: /app/data/logs
+      LOG_LEVEL: ${JWKS_API_LOG_LEVEL:-INFO}
+      MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: health
+      MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED: "true"
+    ports:
+      - "127.0.0.1:${JWKS_API_HOST_PORT:-8083}:8080"
+    volumes:
+      - jwks_api_logs:/app/data/logs
+      - type: bind
+        source: ${JWKS_API_PUBLIC_KEYS_HOST_PATH:-./secrets/jwks}
+        target: /run/keys/jwks
+        read_only: true
+        bind:
+          create_host_path: false
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--output", "/dev/null", "--max-time", "5", "http://127.0.0.1:8080/actuator/health/readiness"]
+      interval: 10s
+      timeout: 6s
+      retries: 12
+      start_period: 30s
+
   mysql:
     <<: *container-security
     # The pinned vendor initializer interpolates SQL literals and a quoted option
@@ -330,6 +371,7 @@ services:
       start_period: 5s
 
 volumes:
+  jwks_api_logs:
   mysql_data:
   sqlserver_data:
   user_api_logs:

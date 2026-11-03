@@ -12,6 +12,7 @@ Thumbs.db
 # Local secrets (examples contain placeholders only)
 .env.*
 !.env.example
+!.env.jwks-api.example
 secrets/
 *.[pP][eE][mM]
 *.key
