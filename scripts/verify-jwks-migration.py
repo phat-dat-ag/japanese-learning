@@ -39,10 +39,13 @@ def main():
     parser.add_argument('--auth', default='http://127.0.0.1:8081')
     parser.add_argument('--backend', default='http://127.0.0.1:8082')
     parser.add_argument('--jwks', default='http://127.0.0.1:8083')
+    parser.add_argument('--check-swagger', action='store_true',
+                        help='Check the retired route in Swagger when documentation is enabled.')
     args = parser.parse_args()
     request(args.auth, '/.well-known/jwks.json', 404)
-    swagger = request(args.auth, '/swagger/v1/swagger.json')
-    assert '/.well-known/jwks.json' not in swagger['paths']
+    if args.check_swagger:
+        swagger = request(args.auth, '/swagger/v1/swagger.json')
+        assert '/.well-known/jwks.json' not in swagger['paths']
     suffix = uuid.uuid4().hex
     password = 'Aa1!' + secrets.token_hex(24)
     email = f'jwks-migration-{suffix}@example.invalid'
@@ -84,7 +87,9 @@ def main():
     request(args.auth, '/api/auth/refresh', 401, body={'refreshToken': refreshed['refreshToken']})
     print('PASS: real login, JWKS signature/kid, both protected APIs, User/Admin restrictions,')
     print('invalid-signature/missing-token rejection, refresh and logout; no tokens printed.')
-    print('PASS: retired .NET JWKS returns 404 and is absent from Swagger.')
+    print('PASS: retired .NET JWKS returns 404.')
+    if args.check_swagger:
+        print('PASS: retired .NET JWKS is absent from Swagger.')
 
 
 if __name__ == '__main__':

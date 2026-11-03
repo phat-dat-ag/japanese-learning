@@ -13,6 +13,7 @@ Thumbs.db
 .env.*
 !.env.example
 !.env.jwks-api.example
+!.env.user-api.example
 secrets/
 *.[pP][eE][mM]
 *.key
