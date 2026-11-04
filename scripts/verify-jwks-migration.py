@@ -27,7 +27,10 @@ def request(base, path, expected=200, *, body=None, token=None, content_type='ap
     with response:
         assert response.status == expected, f'{path}: expected {expected}, got {response.status}'
         raw = response.read()
-        return json.loads(raw) if raw and response.headers.get_content_type() == 'application/json' else None
+        payload = json.loads(raw) if raw and response.headers.get_content_type() == 'application/json' else None
+        if path.startswith('/api/auth/') and expected < 300 and isinstance(payload, dict) and payload.get('success') is True:
+            return payload['data']
+        return payload
 
 
 def decode(value):
