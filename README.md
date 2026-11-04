@@ -1,4 +1,4 @@
-﻿# Japanese Learning Application
+# Japanese Learning Application
 
 Japanese Learning is a microservices-based application for account registration and sign-in, JLPT vocabulary and lesson browsing, flashcard study, and Kanji Context Quizzes with history and progress. Administration features cover vocabulary editing/import, lesson import, and quiz question management.
 
@@ -63,7 +63,7 @@ Service-specific dependency versions and conventions live in the submodule READM
 |-- observability/                   # Scrapes, Grafana provisioning/dashboard
 |-- deployment/                      # Production template, runbook, E2E report
 |-- scripts/                         # Key helpers, operations and verification
-`-- secrets/                         # Ignored local key/test material
+`-- secrets/                         # Ignored public keys and private/<service> keys
 ```
 
 Local `.env`, additional `.env.*` files, and `.vscode/` are ignored workspace configuration, not shared deployment inputs. Compose reads `.env` by default; another environment file requires explicit selection. No root Dockerfile, CI/CD workflow, Kubernetes manifests, message broker, or centralized log collector is checked in.
@@ -131,7 +131,7 @@ Run root commands from this directory. The following starts the complete local s
 
    On Unix use `cp .env.example .env`. Edit the file privately and set `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, and `MSSQL_SA_PASSWORD`. Preserve existing credentials when reusing database volumes. See [Environment configuration](#environment-configuration).
 
-3. Provision a matching, unencrypted RSA PEM pair of at least 2048 bits at `secrets/jwt/private.pem` and `secrets/jwt/public.pem`. Alternatively, with PowerShell and .NET 9 installed:
+3. Provision a matching, unencrypted RSA PEM pair of at least 2048 bits at `secrets/private/user-api/private.pem` and `secrets/public/user-api-public.pem`. See [key storage conventions](docs/SECRETS.md). Alternatively, with PowerShell and .NET 9 installed:
 
    ```powershell
    pwsh -File ./scripts/generate-jwt-keys.ps1
@@ -175,7 +175,7 @@ Host port overrides do not change internal service ports. Changing `GATEWAY_HOST
 | `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` | MySQL initialization; application user/password also used by vocabulary Flyway and Quarkus |
 | `MSSQL_SA_PASSWORD`, `MSSQL_DATABASE` | SQL Server initialization, user Flyway and .NET; database defaults to `JapaneseLearningUser` |
 | `JWT_ISSUER`, `JWT_AUDIENCE` | Shared .NET issuance and Quarkus verification contract |
-| `JWT_KEY_ID`, `JWT_ACCESS_TOKEN_EXPIRATION_MINUTES` | .NET signing key identifier and access lifetime |
+| `USER_API_SIGNING_ENV_FILE`, `JWT_ACCESS_TOKEN_EXPIRATION_MINUTES` | Required indexed signing-key file and access lifetime |
 | `QUARKUS_MIGRATION_PATH`, `DOTNET_MIGRATION_PATH` | Read-only Flyway SQL mounts; defaults point into the submodules |
 | Host port variables above | Local published ports |
 | `GRAFANA_ADMIN_PASSWORD` | Required only with the monitoring overlay |

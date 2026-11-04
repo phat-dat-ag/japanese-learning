@@ -1,14 +1,16 @@
 $ErrorActionPreference = "Stop"
 
 $RootDirectory = Split-Path -Parent $PSScriptRoot
-$KeyDirectory = Join-Path $RootDirectory "secrets\jwt"
+$KeyDirectory = Join-Path $RootDirectory "secrets\private\user-api"
+$PublicDirectory = Join-Path $RootDirectory "secrets\public"
 $TempRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
 $TempDirectory = Join-Path $TempRoot ("japanese-learning-jwt-keygen-" + [guid]::NewGuid().ToString("N"))
 
 $PrivateKeyPath = Join-Path $KeyDirectory "private.pem"
-$PublicKeyPath = Join-Path $KeyDirectory "public.pem"
+$PublicKeyPath = Join-Path $PublicDirectory "user-api-public.pem"
 
 New-Item -ItemType Directory -Force -Path $KeyDirectory | Out-Null
+New-Item -ItemType Directory -Force -Path $PublicDirectory | Out-Null
 
 if ((Test-Path $PrivateKeyPath) -or (Test-Path $PublicKeyPath)) {
     throw "JWT key files already exist. Remove them manually before generating a new key pair."

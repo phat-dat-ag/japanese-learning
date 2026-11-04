@@ -79,9 +79,10 @@ Run from a clean, reviewed release checkout. Root release commits must pin the i
 submodule commits; `git submodule update --remote` is unsuitable for repeatable releases.
 No local application SDK is needed. Docker access is effectively root access.
 
-The key script refuses an existing `secrets/jwt` directory and never overwrites keys.
-It creates a 3072-bit RSA pair, owned by root with group 1654 read access (0640) and
-0750 directory access, matching the existing .NET runtime UID/GID. Provision an
+The key script refuses an existing `secrets/private/user-api` directory and never overwrites keys.
+It creates a 3072-bit RSA pair. Private material uses group 1654 read access
+(0640) and 0750 service-directory access. Public files use 0644 under a 0755
+public directory so JWKS UID 10001 can read them. Provision an
 existing unencrypted PEM pair instead when restoring a deployment. Back up the pair
 securely; never regenerate it during updates. Check traversal permissions on parent
 directories and bind mounts on the actual Linux host, including SELinux/rootless UID
@@ -109,11 +110,11 @@ Run Python with `-X utf8` on Windows if using the scripts with Docker Desktop.
   need coordinated database administration; network isolation does not remove this risk.
 - `MSSQL_PID` selects the permitted production edition. SQL Server license acceptance
   remains in the base Compose file. Confirm entitlement before starting.
-- Set bounded `JWT_ISSUER`, `JWT_AUDIENCE`, unique `JWT_KEY_ID`, and token lifetimes.
-  Both backends share the contract. The .NET signing directory is mounted read-only
-  at `/run/keys/jwt`; legacy mode uses `{private,public}.pem` there. For indexed
-  signing, set `USER_API_SIGNING_ENV_FILE` to a production-specific env file and
-  configure exactly one active entry whose public key/kid is published by JWKS.
+- Set bounded `JWT_ISSUER`, `JWT_AUDIENCE`, and token lifetimes. Configure a
+  production-specific `USER_API_SIGNING_ENV_FILE` with unique indexed key IDs,
+  private paths and exactly one active key. The file is required. Only the
+  private directory is mounted into .NET at `/run/keys/jwt`; only JWKS mounts
+  public files. Publish the active signing key's corresponding public key/kid.
   URLs remain internal: `mysql://mysql:3306/<database>`, `sqlserver,1433`,
   `http://jwks-api:8080`, and `http://jwks-api:8080/.well-known/jwks.json`.
   No browser-specific backend URL is needed. Public hostname and certificates belong
@@ -264,7 +265,7 @@ read-only data fingerprints before and after testing. Keep that environment idle
 while verifying so unrelated user writes do not invalidate the comparison.
 
 The runner records protected resource identities in ignored
-`secrets/final-e2e/baseline.json`, generates an independently protected temporary
+`.local/verification/final-e2e/baseline.json`, generates an independently protected temporary
 environment/RSA pair, builds all three application images with `--no-cache` and
 unique tags, then boots a new `jp-final-e2e-*` project with fresh volumes. Only
 loopback test ports and test key mount paths differ from production. It exercises
