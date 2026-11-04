@@ -36,7 +36,8 @@ def main():
     mysql_password = secrets.token_hex(24)
     grafana_password = secrets.token_hex(24)
     env.update(MSSQL_PID='Express', RELEASE_TAG='step89-check', JWT_ISSUER='step89', JWT_AUDIENCE='step89',
-               JWT_KEY_ID='step89', MYSQL_PASSWORD=mysql_password, MYSQL_ROOT_PASSWORD=secrets.token_hex(24),
+               USER_API_SIGNING_ENV_FILE=str(ROOT / '.env.user-api'),
+               MYSQL_PASSWORD=mysql_password, MYSQL_ROOT_PASSWORD=secrets.token_hex(24),
                MSSQL_SA_PASSWORD=db_password, GRAFANA_ADMIN_PASSWORD=grafana_password)
     cmd = operations.compose_args(ROOT / 'deployment/production.env.example', project, True)
     result = subprocess.run(cmd + ['config', '--format', 'json'], cwd=ROOT, env=env, capture_output=True, text=True)

@@ -37,7 +37,7 @@ services:
     volumes:
       - jwks_api_logs:/app/data/logs
       - type: bind
-        source: ${JWKS_API_PUBLIC_KEYS_HOST_PATH:-./secrets/jwks}
+        source: ${JWKS_API_PUBLIC_KEYS_HOST_PATH:-./secrets/public}
         target: /run/keys/jwks
         read_only: true
         bind:
@@ -228,10 +228,9 @@ services:
         condition: service_healthy
       flyway-user:
         condition: service_completed_successfully
-    # Optional for compatibility with existing single-key deployments.
     env_file:
       - path: ${USER_API_SIGNING_ENV_FILE:-./.env.user-api}
-        required: false
+        required: true
     environment:
       LogFiles__Directory: /app/logs
       Database__Server: sqlserver,1433
@@ -241,9 +240,6 @@ services:
       Database__TrustServerCertificate: "true"
       Jwt__Issuer: ${JWT_ISSUER:-JapaneseLearning.User}
       Jwt__Audience: ${JWT_AUDIENCE:-JapaneseLearning}
-      Jwt__PrivateKeyPath: /run/keys/jwt/private.pem
-      Jwt__PublicKeyPath: /run/keys/jwt/public.pem
-      Jwt__KeyId: ${JWT_KEY_ID:-japanese-learning-local-1}
       Jwt__JwksUrl: ${JWT_JWKS_URL:-http://jwks-api:8080/.well-known/jwks.json}
       Jwt__RequireHttpsMetadata: ${JWT_JWKS_REQUIRE_HTTPS:-false}
       Jwt__AccessTokenExpirationMinutes: ${JWT_ACCESS_TOKEN_EXPIRATION_MINUTES:-15}
@@ -258,7 +254,7 @@ services:
     volumes:
       - user_api_logs:/app/logs
       - type: bind
-        source: ${USER_API_SIGNING_KEYS_HOST_PATH:-./secrets/jwt}
+        source: ${USER_API_SIGNING_KEYS_HOST_PATH:-./secrets/private/user-api}
         target: /run/keys/jwt
         read_only: true
         bind:

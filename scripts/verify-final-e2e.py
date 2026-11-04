@@ -67,7 +67,7 @@ class Environment:
         self.config = json.loads(command(self.cmd + ['config', '--format', 'json']))
         operations.validate(self.config)
         self.sensitive = [str(v) for s in self.config['services'].values() for k, v in s.get('environment', {}).items() if 'PASSWORD' in k.upper()]
-        self.private = directory / 'secrets/jwt/private.pem'
+        self.private = ROOT / 'secrets/private/user-api/archive' / self.project / 'private.pem'
         self.sensitive.extend(self.private.read_text().strip().splitlines()[1:-1])
         for name, service in self.config['services'].items():
             service['ulimits']['core'] = 0
@@ -76,7 +76,13 @@ class Environment:
                 service['ports'] = [f'127.0.0.1::{target}']
             if name == 'user-api':
                 for mount in service['volumes']:
-                    mount['source'] = str(directory / 'secrets/jwt' / Path(mount['source']).name)
+                    if mount['target'] == '/run/keys/jwt':
+                        mount['source'] = str(self.private.parent)
+            if name == 'jwks-api':
+                service['environment'] = {key: value for key, value in service['environment'].items()
+                                          if not key.startswith('APP_SECURITY_JWKS_KEYS_')}
+                service['environment'].update(APP_SECURITY_JWKS_KEYS_0_KID=self.project,
+                    APP_SECURITY_JWKS_KEYS_0_PUBLIC_KEY_PATH='/run/keys/jwks/user-api-public.pem')
             service['environment'] = {k: v.replace('$', '$$') if isinstance(v, str) else v for k, v in service.get('environment', {}).items()}
         self.encoded = json.dumps(self.config)
         self.stdin_cmd = ['docker', 'compose', '-p', self.project, '-f', '-']
@@ -153,7 +159,7 @@ class Environment:
 
 def prepare():
     project = 'jp-final-e2e-' + uuid.uuid4().hex[:12]
-    directory = ROOT / 'secrets/final-e2e' / project
+    directory = ROOT / '.local/verification/final-e2e' / project
     directory.mkdir(mode=0o700)
     if os.name == 'nt':
         owner = command(['whoami']).strip()
@@ -161,7 +167,10 @@ def prepare():
     template = (ROOT / 'deployment/production.env.example').read_text()
     values = {'MYSQL_ROOT_PASSWORD': secrets.token_hex(24), 'MYSQL_PASSWORD': secrets.token_hex(24),
               'MSSQL_SA_PASSWORD': 'Aa1!' + secrets.token_hex(24), 'GRAFANA_ADMIN_PASSWORD': secrets.token_hex(24),
-              'MSSQL_PID': 'Express', 'RELEASE_TAG': project, 'JWT_ISSUER': project, 'JWT_AUDIENCE': project, 'JWT_KEY_ID': project}
+              'MSSQL_PID': 'Express', 'RELEASE_TAG': project, 'JWT_ISSUER': project, 'JWT_AUDIENCE': project,
+              'USER_API_SIGNING_ENV_FILE': str(directory / '.env.user-api'),
+              'USER_API_SIGNING_KEYS_HOST_PATH': str(ROOT / 'secrets/private/user-api/archive' / project),
+              'JWKS_API_PUBLIC_KEYS_HOST_PATH': str(ROOT / 'secrets/public/archive' / project)}
     lines = []
     for line in template.splitlines():
         key = line.split('=', 1)[0]
@@ -170,18 +179,36 @@ def prepare():
     with env_file.open('x', encoding='utf-8') as file:
         file.write('\n'.join(lines) + '\n')
     env_file.chmod(0o600)
+    signing_file = directory / '.env.user-api'
+    with signing_file.open('x', encoding='utf-8') as output:
+        output.write('APP_SECURITY_SIGNING_KEYS_0_KID=' + project + '\n'
+                     'APP_SECURITY_SIGNING_KEYS_0_PRIVATE_KEY_PATH=/run/keys/jwt/private.pem\n'
+                     'APP_SECURITY_SIGNING_KEYS_0_ACTIVE=true\n')
+    signing_file.chmod(0o600)
     (directory / 'docker-compose.yml').write_text('# key-generator working-directory marker\n')
     command(['docker', 'run', '--rm', '--network', 'none', '--label', 'jp.final-e2e.run=' + project,
              '--mount', 'type=bind,source=' + str(directory) + ',target=/work', '--workdir', '/work',
              '--mount', 'type=bind,source=' + str(ROOT / 'scripts/generate-production-keys.sh') + ',target=/keygen.sh,readonly',
              SDK, 'bash', '/keygen.sh'])
+    # Preserve fixture keys in the canonical key store; reports/config stay local.
+    private_directory = ROOT / 'secrets/private/user-api/archive' / project
+    public_directory = ROOT / 'secrets/public/archive' / project
+    for destination in (private_directory, public_directory):
+        assert destination.resolve().is_relative_to((ROOT / 'secrets').resolve())
+        assert not destination.exists(), 'Fixture key directory already exists'
+        destination.parent.mkdir(parents=True, exist_ok=True)
+    # Move directories intact to preserve generator ownership and permissions.
+    (directory / 'secrets/private/user-api').rename(private_directory)
+    (directory / 'secrets/public').rename(public_directory)
+    for empty in ('secrets/private', 'secrets'):
+        (directory / empty).rmdir()
     return directory
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.parse_args()
-    baseline_file = ROOT / 'secrets/final-e2e/baseline.json'
+    baseline_file = ROOT / '.local/verification/final-e2e/baseline.json'
     baseline_file.parent.mkdir(parents=True, exist_ok=True)
     if not baseline_file.exists():
         with baseline_file.open('x', encoding='utf-8') as output:
@@ -189,7 +216,7 @@ def main():
     before = json.loads(baseline_file.read_text())
     protect_existing(before)
     directory = prepare()
-    assert directory.parent == (ROOT / 'secrets/final-e2e').resolve() and directory.name.startswith('jp-final-e2e-')
+    assert directory.parent == (ROOT / '.local/verification/final-e2e').resolve() and directory.name.startswith('jp-final-e2e-')
     e = Environment(directory)
     print('Isolated project: ' + e.project, flush=True)
     manifest = directory / 'build.json'
@@ -200,9 +227,9 @@ def main():
         existing = command(['docker', 'volume', 'ls', '-q']).split()
         assert not any(name.startswith(e.project + '_') for name in existing), 'Fresh project already has volumes'
         print('Building all application images from source with --no-cache; output captured privately.', flush=True)
-        command(e.cmd + ['build', '--no-cache', 'frontend', 'user-api', 'vocabulary-api'])
+        command(e.cmd + ['build', '--no-cache', *operations.RELEASE_APPS])
         images = {name: json.loads(command(['docker', 'image', 'inspect', e.config['services'][name]['image']]))[0]['Id']
-                  for name in ('frontend', 'user-api', 'vocabulary-api')}
+                  for name in operations.RELEASE_APPS}
         manifest.write_text(json.dumps(images), encoding='utf-8')
         e.passed('Angular/.NET/Quarkus fresh source image builds (unique tags, no cached build steps)')
         e.record_events()

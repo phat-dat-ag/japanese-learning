@@ -83,7 +83,7 @@ def bootstrap(e):
         assert all('size=' in value and 'nosuid' in value and 'nodev' in value for value in host['Tmpfs'].values())
         assert item['Config']['User'] not in ('', '0', 'root', '0:0')
         if name != 'user-api':
-            assert all(mount['Destination'] != '/app/secrets/jwt/private.pem' for mount in item['Mounts'])
+            assert all(mount['Destination'] != '/run/keys/jwt' for mount in item['Mounts'])
         if name not in ('frontend', 'grafana'):
             assert not host.get('PortBindings'), 'Internal service published a port'
         if name in ('sqlserver-init', 'flyway-user', 'flyway-vocabulary'):
@@ -124,7 +124,7 @@ def bootstrap(e):
     for dependency, dependent in (('mysql', 'flyway-vocabulary'), ('sqlserver', 'sqlserver-init'), ('user-api', 'vocabulary-api'), ('user-api', 'gateway'), ('vocabulary-api', 'gateway'), ('gateway', 'frontend')):
         assert event(dependency, 'health_status: healthy') <= event(dependent, 'start'), 'Readiness ordering violated'
     for name in ('frontend', 'gateway', 'vocabulary-api'):
-        e.execute(name, 'sh', '-c', 'test ! -e /app/secrets/jwt/private.pem')
+        e.execute(name, 'sh', '-c', 'test ! -e /run/keys/jwt/private.pem')
     e.passed('fresh databases, complete migration history, reference data, startup event ordering and all container restrictions')
 
 

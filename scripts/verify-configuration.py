@@ -46,7 +46,7 @@ def audit(config, check_compose=True):
             assert not any(value.encode() in content for value in values), "Local database secret in source: " + repo + "/" + name
             count += 1
         if repo != "angular":
-            for name in (".env", ".env.production", "secrets/jwt/private.pem", "private.pem", "private.PEM", "private.key", "local.pfx", "appsettings.Local.json", "application-local.properties"):
+            for name in (".env", ".env.production", "secrets/private/user-api/private.pem", "private.pem", "private.PEM", "private.key", "local.pfx", "appsettings.Local.json", "application-local.properties"):
                 result = run(["git", "-C", repo, "check-ignore", "--quiet", name])
                 assert result.returncode == 0, "Secret path is not ignored: " + repo + "/" + name
             assert run(["git", "-C", repo, "check-ignore", "--quiet", ".env.example"]).returncode == 1
@@ -76,7 +76,7 @@ def startup_checks(config):
         ("user-api", {"Database__Server": "", "Database__Name": "", "Database__User": "", "Database__Password": "",
                       "Database__ConnectionString": "Server=test;Database=test;synthetic-secret=invalid"}, "Database configuration"),
         ("user-api", {"Jwt__AccessTokenExpirationMinutes": "synthetic-secret"}, "Jwt configuration"),
-        ("user-api", {"Jwt__PrivateKeyPath": "/dev/null"}, "JWT private key file"),
+        ("user-api", {"APP_SECURITY_SIGNING_KEYS_0_PRIVATE_KEY_PATH": "/dev/null"}, "JWT private key file"),
         ("vocabulary-api", {"DB_REACTIVE_URL": "mysql://user:synthetic-secret@mysql/test"}, "Invalid required configuration"),
         ("vocabulary-api", {"DB_PASSWORD": ""}, "Invalid required configuration"),
         ("vocabulary-api", {"AUTH_SERVER_URL": "http://user:synthetic-secret@user-api:8080"}, "Invalid required configuration"),
