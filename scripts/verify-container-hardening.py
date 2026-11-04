@@ -110,7 +110,10 @@ def api(port, path, status, body=None, token=None):
         assert response.getheader("X-Correlation-ID") == "container-hardening-check"
         assert response.getheader("X-Content-Type-Options") == "nosniff"
         assert response.getheader("Cache-Control") == "no-store"
-        return json.loads(content) if content and response.getheader("Content-Type", "").startswith("application/json") else None
+        payload = json.loads(content) if content and response.getheader("Content-Type", "").startswith("application/json") else None
+        if path.startswith("/api/auth/") and status < 300 and isinstance(payload, dict) and payload.get("success") is True:
+            return payload["data"]
+        return payload
     finally:
         connection.close()
         time.sleep(0.1)
