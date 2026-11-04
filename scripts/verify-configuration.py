@@ -39,7 +39,7 @@ def audit(config, check_compose=True):
             file = ROOT / repo / name
             if not name or not file.is_file():
                 continue
-            assert not (file.name.startswith(".env") and file.name != ".env.example"), "Tracked local environment file: " + repo + "/" + name
+            assert not (file.name.startswith(".env") and not file.name.endswith(".example")), "Tracked local environment file: " + repo + "/" + name
             assert file.suffix.lower() not in (".pem", ".key", ".pfx", ".p12", ".jks"), "Tracked key file: " + repo + "/" + name
             content = file.read_bytes()
             assert not re.search(rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----", content), "Private key in source: " + repo + "/" + name

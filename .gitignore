@@ -15,6 +15,7 @@ Thumbs.db
 !.env.jwks-api.example
 !.env.user-api.example
 !.env.db.production.example
+!.env.logging.example
 secrets/
 .local/
 *.[pP][eE][mM]

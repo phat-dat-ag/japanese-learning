@@ -81,6 +81,9 @@ Local `.env`, additional `.env.*` files, and `.vscode/` are ignored workspace co
 | `sqlserver-init` | Creates the configured SQL database if absent | [Base Compose](docker-compose.yml) |
 | `flyway-user`, `flyway-vocabulary` | One-shot schema migrations from the respective submodules | [Base Compose](docker-compose.yml) |
 | `prometheus`, `grafana` | Optional API metrics collection and provisioned dashboard | [Monitoring overlay](compose.observability.yml) |
+| `fluent-bit`, `opensearch` | Collect and index JSON logs from the three APIs | [Logging guide](observability/logging/README.md) |
+| `opensearch-dashboards`, `logs-ui` | Authenticated log viewer on loopback port 5601 | [Logging guide](observability/logging/README.md) |
+| `logging-init`, `logging-ui-init` | One-shot mappings, retention and Discover setup | [Logging guide](observability/logging/README.md) |
 
 ### Gateway routes
 
@@ -101,6 +104,10 @@ Backend Swagger, health, metrics and JWKS are not routed through the Gateway.
 ## Prerequisites
 
 **Containerized execution:** Git, Docker with Linux containers, and Docker Compose v2. Production overlays require Compose **2.24.4 or later**. Image builds supply application SDKs; host Node/Java/.NET installations are unnecessary unless developing natively or using the PowerShell key generator.
+
+The included log-search stack needs Python 3.10+ for initial credential generation,
+about 4 GiB additional RAM, and Linux `vm.max_map_count >= 262144`. See the logging
+guide for resource sizing and the authenticated viewer.
 
 **Native development:** install only the tools for the component being changed:
 
@@ -142,6 +149,7 @@ Run root commands from this directory. The following starts the complete local s
 4. Validate and start:
 
    ```sh
+   python -B scripts/setup-log-access.py
    docker compose config --quiet
    docker compose up -d --build
    docker compose ps -a
@@ -394,3 +402,9 @@ Known documentation/operational gaps:
 - The September 2026 E2E report covers MySQL migrations through V5; the current Quarkus README documents V8 and quiz features. Current full-stack behavior needs fresh verification.
 - `.env.example` repeats `FRONTEND_PORT` and includes production-only variables; the environment table above identifies their actual consumers.
 - Production domain/TLS configuration, backup restoration, host permissions/firewall and capacity must be verified on the target host. The repository does not establish that a production environment is deployed.
+
+## Centralized application logs
+
+Fluent Bit, OpenSearch and authenticated OpenSearch Dashboards in the base Compose file collect
+JWKS, .NET and Quarkus JSON logs. See [log search setup](observability/logging/README.md)
+for local/production commands, credentials, retention, queries and verification.

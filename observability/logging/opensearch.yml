@@ -1,0 +1,9 @@
+cluster.name: japanese-learning-logs
+node.name: logs-01
+network.host: 0.0.0.0
+discovery.type: single-node
+# The API is unpublished on an isolated network. The only host entry is the
+# authenticated logs-ui proxy; application containers never join this network.
+plugins.security.disabled: true
+bootstrap.memory_lock: false
+action.destructive_requires_name: true

@@ -30,6 +30,9 @@ See [Docker merge semantics](https://docs.docker.com/reference/compose-file/merg
 | sqlserver (internal) | SQL Server, initializer, user Flyway, .NET | none |
 | monitoring (internal, optional) | Prometheus, Grafana | none |
 | monitoring-access (optional) | Grafana | **127.0.0.1:3000**, SSH tunnel only |
+| log-storage (internal) | OpenSearch, Fluent Bit, Dashboards, mappings init | none |
+| log-ui (internal) | Dashboards, log viewer proxy, UI init | none |
+| log-access | Log viewer proxy | **127.0.0.1:5601**, SSH tunnel only |
 
 No backend, database, Gateway or Prometheus host ports are published. Only the host
 TLS proxy should accept public 443 (and 80 for redirect/certificate validation).
@@ -67,6 +70,7 @@ cp deployment/production.env.example .env.production
 chmod 600 .env.production
 # Edit .env.production locally with an editor; never paste it into tickets/logs.
 sudo bash scripts/generate-production-keys.sh
+python3 -B scripts/setup-log-access.py
 python3 -B scripts/production.py validate
 python3 -B scripts/production.py build
 python3 -B scripts/production.py deploy
@@ -279,3 +283,11 @@ The baseline deliberately fails closed if a protected resource or database chang
 review that change before intentionally creating a new baseline for a later session.
 No generated credentials, keys or runtime configurations belong in Git.
 See [the acceptance report](FINAL-E2E-VERIFICATION.md) for exact results and limits.
+
+## Application log search
+
+The base `docker-compose.yml` includes Fluent Bit, private single-node OpenSearch,
+and authenticated Dashboards on loopback port 5601. This is independent of
+`--monitoring`. Generate credentials first with
+`python3 -B scripts/setup-log-access.py`; then follow the
+[logging deployment guide](../observability/logging/README.md).

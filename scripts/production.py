@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 JOBS = ('sqlserver-init', 'flyway-user', 'flyway-vocabulary')
 APPS = ('jwks-api', 'user-api', 'vocabulary-api', 'gateway', 'frontend')
 RELEASE_APPS = ('frontend', 'user-api', 'vocabulary-api', 'jwks-api')
+LOG_APPS = ('opensearch', 'fluent-bit', 'opensearch-dashboards', 'logs-ui')
 
 
 def run(args, *, input=None):
@@ -37,7 +38,7 @@ def validate(config):
     services = config['services']
     for name, service in services.items():
         ports = service.get('ports', [])
-        if name in ('frontend', 'grafana'):
+        if name in ('frontend', 'grafana', 'logs-ui'):
             if len(ports) != 1 or ports[0].get('host_ip') != '127.0.0.1':
                 raise RuntimeError('Public exposure validation failed: ' + name)
         elif ports:
@@ -49,6 +50,12 @@ def validate(config):
     for name in ('frontend', 'api', 'mysql', 'sqlserver'):
         if not config['networks'][name].get('internal'):
             raise RuntimeError('Internal network validation failed: ' + name)
+    if 'opensearch' in services:
+        for name in ('log-storage', 'log-ui'):
+            if not config['networks'][name].get('internal'):
+                raise RuntimeError('Logging network isolation failed: ' + name)
+        if 'log-storage' in services['logs-ui'].get('networks', {}):
+            raise RuntimeError('Log viewer ingress must not join the storage network.')
     edition = services['sqlserver']['environment']['MSSQL_PID']
     if edition not in ('Express', 'Standard', 'Enterprise', 'Web') and not re.fullmatch(r'(?:[A-Z0-9]{5}-){4}[A-Z0-9]{5}', edition):
         raise RuntimeError('MSSQL_PID must select a licensed production edition.')
@@ -80,9 +87,11 @@ def states(project):
 
 def verify(project, monitoring=False):
     items = states(project)
-    for name in ('mysql', 'sqlserver', *APPS, *(('prometheus', 'grafana') if monitoring else ())):
+    for name in ('mysql', 'sqlserver', *APPS, *LOG_APPS, *(('prometheus', 'grafana') if monitoring else ())):
         item = items.get(name, {})
-        if item.get('State', {}).get('Health', {}).get('Status') != 'healthy':
+        state = item.get('State', {})
+        if (state.get('Status') != 'running' if name == 'fluent-bit'
+                else state.get('Health', {}).get('Status') != 'healthy'):
             raise RuntimeError('Service is not healthy: ' + name)
         host = item['HostConfig']
         allowed_caps = ['NET_BIND_SERVICE'] if name == 'sqlserver' else []
@@ -94,12 +103,13 @@ def verify(project, monitoring=False):
                 or item['Config']['User'] in ('', '0', 'root', '0:0')):
             raise RuntimeError('Runtime hardening check failed: ' + name)
         for bindings in (host.get('PortBindings') or {}).values():
-            if name not in ('frontend', 'grafana') or any(b['HostIp'] != '127.0.0.1' for b in bindings):
+            if name not in ('frontend', 'grafana', 'logs-ui') or any(b['HostIp'] != '127.0.0.1' for b in bindings):
                 raise RuntimeError('Runtime public exposure check failed: ' + name)
-    for name in JOBS:
+    for name in (*JOBS, 'logging-init', 'logging-ui-init'):
         state = items.get(name, {}).get('State', {})
         if state.get('Status') != 'exited' or state.get('ExitCode') != 0:
             raise RuntimeError('Migration/init job has not succeeded: ' + name)
+    run(['docker', 'exec', items['opensearch']['Id'], 'curl', '-fsS', 'http://fluent-bit:2020/api/v1/health'])
     for name in ('gateway', 'frontend'):
         run(['docker', 'exec', items[name]['Id'], 'nginx', '-t'])
     print('PASS: services healthy, init/migrations exited 0, exposure restricted, both NGINX configurations valid.')
@@ -120,6 +130,10 @@ def deploy(cmd, config, project, monitoring=False):
             run(cmd + ['up', '-d', '--no-deps', '--no-build', '--wait', '--wait-timeout', '240', name])
         if monitoring:
             run(cmd + ['up', '-d', '--no-deps', '--wait', '--wait-timeout', '180', 'prometheus', 'grafana'])
+        run(cmd + ['up', '-d', '--no-deps', '--no-build', '--wait', '--wait-timeout', '300', 'opensearch'])
+        run(cmd + ['up', '--no-deps', '--force-recreate', '--abort-on-container-exit', '--exit-code-from', 'logging-init', 'logging-init'])
+        run(cmd + ['up', '-d', '--no-deps', '--no-build', '--wait', '--wait-timeout', '300', 'fluent-bit', 'opensearch-dashboards', 'logs-ui'])
+        run(cmd + ['up', '--no-deps', '--force-recreate', '--abort-on-container-exit', '--exit-code-from', 'logging-ui-init', 'logging-ui-init'])
         verify(project, monitoring)
     except Exception:
         try:
@@ -155,6 +169,7 @@ def main():
             if exists.returncode == 0:
                 raise RuntimeError('Release image tag already exists; choose a new RELEASE_TAG before building.')
         run(cmd + ['build', *RELEASE_APPS])
+        run(cmd + ['build', 'opensearch', 'fluent-bit', 'opensearch-dashboards'])
         print('PASS: all release images built.')
     elif args.action == 'deploy':
         deploy(cmd, config, args.project, args.monitoring)
@@ -178,10 +193,14 @@ def main():
         print('Stopped; all database and monitoring volumes preserved.')
     else:
         # Restart existing containers only. Deploy applies source/config changes.
-        for name in ('mysql', 'sqlserver', *APPS, *(('prometheus', 'grafana') if args.monitoring else ())):
+        for name in ('mysql', 'sqlserver', *APPS, *LOG_APPS, *(('prometheus', 'grafana') if args.monitoring else ())):
             run(cmd + ['restart', '--no-deps', name])
             deadline = time.monotonic() + 240
-            while states(args.project).get(name, {}).get('State', {}).get('Health', {}).get('Status') != 'healthy':
+            while True:
+                state = states(args.project).get(name, {}).get('State', {})
+                if (state.get('Status') == 'running' if name == 'fluent-bit'
+                        else state.get('Health', {}).get('Status') == 'healthy'):
+                    break
                 if time.monotonic() >= deadline:
                     raise RuntimeError('Timed out waiting for service health: ' + name)
                 time.sleep(2)

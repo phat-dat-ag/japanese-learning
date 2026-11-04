@@ -1,0 +1,5 @@
+FROM opensearchproject/opensearch:3.9.0@sha256:3b55f6b6249cfdb92b52ee59adc8a266203ba9ef9f5d82544fad6f1af2f3609e
+# Seed the non-secret bootstrap keystore before making the runtime filesystem read-only.
+RUN /usr/share/opensearch/bin/opensearch-keystore create
+COPY opensearch.yml /usr/share/opensearch/config/opensearch.yml
+ENTRYPOINT ["/usr/share/opensearch/bin/opensearch"]
