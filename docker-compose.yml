@@ -1,3 +1,15 @@
+# Log collection and search use the existing application volumes.
+x-log-security: &log-security
+  init: true
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  restart: unless-stopped
+  stop_grace_period: 45s
+  logging:
+    driver: local
+    options: {max-size: "10m", max-file: "5"}
+
 # Shared runtime restrictions; writable state is declared explicitly per service.
 x-container-security: &container-security
   init: true
@@ -379,9 +391,158 @@ services:
       retries: 3
       start_period: 5s
 
+  opensearch:
+    <<: *log-security
+    build:
+      context: ./observability/logging
+      dockerfile: Dockerfile.opensearch
+    user: "1000:1000"
+    entrypoint: ["/usr/share/opensearch/bin/opensearch"]
+    environment:
+      OPENSEARCH_JAVA_OPTS: -Xms${OPENSEARCH_HEAP_SIZE:-512m} -Xmx${OPENSEARCH_HEAP_SIZE:-512m}
+    mem_limit: 2g
+    memswap_limit: 2g
+    cpus: 2
+    pids_limit: 512
+    ulimits:
+      nofile: {soft: 65536, hard: 65536}
+      core: 0
+    tmpfs:
+      # JVM native crypto libraries require executable mappings from temporary storage.
+      - /tmp:rw,exec,nosuid,nodev,size=256m,mode=1777
+      - /usr/share/opensearch/logs:rw,nosuid,nodev,size=64m,uid=1000,gid=1000
+    volumes:
+      - opensearch_data:/usr/share/opensearch/data
+    networks: [log-storage]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:9200/_cluster/health?wait_for_status=yellow&timeout=5s"]
+      interval: 15s
+      timeout: 8s
+      retries: 20
+      start_period: 60s
+
+  logging-init:
+    <<: *log-security
+    image: python:3.14-alpine@sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df
+    user: "1000:1000"
+    restart: "no"
+    entrypoint: ["python", "-B", "/config/bootstrap.py"]
+    environment:
+      LOG_RETENTION_DAYS: ${LOG_RETENTION_DAYS:-30}
+    mem_limit: 128m
+    memswap_limit: 128m
+    cpus: 1
+    pids_limit: 64
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev,size=16m"]
+    volumes:
+      - ./observability/logging:/config:ro
+    networks: [log-storage]
+    depends_on:
+      opensearch: {condition: service_healthy}
+
+  fluent-bit:
+    <<: *log-security
+    build:
+      context: ./observability/logging
+      dockerfile: Dockerfile.fluent-bit
+    user: "185:185"
+    # Read existing application-owned volumes without root or Docker socket access.
+    group_add: ["0", "1654", "10001"]
+    environment:
+      LOG_ENVIRONMENT: ${LOG_ENVIRONMENT:-development}
+      FLUENT_BIT_STORAGE_LIMIT: ${FLUENT_BIT_STORAGE_LIMIT:-1G}
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 1
+    pids_limit: 128
+    volumes:
+      - fluent_bit_state:/state
+      - jwks_api_logs:/logs/jwks:ro
+      - user_api_logs:/logs/user:ro
+      - vocabulary_api_logs:/logs/vocabulary:ro
+    networks: [log-storage]
+    depends_on:
+      logging-init: {condition: service_completed_successfully}
+
+  opensearch-dashboards:
+    <<: *log-security
+    build:
+      context: ./observability/logging
+      dockerfile: Dockerfile.dashboards
+    user: "1000:1000"
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpus: 1
+    pids_limit: 256
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev,size=64m"]
+    volumes:
+      - dashboards_data:/usr/share/opensearch-dashboards/data
+    networks: [log-storage, log-ui]
+    depends_on:
+      logging-init: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:5601/api/status"]
+      interval: 15s
+      timeout: 8s
+      retries: 20
+      start_period: 60s
+
+  logs-ui:
+    <<: *log-security
+    image: nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f
+    user: "101:101"
+    entrypoint: ["nginx", "-g", "daemon off;"]
+    stop_signal: SIGQUIT
+    mem_limit: 128m
+    memswap_limit: 128m
+    cpus: 1
+    pids_limit: 64
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev,size=32m,uid=101,gid=101,mode=0700"]
+    ports:
+      - "127.0.0.1:${LOGS_UI_PORT:-5601}:8080"
+    volumes:
+      - ./observability/logging/nginx.conf:/etc/nginx/nginx.conf:ro
+      - type: bind
+        source: ${LOGS_AUTH_FILE:-./secrets/logging/htpasswd}
+        target: /etc/nginx/logs.htpasswd
+        read_only: true
+        bind: {create_host_path: false}
+    networks: [log-ui, log-access]
+    depends_on:
+      opensearch-dashboards: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  logging-ui-init:
+    <<: *log-security
+    image: python:3.14-alpine@sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df
+    user: "1000:1000"
+    restart: "no"
+    entrypoint: ["python", "-B", "/config/bootstrap.py", "--dashboards"]
+    mem_limit: 128m
+    memswap_limit: 128m
+    cpus: 1
+    pids_limit: 64
+    tmpfs: ["/tmp:rw,noexec,nosuid,nodev,size=16m"]
+    volumes: [./observability/logging:/config:ro]
+    networks: [log-ui]
+    depends_on:
+      opensearch-dashboards: {condition: service_healthy}
+
 volumes:
   jwks_api_logs:
   mysql_data:
   sqlserver_data:
   user_api_logs:
   vocabulary_api_logs:
+  opensearch_data:
+  dashboards_data:
+  fluent_bit_state:
+
+networks:
+  log-storage: {internal: true}
+  log-ui: {internal: true}
+  log-access:
