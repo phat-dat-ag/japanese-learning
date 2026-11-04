@@ -23,11 +23,14 @@ services:
       - /tmp:rw,nosuid,nodev,size=128m,mode=1777
     # Uses the existing implicit default network; no application dependencies.
     env_file:
-      - ./.env.jwks-api
+      - path: ${JWKS_API_ENV_FILE:-./.env.jwks-api}
+        required: true
     environment:
       SERVER_ADDRESS: 0.0.0.0
       SERVER_PORT: "8080"
       SPRING_PROFILES_ACTIVE: ${JWKS_API_SPRING_PROFILES_ACTIVE:-default}
+
+      # Logging and readiness.
       APP_LOG_DIR: /app/data/logs
       LOG_LEVEL: ${JWKS_API_LOG_LEVEL:-INFO}
       MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: health
@@ -84,9 +87,9 @@ services:
     image: mysql:8.4@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-japanese_learning}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:?Set MYSQL_DATABASE in the Compose env file}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
-      MYSQL_USER: ${MYSQL_USER:-japanese_learning}
+      MYSQL_USER: ${MYSQL_USER:?Set MYSQL_USER in the Compose env file}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
     ports:
       - "127.0.0.1:${MYSQL_HOST_PORT:-3306}:3306"
@@ -117,8 +120,8 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      FLYWAY_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-japanese_learning}
-      FLYWAY_USER: ${MYSQL_USER:-japanese_learning}
+      FLYWAY_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:?Set MYSQL_DATABASE in the Compose env file}
+      FLYWAY_USER: ${MYSQL_USER:?Set MYSQL_USER in the Compose env file}
       FLYWAY_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
       FLYWAY_CONNECT_RETRIES: "60"
       FLYWAY_LOCATIONS: filesystem:/flyway/sql
@@ -145,7 +148,7 @@ services:
     restart: unless-stopped
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_MEMORY_LIMIT_MB: "2048"
+      MSSQL_MEMORY_LIMIT_MB: ${MSSQL_MEMORY_LIMIT_MB:-2048}
       MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     ports:
       - "127.0.0.1:${MSSQL_HOST_PORT:-1433}:1433"
@@ -176,7 +179,7 @@ services:
     environment:
       SQLCMDPASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     entrypoint: ["/opt/mssql-tools18/bin/sqlcmd"]
-    command: ["-S", "sqlserver,1433", "-U", "sa", "-C", "-b", "-Q", "IF DB_ID(N'${MSSQL_DATABASE:-JapaneseLearningUser}') IS NULL CREATE DATABASE [${MSSQL_DATABASE:-JapaneseLearningUser}];"]
+    command: ["-S", "sqlserver,1433", "-U", "sa", "-C", "-b", "-Q", "IF DB_ID(N'${MSSQL_DATABASE:?Set MSSQL_DATABASE in the Compose env file}') IS NULL CREATE DATABASE [${MSSQL_DATABASE:?Set MSSQL_DATABASE in the Compose env file}];"]
 
   flyway-user:
     <<: *container-security
@@ -198,7 +201,7 @@ services:
       sqlserver-init:
         condition: service_completed_successfully
     environment:
-      FLYWAY_URL: jdbc:sqlserver://sqlserver:1433;databaseName=${MSSQL_DATABASE:-JapaneseLearningUser};encrypt=false;trustServerCertificate=true
+      FLYWAY_URL: jdbc:sqlserver://sqlserver:1433;databaseName=${MSSQL_DATABASE:?Set MSSQL_DATABASE in the Compose env file};encrypt=false;trustServerCertificate=true
       FLYWAY_USER: sa
       FLYWAY_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
       FLYWAY_CONNECT_RETRIES: "60"
@@ -232,17 +235,22 @@ services:
       - path: ${USER_API_SIGNING_ENV_FILE:-./.env.user-api}
         required: true
     environment:
-      LogFiles__Directory: /app/logs
       Database__Server: sqlserver,1433
-      Database__Name: ${MSSQL_DATABASE:-JapaneseLearningUser}
+      Database__Name: ${MSSQL_DATABASE:?Set MSSQL_DATABASE in the Compose env file}
       Database__User: sa
       Database__Password: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
       Database__TrustServerCertificate: "true"
-      Jwt__Issuer: ${JWT_ISSUER:-JapaneseLearning.User}
-      Jwt__Audience: ${JWT_AUDIENCE:-JapaneseLearning}
+
+      # Shared token identity and verification.
+      Jwt__Issuer: ${JWT_ISSUER:?Set JWT_ISSUER in the Compose env file}
+      Jwt__Audience: ${JWT_AUDIENCE:?Set JWT_AUDIENCE in the Compose env file}
       Jwt__JwksUrl: ${JWT_JWKS_URL:-http://jwks-api:8080/.well-known/jwks.json}
       Jwt__RequireHttpsMetadata: ${JWT_JWKS_REQUIRE_HTTPS:-false}
       Jwt__AccessTokenExpirationMinutes: ${JWT_ACCESS_TOKEN_EXPIRATION_MINUTES:-15}
+      Jwt__RefreshTokenExpirationDays: ${JWT_REFRESH_TOKEN_EXPIRATION_DAYS:-7}
+
+      # Logs use the writable named volume.
+      LogFiles__Directory: /app/logs
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "--output", "/dev/null", "--max-time", "5", "http://127.0.0.1:8080/health/ready"]
       interval: 10s
@@ -284,17 +292,21 @@ services:
     volumes:
       - vocabulary_api_logs:/deployments/data/logs
     environment:
-      APP_LOG_DIR: /deployments/data/logs
-      DB_USERNAME: ${MYSQL_USER:-japanese_learning}
+      DB_USERNAME: ${MYSQL_USER:?Set MYSQL_USER in the Compose env file}
       DB_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
-      DB_REACTIVE_URL: mysql://mysql:3306/${MYSQL_DATABASE:-japanese_learning}
+      DB_REACTIVE_URL: mysql://mysql:3306/${MYSQL_DATABASE:?Set MYSQL_DATABASE in the Compose env file}
+
+      # Shared token identity and verification.
       AUTH_SERVER_URL: ${JWKS_API_INTERNAL_URL:-http://jwks-api:8080}
       AUTH_JWKS_URL: ${JWT_JWKS_URL:-http://jwks-api:8080/.well-known/jwks.json}
       AUTH_JWKS_CACHE_TTL: ${AUTH_JWKS_CACHE_TTL:-10M}
-      AUTH_JWT_ISSUER: ${JWT_ISSUER:-JapaneseLearning.User}
-      AUTH_JWT_AUDIENCE: ${JWT_AUDIENCE:-JapaneseLearning}
-      QUARKUS_OIDC_CONNECTION_DELAY: 60S
-      QUARKUS_SHUTDOWN_TIMEOUT: 20S
+      AUTH_JWT_ISSUER: ${JWT_ISSUER:?Set JWT_ISSUER in the Compose env file}
+      AUTH_JWT_AUDIENCE: ${JWT_AUDIENCE:?Set JWT_AUDIENCE in the Compose env file}
+
+      # Startup, shutdown and writable logs.
+      QUARKUS_OIDC_CONNECTION_DELAY: ${VOCABULARY_API_OIDC_CONNECTION_DELAY:-60S}
+      QUARKUS_SHUTDOWN_TIMEOUT: ${VOCABULARY_API_SHUTDOWN_TIMEOUT:-20S}
+      APP_LOG_DIR: /deployments/data/logs
     ports:
       - "127.0.0.1:${VOCABULARY_API_HOST_PORT:-8082}:8080"
     healthcheck:
