@@ -58,7 +58,7 @@ def main():
     token = login['accessToken']
     header, payload, signature = token.split('.')
     metadata, claims = json.loads(decode(header)), json.loads(decode(payload))
-    jwks = request(args.jwks, '/.well-known/jwks.json')
+    jwks = request(args.jwks, '/api/v1/jwks/user')
     key = next(k for k in jwks['keys'] if k['kid'] == metadata['kid'])
     assert metadata['alg'] == key['alg'] == 'RS256' and key['kty'] == 'RSA'
     assert not {'d', 'p', 'q', 'dp', 'dq', 'qi', 'oth'} & key.keys()

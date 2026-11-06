@@ -120,7 +120,7 @@ Run Python with `-X utf8` on Windows if using the scripts with Docker Desktop.
   private directory is mounted into .NET at `/run/keys/jwt`; only JWKS mounts
   public files. Publish the active signing key's corresponding public key/kid.
   URLs remain internal: `mysql://mysql:3306/<database>`, `sqlserver,1433`,
-  `http://jwks-api:8080`, and `http://jwks-api:8080/.well-known/jwks.json`.
+  `http://jwks-api:8080`, and `http://jwks-api:8080/api/v1/jwks/user`.
   No browser-specific backend URL is needed. Public hostname and certificates belong
   to the host TLS proxy; `FRONTEND_PORT` controls only the loopback HTTP binding.
 - Use a unique `RELEASE_TAG` for each build. Never reuse a tag or use `latest`.
