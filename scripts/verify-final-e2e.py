@@ -79,10 +79,15 @@ class Environment:
                     if mount['target'] == '/run/keys/jwt':
                         mount['source'] = str(self.private.parent)
             if name == 'jwks-api':
+                service['volumes'] = [m for m in service['volumes'] if m.get('type') != 'bind'] + [
+                    {'type': 'bind', 'source': str(ROOT / 'secrets/public/archive' / self.project / 'user-api-public.pem'),
+                     'target': '/run/keys/jwks/user-api-public.pem', 'read_only': True,
+                     'bind': {'create_host_path': False}}]
                 service['environment'] = {key: value for key, value in service['environment'].items()
                                           if not key.startswith('APP_SECURITY_JWKS_KEYS_')}
                 service['environment'].update(APP_SECURITY_JWKS_KEYS_0_KID=self.project,
-                    APP_SECURITY_JWKS_KEYS_0_PUBLIC_KEY_PATH='/run/keys/jwks/user-api-public.pem')
+                    APP_SECURITY_JWKS_KEYS_0_OWNER='USER',
+                    APP_SECURITY_JWKS_KEYS_0_PUBLICKEYPATH='/run/keys/jwks/user-api-public.pem')
             service['environment'] = {k: v.replace('$', '$$') if isinstance(v, str) else v for k, v in service.get('environment', {}).items()}
         self.encoded = json.dumps(self.config)
         self.stdin_cmd = ['docker', 'compose', '-p', self.project, '-f', '-']

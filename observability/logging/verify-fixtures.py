@@ -8,7 +8,7 @@ marker = os.environ['MARKER']
 timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
 records = {
     'jwks': ('jwks-api.log', 10001, {'@timestamp': timestamp, 'level': 'INFO', 'event': 'http.request.completed',
-        'message': 'JWKS fixture', 'correlationId': marker, 'httpMethod': 'GET', 'uri': '/.well-known/jwks.json',
+        'message': 'JWKS fixture', 'correlationId': marker, 'httpMethod': 'GET', 'uri': '/api/v1/jwks/user',
         'status': '200', 'elapsed_ms': '3'}),
     'user': ('user-api-20261104.json', 1654, {'Timestamp': timestamp, 'Level': 'Information',
         'RenderedMessage': 'User fixture', 'Properties': {'CorrelationId': marker, 'StatusCode': 200,

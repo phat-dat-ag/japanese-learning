@@ -138,7 +138,7 @@ Run root commands from this directory. The following starts the complete local s
 
    On Unix use `cp .env.example .env`. Edit the file privately and set `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, and `MSSQL_SA_PASSWORD`. Preserve existing credentials when reusing database volumes. See [Environment configuration](#environment-configuration).
 
-3. Provision a matching, unencrypted RSA PEM pair of at least 2048 bits at `secrets/private/user-api/private.pem` and `secrets/public/user-api-public.pem`. See [key storage conventions](docs/SECRETS.md). Alternatively, with PowerShell and .NET 9 installed:
+3. For a new deployment, provision the matching indexed User key pairs and public filenames described in [JWKS setup](docs/JWKS.md). Preserve existing deployments' keys. The following helper provisions a single pair; adapt individual Compose file mounts and indexed examples before using its output. Provision a matching, unencrypted RSA PEM pair of at least 2048 bits at `secrets/private/user-api/private.pem` and `secrets/public/user-api-public.pem`. See [key storage conventions](docs/SECRETS.md). Alternatively, with PowerShell and .NET 9 installed:
 
    ```powershell
    pwsh -File ./scripts/generate-jwt-keys.ps1
@@ -191,7 +191,7 @@ Host port overrides do not change internal service ports. Changing `GATEWAY_HOST
 
 MySQL names accept 1–64 ASCII letters, digits, underscores or hyphens. Its initializer rejects blank passwords, quotes, backslashes and control characters. SQL Server requires a password accepted by its password policy. Single-quote dotenv values containing `$` to prevent interpolation. Editing dotenv does not rotate credentials already stored in database volumes.
 
-Compose supplies .NET split `Database__*` settings, signing PEM paths, and `Jwt__JwksUrl`. Quarkus receives `DB_USERNAME`, `DB_PASSWORD`, `DB_REACTIVE_URL=mysql://mysql:3306/<database>`, `AUTH_SERVER_URL=http://jwks-api:8080`, and `AUTH_JWKS_URL=http://jwks-api:8080/.well-known/jwks.json`. Private signing keys are mounted only into .NET; JWKS mounts a separate public-only directory.
+Compose supplies .NET split `Database__*` settings, signing PEM paths, and `Jwt__JwksUrl`. Quarkus receives `DB_USERNAME`, `DB_PASSWORD`, `DB_REACTIVE_URL=mysql://mysql:3306/<database>`, `AUTH_SERVER_URL=http://jwks-api:8080`, and `AUTH_JWKS_URL=http://jwks-api:8080/api/v1/jwks/user`. Private signing keys are mounted only into .NET; JWKS binds only the three configured public files read-only; see [owner-specific configuration](docs/JWKS.md).
 
 For native configuration, follow the [.NET environment guide](dotnet/README.md#environment-configuration) and [Quarkus environment guide](quarkus/README.md#environment-configuration). Use host database addresses and explicit matching issuer/audience values; .NET accepts either a full connection string or split settings, not both. Angular has no dotenv or runtime environment loader and needs no secrets.
 
@@ -246,7 +246,7 @@ For schema changes, explicitly rerun the relevant Flyway job before restarting d
 | Learning liveness / readiness | http://localhost:8082/q/health/live / http://localhost:8082/q/health/ready |
 | Auth Swagger | http://localhost:8081/swagger |
 | Learning Swagger / OpenAPI | http://localhost:8082/q/swagger-ui / http://localhost:8082/q/openapi |
-| Public JWKS (independent service) | http://localhost:8083/.well-known/jwks.json |
+| Public JWKS (independent service) | http://localhost:8083/api/v1/jwks/user |
 
 Readiness checks database connectivity, not every business query or migration version. Frontend/Gateway health checks only their own NGINX processes. Compose gates initial startup; it does not remove traffic from unhealthy services or restart a container merely because it is unhealthy.
 
@@ -258,7 +258,7 @@ Readiness checks database connectivity, not every business query or migration ve
 4. .NET and Quarkus validate protected routes using public keys from the independent Spring JWKS service. .NET remains the RS256 issuer; issuer, audience, lifetime, User/Admin policies and subject-scoped quiz ownership remain unchanged.
 5. Angular coordinates refresh after a 401 and retries once. Logout revokes the refresh token; already-issued access tokens remain valid until expiry.
 
-JWKS is fetched lazily and cached by both verifiers. Cached-key verification can continue during a JWKS outage; a required key fetch cannot. The internal endpoint is `http://jwks-api:8080/.well-known/jwks.json`; the former .NET JWKS endpoint is removed. No private key is shared with JWKS, Gateway, Quarkus or Angular. See [JWKS setup and migration](docs/JWKS.md) and the submodule authentication sections for configuration, rotation and availability details.
+JWKS is fetched lazily and cached by both verifiers. Cached-key verification can continue during a JWKS outage; a required key fetch cannot. The internal endpoint is `http://jwks-api:8080/api/v1/jwks/user`; the former .NET JWKS endpoint is removed. No private key is shared with JWKS, Gateway, Quarkus or Angular. See [JWKS setup and migration](docs/JWKS.md) and the submodule authentication sections for configuration, rotation and availability details.
 
 Gateway enforces a 10 MiB request-body limit, timeouts, security headers and bounded correlation IDs. Its sustained limits are 20 API requests/second, 10 combined login/registration requests/minute, 60 refreshes/minute and 2 vocabulary imports/minute, with configured bursts and connection caps. Limits use the TCP peer: browsers behind the frontend proxy share its budgets. HTTP 429 requires backoff. The import-specific budget covers `/api/vocabularies/import`, not every feature import endpoint. See [gateway/nginx.conf](gateway/nginx.conf) for exact rules.
 

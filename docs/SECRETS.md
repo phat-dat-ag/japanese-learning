@@ -3,11 +3,11 @@
 ```text
 secrets/
   public/
-    user-api-public.pem
+    user-publickey-{1,2,3}.pem
     archive/<E2E-project>/user-api-public.pem
   private/
     user-api/
-      private.pem
+      user-privatekey-{1,2,3}.pem
       archive/<E2E-project>/private.pem
 ```
 
@@ -18,7 +18,7 @@ directory. Add version suffixes for rotation, for example
 Key IDs remain an explicit environment setting and are not inferred from names.
 Archives are retained fixtures, not keys to activate or publish automatically.
 
-Public-key configuration has only `KID` and `PUBLIC_KEY_PATH`; every configured
+Public-key configuration has `KID`, canonical `PUBLICKEYPATH`, and required `OWNER=USER`; every configured
 public key is published. There is no public `ACTIVE` flag. Private signing-key
 configuration still requires exactly one `ACTIVE=true` entry to choose the
 issuer's signer. Keep retired signers' public keys while their tokens remain
@@ -39,10 +39,10 @@ mount have been removed. `secrets/public` remains required by Spring JWKS.
 | Host setting | Default | Container mount |
 | --- | --- | --- |
 | `USER_API_SIGNING_KEYS_HOST_PATH` | `./secrets/private/user-api` | .NET `/run/keys/jwt:ro` |
-| `JWKS_API_PUBLIC_KEYS_HOST_PATH` | `./secrets/public` | JWKS `/run/keys/jwks:ro` only |
+| `JWKS_API_PUBLIC_KEYS_HOST_PATH` | `./secrets/public` | JWKS three individual `/run/keys/jwks/user-publickey-N.pem:ro` binds |
 
-`.env.user-api` keeps its private path `/run/keys/jwt/private.pem`. The JWKS
-configuration uses `/run/keys/jwks/user-api-public.pem`. .NET has no public-key
+`.env.user-api` keeps its existing indexed `/run/keys/jwt/user-privatekey-N.pem` paths. The JWKS
+configuration uses `/run/keys/jwks/user-publickey-N.pem` (N=1,2,3). .NET has no public-key
 mount and requires an indexed private-key signing list. Native Development must
 supply that list explicitly with host private-key paths.
 Quarkus and browser/Gateway services receive no private-key mounts.
@@ -54,7 +54,7 @@ Windows ACLs or container UID mappings for your deployment. The shell generator
 uses exclusive output creation and refuses existing service directories/public
 files; it must never be run as part of routine updates or this reorganization.
 
-## Reorganization performed on 2026-11-04
+## Historical reorganization performed on 2026-11-04
 
 | Previous location | Result |
 | --- | --- |

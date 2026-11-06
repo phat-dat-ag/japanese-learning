@@ -52,8 +52,20 @@ services:
     volumes:
       - jwks_api_logs:/app/data/logs
       - type: bind
-        source: ${JWKS_API_PUBLIC_KEYS_HOST_PATH:-./secrets/public}
-        target: /run/keys/jwks
+        source: ${JWKS_API_PUBLIC_KEYS_HOST_PATH:-./secrets/public}/user-publickey-1.pem
+        target: /run/keys/jwks/user-publickey-1.pem
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${JWKS_API_PUBLIC_KEYS_HOST_PATH:-./secrets/public}/user-publickey-2.pem
+        target: /run/keys/jwks/user-publickey-2.pem
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${JWKS_API_PUBLIC_KEYS_HOST_PATH:-./secrets/public}/user-publickey-3.pem
+        target: /run/keys/jwks/user-publickey-3.pem
         read_only: true
         bind:
           create_host_path: false
@@ -256,7 +268,7 @@ services:
       # Shared token identity and verification.
       Jwt__Issuer: ${JWT_ISSUER:?Set JWT_ISSUER in the Compose env file}
       Jwt__Audience: ${JWT_AUDIENCE:?Set JWT_AUDIENCE in the Compose env file}
-      Jwt__JwksUrl: ${JWT_JWKS_URL:-http://jwks-api:8080/.well-known/jwks.json}
+      Jwt__JwksUrl: ${JWT_JWKS_URL:-http://jwks-api:8080/api/v1/jwks/user}
       Jwt__RequireHttpsMetadata: ${JWT_JWKS_REQUIRE_HTTPS:-false}
       Jwt__AccessTokenExpirationMinutes: ${JWT_ACCESS_TOKEN_EXPIRATION_MINUTES:-15}
       Jwt__RefreshTokenExpirationDays: ${JWT_REFRESH_TOKEN_EXPIRATION_DAYS:-7}
@@ -310,7 +322,7 @@ services:
 
       # Shared token identity and verification.
       AUTH_SERVER_URL: ${JWKS_API_INTERNAL_URL:-http://jwks-api:8080}
-      AUTH_JWKS_URL: ${JWT_JWKS_URL:-http://jwks-api:8080/.well-known/jwks.json}
+      AUTH_JWKS_URL: ${JWT_JWKS_URL:-http://jwks-api:8080/api/v1/jwks/user}
       AUTH_JWKS_CACHE_TTL: ${AUTH_JWKS_CACHE_TTL:-10M}
       AUTH_JWT_ISSUER: ${JWT_ISSUER:?Set JWT_ISSUER in the Compose env file}
       AUTH_JWT_AUDIENCE: ${JWT_AUDIENCE:?Set JWT_AUDIENCE in the Compose env file}
