@@ -1,0 +1,51 @@
+{
+  ".": {
+    "head": "09773eb5abc3c0c644ee90c80bce03701d953773",
+    "branch": "develop",
+    "status": "M angular\n M quarkus\n M springboot-jwks-api",
+    "index": "100644 956a44152cd0da6e2d42670d807b1c8f1712d69f 0\t.env.db.production.example\n100644 6c9240335a0cc8044194d4d11b9bc54dbc2cb29e 0\t.env.example\n100644 ea6c58c884b2db0b32c67ff18e674e62ab0f7bbc 0\t.env.jwks-api.example\n100644 0c69f4e0787f431f93c2fde8c099de38a910daeb 0\t.env.logging.example\n100644 81a82c4fdb9348ba62aa1a100f209068b5426d24 0\t.env.user-api.example\n100644 2afbee50483b5bcaba90928b3a41e1cfe13b0052 0\t.gitattributes\n100644 278f1e3134dfec90bc7858ac86059e12d05ec09c 0\t.gitignore\n100644 95a70243ef56f3094042fdf331c7bd752bc06b41 0\t.gitmodules\n100644 d26598186c6af01eb79c8f4c2fdd38c40c824d24 0\tREADME.md\n160000 5c2114b7b0273e2fe29ff6ea2406c9c5fe6d6a4b 0\tangular\n100644 b9764434915d7869d41a4f2de9133d920d364ed5 0\tcompose.observability.yml\n100644 f5c52cd1136bb27302400af0b43806fea5f0ebe9 0\tcompose.production-observability.yml\n100644 8a57bbe4cb1b16f29179940c28cf4cd73447e93c 0\tcompose.production.yml\n100644 ec5bfa2658bc5ce8daeea70bf475f563deac1b93 0\tdeployment/FINAL-E2E-VERIFICATION.md\n100644 668cb0155fdf6364014864b0193df22c9f2e6f82 0\tdeployment/README.md\n100644 24225d56ad4f1890ccf42071ce19a2ba604582af 0\tdeployment/production.env.example\n100644 35ae42c77f047b9d378550591245dcc326aa3970 0\tdocker-compose.yml\n100644 705168244b0b659ea208d6ad8f491c8a0c60b66a 0\tdocs/JWKS.md\n100644 06ef73b1da279ed19a7e65476c850ab8914e5e99 0\tdocs/SECRETS.md\n160000 5d6c1af8aab4ba3d48d748698b13cbaa95dd5732 0\tdotnet\n100644 ac2034f50abcf75ebefbd0f8b44cc47b484dbe93 0\tgateway/nginx.conf\n100644 0c9177b1284848bbc9a896bc87f509fd0e02ca7c 0\tobservability/grafana/dashboards/apis.json\n100644 753044a26ca7b9994fc56848083f83f6eb33eddc 0\tobservability/grafana/provisioning/dashboards/dashboard.yml\n100644 5589842fd490b651f3d75f5a1566ba41cfe2f514 0\tobservability/grafana/provisioning/datasources/prometheus.yml\n100644 68a2b7f56050a395f9cb5d8750e3c94547ce1ef2 0\tobservability/logging/Dockerfile.dashboards\n100644 ce6276e49f80695f8dc0f320b90eddf69fa9331e 0\tobservability/logging/Dockerfile.fluent-bit\n100644 f598544d78819cee9a2fd07a6acda2b6ab64da24 0\tobservability/logging/Dockerfile.opensearch\n100644 44db7ebefb3483ee23858e7e4d54a1f401ebddfa 0\tobservability/logging/README.md\n100644 732e8ff05879d2a1745e4c1fd87a159607863c52 0\tobservability/logging/bootstrap.py\n100644 7b5d3c9aea1403ba6d249b2fc573450d949d2aba 0\tobservability/logging/fluent-bit.conf\n100644 3574d59547a1c3383704d38d6d434f4b8f7615b2 0\tobservability/logging/nginx.conf\n100644 30a8895273964b3129f510e5fd881e9d55ea3d8d 0\tobservability/logging/normalize.lua\n100644 7534c01ff0355146a1acbdb278514f699e417476 0\tobservability/logging/opensearch-dashboards.yml\n100644 e21f675192e68ef5e51f86cbfdc3a2ae3801c742 0\tobservability/logging/opensearch.yml\n100644 be7c696dde41abc6a9e8e66aabe46a9890a64e7f 0\tobservability/logging/parsers-app.conf\n100644 b5a72c4bf90e39d666a43563e2fdd0786d773b7f 0\tobservability/logging/verify-fixtures.py\n100644 9263ec137eeb553cf2207ae733e47a3874ef7b2b 0\tobservability/prometheus.yml\n100644 b5191e60c716dcdbc9609ec1854137cd237aca1f 0\tobservability/roadmap/architecture-inventory.md\n100644 4c46f288248917a2c1ff571b0139ea00c8294d5e 0\tobservability/roadmap/docker-resource-baseline.md\n100644 f2bc1feeb9db3613c63a8fb69cdfb593fb36c20f 0\tobservability/roadmap/implementation-roadmap.md\n100644 c41610efb29f1dd1b02868658da6d042065069f7 0\tobservability/roadmap/p00-baseline.md\n100644 6128eca5e92371ae16169de74aa7526229b37802 0\tobservability/roadmap/p01-implementation-plan.md\n100644 3bfbff68d0ab22ffb1ec0861a27d9448f9ba72a1 0\tobservability/roadmap/p01-observability-contract.md\n100644 45f6783e1946c21f97a480a62bc7c7d24e95a3b8 0\tobservability/roadmap/p01-quality-gates.md\n100644 5a279dc501aad989c1fdd5ec329d02dc912e135d 0\tobservability/roadmap/p01-verification.md\n100644 77033e2bfe436aa1b07d7c40814f64b13c89ceb8 0\tobservability/roadmap/quality-gates.md\n100644 d051a1375f77d9f6b035bbf31b6d1e41ee845b19 0\tobservability/roadmap/security-reliability-objectives.md\n100644 ab0aacb8bfcb56e38ccadd89a19c8b4cb9e91baa 0\tobservability/roadmap/shared-jwks-governance.md\n100644 acbe86842f9bd9d522b46033b315faaa1cc96a1a 0\tobservability/roadmap/telemetry-contract-proposal.md\n160000 e964cc391dae768ca69e875946d0e4eab26b7500 0\tquarkus\n100644 511dcea506ee3e4f20a69462064713bb9dc75344 0\tscripts/final_e2e_checks.py\n100644 8f4651aaf28fce759746f11a1cb81dfc3f05fb9f 0\tscripts/final_e2e_secrets.py\n100644 d7d5f8d19f9de1d9f33f65623a64132bb454fe96 0\tscripts/generate-jwt-keys.ps1\n100644 669774343c690f5eb816c20da945afb3d857091f 0\tscripts/generate-production-keys.sh\n100644 2fc61d558c0d91509fe4c70a67d2acd18991482c 0\tscripts/production.py\n100644 da89a4e27c5ccbb5420c27089e813d046bd7e7f9 0\tscripts/setup-log-access.py\n100644 327d586ecc668b7aac87341fc7dc7fa782a1e3f1 0\tscripts/test-production.py\n100644 ccf9a4398ce92e8760d1a190672cf1b5fbcc7da1 0\tscripts/verify-configuration.py\n100644 311e405abceac5a1fc0395c355eed7bdb30c0829 0\tscripts/verify-container-hardening.py\n100644 9559f4dfc8768a94d59f8b7880bdc5ac566cbb64 0\tscripts/verify-correlation.py\n100644 cf056d3c8fae38cda33ac465b93ef815608e0955 0\tscripts/verify-final-e2e.py\n100644 d28209ad7e0cfeb01e242610f41aa2c74009a8c9 0\tscripts/verify-gateway-rate-limits.py\n100644 2b380e14deba1c18d200c16c4b232f8459736cc8 0\tscripts/verify-gateway-security.py\n100644 7a5402999bc0e657fb777952446cd29793160b9f 0\tscripts/verify-jwks-migration.py\n100644 af569af4d102340efd1dc4eab6b639ac5df2ec83 0\tscripts/verify-logging.py\n100644 702f0ed42334017c12984797e72b772aed92a945 0\tscripts/verify-observability.py\n100644 5e24f5c1065cefda86a511d8fb1d4503a2be11e7 0\tscripts/verify-owner-jwks.mjs\n100644 20403981fbfcb701cee6b14a688a18edf9ff8bbb 0\tscripts/verify-production.py\n160000 53d50ba151d04d7ee7d4f7ea01beba524262c3d9 0\tspringboot-jwks-api",
+    "diff_sha256": "a66ffa7cbfc62e27fe5a800a3711339034a1423c01d8335cf032dbc04549238b"
+  },
+  "angular": {
+    "head": "b66e4434a1e0021b0fefcc63b5c50d020d763e43",
+    "branch": "develop",
+    "status": "",
+    "index": null,
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "dotnet": {
+    "head": "5d6c1af8aab4ba3d48d748698b13cbaa95dd5732",
+    "branch": "develop",
+    "status": "",
+    "index": null,
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "quarkus": {
+    "head": "2f15c159e272eecd18e690df40feb4f669d95b40",
+    "branch": "develop",
+    "status": "",
+    "index": null,
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "springboot-jwks-api": {
+    "head": "7879d155eddb45fb079800709f49a3c3a1566120",
+    "branch": "develop",
+    "status": "",
+    "index": null,
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "C:/Personal/springboot-project": {
+    "head": "ceda8626b81c1f5d8a74ae0cd5ff9c01985d1187",
+    "branch": "develop",
+    "status": "",
+    "index": null,
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "C:/Personal/springboot-project/springboot-jwks-api": {
+    "head": "e9b90c31dfa311e0121285c8b7caa37c09cf4287",
+    "branch": "develop",
+    "status": "",
+    "index": null,
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

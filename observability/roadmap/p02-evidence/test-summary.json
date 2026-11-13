@@ -1,0 +1,104 @@
+{
+  "dotnet": {
+    "total": 129,
+    "passed": 129,
+    "failed": 0,
+    "skipped": 0,
+    "trx_sha256": "f23afc70117d4df201ca253de0d68adfdc9fd6d35832676a0bbbed62890077db"
+  },
+  "quarkus": {
+    "total": 51,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "class": "CanonicalLoggingTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "7f49fe0b7765b429da4599c19a276b593aa72fb9730492793e0ffb9cafa0dacb"
+      },
+      {
+        "class": "StructuredLogTest",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "e631929592828faa924d266ee5a9521f853f1e38241ef4abd01437e5980ad7fc"
+      },
+      {
+        "class": "OperationLogTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "98ed86693037b9cf45f63c953b42f3ee934b6e284889463238545fd5c16000d3"
+      },
+      {
+        "class": "OperationLogBehaviorTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "6efca7f5ab3d1908d148ade75d6c35dc6832375485dec2d609a5fe133e54170b"
+      },
+      {
+        "class": "VocabularyOperationLogTest",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "aa28e3f099190712d3bfdd838c7832b8323adcd0eb51b5202b04281568c6d845"
+      },
+      {
+        "class": "VocabularyStageLoggingTest",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "03c233561d1ba99ee4eaf1a525ad547c1935d47b03feeef6b4885e62291960a0"
+      },
+      {
+        "class": "CorrelationIdValidationTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "2fff1a7520a5617a95f496af6acd6e4351e32d544aca8316af349b14608d6f3f"
+      },
+      {
+        "class": "ApplicationFileLoggingTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "90ac1f8f85a595845c11fc60fb77feb14e633d5672c88af1a00ba9b513e2ae8b"
+      },
+      {
+        "class": "JwksCorrelationFilterTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "3b0c6fae6dc835826bd084e732caa5838cfc772feeadcac07844c0f351a54c15"
+      }
+    ],
+    "passed": 51
+  },
+  "angular": {
+    "total": 41,
+    "passed": 41,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "Final captured Vitest terminal result, 2 suites; mocked HTTP"
+  },
+  "fixtures": {
+    "test_methods": 3,
+    "source_scenario_subcases": 50,
+    "nginx_template_duration_cases": 12,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "Python unittest; synthetic/static only"
+  }
+}

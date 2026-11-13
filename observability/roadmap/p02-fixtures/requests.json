@@ -1,0 +1,1380 @@
+{
+  "evidence_kind": "synthetic source-derived fixtures; not runtime capture",
+  "cases": [
+    {
+      "source": "dotnet",
+      "scenario": "success",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Information",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 200,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "success",
+          "CorrelationId": "synthetic_123"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "validation",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Warning",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 400,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "failure",
+          "CorrelationId": "synthetic_123"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "unauthorized",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Warning",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 401,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "failure",
+          "CorrelationId": "synthetic_123"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 401,
+        "outcome": "client_error",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "forbidden",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Warning",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 403,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "failure",
+          "CorrelationId": "synthetic_123"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 403,
+        "outcome": "client_error",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "server_failure",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Warning",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 500,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "failure",
+          "CorrelationId": "synthetic_123"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 500,
+        "outcome": "server_error",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "dependency_failure",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Warning",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 503,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "failure",
+          "CorrelationId": "synthetic_123"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 503,
+        "outcome": "server_error",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "async_operation",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Information",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 200,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "success",
+          "CorrelationId": "synthetic_123"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "missing_correlation",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Information",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 200,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "success"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12.5,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "invalid_correlation",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Information",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 200,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "success",
+          "CorrelationId": "invalid value"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12.5,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "dotnet",
+      "scenario": "privacy",
+      "native": {
+        "Timestamp": "2026-11-12T00:00:00.000Z",
+        "Level": "Warning",
+        "Properties": {
+          "ServiceName": "JapaneseLearning.User.Api",
+          "ServiceVersion": "fixture-release",
+          "ServiceInstanceId": "fixture-instance",
+          "Environment": "Testing",
+          "EventName": "HttpRequestCompleted",
+          "RequestMethod": "GET",
+          "RequestRoute": "/api/auth/me",
+          "StatusCode": 400,
+          "ElapsedMilliseconds": 12.5,
+          "Outcome": "failure",
+          "CorrelationId": "synthetic_123"
+        },
+        "Authorization": "Bearer TOKEN_SENTINEL",
+        "Password": "PASSWORD_SENTINEL",
+        "RefreshToken": "REFRESH_SENTINEL",
+        "Cookie": "COOKIE_SENTINEL",
+        "url": "/?private=QUERY_SENTINEL",
+        "ConnectionString": "Password=DB_SENTINEL",
+        "privateKey": "-----BEGIN PRIVATE KEY----- KEY_SENTINEL",
+        "original": {
+          "email": "PERSONAL_SENTINEL"
+        }
+      },
+      "expected": {
+        "service_name": "user-api",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12.5,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "success",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.completed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "validation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.failed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 400,
+        "durationMs": 12,
+        "outcome": "failure",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "unauthorized",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.failed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 401,
+        "durationMs": 12,
+        "outcome": "failure",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 401,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "forbidden",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.failed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 403,
+        "durationMs": 12,
+        "outcome": "failure",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 403,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "server_failure",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.failed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 500,
+        "durationMs": 12,
+        "outcome": "failure",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 500,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "dependency_failure",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.failed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 503,
+        "durationMs": 12,
+        "outcome": "failure",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 503,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "async_operation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.completed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "missing_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.completed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "invalid_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.completed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success",
+        "correlationId": "invalid value"
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "quarkus",
+      "scenario": "privacy",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "service.name": "quarkus-service",
+        "service.version": "fixture-release",
+        "service.instance.id": "fixture-instance",
+        "deployment.environment": "test",
+        "event.name": "http.request.failed",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/flashcards/{id}",
+        "http.response.status_code": 400,
+        "durationMs": 12,
+        "outcome": "failure",
+        "correlationId": "synthetic_123",
+        "Authorization": "Bearer TOKEN_SENTINEL",
+        "Password": "PASSWORD_SENTINEL",
+        "RefreshToken": "REFRESH_SENTINEL",
+        "Cookie": "COOKIE_SENTINEL",
+        "url": "/?private=QUERY_SENTINEL",
+        "ConnectionString": "Password=DB_SENTINEL",
+        "privateKey": "-----BEGIN PRIVATE KEY----- KEY_SENTINEL",
+        "original": {
+          "email": "PERSONAL_SENTINEL"
+        }
+      },
+      "expected": {
+        "service_name": "vocabulary-api",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "success",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "validation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 400,
+        "durationMs": 12,
+        "outcome": "failure",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "unauthorized",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 401,
+        "durationMs": 12,
+        "outcome": "failure",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 401,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "forbidden",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 403,
+        "durationMs": 12,
+        "outcome": "failure",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 403,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "server_failure",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 500,
+        "durationMs": 12,
+        "outcome": "failure",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 500,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "dependency_failure",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 503,
+        "durationMs": 12,
+        "outcome": "failure",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 503,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "async_operation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "missing_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "invalid_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "INFO",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 200,
+        "durationMs": 12,
+        "outcome": "success",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "invalid value"
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "jwks",
+      "scenario": "privacy",
+      "native": {
+        "@timestamp": "2026-11-12T00:00:00.000Z",
+        "level": "WARN",
+        "http.request.method": "GET",
+        "http.route": "/api/v1/jwks/{owner}",
+        "http.response.status_code": 400,
+        "durationMs": 12,
+        "outcome": "failure",
+        "service": "jwks-service",
+        "serviceVersion": "fixture-release",
+        "environment": "test",
+        "event": "http.request.completed",
+        "correlationId": "synthetic_123",
+        "Authorization": "Bearer TOKEN_SENTINEL",
+        "Password": "PASSWORD_SENTINEL",
+        "RefreshToken": "REFRESH_SENTINEL",
+        "Cookie": "COOKIE_SENTINEL",
+        "url": "/?private=QUERY_SENTINEL",
+        "ConnectionString": "Password=DB_SENTINEL",
+        "privateKey": "-----BEGIN PRIVATE KEY----- KEY_SENTINEL",
+        "original": {
+          "email": "PERSONAL_SENTINEL"
+        }
+      },
+      "expected": {
+        "service_name": "jwks-api",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "success",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "validation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 400,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "unauthorized",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 401,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 401,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "forbidden",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 403,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 403,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "server_failure",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 500,
+        "duration_ms": 12,
+        "outcome": "server_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 500,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "dependency_failure",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 503,
+        "duration_ms": 12,
+        "outcome": "server_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 503,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "async_operation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "missing_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "invalid_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success",
+        "correlation_id": "invalid value"
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "gateway",
+      "scenario": "privacy",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "gateway",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 400,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123",
+        "Authorization": "Bearer TOKEN_SENTINEL",
+        "Password": "PASSWORD_SENTINEL",
+        "RefreshToken": "REFRESH_SENTINEL",
+        "Cookie": "COOKIE_SENTINEL",
+        "url": "/?private=QUERY_SENTINEL",
+        "ConnectionString": "Password=DB_SENTINEL",
+        "privateKey": "-----BEGIN PRIVATE KEY----- KEY_SENTINEL",
+        "original": {
+          "email": "PERSONAL_SENTINEL"
+        }
+      },
+      "expected": {
+        "service_name": "gateway",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "success",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "validation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 400,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "unauthorized",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 401,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 401,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "forbidden",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 403,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 403,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "server_failure",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 500,
+        "duration_ms": 12,
+        "outcome": "server_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 500,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "dependency_failure",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 503,
+        "duration_ms": 12,
+        "outcome": "server_error",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 503,
+        "outcome": "server_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "async_operation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success",
+        "correlation_id": "synthetic_123"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "missing_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "invalid_correlation",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "INFO",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 200,
+        "duration_ms": 12,
+        "outcome": "success",
+        "correlation_id": "invalid value"
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 200,
+        "outcome": "success",
+        "duration_ms": 12,
+        "correlation_present": false
+      }
+    },
+    {
+      "source": "frontend",
+      "scenario": "privacy",
+      "native": {
+        "@timestamp": "2026-11-12T07:00:00+07:00",
+        "level": "WARN",
+        "service_name": "frontend",
+        "service_version": "unknown",
+        "service_instance_id": "fixture-instance",
+        "environment": "unknown",
+        "event_name": "http.request.completed",
+        "http_method": "GET",
+        "http_route": "/family/auth",
+        "route_family": "auth",
+        "http_status": 400,
+        "duration_ms": 12,
+        "outcome": "client_error",
+        "correlation_id": "synthetic_123",
+        "Authorization": "Bearer TOKEN_SENTINEL",
+        "Password": "PASSWORD_SENTINEL",
+        "RefreshToken": "REFRESH_SENTINEL",
+        "Cookie": "COOKIE_SENTINEL",
+        "url": "/?private=QUERY_SENTINEL",
+        "ConnectionString": "Password=DB_SENTINEL",
+        "privateKey": "-----BEGIN PRIVATE KEY----- KEY_SENTINEL",
+        "original": {
+          "email": "PERSONAL_SENTINEL"
+        }
+      },
+      "expected": {
+        "service_name": "frontend",
+        "http_status": 400,
+        "outcome": "client_error",
+        "duration_ms": 12,
+        "correlation_present": true
+      }
+    }
+  ]
+}
