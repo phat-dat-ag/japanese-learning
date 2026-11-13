@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "services": [
+    "prometheus",
+    "grafana"
+  ],
+  "transferred": "images, identities, hardening, limits, healthchecks, persistence and all mount targets",
+  "authorized_adaptations": [
+    "regular root services; profiles removed",
+    "service/DNS names prometheus and grafana",
+    "root-relative mounts",
+    "existing GRAFANA_ADMIN_* and retention variables reused",
+    "project-scoped prometheus_data/grafana_data volumes",
+    "default application network plus internal p05-monitoring for both services; Grafana requires non-internal bridge for publication",
+    "draft run-ID labels removed; phase/owner labels retained"
+  ],
+  "draft_removed": true
+}

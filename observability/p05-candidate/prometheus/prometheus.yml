@@ -1,0 +1,64 @@
+{
+  "global": {
+    "scrape_interval": "15s",
+    "scrape_timeout": "5s",
+    "evaluation_interval": "15s",
+    "external_labels": {
+      "monitoring_project": "jp_dev",
+      "monitoring_role": "p05-candidate"
+    }
+  },
+  "rule_files": [
+    "rules/p05.rules.yml"
+  ],
+  "scrape_configs": [
+    {
+      "job_name": "user-api",
+      "metrics_path": "/metrics",
+      "honor_labels": false,
+      "sample_limit": 5000,
+      "body_size_limit": "5MB",
+      "label_limit": 16,
+      "label_value_length_limit": 128,
+      "static_configs": [
+        {
+          "targets": [
+            "user-api:8080"
+          ]
+        }
+      ]
+    },
+    {
+      "job_name": "vocabulary-api",
+      "metrics_path": "/q/metrics",
+      "honor_labels": false,
+      "sample_limit": 5000,
+      "body_size_limit": "5MB",
+      "label_limit": 16,
+      "label_value_length_limit": 128,
+      "static_configs": [
+        {
+          "targets": [
+            "vocabulary-api:8080"
+          ]
+        }
+      ]
+    },
+    {
+      "job_name": "prometheus",
+      "metrics_path": "/metrics",
+      "honor_labels": false,
+      "sample_limit": 5000,
+      "body_size_limit": "5MB",
+      "label_limit": 16,
+      "label_value_length_limit": 128,
+      "static_configs": [
+        {
+          "targets": [
+            "prometheus:9090"
+          ]
+        }
+      ]
+    }
+  ]
+}

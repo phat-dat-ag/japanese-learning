@@ -1,0 +1,17 @@
+{
+  "apiVersion": 1,
+  "providers": [
+    {
+      "name": "jp-dev-p05-health",
+      "orgId": 1,
+      "folder": "JP Dev P05",
+      "type": "file",
+      "disableDeletion": true,
+      "allowUiUpdates": false,
+      "updateIntervalSeconds": 60,
+      "options": {
+        "path": "/etc/grafana/p05-dashboards"
+      }
+    }
+  ]
+}

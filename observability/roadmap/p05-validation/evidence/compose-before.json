@@ -1,0 +1,67 @@
+{
+  "name": "jp_dev",
+  "services": {
+    "fluent-bit": "aaae19fabcc3d9254c97ebc54cf4b6f5be3016b4c4c7228a6d817e0b47ce6923",
+    "flyway-user": "3c722388e545fe4b027970f367e3b61a942e307f4d37bcc7650ee9fe76c43704",
+    "flyway-vocabulary": "2613b927f9929cecb3b23fe46a3e1e607de64cb45ca20a827f2e69f5f2f1b65f",
+    "frontend": "d956d5c3f399bb73ffc97d77114f845ab09ac51fe89895787d7bee2884b6c921",
+    "gateway": "91b7ca185a0e6f9fcc5d11bc157a153385402685fc99545bea03026815d6fc3b",
+    "jwks-api": "14bf2be834e1a9cefb3db064494172c723708263cd6eccaf50689de03160070d",
+    "logging-init": "6adcc5051ad832b3e8428691136b39733c8ca9769978540e582781cf7ebbeb62",
+    "logging-ui-init": "8cbaa7ceb933f82d76492ae34b17b8d85a8b6ae184609f57f4df1a5661ab4112",
+    "logs-ui": "2f74fafeb53829a5fd15d67bfdb9c11750bf779c025b86c6d3a518a0675ad52d",
+    "mysql": "2625de9f60d1c65480e56e5a0d24bf3d5f39a1c2507a7f2a1ea15a539bafe775",
+    "opensearch": "f5204162973d538ac97f7503dd1ed2a92e3ca6a693e16ad09bec493f914b6244",
+    "opensearch-dashboards": "34264cf23308f3f6a1e616264b9dffba996e2303a62a3f741af785fb45f7a258",
+    "sqlserver": "3e6b1dca3bd7ea7b85ac0ec9cb1e101d2a890c15ee7e8be3da5f930ddd850fa0",
+    "sqlserver-init": "f9f6a6e76d1d2979edfef3ae0b011c57005a483d236a4888b2e9b4352729ede9",
+    "user-api": "b061dc79aaf56cbabcba960d747363f2da8186e8a111ade00cbf787a0169b996",
+    "vocabulary-api": "11df3510414664ec86fbfc4c117af6938860ebecf490d78d26b9c8fd69b70198"
+  },
+  "networks": {
+    "default": {
+      "name": "jp_dev_default",
+      "ipam": {}
+    },
+    "log-access": {
+      "name": "jp_dev_log-access",
+      "ipam": {}
+    },
+    "log-storage": {
+      "name": "jp_dev_log-storage",
+      "ipam": {},
+      "internal": true
+    },
+    "log-ui": {
+      "name": "jp_dev_log-ui",
+      "ipam": {},
+      "internal": true
+    }
+  },
+  "volumes": {
+    "dashboards_data": {
+      "name": "jp_dev_dashboards_data"
+    },
+    "fluent_bit_state": {
+      "name": "jp_dev_fluent_bit_state"
+    },
+    "jwks_api_logs": {
+      "name": "jp_dev_jwks_api_logs"
+    },
+    "mysql_data": {
+      "name": "jp_dev_mysql_data"
+    },
+    "opensearch_data": {
+      "name": "jp_dev_opensearch_data"
+    },
+    "sqlserver_data": {
+      "name": "jp_dev_sqlserver_data"
+    },
+    "user_api_logs": {
+      "name": "jp_dev_user_api_logs"
+    },
+    "vocabulary_api_logs": {
+      "name": "jp_dev_vocabulary_api_logs"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "files": [
+    "docker-compose.yml",
+    "observability\\p05-candidate\\alertmanager\\alertmanager.candidate.yml",
+    "observability\\p05-candidate\\grafana\\provisioning\\dashboards\\health.yml",
+    "observability\\p05-candidate\\grafana\\provisioning\\datasources\\prometheus.yml",
+    "observability\\p05-candidate\\prometheus\\prometheus.yml",
+    "observability\\p05-candidate\\prometheus\\rules\\p05.rules.yml",
+    "observability/roadmap/p05-validation/promtool.tests.yml"
+  ],
+  "count": 7,
+  "malformed_yaml_negative_fixture": "PASS",
+  "limitation": "Syntax only; not PromQL or runtime validation"
+}

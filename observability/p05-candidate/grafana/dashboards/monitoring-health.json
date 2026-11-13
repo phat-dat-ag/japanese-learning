@@ -1,0 +1,44 @@
+{
+  "uid": "jp-dev-p05-health",
+  "title": "JP Dev P05 Monitoring Health (candidate)",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": false,
+  "refresh": "15s",
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scrape availability; absent is unknown",
+      "type": "timeseries",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "jp-dev-prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max by (job) (up{job=~\"user-api|vocabulary-api|prometheus\"})",
+          "legendFormat": "{{job}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "min": 0,
+          "max": 1
+        },
+        "overrides": []
+      }
+    }
+  ]
+}
