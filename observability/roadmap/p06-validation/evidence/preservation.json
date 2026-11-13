@@ -1,0 +1,39 @@
+{
+  "repositories": {
+    "springboot-jwks-api": {
+      "head": "7879d155eddb45fb079800709f49a3c3a1566120",
+      "branch": "develop",
+      "index_unchanged": true
+    },
+    "angular": {
+      "head": "7d25cfe4830da3856661f7449260e9027c596afb",
+      "branch": "develop",
+      "index_unchanged": true
+    },
+    "quarkus": {
+      "head": "d2c446cae9fb7e8a5f239ad8324b958fd2a628bd",
+      "branch": "develop",
+      "index_unchanged": true
+    },
+    "dotnet": {
+      "head": "af4c7bcb9f5d847ca3460787be67800a427a63d8",
+      "branch": "develop",
+      "index_unchanged": true
+    },
+    ".": {
+      "head": "5f1bd8ed730daf5411be1e85d863d16bb2baf215",
+      "branch": "develop",
+      "index_unchanged": true
+    }
+  },
+  "preexisting_program_edit_preserved": true,
+  "shared_jwks_and_angular_clean": true,
+  "prior_manifest_hashes": {
+    "observability\\roadmap\\p02-evidence\\change-manifest.json": "46a944604937382e6731d9b579f4dfc6d96616bd9401d81b3aca944eef0f924a",
+    "observability\\roadmap\\p03-validation\\evidence\\change-manifest.json": "9b066db6a74f57504f79e5d96b9c690de8c23524695cd13f8ad3355755a28d6b",
+    "observability\\roadmap\\p04-validation\\evidence\\change-manifest.json": "9e1de8d171e64ac67c6df26c99afbb7de56628a061d29f214754bf77af1cd47e",
+    "observability\\roadmap\\p05-validation\\evidence\\change-manifest.json": "d3a0209145956f062925d9fdb44ce50b830af18c390514410339d844365ebec5"
+  },
+  "docker": "See late-baseline/final selective snapshots; no lifecycle operations",
+  "inaccessible_p03_directories": "Unresolved; inventory incomplete"
+}

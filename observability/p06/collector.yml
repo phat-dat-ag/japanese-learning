@@ -1,0 +1,59 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+        max_recv_msg_size_mib: 1
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 192
+    spike_limit_mib: 32
+  filter/privacy:
+    error_mode: propagate
+    traces:
+      span:
+        - 'resource.attributes["service.namespace"] != "japanese-learning"'
+      spanevent:
+        - "true"
+  transform/privacy:
+    error_mode: propagate
+    trace_statements:
+      - context: resource
+        statements:
+          - 'keep_keys(attributes, ["service.name", "service.namespace", "service.version", "service.instance.id", "deployment.environment.name"])'
+      - context: span
+        statements:
+          - 'keep_keys(attributes, ["http.request.method", "http.route", "http.response.status_code", "db.system.name", "error.type"])'
+          - 'set(status.message, "")'
+          - 'set(name, "HTTP server") where kind == SPAN_KIND_SERVER'
+          - 'set(name, "HTTP dependency") where kind == SPAN_KIND_CLIENT'
+          - 'set(name, "database.command") where attributes["db.system.name"] != nil'
+  batch:
+    timeout: 1s
+    send_batch_size: 128
+    send_batch_max_size: 128
+exporters:
+  otlp/tempo:
+    endpoint: tempo:4317
+    tls:
+      insecure: true
+    timeout: 3s
+    sending_queue:
+      enabled: true
+      num_consumers: 2
+      queue_size: 64
+    retry_on_failure:
+      enabled: true
+      initial_interval: 1s
+      max_interval: 5s
+      max_elapsed_time: 30s
+service:
+  telemetry:
+    logs:
+      level: warn
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, filter/privacy, transform/privacy, batch]
+      exporters: [otlp/tempo]

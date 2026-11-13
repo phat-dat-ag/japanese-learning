@@ -1,0 +1,51 @@
+{
+  "captured_utc": "2026-11-13T07:10:29.055567+00:00",
+  "dotnet": {
+    "status": "PASS",
+    "counters": {
+      "total": "151",
+      "executed": "151",
+      "passed": "151",
+      "failed": "0",
+      "error": "0",
+      "timeout": "0",
+      "aborted": "0",
+      "inconclusive": "0",
+      "passedButRunAborted": "0",
+      "notRunnable": "0",
+      "notExecuted": "0",
+      "disconnected": "0",
+      "warning": "0",
+      "completed": "0",
+      "inProgress": "0",
+      "pending": "0"
+    },
+    "artifact": "dotnet\\tests\\JapaneseLearning.User.UnitTests\\TestResults\\p06-regression.trx",
+    "sha256": "bfbd265de368b603f7e5a35c2dc225657fc9dc173a4d450d615090fe1526c64a"
+  },
+  "quarkus_offline": {
+    "status": "PASS",
+    "total": 372,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact": ".local/p06-quarkus-offline-final.log",
+    "sha256": "1c2678521e1ee24e9949b264bf7a16a81187393396ebe9251458be6d9836e3c1"
+  },
+  "quarkus_focused": {
+    "status": "PASS",
+    "total": 19,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact": ".local/p06-quarkus-tests.log",
+    "sha256": "3500b424f296b0300c0955b30222838412b04378b5c7331b768401ca47ab0e3a"
+  },
+  "quarkus_db_tests": "BLOCKED; no dedicated test DB. Default discovery fails before opt-in condition",
+  "prior_offline_attempt": {
+    "total": 372,
+    "failed": 5,
+    "reason": "Existing P02 privacy expectations corrected in three test files"
+  },
+  "runtime_acceptance": "BLOCKED; no deployment authorized"
+}

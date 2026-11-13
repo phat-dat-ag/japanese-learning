@@ -1,0 +1,331 @@
+{
+  "captured_utc": "2026-11-13T06:55:58.627854+00:00",
+  "scope": "Selective IDs/starts/images/mounts/networks; no environment or data reads",
+  "timing": "Late baseline after source preparation; not a complete before-edit runtime baseline",
+  "containers": {
+    "jp_dev-fluent-bit-1": {
+      "id": "61b0da00544cc05006f868a17fbbcea4d9173e554c7885182f8f95d4ab5ae85b",
+      "name": "/jp_dev-fluent-bit-1",
+      "image": "sha256:961cfed7eadaf8b9e34633d298b17969909b78caa6c7f5bf22c2f4862c38dad4",
+      "started": "2026-11-13T04:24:37.137438452Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_jwks_api_logs/_data:/logs/jwks:false;volume:/var/lib/docker/volumes/jp_dev_user_api_logs/_data:/logs/user:false;volume:/var/lib/docker/volumes/jp_dev_vocabulary_api_logs/_data:/logs/vocabulary:false;volume:/var/lib/docker/volumes/jp_dev_fluent_bit_state/_data:/state:true;",
+      "networks": "jp_dev_log-storage:faf4ac62a77a3daf3e9932ef86b926d0b5cc8292593e5c62831d190de49005a8;"
+    },
+    "jp_dev-flyway-user-1": {
+      "id": "fd67e4021a8567a6365ad5cbf1590f328fb352f2233ab6f32591ac28c8c256a1",
+      "name": "/jp_dev-flyway-user-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-13T04:24:19.828103063Z",
+      "state": "exited",
+      "mounts": "bind:C:\\Personal\\japanese-learning\\dotnet\\db\\migration:/flyway/sql:false;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-flyway-vocabulary-1": {
+      "id": "f0022a47939fddfa2ff1227488537182840d2e64a73d9cb1f707145ccfae25f0",
+      "name": "/jp_dev-flyway-vocabulary-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-13T04:24:19.078550313Z",
+      "state": "exited",
+      "mounts": "bind:C:\\Personal\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration:/flyway/sql:false;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-frontend-1": {
+      "id": "9388394ee415388dbda946c855099fbf4d174e8451eb89fbc5170127354e9d0e",
+      "name": "/jp_dev-frontend-1",
+      "image": "sha256:bc38e717eee71faeabb3d6807e96fc4d66010a69623e6eaf09077a59917a11b4",
+      "started": "2026-11-13T04:24:36.15374645Z",
+      "state": "running",
+      "mounts": "",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-gateway-1": {
+      "id": "80ef5fb4b8b6a89838deb8f98b5ffd904eb97964b896a5e6b2dd58dc0f8671b0",
+      "name": "/jp_dev-gateway-1",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-12T01:51:28.514151191Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\japanese-learning\\gateway\\nginx.conf:/etc/nginx/nginx.conf:false;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-grafana-1": {
+      "id": "ec7f7fd29287a6d87f48bc967f1182cae07b94faca73d6eeb7b43afd50df23c3",
+      "name": "/jp_dev-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-13T04:24:19.09200786Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards:/etc/grafana/p05-dashboards:false;volume:/var/lib/docker/volumes/jp_dev_grafana_data/_data:/var/lib/grafana:true;bind:C:\\Personal\\japanese-learning\\observability\\p05-candidate\\grafana\\provisioning:/etc/grafana/provisioning:false;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;jp_dev_p05-monitoring:aa08664b0b16c41374b47e4b342a61b217727a8c02e931b2c1e37ea2be85add7;"
+    },
+    "jp_dev-jwks-api-1": {
+      "id": "230c89a049c4220fda04327f224e9b1f1ca45a37f0699632ae567957ae949380",
+      "name": "/jp_dev-jwks-api-1",
+      "image": "sha256:6428cdf7f9a720a4e75daf8cb435b271a2356c9cb203b5f6c81d0bccd390b9dd",
+      "started": "2026-11-13T04:24:18.57789021Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_jwks_api_logs/_data:/app/data/logs:true;bind:C:\\Personal\\japanese-learning\\secrets\\public\\user-publickey-3.pem:/run/keys/jwks/user-publickey-3.pem:false;bind:C:\\Personal\\japanese-learning\\secrets\\public\\user-publickey-1.pem:/run/keys/jwks/user-publickey-1.pem:false;bind:C:\\Personal\\japanese-learning\\secrets\\public\\user-publickey-2.pem:/run/keys/jwks/user-publickey-2.pem:false;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-logging-init-1": {
+      "id": "f418797e0b9b9e63668627251a0229d9d0dd396119c2e99346638b68d9c889d9",
+      "name": "/jp_dev-logging-init-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-13T04:24:36.317748415Z",
+      "state": "exited",
+      "mounts": "bind:C:\\Personal\\japanese-learning\\observability\\logging:/config:false;",
+      "networks": "jp_dev_log-storage:faf4ac62a77a3daf3e9932ef86b926d0b5cc8292593e5c62831d190de49005a8;"
+    },
+    "jp_dev-logging-ui-init-1": {
+      "id": "28581cfa5770f600b3c4e7bd72c8690df7b69f0b546001040b18e5d8b6cb84f2",
+      "name": "/jp_dev-logging-ui-init-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-13T04:24:47.978985034Z",
+      "state": "exited",
+      "mounts": "bind:C:\\Personal\\japanese-learning\\observability\\logging:/config:false;",
+      "networks": "jp_dev_log-ui:a86bb8feb128efca40a66c3865dc0a3ec023111b72a3d4ce8a141326f8840707;"
+    },
+    "jp_dev-logs-ui-1": {
+      "id": "cbc571c8f54fe60ab1a249c9176a5a805226d1ab0cfd8ebacd64fe17c1a4e948",
+      "name": "/jp_dev-logs-ui-1",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-12T01:51:28.51554296Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\japanese-learning\\secrets\\logging\\htpasswd:/etc/nginx/logs.htpasswd:false;bind:C:\\Personal\\japanese-learning\\observability\\logging\\nginx.conf:/etc/nginx/nginx.conf:false;",
+      "networks": "jp_dev_log-access:df0fae59bfbc7fbd6df32fe3b8f005cf5257bc67877bea0480cebe3395456e4f;jp_dev_log-ui:a86bb8feb128efca40a66c3865dc0a3ec023111b72a3d4ce8a141326f8840707;"
+    },
+    "jp_dev-mysql-1": {
+      "id": "f75e25f1a0c1cd5765b1062cf9df1f654311f93aca68b7a441f1177e1729fdd4",
+      "name": "/jp_dev-mysql-1",
+      "image": "sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "started": "2026-11-12T01:51:28.540671006Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_mysql_data/_data:/var/lib/mysql:true;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-opensearch-1": {
+      "id": "135dc0b50380482d4ebecaf98e40140462ecabfe71e80b4ec866d0b58fe075db",
+      "name": "/jp_dev-opensearch-1",
+      "image": "sha256:9fc92938587aa204819c2c828c7d41165caed86ef8495e175337a0e070782e5c",
+      "started": "2026-11-13T04:24:18.547810346Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_opensearch_data/_data:/usr/share/opensearch/data:true;",
+      "networks": "jp_dev_log-storage:faf4ac62a77a3daf3e9932ef86b926d0b5cc8292593e5c62831d190de49005a8;"
+    },
+    "jp_dev-opensearch-dashboards-1": {
+      "id": "e06ba98cc503f94050114eff6fd967c07005e339c45797c95a23fe6ac1a6fe47",
+      "name": "/jp_dev-opensearch-dashboards-1",
+      "image": "sha256:ccc2c63f0f2221788a3addeaafa98a398332bce4ca2fddd9b8e4b5d2d38cdc9e",
+      "started": "2026-11-13T04:24:37.118047651Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_dashboards_data/_data:/usr/share/opensearch-dashboards/data:true;",
+      "networks": "jp_dev_log-storage:faf4ac62a77a3daf3e9932ef86b926d0b5cc8292593e5c62831d190de49005a8;jp_dev_log-ui:a86bb8feb128efca40a66c3865dc0a3ec023111b72a3d4ce8a141326f8840707;"
+    },
+    "jp_dev-prometheus-1": {
+      "id": "597c1950b4343fa154abfc9eb9dc02987baef9d4c6906638fb8750881788977e",
+      "name": "/jp_dev-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-13T04:14:24.728685874Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_prometheus_data/_data:/prometheus:true;bind:C:\\Personal\\japanese-learning\\observability\\p05-candidate\\prometheus:/etc/prometheus:false;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;jp_dev_p05-monitoring:aa08664b0b16c41374b47e4b342a61b217727a8c02e931b2c1e37ea2be85add7;"
+    },
+    "jp_dev-sqlserver-1": {
+      "id": "d47e8782881ed2bad998bc114b40806eab4b0b1624ecbb2fcd677cea507d6caa",
+      "name": "/jp_dev-sqlserver-1",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-12T01:51:28.544116529Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_sqlserver_data/_data:/var/opt/mssql:true;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-sqlserver-init-1": {
+      "id": "2fe20a864b0fd0d4531b2c6951c2861ff980d653582973464c92c2a732543695",
+      "name": "/jp_dev-sqlserver-init-1",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-13T04:24:19.057316716Z",
+      "state": "exited",
+      "mounts": "",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-user-api-1": {
+      "id": "81a48350348f4f157fe6ee556dae740c0bd152ce0bd8916735cfa49c35663f7f",
+      "name": "/jp_dev-user-api-1",
+      "image": "sha256:b360cab228cef7fe4e3112fef6e1893182420509dbdc64177e4bd75dfbe16a61",
+      "started": "2026-11-13T04:24:24.124357039Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_user_api_logs/_data:/app/logs:true;bind:C:\\Personal\\japanese-learning\\secrets\\private\\user-api:/run/keys/jwt:false;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "jp_dev-vocabulary-api-1": {
+      "id": "2e3e52ddd82e9c183843591d9614feb5c18783660e63c75ee4c400a8cf8a5c56",
+      "name": "/jp_dev-vocabulary-api-1",
+      "image": "sha256:2121341b3377d7f67b2055db7077dfcc76f25bac44e9d742d9aa4a6f59d12c14",
+      "started": "2026-11-13T04:24:29.884579523Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/jp_dev_vocabulary_api_logs/_data:/deployments/data/logs:true;",
+      "networks": "jp_dev_default:dddfb3a6782ec5973b5b33a580f0bd2576851027976e8fd62d0853df4f5ebc9f;"
+    },
+    "springboot_project-fluent-bit-1": {
+      "id": "cb816eefd9453fe13f8692405b7d1083e8ed1f504b903ddf7433884961d5c703",
+      "name": "/springboot_project-fluent-bit-1",
+      "image": "sha256:d6dec000c4929a439562525728c708f6e99800d7ddc82efd6aa4f45f3a20b562",
+      "started": "2026-11-12T03:58:54.827843483Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_user_api_logs/_data:/logs:false;bind:/run/desktop/mnt/host/c/Personal/springboot-project/observability/fluent-bit/parsers.conf:/fluent-bit/etc/application-parsers.conf:false;bind:/run/desktop/mnt/host/c/Personal/springboot-project/observability/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:false;volume:/var/lib/docker/volumes/springboot_project_fluent_bit_state/_data:/fluent-bit/state:true;volume:/var/lib/docker/volumes/springboot_project_jwks_api_logs/_data:/jwks-logs:false;volume:/var/lib/docker/volumes/springboot_project_learning_api_logs/_data:/learning-logs:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-fluent-bit-state-init-1": {
+      "id": "29806aa3ef1d399ac0bb6b1a7e390089d288a10b4b2ceefc22563dc3784648fa",
+      "name": "/springboot_project-fluent-bit-state-init-1",
+      "image": "sha256:00bc86618629af00d2937fdc5a5d63db3ff8450acf52f0636ec813c7f4902929",
+      "started": "2026-11-12T02:28:16.07396546Z",
+      "state": "exited",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_fluent_bit_state/_data:/fluent-bit/state:true;volume:/var/lib/docker/volumes/a70e6257fe147fa771a152e96a9ef5e50111ed900f6a9ab0a43011191cfb4db1/_data:/var/lib/postgresql/data:true;",
+      "networks": "none:a8928c9016f60e3a0eee6b16adf3f0b9e442c7ed9675f66e9cb53a2a18f86013;"
+    },
+    "springboot_project-flyway-mysql-1": {
+      "id": "6e4c340a16394676b291c360e87d343892d1c2bc1b35dd4e8efb5dd65f50b32d",
+      "name": "/springboot_project-flyway-mysql-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-12T02:28:16.58265397Z",
+      "state": "exited",
+      "mounts": "bind:C:\\Personal\\springboot-project\\db\\migration\\user:/flyway/sql:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-flyway-postgres-1": {
+      "id": "8b0ee561dce5ae0ad35ed147902e1d9aa03a8363fcb6a2b82525f47a9bb67660",
+      "name": "/springboot_project-flyway-postgres-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-12T02:28:16.584248851Z",
+      "state": "exited",
+      "mounts": "bind:C:\\Personal\\springboot-project\\db\\migration\\learning:/flyway/sql:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-grafana-1": {
+      "id": "a7eeab1601b0a70541873c72a29ab6eecdb5779d572c6888382e43fc08023eef",
+      "name": "/springboot_project-grafana-1",
+      "image": "sha256:74144189b38447facf737dfd0f3906e42e0776212bf575dc3334c3609183adf7",
+      "started": "2026-11-12T02:15:01.065531931Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\springboot-project\\observability\\grafana\\provisioning\\datasources\\tempo.yml:/etc/grafana/provisioning/datasources/tempo.yml:false;bind:C:\\Personal\\springboot-project\\observability\\grafana\\provisioning\\dashboards\\application-logs.yml:/etc/grafana/provisioning/dashboards/application-logs.yml:false;bind:C:\\Personal\\springboot-project\\observability\\grafana\\dashboards:/etc/grafana/dashboards:false;bind:C:\\Personal\\springboot-project\\observability\\grafana\\provisioning\\alerting\\phase5.json:/etc/grafana/provisioning/alerting/phase5.json:false;volume:/var/lib/docker/volumes/springboot_project_grafana_data/_data:/var/lib/grafana:true;bind:C:\\Personal\\springboot-project\\observability\\grafana\\provisioning\\datasources\\loki.yml:/etc/grafana/provisioning/datasources/loki.yml:false;bind:C:\\Personal\\springboot-project\\observability\\grafana\\provisioning\\datasources\\prometheus.yml:/etc/grafana/provisioning/datasources/prometheus.yml:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-jwks-api-1": {
+      "id": "3d191d37b6aadec667614528dec5e4f4b09c7220e2dfc1a61e0d19cc0f6fa173",
+      "name": "/springboot_project-jwks-api-1",
+      "image": "sha256:3627aaa77a43dcebfad76962834d1fe88612583424b33cdb23f2aefb9e6e6430",
+      "started": "2026-11-12T03:59:16.070483535Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_jwks_api_logs/_data:/app/data/logs:true;bind:/run/desktop/mnt/host/c/Personal/springboot-project/springboot-jwks-api/src/main/resources/logback-spring.xml:/etc/application/logback-spring.xml:false;bind:C:\\Personal\\springboot-project\\key\\userservice-public-v1.pem:/run/keys/jwt/userservice-public-v1.pem:false;bind:C:\\Personal\\springboot-project\\key\\userservice-public-v2.pem:/run/keys/jwt/userservice-public-v2.pem:false;bind:C:\\Personal\\springboot-project\\data\\keys\\learning\\learningservice-public-v1.pem:/run/keys/learning/learningservice-public-v1.pem:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-learning-api-1": {
+      "id": "6010ac3a2be7bbb6a9596fdfc8364f06c139b2aebfa2f6ffe02a909f43db916b",
+      "name": "/springboot_project-learning-api-1",
+      "image": "sha256:43cd36fd8398eb9780fbb469e11ba6cd2241ffc86d48bd6ae8ac604935433f4b",
+      "started": "2026-11-12T03:59:07.552581692Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\springboot-project\\data\\keys\\learning\\learningservice-private-v1.pem:/run/keys/learning/learningservice-private-v1.pem:false;volume:/var/lib/docker/volumes/springboot_project_learning_api_logs/_data:/app/data/logs:true;bind:/run/desktop/mnt/host/c/Personal/springboot-project/springboot-learning-api/src/main/resources/logback-spring.xml:/etc/application/logback-spring.xml:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-loki-1": {
+      "id": "db484f0766fa20871b140dfa150c05c4d2baa932d8a83100cec36e7a83358cb1",
+      "name": "/springboot_project-loki-1",
+      "image": "sha256:00981fd9455db8589c3aa6d06744af3138c4b2c32fdec62101e92c7a704b2642",
+      "started": "2026-11-12T01:51:28.534651378Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\springboot-project\\observability\\loki\\loki-config.yml:/etc/loki/loki-config.yml:false;volume:/var/lib/docker/volumes/springboot_project_loki_data/_data:/loki:true;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-mysql-1": {
+      "id": "c7169d8477a1edb23826789a6938326a27a6324af99b83021143d231cde34576",
+      "name": "/springboot_project-mysql-1",
+      "image": "sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "started": "2026-11-12T01:51:28.508097906Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_mysql_data/_data:/var/lib/mysql:true;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-opensearch-1": {
+      "id": "d46c3436c81b2304e1c8a94e75cae78f24e8c4be2fcd8c83e254d6771f341045",
+      "name": "/springboot_project-opensearch-1",
+      "image": "sha256:3b55f6b6249cfdb92b52ee59adc8a266203ba9ef9f5d82544fad6f1af2f3609e",
+      "started": "2026-11-12T01:51:28.480824955Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_opensearch_logs/_data:/usr/share/opensearch/logs:true;volume:/var/lib/docker/volumes/springboot_project_opensearch_data/_data:/usr/share/opensearch/data:true;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-opensearch-dashboards-1": {
+      "id": "94f2debdfe57ac7780e03889e9234aa9a0c8a54c5b17c266ae719f417cee2693",
+      "name": "/springboot_project-opensearch-dashboards-1",
+      "image": "sha256:256d4cea5928868ac09bca642a0ac8285a2b7e4b7fdd45c4ec06e75a5cf3184c",
+      "started": "2026-11-12T01:51:28.506748777Z",
+      "state": "running",
+      "mounts": "",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-otel-collector-1": {
+      "id": "250c58854a58bc8741f07d6953b5e2a2831b4af2c2fa89e9f2dc0c95d267c523",
+      "name": "/springboot_project-otel-collector-1",
+      "image": "sha256:3bc07732530c87c53f9103b01a3afed972fdeba26087a590c1098781736e58c2",
+      "started": "2026-11-12T01:55:54.469123812Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\springboot-project\\observability\\otel-collector\\config.yml:/etc/otelcol/config.yml:false;volume:/var/lib/docker/volumes/springboot_project_otel_queue/_data:/var/lib/otelcol:true;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-otel-queue-init-1": {
+      "id": "cf1abe6a296951d11925925ade6afd72bcb660c124627e88606191e3255e1c79",
+      "name": "/springboot_project-otel-queue-init-1",
+      "image": "sha256:00bc86618629af00d2937fdc5a5d63db3ff8450acf52f0636ec813c7f4902929",
+      "started": "2026-11-12T02:28:16.070983241Z",
+      "state": "exited",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_otel_queue/_data:/var/lib/otelcol:true;volume:/var/lib/docker/volumes/7f4fe6852ed9a55a7822f0c87e2229d6c2491b61c9c3d6518857888ec44d269f/_data:/var/lib/postgresql/data:true;",
+      "networks": "none:a8928c9016f60e3a0eee6b16adf3f0b9e442c7ed9675f66e9cb53a2a18f86013;"
+    },
+    "springboot_project-postgres-1": {
+      "id": "5ef09f086019ef893b4a5993ff4008fcb671a5ccf7b3fdf59b1ca18c67d6a670",
+      "name": "/springboot_project-postgres-1",
+      "image": "sha256:00bc86618629af00d2937fdc5a5d63db3ff8450acf52f0636ec813c7f4902929",
+      "started": "2026-11-12T01:51:28.432057305Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_postgres_data/_data:/var/lib/postgresql/data:true;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-prometheus-1": {
+      "id": "002a60c4bf0379ea50fd2ef367da10c5ba811a47f5bf041416e82a46dee3c03c",
+      "name": "/springboot_project-prometheus-1",
+      "image": "sha256:aafa9d694e6a883c02db516d9f6e5b84e14195f49a2a6456a4cca815edda72b9",
+      "started": "2026-11-12T02:03:42.015554078Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_prometheus_data/_data:/prometheus:true;bind:/run/desktop/mnt/host/c/Personal/springboot-project/observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:false;bind:/run/desktop/mnt/host/c/Personal/springboot-project/observability/prometheus/rules:/etc/prometheus/rules:false;bind:/run/desktop/mnt/host/c/Personal/springboot-project/observability/prometheus/targets:/etc/prometheus/targets:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-tempo-1": {
+      "id": "1ecea818ba91ca035478d0d12376de5a20a701427b1f4e2f8d4bf93d85ff908d",
+      "name": "/springboot_project-tempo-1",
+      "image": "sha256:65a5789759435f1ef696f1953258b9bbdb18eb571d5ce711ff812d2e128288a4",
+      "started": "2026-11-12T01:51:28.547932919Z",
+      "state": "running",
+      "mounts": "bind:C:\\Personal\\springboot-project\\observability\\tempo\\tempo.yml:/etc/tempo/tempo.yml:false;volume:/var/lib/docker/volumes/springboot_project_tempo_data/_data:/var/tempo:true;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    },
+    "springboot_project-tempo-storage-init-1": {
+      "id": "9061682089b0a5878e556b451278ecb3784d9e3c98744a2d0c265fe3076ab48d",
+      "name": "/springboot_project-tempo-storage-init-1",
+      "image": "sha256:00bc86618629af00d2937fdc5a5d63db3ff8450acf52f0636ec813c7f4902929",
+      "started": "2026-11-12T02:28:16.077939077Z",
+      "state": "exited",
+      "mounts": "volume:/var/lib/docker/volumes/72d2be3fc8d1eb323f09318f78efcbb5a222a256f4fd2ed7a598cf1fca7380d7/_data:/var/lib/postgresql/data:true;volume:/var/lib/docker/volumes/springboot_project_tempo_data/_data:/var/tempo:true;",
+      "networks": "none:a8928c9016f60e3a0eee6b16adf3f0b9e442c7ed9675f66e9cb53a2a18f86013;"
+    },
+    "springboot_project-user-api-1": {
+      "id": "f550a85f1d3ea7671fffe0a52604b3d1df74542811f576346f2778494987046e",
+      "name": "/springboot_project-user-api-1",
+      "image": "sha256:0677e936e6fcb99b00f58c40596c7884d4e18154722d6f16f22eee61ddff2027",
+      "started": "2026-11-12T03:58:56.632869476Z",
+      "state": "running",
+      "mounts": "volume:/var/lib/docker/volumes/springboot_project_user_api_logs/_data:/app/data/logs:true;bind:/run/desktop/mnt/host/c/Personal/springboot-project/springboot-user-api/src/main/resources/logback-spring.xml:/etc/application/logback-spring.xml:false;bind:C:\\Personal\\springboot-project\\key\\userservice-private-v2.pem:/run/keys/jwt/userservice-private-v2.pem:false;bind:C:\\Personal\\springboot-project\\key\\userservice-private-v1.pem:/run/keys/jwt/userservice-private-v1.pem:false;",
+      "networks": "springboot_project_default:ff230e52da874268330752debb9e32bcec5a8e000b3acbd04a181c99c06e4a50;"
+    }
+  }
+}

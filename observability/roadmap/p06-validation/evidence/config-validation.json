@@ -1,0 +1,30 @@
+{
+  "compose": "PASS",
+  "project": "jp_dev",
+  "original_services": 18,
+  "changes": [
+    "API tracing environment only",
+    "Grafana provisioning/network",
+    "two trace services",
+    "one private network",
+    "dedicated Tempo volume"
+  ],
+  "original_networks_volumes": "preserved",
+  "yaml_files": [
+    "observability\\p06\\collector.yml",
+    "observability\\p06\\tempo.yml",
+    "observability\\p06\\grafana\\provisioning\\dashboards\\health.yml",
+    "observability\\p06\\grafana\\provisioning\\datasources\\prometheus.yml",
+    "observability\\p06\\grafana\\provisioning\\datasources\\tempo.yml"
+  ],
+  "yaml_syntax": "PASS",
+  "prometheus_datasource_and_dashboard_provider": "byte-identical",
+  "collector": {
+    "status": "PASS",
+    "version": "otelcol-contrib version 0.145.0",
+    "scope": "Native config/OTTL validation only; no pipeline started",
+    "sha256": "122fb3c2594d8ac8521d4b1859d51deeedc2b3f08a0da334c39efc33f8b6287c"
+  },
+  "tempo_native_validation": "NOT VERIFIED",
+  "runtime_acceptance": "BLOCKED: no deployment authorized"
+}
