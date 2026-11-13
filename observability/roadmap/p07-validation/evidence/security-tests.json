@@ -1,0 +1,8 @@
+{
+  "engine": "LuaJIT 2.1 via lupa 2.8",
+  "tests": 16,
+  "failures": 0,
+  "errors": 0,
+  "runtime_backend_validation": false,
+  "limitations": "OTTL structure/native validation and document/queue models are not stored telemetry/runtime tests"
+}

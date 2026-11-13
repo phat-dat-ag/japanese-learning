@@ -1,0 +1,202 @@
+{
+  "captured_utc": "2026-11-13T09:44:14.984564+00:00",
+  "service_settings": {
+    "fluent-bit": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "5",
+        "max-size": "10m"
+      }
+    },
+    "prometheus": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "3",
+        "max-size": "10m"
+      }
+    },
+    "grafana": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "3",
+        "max-size": "10m"
+      },
+      "p07_security_settings": {
+        "GF_USERS_AUTO_ASSIGN_ORG_ROLE": {
+          "expected": "Viewer",
+          "active": "Viewer",
+          "matches": true
+        },
+        "GF_SECURITY_ALLOW_EMBEDDING": {
+          "expected": "false",
+          "active": "false",
+          "matches": true
+        },
+        "GF_SECURITY_COOKIE_SAMESITE": {
+          "expected": "strict",
+          "active": "strict",
+          "matches": true
+        },
+        "GF_SECURITY_DISABLE_GRAVATAR": {
+          "expected": "true",
+          "active": "true",
+          "matches": true
+        },
+        "GF_AUTH_LOGIN_MAXIMUM_INACTIVE_LIFETIME_DURATION": {
+          "expected": "4h",
+          "active": "4h",
+          "matches": true
+        },
+        "GF_AUTH_LOGIN_MAXIMUM_LIFETIME_DURATION": {
+          "expected": "7d",
+          "active": "7d",
+          "matches": true
+        },
+        "GF_AUTH_ANONYMOUS_ENABLED": {
+          "expected": "false",
+          "active": "false",
+          "matches": true
+        },
+        "GF_USERS_ALLOW_SIGN_UP": {
+          "expected": "false",
+          "active": "false",
+          "matches": true
+        }
+      }
+    },
+    "otel-collector": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "2",
+        "max-size": "5m"
+      }
+    },
+    "tempo": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "2",
+        "max-size": "5m"
+      }
+    },
+    "user-api": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "3",
+        "max-size": "10m"
+      },
+      "tracing_controls": {
+        "Tracing__SampleRatio": "0.1",
+        "Tracing__ExportEnabled": "true",
+        "Tracing__MaxRootsPerSecond": "10"
+      }
+    },
+    "vocabulary-api": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "3",
+        "max-size": "10m"
+      },
+      "tracing_controls": {
+        "APP_OTEL_SAMPLE_RATIO": "0.1",
+        "APP_OTEL_EXPORT_ENABLED": "true",
+        "APP_OTEL_MAX_ROOTS_PER_SECOND": "10"
+      }
+    },
+    "gateway": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "3",
+        "max-size": "10m"
+      }
+    },
+    "frontend": {
+      "log_driver": "local",
+      "log_options": {
+        "max-file": "3",
+        "max-size": "10m"
+      }
+    }
+  },
+  "checks": {
+    "opensearch_health": {
+      "status": "yellow",
+      "timed_out": false,
+      "number_of_nodes": 1,
+      "unassigned_shards": 8
+    },
+    "opensearch_ism": {
+      "indices": 26,
+      "with_retention_policy": 26,
+      "managed_indices": 26
+    },
+    "opensearch_retention_policy": {
+      "min_index_ages": [
+        "30d"
+      ]
+    },
+    "opensearch_stats": {
+      "docs": {
+        "count": 257635
+      },
+      "store": {
+        "size_in_bytes": 120056952
+      }
+    },
+    "tempo_ready": {
+      "reachable_from_grafana_container": true,
+      "ready": true
+    },
+    "prometheus_ready": {
+      "reachable_from_grafana_container": true,
+      "ready": true
+    },
+    "tempo_counters": {
+      "tempo_distributor_spans_received_total": 1.0,
+      "tempo_ingester_traces_created_total": 1.0,
+      "tempo_discarded_spans_total": 0.0,
+      "tempo_distributor_ingester_append_failures_total": "NOT_EMITTED"
+    },
+    "prometheus_active_flags": {
+      "query.timeout": {
+        "active": "15s",
+        "matches": true
+      },
+      "query.max-concurrency": {
+        "active": "4",
+        "matches": true
+      },
+      "query.max-samples": {
+        "active": "5000000",
+        "matches": true
+      },
+      "rules.max-concurrent-evals": {
+        "active": "2",
+        "matches": true
+      }
+    },
+    "fluent-bit_diagnostic_window": {
+      "read_success": true,
+      "window": "15m/max200lines",
+      "lines": 15,
+      "error_or_failure_lines": 0,
+      "payloads_retained": false,
+      "limits": "Bounded diagnostic classification, not full lifetime/error-free proof"
+    },
+    "otel-collector_diagnostic_window": {
+      "read_success": true,
+      "window": "15m/max200lines",
+      "lines": 0,
+      "error_or_failure_lines": 0,
+      "payloads_retained": false,
+      "limits": "Bounded diagnostic classification, not full lifetime/error-free proof"
+    },
+    "tempo_diagnostic_window": {
+      "read_success": true,
+      "window": "15m/max200lines",
+      "lines": 0,
+      "error_or_failure_lines": 0,
+      "payloads_retained": false,
+      "limits": "Bounded diagnostic classification, not full lifetime/error-free proof"
+    }
+  }
+}

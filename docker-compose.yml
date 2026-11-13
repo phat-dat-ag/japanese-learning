@@ -237,6 +237,9 @@ services:
 
   user-api:
     <<: *container-security
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "3"}
     mem_limit: 512m
     memswap_limit: 512m
     cpus: 2
@@ -299,6 +302,9 @@ services:
 
   vocabulary-api:
     <<: *container-security
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "3"}
     mem_limit: 1g
     memswap_limit: 1g
     cpus: 2
@@ -352,6 +358,9 @@ services:
 
   gateway:
     <<: *container-security
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "3"}
     user: "101:101"
     # The complete config is mounted; skip the image's root-oriented template/setup scripts.
     entrypoint: ["nginx", "-g", "daemon off;"]
@@ -388,6 +397,9 @@ services:
 
   frontend:
     <<: *container-security
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "3"}
     build:
       context: ./angular
       dockerfile: Dockerfile
@@ -465,8 +477,8 @@ services:
   fluent-bit:
     <<: *log-security
     build:
-      context: ./observability/logging
-      dockerfile: Dockerfile.fluent-bit
+      context: ./observability/p07/fluent-bit
+      dockerfile: Dockerfile
     user: "185:185"
     # Read existing application-owned volumes without root or Docker socket access.
     group_add: ["0", "1654", "10001"]
@@ -478,6 +490,7 @@ services:
     cpus: 1
     pids_limit: 128
     volumes:
+      # Preserve existing offsets and legacy buffer files; see P07 rollback handoff gate.
       - fluent_bit_state:/state
       - jwks_api_logs:/logs/jwks:ro
       - user_api_logs:/logs/user:ro
@@ -572,7 +585,7 @@ services:
     command: ["--config=/etc/otelcol/config.yml"]
     volumes:
       - type: bind
-        source: ./observability/p06/collector.yml
+        source: ./observability/p07/collector.yml
         target: /etc/otelcol/config.yml
         read_only: true
         bind: {create_host_path: false}
@@ -599,7 +612,7 @@ services:
     volumes:
       - tempo_data:/var/tempo
       - type: bind
-        source: ./observability/p06/tempo.yml
+        source: ./observability/p07/tempo.yml
         target: /etc/tempo/config.yml
         read_only: true
         bind: {create_host_path: false}
@@ -633,11 +646,15 @@ services:
       - --storage.tsdb.retention.time=${PROMETHEUS_RETENTION_TIME:-2d}
       - --storage.tsdb.retention.size=${PROMETHEUS_RETENTION_SIZE:-512MB}
       - --web.listen-address=0.0.0.0:9090
+      - --query.timeout=15s
+      - --query.max-concurrency=4
+      - --query.max-samples=5000000
+      - --rules.max-concurrent-evals=2
     ports: ["127.0.0.1:9091:9090"]
     volumes:
       - prometheus_data:/prometheus
       - type: bind
-        source: ./observability/p05-candidate/prometheus
+        source: ./observability/p07/prometheus
         target: /etc/prometheus
         read_only: true
         bind: {create_host_path: false}
@@ -673,6 +690,12 @@ services:
       GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?Set a dedicated jp_dev Grafana password}
       GF_AUTH_ANONYMOUS_ENABLED: "false"
       GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_USERS_AUTO_ASSIGN_ORG_ROLE: Viewer
+      GF_SECURITY_ALLOW_EMBEDDING: "false"
+      GF_SECURITY_COOKIE_SAMESITE: strict
+      GF_SECURITY_DISABLE_GRAVATAR: "true"
+      GF_AUTH_LOGIN_MAXIMUM_INACTIVE_LIFETIME_DURATION: 4h
+      GF_AUTH_LOGIN_MAXIMUM_LIFETIME_DURATION: 7d
       GF_ANALYTICS_REPORTING_ENABLED: "false"
       GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
       GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: "false"
@@ -684,7 +707,7 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana
       - type: bind
-        source: ./observability/p06/grafana/provisioning
+        source: ./observability/p07/grafana/provisioning
         target: /etc/grafana/provisioning
         read_only: true
         bind: {create_host_path: false}

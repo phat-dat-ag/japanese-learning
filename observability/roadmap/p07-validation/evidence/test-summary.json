@@ -1,0 +1,194 @@
+{
+  "captured_utc": "2026-11-13T09:40:43.049798+00:00",
+  "backlog_handoff_fixtures": {
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "scope": "Synthetic offline snapshots only; real backlog inventory and migration NOT EXECUTED"
+  },
+  "native_collector_pipeline": {
+    "status": "PASS",
+    "scope": "Actual native Windows0.145.0 Collector with synthetic loopback OTLP ingress/egress. No Docker, Tempo or stored-data validation.",
+    "production_config_sha256": "dc9ff7286c2588fbf04aa8192317dee9977ba29788f4e1ba09edede54799e5dd",
+    "temporary_changes": "Receiver/exporter endpoints to127.0.0.1; self-telemetry disabled; pipeline/processors unchanged",
+    "input_spans": 6,
+    "exported_spans": 2,
+    "assertions": [
+      "both API resources retained",
+      "unknown service rejected",
+      "linked spans rejected",
+      "events removed",
+      "sentinels absent from serialized output and diagnostics",
+      "trace/span identity and error status preserved"
+    ],
+    "dependencies": {
+      "grpcio": "1.85.1",
+      "protobuf": "7.36.2",
+      "opentelemetry-proto": "1.45.2"
+    }
+  },
+  "native_prometheus_pipeline": {
+    "status": "PASS",
+    "scope": "Native Windows3.14.0 synthetic scrape/relabel/isolated temporary TSDB; not Docker, existing samples, retention expiry or pressure validation",
+    "source_sha256": "1cbb02a3e9220d1c93da5c6985e9d928ee6c763fce30d06706ad5e4cf91b42d9",
+    "private_label_names_exercised": [
+      "Authorization",
+      "Cookie",
+      "UserId",
+      "api_key",
+      "authorization",
+      "cookie",
+      "correlation_id",
+      "db_query",
+      "db_query_text",
+      "db_statement",
+      "email",
+      "password",
+      "query",
+      "session_id",
+      "span_id",
+      "trace_id",
+      "uri",
+      "url",
+      "url_full",
+      "user_id",
+      "userid",
+      "username"
+    ],
+    "safe_series_preserved": 3,
+    "private_series_exported": 0,
+    "temporary_changes": "Loopback targets/listener,1s scrape/500ms timeout,absolute rule paths and temporary synthetic TSDB; relabel rules unchanged"
+  },
+  "security_fixtures": {
+    "engine": "LuaJIT 2.1 via lupa 2.8",
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "runtime_backend_validation": false,
+    "limitations": "OTTL structure/native validation and document/queue models are not stored telemetry/runtime tests"
+  },
+  "p03_actual_lua_assertions": 229,
+  "application_regressions_scope": "Previously executed P07 regression evidence; not rerun for Compose-only integration",
+  "dotnet": {
+    "passed": 151,
+    "trx_sha256": "6c7b6ea781fc11738f497ef5d5f6c3744cebfe33702d2afad71e8cd038887d16"
+  },
+  "quarkus": {
+    "passed": 372,
+    "mysql_fixtures": "excluded",
+    "log_sha256": "fd1402a0f1e2e4ce22d3c1c7f0c94f89b2863e017675cd28404a2fa30c6aa8fe"
+  },
+  "promtool_scenarios": {
+    "passed": 42,
+    "log_sha256": "798bc63f8933d4f55289c6f521d38782e7ced8e3069a24acda186e62aca0154a"
+  },
+  "native_configuration": {
+    "captured_utc": "2026-11-13T09:04:03.148608+00:00",
+    "compose": "PASS; single root config --quiet and full resolved model reviewed; no lifecycle command",
+    "baseline_head": "dcb831946f1af68280740ff300fcb590753c526c",
+    "service_changes": {
+      "fluent-bit": [
+        "build"
+      ],
+      "frontend": [
+        "logging"
+      ],
+      "gateway": [
+        "logging"
+      ],
+      "grafana": [
+        "environment",
+        "volumes"
+      ],
+      "otel-collector": [
+        "volumes"
+      ],
+      "prometheus": [
+        "command",
+        "volumes"
+      ],
+      "tempo": [
+        "volumes"
+      ],
+      "user-api": [
+        "logging"
+      ],
+      "vocabulary-api": [
+        "logging"
+      ]
+    },
+    "resolved_model": "resolved-compose.json",
+    "services_preserved": 20,
+    "networks_ports_limits_users_preserved": true,
+    "existing_volumes_preserved": "All declarations and named mounts unchanged, including fluent_bit_state:/state",
+    "new_volume": null,
+    "shared_jwks_model": "unchanged",
+    "root_compose": "single authoritative Compose source; nine services hardened",
+    "yaml_files": [
+      "observability\\p07\\collector.yml",
+      "observability\\p07\\tempo.yml",
+      "observability\\p07\\prometheus\\prometheus.yml",
+      "observability\\p07\\prometheus\\rules\\p05.rules.yml",
+      "observability\\p07\\grafana\\provisioning\\dashboards\\health.yml",
+      "observability\\p07\\grafana\\provisioning\\datasources\\prometheus.yml",
+      "observability\\p07\\grafana\\provisioning\\datasources\\tempo.yml"
+    ],
+    "native_checks": [
+      {
+        "command": [
+          ".local/p06-tools/otelcol-contrib.exe",
+          "validate",
+          "--config=observability/p07/collector.yml"
+        ],
+        "status": "PASS",
+        "output": "",
+        "binary_sha256": "122fb3c2594d8ac8521d4b1859d51deeedc2b3f08a0da334c39efc33f8b6287c"
+      },
+      {
+        "command": [
+          ".local/p07-native/promtool.exe",
+          "check",
+          "config",
+          "observability/p07/prometheus/prometheus.yml"
+        ],
+        "status": "PASS",
+        "output": "Checking observability/p07/prometheus/prometheus.yml\n  SUCCESS: 1 rule files found\n SUCCESS: observability/p07/prometheus/prometheus.yml is valid prometheus config file syntax\n\nChecking observability\\p07\\prometheus\\rules\\p05.rules.yml\n  SUCCESS: 48 rules found\n\n",
+        "binary_sha256": "78b0d964ce421256ae3fab858194f890541553d59feba0e5ae24550a1704197a"
+      },
+      {
+        "command": [
+          ".local/p07-native/promtool.exe",
+          "check",
+          "rules",
+          "observability/p07/prometheus/rules/p05.rules.yml"
+        ],
+        "status": "PASS",
+        "output": "Checking observability/p07/prometheus/rules/p05.rules.yml\n  SUCCESS: 48 rules found\n\n",
+        "binary_sha256": "78b0d964ce421256ae3fab858194f890541553d59feba0e5ae24550a1704197a"
+      },
+      {
+        "command": [
+          ".local/p07-native/tempo.exe",
+          "-config.file=observability/p07/tempo.yml",
+          "-config.verify=true"
+        ],
+        "status": "PASS",
+        "output": "",
+        "binary_sha256": "830675c63716d60e5766cf6a45894732d2fbad0370af9c0aa5321976651be44d"
+      }
+    ],
+    "tempo_native_validation": "PASS pinned2.10.3 Windows config verification only; Linux image behavior UNVERIFIED",
+    "fluent_bit_native_validation": "NOT VERIFIED; actual LuaJIT fixtures, not Fluent Bit embedding"
+  },
+  "current_runtime_evidence": [
+    "active-runtime-audit.json",
+    "active-acceptance-checks.json",
+    "live-trace-probes.json",
+    "historical-original-sample.json",
+    "current-acceptance-status.json"
+  ],
+  "runtime_acceptance": "BLOCKED; P07 active, .NET stored trace/log check PASS; Quarkus401 trace404, historical privacy/retention/quota/recovery gates remain open",
+  "runtime_preservation": "PASS: fresh before/after selective metadata only",
+  "runtime_preservation_scope": "Fresh selective38-container comparison PASS; earlier failed historical comparison retained separately; no data-integrity/runtime acceptance",
+  "simulation_scope": "Queue overflow and OpenSearch document shape are offline models only"
+}

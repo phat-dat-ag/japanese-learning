@@ -1,0 +1,546 @@
+{
+  "global": {
+    "scrape_interval": "15s",
+    "scrape_timeout": "5s",
+    "evaluation_interval": "15s",
+    "external_labels": {
+      "monitoring_project": "jp_dev",
+      "monitoring_role": "p05-candidate"
+    }
+  },
+  "rule_files": [
+    "rules/p05.rules.yml"
+  ],
+  "scrape_configs": [
+    {
+      "job_name": "user-api",
+      "metrics_path": "/metrics",
+      "honor_labels": false,
+      "sample_limit": 5000,
+      "body_size_limit": "5MB",
+      "label_limit": 16,
+      "label_value_length_limit": 128,
+      "static_configs": [
+        {
+          "targets": [
+            "user-api:8080"
+          ]
+        }
+      ],
+      "metric_relabel_configs": [
+        {
+          "action": "drop",
+          "source_labels": [
+            "authorization"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "Authorization"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "cookie"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "Cookie"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "password"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "api_key"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "user_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "userid"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "UserId"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "username"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "email"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "session_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "trace_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "span_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "correlation_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_statement"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_query"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_query_text"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "url"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "url_full"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "uri"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "query"
+          ],
+          "regex": ".+"
+        }
+      ],
+      "scrape_protocols": [
+        "PrometheusText0.0.4"
+      ],
+      "label_name_length_limit": 80
+    },
+    {
+      "job_name": "vocabulary-api",
+      "metrics_path": "/q/metrics",
+      "honor_labels": false,
+      "sample_limit": 5000,
+      "body_size_limit": "5MB",
+      "label_limit": 16,
+      "label_value_length_limit": 128,
+      "static_configs": [
+        {
+          "targets": [
+            "vocabulary-api:8080"
+          ]
+        }
+      ],
+      "metric_relabel_configs": [
+        {
+          "action": "drop",
+          "source_labels": [
+            "authorization"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "Authorization"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "cookie"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "Cookie"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "password"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "api_key"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "user_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "userid"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "UserId"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "username"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "email"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "session_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "trace_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "span_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "correlation_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_statement"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_query"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_query_text"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "url"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "url_full"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "uri"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "query"
+          ],
+          "regex": ".+"
+        }
+      ],
+      "scrape_protocols": [
+        "PrometheusText0.0.4"
+      ],
+      "label_name_length_limit": 80
+    },
+    {
+      "job_name": "prometheus",
+      "metrics_path": "/metrics",
+      "honor_labels": false,
+      "sample_limit": 5000,
+      "body_size_limit": "5MB",
+      "label_limit": 16,
+      "label_value_length_limit": 128,
+      "static_configs": [
+        {
+          "targets": [
+            "prometheus:9090"
+          ]
+        }
+      ],
+      "label_name_length_limit": 80,
+      "metric_relabel_configs": [
+        {
+          "action": "drop",
+          "source_labels": [
+            "authorization"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "Authorization"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "cookie"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "Cookie"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "password"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "api_key"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "user_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "userid"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "UserId"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "username"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "email"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "session_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "trace_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "span_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "correlation_id"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_statement"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_query"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "db_query_text"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "url"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "url_full"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "uri"
+          ],
+          "regex": ".+"
+        },
+        {
+          "action": "drop",
+          "source_labels": [
+            "query"
+          ],
+          "regex": ".+"
+        }
+      ]
+    }
+  ],
+  "storage": {
+    "exemplars": {
+      "max_exemplars": 0
+    }
+  }
+}

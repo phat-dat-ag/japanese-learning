@@ -1,0 +1,6 @@
+{
+  "scope": "Oldest20 documents by collected_at; only original field requested; no payload retained",
+  "sampled_documents": 20,
+  "documents_with_original": 20,
+  "limits": "Bounded sample, not exhaustive historical scan or sanitation"
+}

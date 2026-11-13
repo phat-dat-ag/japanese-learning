@@ -1,0 +1,26 @@
+{
+  "opensearch_unassigned_primaries": 0,
+  "opensearch_unassigned_replicas": 8,
+  "fluent-bit_entrypoint": [
+    "/fluent-bit/bin/fluent-bit",
+    "-c",
+    "/fluent-bit/etc/fluent-bit.conf"
+  ],
+  "fluent-bit_command": null,
+  "otel-collector_entrypoint": [
+    "/otelcol-contrib"
+  ],
+  "otel-collector_command": [
+    "--config=/etc/otelcol/config.yml"
+  ],
+  "tempo_entrypoint": [
+    "/tempo"
+  ],
+  "tempo_command": [
+    "-config.file=/etc/tempo/config.yml"
+  ],
+  "tempo_readiness_http_statuses": [
+    "200"
+  ],
+  "tempo_readiness_current_pass": true
+}

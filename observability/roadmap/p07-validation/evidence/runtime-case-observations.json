@@ -1,0 +1,18 @@
+{
+  "scope": "Read-only current observations; not full-case acceptance",
+  "L1": "PARTIAL PASS: safe correlated logs and bounded samples",
+  "L2": "PASS active native happy path only; malformed/failure cases remain offline",
+  "M1": "PASS target/rule health point; capacity/cardinality open",
+  "M2": "Native fixture PASS earlier; live sensitive sample injection not run",
+  "T1": "User API PASS; Learning401 trace404 OPEN",
+  "T2": "User synthetic stored trace sentinel absent; full scenario matrix open",
+  "T3": "NOT EXECUTED",
+  "G1": "PARTIAL: provisioning/settings/reachability; authenticated UI/API and RBAC open",
+  "S1": "PARTIAL:30d ISM attachments and point stats; quotas/growth open",
+  "S2": "NOT EXECUTED",
+  "S3": "NOT EXECUTED",
+  "B1": "PARTIAL: active chunks0, retained2x4KiB files; consistent backup/record history open",
+  "R1": "NOT EXECUTED",
+  "I1": "PASS metadata38 unchanged/no shared network IDs; denial/fault cases open",
+  "RB1": "NOT EXECUTED"
+}

@@ -1,0 +1,13 @@
+{
+  "snapshot_inventory_sha256": null,
+  "snapshot_consistency_ref": null,
+  "protected_backup_restore_ref": null,
+  "operator_approval_ref": null,
+  "image_config_identity_ref": null,
+  "producer_rotation_offsets_ref": null,
+  "memory_inflight_reconciliation_ref": null,
+  "duplicate_reconciliation_ref": null,
+  "privacy_safe_replay_or_quarantine_ref": null,
+  "pending_inflight_records": null,
+  "chunks": []
+}

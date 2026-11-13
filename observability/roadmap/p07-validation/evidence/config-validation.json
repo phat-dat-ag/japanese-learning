@@ -1,0 +1,98 @@
+{
+  "captured_utc": "2026-11-13T09:04:03.148608+00:00",
+  "compose": "PASS; single root config --quiet and full resolved model reviewed; no lifecycle command",
+  "baseline_head": "dcb831946f1af68280740ff300fcb590753c526c",
+  "service_changes": {
+    "fluent-bit": [
+      "build"
+    ],
+    "frontend": [
+      "logging"
+    ],
+    "gateway": [
+      "logging"
+    ],
+    "grafana": [
+      "environment",
+      "volumes"
+    ],
+    "otel-collector": [
+      "volumes"
+    ],
+    "prometheus": [
+      "command",
+      "volumes"
+    ],
+    "tempo": [
+      "volumes"
+    ],
+    "user-api": [
+      "logging"
+    ],
+    "vocabulary-api": [
+      "logging"
+    ]
+  },
+  "resolved_model": "resolved-compose.json",
+  "services_preserved": 20,
+  "networks_ports_limits_users_preserved": true,
+  "existing_volumes_preserved": "All declarations and named mounts unchanged, including fluent_bit_state:/state",
+  "new_volume": null,
+  "shared_jwks_model": "unchanged",
+  "root_compose": "single authoritative Compose source; nine services hardened",
+  "yaml_files": [
+    "observability\\p07\\collector.yml",
+    "observability\\p07\\tempo.yml",
+    "observability\\p07\\prometheus\\prometheus.yml",
+    "observability\\p07\\prometheus\\rules\\p05.rules.yml",
+    "observability\\p07\\grafana\\provisioning\\dashboards\\health.yml",
+    "observability\\p07\\grafana\\provisioning\\datasources\\prometheus.yml",
+    "observability\\p07\\grafana\\provisioning\\datasources\\tempo.yml"
+  ],
+  "native_checks": [
+    {
+      "command": [
+        ".local/p06-tools/otelcol-contrib.exe",
+        "validate",
+        "--config=observability/p07/collector.yml"
+      ],
+      "status": "PASS",
+      "output": "",
+      "binary_sha256": "122fb3c2594d8ac8521d4b1859d51deeedc2b3f08a0da334c39efc33f8b6287c"
+    },
+    {
+      "command": [
+        ".local/p07-native/promtool.exe",
+        "check",
+        "config",
+        "observability/p07/prometheus/prometheus.yml"
+      ],
+      "status": "PASS",
+      "output": "Checking observability/p07/prometheus/prometheus.yml\n  SUCCESS: 1 rule files found\n SUCCESS: observability/p07/prometheus/prometheus.yml is valid prometheus config file syntax\n\nChecking observability\\p07\\prometheus\\rules\\p05.rules.yml\n  SUCCESS: 48 rules found\n\n",
+      "binary_sha256": "78b0d964ce421256ae3fab858194f890541553d59feba0e5ae24550a1704197a"
+    },
+    {
+      "command": [
+        ".local/p07-native/promtool.exe",
+        "check",
+        "rules",
+        "observability/p07/prometheus/rules/p05.rules.yml"
+      ],
+      "status": "PASS",
+      "output": "Checking observability/p07/prometheus/rules/p05.rules.yml\n  SUCCESS: 48 rules found\n\n",
+      "binary_sha256": "78b0d964ce421256ae3fab858194f890541553d59feba0e5ae24550a1704197a"
+    },
+    {
+      "command": [
+        ".local/p07-native/tempo.exe",
+        "-config.file=observability/p07/tempo.yml",
+        "-config.verify=true"
+      ],
+      "status": "PASS",
+      "output": "",
+      "binary_sha256": "830675c63716d60e5766cf6a45894732d2fbad0370af9c0aa5321976651be44d"
+    }
+  ],
+  "tempo_native_validation": "PASS pinned2.10.3 Windows config verification only; Linux image behavior UNVERIFIED",
+  "fluent_bit_native_validation": "NOT VERIFIED; actual LuaJIT fixtures, not Fluent Bit embedding"
+}

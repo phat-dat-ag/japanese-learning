@@ -1,0 +1,20 @@
+{
+  "scope": "This runtime-audit continuation versus prior manifest",
+  "unchanged": {
+    "docker-compose.yml": true,
+    "observability/p07/collector.yml": true,
+    "observability/p07/fluent-bit/Dockerfile": true,
+    "observability/p07/fluent-bit/fluent-bit.conf": true,
+    "observability/p07/fluent-bit/normalize.lua": true,
+    "observability/p07/fluent-bit/parsers-app.conf": true,
+    "observability/p07/fluent-bit/registry.json": true,
+    "observability/p07/grafana/provisioning/dashboards/health.yml": true,
+    "observability/p07/grafana/provisioning/datasources/prometheus.yml": true,
+    "observability/p07/grafana/provisioning/datasources/tempo.yml": true,
+    "observability/p07/opensearch/cluster-settings.json": true,
+    "observability/p07/opensearch/index-template.json": true,
+    "observability/p07/prometheus/prometheus.yml": true,
+    "observability/p07/prometheus/rules/p05.rules.yml": true,
+    "observability/p07/tempo.yml": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    ".local\\p07-native\\tempo.exe",
+    "-config.file=observability/p07/tempo.yml",
+    "-config.verify=true"
+  ],
+  "exit": 0,
+  "status": "PASS",
+  "output": "",
+  "binary_sha256": "830675c63716d60e5766cf6a45894732d2fbad0370af9c0aa5321976651be44d",
+  "scope": "Windows pinned version config verification only; no server/pipelines started"
+}

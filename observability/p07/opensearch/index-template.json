@@ -1,0 +1,224 @@
+{
+  "index_patterns": [
+    "application-logs-*"
+  ],
+  "priority": 101,
+  "_meta": {
+    "phase": "P07",
+    "status": "INACTIVE; approve compatible future-index adoption first"
+  },
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "index.mapping.total_fields.limit": 64,
+      "index.max_result_window": 1000
+    },
+    "mappings": {
+      "dynamic": false,
+      "_source": {
+        "excludes": [
+          "original",
+          "Properties",
+          "log",
+          "RenderedMessage",
+          "MessageTemplate",
+          "Exception",
+          "authorization",
+          "cookie",
+          "body",
+          "headers"
+        ],
+        "includes": [
+          "@timestamp",
+          "authenticated",
+          "collected_at",
+          "collector_adapter",
+          "correlation_id",
+          "count",
+          "created",
+          "dependency_name",
+          "dependency_operation",
+          "dependency_type",
+          "dueCount",
+          "duration_ms",
+          "environment",
+          "error_category",
+          "error_code",
+          "error_type",
+          "event_name",
+          "failed",
+          "http_method",
+          "http_route",
+          "http_status",
+          "is_slow",
+          "level",
+          "masteredCount",
+          "message",
+          "operation",
+          "outcome",
+          "parent_span_id",
+          "route_family",
+          "service_instance_id",
+          "service_name",
+          "service_version",
+          "skipped",
+          "span_id",
+          "studiedCount",
+          "succeeded",
+          "telemetry_incomplete",
+          "timestamp_source",
+          "total",
+          "trace_id",
+          "updated"
+        ]
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "collected_at": {
+          "type": "date"
+        },
+        "service_name": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "environment": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "level": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "event_name": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "correlation_id": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "trace_id": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "span_id": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "parent_span_id": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "http_method": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "http_route": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "route_family": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "operation": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "outcome": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "error_code": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "error_type": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "error_category": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "dependency_name": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "dependency_type": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "dependency_operation": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "service_version": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "service_instance_id": {
+          "type": "keyword",
+          "ignore_above": 256
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "duration_ms": {
+          "type": "double"
+        },
+        "message": {
+          "type": "text"
+        },
+        "is_slow": {
+          "type": "boolean"
+        },
+        "authenticated": {
+          "type": "boolean"
+        },
+        "total": {
+          "type": "long"
+        },
+        "count": {
+          "type": "long"
+        },
+        "created": {
+          "type": "long"
+        },
+        "updated": {
+          "type": "long"
+        },
+        "succeeded": {
+          "type": "long"
+        },
+        "failed": {
+          "type": "long"
+        },
+        "skipped": {
+          "type": "long"
+        },
+        "dueCount": {
+          "type": "long"
+        },
+        "studiedCount": {
+          "type": "long"
+        },
+        "masteredCount": {
+          "type": "long"
+        },
+        "timestamp_source": {
+          "type": "keyword"
+        },
+        "collector_adapter": {
+          "type": "keyword"
+        },
+        "telemetry_incomplete": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

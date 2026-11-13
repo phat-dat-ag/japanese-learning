@@ -1,0 +1,42 @@
+{
+  "captured_utc": "2026-11-13T09:28:53.540854+00:00",
+  "scope": "Read-only GET probes using synthetic context; normal new telemetry only; no business writes",
+  "probes": [
+    {
+      "service": "user-api",
+      "http_status": 401,
+      "trace_id": "8657f6693271a82cc07cfedc78854637",
+      "parent_id": "31b112c4c05208c9",
+      "correlation_id": "p07-probe-d464fa3d3655",
+      "tempo_retrieval": "NOT_FOUND_WITHIN_WINDOW",
+      "correlated_log_documents": 1,
+      "logs_matching_trace_id": 1,
+      "log_private_sentinel_present": false,
+      "log_original_present": false,
+      "last_retrieval_http_statuses": [
+        "404",
+        "404"
+      ],
+      "last_retrieval_payload_bytes": 0,
+      "last_retrieval_shape": "not JSON"
+    },
+    {
+      "service": "vocabulary-api",
+      "http_status": 401,
+      "trace_id": "518526ebc370a7420540d830bf7f9a21",
+      "parent_id": "02c6d2c347ce1643",
+      "correlation_id": "p07-probe-99fe2c100b5f",
+      "tempo_retrieval": "NOT_FOUND_WITHIN_WINDOW",
+      "correlated_log_documents": 2,
+      "logs_matching_trace_id": 2,
+      "log_private_sentinel_present": false,
+      "log_original_present": false,
+      "last_retrieval_http_statuses": [
+        "404",
+        "404"
+      ],
+      "last_retrieval_payload_bytes": 0,
+      "last_retrieval_shape": "not JSON"
+    }
+  ]
+}
