@@ -1,0 +1,831 @@
+{
+  "phase": "P05",
+  "root_head": "b4167cd254f6715c4c7434b8c270ac3e0cc84943",
+  "source_status": "offline candidate checks PASS; official promtool/amtool acceptance NOT VERIFIED",
+  "runtime_status": "BLOCKED Docker access denied; no deployment",
+  "compose": "root docker-compose.yml only; regular prometheus/grafana; no P05 overlay/profile",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "f5638514f8ba64bbd78b104f9566d0d07ffc4a0066060a25de5a60ff96bb2ef4",
+      "change": "modified"
+    },
+    {
+      "path": "deployment/production.env.example",
+      "sha256": "db85ec8e0be3b51d343213c625796cdbced158287a6b76f8489bc6e8eb1a140a",
+      "change": "modified"
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "441e6ff9266b11d1db3a360be3967d212a99a9970fb202c5ee354e462869f448",
+      "change": "modified"
+    },
+    {
+      "path": "observability/p05-candidate/alertmanager/alertmanager.candidate.yml",
+      "sha256": "ed7014815978c59cea6868db01fcd65efab5d7cb1c0b92c8dc94b00dc71bc751",
+      "change": "created"
+    },
+    {
+      "path": "observability/p05-candidate/grafana/dashboards/monitoring-health.json",
+      "sha256": "3acfa3acf6e4ae216719834506d0276db0ae428144e8981e94503ee361da53ff",
+      "change": "created"
+    },
+    {
+      "path": "observability/p05-candidate/grafana/provisioning/dashboards/health.yml",
+      "sha256": "8c0b876052ad915090128dc3ee02b9482c7821f823a4ba219bcb752d0ef4f7b2",
+      "change": "created"
+    },
+    {
+      "path": "observability/p05-candidate/grafana/provisioning/datasources/prometheus.yml",
+      "sha256": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd",
+      "change": "created"
+    },
+    {
+      "path": "observability/p05-candidate/prometheus/prometheus.yml",
+      "sha256": "a84cb31ce71386c02683151b4d8caa2af6653e75afc7703106e499becbe329d4",
+      "change": "created"
+    },
+    {
+      "path": "observability/p05-candidate/prometheus/rules/p05.rules.yml",
+      "sha256": "3d1573f633b189b4749ba1d7e371979a24887f851ccc6c2d19709c463cd6ceef",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-alert-contract.md",
+      "sha256": "def612989b4b166c6cb3578185ecbf137174237754cc7d3bf606b464940f1d40",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-alert-inventory.md",
+      "sha256": "99dc06d943a03635ae4644b686de0147e928be43b89d0728a529a1697d8c2a12",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-capacity-budget.md",
+      "sha256": "44741fc9bd3a0fd219600c6ff07972ab373d3a4c738958894787debdb201f2a6",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-grafana-port-fix.md",
+      "sha256": "b8b51c5678e14fe6ed2a7a17f076c06a28261575d09207657db2c1304536a0a8",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-monitoring-infrastructure.md",
+      "sha256": "4d93159ebb11011b3bdf22ab28d6559ddc02f1e87c1353a6cc9a39905f7f3d75",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-rollback.md",
+      "sha256": "cee93bde42861819c3c4f754e7bf2fcbb0df8e12660e5424f98563a1f3fd1c29",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-test-matrix.md",
+      "sha256": "0c12264e79159ff83666cabd0e6ce68bc1e9bb3fe4068325702474e069570ebb",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/build_candidates.py",
+      "sha256": "2493d7303f29cef9cc8defc4d8b177b951c0dc7c9a7c8322462eb4fd6a51a993",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/compose-fixture.env",
+      "sha256": "41625f3603c429ea2a2f15494dbe55cc81c1f646c2a74003a3d334422ae5f9a7",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/compose_check.py",
+      "sha256": "1d8cebd2ed9e976353d8c88572ac3b5cf05f95c9c413f8d0a32e0ef5429ca7f1",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/alert-manifest.json",
+      "sha256": "77a28e5737358ba7e46159c1190c11864906be969ff71be87a524bb093c6af4f",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/compose-before.json",
+      "sha256": "bc7bbac2a7666fc7b9e7da69bf0b8f4d4343038f592428017b04b5b335bbb817",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/compose-draft-transfer-baseline.json",
+      "sha256": "a59cc971147ddf56dc6ffab7be56a26c1f31653d093881b7ff748c5aa9fb0f06",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/compose-transfer-target.json",
+      "sha256": "719cada4be21bae06d1b07018f75532b24f7701f7e4acbb8841e4dd078830245",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/compose-transfer.json",
+      "sha256": "edd3d07030a9cd37ce1d412c218a1d62991671b9d1dabb3d1265ad6ec08a776a",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/compose-validation.json",
+      "sha256": "5cc5251d67f680cd8a14dfc892b3f2825b6e06516b2c71e919673d176c24e7f8",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/preflight.json",
+      "sha256": "c2cc9e91de107460254d1c9156981f88a4148a32952d2d7730fe8973e93096d2",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/preservation.json",
+      "sha256": "6bbfbb2b6278a67494e1b6ad7ae6c3faa329fe4c231b2582b7dc81b6555da192",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/test-results.json",
+      "sha256": "2b6894faf4b63a836978d631ec3f69dbb1fea4534733ab459e9af5881800e88e",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/evidence/yaml-validation.json",
+      "sha256": "cdabbeab599b409895ca14c933995be6c21428b74216edf7f91dd0f82ad54cc5",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/finalize.py",
+      "sha256": "8d26c7bd6ae3580f5b5cce284b3c0ccc06aa9d1afed4bb485863138f43b5569d",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/promql_model.py",
+      "sha256": "fde29532e61b80849e6089384a702201960ad8f50c79e75ecf757d93d30e307e",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/promtool.tests.yml",
+      "sha256": "883aba839b0c42d15ba36e64dfcc0f6a1f1c26a6e3943dcb9cf55b5c11aec371",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/scenarios.py",
+      "sha256": "88a80c76b0c64c961ce8d639538eb07d35c9a19c5692b0a89b9f6e916a320984",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/transfer_check.py",
+      "sha256": "04c8bae69ca7caaa0e679996da57538585ea89250f3741bec4bc2e12cf61a251",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/validate-yaml.cjs",
+      "sha256": "94565126f16fc8e64900564109c53495f69a643462b2eceee6f8a67a08b7fa36",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-validation/verify.py",
+      "sha256": "f772c1c4166aa5fd0377937bfa7ce666ea546e1252a42c3cb43e2d81586c802a",
+      "change": "created"
+    },
+    {
+      "path": "observability/roadmap/p05-verification.md",
+      "sha256": "ce9f2bab1f3f0ae9faf8dd705d2d766038ae387cd3e20e764b640dbaa7900cc2",
+      "change": "created"
+    }
+  ],
+  "self_hash": "excluded to avoid recursive hash",
+  "removed_task_draft": [
+    "observability/p05-candidate/compose.p05.yml"
+  ],
+  "alerts": [
+    {
+      "name": "JpServiceScrapeUnavailable",
+      "group": "availability",
+      "severity": "critical",
+      "for": "1m",
+      "expr": "max by (job) (up{job=~\"user-api|vocabulary-api|prometheus\"}) == 0",
+      "metric_dependencies": [
+        "up"
+      ],
+      "evidence": "Prometheus documented scrape-generated up contract",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "availability",
+      "threshold_rationale": "All configured instances of this job failed scraping for one minute; this is not proof the application process is down."
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "group": "availability",
+      "severity": "critical",
+      "for": "1m",
+      "expr": "absent(up{job=\"user-api\"})",
+      "metric_dependencies": [
+        "up"
+      ],
+      "evidence": "Prometheus documented up/absent contracts",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "availability",
+      "threshold_rationale": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure."
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "group": "availability",
+      "severity": "critical",
+      "for": "1m",
+      "expr": "absent(up{job=\"vocabulary-api\"})",
+      "metric_dependencies": [
+        "up"
+      ],
+      "evidence": "Prometheus documented up/absent contracts",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "availability",
+      "threshold_rationale": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure."
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "group": "availability",
+      "severity": "critical",
+      "for": "1m",
+      "expr": "absent(up{job=\"prometheus\"})",
+      "metric_dependencies": [
+        "up"
+      ],
+      "evidence": "Prometheus documented up/absent contracts",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "availability",
+      "threshold_rationale": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure."
+    },
+    {
+      "name": "JpScrapeDataStale",
+      "group": "integrity",
+      "severity": "warning",
+      "for": "1m",
+      "expr": "max by (job) (time() - timestamp(up{job=~\"user-api|vocabulary-api|prometheus\"})) > 45",
+      "metric_dependencies": [
+        "up"
+      ],
+      "evidence": "Prometheus scrape timestamp contract",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "scrape",
+      "threshold_rationale": "Newest retained up sample is older than three proposed scrape intervals; a stopped evaluator cannot detect itself."
+    },
+    {
+      "name": "JpScrapeSlow",
+      "group": "integrity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "max by (job) (scrape_duration_seconds{job=~\"user-api|vocabulary-api|prometheus\"}) > 4",
+      "metric_dependencies": [
+        "scrape_duration_seconds"
+      ],
+      "evidence": "Prometheus documented scrape_duration_seconds contract",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "scrape",
+      "threshold_rationale": "Scrapes exceed 80 percent of the proposed five-second timeout for ten minutes."
+    },
+    {
+      "name": "JpUserCoreMetricsMissing",
+      "group": "integrity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(max by (job) (up{job=\"user-api\"}) == 1) unless on (job) (count by (job) (process_working_set_bytes{job=\"user-api\"}) > 0)",
+      "metric_dependencies": [
+        "process_working_set_bytes",
+        "up"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "metrics_contract",
+      "threshold_rationale": "An always-registered native runtime family is missing despite successful scrapes; optional or idle HTTP families are not assumed present."
+    },
+    {
+      "name": "JpLearningCoreMetricsMissing",
+      "group": "integrity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(max by (job) (up{job=\"vocabulary-api\"}) == 1) unless on (job) (count by (job) (jvm_memory_used_bytes{job=\"vocabulary-api\"}) > 0)",
+      "metric_dependencies": [
+        "jvm_memory_used_bytes",
+        "up"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "metrics_contract",
+      "threshold_rationale": "An always-registered native runtime family is missing despite successful scrapes; optional or idle HTTP families are not assumed present."
+    },
+    {
+      "name": "JpHttpLatencyBucketMissing",
+      "group": "integrity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(jp_p05:http_duration:rate5m >= 1) unless on (job) (jp_p05:http_fast2s:rate5m >= 0)",
+      "metric_dependencies": [
+        "jp_p05:http_duration:rate5m",
+        "jp_p05:http_fast2s:rate5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "metrics_contract",
+      "threshold_rationale": "Observed interactive duration volume lacks the required two-second bucket. Missing data is not treated as fast traffic."
+    },
+    {
+      "name": "JpHttp5xxWarning",
+      "group": "http",
+      "severity": "warning",
+      "for": "5m",
+      "expr": "(jp_p05:http_5xx:rate5m / jp_p05:http_requests:rate5m > 0.02) and on (job) (jp_p05:http_requests:rate5m >= 1)",
+      "metric_dependencies": [
+        "jp_p05:http_5xx:rate5m",
+        "jp_p05:http_requests:rate5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "http_errors",
+      "threshold_rationale": "Provisional 2 percent five-minute 5xx fraction with at least one request per second; not an approved business SLO."
+    },
+    {
+      "name": "JpHttp5xxCritical",
+      "group": "http",
+      "severity": "critical",
+      "for": "5m",
+      "expr": "(jp_p05:http_5xx:rate5m / jp_p05:http_requests:rate5m > 0.1) and on (job) (jp_p05:http_requests:rate5m >= 1)",
+      "metric_dependencies": [
+        "jp_p05:http_5xx:rate5m",
+        "jp_p05:http_requests:rate5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "http_errors",
+      "threshold_rationale": "Provisional 10 percent five-minute 5xx fraction with at least one request per second; not an approved business SLO."
+    },
+    {
+      "name": "JpHttpSlowWarning",
+      "group": "http",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(jp_p05:http_slow2s:ratio5m > 0.01) and on (job) (jp_p05:http_duration:rate5m >= 1)",
+      "metric_dependencies": [
+        "jp_p05:http_duration:rate5m",
+        "jp_p05:http_slow2s:ratio5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "http_latency",
+      "threshold_rationale": "Provisional fraction above two seconds exceeds 1 percent at one request per second; import route excluded, no per-instance percentile averaging."
+    },
+    {
+      "name": "JpHttpSlowCritical",
+      "group": "http",
+      "severity": "critical",
+      "for": "5m",
+      "expr": "(jp_p05:http_slow2s:ratio5m > 0.05) and on (job) (jp_p05:http_duration:rate5m >= 1)",
+      "metric_dependencies": [
+        "jp_p05:http_duration:rate5m",
+        "jp_p05:http_slow2s:ratio5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "http_latency",
+      "threshold_rationale": "Provisional fraction above two seconds exceeds 5 percent at one request per second; import route excluded, no per-instance percentile averaging."
+    },
+    {
+      "name": "JpHttpFailuresBurst",
+      "group": "http",
+      "severity": "warning",
+      "for": "2m",
+      "expr": "jp_p05:http_5xx:increase5m >= 50",
+      "metric_dependencies": [
+        "jp_p05:http_5xx:increase5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "http_errors",
+      "threshold_rationale": "At least fifty 5xx responses in a rolling five-minute window; intentionally catches material low-volume bursts excluded by ratio guards."
+    },
+    {
+      "name": "JpAuthenticationFailureSpike",
+      "group": "security",
+      "severity": "warning",
+      "for": "5m",
+      "expr": "(jp_p05:auth_failed:increase5m >= 20) and on (job) (jp_p05:auth_failed:increase5m / jp_p05:auth_events:increase5m >= 0.5)",
+      "metric_dependencies": [
+        "jp_p05:auth_events:increase5m",
+        "jp_p05:auth_failed:increase5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-security",
+      "signal": "authentication",
+      "threshold_rationale": "At least twenty failures and half of observed login/refresh/authentication outcomes in five minutes; no account, token or failure message is included."
+    },
+    {
+      "name": "JpAuthorizationDenialSpike",
+      "group": "security",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(jp_p05:authorization_denied:increase5m >= 20) and on (job) (jp_p05:authorization_denied:increase5m / jp_p05:http_requests:increase5m >= 0.1)",
+      "metric_dependencies": [
+        "jp_p05:authorization_denied:increase5m",
+        "jp_p05:http_requests:increase5m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-security",
+      "signal": "authorization",
+      "threshold_rationale": "At least twenty denials and ten percent of total HTTP requests in five minutes; the denominator is requests, not denial-only security events."
+    },
+    {
+      "name": "JpJwksDependencyWarning",
+      "group": "dependencies",
+      "severity": "warning",
+      "for": "5m",
+      "expr": "(jp_p05:jwks_failed:increase10m >= 3) and on (job) (jp_p05:jwks_failed:increase10m / jp_p05:jwks_observed:increase10m > 0.2)",
+      "metric_dependencies": [
+        "jp_p05:jwks_failed:increase10m",
+        "jp_p05:jwks_observed:increase10m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "jwks_errors",
+      "threshold_rationale": "Provisional 3 failed/timeout observations in ten minutes and failure fraction above 0.2; cached keys and unanswered Quarkus attempts are not counted as responses."
+    },
+    {
+      "name": "JpJwksDependencyCritical",
+      "group": "dependencies",
+      "severity": "critical",
+      "for": "5m",
+      "expr": "(jp_p05:jwks_failed:increase10m >= 10) and on (job) (jp_p05:jwks_failed:increase10m / jp_p05:jwks_observed:increase10m > 0.8)",
+      "metric_dependencies": [
+        "jp_p05:jwks_failed:increase10m",
+        "jp_p05:jwks_observed:increase10m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "jwks_errors",
+      "threshold_rationale": "Provisional 10 failed/timeout observations in ten minutes and failure fraction above 0.8; cached keys and unanswered Quarkus attempts are not counted as responses."
+    },
+    {
+      "name": "JpJwksResponseSlow",
+      "group": "dependencies",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(jp_p05:jwks_slow2s:ratio10m > 0.2) and on (job) (jp_p05:jwks_observed:increase10m >= 3)",
+      "metric_dependencies": [
+        "jp_p05:jwks_observed:increase10m",
+        "jp_p05:jwks_slow2s:ratio10m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "jwks_latency",
+      "threshold_rationale": "At least three observed attempts/responses, with more than one fifth above two seconds; .NET and Quarkus completion boundaries differ."
+    },
+    {
+      "name": "JpJwksAttemptsUnresolved",
+      "group": "dependencies",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(jp_p05:jwks_attempts:increase10m - (sum by (job) (increase(app_dependency_duration_seconds_count{job=\"vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\"}[10m])) or on (job) (0 * jp_p05:jwks_attempts:increase10m))) > 3",
+      "metric_dependencies": [
+        "app_dependency_duration_seconds_count",
+        "jp_p05:jwks_attempts:increase10m"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "jwks_gap",
+      "threshold_rationale": "More than three unmatched initiations over ten minutes; missing completion series means unresolved, not a fabricated transport failure. In-flight work, lost samples and resets can contribute."
+    },
+    {
+      "name": "JpSqlConnectFailures",
+      "group": "dependencies",
+      "severity": "warning",
+      "for": "5m",
+      "expr": "sum by (job) (increase(app_database_operations_total{job=\"user-api\",dependency=\"sqlserver\",operation=\"connect\",outcome=\"failure\"}[5m])) >= 5",
+      "metric_dependencies": [
+        "app_database_operations_total"
+      ],
+      "evidence": "P04 synthetic SqlClient provider fixture",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "database",
+      "threshold_rationale": "At least five observed provider connection failures per five minutes; passive adapter availability needs real-provider acceptance."
+    },
+    {
+      "name": "JpLearningDatabaseFailures",
+      "group": "dependencies",
+      "severity": "warning",
+      "for": "5m",
+      "expr": "sum by (job) (increase(app_database_failures_total{job=\"vocabulary-api\",dependency=\"mysql\",category=\"database\"}[5m])) >= 5",
+      "metric_dependencies": [
+        "app_database_failures_total"
+      ],
+      "evidence": "P04 typed exception/provider fixture",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "database",
+      "threshold_rationale": "At least five classified unexpected database failures per five minutes; not every recovered or background failure is covered."
+    },
+    {
+      "name": "JpSqlPoolBusy",
+      "group": "capacity",
+      "severity": "warning",
+      "for": "15m",
+      "expr": "(sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"active\"}) / sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"pooled\"}) > 0.9) and on (job) (sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"pooled\"}) >= 10)",
+      "metric_dependencies": [
+        "app_database_pool_connections"
+      ],
+      "evidence": "P04 synthetic provider sample fixture; runtime max unverified",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "pool",
+      "threshold_rationale": "More than ninety percent of at least ten allocated connections are active. The pool can grow: this is not proof of configured-maximum saturation."
+    },
+    {
+      "name": "JpReactivePoolWarning",
+      "group": "capacity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(max by (job) (sql_pool_ratio{job=\"vocabulary-api\",pool=\"default\"}) > 0.85) and on (job) (max by (job) (sql_pool_queue_size{job=\"vocabulary-api\",pool=\"default\"}) > 0)",
+      "metric_dependencies": [
+        "sql_pool_queue_size",
+        "sql_pool_ratio"
+      ],
+      "evidence": "P04 actual native SQL SPI fixture/local idle application export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "pool",
+      "threshold_rationale": "Native SQL pool ratio above 0.85 with queued work; verify actual reactive datasource collection and max size before adoption."
+    },
+    {
+      "name": "JpReactivePoolCritical",
+      "group": "capacity",
+      "severity": "critical",
+      "for": "5m",
+      "expr": "(max by (job) (sql_pool_ratio{job=\"vocabulary-api\",pool=\"default\"}) > 0.95) and on (job) (max by (job) (sql_pool_queue_size{job=\"vocabulary-api\",pool=\"default\"}) > 0)",
+      "metric_dependencies": [
+        "sql_pool_queue_size",
+        "sql_pool_ratio"
+      ],
+      "evidence": "P04 actual native SQL SPI fixture/local idle application export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-application",
+      "signal": "pool",
+      "threshold_rationale": "Native SQL pool ratio above 0.95 with queued work; verify actual reactive datasource collection and max size before adoption."
+    },
+    {
+      "name": "JpUserMemoryWarning",
+      "group": "capacity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "max by (job) (process_working_set_bytes{job=\"user-api\"}) / 536870912 > 0.8",
+      "metric_dependencies": [
+        "process_working_set_bytes"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "memory",
+      "threshold_rationale": "Working set exceeds 0.8 of the source-declared 512MiB envelope; actual container cap and overhead are NOT VERIFIED."
+    },
+    {
+      "name": "JpUserMemoryCritical",
+      "group": "capacity",
+      "severity": "critical",
+      "for": "5m",
+      "expr": "max by (job) (process_working_set_bytes{job=\"user-api\"}) / 536870912 > 0.95",
+      "metric_dependencies": [
+        "process_working_set_bytes"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "memory",
+      "threshold_rationale": "Working set exceeds 0.95 of the source-declared 512MiB envelope; actual container cap and overhead are NOT VERIFIED."
+    },
+    {
+      "name": "JpLearningHeapWarning",
+      "group": "capacity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "(sum by (job) (jvm_memory_used_bytes{job=\"vocabulary-api\",area=\"heap\"}) / sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0.85) and on (job) (sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0)",
+      "metric_dependencies": [
+        "jvm_memory_max_bytes",
+        "jvm_memory_used_bytes"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "memory",
+      "threshold_rationale": "Used heap exceeds 0.85 of positive native heap maxima; this excludes native/off-heap/container memory and requires GC/max semantics acceptance."
+    },
+    {
+      "name": "JpLearningHeapCritical",
+      "group": "capacity",
+      "severity": "critical",
+      "for": "5m",
+      "expr": "(sum by (job) (jvm_memory_used_bytes{job=\"vocabulary-api\",area=\"heap\"}) / sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0.95) and on (job) (sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0)",
+      "metric_dependencies": [
+        "jvm_memory_max_bytes",
+        "jvm_memory_used_bytes"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "memory",
+      "threshold_rationale": "Used heap exceeds 0.95 of positive native heap maxima; this excludes native/off-heap/container memory and requires GC/max semantics acceptance."
+    },
+    {
+      "name": "JpUserCpuBudget",
+      "group": "capacity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "sum by (job) (rate(process_cpu_seconds_total{job=\"user-api\"}[5m])) > 1.6",
+      "metric_dependencies": [
+        "process_cpu_seconds_total"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "cpu",
+      "threshold_rationale": "More than 1.6 CPU-seconds per second against a provisional source two-vCPU budget; verify actual quota before adoption."
+    },
+    {
+      "name": "JpLearningCpuBusy",
+      "group": "capacity",
+      "severity": "warning",
+      "for": "15m",
+      "expr": "max by (job) (process_cpu_usage{job=\"vocabulary-api\"}) > 0.8",
+      "metric_dependencies": [
+        "process_cpu_usage"
+      ],
+      "evidence": "P04 local app export",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "cpu",
+      "threshold_rationale": "Native process CPU fraction exceeds 0.8; this is not a verified cgroup/quota utilization ratio."
+    },
+    {
+      "name": "JpScrapeSampleWarning",
+      "group": "capacity",
+      "severity": "warning",
+      "for": "10m",
+      "expr": "max by (job) (scrape_samples_post_metric_relabeling{job=~\"user-api|vocabulary-api|prometheus\"}) > 4000",
+      "metric_dependencies": [
+        "scrape_samples_post_metric_relabeling"
+      ],
+      "evidence": "Prometheus documented per-scrape sample metric contract",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "samples",
+      "threshold_rationale": "More than 4000 post-relabel samples against 5000 per-target limit; not TSDB active-head cardinality or disk-free capacity."
+    },
+    {
+      "name": "JpScrapeSampleCritical",
+      "group": "capacity",
+      "severity": "critical",
+      "for": "5m",
+      "expr": "max by (job) (scrape_samples_post_metric_relabeling{job=~\"user-api|vocabulary-api|prometheus\"}) > 4750",
+      "metric_dependencies": [
+        "scrape_samples_post_metric_relabeling"
+      ],
+      "evidence": "Prometheus documented per-scrape sample metric contract",
+      "runtime_acceptance": "NOT VERIFIED",
+      "notifications": "disabled",
+      "owner_role": "jp-operations",
+      "signal": "samples",
+      "threshold_rationale": "More than 4750 post-relabel samples against 5000 per-target limit; not TSDB active-head cardinality or disk-free capacity."
+    }
+  ],
+  "recording_rules": [
+    {
+      "record": "jp_p05:http_requests:rate5m",
+      "expr": "sum by (job) (rate(http_requests_received_total{job=\"user-api\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:http_5xx:rate5m",
+      "expr": "sum by (job) (rate(http_requests_received_total{job=\"user-api\",code=~\"5..\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\",status=~\"5..\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:http_5xx:increase5m",
+      "expr": "sum by (job) (increase(http_requests_received_total{job=\"user-api\",code=~\"5..\"}[5m])) or sum by (job) (increase(http_server_requests_seconds_count{job=\"vocabulary-api\",status=~\"5..\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:http_requests:increase5m",
+      "expr": "sum by (job) (increase(http_requests_received_total{job=\"user-api\"}[5m])) or sum by (job) (increase(http_server_requests_seconds_count{job=\"vocabulary-api\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:http_duration:rate5m",
+      "expr": "sum by (job) (rate(http_request_duration_seconds_count{job=\"user-api\",route!=\"import\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\",route!=\"import\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:http_fast2s:rate5m",
+      "expr": "sum by (job) (rate(http_request_duration_seconds_bucket{job=\"user-api\",route!=\"import\",le=~\"2([.]0)?\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_bucket{job=\"vocabulary-api\",route!=\"import\",le=~\"2([.]0)?\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:http_slow2s:ratio5m",
+      "expr": "1 - (jp_p05:http_fast2s:rate5m / jp_p05:http_duration:rate5m)"
+    },
+    {
+      "record": "jp_p05:jwks_observed:increase10m",
+      "expr": "sum by (job) (increase(app_dependency_duration_seconds_count{job=~\"user-api|vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\"}[10m]))"
+    },
+    {
+      "record": "jp_p05:jwks_failed:increase10m",
+      "expr": "sum by (job) (increase(app_dependency_duration_seconds_count{job=~\"user-api|vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\",outcome=~\"failure|timeout\"}[10m]))"
+    },
+    {
+      "record": "jp_p05:jwks_fast2s:increase10m",
+      "expr": "sum by (job) (increase(app_dependency_duration_seconds_bucket{job=~\"user-api|vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\",le=~\"2([.]0)?\"}[10m]))"
+    },
+    {
+      "record": "jp_p05:jwks_slow2s:ratio10m",
+      "expr": "1 - (jp_p05:jwks_fast2s:increase10m / jp_p05:jwks_observed:increase10m)"
+    },
+    {
+      "record": "jp_p05:auth_events:increase5m",
+      "expr": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=~\"login|refresh|authentication\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:auth_failed:increase5m",
+      "expr": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=~\"login|refresh|authentication\",outcome=~\"unauthenticated|denied|failure\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:authorization_denied:increase5m",
+      "expr": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=\"authorization\",outcome=\"denied\"}[5m]))"
+    },
+    {
+      "record": "jp_p05:jwks_attempts:increase10m",
+      "expr": "sum by (job) (increase(app_dependency_requests_total{job=\"vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\"}[10m]))"
+    }
+  ],
+  "deferred": [
+    "JWKS server scrape/availability: endpoint not enabled/verified",
+    "Fluent Bit drops/retries/backlog/oldest age and log loss: no captured exporter contracts",
+    "OpenSearch ingestion/disk/index/cluster: no verified exporter",
+    "Host/volume free bytes and forecast exhaustion: no verified filesystem exporter",
+    "TSDB head/WAL/evaluation/self-metric counters: no actual pinned-image samples",
+    "Grafana metrics/errors: endpoint auth and names not captured",
+    "Nginx gateway/frontend status/upstream pressure: no exporter",
+    "SQL Server/MySQL server health/max pool/waits/query metrics: missing scoped exporter",
+    "Prometheus/Grafana total-outage external watchdog and notification delivery: no approved receiver",
+    "Low-traffic dependency/readiness canaries: no approved isolated probe"
+  ],
+  "instrumentation_dependencies_added": [],
+  "application_metrics_added": [],
+  "native_metrics_reused": "P04 inventory, plus standard Prometheus scrape-generated up/duration/sample contracts",
+  "scrape_targets": [
+    "user-api:8080/metrics",
+    "vocabulary-api:8080/q/metrics",
+    "prometheus:9090/metrics"
+  ],
+  "old_scrape_configs": "untouched; do not combine legacy overlays with main workflow",
+  "shared_jwks": "source/HEAD/index/gitlink unchanged; no scrape/security change",
+  "existing_work_preserved": true,
+  "commit_push_deploy": false
+}

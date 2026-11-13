@@ -1,0 +1,678 @@
+{
+  "groups": [
+    {
+      "name": "jp_p05.recording",
+      "interval": "15s",
+      "rules": [
+        {
+          "record": "jp_p05:http_requests:rate5m",
+          "expr": "sum by (job) (rate(http_requests_received_total{job=\"user-api\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:http_5xx:rate5m",
+          "expr": "sum by (job) (rate(http_requests_received_total{job=\"user-api\",code=~\"5..\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\",status=~\"5..\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:http_5xx:increase5m",
+          "expr": "sum by (job) (increase(http_requests_received_total{job=\"user-api\",code=~\"5..\"}[5m])) or sum by (job) (increase(http_server_requests_seconds_count{job=\"vocabulary-api\",status=~\"5..\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:http_requests:increase5m",
+          "expr": "sum by (job) (increase(http_requests_received_total{job=\"user-api\"}[5m])) or sum by (job) (increase(http_server_requests_seconds_count{job=\"vocabulary-api\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:http_duration:rate5m",
+          "expr": "sum by (job) (rate(http_request_duration_seconds_count{job=\"user-api\",route!=\"import\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\",route!=\"import\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:http_fast2s:rate5m",
+          "expr": "sum by (job) (rate(http_request_duration_seconds_bucket{job=\"user-api\",route!=\"import\",le=~\"2([.]0)?\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_bucket{job=\"vocabulary-api\",route!=\"import\",le=~\"2([.]0)?\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:http_slow2s:ratio5m",
+          "expr": "1 - (jp_p05:http_fast2s:rate5m / jp_p05:http_duration:rate5m)"
+        },
+        {
+          "record": "jp_p05:jwks_observed:increase10m",
+          "expr": "sum by (job) (increase(app_dependency_duration_seconds_count{job=~\"user-api|vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\"}[10m]))"
+        },
+        {
+          "record": "jp_p05:jwks_failed:increase10m",
+          "expr": "sum by (job) (increase(app_dependency_duration_seconds_count{job=~\"user-api|vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\",outcome=~\"failure|timeout\"}[10m]))"
+        },
+        {
+          "record": "jp_p05:jwks_fast2s:increase10m",
+          "expr": "sum by (job) (increase(app_dependency_duration_seconds_bucket{job=~\"user-api|vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\",le=~\"2([.]0)?\"}[10m]))"
+        },
+        {
+          "record": "jp_p05:jwks_slow2s:ratio10m",
+          "expr": "1 - (jp_p05:jwks_fast2s:increase10m / jp_p05:jwks_observed:increase10m)"
+        },
+        {
+          "record": "jp_p05:auth_events:increase5m",
+          "expr": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=~\"login|refresh|authentication\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:auth_failed:increase5m",
+          "expr": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=~\"login|refresh|authentication\",outcome=~\"unauthenticated|denied|failure\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:authorization_denied:increase5m",
+          "expr": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=\"authorization\",outcome=\"denied\"}[5m]))"
+        },
+        {
+          "record": "jp_p05:jwks_attempts:increase10m",
+          "expr": "sum by (job) (increase(app_dependency_requests_total{job=\"vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\"}[10m]))"
+        }
+      ]
+    },
+    {
+      "name": "jp_p05.availability",
+      "interval": "15s",
+      "rules": [
+        {
+          "alert": "JpServiceScrapeUnavailable",
+          "expr": "max by (job) (up{job=~\"user-api|vocabulary-api|prometheus\"}) == 0",
+          "for": "1m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "availability",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "A Japanese Learning target cannot be scraped",
+            "description": "All configured instances of this job failed scraping for one minute; this is not proof the application process is down.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpExpectedUserTargetMissing",
+          "expr": "absent(up{job=\"user-api\"})",
+          "for": "1m",
+          "labels": {
+            "severity": "critical",
+            "service": "user-api",
+            "owner": "jp-operations",
+            "signal": "availability",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "An expected Japanese Learning target is absent",
+            "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpExpectedLearningTargetMissing",
+          "expr": "absent(up{job=\"vocabulary-api\"})",
+          "for": "1m",
+          "labels": {
+            "severity": "critical",
+            "service": "vocabulary-api",
+            "owner": "jp-operations",
+            "signal": "availability",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "An expected Japanese Learning target is absent",
+            "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpExpectedPrometheusTargetMissing",
+          "expr": "absent(up{job=\"prometheus\"})",
+          "for": "1m",
+          "labels": {
+            "severity": "critical",
+            "service": "prometheus",
+            "owner": "jp-operations",
+            "signal": "availability",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "An expected Japanese Learning target is absent",
+            "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability"
+          },
+          "keep_firing_for": "2m"
+        }
+      ]
+    },
+    {
+      "name": "jp_p05.integrity",
+      "interval": "15s",
+      "rules": [
+        {
+          "alert": "JpScrapeDataStale",
+          "expr": "max by (job) (time() - timestamp(up{job=~\"user-api|vocabulary-api|prometheus\"})) > 45",
+          "for": "1m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "scrape",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Japanese Learning scrape samples are stale",
+            "description": "Newest retained up sample is older than three proposed scrape intervals; a stopped evaluator cannot detect itself.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity"
+          }
+        },
+        {
+          "alert": "JpScrapeSlow",
+          "expr": "max by (job) (scrape_duration_seconds{job=~\"user-api|vocabulary-api|prometheus\"}) > 4",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "scrape",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Scraping approaches its timeout",
+            "description": "Scrapes exceed 80 percent of the proposed five-second timeout for ten minutes.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity"
+          }
+        },
+        {
+          "alert": "JpUserCoreMetricsMissing",
+          "expr": "(max by (job) (up{job=\"user-api\"}) == 1) unless on (job) (count by (job) (process_working_set_bytes{job=\"user-api\"}) > 0)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "metrics_contract",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "A healthy scrape lacks expected runtime metrics",
+            "description": "An always-registered native runtime family is missing despite successful scrapes; optional or idle HTTP families are not assumed present.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity"
+          }
+        },
+        {
+          "alert": "JpLearningCoreMetricsMissing",
+          "expr": "(max by (job) (up{job=\"vocabulary-api\"}) == 1) unless on (job) (count by (job) (jvm_memory_used_bytes{job=\"vocabulary-api\"}) > 0)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "metrics_contract",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "A healthy scrape lacks expected runtime metrics",
+            "description": "An always-registered native runtime family is missing despite successful scrapes; optional or idle HTTP families are not assumed present.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity"
+          }
+        },
+        {
+          "alert": "JpHttpLatencyBucketMissing",
+          "expr": "(jp_p05:http_duration:rate5m >= 1) unless on (job) (jp_p05:http_fast2s:rate5m >= 0)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "metrics_contract",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "HTTP latency coverage is incomplete",
+            "description": "Observed interactive duration volume lacks the required two-second bucket. Missing data is not treated as fast traffic.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity"
+          }
+        }
+      ]
+    },
+    {
+      "name": "jp_p05.http",
+      "interval": "15s",
+      "rules": [
+        {
+          "alert": "JpHttp5xxWarning",
+          "expr": "(jp_p05:http_5xx:rate5m / jp_p05:http_requests:rate5m > 0.02) and on (job) (jp_p05:http_requests:rate5m >= 1)",
+          "for": "5m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "http_errors",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Sustained HTTP server failures",
+            "description": "Provisional 2 percent five-minute 5xx fraction with at least one request per second; not an approved business SLO.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#http"
+          }
+        },
+        {
+          "alert": "JpHttp5xxCritical",
+          "expr": "(jp_p05:http_5xx:rate5m / jp_p05:http_requests:rate5m > 0.1) and on (job) (jp_p05:http_requests:rate5m >= 1)",
+          "for": "5m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "http_errors",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Sustained HTTP server failures",
+            "description": "Provisional 10 percent five-minute 5xx fraction with at least one request per second; not an approved business SLO.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#http"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpHttpSlowWarning",
+          "expr": "(jp_p05:http_slow2s:ratio5m > 0.01) and on (job) (jp_p05:http_duration:rate5m >= 1)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "http_latency",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Sustained interactive HTTP latency",
+            "description": "Provisional fraction above two seconds exceeds 1 percent at one request per second; import route excluded, no per-instance percentile averaging.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#http"
+          }
+        },
+        {
+          "alert": "JpHttpSlowCritical",
+          "expr": "(jp_p05:http_slow2s:ratio5m > 0.05) and on (job) (jp_p05:http_duration:rate5m >= 1)",
+          "for": "5m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "http_latency",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Sustained interactive HTTP latency",
+            "description": "Provisional fraction above two seconds exceeds 5 percent at one request per second; import route excluded, no per-instance percentile averaging.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#http"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpHttpFailuresBurst",
+          "expr": "jp_p05:http_5xx:increase5m >= 50",
+          "for": "2m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "http_errors",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "A material HTTP failure burst occurred",
+            "description": "At least fifty 5xx responses in a rolling five-minute window; intentionally catches material low-volume bursts excluded by ratio guards.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#http"
+          }
+        }
+      ]
+    },
+    {
+      "name": "jp_p05.security",
+      "interval": "15s",
+      "rules": [
+        {
+          "alert": "JpAuthenticationFailureSpike",
+          "expr": "(jp_p05:auth_failed:increase5m >= 20) and on (job) (jp_p05:auth_failed:increase5m / jp_p05:auth_events:increase5m >= 0.5)",
+          "for": "5m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-security",
+            "signal": "authentication",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Authentication rejection volume increased",
+            "description": "At least twenty failures and half of observed login/refresh/authentication outcomes in five minutes; no account, token or failure message is included.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#security"
+          }
+        },
+        {
+          "alert": "JpAuthorizationDenialSpike",
+          "expr": "(jp_p05:authorization_denied:increase5m >= 20) and on (job) (jp_p05:authorization_denied:increase5m / jp_p05:http_requests:increase5m >= 0.1)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-security",
+            "signal": "authorization",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Authorization denial volume increased",
+            "description": "At least twenty denials and ten percent of total HTTP requests in five minutes; the denominator is requests, not denial-only security events.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#security"
+          }
+        }
+      ]
+    },
+    {
+      "name": "jp_p05.dependencies",
+      "interval": "15s",
+      "rules": [
+        {
+          "alert": "JpJwksDependencyWarning",
+          "expr": "(jp_p05:jwks_failed:increase10m >= 3) and on (job) (jp_p05:jwks_failed:increase10m / jp_p05:jwks_observed:increase10m > 0.2)",
+          "for": "5m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "jwks_errors",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Observed JWKS fetches are failing",
+            "description": "Provisional 3 failed/timeout observations in ten minutes and failure fraction above 0.2; cached keys and unanswered Quarkus attempts are not counted as responses.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies"
+          }
+        },
+        {
+          "alert": "JpJwksDependencyCritical",
+          "expr": "(jp_p05:jwks_failed:increase10m >= 10) and on (job) (jp_p05:jwks_failed:increase10m / jp_p05:jwks_observed:increase10m > 0.8)",
+          "for": "5m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "jwks_errors",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Observed JWKS fetches are failing",
+            "description": "Provisional 10 failed/timeout observations in ten minutes and failure fraction above 0.8; cached keys and unanswered Quarkus attempts are not counted as responses.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpJwksResponseSlow",
+          "expr": "(jp_p05:jwks_slow2s:ratio10m > 0.2) and on (job) (jp_p05:jwks_observed:increase10m >= 3)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "jwks_latency",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Observed JWKS retrieval latency is high",
+            "description": "At least three observed attempts/responses, with more than one fifth above two seconds; .NET and Quarkus completion boundaries differ.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies"
+          }
+        },
+        {
+          "alert": "JpJwksAttemptsUnresolved",
+          "expr": "(jp_p05:jwks_attempts:increase10m - (sum by (job) (increase(app_dependency_duration_seconds_count{job=\"vocabulary-api\",dependency=\"jwks-api\",operation=\"jwks.fetch\"}[10m])) or on (job) (0 * jp_p05:jwks_attempts:increase10m))) > 3",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "jwks_gap",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "JWKS attempt and response accounting diverge",
+            "description": "More than three unmatched initiations over ten minutes; missing completion series means unresolved, not a fabricated transport failure. In-flight work, lost samples and resets can contribute.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies"
+          }
+        },
+        {
+          "alert": "JpSqlConnectFailures",
+          "expr": "sum by (job) (increase(app_database_operations_total{job=\"user-api\",dependency=\"sqlserver\",operation=\"connect\",outcome=\"failure\"}[5m])) >= 5",
+          "for": "5m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "database",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "SqlClient connection failures increased",
+            "description": "At least five observed provider connection failures per five minutes; passive adapter availability needs real-provider acceptance.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies"
+          }
+        },
+        {
+          "alert": "JpLearningDatabaseFailures",
+          "expr": "sum by (job) (increase(app_database_failures_total{job=\"vocabulary-api\",dependency=\"mysql\",category=\"database\"}[5m])) >= 5",
+          "for": "5m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "database",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Request-boundary database failures increased",
+            "description": "At least five classified unexpected database failures per five minutes; not every recovered or background failure is covered.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies"
+          }
+        }
+      ]
+    },
+    {
+      "name": "jp_p05.capacity",
+      "interval": "15s",
+      "rules": [
+        {
+          "alert": "JpSqlPoolBusy",
+          "expr": "(sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"active\"}) / sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"pooled\"}) > 0.9) and on (job) (sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"pooled\"}) >= 10)",
+          "for": "15m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "pool",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Allocated SqlClient connections remain busy",
+            "description": "More than ninety percent of at least ten allocated connections are active. The pool can grow: this is not proof of configured-maximum saturation.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          }
+        },
+        {
+          "alert": "JpReactivePoolWarning",
+          "expr": "(max by (job) (sql_pool_ratio{job=\"vocabulary-api\",pool=\"default\"}) > 0.85) and on (job) (max by (job) (sql_pool_queue_size{job=\"vocabulary-api\",pool=\"default\"}) > 0)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "pool",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Reactive SQL pool pressure persists",
+            "description": "Native SQL pool ratio above 0.85 with queued work; verify actual reactive datasource collection and max size before adoption.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          }
+        },
+        {
+          "alert": "JpReactivePoolCritical",
+          "expr": "(max by (job) (sql_pool_ratio{job=\"vocabulary-api\",pool=\"default\"}) > 0.95) and on (job) (max by (job) (sql_pool_queue_size{job=\"vocabulary-api\",pool=\"default\"}) > 0)",
+          "for": "5m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-application",
+            "signal": "pool",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Reactive SQL pool pressure persists",
+            "description": "Native SQL pool ratio above 0.95 with queued work; verify actual reactive datasource collection and max size before adoption.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpUserMemoryWarning",
+          "expr": "max by (job) (process_working_set_bytes{job=\"user-api\"}) / 536870912 > 0.8",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "memory",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "User API exceeds a proposed memory budget",
+            "description": "Working set exceeds 0.8 of the source-declared 512MiB envelope; actual container cap and overhead are NOT VERIFIED.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          }
+        },
+        {
+          "alert": "JpUserMemoryCritical",
+          "expr": "max by (job) (process_working_set_bytes{job=\"user-api\"}) / 536870912 > 0.95",
+          "for": "5m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "memory",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "User API exceeds a proposed memory budget",
+            "description": "Working set exceeds 0.95 of the source-declared 512MiB envelope; actual container cap and overhead are NOT VERIFIED.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpLearningHeapWarning",
+          "expr": "(sum by (job) (jvm_memory_used_bytes{job=\"vocabulary-api\",area=\"heap\"}) / sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0.85) and on (job) (sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0)",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "memory",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Learning API heap occupancy persists",
+            "description": "Used heap exceeds 0.85 of positive native heap maxima; this excludes native/off-heap/container memory and requires GC/max semantics acceptance.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          }
+        },
+        {
+          "alert": "JpLearningHeapCritical",
+          "expr": "(sum by (job) (jvm_memory_used_bytes{job=\"vocabulary-api\",area=\"heap\"}) / sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0.95) and on (job) (sum by (job) (jvm_memory_max_bytes{job=\"vocabulary-api\",area=\"heap\"} > 0) > 0)",
+          "for": "5m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "memory",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Learning API heap occupancy persists",
+            "description": "Used heap exceeds 0.95 of positive native heap maxima; this excludes native/off-heap/container memory and requires GC/max semantics acceptance.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          },
+          "keep_firing_for": "2m"
+        },
+        {
+          "alert": "JpUserCpuBudget",
+          "expr": "sum by (job) (rate(process_cpu_seconds_total{job=\"user-api\"}[5m])) > 1.6",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "cpu",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "User API CPU consumption is sustained",
+            "description": "More than 1.6 CPU-seconds per second against a provisional source two-vCPU budget; verify actual quota before adoption.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          }
+        },
+        {
+          "alert": "JpLearningCpuBusy",
+          "expr": "max by (job) (process_cpu_usage{job=\"vocabulary-api\"}) > 0.8",
+          "for": "15m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "cpu",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "Learning API native process CPU usage is high",
+            "description": "Native process CPU fraction exceeds 0.8; this is not a verified cgroup/quota utilization ratio.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          }
+        },
+        {
+          "alert": "JpScrapeSampleWarning",
+          "expr": "max by (job) (scrape_samples_post_metric_relabeling{job=~\"user-api|vocabulary-api|prometheus\"}) > 4000",
+          "for": "10m",
+          "labels": {
+            "severity": "warning",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "samples",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "A scrape approaches its sample budget",
+            "description": "More than 4000 post-relabel samples against 5000 per-target limit; not TSDB active-head cardinality or disk-free capacity.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          }
+        },
+        {
+          "alert": "JpScrapeSampleCritical",
+          "expr": "max by (job) (scrape_samples_post_metric_relabeling{job=~\"user-api|vocabulary-api|prometheus\"}) > 4750",
+          "for": "5m",
+          "labels": {
+            "severity": "critical",
+            "service": "{{ $labels.job }}",
+            "owner": "jp-operations",
+            "signal": "samples",
+            "monitoring_project": "jp_dev"
+          },
+          "annotations": {
+            "summary": "A scrape approaches its sample budget",
+            "description": "More than 4750 post-relabel samples against 5000 per-target limit; not TSDB active-head cardinality or disk-free capacity.",
+            "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity"
+          },
+          "keep_firing_for": "2m"
+        }
+      ]
+    }
+  ]
+}

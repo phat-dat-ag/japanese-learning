@@ -1,0 +1,198 @@
+{
+  "name": "jp_dev",
+  "services": {
+    "prometheus": {
+      "init": true,
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mem_limit": "512m",
+      "memswap_limit": "512m",
+      "cpus": 1,
+      "pids_limit": 128,
+      "restart": "unless-stopped",
+      "stop_grace_period": "30s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"
+      ],
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-size": "10m",
+          "max-file": "3"
+        }
+      },
+      "labels": {
+        "jp.observability.phase": "P05",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.role": "monitoring"
+      },
+      "image": "prom/prometheus:v3.14.0@sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "user": "65534:65534",
+      "command": [
+        "--config.file=/etc/prometheus/prometheus.yml",
+        "--storage.tsdb.path=/prometheus",
+        "--storage.tsdb.retention.time=2d",
+        "--storage.tsdb.retention.size=512MB",
+        "--web.listen-address=0.0.0.0:9090"
+      ],
+      "ports": [
+        "127.0.0.1:9091:9090"
+      ],
+      "networks": [
+        "default",
+        "p05-monitoring"
+      ],
+      "volumes": [
+        "prometheus_data:/prometheus",
+        {
+          "type": "bind",
+          "source": "./prometheus",
+          "target": "/etc/prometheus",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "wget",
+          "-q",
+          "-O",
+          "/dev/null",
+          "http://127.0.0.1:9090/-/ready"
+        ],
+        "interval": "15s",
+        "timeout": "5s",
+        "retries": 6,
+        "start_period": "30s"
+      }
+    },
+    "grafana": {
+      "init": true,
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "mem_limit": "512m",
+      "memswap_limit": "512m",
+      "cpus": 1,
+      "pids_limit": 128,
+      "restart": "unless-stopped",
+      "stop_grace_period": "30s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"
+      ],
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-size": "10m",
+          "max-file": "3"
+        }
+      },
+      "labels": {
+        "jp.observability.phase": "P05",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.role": "monitoring"
+      },
+      "image": "grafana/grafana:13.2.2@sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "user": "472:472",
+      "ports": [
+        "127.0.0.1:3001:3000"
+      ],
+      "networks": [
+        "default",
+        "p05-monitoring"
+      ],
+      "environment": {
+        "GF_SECURITY_ADMIN_USER": "${GRAFANA_ADMIN_USER:?Set a dedicated jp_dev Grafana admin name}",
+        "GF_SECURITY_ADMIN_PASSWORD": "${GRAFANA_ADMIN_PASSWORD:?Set a dedicated jp_dev Grafana password}",
+        "GF_AUTH_ANONYMOUS_ENABLED": "false",
+        "GF_USERS_ALLOW_SIGN_UP": "false",
+        "GF_ANALYTICS_REPORTING_ENABLED": "false",
+        "GF_ANALYTICS_CHECK_FOR_UPDATES": "false",
+        "GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES": "false",
+        "GF_PLUGINS_PREINSTALL_DISABLED": "true",
+        "GF_LOG_MODE": "console",
+        "GF_LOG_LEVEL": "warn",
+        "GF_PATHS_LOGS": "/tmp/grafana-logs"
+      },
+      "volumes": [
+        "grafana_data:/var/lib/grafana",
+        {
+          "type": "bind",
+          "source": "./grafana/provisioning",
+          "target": "/etc/grafana/provisioning",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./grafana/dashboards",
+          "target": "/etc/grafana/p05-dashboards",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "depends_on": {
+        "prometheus": {
+          "condition": "service_healthy"
+        }
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "wget",
+          "-q",
+          "-O",
+          "/dev/null",
+          "http://127.0.0.1:3000/api/health"
+        ],
+        "interval": "15s",
+        "timeout": "5s",
+        "retries": 6,
+        "start_period": "30s"
+      }
+    }
+  },
+  "networks": {
+    "p05-monitoring": {
+      "internal": true,
+      "labels": {
+        "jp.observability.phase": "P05",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.role": "monitoring"
+      }
+    },
+    "default": {}
+  },
+  "volumes": {
+    "prometheus_data": {
+      "labels": {
+        "jp.observability.phase": "P05",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.role": "monitoring"
+      }
+    },
+    "grafana_data": {
+      "labels": {
+        "jp.observability.phase": "P05",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.role": "monitoring"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "result": "PASS native Compose configuration validation; no engine/lifecycle command",
+  "project": "jp_dev",
+  "existing_services_preserved": 16,
+  "new_services": [
+    "prometheus",
+    "grafana"
+  ],
+  "ports": {
+    "prometheus": 9091,
+    "grafana": 3001
+  },
+  "original_networks_volumes_preserved": true,
+  "service_env_resolution": false,
+  "credentials": "synthetic interpolation only; real .env not loaded",
+  "runtime_network_ownership_port_exclusivity": "NOT VERIFIED; Docker denied; snapshot only"
+}

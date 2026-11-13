@@ -1,0 +1,443 @@
+{
+  "unit_tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "reference_model_scenarios": [
+    {
+      "name": "healthy baseline",
+      "result": "PASS",
+      "firing": []
+    },
+    {
+      "name": "unavailable user-api",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpServiceScrapeUnavailable",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "unavailable vocabulary-api",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpServiceScrapeUnavailable",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "unavailable prometheus",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpServiceScrapeUnavailable",
+          "prometheus"
+        ]
+      ]
+    },
+    {
+      "name": "missing user-api",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpExpectedUserTargetMissing",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "missing vocabulary-api",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpExpectedLearningTargetMissing",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "missing prometheus",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpExpectedPrometheusTargetMissing",
+          "prometheus"
+        ]
+      ]
+    },
+    {
+      "name": "slow scrape",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpScrapeSlow",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "missing core user-api",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpUserCoreMetricsMissing",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "missing core vocabulary-api",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpLearningCoreMetricsMissing",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "missing latency bucket",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpHttpLatencyBucketMissing",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "HTTP warning",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpHttp5xxWarning",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "HTTP critical",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpHttp5xxCritical",
+          "vocabulary-api"
+        ],
+        [
+          "JpHttp5xxWarning",
+          "vocabulary-api"
+        ],
+        [
+          "JpHttpFailuresBurst",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "latency warning",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpHttpSlowWarning",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "latency critical",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpHttpSlowCritical",
+          "vocabulary-api"
+        ],
+        [
+          "JpHttpSlowWarning",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "authentication rejection",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpAuthenticationFailureSpike",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "authorization denial",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpAuthorizationDenialSpike",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "JWKS warning",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpJwksDependencyWarning",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "JWKS critical",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpJwksDependencyCritical",
+          "vocabulary-api"
+        ],
+        [
+          "JpJwksDependencyWarning",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "JWKS slow",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpJwksResponseSlow",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "JWKS unanswered",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpJwksAttemptsUnresolved",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "SQL connect failures",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpSqlConnectFailures",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "learning database failures",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpLearningDatabaseFailures",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "SQL allocated pool busy",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpSqlPoolBusy",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "reactive pool 0.9",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpReactivePoolWarning",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "reactive pool 0.98",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpReactivePoolCritical",
+          "vocabulary-api"
+        ],
+        [
+          "JpReactivePoolWarning",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "user memory 0.85",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpUserMemoryWarning",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "user memory 0.98",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpUserMemoryCritical",
+          "user-api"
+        ],
+        [
+          "JpUserMemoryWarning",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "learning heap 0.9",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpLearningHeapWarning",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "learning heap 0.98",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpLearningHeapCritical",
+          "vocabulary-api"
+        ],
+        [
+          "JpLearningHeapWarning",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "user CPU",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpUserCpuBudget",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "learning CPU",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpLearningCpuBusy",
+          "vocabulary-api"
+        ]
+      ]
+    },
+    {
+      "name": "scrape cardinality 4500",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpScrapeSampleWarning",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "scrape cardinality 4900",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpScrapeSampleCritical",
+          "user-api"
+        ],
+        [
+          "JpScrapeSampleWarning",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "no traffic",
+      "result": "PASS",
+      "firing": []
+    },
+    {
+      "name": "low traffic error guard",
+      "result": "PASS",
+      "firing": []
+    },
+    {
+      "name": "unknown heap maximum",
+      "result": "PASS",
+      "firing": []
+    },
+    {
+      "name": "stale sample",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpScrapeDataStale",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "counter resets",
+      "result": "PASS",
+      "firing": []
+    },
+    {
+      "name": "critical recovery held",
+      "result": "PASS",
+      "firing": [
+        [
+          "JpServiceScrapeUnavailable",
+          "user-api"
+        ]
+      ]
+    },
+    {
+      "name": "critical recovery clears",
+      "result": "PASS",
+      "firing": []
+    },
+    {
+      "name": "startup pending",
+      "result": "PASS",
+      "firing": []
+    }
+  ],
+  "official_tools": {
+    "rule syntax": {
+      "status": "NOT VERIFIED",
+      "reason": "promtool unavailable on PATH"
+    },
+    "Prometheus config": {
+      "status": "NOT VERIFIED",
+      "reason": "promtool unavailable on PATH"
+    },
+    "engine scenarios": {
+      "status": "NOT VERIFIED",
+      "reason": "promtool unavailable on PATH"
+    },
+    "Alertmanager config": {
+      "status": "NOT VERIFIED",
+      "reason": "amtool unavailable on PATH"
+    }
+  },
+  "limitation": "Limited independent float-vector reference model; NOT Prometheus engine correctness or runtime acceptance."
+}

@@ -1,0 +1,582 @@
+{
+  "status": "PASS source/index/submodule preservation",
+  "repositories": {
+    ".": {
+      "head": "b4167cd254f6715c4c7434b8c270ac3e0cc84943",
+      "branch": "develop",
+      "status": [
+        " M .env.example",
+        " M deployment/production.env.example",
+        " M docker-compose.yml",
+        " M dotnet",
+        "?? observability/p05-candidate/",
+        "?? observability/roadmap/p05-alert-contract.md",
+        "?? observability/roadmap/p05-alert-inventory.md",
+        "?? observability/roadmap/p05-capacity-budget.md",
+        "?? observability/roadmap/p05-grafana-port-fix.md",
+        "?? observability/roadmap/p05-monitoring-infrastructure.md",
+        "?? observability/roadmap/p05-rollback.md",
+        "?? observability/roadmap/p05-test-matrix.md",
+        "?? observability/roadmap/p05-validation/",
+        "?? observability/roadmap/p05-verification.md"
+      ],
+      "index_sha256": "00176ea5559f63bbaab2e9e1532c43ce92e57a078b9a4bde1c24870a9447c74a",
+      "diff_sha256": "39af6db6d9204864007d002f463cf6c640e3fb79066bb4071b78b5d499dfd071"
+    },
+    "angular": {
+      "head": "7d25cfe4830da3856661f7449260e9027c596afb",
+      "branch": "develop",
+      "status": [],
+      "index_sha256": "e82688a389adf559a51379cbf06ecf61a1a04d71fff315485777a17bce828703",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "dotnet": {
+      "head": "af4c7bcb9f5d847ca3460787be67800a427a63d8",
+      "branch": "develop",
+      "status": [
+        " M src/JapaneseLearning.User.Api/Program.cs"
+      ],
+      "index_sha256": "bb22e8b7306cd3ad3e78fa3d12c1181d9e041798c9bff97053b1cf9b2f246554",
+      "diff_sha256": "283e74729205f18bddea5c23d4bd8bd58d49b40e68ebee727661b18d19e2bb1f"
+    },
+    "quarkus": {
+      "head": "d2c446cae9fb7e8a5f239ad8324b958fd2a628bd",
+      "branch": "develop",
+      "status": [],
+      "index_sha256": "3e13b8a33dbfd3009e40d7f05825b686ae92895ef664ceb1c36874d4f917f8b0",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "springboot-jwks-api": {
+      "head": "7879d155eddb45fb079800709f49a3c3a1566120",
+      "branch": "develop",
+      "status": [],
+      "index_sha256": "b820ca1dfca60029b6d5603b90b3e1f420f965f5040ceabf2f9ee2c10732e876",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "gitlinks": [
+    "160000 7d25cfe4830da3856661f7449260e9027c596afb 0\tangular",
+    "160000 af4c7bcb9f5d847ca3460787be67800a427a63d8 0\tdotnet",
+    "160000 d2c446cae9fb7e8a5f239ad8324b958fd2a628bd 0\tquarkus",
+    "160000 7879d155eddb45fb079800709f49a3c3a1566120 0\tspringboot-jwks-api"
+  ],
+  "protected_files": [
+    {
+      "path": "gateway/nginx.conf",
+      "before": "13047766728e647c0c3b2d6abd24bfa66143335a64a505bf697f1edf4922aef3",
+      "after": "13047766728e647c0c3b2d6abd24bfa66143335a64a505bf697f1edf4922aef3",
+      "status": "unchanged"
+    },
+    {
+      "path": "gateway/nginx.p02.conf",
+      "before": "93c3d5b84bcf02a45aea86cafc84db3529954e18491d12a5f2d87e4ac9441063",
+      "after": "93c3d5b84bcf02a45aea86cafc84db3529954e18491d12a5f2d87e4ac9441063",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/bootstrap.py",
+      "before": "2eb491a289521774612f87c0e46bdc46b619991b70db9ec5d6a03364ab60b39c",
+      "after": "2eb491a289521774612f87c0e46bdc46b619991b70db9ec5d6a03364ab60b39c",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/Dockerfile.dashboards",
+      "before": "d238d64d2066e5a4339adb0bafd80fc917cc225a5e62848117c995dc4589534f",
+      "after": "d238d64d2066e5a4339adb0bafd80fc917cc225a5e62848117c995dc4589534f",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/Dockerfile.fluent-bit",
+      "before": "e61863f28c16f48c00a33d1de31d5e4a27efb167d2c8dd58edebda138c6d62f7",
+      "after": "e61863f28c16f48c00a33d1de31d5e4a27efb167d2c8dd58edebda138c6d62f7",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/Dockerfile.opensearch",
+      "before": "248ede23e89da94401cb8b37b3405c48e28de0c03c3b15878ae936278a9d9f39",
+      "after": "248ede23e89da94401cb8b37b3405c48e28de0c03c3b15878ae936278a9d9f39",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/fluent-bit.conf",
+      "before": "6f1fea4dfbae5e08084bc65a1bf014f42a463061e27135c236184e6503346fbd",
+      "after": "6f1fea4dfbae5e08084bc65a1bf014f42a463061e27135c236184e6503346fbd",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/nginx.conf",
+      "before": "60b33813745c6fb08d00f0cd522df3804cf3d7659e349590953c9ff9291d6447",
+      "after": "60b33813745c6fb08d00f0cd522df3804cf3d7659e349590953c9ff9291d6447",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/normalize.lua",
+      "before": "1d906bce9cb724756fe18b6e300ec5adc711434042d98265b8d118eb5b556b5b",
+      "after": "1d906bce9cb724756fe18b6e300ec5adc711434042d98265b8d118eb5b556b5b",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/opensearch-dashboards.yml",
+      "before": "fcc738ce4e13f9de362e808cad3144daf25239dadb47a5631d157967cf255c39",
+      "after": "fcc738ce4e13f9de362e808cad3144daf25239dadb47a5631d157967cf255c39",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/opensearch.yml",
+      "before": "8761780d89a51dd00aead35f940a106babf9c8956a750a6972276ffc3a6563fb",
+      "after": "8761780d89a51dd00aead35f940a106babf9c8956a750a6972276ffc3a6563fb",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/parsers-app.conf",
+      "before": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+      "after": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/README.md",
+      "before": "2b23447739c4d0c3aeb4a95b915f75e578abaad33f468b25df45d45c441a447d",
+      "after": "2b23447739c4d0c3aeb4a95b915f75e578abaad33f468b25df45d45c441a447d",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/logging/verify-fixtures.py",
+      "before": "22b51565215bb555db3555da6d2f0e4c7ef83edbf7b9d1bd16eb3ac5b56b9f78",
+      "after": "22b51565215bb555db3555da6d2f0e4c7ef83edbf7b9d1bd16eb3ac5b56b9f78",
+      "status": "unchanged"
+    },
+    {
+      "path": ".env.db.production.example",
+      "before": "2f940c93e479756be2d50e83665d09581f94a0a2955a09c58eaccf00f0ca7760",
+      "after": "2f940c93e479756be2d50e83665d09581f94a0a2955a09c58eaccf00f0ca7760",
+      "status": "unchanged"
+    },
+    {
+      "path": ".env.example",
+      "before": "44368625950ff81cb1569fd6b9e838a3aad0d9170390fbfa369e09ac090580e3",
+      "after": "f5638514f8ba64bbd78b104f9566d0d07ffc4a0066060a25de5a60ff96bb2ef4",
+      "status": "authorized root integration"
+    },
+    {
+      "path": ".env.logging.example",
+      "before": "5fb64d4f74099fa0f1f77a8f3607e90967e5c351de6b50c0c780c25b22f004f8",
+      "after": "5fb64d4f74099fa0f1f77a8f3607e90967e5c351de6b50c0c780c25b22f004f8",
+      "status": "unchanged"
+    },
+    {
+      "path": "compose.observability.yml",
+      "before": "360fbf550f3e15a4aa2077335e97ce47065ec148c277aa07a60d377eee883161",
+      "after": "360fbf550f3e15a4aa2077335e97ce47065ec148c277aa07a60d377eee883161",
+      "status": "unchanged"
+    },
+    {
+      "path": "compose.production-observability.yml",
+      "before": "3335321840f8920f851ded7b355db868e93f428c701bfcaae7dc7d9751658506",
+      "after": "3335321840f8920f851ded7b355db868e93f428c701bfcaae7dc7d9751658506",
+      "status": "unchanged"
+    },
+    {
+      "path": "compose.production.yml",
+      "before": "e2b4a87a897f96f6aa9a0379020f0a9b73496c994a1b5527fa01f03809c12c03",
+      "after": "e2b4a87a897f96f6aa9a0379020f0a9b73496c994a1b5527fa01f03809c12c03",
+      "status": "unchanged"
+    },
+    {
+      "path": "deployment/production.env.example",
+      "before": "26d404873adcd46b709e7c0753059708dfa9aa040222a9bc5c65bd5fa79378f0",
+      "after": "db85ec8e0be3b51d343213c625796cdbced158287a6b76f8489bc6e8eb1a140a",
+      "status": "authorized root integration"
+    },
+    {
+      "path": "docker-compose.yml",
+      "before": "86094c448242cb17adb0ae09fe28a92303a740e2f21b51b8df6811454603fb9d",
+      "after": "441e6ff9266b11d1db3a360be3967d212a99a9970fb202c5ee354e462869f448",
+      "status": "authorized root integration"
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/JwksLoggingHandler.cs",
+      "before": "967ece912f248613a598f49e769b9e4f7db629cfe8d20925185c72c53ffd463e",
+      "after": "967ece912f248613a598f49e769b9e4f7db629cfe8d20925185c72c53ffd463e",
+      "status": "unchanged"
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Observability/ApplicationMetrics.cs",
+      "before": "72531594fd7170621677fcc00cd99c69ba859db717706786a4dac00e58f59e1d",
+      "after": "72531594fd7170621677fcc00cd99c69ba859db717706786a4dac00e58f59e1d",
+      "status": "unchanged"
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Observability/SqlClientMetrics.cs",
+      "before": "1cde9545a5073aaee2779ad2434faacb07c6289f51c8757cd7ca8cf6119bef72",
+      "after": "1cde9545a5073aaee2779ad2434faacb07c6289f51c8757cd7ca8cf6119bef72",
+      "status": "unchanged"
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Observability/ApplicationMetricsTests.cs",
+      "before": "a690b289a4a43bb0104bf19a41b9fb3f213716af51d6dd1ce8b8b8d0b4627f03",
+      "after": "a690b289a4a43bb0104bf19a41b9fb3f213716af51d6dd1ce8b8b8d0b4627f03",
+      "status": "unchanged"
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Observability/DependencyMetricsTests.cs",
+      "before": "e10bcb6979519d017693c41c3858ce4e0ff094a1b8d51d5b4f1ae10f2e468861",
+      "after": "e10bcb6979519d017693c41c3858ce4e0ff094a1b8d51d5b4f1ae10f2e468861",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/grafana/dashboards/apis.json",
+      "before": "14a3e8a8010b8f3448ff4b15724c803c984e55a281bb7aac5a6b11d83e73f11a",
+      "after": "14a3e8a8010b8f3448ff4b15724c803c984e55a281bb7aac5a6b11d83e73f11a",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/grafana/provisioning/dashboards/dashboard.yml",
+      "before": "20b47553f062b97fba94ee8a9a6da9f70d00acbe7ec8fcb46abec0c64c27946e",
+      "after": "20b47553f062b97fba94ee8a9a6da9f70d00acbe7ec8fcb46abec0c64c27946e",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/grafana/provisioning/datasources/prometheus.yml",
+      "before": "9ba6414ac7c727bce85ac096c5c4c8e4e75962c9b9d1b01f9f16e4bef7cf3470",
+      "after": "9ba6414ac7c727bce85ac096c5c4c8e4e75962c9b9d1b01f9f16e4bef7cf3470",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/prometheus.yml",
+      "before": "9405f18a8f2dc0cb41f8512fb9199070496e3d8f15b26105e06a5e91c17c2c43",
+      "after": "9405f18a8f2dc0cb41f8512fb9199070496e3d8f15b26105e06a5e91c17c2c43",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-collector-compatibility.md",
+      "before": "f2606afa3485612a7fba03fc5adfe094ace5242a9d203915df95ec5bd0194dfd",
+      "after": "f2606afa3485612a7fba03fc5adfe094ace5242a9d203915df95ec5bd0194dfd",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-pipeline-architecture.md",
+      "before": "8f8228fcab8d8a716d8d8a2ab0b5e9e70a1b0eced0eea2eb7ae8af4f0976742c",
+      "after": "8f8228fcab8d8a716d8d8a2ab0b5e9e70a1b0eced0eea2eb7ae8af4f0976742c",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-privacy-verification.md",
+      "before": "cd0a59e6c52d101414f6890a5023d11458f6abe0174bb7d32f5b194174f15e97",
+      "after": "cd0a59e6c52d101414f6890a5023d11458f6abe0174bb7d32f5b194174f15e97",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-rollback.md",
+      "before": "c817528548f42d6eff71efc84a31f95a2b1a7bc7acee50275b515e92788d215f",
+      "after": "c817528548f42d6eff71efc84a31f95a2b1a7bc7acee50275b515e92788d215f",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-rotation-replay.md",
+      "before": "cd78b249c8c9064901df19e352ec968f9ddda07cf28cac87c1f014317b2df307",
+      "after": "cd78b249c8c9064901df19e352ec968f9ddda07cf28cac87c1f014317b2df307",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-test-matrix.md",
+      "before": "3c1cb972756207d21b0d5ae1e8285a411c3cf4bbe9e2227b2ee0f3d7903b946e",
+      "after": "3c1cb972756207d21b0d5ae1e8285a411c3cf4bbe9e2227b2ee0f3d7903b946e",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/README.md",
+      "before": "c813cc93972b1cbadb0ee9a60b883a37360b37efadfdfc8b24560e8e4439bb7b",
+      "after": "c813cc93972b1cbadb0ee9a60b883a37360b37efadfdfc8b24560e8e4439bb7b",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/change-manifest.json",
+      "before": "9b066db6a74f57504f79e5d96b9c690de8c23524695cd13f8ad3355755a28d6b",
+      "after": "9b066db6a74f57504f79e5d96b9c690de8c23524695cd13f8ad3355755a28d6b",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/cleanup.json",
+      "before": "e0d2c46fe85c5cd6807dfc0be641d1484df1551343bab50fe1a6611094a780e4",
+      "after": "e0d2c46fe85c5cd6807dfc0be641d1484df1551343bab50fe1a6611094a780e4",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/documentation-check.json",
+      "before": "469fa8bdf0b029a25b25251f1ebc708bfc736f929d8374b1ee68e14775a4a01d",
+      "after": "469fa8bdf0b029a25b25251f1ebc708bfc736f929d8374b1ee68e14775a4a01d",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/final.json",
+      "before": "ed2d22629caafff3811343bcee987beaf532448f0056d8f957eb11258ac4124f",
+      "after": "ed2d22629caafff3811343bcee987beaf532448f0056d8f957eb11258ac4124f",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/p02-manifest-audit.json",
+      "before": "fb550fc1bcc34d0bdb0ca248236f2a0a07dfec5cc507ab95fea099f66f9a2607",
+      "after": "fb550fc1bcc34d0bdb0ca248236f2a0a07dfec5cc507ab95fea099f66f9a2607",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/preflight.json",
+      "before": "7cc2f5bd5583babf76ddb6e905c9bf4f4aac495323fb570df03689addcec371a",
+      "after": "7cc2f5bd5583babf76ddb6e905c9bf4f4aac495323fb570df03689addcec371a",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/preservation.json",
+      "before": "88d68506f9c101b4a9362d68df6338c01e744570ef03479e369d8badf211ac6f",
+      "after": "88d68506f9c101b4a9362d68df6338c01e744570ef03479e369d8badf211ac6f",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/test-results.json",
+      "before": "d3139fac73724ea0922866e07350eb090751f31a7a832bd957690c92bf90f7ec",
+      "after": "d3139fac73724ea0922866e07350eb090751f31a7a832bd957690c92bf90f7ec",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/finalize.py",
+      "before": "bc532fda4a7e67676024c324c38ef455afb0328be3aa6c114e9c34f719e9485b",
+      "after": "bc532fda4a7e67676024c324c38ef455afb0328be3aa6c114e9c34f719e9485b",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/fluent-bit.p03.conf",
+      "before": "f5cea6f1e18e64c8aa68cf4f72944d69df6eb992d50deb92355a9a586d8ec99f",
+      "after": "f5cea6f1e18e64c8aa68cf4f72944d69df6eb992d50deb92355a9a586d8ec99f",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/normalize.p03.lua",
+      "before": "82f4166193b613f11e827aead28fbe88de2f8b1654be12657176342ceadbc496",
+      "after": "82f4166193b613f11e827aead28fbe88de2f8b1654be12657176342ceadbc496",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/parsers-app.conf",
+      "before": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+      "after": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/snapshot.py",
+      "before": "11e3f5cc873b1caf53d6f4a8d4fc542143c69f54835e9afe784cf1870d151ac4",
+      "after": "11e3f5cc873b1caf53d6f4a8d4fc542143c69f54835e9afe784cf1870d151ac4",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/test_adapter.lua",
+      "before": "cc5744a0ef832fd588463080b660e934c06b14e3d8f96579682bc61cc1a1a9cd",
+      "after": "cc5744a0ef832fd588463080b660e934c06b14e3d8f96579682bc61cc1a1a9cd",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/verify.py",
+      "before": "9b81e1974f514908d916d9ae020077f286a5bcdb556f9c044c59e44eaf93fb76",
+      "after": "9b81e1974f514908d916d9ae020077f286a5bcdb556f9c044c59e44eaf93fb76",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p03-verification.md",
+      "before": "45b571d6223611f8a1aebc0820f7ad107338f0cec17958cb94858dfee3912043",
+      "after": "45b571d6223611f8a1aebc0820f7ad107338f0cec17958cb94858dfee3912043",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-cardinality-budget.md",
+      "before": "d0e055abb0aa00514adef53485dcb224fb8ceb1f7369ac290a2a59035a5d08d1",
+      "after": "d0e055abb0aa00514adef53485dcb224fb8ceb1f7369ac290a2a59035a5d08d1",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-implementation.md",
+      "before": "03caa60eee2fae5523b14efdb45daff83e3c2721b3630a6d1d420ed81e98e13f",
+      "after": "03caa60eee2fae5523b14efdb45daff83e3c2721b3630a6d1d420ed81e98e13f",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-metrics-contract.md",
+      "before": "318bf153c215ebfea628078f62a1e081c5bacc6ce54eae975fba2fb3490652bf",
+      "after": "318bf153c215ebfea628078f62a1e081c5bacc6ce54eae975fba2fb3490652bf",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-metrics-inventory.md",
+      "before": "c921c6f5fa663f94711836796607bad3ba1f3d7a2c5e913199f6cf5de007d8bd",
+      "after": "c921c6f5fa663f94711836796607bad3ba1f3d7a2c5e913199f6cf5de007d8bd",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-rollback.md",
+      "before": "bc3295900b1cc722b8d435a76e1da82e467b698ad848b6f0e4de4b120ed981e3",
+      "after": "bc3295900b1cc722b8d435a76e1da82e467b698ad848b6f0e4de4b120ed981e3",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-test-matrix.md",
+      "before": "a9870ceaa4a2cfd8636a9b97810ca5d00098722eab7e07f9826056811e1061fb",
+      "after": "a9870ceaa4a2cfd8636a9b97810ca5d00098722eab7e07f9826056811e1061fb",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/compose.metrics.p04.yml",
+      "before": "d0f26b446a7b169c430965d4a62c7efdd2d18968f78f79b09f4354e20c2a94c7",
+      "after": "d0f26b446a7b169c430965d4a62c7efdd2d18968f78f79b09f4354e20c2a94c7",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/change-manifest.json",
+      "before": "9e1de8d171e64ac67c6df26c99afbb7de56628a061d29f214754bf77af1cd47e",
+      "after": "9e1de8d171e64ac67c6df26c99afbb7de56628a061d29f214754bf77af1cd47e",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/documentation-check.json",
+      "before": "e51f8dede6ef6e3fad6dd062174b6ee0309af858071f22404fa458c95c8a8206",
+      "after": "e51f8dede6ef6e3fad6dd062174b6ee0309af858071f22404fa458c95c8a8206",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/final.json",
+      "before": "18379835bba5ee00a8fa862dc358e2a2e8caccab3305e588480330cc074ec18e",
+      "after": "18379835bba5ee00a8fa862dc358e2a2e8caccab3305e588480330cc074ec18e",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/fixture-results.json",
+      "before": "4de964420e9cf0eac368d8184c24876c3ead057a36f2e15cf2462326ac948539",
+      "after": "4de964420e9cf0eac368d8184c24876c3ead057a36f2e15cf2462326ac948539",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/metrics-inventory.json",
+      "before": "736ae3e8f0082b149791a1cd74a7e7bfba4c8021c81e0458c625cf89a1170b9e",
+      "after": "736ae3e8f0082b149791a1cd74a7e7bfba4c8021c81e0458c625cf89a1170b9e",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/p02-hash-investigation.json",
+      "before": "c07d896898e5d2384443f67ee40d72de0812d05d82e0498e8303b94f168f8e2f",
+      "after": "c07d896898e5d2384443f67ee40d72de0812d05d82e0498e8303b94f168f8e2f",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/preflight.json",
+      "before": "263171da13305001ca0c0960466a0b96f8dcf662bdc8f0a18ae2362c1a52667a",
+      "after": "263171da13305001ca0c0960466a0b96f8dcf662bdc8f0a18ae2362c1a52667a",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/preservation.json",
+      "before": "b9e57e55308053303e39788f837a53842b5002d4814ac6695506eb5d7f9cb985",
+      "after": "b9e57e55308053303e39788f837a53842b5002d4814ac6695506eb5d7f9cb985",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/test-summary.json",
+      "before": "231981d9a3c60aac8577fe4eaf1f2e4c28ff128a2fd08114c690ba14f75f2a14",
+      "after": "231981d9a3c60aac8577fe4eaf1f2e4c28ff128a2fd08114c690ba14f75f2a14",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/finalize.py",
+      "before": "122b5b5708358b8248b955396fd8dbe1fb1eeec806c724980f594f3322a339c0",
+      "after": "122b5b5708358b8248b955396fd8dbe1fb1eeec806c724980f594f3322a339c0",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/prometheus.p04.yml",
+      "before": "3db5bd00a76512b10f00476e9b066b77e5c55980e2b67b5da4a43a6e53f4211c",
+      "after": "3db5bd00a76512b10f00476e9b066b77e5c55980e2b67b5da4a43a6e53f4211c",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/verify.py",
+      "before": "bf31c013753e02fcdfd46f79790f5b4d72fbb725d815a5982ae4a0ab14a237a4",
+      "after": "bf31c013753e02fcdfd46f79790f5b4d72fbb725d815a5982ae4a0ab14a237a4",
+      "status": "unchanged"
+    },
+    {
+      "path": "observability/roadmap/p04-verification.md",
+      "before": "a8cba6a74dec33951260897dccde5154b25915633051db1d73ae04d7d36099e1",
+      "after": "a8cba6a74dec33951260897dccde5154b25915633051db1d73ae04d7d36099e1",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/exception/handler/GlobalExceptionMapper.java",
+      "before": "68534cc592cdbe063463c76f849abb2233b558502cb22891ed228250a4d12ef3",
+      "after": "68534cc592cdbe063463c76f849abb2233b558502cb22891ed228250a4d12ef3",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/ApplicationMetricsFilter.java",
+      "before": "87afd7c998a02f3660d9fe7b8b70a34b50dfd3fc3a3f3a86b4e524b07c212fcb",
+      "after": "87afd7c998a02f3660d9fe7b8b70a34b50dfd3fc3a3f3a86b4e524b07c212fcb",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/DatabaseFailureMetrics.java",
+      "before": "ee4c54e33a49ca0c66a3c149389beeba6b3aba0b622b0fd8c5ba51abc44c5134",
+      "after": "ee4c54e33a49ca0c66a3c149389beeba6b3aba0b622b0fd8c5ba51abc44c5134",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/JwksMetricsFilter.java",
+      "before": "e2e775c6d55a7af98e90cc5cdc8bf62e14bdd15947e30fe9f22f08b5ad9161b6",
+      "after": "e2e775c6d55a7af98e90cc5cdc8bf62e14bdd15947e30fe9f22f08b5ad9161b6",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/SecurityMetrics.java",
+      "before": "b0e77f2c054401f691b0eac5430d4e31ca3e24caa9ccd55e540823bb1f288bc0",
+      "after": "b0e77f2c054401f691b0eac5430d4e31ca3e24caa9ccd55e540823bb1f288bc0",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/main/resources/application.properties",
+      "before": "4323f8bc475e2a7f200be818ca52a997235a26f1b507550b912ff538b39ca032",
+      "after": "4323f8bc475e2a7f200be818ca52a997235a26f1b507550b912ff538b39ca032",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/metrics/ApplicationMetricsFilterTest.java",
+      "before": "43db28801d61baae7090a5ac849a55687f69312d97f7d40be1c0304c13e7140d",
+      "after": "43db28801d61baae7090a5ac849a55687f69312d97f7d40be1c0304c13e7140d",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/metrics/JwksMetricsFilterTest.java",
+      "before": "269c9f8ae9e0233e4493cc9679b5eb7baf58e35a93395716c978bd6d4f27d8f7",
+      "after": "269c9f8ae9e0233e4493cc9679b5eb7baf58e35a93395716c978bd6d4f27d8f7",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/metrics/PoolMetricsTest.java",
+      "before": "253ce6d2ec5a21308052aedb67c3a065126481405dc8a4d23bb7fde685a2db1a",
+      "after": "253ce6d2ec5a21308052aedb67c3a065126481405dc8a4d23bb7fde685a2db1a",
+      "status": "unchanged"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/security/ApplicationMetricsTest.java",
+      "before": "9b5e2ad3a62c0ade32fbbc946dac43dda92249a605832210e0b2caad7ccd67a7",
+      "after": "9b5e2ad3a62c0ade32fbbc946dac43dda92249a605832210e0b2caad7ccd67a7",
+      "status": "unchanged"
+    }
+  ],
+  "existing_dotnet_diff": "identical to preflight",
+  "tracked_diff_paths": [
+    ".env.example",
+    "deployment/production.env.example",
+    "docker-compose.yml",
+    "dotnet"
+  ],
+  "runtime": "NOT independently verified; Docker access denied",
+  "docker_lifecycle_commands": [],
+  "resources_created": [],
+  "prohibited_actions_performed": [],
+  "cleanup": "none; no resources created",
+  "syntax_whitespace_diff_check": "PASS"
+}
