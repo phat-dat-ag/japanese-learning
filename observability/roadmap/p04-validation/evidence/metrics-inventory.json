@@ -1,0 +1,1074 @@
+[
+  {
+    "source": "dotnet/tests/JapaneseLearning.User.UnitTests/bin/Debug/net9.0/p04-exposition.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "10b4392827fb76cf465f738adb30e8fcfbd1fef1850620a70f2b0f68389665b0",
+    "samples": 108,
+    "families": {
+      "dotnet_collection_count": "counter",
+      "process_start_time_seconds": "gauge",
+      "process_cpu_seconds": "counter",
+      "process_virtual_memory_bytes": "gauge",
+      "process_working_set_bytes": "gauge",
+      "process_private_memory_bytes": "gauge",
+      "process_open_handles": "gauge",
+      "process_num_threads": "gauge",
+      "dotnet_total_memory_bytes": "gauge",
+      "http_requests_received": "counter",
+      "http_request_duration_seconds": "histogram",
+      "http_requests_in_progress": "gauge",
+      "app_security_events": "counter",
+      "app_dependency_duration_seconds": "histogram",
+      "app_database_operations": "counter",
+      "app_database_pool_connections": "gauge"
+    },
+    "labels": {
+      "dotnet_collection_count_total": {
+        "generation": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "http_requests_received_total": {
+        "http_method": [
+          "GET",
+          "OTHER",
+          "POST"
+        ],
+        "route": [
+          "login",
+          "me",
+          "other",
+          "refresh"
+        ],
+        "code": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ]
+      },
+      "http_request_duration_seconds_sum": {
+        "http_method": [
+          "GET",
+          "OTHER",
+          "POST"
+        ],
+        "route": [
+          "login",
+          "me",
+          "other",
+          "refresh"
+        ],
+        "code": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ]
+      },
+      "http_request_duration_seconds_count": {
+        "http_method": [
+          "GET",
+          "OTHER",
+          "POST"
+        ],
+        "route": [
+          "login",
+          "me",
+          "other",
+          "refresh"
+        ],
+        "code": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ]
+      },
+      "http_request_duration_seconds_bucket": {
+        "http_method": [
+          "GET",
+          "OTHER",
+          "POST"
+        ],
+        "route": [
+          "login",
+          "me",
+          "other",
+          "refresh"
+        ],
+        "code": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1.0",
+          "10.0",
+          "2.0",
+          "2.5",
+          "5.0"
+        ]
+      },
+      "http_requests_in_progress": {
+        "http_method": [
+          "GET",
+          "OTHER",
+          "POST"
+        ],
+        "route": [
+          "login",
+          "me",
+          "other",
+          "refresh"
+        ]
+      },
+      "app_security_events_total": {
+        "operation": [
+          "authentication",
+          "authorization",
+          "login",
+          "refresh"
+        ],
+        "outcome": [
+          "denied",
+          "success",
+          "unauthenticated"
+        ]
+      },
+      "app_database_operations_total": {
+        "dependency": [
+          "sqlserver"
+        ],
+        "operation": [
+          "command",
+          "connect"
+        ],
+        "outcome": [
+          "failure",
+          "success"
+        ]
+      }
+    }
+  },
+  {
+    "source": "dotnet/tests/JapaneseLearning.User.UnitTests/bin/Debug/net9.0/p04-sql-fixture.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "ee574576675d9d376edb60a31a567b7e50ffd458d9e20a3cdc9a97039a6b84de",
+    "samples": 7,
+    "families": {
+      "app_database_operations_total": "counter",
+      "app_database_pool_connections": "gauge"
+    },
+    "labels": {
+      "app_database_operations_total": {
+        "dependency": [
+          "sqlserver"
+        ],
+        "operation": [
+          "command",
+          "connect"
+        ],
+        "outcome": [
+          "failure",
+          "success"
+        ]
+      },
+      "app_database_pool_connections": {
+        "state": [
+          "active",
+          "idle",
+          "pooled"
+        ]
+      }
+    }
+  },
+  {
+    "source": "dotnet/tests/JapaneseLearning.User.UnitTests/bin/Debug/net9.0/p04-dependency-cancelled.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "f5876a91eea622e6a21044e170f9ee408897c98a758f90883ac22390c5daef9d",
+    "samples": 24,
+    "families": {
+      "dotnet_collection_count_total": "counter",
+      "process_start_time_seconds": "gauge",
+      "process_cpu_seconds_total": "counter",
+      "process_virtual_memory_bytes": "gauge",
+      "process_working_set_bytes": "gauge",
+      "process_private_memory_bytes": "gauge",
+      "process_open_handles": "gauge",
+      "process_num_threads": "gauge",
+      "dotnet_total_memory_bytes": "gauge",
+      "http_requests_received_total": "counter",
+      "http_request_duration_seconds": "histogram",
+      "http_requests_in_progress": "gauge",
+      "app_security_events_total": "counter",
+      "app_dependency_duration_seconds": "histogram",
+      "app_database_operations_total": "counter",
+      "app_database_pool_connections": "gauge"
+    },
+    "labels": {
+      "dotnet_collection_count_total": {
+        "generation": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "app_dependency_duration_seconds_sum": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "cancelled"
+        ]
+      },
+      "app_dependency_duration_seconds_count": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "cancelled"
+        ]
+      },
+      "app_dependency_duration_seconds_bucket": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "cancelled"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1",
+          "10",
+          "2",
+          "2.5",
+          "5"
+        ]
+      }
+    }
+  },
+  {
+    "source": "dotnet/tests/JapaneseLearning.User.UnitTests/bin/Debug/net9.0/p04-dependency-failure.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "3dcdfb78dbcd31668572039893c7a1b30f02e8e2c1e697aa24fef47402982656",
+    "samples": 24,
+    "families": {
+      "dotnet_collection_count_total": "counter",
+      "process_start_time_seconds": "gauge",
+      "process_cpu_seconds_total": "counter",
+      "process_virtual_memory_bytes": "gauge",
+      "process_working_set_bytes": "gauge",
+      "process_private_memory_bytes": "gauge",
+      "process_open_handles": "gauge",
+      "process_num_threads": "gauge",
+      "dotnet_total_memory_bytes": "gauge",
+      "http_requests_received_total": "counter",
+      "http_request_duration_seconds": "histogram",
+      "http_requests_in_progress": "gauge",
+      "app_security_events_total": "counter",
+      "app_dependency_duration_seconds": "histogram",
+      "app_database_operations_total": "counter",
+      "app_database_pool_connections": "gauge"
+    },
+    "labels": {
+      "dotnet_collection_count_total": {
+        "generation": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "app_dependency_duration_seconds_sum": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "failure"
+        ]
+      },
+      "app_dependency_duration_seconds_count": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "failure"
+        ]
+      },
+      "app_dependency_duration_seconds_bucket": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "failure"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1",
+          "10",
+          "2",
+          "2.5",
+          "5"
+        ]
+      }
+    }
+  },
+  {
+    "source": "dotnet/tests/JapaneseLearning.User.UnitTests/bin/Debug/net9.0/p04-dependency-success.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "7cb77d8f24a44d544afe88e5e0282cf9c9a323cde1b676d949b8959013d24856",
+    "samples": 24,
+    "families": {
+      "dotnet_collection_count_total": "counter",
+      "process_start_time_seconds": "gauge",
+      "process_cpu_seconds_total": "counter",
+      "process_virtual_memory_bytes": "gauge",
+      "process_working_set_bytes": "gauge",
+      "process_private_memory_bytes": "gauge",
+      "process_open_handles": "gauge",
+      "process_num_threads": "gauge",
+      "dotnet_total_memory_bytes": "gauge",
+      "http_requests_received_total": "counter",
+      "http_request_duration_seconds": "histogram",
+      "http_requests_in_progress": "gauge",
+      "app_security_events_total": "counter",
+      "app_dependency_duration_seconds": "histogram",
+      "app_database_operations_total": "counter",
+      "app_database_pool_connections": "gauge"
+    },
+    "labels": {
+      "dotnet_collection_count_total": {
+        "generation": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "app_dependency_duration_seconds_sum": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "success"
+        ]
+      },
+      "app_dependency_duration_seconds_count": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "success"
+        ]
+      },
+      "app_dependency_duration_seconds_bucket": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "success"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1",
+          "10",
+          "2",
+          "2.5",
+          "5"
+        ]
+      }
+    }
+  },
+  {
+    "source": "dotnet/tests/JapaneseLearning.User.UnitTests/bin/Debug/net9.0/p04-dependency-timeout.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "3606b9f7a01f77b8c397684e3f376661239bfe987f2196baadb00e3f4cbf2481",
+    "samples": 24,
+    "families": {
+      "dotnet_collection_count_total": "counter",
+      "process_start_time_seconds": "gauge",
+      "process_cpu_seconds_total": "counter",
+      "process_virtual_memory_bytes": "gauge",
+      "process_working_set_bytes": "gauge",
+      "process_private_memory_bytes": "gauge",
+      "process_open_handles": "gauge",
+      "process_num_threads": "gauge",
+      "dotnet_total_memory_bytes": "gauge",
+      "http_requests_received_total": "counter",
+      "http_request_duration_seconds": "histogram",
+      "http_requests_in_progress": "gauge",
+      "app_security_events_total": "counter",
+      "app_dependency_duration_seconds": "histogram",
+      "app_database_operations_total": "counter",
+      "app_database_pool_connections": "gauge"
+    },
+    "labels": {
+      "dotnet_collection_count_total": {
+        "generation": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "app_dependency_duration_seconds_sum": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "timeout"
+        ]
+      },
+      "app_dependency_duration_seconds_count": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "timeout"
+        ]
+      },
+      "app_dependency_duration_seconds_bucket": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "timeout"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1",
+          "10",
+          "2",
+          "2.5",
+          "5"
+        ]
+      }
+    }
+  },
+  {
+    "source": "quarkus/target/p04-exposition.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "d32b4a2f7fb64898da62a4a6bc6e12a0b150f3dc3d7b0c0316a72f98ab4a692d",
+    "samples": 162,
+    "families": {
+      "sql_pool_completed_total": "counter",
+      "sql_pool_idle": "gauge",
+      "jvm_buffer_memory_used_bytes": "gauge",
+      "system_cpu_count": "gauge",
+      "jvm_buffer_count_buffers": "gauge",
+      "sql_pool_ratio": "gauge",
+      "jvm_classes_unloaded_classes_total": "counter",
+      "jvm_info_total": "counter",
+      "jvm_classes_loaded_classes": "gauge",
+      "jvm_memory_usage_after_gc": "gauge",
+      "process_start_time_seconds": "gauge",
+      "process_cpu_time_ns_total": "counter",
+      "jvm_threads_daemon_threads": "gauge",
+      "process_uptime_seconds": "gauge",
+      "system_cpu_usage": "gauge",
+      "jvm_memory_committed_bytes": "gauge",
+      "jvm_gc_memory_promoted_bytes_total": "counter",
+      "sql_pool_rejected_total": "counter",
+      "sql_pool_queue_delay_seconds": "summary",
+      "sql_pool_queue_delay_seconds_max": "gauge",
+      "sql_pool_active": "gauge",
+      "sql_pool_queue_size": "gauge",
+      "app_dependency_duration_seconds_max": "gauge",
+      "app_dependency_duration_seconds": "histogram",
+      "jvm_classes_loaded_count_classes_total": "counter",
+      "jvm_gc_max_data_size_bytes": "gauge",
+      "app_dependency_requests_total": "counter",
+      "app_security_events_total": "counter",
+      "jvm_gc_overhead": "gauge",
+      "jvm_gc_pause_seconds": "summary",
+      "jvm_gc_pause_seconds_max": "gauge",
+      "jvm_gc_memory_allocated_bytes_total": "counter",
+      "jvm_threads_states_threads": "gauge",
+      "jvm_threads_started_threads_total": "counter",
+      "jvm_threads_live_threads": "gauge",
+      "http_server_requests_seconds": "histogram",
+      "http_server_requests_seconds_max": "gauge",
+      "jvm_memory_max_bytes": "gauge",
+      "jvm_gc_live_data_size_bytes": "gauge",
+      "sql_pool_usage_seconds_max": "gauge",
+      "sql_pool_usage_seconds": "summary",
+      "jvm_buffer_total_capacity_bytes": "gauge",
+      "jvm_memory_used_bytes": "gauge",
+      "jvm_threads_peak_threads": "gauge",
+      "process_cpu_usage": "gauge"
+    },
+    "labels": {
+      "sql_pool_completed_total": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_idle": {
+        "pool": [
+          "default"
+        ]
+      },
+      "jvm_buffer_memory_used_bytes": {
+        "id": [
+          "direct",
+          "mapped",
+          "mapped - 'non-volatile memory'"
+        ]
+      },
+      "jvm_buffer_count_buffers": {
+        "id": [
+          "direct",
+          "mapped",
+          "mapped - 'non-volatile memory'"
+        ]
+      },
+      "sql_pool_ratio": {
+        "pool": [
+          "default"
+        ]
+      },
+      "jvm_info_total": {
+        "runtime": [
+          "OpenJDK Runtime Environment"
+        ],
+        "vendor": [
+          "Eclipse Adoptium"
+        ],
+        "version": [
+          "17.0.19+10"
+        ]
+      },
+      "jvm_memory_usage_after_gc": {
+        "area": [
+          "heap"
+        ],
+        "pool": [
+          "long-lived"
+        ]
+      },
+      "jvm_memory_committed_bytes": {
+        "area": [
+          "heap",
+          "nonheap"
+        ],
+        "id": [
+          "CodeHeap 'non-nmethods'",
+          "CodeHeap 'non-profiled nmethods'",
+          "CodeHeap 'profiled nmethods'",
+          "Compressed Class Space",
+          "G1 Eden Space",
+          "G1 Old Gen",
+          "G1 Survivor Space",
+          "Metaspace"
+        ]
+      },
+      "sql_pool_rejected_total": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_queue_delay_seconds_count": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_queue_delay_seconds_sum": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_queue_delay_seconds_max": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_active": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_queue_size": {
+        "pool": [
+          "default"
+        ]
+      },
+      "app_dependency_duration_seconds_max": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "success"
+        ]
+      },
+      "app_dependency_duration_seconds_bucket": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "success"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1.0",
+          "10.0",
+          "2.0",
+          "2.5",
+          "5.0"
+        ]
+      },
+      "app_dependency_duration_seconds_count": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "success"
+        ]
+      },
+      "app_dependency_duration_seconds_sum": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ],
+        "outcome": [
+          "success"
+        ]
+      },
+      "app_dependency_requests_total": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "operation": [
+          "jwks.fetch"
+        ]
+      },
+      "app_security_events_total": {
+        "operation": [
+          "authentication",
+          "authorization"
+        ],
+        "outcome": [
+          "denied",
+          "success",
+          "unauthenticated"
+        ]
+      },
+      "jvm_gc_pause_seconds_count": {
+        "action": [
+          "end of minor GC"
+        ],
+        "cause": [
+          "G1 Evacuation Pause"
+        ],
+        "gc": [
+          "G1 Young Generation"
+        ]
+      },
+      "jvm_gc_pause_seconds_sum": {
+        "action": [
+          "end of minor GC"
+        ],
+        "cause": [
+          "G1 Evacuation Pause"
+        ],
+        "gc": [
+          "G1 Young Generation"
+        ]
+      },
+      "jvm_gc_pause_seconds_max": {
+        "action": [
+          "end of minor GC"
+        ],
+        "cause": [
+          "G1 Evacuation Pause"
+        ],
+        "gc": [
+          "G1 Young Generation"
+        ]
+      },
+      "jvm_threads_states_threads": {
+        "state": [
+          "blocked",
+          "new",
+          "runnable",
+          "terminated",
+          "timed-waiting",
+          "waiting"
+        ]
+      },
+      "http_server_requests_seconds_bucket": {
+        "method": [
+          "GET"
+        ],
+        "route": [
+          "flashcards",
+          "jlpt-levels",
+          "other"
+        ],
+        "route_family": [
+          "flashcard",
+          "jlpt_levels",
+          "other"
+        ],
+        "status": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1.0",
+          "10.0",
+          "2.0",
+          "2.5",
+          "5.0"
+        ]
+      },
+      "http_server_requests_seconds_count": {
+        "method": [
+          "GET"
+        ],
+        "route": [
+          "flashcards",
+          "jlpt-levels",
+          "other"
+        ],
+        "route_family": [
+          "flashcard",
+          "jlpt_levels",
+          "other"
+        ],
+        "status": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ]
+      },
+      "http_server_requests_seconds_sum": {
+        "method": [
+          "GET"
+        ],
+        "route": [
+          "flashcards",
+          "jlpt-levels",
+          "other"
+        ],
+        "route_family": [
+          "flashcard",
+          "jlpt_levels",
+          "other"
+        ],
+        "status": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ]
+      },
+      "http_server_requests_seconds_max": {
+        "method": [
+          "GET"
+        ],
+        "route": [
+          "flashcards",
+          "jlpt-levels",
+          "other"
+        ],
+        "route_family": [
+          "flashcard",
+          "jlpt_levels",
+          "other"
+        ],
+        "status": [
+          "200",
+          "401",
+          "403",
+          "404",
+          "500"
+        ]
+      },
+      "jvm_memory_max_bytes": {
+        "area": [
+          "heap",
+          "nonheap"
+        ],
+        "id": [
+          "CodeHeap 'non-nmethods'",
+          "CodeHeap 'non-profiled nmethods'",
+          "CodeHeap 'profiled nmethods'",
+          "Compressed Class Space",
+          "G1 Eden Space",
+          "G1 Old Gen",
+          "G1 Survivor Space",
+          "Metaspace"
+        ]
+      },
+      "sql_pool_usage_seconds_max": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_usage_seconds_count": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_usage_seconds_sum": {
+        "pool": [
+          "default"
+        ]
+      },
+      "jvm_buffer_total_capacity_bytes": {
+        "id": [
+          "direct",
+          "mapped",
+          "mapped - 'non-volatile memory'"
+        ]
+      },
+      "jvm_memory_used_bytes": {
+        "area": [
+          "heap",
+          "nonheap"
+        ],
+        "id": [
+          "CodeHeap 'non-nmethods'",
+          "CodeHeap 'non-profiled nmethods'",
+          "CodeHeap 'profiled nmethods'",
+          "Compressed Class Space",
+          "G1 Eden Space",
+          "G1 Old Gen",
+          "G1 Survivor Space",
+          "Metaspace"
+        ]
+      }
+    }
+  },
+  {
+    "source": "quarkus/target/p04-mysql-spi.prom",
+    "scope": "local app process or synthetic provider SPI fixture; not deployed scrape",
+    "sha256": "9d960215b2c0f4640402238257de0e3b90dc3bfc10d8387e1bbe728a6145470e",
+    "samples": 27,
+    "families": {
+      "app_database_failures_total": "counter",
+      "sql_pool_rejected_total": "counter",
+      "sql_pool_usage_seconds_max": "gauge",
+      "sql_pool_usage_seconds": "summary",
+      "sql_pool_queue_delay_seconds": "summary",
+      "sql_pool_queue_delay_seconds_max": "gauge",
+      "sql_pool_completed_total": "counter",
+      "sql_pool_active": "gauge",
+      "sql_pool_idle": "gauge",
+      "http_client_requests_seconds": "histogram",
+      "http_client_requests_seconds_max": "gauge",
+      "sql_pool_queue_size": "gauge",
+      "sql_pool_ratio": "gauge"
+    },
+    "labels": {
+      "app_database_failures_total": {
+        "category": [
+          "database"
+        ],
+        "dependency": [
+          "mysql"
+        ]
+      },
+      "sql_pool_rejected_total": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_usage_seconds_max": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_usage_seconds_count": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_usage_seconds_sum": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_queue_delay_seconds_count": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_queue_delay_seconds_sum": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_queue_delay_seconds_max": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_completed_total": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_active": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_idle": {
+        "pool": [
+          "default"
+        ]
+      },
+      "http_client_requests_seconds_bucket": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "status_class": [
+          "5xx"
+        ],
+        "le": [
+          "+Inf",
+          "0.01",
+          "0.05",
+          "0.1",
+          "0.25",
+          "0.5",
+          "1.0",
+          "10.0",
+          "2.0",
+          "2.5",
+          "5.0"
+        ]
+      },
+      "http_client_requests_seconds_count": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "status_class": [
+          "5xx"
+        ]
+      },
+      "http_client_requests_seconds_sum": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "status_class": [
+          "5xx"
+        ]
+      },
+      "http_client_requests_seconds_max": {
+        "dependency": [
+          "jwks-api"
+        ],
+        "status_class": [
+          "5xx"
+        ]
+      },
+      "sql_pool_queue_size": {
+        "pool": [
+          "default"
+        ]
+      },
+      "sql_pool_ratio": {
+        "pool": [
+          "default"
+        ]
+      }
+    }
+  }
+]

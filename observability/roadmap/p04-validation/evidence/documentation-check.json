@@ -1,0 +1,6 @@
+{
+  "reports": 7,
+  "local_links": 25,
+  "java_style_guards": 9,
+  "result": "PASS basic guards; R01-R19 manually reviewed; links checked for target existence"
+}

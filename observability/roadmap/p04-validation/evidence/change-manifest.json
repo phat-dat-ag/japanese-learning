@@ -1,0 +1,201 @@
+{
+  "scope": "P04 only; excludes manifest itself, pre-existing Program.cs and ignored outputs",
+  "files": [
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/JwksLoggingHandler.cs",
+      "sha256": "967ece912f248613a598f49e769b9e4f7db629cfe8d20925185c72c53ffd463e",
+      "kind": "modified"
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Observability/ApplicationMetrics.cs",
+      "sha256": "72531594fd7170621677fcc00cd99c69ba859db717706786a4dac00e58f59e1d",
+      "kind": "modified"
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Observability/SqlClientMetrics.cs",
+      "sha256": "68aa0f882c27819e2cd295b79f177079f4bf8638e22c07d341acef58af24ffda",
+      "kind": "new"
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Observability/ApplicationMetricsTests.cs",
+      "sha256": "a690b289a4a43bb0104bf19a41b9fb3f213716af51d6dd1ce8b8b8d0b4627f03",
+      "kind": "modified"
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Observability/DependencyMetricsTests.cs",
+      "sha256": "b44673659b928062b49e99988024c233d863272ed748fb895acc58e5ba0b0331",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-cardinality-budget.md",
+      "sha256": "d0e055abb0aa00514adef53485dcb224fb8ceb1f7369ac290a2a59035a5d08d1",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-implementation.md",
+      "sha256": "03caa60eee2fae5523b14efdb45daff83e3c2721b3630a6d1d420ed81e98e13f",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-metrics-contract.md",
+      "sha256": "318bf153c215ebfea628078f62a1e081c5bacc6ce54eae975fba2fb3490652bf",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-metrics-inventory.md",
+      "sha256": "c921c6f5fa663f94711836796607bad3ba1f3d7a2c5e913199f6cf5de007d8bd",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-rollback.md",
+      "sha256": "bc3295900b1cc722b8d435a76e1da82e467b698ad848b6f0e4de4b120ed981e3",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-test-matrix.md",
+      "sha256": "a9870ceaa4a2cfd8636a9b97810ca5d00098722eab7e07f9826056811e1061fb",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/compose.metrics.p04.yml",
+      "sha256": "1fa606f47bceaceb3cd8abdbd5fc34536a843694e8c8a150c60102461129ef7a",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/documentation-check.json",
+      "sha256": "e51f8dede6ef6e3fad6dd062174b6ee0309af858071f22404fa458c95c8a8206",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/final.json",
+      "sha256": "18379835bba5ee00a8fa862dc358e2a2e8caccab3305e588480330cc074ec18e",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/fixture-results.json",
+      "sha256": "4de964420e9cf0eac368d8184c24876c3ead057a36f2e15cf2462326ac948539",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/metrics-inventory.json",
+      "sha256": "736ae3e8f0082b149791a1cd74a7e7bfba4c8021c81e0458c625cf89a1170b9e",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/p02-hash-investigation.json",
+      "sha256": "c07d896898e5d2384443f67ee40d72de0812d05d82e0498e8303b94f168f8e2f",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/preflight.json",
+      "sha256": "263171da13305001ca0c0960466a0b96f8dcf662bdc8f0a18ae2362c1a52667a",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/preservation.json",
+      "sha256": "b9e57e55308053303e39788f837a53842b5002d4814ac6695506eb5d7f9cb985",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/evidence/test-summary.json",
+      "sha256": "231981d9a3c60aac8577fe4eaf1f2e4c28ff128a2fd08114c690ba14f75f2a14",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/finalize.py",
+      "sha256": "122b5b5708358b8248b955396fd8dbe1fb1eeec806c724980f594f3322a339c0",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/prometheus.p04.yml",
+      "sha256": "b89203c40b60786f8d89207e668941e5b1c96f70abb62433f4a2734c8611b642",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-validation/verify.py",
+      "sha256": "0bbdc21663363e3047e8b5ef998fb4e9ff7e6b94e54f69642e36083dfafe7a83",
+      "kind": "new"
+    },
+    {
+      "path": "observability/roadmap/p04-verification.md",
+      "sha256": "a8cba6a74dec33951260897dccde5154b25915633051db1d73ae04d7d36099e1",
+      "kind": "new"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/exception/handler/GlobalExceptionMapper.java",
+      "sha256": "68534cc592cdbe063463c76f849abb2233b558502cb22891ed228250a4d12ef3",
+      "kind": "modified"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/ApplicationMetricsFilter.java",
+      "sha256": "a974cd15848e9d82df1cd5b3356fa391f015bb573f54e76a46507a56795b647f",
+      "kind": "modified"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/DatabaseFailureMetrics.java",
+      "sha256": "26925c02da5f01d8744b924ec50afddc0f322b8ebefe7e8fad000b03942a017d",
+      "kind": "new"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/JwksMetricsFilter.java",
+      "sha256": "750342e1857954631cdf441df4854f5b6a86109b9cf4c042386b96983ac51ff3",
+      "kind": "new"
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/metrics/SecurityMetrics.java",
+      "sha256": "a7bf3e407b5abf26c2fec8b9d5a6dd2e176c7eae212b117cf9fadfbcf77ac8bc",
+      "kind": "new"
+    },
+    {
+      "path": "quarkus/src/main/resources/application.properties",
+      "sha256": "fca824a99269fcf12ab7ac979d3bb28d22a97807ca6259f9fedccf51a1f08ebe",
+      "kind": "modified"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/metrics/ApplicationMetricsFilterTest.java",
+      "sha256": "b44acfab7e0ee1de535ca875acb3477840633c688a912d21086263507b450d56",
+      "kind": "modified"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/metrics/JwksMetricsFilterTest.java",
+      "sha256": "4140963f891ef4e9ee36a235263dd44bb370baedea398ec2cd7cbc2aaced4b97",
+      "kind": "new"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/metrics/PoolMetricsTest.java",
+      "sha256": "7b648f286e6189557366404d6467481b0bfbbf445b1f158ce57466f926e94852",
+      "kind": "new"
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/security/ApplicationMetricsTest.java",
+      "sha256": "9b5e2ad3a62c0ade32fbbc946dac43dda92249a605832210e0b2caad7ccd67a7",
+      "kind": "modified"
+    }
+  ],
+  "preexisting_edits": "Program.cs untouched; application.properties retains Swagger edit",
+  "new_custom_metric_families": {
+    "dotnet": [
+      "app_security_events_total",
+      "app_dependency_duration_seconds",
+      "app_database_operations_total",
+      "app_database_pool_connections"
+    ],
+    "quarkus": [
+      "app_security_events_total",
+      "app_dependency_requests_total",
+      "app_dependency_duration_seconds",
+      "app_database_failures_total"
+    ]
+  },
+  "native_metrics_reused": [
+    "http_requests_received_total",
+    "http_request_duration_seconds",
+    "http_requests_in_progress",
+    "http_server_requests_seconds",
+    "http_client_requests_seconds",
+    "sql.pool.* allowlist",
+    "DotNetStats",
+    "Micrometer JVM/process/system"
+  ],
+  "scrape_changes": "Inactive candidate only: retain user-api/vocabulary-api, add prometheus/fluent-bit; no JWKS activation"
+}

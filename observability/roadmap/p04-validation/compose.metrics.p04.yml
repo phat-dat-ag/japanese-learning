@@ -1,0 +1,14 @@
+# INACTIVE overlay proposal, after base + production + observability + production-observability.
+# Review networks and authenticate/protect collector metrics before any separate adoption.
+services:
+  prometheus:
+    volumes:
+      - type: bind
+        source: ./observability/roadmap/p04-validation/prometheus.p04.yml
+        target: /etc/prometheus/prometheus.yml
+        read_only: true
+        bind:
+          create_host_path: false
+  fluent-bit:
+    networks: !override [log-storage, monitoring]
+# No command to deploy this overlay is provided or authorized by P04.
