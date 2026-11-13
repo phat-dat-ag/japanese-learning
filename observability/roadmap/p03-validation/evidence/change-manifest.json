@@ -1,0 +1,93 @@
+{
+  "scope": "New P03 files only; manifest excludes itself",
+  "files": [
+    {
+      "path": "observability/roadmap/p03-collector-compatibility.md",
+      "sha256": "5c20b8c7905c06a8fcb1b2a347c3b235b86250218b2d19c08e9a0f48fcad1973"
+    },
+    {
+      "path": "observability/roadmap/p03-pipeline-architecture.md",
+      "sha256": "ba53e92ff3d278ec2bf4391d2ce3166200d195b38bdd31872d99d56483e81ab0"
+    },
+    {
+      "path": "observability/roadmap/p03-privacy-verification.md",
+      "sha256": "20bcd01cf11920bf9af14fd3a68aa7f714fcf2da1db92d5ad715cecc85dd78bb"
+    },
+    {
+      "path": "observability/roadmap/p03-rollback.md",
+      "sha256": "fa52ae1448febfb353d77cb1395c5a77a3d93069f472b729ba72809017995420"
+    },
+    {
+      "path": "observability/roadmap/p03-rotation-replay.md",
+      "sha256": "9f0bbcd31a76e5882286766796be578d9592e1029bbbfab4da015577d0aee454"
+    },
+    {
+      "path": "observability/roadmap/p03-test-matrix.md",
+      "sha256": "0d1baae6a71f503bda22e92e90c87beb60ac19e0221430b704e472f71d901ba4"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/cleanup.json",
+      "sha256": "e0d2c46fe85c5cd6807dfc0be641d1484df1551343bab50fe1a6611094a780e4"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/documentation-check.json",
+      "sha256": "469fa8bdf0b029a25b25251f1ebc708bfc736f929d8374b1ee68e14775a4a01d"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/final.json",
+      "sha256": "ed2d22629caafff3811343bcee987beaf532448f0056d8f957eb11258ac4124f"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/p02-manifest-audit.json",
+      "sha256": "fb550fc1bcc34d0bdb0ca248236f2a0a07dfec5cc507ab95fea099f66f9a2607"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/preflight.json",
+      "sha256": "7cc2f5bd5583babf76ddb6e905c9bf4f4aac495323fb570df03689addcec371a"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/preservation.json",
+      "sha256": "88d68506f9c101b4a9362d68df6338c01e744570ef03479e369d8badf211ac6f"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/evidence/test-results.json",
+      "sha256": "d3139fac73724ea0922866e07350eb090751f31a7a832bd957690c92bf90f7ec"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/finalize.py",
+      "sha256": "376347295d9f7f7e19b77ed77a39843c4f0c68b852af023fd06306b8806a368c"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/fluent-bit.p03.conf",
+      "sha256": "f5cea6f1e18e64c8aa68cf4f72944d69df6eb992d50deb92355a9a586d8ec99f"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/normalize.p03.lua",
+      "sha256": "cf178a0b4072079b73f4bc0bf69207eeb2a34d2f6e0284a61f7f86c7cf1a20a1"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/parsers-app.conf",
+      "sha256": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/README.md",
+      "sha256": "6e4fde8a542d968bd6d013d0d9cc5d5bd6cb1667b19f1f51e1c9a670c16ea54e"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/snapshot.py",
+      "sha256": "6596993f4761b3095cb139eba84df0823976ed829440258731fd6e05703f4933"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/test_adapter.lua",
+      "sha256": "10f489c780a7e6c26069d39e100607e63ae2773195f7c7e53ced1ecd70d14c2f"
+    },
+    {
+      "path": "observability/roadmap/p03-validation/verify.py",
+      "sha256": "0652d3cc5e2e618693214e0556126298f1111cf2d8103b9c382d7111a5cc004c"
+    },
+    {
+      "path": "observability/roadmap/p03-verification.md",
+      "sha256": "21d204eeed7ec95129bd45eaf2e7dca13ff221cd840d99340f485196c35e313c"
+    }
+  ]
+}

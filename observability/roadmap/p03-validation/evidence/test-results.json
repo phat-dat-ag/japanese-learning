@@ -1,0 +1,79 @@
+{
+  "scope": "offline source and Python reference models; NOT Fluent Bit/OpenSearch",
+  "executed": 13,
+  "failures": 0,
+  "errors": 0,
+  "measurements": {
+    "queue_model_only": {
+      "generated": 100,
+      "delivered": 25,
+      "unique": 25,
+      "rejected": 0,
+      "duplicated": 0,
+      "missing": 75,
+      "overflow_dropped": 75,
+      "backlog_bytes": 250,
+      "capacity_bytes": 256,
+      "local_read_seconds": 0.0010156999924220145,
+      "attempted_delivery": 0,
+      "confirmed_opensearch_delivery": 0
+    },
+    "copy_truncate_active_only_gap": {
+      "generated": 100,
+      "delivered": 0,
+      "unique": 0,
+      "rejected": 0,
+      "duplicated": 0,
+      "missing": 100
+    },
+    "delayed_compression_replay": {
+      "generated": 100,
+      "delivered": 100,
+      "unique": 100,
+      "rejected": 0,
+      "duplicated": 0,
+      "missing": 0
+    },
+    "immediate_compression_active_only_gap": {
+      "generated": 100,
+      "delivered": 0,
+      "unique": 0,
+      "rejected": 0,
+      "duplicated": 0,
+      "missing": 100
+    },
+    "overlapping_copy_duplicate_example": {
+      "generated": 100,
+      "delivered": 200,
+      "unique": 100,
+      "rejected": 0,
+      "duplicated": 100,
+      "missing": 0
+    },
+    "replay_rejections": {
+      "generated": 4,
+      "delivered": 1,
+      "unique": 1,
+      "rejected": 3,
+      "duplicated": 0,
+      "missing": 0
+    },
+    "reopen_without_offset_db_duplicates": {
+      "generated": 100,
+      "delivered": 200,
+      "unique": 100,
+      "rejected": 0,
+      "duplicated": 100,
+      "missing": 0
+    },
+    "rename_readable_spool": {
+      "generated": 100,
+      "delivered": 100,
+      "unique": 100,
+      "rejected": 0,
+      "duplicated": 0,
+      "missing": 0
+    }
+  },
+  "lua_runtime": "NOT VERIFIED"
+}
