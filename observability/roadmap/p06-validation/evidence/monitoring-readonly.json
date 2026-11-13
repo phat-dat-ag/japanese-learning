@@ -1,0 +1,100 @@
+{
+    "grafana":  {
+                    "version":  "13.2.2",
+                    "database":  "ok"
+                },
+    "containers_inspected":  36,
+    "targets":  [
+                    {
+                        "last_scrape":  "2026-11-13T06:50:11.565212268Z",
+                        "error_present":  false,
+                        "health":  "up",
+                        "job":  "prometheus"
+                    },
+                    {
+                        "last_scrape":  "2026-11-13T06:50:12.006955093Z",
+                        "error_present":  false,
+                        "health":  "up",
+                        "job":  "user-api"
+                    },
+                    {
+                        "last_scrape":  "2026-11-13T06:50:04.227655645Z",
+                        "error_present":  false,
+                        "health":  "up",
+                        "job":  "vocabulary-api"
+                    }
+                ],
+    "rule_groups":  [
+                        {
+                            "health":  [
+                                           "ok"
+                                       ],
+                            "states":  [
+                                           "inactive"
+                                       ],
+                            "name":  "jp_p05.availability",
+                            "rules":  4
+                        },
+                        {
+                            "health":  [
+                                           "ok"
+                                       ],
+                            "states":  [
+                                           "inactive"
+                                       ],
+                            "name":  "jp_p05.capacity",
+                            "rules":  11
+                        },
+                        {
+                            "health":  [
+                                           "ok"
+                                       ],
+                            "states":  [
+                                           "inactive"
+                                       ],
+                            "name":  "jp_p05.dependencies",
+                            "rules":  6
+                        },
+                        {
+                            "health":  [
+                                           "ok"
+                                       ],
+                            "states":  [
+                                           "inactive"
+                                       ],
+                            "name":  "jp_p05.http",
+                            "rules":  5
+                        },
+                        {
+                            "health":  [
+                                           "ok"
+                                       ],
+                            "states":  [
+                                           "inactive"
+                                       ],
+                            "name":  "jp_p05.integrity",
+                            "rules":  5
+                        },
+                        {
+                            "health":  [
+                                           "ok"
+                                       ],
+                            "states":  [
+
+                                       ],
+                            "name":  "jp_p05.recording",
+                            "rules":  15
+                        },
+                        {
+                            "health":  [
+                                           "ok"
+                                       ],
+                            "states":  [
+                                           "inactive"
+                                       ],
+                            "name":  "jp_p05.security",
+                            "rules":  2
+                        }
+                    ],
+    "captured_utc":  "2026-11-13T06:50:18.9244861Z"
+}

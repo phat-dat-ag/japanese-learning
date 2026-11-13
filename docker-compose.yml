@@ -275,6 +275,11 @@ services:
 
       # Logs use the writable named volume.
       LogFiles__Directory: /app/logs
+      Tracing__ExportEnabled: ${JP_TRACE_EXPORT_ENABLED:-false}
+      Tracing__SampleRatio: ${JP_TRACE_SAMPLE_RATIO:-0.1}
+      Tracing__MaxRootsPerSecond: ${JP_TRACE_MAX_ROOTS_PER_SECOND:-10}
+      Tracing__Environment: ${LOG_ENVIRONMENT:-development}
+      Tracing__Endpoint: http://otel-collector:4317
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "--output", "/dev/null", "--max-time", "5", "http://127.0.0.1:8080/health/ready"]
       interval: 10s
@@ -331,6 +336,11 @@ services:
       QUARKUS_OIDC_CONNECTION_DELAY: ${VOCABULARY_API_OIDC_CONNECTION_DELAY:-60S}
       QUARKUS_SHUTDOWN_TIMEOUT: ${VOCABULARY_API_SHUTDOWN_TIMEOUT:-20S}
       APP_LOG_DIR: /deployments/data/logs
+      APP_OTEL_EXPORT_ENABLED: ${JP_TRACE_EXPORT_ENABLED:-false}
+      APP_OTEL_SAMPLE_RATIO: ${JP_TRACE_SAMPLE_RATIO:-0.1}
+      APP_OTEL_MAX_ROOTS_PER_SECOND: ${JP_TRACE_MAX_ROOTS_PER_SECOND:-10}
+      APP_OTEL_ENDPOINT: http://otel-collector:4317
+      APP_ENVIRONMENT: ${LOG_ENVIRONMENT:-development}
     ports:
       - "127.0.0.1:${VOCABULARY_API_HOST_PORT:-8082}:8080"
     healthcheck:
@@ -545,6 +555,59 @@ services:
       opensearch-dashboards: {condition: service_healthy}
 
   # P05: project-scoped monitoring. No application service/network assignment changes.
+  otel-collector:
+    <<: *container-security
+    image: otel/opentelemetry-collector-contrib:0.145.0@sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c
+    user: "10001:10001"
+    restart: unless-stopped
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 0.5
+    pids_limit: 64
+    stop_grace_period: 10s
+    labels:
+      jp.observability.phase: P06
+      jp.observability.owner: japanese-learning
+      jp.observability.role: tracing
+    command: ["--config=/etc/otelcol/config.yml"]
+    volumes:
+      - type: bind
+        source: ./observability/p06/collector.yml
+        target: /etc/otelcol/config.yml
+        read_only: true
+        bind: {create_host_path: false}
+    networks: [default, p06-tracing]
+    logging:
+      driver: local
+      options: {max-size: "5m", max-file: "2"}
+
+  tempo:
+    <<: *container-security
+    image: grafana/tempo:2.10.3@sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7
+    user: "10001:10001"
+    restart: unless-stopped
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 1
+    pids_limit: 128
+    stop_grace_period: 30s
+    labels:
+      jp.observability.phase: P06
+      jp.observability.owner: japanese-learning
+      jp.observability.role: tracing
+    command: ["-config.file=/etc/tempo/config.yml"]
+    volumes:
+      - tempo_data:/var/tempo
+      - type: bind
+        source: ./observability/p06/tempo.yml
+        target: /etc/tempo/config.yml
+        read_only: true
+        bind: {create_host_path: false}
+    networks: [p06-tracing]
+    logging:
+      driver: local
+      options: {max-size: "5m", max-file: "2"}
+
   prometheus:
     <<: *container-security
     image: prom/prometheus:v3.14.0@sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0
@@ -621,7 +684,7 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana
       - type: bind
-        source: ./observability/p05-candidate/grafana/provisioning
+        source: ./observability/p06/grafana/provisioning
         target: /etc/grafana/provisioning
         read_only: true
         bind: {create_host_path: false}
@@ -630,7 +693,7 @@ services:
         target: /etc/grafana/p05-dashboards
         read_only: true
         bind: {create_host_path: false}
-    networks: [default, p05-monitoring]
+    networks: [default, p05-monitoring, p06-tracing]
     depends_on:
       prometheus: {condition: service_healthy}
     healthcheck:
@@ -641,6 +704,8 @@ services:
       start_period: 30s
 
 volumes:
+  tempo_data:
+    labels: {jp.observability.phase: P06, jp.observability.owner: japanese-learning}
   jwks_api_logs:
   mysql_data:
   sqlserver_data:
@@ -655,6 +720,9 @@ volumes:
     labels: {jp.observability.phase: P05, jp.observability.owner: japanese-learning}
 
 networks:
+  p06-tracing:
+    internal: true
+    labels: {jp.observability.phase: P06, jp.observability.owner: japanese-learning}
   default:
   log-storage: {internal: true}
   log-ui: {internal: true}

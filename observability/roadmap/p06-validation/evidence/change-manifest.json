@@ -1,0 +1,264 @@
+{
+  "phase": "P06",
+  "created_utc": "2026-11-13T07:10:29.277512+00:00",
+  "source_status": "Implemented candidate; review required",
+  "runtime_status": "BLOCKED",
+  "root_head": "5f1bd8ed730daf5411be1e85d863d16bb2baf215",
+  "files": [
+    {
+      "repository": ".",
+      "path": ".env.example",
+      "kind": "modified",
+      "sha256": "f56a108c6b813903bc14b13ff68edf19ac0e52438167337c2ff180f357798cf9"
+    },
+    {
+      "repository": ".",
+      "path": "deployment/production.env.example",
+      "kind": "modified",
+      "sha256": "9887c70e0990293253eaf30e46915d744de850099feb78963048a8ead6c75f89"
+    },
+    {
+      "repository": ".",
+      "path": "docker-compose.yml",
+      "kind": "modified",
+      "sha256": "a6df2363c12e70e05da1981e5405bb232de108f2918b7cd00343ca1eb3e3fdc6"
+    },
+    {
+      "repository": ".",
+      "path": "observability/p06/collector.yml",
+      "kind": "new",
+      "sha256": "05d2a3153d964560f26b58ae7860da5a705d753886c2e280c8c74cf6d828c5c5"
+    },
+    {
+      "repository": ".",
+      "path": "observability/p06/grafana/provisioning/dashboards/health.yml",
+      "kind": "new",
+      "sha256": "8c0b876052ad915090128dc3ee02b9482c7821f823a4ba219bcb752d0ef4f7b2"
+    },
+    {
+      "repository": ".",
+      "path": "observability/p06/grafana/provisioning/datasources/prometheus.yml",
+      "kind": "new",
+      "sha256": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd"
+    },
+    {
+      "repository": ".",
+      "path": "observability/p06/grafana/provisioning/datasources/tempo.yml",
+      "kind": "new",
+      "sha256": "b93a4d06d2bd4821f8075647cf1a8f0db3b1b4dd7210badea55c1724ab6256e7"
+    },
+    {
+      "repository": ".",
+      "path": "observability/p06/tempo.yml",
+      "kind": "new",
+      "sha256": "b0bcd27c0dc69aced4c55b246a7c3932038aaa30a864d8a865b0d45821991b1a"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-implementation.md",
+      "kind": "new",
+      "sha256": "cc5da76e09e42f0691df5a3d6e51d0dd53411af9cd0a6db2a879b52b3ee3c13c"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-rollback.md",
+      "kind": "new",
+      "sha256": "23cfa17e842f20c72e1f7a2adf3842aa3f0d3bc034dfb4daac6e3172ab964bbf"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-sampling-privacy.md",
+      "kind": "new",
+      "sha256": "cdddaf6d810f75f24e530b0256407f231fb849a7d597d98b7b3c7c119c16ae5c"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-test-matrix.md",
+      "kind": "new",
+      "sha256": "c23cde081af8cb8967370025f36864a1ae94cef613358acdb3c6a3361e204201"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-tracing-architecture.md",
+      "kind": "new",
+      "sha256": "76068431404c707dd1e15948419ac9196cfd0430b660af33d320b5126e8f0cb9"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-tracing-contract.md",
+      "kind": "new",
+      "sha256": "1a145c0311d6a105da0f601f6b197ab668486028f01365e05b716810acd83e3e"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/compose-fixture.env",
+      "kind": "new",
+      "sha256": "dbf974d7168c2a0f5edef0be27c6be1b4b95ae6549cb5c558203ce4db970444e"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/evidence/config-validation.json",
+      "kind": "new",
+      "sha256": "86b597288051cff6b04190527c22521211592316f70d14e4d88c4222df2543a3"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/evidence/monitoring-readonly.json",
+      "kind": "new",
+      "sha256": "21d13f4d66df15d0c066471f9bef861df0909b345ec27b66266eeae16f6ac3bf"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/evidence/preflight.json",
+      "kind": "new",
+      "sha256": "cf3084004112456460833d232c47913052089fc27c064b935afc784068122f8b"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/evidence/preservation.json",
+      "kind": "new",
+      "sha256": "fb898b0bbb13e09693f905e6e9b8a1e594079f2c5f1c375029f2654d3f84be47"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/evidence/runtime-baseline.json",
+      "kind": "new",
+      "sha256": "61242139af70a45de6b0402cfc97a1251514ca75039b8814a94b5cf6f4b8e592"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/evidence/runtime-final.json",
+      "kind": "new",
+      "sha256": "af291f60aa20077b9bacc477f59bb7783d550f44dfd3d66e125017a9fe8ecdfd"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/evidence/test-summary.json",
+      "kind": "new",
+      "sha256": "d79c0b413850cb9ed9fc3f293bee7ec6d5d8d4a989a4986988bff884f2d000f9"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/finalize.py",
+      "kind": "new",
+      "sha256": "f9b57ed35dc8b2598647479e38ea2a3ea5c6f1359b0c934213eba4253932c71d"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/runtime_snapshot.py",
+      "kind": "new",
+      "sha256": "b2978a03605d6b596d8fcde2a42be1fa938a1f0a273ce8831b78c067e7669aa9"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-validation/verify.py",
+      "kind": "new",
+      "sha256": "7cfef1e082c9b772125d70c0277e7add97b30d1eaac24ba7fc550598e2a54980"
+    },
+    {
+      "repository": ".",
+      "path": "observability/roadmap/p06-verification.md",
+      "kind": "new",
+      "sha256": "280de36376ca2a24e1dafd9e3b204832de3cfba42dbeb2bf8fd28136dc808a7b"
+    },
+    {
+      "repository": "dotnet",
+      "path": "src/JapaneseLearning.User.Api/JapaneseLearning.User.Api.csproj",
+      "kind": "modified",
+      "sha256": "8f47aaa80c63e2a549ed7a9ac217d33b21a4aefa18f82930f4542d499dd5d033"
+    },
+    {
+      "repository": "dotnet",
+      "path": "src/JapaneseLearning.User.Api/Observability/TraceContextPropagation.cs",
+      "kind": "new",
+      "sha256": "730204c879a4b769953ce57db47cd7e2ef1274873c44681a6482efa8508cee36"
+    },
+    {
+      "repository": "dotnet",
+      "path": "src/JapaneseLearning.User.Api/Observability/Tracing.cs",
+      "kind": "new",
+      "sha256": "4f58cedd817c9344e86d6375cf373902b9b0d80fd585bfb2b8b4e8203e4200d7"
+    },
+    {
+      "repository": "dotnet",
+      "path": "src/JapaneseLearning.User.Api/Program.cs",
+      "kind": "modified",
+      "sha256": "e02247a9db45abe5ac52a62ed86e228837bcc4f8a7a7b9ce3a9d0ca40b7ae04e"
+    },
+    {
+      "repository": "dotnet",
+      "path": "tests/JapaneseLearning.User.UnitTests/Observability/TracingTests.cs",
+      "kind": "new",
+      "sha256": "a32f1a232497009d97c3722e48c1748c843262604026804924adcf09beb245d0"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/main/java/com/japaneselearning/common/tracing/BoundarySampler.java",
+      "kind": "new",
+      "sha256": "b0f93a442a064e4c4f07f08d4578917efd89e6d689144b7ef78bf799ed871314"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/main/java/com/japaneselearning/common/tracing/TraceConfiguration.java",
+      "kind": "new",
+      "sha256": "05a9b32f05f7041628b796c89e4f45cf0ac50a9e0ac4f60c50540ef98510072d"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/main/java/com/japaneselearning/common/tracing/TracePropagation.java",
+      "kind": "new",
+      "sha256": "b0c27cfbd65b4d7bca7dd3b49dc68e92f8860a752684c81e5921ee93348f2723"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/main/java/com/japaneselearning/common/tracing/W3cOnly.java",
+      "kind": "new",
+      "sha256": "6ce5572813af144fd31e4897f02e45d39885782d83a17c27aac1b2eafa6500e2"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/main/resources/application.properties",
+      "kind": "modified",
+      "sha256": "a2797b77679f90c358dad81c858054e3ce178c2e662e02b56118c913c5501141"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/test/java/com/japaneselearning/common/tracing/TracingTest.java",
+      "kind": "new",
+      "sha256": "9f7c33a851473b1118cffa0b22b6380ff1ca49d656465cbb9468446064353a4b"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/test/java/com/japaneselearning/common/web/HttpLifecycleMessageTest.java",
+      "kind": "modified",
+      "sha256": "4b74f731b88e0154ebb85c5a676103eaff56e4660160e646b201e0af5df52538"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/test/java/com/japaneselearning/flashcard/service/FlashcardBusinessLoggingTest.java",
+      "kind": "modified",
+      "sha256": "9af336b8d39f969654502a8e5afa69e95289f967435e405fc0013d7ea4c838b5"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/test/java/com/japaneselearning/quiz/QuizBusinessLoggingTest.java",
+      "kind": "modified",
+      "sha256": "e5fd607bee878aad410c3c5cfb63dd10556636ca3a83569f4e62f30aa3ca08b2"
+    },
+    {
+      "repository": "quarkus",
+      "path": "src/test/java/com/japaneselearning/security/TracingHttpTest.java",
+      "kind": "new",
+      "sha256": "fd557e8da38cfa23eb89729ce15767a00e16e68ea1b150f0fb7ee765880f1ca0"
+    }
+  ],
+  "self_hash": "Excluded to avoid recursion",
+  "generated_not_source": [
+    ".local/p06-* validator archives/binary and synthetic test logs",
+    "dotnet bin/obj/TestResults",
+    "quarkus target/test output"
+  ],
+  "shared_jwks": "Source/index/HEAD/gitlink unchanged",
+  "commit_push_deploy": false,
+  "p07_started": false
+}
