@@ -1,0 +1,6 @@
+{
+  "executed": 5,
+  "failures": 0,
+  "errors": 0,
+  "scope": "source checks and actual local test exposition files; no Docker/Prometheus scrape"
+}

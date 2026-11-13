@@ -1,0 +1,161 @@
+{
+  "dotnet": {
+    "counters": {
+      "total": "136",
+      "executed": "136",
+      "passed": "136",
+      "failed": "0",
+      "error": "0",
+      "timeout": "0",
+      "aborted": "0",
+      "inconclusive": "0",
+      "passedButRunAborted": "0",
+      "notRunnable": "0",
+      "notExecuted": "0",
+      "disconnected": "0",
+      "warning": "0",
+      "completed": "0",
+      "inProgress": "0",
+      "pending": "0"
+    },
+    "trx_sha256": "9493d14702b98a0600bba3b2879831d79059cf3dc080d478a76c91bdda37e6b2"
+  },
+  "quarkus": {
+    "suites": [
+      {
+        "name": "com.japaneselearning.common.logging.CanonicalLoggingTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "3f4188b85bfef03279788b29e9e62c5be28a798f6b323bd5e71df656c6d64405"
+      },
+      {
+        "name": "com.japaneselearning.common.logging.OperationLogBehaviorTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "27d8f01fef9fb0094d065fd630ad0fce787a92f7c8d35b8c4f76ec57210fff09"
+      },
+      {
+        "name": "com.japaneselearning.common.logging.OperationLogTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "611d09c1333fc65a49729efee5360ea65cad850803b60fcfb5fce3ea5db3642f"
+      },
+      {
+        "name": "com.japaneselearning.common.logging.StructuredLogTest",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "435abf7d6890deb81dd8d33a7826fed91f80f4bb73a5fe413484c1b2a8f5903a"
+      },
+      {
+        "name": "com.japaneselearning.common.metrics.ApplicationMetricsFilterTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "a7e65091022c52bc286c7201ba82ed397870ca49a04e0bcd8fcf7fa29414855e"
+      },
+      {
+        "name": "com.japaneselearning.common.metrics.JwksMetricsFilterTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "37439db19fcc6eea6682e4b80d4ee27dcdb67d990b66184b5d14d15099992195"
+      },
+      {
+        "name": "com.japaneselearning.common.metrics.PoolMetricsTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "bee84fec3592feb32bb58dc47d92859e0f562d85e4f6726276da9116567c4742"
+      },
+      {
+        "name": "com.japaneselearning.common.web.CorrelationIdValidationTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "9686cfc504da0d525f7eef6722612db514a79f259098c8f16009f3dfa4b5a9dd"
+      },
+      {
+        "name": "com.japaneselearning.common.web.JwksCorrelationFilterTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "7ef1d43364947120e36c63ddcf2fdc3b40439d3eea56d475c6462dbc07a6babd"
+      },
+      {
+        "name": "com.japaneselearning.security.ApplicationFileLoggingTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "fcbbb0547801524406ee73d602129be81d21b9259119502cb24d36a2967be1e8"
+      },
+      {
+        "name": "com.japaneselearning.security.ApplicationMetricsTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "ded2999f458860646fc9c6e143feaf9c9c0e9c3f58c92c3025b40c3fa452fcb6"
+      },
+      {
+        "name": "com.japaneselearning.security.JwtSecurityTest",
+        "tests": 21,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "ee5841f80629fe73843b230da9ef19fda0bb13a9a9daba45632d3100b525dfb7"
+      },
+      {
+        "name": "com.japaneselearning.security.ProductionErrorTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "97d9525f5a3ed365b5886bb35371135b5af47e254713d8e7ec3c0defd27bee39"
+      },
+      {
+        "name": "com.japaneselearning.vocabulary.logging.VocabularyOperationLogTest",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "873db4721fe930d369e0dc6d49539e434a32ec55b67673bd1a2b361aceb57e29"
+      },
+      {
+        "name": "com.japaneselearning.vocabulary.logging.VocabularyStageLoggingTest",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "0ea7bda70d0b8158a08e4b7aaa6fae94b5f7799d2d6b8cc4a36396b5f6229552"
+      }
+    ],
+    "totals": {
+      "tests": 83,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "fixtures": {
+    "executed": 5,
+    "failures": 0,
+    "errors": 0,
+    "scope": "source checks and actual local test exposition files; no Docker/Prometheus scrape"
+  },
+  "deployed_metrics_scrape": "BLOCKED Docker access; zero deployed targets verified",
+  "promtool": "NOT VERIFIED executable unavailable; YAML syntax checked with installed Prettier"
+}
