@@ -1,0 +1,27 @@
+{
+  "docker_resources_created": [],
+  "successful_run_directories_remaining": [],
+  "workspace_parent": "observability/roadmap/p03-validation",
+  "workspace_failed_temp_directories": [
+    "jp_p03_synthetic_2ftuam86",
+    "jp_p03_synthetic_2h1bc9z6",
+    "jp_p03_synthetic_4iaxkv07",
+    "jp_p03_synthetic_mqm2bw9j",
+    "jp_p03_synthetic_nxf6_nxl",
+    "jp_p03_synthetic_soopjd_g",
+    "jp_p03_synthetic_sqzv6w59",
+    "jp_p03_synthetic_zw_uy1fw"
+  ],
+  "os_temp_failed_directories": [
+    "jp_p03_synthetic_67_veez_",
+    "jp_p03_synthetic_86fvzdag",
+    "jp_p03_synthetic_a0ctfkb0",
+    "jp_p03_synthetic_pfom3_h7",
+    "jp_p03_synthetic_qshv3bn2",
+    "jp_p03_synthetic_qwxskji3",
+    "jp_p03_synthetic_rpohs89b",
+    "jp_p03_synthetic__u9j6lsv"
+  ],
+  "status": "BLOCKED cleanup: normal access denied; no escalation or permissions changed",
+  "contents": "No successful fixture write into failed temp directories; not independently readable"
+}

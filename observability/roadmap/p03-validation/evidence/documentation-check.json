@@ -1,0 +1,6 @@
+{
+  "reports": 7,
+  "local_links_checked": 31,
+  "result": "PASS target existence only; anchors/semantic claims manually reviewed",
+  "python": "3.14.7"
+}

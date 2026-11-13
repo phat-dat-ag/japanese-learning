@@ -1,0 +1,70 @@
+{
+  "utc": "2026-11-13T01:34:36.589196+00:00",
+  "repositories": {
+    ".": {
+      "head": "1c828d6c3652af744722e57063cb5811caa614ef",
+      "branch": "develop",
+      "status": [
+        " M dotnet",
+        " M quarkus",
+        "?? observability/roadmap/p03-validation/"
+      ],
+      "index_sha256": "c23f3ccaba4f890a8eef3f34018bf0f3b7e0c5401680d91ae6b9c18f8a8059ad",
+      "diff_sha256": "51661c6bd997a84452b9455e9c8e6be50ce2b6aa73ef95870713d24cc6d4df20"
+    },
+    "angular": {
+      "head": "7d25cfe4830da3856661f7449260e9027c596afb",
+      "branch": "develop",
+      "status": [],
+      "index_sha256": "e82688a389adf559a51379cbf06ecf61a1a04d71fff315485777a17bce828703",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "dotnet": {
+      "head": "dca468d5d1d470488be1c6a13fd8099b52d6deab",
+      "branch": "develop",
+      "status": [
+        " M src/JapaneseLearning.User.Api/Program.cs"
+      ],
+      "index_sha256": "95825160c44ea6cad9fdc39894d3c91ae7222ef5150511b2f8cc8c98cdf823cf",
+      "diff_sha256": "283e74729205f18bddea5c23d4bd8bd58d49b40e68ebee727661b18d19e2bb1f"
+    },
+    "quarkus": {
+      "head": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+      "branch": "develop",
+      "status": [
+        " M src/main/resources/application.properties"
+      ],
+      "index_sha256": "5d216541119ab1f8f0b873a01db704f0c64f365175f27593a1abc5ec53750e0d",
+      "diff_sha256": "b763026672e46d46f75e4aeb09ba9d99152d398bc1b0a0b8a5c0a2bd374137ad"
+    },
+    "springboot-jwks-api": {
+      "head": "7879d155eddb45fb079800709f49a3c3a1566120",
+      "branch": "develop",
+      "status": [],
+      "index_sha256": "b820ca1dfca60029b6d5603b90b3e1f420f965f5040ceabf2f9ee2c10732e876",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "gitlinks": [
+    "160000 7d25cfe4830da3856661f7449260e9027c596afb 0\tangular",
+    "160000 dca468d5d1d470488be1c6a13fd8099b52d6deab 0\tdotnet",
+    "160000 d6642616abf0d3373c4ebe1f514d69ec9b669f2a 0\tquarkus",
+    "160000 7879d155eddb45fb079800709f49a3c3a1566120 0\tspringboot-jwks-api"
+  ],
+  "protected_source_sha256": {
+    "gateway/nginx.conf": "13047766728e647c0c3b2d6abd24bfa66143335a64a505bf697f1edf4922aef3",
+    "gateway/nginx.p02.conf": "93c3d5b84bcf02a45aea86cafc84db3529954e18491d12a5f2d87e4ac9441063",
+    "observability/logging/bootstrap.py": "2eb491a289521774612f87c0e46bdc46b619991b70db9ec5d6a03364ab60b39c",
+    "observability/logging/Dockerfile.dashboards": "d238d64d2066e5a4339adb0bafd80fc917cc225a5e62848117c995dc4589534f",
+    "observability/logging/Dockerfile.fluent-bit": "e61863f28c16f48c00a33d1de31d5e4a27efb167d2c8dd58edebda138c6d62f7",
+    "observability/logging/Dockerfile.opensearch": "248ede23e89da94401cb8b37b3405c48e28de0c03c3b15878ae936278a9d9f39",
+    "observability/logging/fluent-bit.conf": "6f1fea4dfbae5e08084bc65a1bf014f42a463061e27135c236184e6503346fbd",
+    "observability/logging/nginx.conf": "60b33813745c6fb08d00f0cd522df3804cf3d7659e349590953c9ff9291d6447",
+    "observability/logging/normalize.lua": "1d906bce9cb724756fe18b6e300ec5adc711434042d98265b8d118eb5b556b5b",
+    "observability/logging/opensearch-dashboards.yml": "fcc738ce4e13f9de362e808cad3144daf25239dadb47a5631d157967cf255c39",
+    "observability/logging/opensearch.yml": "8761780d89a51dd00aead35f940a106babf9c8956a750a6972276ffc3a6563fb",
+    "observability/logging/parsers-app.conf": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+    "observability/logging/README.md": "2b23447739c4d0c3aeb4a95b915f75e578abaad33f468b25df45d45c441a447d",
+    "observability/logging/verify-fixtures.py": "22b51565215bb555db3555da6d2f0e4c7ef83edbf7b9d1bd16eb3ac5b56b9f78"
+  }
+}

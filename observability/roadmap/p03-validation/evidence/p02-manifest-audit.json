@@ -1,0 +1,277 @@
+{
+  "entries": [
+    {
+      "path": "gateway/nginx.p02.conf",
+      "expected_sha256": "93c3d5b84bcf02a45aea86cafc84db3529954e18491d12a5f2d87e4ac9441063",
+      "current_sha256": "93c3d5b84bcf02a45aea86cafc84db3529954e18491d12a5f2d87e4ac9441063",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-correlation-matrix.md",
+      "expected_sha256": "960733014066ae5a5fcb6fc8b823f762ed45310829f2dedec69723891bd84552",
+      "current_sha256": "960733014066ae5a5fcb6fc8b823f762ed45310829f2dedec69723891bd84552",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-evidence/preflight.json",
+      "expected_sha256": "b7bacd1c3364922fcf8dca031130200deed1c77efb127637c0a9d22c4efd97af",
+      "current_sha256": "b7bacd1c3364922fcf8dca031130200deed1c77efb127637c0a9d22c4efd97af",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-evidence/preservation.json",
+      "expected_sha256": "b42bf23781d92203adcbb00d4336d4c7ea8984611d78efa425061ffa8744ac05",
+      "current_sha256": "b42bf23781d92203adcbb00d4336d4c7ea8984611d78efa425061ffa8744ac05",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-evidence/test-summary.json",
+      "expected_sha256": "fef9d5836d7289e9f55d3d73176db12809dd60a1b4f4718b575220df2dcf36b6",
+      "current_sha256": "fef9d5836d7289e9f55d3d73176db12809dd60a1b4f4718b575220df2dcf36b6",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-fixtures/canonical.schema.json",
+      "expected_sha256": "f9ab7f14f1ce6b09af788d917acbdd7ad6f0bf224308442b86f39a6b213e71d2",
+      "current_sha256": "f9ab7f14f1ce6b09af788d917acbdd7ad6f0bf224308442b86f39a6b213e71d2",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-fixtures/requests.json",
+      "expected_sha256": "8a1da4573a2e8091bd0da92e0b4cf84a4d265a8d57f20ca251bfcbf2466b1619",
+      "current_sha256": "8a1da4573a2e8091bd0da92e0b4cf84a4d265a8d57f20ca251bfcbf2466b1619",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-fixtures/verify.py",
+      "expected_sha256": "d4068c66cd368bd621858a7409db1fb4a0e1d15553bb4e1bb059ec323f537749",
+      "current_sha256": "d4068c66cd368bd621858a7409db1fb4a0e1d15553bb4e1bb059ec323f537749",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-logging-implementation.md",
+      "expected_sha256": "728562653acbd0d7519202c60a9888ef428e43b9afb1c04c3fe080a4ffbf4b7c",
+      "current_sha256": "728562653acbd0d7519202c60a9888ef428e43b9afb1c04c3fe080a4ffbf4b7c",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-privacy-verification.md",
+      "expected_sha256": "c9132f1fa44e88c1c2142dcd18d13c1dbc07a94764bea86cd8d83c013f8de7b8",
+      "current_sha256": "c9132f1fa44e88c1c2142dcd18d13c1dbc07a94764bea86cd8d83c013f8de7b8",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-test-matrix.md",
+      "expected_sha256": "36bd1bae1ed84d344b75e83228706b7dd2f8c0ad1363ce0b508792994fb58799",
+      "current_sha256": "36bd1bae1ed84d344b75e83228706b7dd2f8c0ad1363ce0b508792994fb58799",
+      "matches": true
+    },
+    {
+      "path": "observability/roadmap/p02-verification.md",
+      "expected_sha256": "672633cdeff723387dc6dd695a5caa2d191cc45b487b46d8d3e6a8d097e4cef4",
+      "current_sha256": "672633cdeff723387dc6dd695a5caa2d191cc45b487b46d8d3e6a8d097e4cef4",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Authentication/AuthenticationExtensions.cs",
+      "expected_sha256": "4edfe8522116874929dcccbfa5b9f974b5e34410d52765240a246f5240fc3bea",
+      "current_sha256": "4edfe8522116874929dcccbfa5b9f974b5e34410d52765240a246f5240fc3bea",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/CanonicalLogFields.cs",
+      "expected_sha256": "8bc0e40ce03b5a7be8fee47b65e78b3ecdb30e9f7fb0a44dcc9c2889a4eee616",
+      "current_sha256": "1b8e09b4ff0ea1b19d9d214cdc247578d198b303ac302967eca1584acf6c2f74",
+      "matches": false
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/CorrelationIdMiddleware.cs",
+      "expected_sha256": "09731731c944ac90f1eb78e7f85bd5f60117ccb648c6684d65cd6f61fe05c6de",
+      "current_sha256": "09731731c944ac90f1eb78e7f85bd5f60117ccb648c6684d65cd6f61fe05c6de",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/JwksLoggingHandler.cs",
+      "expected_sha256": "057ad8c7ef25f3cf2dab739e31e9d1b8f2b324727e6d5dedbfc23d1e99b573ea",
+      "current_sha256": "90295e027208fdaa541175793a879bb98d36aeefb2e8add4fc554b1d96083e8a",
+      "matches": false
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/SafeExceptionDetails.cs",
+      "expected_sha256": "4044f31fc846129ad4f3aa1604feb89a61b3b25440d6038a8b7deda5dae4ab6a",
+      "current_sha256": "4044f31fc846129ad4f3aa1604feb89a61b3b25440d6038a8b7deda5dae4ab6a",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/SafeJsonFormatter.cs",
+      "expected_sha256": "2f5703b4552076518bbda2a52845063e3d327d68cc2f3d1f2eb5471181995c58",
+      "current_sha256": "2f5703b4552076518bbda2a52845063e3d327d68cc2f3d1f2eb5471181995c58",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Api/Common/Logging/SerilogConfiguration.cs",
+      "expected_sha256": "f6676650981bf5ed040644454b6756cf9ebfbd00f029f4f7b2c16c14b8b7ee52",
+      "current_sha256": "f6676650981bf5ed040644454b6756cf9ebfbd00f029f4f7b2c16c14b8b7ee52",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Application/Auth/Login/LoginCommandHandler.cs",
+      "expected_sha256": "63a8c33fb080a6d2a446e73e0b5734141056f5493f1d478cf298208485f17948",
+      "current_sha256": "63a8c33fb080a6d2a446e73e0b5734141056f5493f1d478cf298208485f17948",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Application/Auth/Logout/LogoutCommandHandler.cs",
+      "expected_sha256": "1c1cdb056c17f2c01cd5d431ca17a21a08c04e5d3e717b4309f14e5b408bf04a",
+      "current_sha256": "1c1cdb056c17f2c01cd5d431ca17a21a08c04e5d3e717b4309f14e5b408bf04a",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Application/Auth/Refresh/RefreshTokenCommandHandler.cs",
+      "expected_sha256": "2d71a35286468bf424d04f872f7af10dae49439f0ad9a431d190054b1742e1d0",
+      "current_sha256": "2d71a35286468bf424d04f872f7af10dae49439f0ad9a431d190054b1742e1d0",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Application/Auth/Register/RegisterCommandHandler.cs",
+      "expected_sha256": "2c92f4249a35bef0fc375c5919a450758d7bc0acd9815c7b9d8131c89cebacfa",
+      "current_sha256": "2c92f4249a35bef0fc375c5919a450758d7bc0acd9815c7b9d8131c89cebacfa",
+      "matches": true
+    },
+    {
+      "path": "dotnet/src/JapaneseLearning.User.Application/Common/Behaviors/LoggingBehavior.cs",
+      "expected_sha256": "f5f75d142d369319e19beff87e0d2ee1645e38e0440dd7d48704f426b46a5eb8",
+      "current_sha256": "f5f75d142d369319e19beff87e0d2ee1645e38e0440dd7d48704f426b46a5eb8",
+      "matches": true
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Health/HealthEndpointTests.cs",
+      "expected_sha256": "886399e50dc52df5eae231dfb9917f8b9632fc0ac1355c1154f7b6155c77e896",
+      "current_sha256": "886399e50dc52df5eae231dfb9917f8b9632fc0ac1355c1154f7b6155c77e896",
+      "matches": true
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Logging/AuthenticationLoggingTests.cs",
+      "expected_sha256": "964d784d614c279bc413105189de13ab0317d43e819b495171ae83b1851868da",
+      "current_sha256": "964d784d614c279bc413105189de13ab0317d43e819b495171ae83b1851868da",
+      "matches": true
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Logging/CanonicalLoggingTests.cs",
+      "expected_sha256": "2217876ceae97521e25bb4ca0b407b5f7b3b60f82679482d07743449102b5b4c",
+      "current_sha256": "a44c14952e58f60ea7ca16259c6e1d35ee532898c8865c459b2a5a26033465d0",
+      "matches": false
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Logging/DetailedLoggingTests.cs",
+      "expected_sha256": "90b1ed28fae14e394e44f5f076f73e2578c50c8d785e9d90fc26e89700ff37af",
+      "current_sha256": "90b1ed28fae14e394e44f5f076f73e2578c50c8d785e9d90fc26e89700ff37af",
+      "matches": true
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Logging/JwksLoggingTests.cs",
+      "expected_sha256": "d51a482c76ea684f5acf3b9a4ed5fa50f99b6d1f7c7a66d0ac83c4e56d0e00c0",
+      "current_sha256": "f2ed04122ddd3d862609c89163b2a7d3cf7898d04a273fa83ff6052811b8ad93",
+      "matches": false
+    },
+    {
+      "path": "dotnet/tests/JapaneseLearning.User.UnitTests/Security/JwtRsaStartupTests.cs",
+      "expected_sha256": "8f45e43a3e7823847bb55a30fd725747c0bb3c6c35fd108ae1502227e604da27",
+      "current_sha256": "8f45e43a3e7823847bb55a30fd725747c0bb3c6c35fd108ae1502227e604da27",
+      "matches": true
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/exception/handler/SafeExceptionLog.java",
+      "expected_sha256": "fda87b1220679ab6b6dd510fcf6702c7306efde120b495b79d1e93a63da565d3",
+      "current_sha256": "63485b0edb23d4793155b40243f8af03859a7e12f8b30bdcefdca6aac0a7385a",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/logging/ApplicationJsonFields.java",
+      "expected_sha256": "cf7c0b889dc3f059b704438aef709cdbcddfe45c692136fdadfd3879c6b92591",
+      "current_sha256": "93d67c6b83cfa256826d9dc863c6c46be61d877b267ce30eab713c65345df02f",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/logging/OperationLog.java",
+      "expected_sha256": "08a2e079adebc075876712a2f438c67ed670930072fb307414f1763f4ab9b11b",
+      "current_sha256": "c92ab01f0534d9036563c5680ed180c47c239b2e6ce48ec1f64b80ae2b08cdc5",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/web/CorrelationIdFilter.java",
+      "expected_sha256": "61cf2266ca5c2d3d0480a0f22d1da2d6d711f970b8502245197c20105b87bee1",
+      "current_sha256": "28072762a695f00995054c3e8cc9ad3717422549d6009817325ae8ce5d3a4b05",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/common/web/JwksCorrelationFilter.java",
+      "expected_sha256": "420cf5d0be3041e7c295f5149cad9d9d086766c0a25b17a006f0e834572ef281",
+      "current_sha256": "387da29e9d582e593a0a1765937557f4366e95d1a8f33716b75cb058b03436fe",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/main/java/com/japaneselearning/vocabulary/logging/VocabularyOperationLog.java",
+      "expected_sha256": "c69a360295ae1caac7345f8bf1834d57c56bf43f3c27a37448dc283e452175fe",
+      "current_sha256": "207c642ca5027710325f9d1a0553f6dd9bd323d4c2ae0fd85bf7b05da1189e72",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/logging/CanonicalLoggingTest.java",
+      "expected_sha256": "17a5250252e421b4d13b772a696d360202c14f78a9d1704d38207f238a81e866",
+      "current_sha256": "eecde1b47cc589dd4134c8f9c8df43c57b6e51498033c4dac065f4f5b2617cb7",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/logging/OperationLogBehaviorTest.java",
+      "expected_sha256": "f690bf340394dc3e9817124e2127b65312ef6d629554252550eb7b4fb61bd663",
+      "current_sha256": "f870538dfcb683e9a42698f22c98670b48d97c18612669c70626587463769880",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/logging/StructuredLogTest.java",
+      "expected_sha256": "cf475a9b49872ed4fb8d73b6ea782a3d365180c8c3b9be9b7a8ac3325cb5bfe6",
+      "current_sha256": "6180c21c8e2a0772f2e6444b8ca1e8b2c15a63fab58af573e82b9515d7f0093f",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/common/web/JwksCorrelationFilterTest.java",
+      "expected_sha256": "3782627483d75a01823255c9998c65fc25276e7d4df1eb637301bebc5fae5067",
+      "current_sha256": "1eec7725b1ba53703f4cbffb368b56408e3880798408c57605a81b48a26b4888",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/security/ApplicationFileLoggingTest.java",
+      "expected_sha256": "c0f1d54a20a2ba18710d6a1079383a3161050efefc6d63061906636f04db1e0b",
+      "current_sha256": "c45219067a6e83146f477e42be2dffd143f7f56a8be2d3b2321732b021c8d80c",
+      "matches": false
+    },
+    {
+      "path": "quarkus/src/test/java/com/japaneselearning/vocabulary/logging/VocabularyOperationLogTest.java",
+      "expected_sha256": "b7d1e3c6b7ebee67037c89c04e41901f771396fe52f3ae45131d3a277b0f3ed5",
+      "current_sha256": "3b3035ab30e50cbb45695ede12f84021c3a4e31979cea10495955a491741b6a7",
+      "matches": false
+    },
+    {
+      "path": "angular/nginx.conf",
+      "expected_sha256": "a0d203e96639fc59154344afb4c2e5bdb7e55c2996d0d82dbc67236494faa171",
+      "current_sha256": "a0d203e96639fc59154344afb4c2e5bdb7e55c2996d0d82dbc67236494faa171",
+      "matches": true
+    },
+    {
+      "path": "angular/src/app/core/auth/auth-correlation.spec.ts",
+      "expected_sha256": "f3be16f744c46f1ae0c477debb13a391593f6301bb24fcb91a8b215ad17f3c1c",
+      "current_sha256": "a866413c795459c4241234d70320fd58057e5d075f4df7c0720201bcc651b1bf",
+      "matches": false
+    },
+    {
+      "path": "angular/src/app/core/auth/auth.interceptor.ts",
+      "expected_sha256": "85a576487bcfb5f11d1944e750ebe8200752770c5b6fa4882c32c9489bf22482",
+      "current_sha256": "758b72be9186d6356dfcebda6ce038687691cd757ec5d85c227b2f4ecb83e584",
+      "matches": false
+    }
+  ],
+  "total": 45,
+  "byte_hash_drift": 18,
+  "note": "Historical artifact drift, not P03 edits; hashes also differ after LF normalization"
+}
