@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jp.telemetry.p02.fixture",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "@timestamp",
+    "level",
+    "service_name",
+    "service_version",
+    "environment",
+    "service_instance_id",
+    "event_name"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "@timestamp": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR"
+      ]
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "service_version": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "service_instance_id": {
+      "type": "string"
+    },
+    "event_name": {
+      "type": "string"
+    },
+    "http_method": {
+      "type": "string"
+    },
+    "http_route": {
+      "type": "string"
+    },
+    "route_family": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "span_id": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "error_type": {
+      "type": "string"
+    },
+    "error_category": {
+      "type": "string"
+    },
+    "dependency_name": {
+      "type": "string"
+    },
+    "dependency_operation": {
+      "type": "string"
+    },
+    "http_status": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
+    },
+    "duration_ms": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": true
+}

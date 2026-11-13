@@ -1,0 +1,67 @@
+{
+  "checked_at_utc": "2026-11-12T08:47:16.464138+00:00",
+  "repositories": {
+    ".": {
+      "head": "09773eb5abc3c0c644ee90c80bce03701d953773",
+      "branch": "develop",
+      "status": "M angular\n m dotnet\n M quarkus\n M springboot-jwks-api\n?? gateway/nginx.p02.conf\n?? observability/roadmap/p02-correlation-matrix.md\n?? observability/roadmap/p02-evidence/\n?? observability/roadmap/p02-fixtures/\n?? observability/roadmap/p02-logging-implementation.md\n?? observability/roadmap/p02-privacy-verification.md\n?? observability/roadmap/p02-test-matrix.md\n?? observability/roadmap/p02-verification.md",
+      "head_unchanged": true,
+      "branch_unchanged": true,
+      "index_unchanged": true
+    },
+    "angular": {
+      "head": "b66e4434a1e0021b0fefcc63b5c50d020d763e43",
+      "branch": "develop",
+      "status": "M nginx.conf\n M src/app/core/auth/auth.interceptor.ts\n?? src/app/core/auth/auth-correlation.spec.ts",
+      "head_unchanged": true,
+      "branch_unchanged": true
+    },
+    "dotnet": {
+      "head": "5d6c1af8aab4ba3d48d748698b13cbaa95dd5732",
+      "branch": "develop",
+      "status": "M src/JapaneseLearning.User.Api/Authentication/AuthenticationExtensions.cs\n M src/JapaneseLearning.User.Api/Common/Logging/CorrelationIdMiddleware.cs\n M src/JapaneseLearning.User.Api/Common/Logging/SafeExceptionDetails.cs\n M src/JapaneseLearning.User.Api/Common/Logging/SafeJsonFormatter.cs\n M src/JapaneseLearning.User.Api/Common/Logging/SerilogConfiguration.cs\n M src/JapaneseLearning.User.Application/Auth/Login/LoginCommandHandler.cs\n M src/JapaneseLearning.User.Application/Auth/Logout/LogoutCommandHandler.cs\n M src/JapaneseLearning.User.Application/Auth/Refresh/RefreshTokenCommandHandler.cs\n M src/JapaneseLearning.User.Application/Auth/Register/RegisterCommandHandler.cs\n M src/JapaneseLearning.User.Application/Common/Behaviors/LoggingBehavior.cs\n M tests/JapaneseLearning.User.UnitTests/Health/HealthEndpointTests.cs\n M tests/JapaneseLearning.User.UnitTests/Logging/AuthenticationLoggingTests.cs\n M tests/JapaneseLearning.User.UnitTests/Logging/DetailedLoggingTests.cs\n M tests/JapaneseLearning.User.UnitTests/Security/JwtRsaStartupTests.cs\n?? src/JapaneseLearning.User.Api/Common/Logging/CanonicalLogFields.cs\n?? src/JapaneseLearning.User.Api/Common/Logging/JwksLoggingHandler.cs\n?? tests/JapaneseLearning.User.UnitTests/Logging/CanonicalLoggingTests.cs\n?? tests/JapaneseLearning.User.UnitTests/Logging/JwksLoggingTests.cs",
+      "head_unchanged": true,
+      "branch_unchanged": true
+    },
+    "quarkus": {
+      "head": "2f15c159e272eecd18e690df40feb4f669d95b40",
+      "branch": "develop",
+      "status": "M src/main/java/com/japaneselearning/common/exception/handler/SafeExceptionLog.java\n M src/main/java/com/japaneselearning/common/logging/ApplicationJsonFields.java\n M src/main/java/com/japaneselearning/common/logging/OperationLog.java\n M src/main/java/com/japaneselearning/common/web/CorrelationIdFilter.java\n M src/main/java/com/japaneselearning/vocabulary/logging/VocabularyOperationLog.java\n M src/test/java/com/japaneselearning/common/logging/OperationLogBehaviorTest.java\n M src/test/java/com/japaneselearning/common/logging/StructuredLogTest.java\n M src/test/java/com/japaneselearning/security/ApplicationFileLoggingTest.java\n M src/test/java/com/japaneselearning/vocabulary/logging/VocabularyOperationLogTest.java\n?? src/main/java/com/japaneselearning/common/web/JwksCorrelationFilter.java\n?? src/test/java/com/japaneselearning/common/logging/CanonicalLoggingTest.java\n?? src/test/java/com/japaneselearning/common/web/JwksCorrelationFilterTest.java",
+      "head_unchanged": true,
+      "branch_unchanged": true
+    },
+    "springboot-jwks-api": {
+      "head": "7879d155eddb45fb079800709f49a3c3a1566120",
+      "branch": "develop",
+      "status": "",
+      "head_unchanged": true,
+      "branch_unchanged": true,
+      "status_unchanged": true,
+      "diff_unchanged": true
+    },
+    "C:/Personal/springboot-project": {
+      "head": "ceda8626b81c1f5d8a74ae0cd5ff9c01985d1187",
+      "branch": "develop",
+      "status": "",
+      "head_unchanged": true,
+      "branch_unchanged": true,
+      "status_unchanged": true,
+      "diff_unchanged": true
+    },
+    "C:/Personal/springboot-project/springboot-jwks-api": {
+      "head": "e9b90c31dfa311e0121285c8b7caa37c09cf4287",
+      "branch": "develop",
+      "status": "",
+      "head_unchanged": true,
+      "branch_unchanged": true,
+      "status_unchanged": true,
+      "diff_unchanged": true
+    }
+  },
+  "invariants": {
+    "active_gateway": "PASS: Git-equivalent to preflight HEAD with existing autocrlf convention; candidate is unreferenced. Original working-byte hash was not captured, so physical byte-for-byte preservation is not claimed.",
+    "gateway/nginx.p02.conf": "PASS: non-log text identical to baseline",
+    "angular/nginx.conf": "PASS: non-log text identical to baseline",
+    "docker": "NOT VERIFIED: engine listing denied; no Docker mutation/reload command issued. Gateway bind-source was initially edited then restored; intermediate container file visibility cannot be verified."
+  }
+}
