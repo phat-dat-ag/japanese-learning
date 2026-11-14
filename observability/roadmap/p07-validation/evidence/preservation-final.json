@@ -1,0 +1,788 @@
+{
+  "captured_utc": "2026-11-13T23:07:46.378Z",
+  "composeHashCheck": {
+    "code": 0,
+    "error": "",
+    "services": [
+      {
+        "service": "fluent-bit",
+        "runtimeMatches": true
+      },
+      {
+        "service": "flyway-user",
+        "runtimeMatches": true
+      },
+      {
+        "service": "flyway-vocabulary",
+        "runtimeMatches": true
+      },
+      {
+        "service": "frontend",
+        "runtimeMatches": true
+      },
+      {
+        "service": "gateway",
+        "runtimeMatches": true
+      },
+      {
+        "service": "grafana",
+        "runtimeMatches": true
+      },
+      {
+        "service": "jwks-api",
+        "runtimeMatches": true
+      },
+      {
+        "service": "logging-init",
+        "runtimeMatches": true
+      },
+      {
+        "service": "logging-ui-init",
+        "runtimeMatches": true
+      },
+      {
+        "service": "logs-ui",
+        "runtimeMatches": true
+      },
+      {
+        "service": "mysql",
+        "runtimeMatches": true
+      },
+      {
+        "service": "opensearch",
+        "runtimeMatches": true
+      },
+      {
+        "service": "opensearch-dashboards",
+        "runtimeMatches": true
+      },
+      {
+        "service": "otel-collector",
+        "runtimeMatches": true
+      },
+      {
+        "service": "prometheus",
+        "runtimeMatches": true
+      },
+      {
+        "service": "sqlserver",
+        "runtimeMatches": true
+      },
+      {
+        "service": "sqlserver-init",
+        "runtimeMatches": true
+      },
+      {
+        "service": "tempo",
+        "runtimeMatches": true
+      },
+      {
+        "service": "user-api",
+        "runtimeMatches": true
+      },
+      {
+        "service": "vocabulary-api",
+        "runtimeMatches": true
+      }
+    ]
+  },
+  "containers": [
+    {
+      "service": "vocabulary-api",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "grafana",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "jwks-api",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "prometheus",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "user-api",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "tempo",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "otel-collector",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "frontend",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "gateway",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "logs-ui",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "logging-ui-init",
+      "state": "exited",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "fluent-bit",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "opensearch-dashboards",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "logging-init",
+      "state": "exited",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "opensearch",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "flyway-user",
+      "state": "exited",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "flyway-vocabulary",
+      "state": "exited",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "sqlserver-init",
+      "state": "exited",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "mysql",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    },
+    {
+      "service": "sqlserver",
+      "health": "healthy",
+      "state": "running",
+      "exit": 0,
+      "unchanged": true
+    }
+  ],
+  "stateMetadata": {
+    "code": 0,
+    "files": [
+      {
+        "name": "./",
+        "bytes": 0,
+        "type": "5"
+      },
+      {
+        "name": "./buffer/",
+        "bytes": 0,
+        "type": "5"
+      },
+      {
+        "name": "./buffer/tail.0/",
+        "bytes": 0,
+        "type": "5"
+      },
+      {
+        "name": "./buffer/tail.1/",
+        "bytes": 0,
+        "type": "5"
+      },
+      {
+        "name": "./buffer/tail.1/7-1794486221.396055987.flb",
+        "bytes": 4096,
+        "type": "0"
+      },
+      {
+        "name": "./buffer/tail.2/",
+        "bytes": 0,
+        "type": "5"
+      },
+      {
+        "name": "./jwks.db",
+        "bytes": 8192,
+        "type": "0"
+      },
+      {
+        "name": "./jwks.db-shm",
+        "bytes": 32768,
+        "type": "0"
+      },
+      {
+        "name": "./jwks.db-wal",
+        "bytes": 4120032,
+        "type": "0"
+      },
+      {
+        "name": "./user.db",
+        "bytes": 8192,
+        "type": "0"
+      },
+      {
+        "name": "./user.db-shm",
+        "bytes": 32768,
+        "type": "0"
+      },
+      {
+        "name": "./user.db-wal",
+        "bytes": 4120032,
+        "type": "0"
+      },
+      {
+        "name": "./vocabulary.db",
+        "bytes": 8192,
+        "type": "0"
+      },
+      {
+        "name": "./vocabulary.db-shm",
+        "bytes": 32768,
+        "type": "0"
+      },
+      {
+        "name": "./vocabulary.db-wal",
+        "bytes": 2406112,
+        "type": "0"
+      }
+    ]
+  },
+  "fluentStorage": {
+    "code": 0,
+    "data": {
+      "storage_layer": {
+        "chunks": {
+          "total_chunks": 0,
+          "mem_chunks": 0,
+          "fs_chunks": 0,
+          "fs_chunks_up": 0,
+          "fs_chunks_down": 0
+        }
+      },
+      "input_chunks": {
+        "tail.0": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b",
+            "mem_limit": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        },
+        "tail.1": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b",
+            "mem_limit": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        },
+        "tail.2": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b",
+            "mem_limit": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        },
+        "storage_backlog.3": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b",
+            "mem_limit": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        }
+      }
+    }
+  },
+  "fluentMetrics": {
+    "code": 0,
+    "data": {
+      "input": {
+        "tail.0": {
+          "records": 85,
+          "bytes": 44148,
+          "files_opened": 2,
+          "files_closed": 1,
+          "files_rotated": 1,
+          "multiline_truncated": 0,
+          "long_line_truncated": 0,
+          "long_line_skipped": 0
+        },
+        "tail.1": {
+          "records": 571,
+          "bytes": 953636,
+          "files_opened": 8,
+          "files_closed": 0,
+          "files_rotated": 0,
+          "multiline_truncated": 0,
+          "long_line_truncated": 0,
+          "long_line_skipped": 0
+        },
+        "tail.2": {
+          "records": 340,
+          "bytes": 443886,
+          "files_opened": 2,
+          "files_closed": 1,
+          "files_rotated": 0,
+          "multiline_truncated": 0,
+          "long_line_truncated": 0,
+          "long_line_skipped": 0
+        },
+        "storage_backlog.3": {
+          "records": 0,
+          "bytes": 0
+        }
+      },
+      "filter": {
+        "lua.0": {
+          "drop_records": 0,
+          "add_records": 0,
+          "records": 996,
+          "bytes": 1872404,
+          "drop_bytes": 0
+        }
+      },
+      "output": {
+        "opensearch.0": {
+          "proc_records": 996,
+          "proc_bytes": 1872404,
+          "errors": 0,
+          "retries": 27,
+          "retries_failed": 0,
+          "dropped_records": 0,
+          "retried_records": 110
+        }
+      }
+    }
+  },
+  "indices": {
+    "code": 0,
+    "data": [
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-user-api-2026.11.12",
+        "uuid": "rHX46rP7Q_OWp5Ny0cQhDA",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "76",
+        "docs.deleted": "0",
+        "store.size": "65072",
+        "pri.store.size": "65072"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-vocabulary-api-2026.11.13",
+        "uuid": "JRMVGE2GQY26F5hIo0nwTw",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "180",
+        "docs.deleted": "0",
+        "store.size": "158539",
+        "pri.store.size": "158539"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-jwks-api-2026.11.07",
+        "uuid": "lDiOjWRdT22LwH6WObITLg",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "839",
+        "docs.deleted": "0",
+        "store.size": "245004",
+        "pri.store.size": "245004"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-jwks-api-2026.11.06",
+        "uuid": "IzbEAegHQbedwD3IPflWhg",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "744",
+        "docs.deleted": "0",
+        "store.size": "264459",
+        "pri.store.size": "264459"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-vocabulary-api-2026.11.12",
+        "uuid": "Tj5guzI3StiUx-a_DANabw",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "8",
+        "docs.deleted": "0",
+        "store.size": "19480",
+        "pri.store.size": "19480"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-jwks-api-2026.11.12",
+        "uuid": "W2gz72-0QAmOGxNVr7owzg",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "89",
+        "docs.deleted": "0",
+        "store.size": "41534",
+        "pri.store.size": "41534"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-vocabulary-api-2026.11.07",
+        "uuid": "mq5YVE-nQiCZ2u9CZY7mxQ",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "269",
+        "docs.deleted": "0",
+        "store.size": "286354",
+        "pri.store.size": "286354"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-vocabulary-api-2026.11.06",
+        "uuid": "dJ_8nPKPRNaRl_Xs1bn3tw",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "51",
+        "docs.deleted": "0",
+        "store.size": "94047",
+        "pri.store.size": "94047"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-user-api-2026.11.13",
+        "uuid": "ebhjadJNQcePVrgPTRWwDg",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "550",
+        "docs.deleted": "0",
+        "store.size": "439248",
+        "pri.store.size": "439248"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-jwks-api-2026.11.13",
+        "uuid": "uiZH1QUdQIeclmmbqPgXGg",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "85",
+        "docs.deleted": "0",
+        "store.size": "104451",
+        "pri.store.size": "104451"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-user-api-2026.11.07",
+        "uuid": "KLJm7CGDTjWwMlNjK2QAWQ",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "892",
+        "docs.deleted": "0",
+        "store.size": "546879",
+        "pri.store.size": "546879"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": "application-logs-user-api-2026.11.06",
+        "uuid": "hXLRpS3KSki4fYYyNzvyyA",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "11540",
+        "docs.deleted": "0",
+        "store.size": "6255865",
+        "pri.store.size": "6255865"
+      }
+    ]
+  },
+  "shards": {
+    "code": 0,
+    "data": [
+      {
+        "index": "top_queries-2026.11.07-89257",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "top_queries-2026.11.06-89256",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-vocabulary-api-2026.11.13",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-vocabulary-api-2026.11.12",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".opendistro-ism-config",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".opendistro-ism-config",
+        "shard": "0",
+        "prirep": "r",
+        "state": "UNASSIGNED",
+        "unassigned.reason": "CLUSTER_RECOVERED"
+      },
+      {
+        "index": "application-logs-jwks-api-2026.11.12",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-jwks-api-2026.11.13",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".kibana_1",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".plugins-ml-config",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-user-api-2026.11.12",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".opensearch-sap-log-types-config",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "top_queries-2026.11.12-89283",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-jwks-api-2026.11.07",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-jwks-api-2026.11.06",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-vocabulary-api-2026.11.07",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-vocabulary-api-2026.11.06",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".opendistro-job-scheduler-lock",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-user-api-2026.11.13",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".opendistro-ism-managed-index-history-2026.11.06-1",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": ".opendistro-ism-managed-index-history-2026.11.06-1",
+        "shard": "0",
+        "prirep": "r",
+        "state": "UNASSIGNED",
+        "unassigned.reason": "CLUSTER_RECOVERED"
+      },
+      {
+        "index": "application-logs-user-api-2026.11.07",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "top_queries-2026.11.13-89284",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      },
+      {
+        "index": "application-logs-user-api-2026.11.06",
+        "shard": "0",
+        "prirep": "p",
+        "state": "STARTED",
+        "unassigned.reason": null
+      }
+    ]
+  },
+  "storageSettings": {
+    "code": 0,
+    "data": {
+      "defaults": {
+        "cluster": {
+          "routing": {
+            "allocation": {
+              "disk": {
+                "threshold_enabled": "true",
+                "watermark": {
+                  "flood_stage": "95%",
+                  "high": "90%",
+                  "low": "85%",
+                  "enable_for_single_data_node": "false"
+                },
+                "include_relocations": "true",
+                "warm_threshold_enabled": "true",
+                "reroute_interval": "60s"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "git": {
+    "root": "dcb831946f1af68280740ff300fcb590753c526c",
+    "status": " M quarkus\n?? import-file/\n?? observability/roadmap/p07-validation/\n",
+    "submodules": " 7d25cfe4830da3856661f7449260e9027c596afb angular (heads/develop)\n bbbab2f4dc80c0275152d4bf008f52b75c5778d6 dotnet (heads/develop)\n+d6642616abf0d3373c4ebe1f514d69ec9b669f2a quarkus (heads/develop)\n e9b90c31dfa311e0121285c8b7caa37c09cf4287 springboot-jwks-api (heads/develop)\n"
+  }
+}

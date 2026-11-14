@@ -1,0 +1,236 @@
+{
+  "created_utc": "2026-11-14T00:50:28.322Z",
+  "files": [
+    {
+      "file": "acceptance-before-closure.json",
+      "sha256": "242ac1bce6d907331f9a623b075511f132685a078f8c4102d926f5b603c5fadd"
+    },
+    {
+      "file": "acceptance-before-execution.json",
+      "sha256": "840f35472a934d6bd738dc61ba2d6f3c45b7d4e8eb0e3608d15239f3dccc00d6"
+    },
+    {
+      "file": "acceptance-before-fresh-init.json",
+      "sha256": "43db461dc6e121d641f3eb681745265f8cb13eba4ddf24e96789e6957fe6c5c2"
+    },
+    {
+      "file": "acceptance-before-logs-storage.json",
+      "sha256": "c7293c77ab609f9ff72de72eb5474b5ec70563a8370ee7d911ec77f4286db4b6"
+    },
+    {
+      "file": "acceptance-before-security-recovery.json",
+      "sha256": "197e6eb64e63f6850c69b1c881eaea0816f5739a510f9231aacee1a6a9b9fdd2"
+    },
+    {
+      "file": "acceptance-initial.json",
+      "sha256": "3bc2f97f1f07ad6b0d87fed3db6e62420f56e7846a0557ae6b040b64eaa0b219"
+    },
+    {
+      "file": "acceptance-runtime-after.json",
+      "sha256": "5e10d61c0cb46563999cc7c80f0cb6500e7503b55aaf9680667cce419784d832"
+    },
+    {
+      "file": "acceptance-runtime-before.json",
+      "sha256": "bf7c4457e4b8f4a6df8088f488270d61d9978c238d75bbbf089345ca69a28e03"
+    },
+    {
+      "file": "acceptance.json",
+      "sha256": "17acadb3966e3f536396767f006e7619725ebfa9107a44594282ca622e003006"
+    },
+    {
+      "file": "active-acceptance-checks.json",
+      "sha256": "41b30703ca66336dd255906bdb32ac6e7393661f4a1a2102fc24a91d78b34a0f"
+    },
+    {
+      "file": "active-runtime-audit.json",
+      "sha256": "2c1c382f1bd037a6da4e5568b214b252b61a3bfaebd933dd38572f5ec7bf7010"
+    },
+    {
+      "file": "active-runtime-followup.json",
+      "sha256": "b24cc5ae11130b73ff349aceffa1db2603dfd4dd7e0f6b6d97997b2237685d93"
+    },
+    {
+      "file": "active-source-preservation.json",
+      "sha256": "7777a912ce6d81ca5dd983381fd054e3fc26e03d568406cf5e3649b2eb7db162"
+    },
+    {
+      "file": "backlog-tests.json",
+      "sha256": "8c2ce1713ae2b9888c1d3d557808f5214a0e5d34584f7541c57d7155a88c0970"
+    },
+    {
+      "file": "blocker-resolution.json",
+      "sha256": "210d2d7f25607f9c0752608a4abb42f70932edc8d0225da4763a80828f664654"
+    },
+    {
+      "file": "blockers-runtime-after.json",
+      "sha256": "83ea45fefd5fac79dfab932c8eccd4f1ad85b3640112e2f2fa0d33f07957cea6"
+    },
+    {
+      "file": "blockers-runtime-before.json",
+      "sha256": "84cf158c74a8e8b11728aae8067d8de4c2b02b8b934e9f1e9b5717c7a2b5c4b9"
+    },
+    {
+      "file": "blockers-source-baseline.json",
+      "sha256": "f49b13b0828ea7e392a789fb9d71bb64efc544be67589b35fb3354d13e913420"
+    },
+    {
+      "file": "change-manifest.json",
+      "sha256": "0f0e60cf79b5bcdcfb1ddb12547109ad0599f6301872ec72bd01232fd03426d8"
+    },
+    {
+      "file": "closure-recovery-attempt-1.json",
+      "sha256": "278e3671f1d94c1b2e728a07f2fc97c42644bfa1ab5f12ff25df005563bab8e4"
+    },
+    {
+      "file": "closure-recovery.json",
+      "sha256": "972f92919e45893843e343b0cb55b33467a64931555d764be4fde35dfa2fbfa8"
+    },
+    {
+      "file": "closure.json",
+      "sha256": "a595d878fca9b37cd9ce8531a99ac7352de10dd1ba842b31b62725b602b38e86"
+    },
+    {
+      "file": "collector-native-pipeline.json",
+      "sha256": "04eec7a347ce0c114980f93e6f17fb19b037bb927db7f9f5632078f17d19d340"
+    },
+    {
+      "file": "config-validation.json",
+      "sha256": "746dd83882d56961695be83741db4817e466bc63a8cf196decfb88584fee45ff"
+    },
+    {
+      "file": "consistent-backup-preflight.json",
+      "sha256": "446f0ea02c4a34dd0b76f3b1d3ff0546db42abf623fddc042c26b9bafcd94951"
+    },
+    {
+      "file": "consistent-backup.json",
+      "sha256": "127332d18f0ad7abd0ba058a4e1fa1efbfc6bf0fd794cf0c5ec2a6b6e37025e1"
+    },
+    {
+      "file": "current-acceptance-status.json",
+      "sha256": "d698cbde71ff4e3914cf71915f2aef9de4faa6f0d6c8cf2d7874fa8c3460ae67"
+    },
+    {
+      "file": "final-checks.json",
+      "sha256": "29e7a628349a84dd8dd4f3a671ac076d1d113f63f1eb0729e28ce444277d3266"
+    },
+    {
+      "file": "followup.json",
+      "sha256": "022087a8fe481fe593bbdfbff54f6389cfc1457b18e5b3211fed848f0b7d75b3"
+    },
+    {
+      "file": "fresh-final.json",
+      "sha256": "0068af5c28d4fdf157dc4feceeeac9899412c482b8056025bc0a1188f7d6c130"
+    },
+    {
+      "file": "fresh-native.json",
+      "sha256": "48da0bf8294a6837ecf2282c2b51363275c35df2ae4efb925e7cd2826516b84b"
+    },
+    {
+      "file": "fresh-runtime-before-closure.json",
+      "sha256": "2b0e25ccfb11e69bca964b587d34d71107ae98ab7117bd45b446b5ef5ef5b1d0"
+    },
+    {
+      "file": "fresh-runtime.json",
+      "sha256": "45de62714cd37a3f23a991012a346f5f12062df20995c3bb6147300e64e3bd2f"
+    },
+    {
+      "file": "fresh-security.json",
+      "sha256": "563a58d4827fb7c2cd2a913e5d0414c070ad40b25c0615d5e32cf70b693d1d64"
+    },
+    {
+      "file": "historical-original-sample.json",
+      "sha256": "14f1dcf06d3909ac858b39c38005abb2ea1a8a91eee153a22220666880a86341"
+    },
+    {
+      "file": "live-trace-probes.json",
+      "sha256": "ad7e834e64dae57b44d5fd1a852564b21db489c227668b175c9d86fc0dddb3fc"
+    },
+    {
+      "file": "live-trace-ratio-boundary-probes.json",
+      "sha256": "7291b4b6e21f7f62573be57f29e828ac30d15a548971e3c612a6ef3814b982c5"
+    },
+    {
+      "file": "manifest-initial.json",
+      "sha256": "7e3c8c4195c62f3f379f386efa681261d17307424cfdbb7cb5a1f6a4977f7ee4"
+    },
+    {
+      "file": "monitoring-readonly.json",
+      "sha256": "451535b7f1c092d2a7ed38b2b33f972a842cd72eb1498e5b36b5100bfa63c81e"
+    },
+    {
+      "file": "native-artifacts.json",
+      "sha256": "27c667ca99b4027974686004c5ce1b1e9b8b188046b4864aa402443645e1b761"
+    },
+    {
+      "file": "p03-lua-execution.json",
+      "sha256": "36b6767411210a3bc8335d4544e5bc6c3c349f8e905d637fc92aba5cdab37f0b"
+    },
+    {
+      "file": "preflight.json",
+      "sha256": "662b3387f5c0bf13aa3e703548bf537fc247a6683fcf9129086a8ff9b1015ea6"
+    },
+    {
+      "file": "preservation-final.json",
+      "sha256": "d65c287f459cc40b410887873f8079915988c54397c1fb3afffb3604285b5d15"
+    },
+    {
+      "file": "preservation.json",
+      "sha256": "47aa3325305c906a671128389d2cc09867b1fba95581245bd872342c5fcff8b2"
+    },
+    {
+      "file": "prometheus-native-pipeline.json",
+      "sha256": "3851b1f6fc6f43ac71dceab0cec4cb54e2fbf6855aff9c4d49f2e5231f7d7926"
+    },
+    {
+      "file": "resolved-compose.json",
+      "sha256": "7f688fda4ca023f5b2b19c97dfea0108c46cc228b4b61ce721a872474c9340b4"
+    },
+    {
+      "file": "runtime-baseline.json",
+      "sha256": "bc0e395d8591e8feca23d734a5ae22c78239b1de643a0bfcd4d7528f19200776"
+    },
+    {
+      "file": "runtime-case-observations.json",
+      "sha256": "cf8f292d1c6517829bca1f29afc53db3476cfabcde14d057c966bf2b89236115"
+    },
+    {
+      "file": "runtime-final.json",
+      "sha256": "dd8b6c113e567c18d5205c7203c64044510dc6c3b05a426cb831bb61448bd8d0"
+    },
+    {
+      "file": "runtime.json",
+      "sha256": "9fe4061de59581d546c3b2064f68acafd572514bb600140999e618ccaa288b73"
+    },
+    {
+      "file": "security-tests.json",
+      "sha256": "81700b14997d717816a2e0189029b33f03c6e6c8ef21fa23b390d18ce5683a34"
+    },
+    {
+      "file": "single-compose-preflight.json",
+      "sha256": "31d64e9b4811efc80761bff5648a7225bae1690f12a465798e3f1217e424ef90"
+    },
+    {
+      "file": "tempo-native-validation.json",
+      "sha256": "8749fe6b43e2ed50ae5912b13e2969bd1ed6b3040ac73ed645f91a4b61f6d2fa"
+    },
+    {
+      "file": "test-summary.json",
+      "sha256": "9e447987679cb7fbedebeea74f255e2000386e1d58c2f347cf42b32a6210ffdd"
+    }
+  ],
+  "externalBundles": [
+    {
+      "path": "../security-recovery/evidence/manifest.json",
+      "sha256": "d1029f440fc326a5219fee5e362020040200c043be60aa3f275425dc04de5888"
+    },
+    {
+      "path": "../logs-storage/evidence/manifest.json",
+      "sha256": "f23af30ce3b0731eddb5f0794600f309d3f720dfdbef8192f16b64553cc93333"
+    }
+  ],
+  "updated_utc": "2026-11-14T03:05:55.824Z",
+  "currentReport": {
+    "file": "observability/roadmap/p07-laptop-verification.md",
+    "sha256": "3eb3ab194f100ebd513e960faacebc24c3b872328150df8d77961e3779e32d74"
+  }
+}

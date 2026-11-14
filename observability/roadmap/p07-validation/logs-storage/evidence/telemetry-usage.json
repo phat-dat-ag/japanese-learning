@@ -1,0 +1,135 @@
+{
+  "captured_utc": "2026-11-14T00:30:56.154Z",
+  "telemetryVolumes": [
+    {
+      "volume": "jp_learning_dev_opensearch_data",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_opensearch_data/_data",
+      "allocatedBytes": 15335424,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_dashboards_data",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_dashboards_data/_data",
+      "allocatedBytes": 8192,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_fluent_bit_state",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+      "allocatedBytes": 12521472,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_prometheus_data",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_prometheus_data/_data",
+      "allocatedBytes": 4624384,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_grafana_data",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_grafana_data/_data",
+      "allocatedBytes": 1675264,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_tempo_data",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_tempo_data/_data",
+      "allocatedBytes": 4063232,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_jwks_api_logs",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+      "allocatedBytes": 167936,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_user_api_logs",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_user_api_logs/_data",
+      "allocatedBytes": 10440704,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "volume": "jp_learning_dev_vocabulary_api_logs",
+      "path": "/mnt/docker-desktop-disk/data/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+      "allocatedBytes": 2412544,
+      "code": 0,
+      "error": ""
+    }
+  ],
+  "logDirectories": [
+    {
+      "service": "vocabulary-api",
+      "allocatedBytes": 417792,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "jwks-api",
+      "allocatedBytes": 69632,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "user-api",
+      "allocatedBytes": 3268608,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "frontend",
+      "allocatedBytes": 221184,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "gateway",
+      "allocatedBytes": 135168,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "flyway-user",
+      "allocatedBytes": 57344,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "flyway-vocabulary",
+      "allocatedBytes": 53248,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "sqlserver-init",
+      "allocatedBytes": 36864,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "mysql",
+      "allocatedBytes": 57344,
+      "code": 0,
+      "error": ""
+    },
+    {
+      "service": "sqlserver",
+      "allocatedBytes": 241664,
+      "code": 0,
+      "error": ""
+    }
+  ],
+  "telemetryNamedVolumeAllocatedBytes": 51249152,
+  "projectContainerLogAllocatedBytes": 4558848,
+  "allMeasurementsSucceeded": true,
+  "globalDockerDiskSummary": "{\"Active\":\"17\",\"Reclaimable\":\"6.475GB (30%)\",\"Size\":\"21.34GB\",\"TotalCount\":\"35\",\"Type\":\"Images\"}\n{\"Active\":\"15\",\"Reclaimable\":\"1.176MB (79%)\",\"Size\":\"1.483MB\",\"TotalCount\":\"28\",\"Type\":\"Containers\"}\n{\"Active\":\"13\",\"Reclaimable\":\"255.2MB (36%)\",\"Size\":\"693.3MB\",\"TotalCount\":\"23\",\"Type\":\"Local Volumes\"}\n{\"Active\":\"0\",\"Reclaimable\":\"14.9GB\",\"Size\":\"19.39GB\",\"TotalCount\":\"450\",\"Type\":\"Build Cache\"}",
+  "scope": "Allocated blocks of nine telemetry/log volumes plus project container logs. Excludes image layers, build cache, database volumes and generic writable-layer state from telemetry subtotal; measurements taken while running, not atomic."
+}

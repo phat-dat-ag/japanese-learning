@@ -1,0 +1,139 @@
+{
+  "phase": "P07",
+  "phaseStatus": "CLOSED",
+  "decision": "PASS",
+  "readyForFinalAcceptance": true,
+  "captured_utc": "2026-11-14T03:05:55.819Z",
+  "project": "jp_learning_dev",
+  "requested_project_exists": true,
+  "counts": {
+    "running": 16,
+    "healthy": 13
+  },
+  "checks": [
+    {
+      "id": "strict_persistent_quota",
+      "status": "EXCEPTION_APPROVED",
+      "testPassed": false
+    },
+    {
+      "id": "durable_backup_restore",
+      "status": "PASS"
+    },
+    {
+      "id": "rollback",
+      "status": "PASS"
+    },
+    {
+      "id": "accelerated_retention",
+      "status": "PASS"
+    },
+    {
+      "id": "user_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "vocabulary_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "gateway_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "frontend_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_datasource_prometheus",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_datasource_tempo",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_anonymous_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard_reader",
+      "status": "PASS"
+    },
+    {
+      "id": "logs_ui_auth",
+      "status": "PASS"
+    },
+    {
+      "id": "tracing_user-api",
+      "status": "PASS"
+    },
+    {
+      "id": "tracing_vocabulary-api",
+      "status": "PASS"
+    },
+    {
+      "id": "log_ingestion",
+      "status": "PASS"
+    },
+    {
+      "id": "sampled_log_privacy",
+      "status": "PASS"
+    },
+    {
+      "id": "fluent_health",
+      "status": "PASS"
+    },
+    {
+      "id": "fluent_no_observed_errors_or_drops",
+      "status": "PASS"
+    },
+    {
+      "id": "prometheus_targets",
+      "status": "PASS"
+    },
+    {
+      "id": "prometheus_rules",
+      "status": "PASS"
+    },
+    {
+      "id": "notification_test_started",
+      "status": "PASS"
+    },
+    {
+      "id": "prometheus_notification_delivery",
+      "status": "PASS"
+    },
+    {
+      "id": "initializers",
+      "status": "PASS"
+    }
+  ],
+  "exceptions": [
+    {
+      "status": "EXCEPTION_APPROVED",
+      "strictQuotaTestPassed": false,
+      "approvalRequired": false,
+      "userApproval": "Approve development-only quota exception",
+      "approvalRecordedFrom": "Explicit user reply in this conversation",
+      "appliesTo": "Local jp_learning_dev development only",
+      "reason": "Standard local-driver persistent volumes have no safe in-place hard per-volume limit under current constraints. No new storage infrastructure, volume migration or Desktop settings were introduced.",
+      "safeguards": [
+        "Existing retention and bounded Docker logs",
+        "Resource/query/ingestion limits",
+        "Native OpenSearch watermarks (virtual filesystem)",
+        "Physical Windows D: free-space metrics, pressure/budget/missing-metric alerts",
+        "Authenticated local notification delivery"
+      ],
+      "productionAcceptance": false
+    }
+  ],
+  "blockers": [],
+  "evidence": "closure.json",
+  "historicalDataRecovered": false,
+  "p08Started": false
+}

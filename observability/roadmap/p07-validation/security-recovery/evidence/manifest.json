@@ -1,0 +1,81 @@
+{
+  "created_utc": "2026-11-14T00:06:52.704Z",
+  "files": [
+    {
+      "file": "acceptance.json",
+      "sha256": "bb71a4a725d8f1d8974614337b6b135e34e20e34230f4a7ea5605b9548e16881"
+    },
+    {
+      "file": "bootstrap-source.log",
+      "sha256": "15e229e4bd26a46f4af26c2b776e54e46d3a3e0f128d9618695c9d7c18b314e8"
+    },
+    {
+      "file": "collector-cleanup-review.json",
+      "sha256": "84a7b61f11148a57c8f6e69067a03d3e0b6761dadaf52e85846952fdb973bdb1"
+    },
+    {
+      "file": "collector-native-tls.json",
+      "sha256": "0b6fd17e8cb649bf2c49b62c0d75cc2cd8a82c3b6645965484db7bc1fce8deb6"
+    },
+    {
+      "file": "fixture-closeout.json",
+      "sha256": "8c5855e0eeeda94c3f970eb7c655ab0e00f2de50e2eb203e12688398d40641e8"
+    },
+    {
+      "file": "fixture-initial-attempt.json",
+      "sha256": "dc4bd7649de33ffbe15561ba769b7878909999de101bac53c4f1f96a0804c3a1"
+    },
+    {
+      "file": "fixture-manifest.json",
+      "sha256": "f641f9953720efab45a8f9756c2eb1b92159321ff8125cc28d7867b2dc4beeb3"
+    },
+    {
+      "file": "fixture-role-initial-attempt.json",
+      "sha256": "3055634813f4a529b394b373fc405a019d93f25e05af3196bb9f370b3edda74d"
+    },
+    {
+      "file": "fixture-runtime.json",
+      "sha256": "7f771d49df2818f2db8fc0397cea12f9e177140a84dbf462c6c0a0e6640d8783"
+    },
+    {
+      "file": "host-headroom.json",
+      "sha256": "2252918e1ce92d0e6e503314b97116595e4c599521219a71804b3406c228b7e7"
+    },
+    {
+      "file": "ingress-auth-defect.json",
+      "sha256": "1a77413ccd59720cac40c0028dc5ada5567ae44682f1d7d4cc04afa6346334b1"
+    },
+    {
+      "file": "live-baseline.json",
+      "sha256": "c1c3e0bc1572221dc2f5cea17e3051f305359d5d5767027e1482dc808c8cc7a7"
+    },
+    {
+      "file": "live-final-before-fixture-cleanup.json",
+      "sha256": "36cd4a940feb13eb0a2ff51e1c0c7f7b4ce76b78c9e6fb982e8c805a508938ac"
+    },
+    {
+      "file": "live-final.json",
+      "sha256": "a1140ccbc52dc7d3003f3125a7c79fcfbf9947de5e53a3d3be04e656e83d3040"
+    },
+    {
+      "file": "pressure-initial-attempt.json",
+      "sha256": "6ac68daf51895fc46f7b9b380758520a10f19fca7d2774a3382da6bcaaeefc35"
+    },
+    {
+      "file": "pressure-tests.json",
+      "sha256": "d91fecea7b27e5317dadad64262d4cb44bf6e066ea1fcda3d88814f3c60796eb"
+    },
+    {
+      "file": "quarkus-branch-state.json",
+      "sha256": "0c0ce0d3b67ca204b2edbdce9f13ca1f251b2d24a991c2d6510058c823483dba"
+    },
+    {
+      "file": "quarkus-final-drift.json",
+      "sha256": "c3257ff2d1908efd460e9b8ad48b0f8f05968f36d1c626e01aa186bc4f02d8ca"
+    },
+    {
+      "file": "retention-observation.json",
+      "sha256": "dad27dd66375a22993408b3c35858b34ac3327d5d8d661e74854ef039838a5d7"
+    }
+  ]
+}

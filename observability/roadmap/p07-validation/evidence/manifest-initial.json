@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-11-13T23:09:34.787Z",
+  "files": [
+    {
+      "file": "acceptance.json",
+      "sha256": "3bc2f97f1f07ad6b0d87fed3db6e62420f56e7846a0557ae6b040b64eaa0b219"
+    },
+    {
+      "file": "final-checks.json",
+      "sha256": "29e7a628349a84dd8dd4f3a671ac076d1d113f63f1eb0729e28ce444277d3266"
+    },
+    {
+      "file": "followup.json",
+      "sha256": "022087a8fe481fe593bbdfbff54f6389cfc1457b18e5b3211fed848f0b7d75b3"
+    },
+    {
+      "file": "preservation-final.json",
+      "sha256": "d65c287f459cc40b410887873f8079915988c54397c1fb3afffb3604285b5d15"
+    },
+    {
+      "file": "runtime.json",
+      "sha256": "9fe4061de59581d546c3b2064f68acafd572514bb600140999e618ccaa288b73"
+    }
+  ]
+}

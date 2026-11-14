@@ -1,0 +1,45 @@
+{
+  "project": "p07_accept_44b07b",
+  "created_utc": "2026-11-13T23:43:13.990Z",
+  "checks": {
+    "start_source": {
+      "code": 0,
+      "output": " Network p07_accept_44b07b_fixture Creating \n Volume p07_accept_44b07b_snapshots Creating \n Volume p07_accept_44b07b_source_data Creating \n Network p07_accept_44b07b_fixture Creating \n Volume p07_accept_44b07b_snapshots Creating \n Volume p07_accept_44b07b_source_data Creating \n Volume p07_accept_44b07b_source_data Created \n Volume p07_accept_44b07b_source_data Created \n Volume p07_accept_44b07b_snapshots Created \n Volume p07_accept_44b07b_snapshots Created \n Network p07_accept_44b07b_fixture Created \n Network p07_accept_44b07b_fixture Created \n Container p07_accept_44b07b-source-1 Creating \n Container p07_accept_44b07b-source-1 Created \n Container p07_accept_44b07b-source-1 Starting \n Container p07_accept_44b07b-source-1 Started \n"
+    },
+    "bootstrap_source": {
+      "code": null,
+      "output": "Security Admin v7\nWill connect to source:9200 ... done\n"
+    },
+    "ready_source": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "cluster_name": "p07-disposable",
+        "status": "green",
+        "timed_out": false,
+        "number_of_nodes": 1,
+        "number_of_data_nodes": 1,
+        "discovered_master": true,
+        "discovered_cluster_manager": true,
+        "active_primary_shards": 2,
+        "active_shards": 2,
+        "relocating_shards": 0,
+        "initializing_shards": 0,
+        "unassigned_shards": 0,
+        "delayed_unassigned_shards": 0,
+        "number_of_pending_tasks": 0,
+        "number_of_in_flight_fetch": 0,
+        "task_max_waiting_in_queue_millis": 0,
+        "active_shards_percent_as_number": 100
+      },
+      "error": ""
+    },
+    "anonymous_denied": {
+      "code": 0,
+      "status": 503,
+      "data": "OpenSearch Security not initialized.",
+      "error": ""
+    }
+  },
+  "failure": "anonymous_denied unexpected status 503 \"OpenSearch Security not initialized.\""
+}

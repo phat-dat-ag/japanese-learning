@@ -1,0 +1,12 @@
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+index 9385e27..2384af2 100644
+--- a/src/main/resources/application.properties
++++ b/src/main/resources/application.properties
+@@ -1,5 +1,7 @@
+ quarkus.application.name=${APP_SERVICE_NAME:quarkus-service}
+ 
++quarkus.swagger-ui.always-include=true
++
+ # Database
+ quarkus.datasource.db-kind=mysql
+ quarkus.datasource.username=${DB_USERNAME}

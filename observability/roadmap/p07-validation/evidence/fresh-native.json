@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-11-14T02:21:38.193Z",
+  "checks": {
+    "privacy": {
+      "pass": true,
+      "rawPrivateFieldsRejected": true
+    },
+    "finite_retry": {
+      "pass": true,
+      "retryLimit": 1,
+      "liveRetryLimit": 3,
+      "diagnosticLines": [
+        "[2026/11/14 02:21:43.951304005] [ warn] [engine] failed to flush chunk '1-1794622902.950160712.flb', retry in 3 seconds: task_id=0, input=dummy.0 > output=http.0 (out_id=0)",
+        "[2026/11/14 02:21:46.950793359] [error] [engine] chunk '1-1794622902.950160712.flb' cannot be retried: task_id=0, input=dummy.0 > output=http.0"
+      ]
+    },
+    "wrong_ca": {
+      "pass": true,
+      "exit": 60
+    },
+    "wrong_hostname": {
+      "pass": true,
+      "exit": 60
+    },
+    "synthetic_pressure_rules": {
+      "pass": true,
+      "output": "  SUCCESS\n\n"
+    }
+  },
+  "fixtures": [
+    {
+      "name": "jp_learning_dev-p07-privacy-88fdadd5",
+      "stopped": true,
+      "removed": true,
+      "liveVolumesMounted": false
+    },
+    {
+      "name": "jp_learning_dev-p07-retry-1e69c902",
+      "stopped": true,
+      "removed": true,
+      "liveVolumesMounted": false
+    }
+  ],
+  "scope": "Synthetic input, no live volumes, no network access; own disposable containers only",
+  "passed": true
+}

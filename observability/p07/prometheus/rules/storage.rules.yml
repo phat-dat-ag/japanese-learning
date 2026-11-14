@@ -1,0 +1,27 @@
+groups:
+  - name: p07.storage
+    interval: 15s
+    rules:
+      - alert: P07BackingDiskWarning
+        expr: p07_backing_disk_available_bytes < 20 * 1024 * 1024 * 1024
+        for: 2m
+        labels: {severity: warning, phase: P07}
+      - alert: P07BackingDiskCritical
+        expr: p07_backing_disk_available_bytes < 10 * 1024 * 1024 * 1024
+        for: 1m
+        labels: {severity: critical, phase: P07}
+      - alert: P07TelemetryBudgetWarning
+        expr: p07_telemetry_storage_used_bytes / p07_telemetry_storage_budget_bytes > 0.7
+        for: 2m
+        labels: {severity: warning, phase: P07}
+      - alert: P07TelemetryBudgetCritical
+        expr: p07_telemetry_storage_used_bytes / p07_telemetry_storage_budget_bytes > 0.85
+        for: 1m
+        labels: {severity: critical, phase: P07}
+      - alert: P07StorageMetricsMissing
+        expr: absent(p07_backing_disk_available_bytes) or up{job="p07-storage"} == 0
+        for: 2m
+        labels: {severity: critical, phase: P07}
+      - alert: P07AcceptanceNotification
+        expr: p07_notification_test == 1
+        labels: {severity: info, phase: P07, purpose: acceptance}

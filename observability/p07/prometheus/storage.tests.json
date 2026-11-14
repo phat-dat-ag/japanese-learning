@@ -1,0 +1,71 @@
+{
+  "rule_files": [
+    "/etc/prometheus/rules/storage.rules.yml"
+  ],
+  "evaluation_interval": "1m",
+  "tests": [
+    {
+      "interval": "1m",
+      "input_series": [
+        {
+          "series": "p07_backing_disk_available_bytes",
+          "values": "5368709120x5"
+        },
+        {
+          "series": "up{job=\"p07-storage\"}",
+          "values": "1x5"
+        }
+      ],
+      "alert_rule_test": [
+        {
+          "eval_time": "3m",
+          "alertname": "P07BackingDiskCritical",
+          "exp_alerts": [
+            {
+              "exp_labels": {
+                "severity": "critical",
+                "phase": "P07"
+              }
+            }
+          ]
+        },
+        {
+          "eval_time": "3m",
+          "alertname": "P07BackingDiskWarning",
+          "exp_alerts": [
+            {
+              "exp_labels": {
+                "severity": "warning",
+                "phase": "P07"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "interval": "1m",
+      "input_series": [
+        {
+          "series": "p07_notification_test",
+          "values": "1x2"
+        }
+      ],
+      "alert_rule_test": [
+        {
+          "eval_time": "1m",
+          "alertname": "P07AcceptanceNotification",
+          "exp_alerts": [
+            {
+              "exp_labels": {
+                "severity": "info",
+                "phase": "P07",
+                "purpose": "acceptance"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

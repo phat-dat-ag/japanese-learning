@@ -1,0 +1,2757 @@
+{
+  "created_utc": "2026-11-14T02:52:45.353Z",
+  "scope": "Synthetic data only; no live mounts, listeners, source/credential changes, volume deletion or live lifecycle actions",
+  "quota": {
+    "status": "EXCEPTION_APPROVED",
+    "approval": "User approved development-only strict persistent quota exception in this conversation",
+    "scope": "jp_learning_dev laptop development only",
+    "testPassed": false
+  },
+  "checks": {
+    "live_availability_before": {
+      "pass": true,
+      "details": {
+        "label": "before",
+        "time": "2026-11-14T02:54:55.829Z",
+        "user": 200,
+        "vocabulary": 200,
+        "gateway": 200
+      }
+    },
+    "ready_source": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "source_user_writer": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "source_role_writer": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "source_map_writer": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "source_user_reader": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "source_role_reader": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "source_map_reader": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "create_records": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "fixture_record_0": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_1": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_2": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_3": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_4": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_5": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_6": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_7": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_8": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_9": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_10": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "fixture_record_11": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "search_p07-records": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "baseline_count": {
+      "pass": true,
+      "details": {
+        "count": 12,
+        "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+      }
+    },
+    "register_snapshot_repo": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "snapshot": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "snapshot_success": {
+      "pass": true,
+      "details": {
+        "snapshot": "before",
+        "uuid": "0TbocKlXRRCy4lP0Bm5gpA",
+        "version_id": 137307827,
+        "version": "3.9.0",
+        "remote_store_index_shallow_copy": false,
+        "indices": [
+          "p07-records"
+        ],
+        "data_streams": [],
+        "include_global_state": false,
+        "state": "SUCCESS",
+        "start_time": "2026-11-14T02:56:02.172Z",
+        "start_time_in_millis": 1794624962172,
+        "end_time": "2026-11-14T02:56:02.372Z",
+        "end_time_in_millis": 1794624962372,
+        "duration_in_millis": 200,
+        "failures": [],
+        "shards": {
+          "total": 1,
+          "failed": 0,
+          "successful": 1
+        }
+      }
+    },
+    "source_recreated": {
+      "pass": true,
+      "details": {
+        "old": "eae5687b4369fe6069925c7377afb07b9309b87aef57972f73a6968fc0136283",
+        "new": "e1d3718930bb2e55fd4568be6350ac21fc3b188d436cd762781e995de0419643"
+      }
+    },
+    "source_persistent_data": {
+      "pass": true
+    },
+    "snapshot_survives_recreation": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "durable_snapshot": {
+      "pass": true
+    },
+    "retention_policy": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "create_expiry_fixture": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "expiry_doc_0": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "expiry_doc_1": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "expiry_doc_2": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "attach_retention": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "live_availability_retention_6": {
+      "pass": true,
+      "details": {
+        "label": "retention_6",
+        "time": "2026-11-14T02:57:31.408Z",
+        "user": 200,
+        "vocabulary": 200,
+        "gateway": 200
+      }
+    },
+    "live_availability_retention_12": {
+      "pass": true,
+      "details": {
+        "label": "retention_12",
+        "time": "2026-11-14T02:58:04.609Z",
+        "user": 200,
+        "vocabulary": 200,
+        "gateway": 200
+      }
+    },
+    "live_availability_retention_18": {
+      "pass": true,
+      "details": {
+        "label": "retention_18",
+        "time": "2026-11-14T02:58:37.784Z",
+        "user": 200,
+        "vocabulary": 200,
+        "gateway": 200
+      }
+    },
+    "live_availability_retention_24": {
+      "pass": true,
+      "details": {
+        "label": "retention_24",
+        "time": "2026-11-14T02:59:10.952Z",
+        "user": 200,
+        "vocabulary": 200,
+        "gateway": 200
+      }
+    },
+    "live_availability_retention_30": {
+      "pass": true,
+      "details": {
+        "label": "retention_30",
+        "time": "2026-11-14T02:59:44.151Z",
+        "user": 200,
+        "vocabulary": 200,
+        "gateway": 200
+      }
+    },
+    "accelerated_retention": {
+      "pass": true,
+      "details": {
+        "expiredSyntheticDocuments": 3,
+        "snapshottedIndexDigest": {
+          "count": 12,
+          "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+        }
+      }
+    },
+    "retention_scope_preserved": {
+      "pass": true
+    },
+    "ready_restore": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "restore_user_writer": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "restore_role_writer": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "restore_map_writer": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "restore_user_reader": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "restore_role_reader": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "restore_map_reader": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "readonly_repo": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "restore": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "restore_green": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "restore_integrity": {
+      "pass": true,
+      "details": {
+        "count": 12,
+        "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+      }
+    },
+    "migration": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "migration_record": {
+      "pass": true,
+      "details": {
+        "status": 201
+      }
+    },
+    "migration_visible": {
+      "pass": true
+    },
+    "rollback": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "rollback_green": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "search_p07-records-rollback": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "rollback_integrity": {
+      "pass": true,
+      "details": {
+        "count": 12,
+        "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+      }
+    },
+    "rollback_mapping": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "rollback_schema": {
+      "pass": true
+    },
+    "rollback_anonymous_denied": {
+      "pass": true,
+      "details": {
+        "status": 401
+      }
+    },
+    "rollback_reader_allowed": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "rollback_reader_write_denied": {
+      "pass": true,
+      "details": {
+        "status": 403
+      }
+    },
+    "restore_recreated": {
+      "pass": true
+    },
+    "rollback_survives_recreation": {
+      "pass": true
+    },
+    "live_availability_after": {
+      "pass": true,
+      "details": {
+        "label": "after",
+        "time": "2026-11-14T03:02:12.461Z",
+        "user": 200,
+        "vocabulary": 200,
+        "gateway": 200
+      }
+    },
+    "live_unchanged": {
+      "pass": true
+    },
+    "snapshot_on_disk": {
+      "pass": true,
+      "details": 11
+    }
+  },
+  "observations": [
+    {
+      "label": "before",
+      "time": "2026-11-14T02:52:46.643Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    },
+    {
+      "label": "before",
+      "time": "2026-11-14T02:54:55.829Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    },
+    {
+      "label": "retention_6",
+      "time": "2026-11-14T02:57:31.408Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    },
+    {
+      "label": "retention_12",
+      "time": "2026-11-14T02:58:04.609Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    },
+    {
+      "label": "retention_18",
+      "time": "2026-11-14T02:58:37.784Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    },
+    {
+      "label": "retention_24",
+      "time": "2026-11-14T02:59:10.952Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    },
+    {
+      "label": "retention_30",
+      "time": "2026-11-14T02:59:44.151Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    },
+    {
+      "label": "after",
+      "time": "2026-11-14T03:02:12.461Z",
+      "user": 200,
+      "vocabulary": 200,
+      "gateway": 200
+    }
+  ],
+  "project": "p07_recovery_916fd74a",
+  "configFile": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\compose.json",
+  "snapshotDirectory": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\snapshots",
+  "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+  "liveBaseline": [
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "service": "prometheus",
+      "started": "2026-11-14T02:24:04.4098479Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "destination": "/etc/prometheus",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "destination": "/run/p07/monitor.token",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring"
+      ]
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "service": "opensearch-dashboards",
+      "started": "2026-11-14T02:17:22.223423846Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_dashboards_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "destination": "/usr/share/opensearch-dashboards/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage",
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "service": "logs-ui",
+      "started": "2026-11-14T02:17:33.450862743Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "destination": "/etc/nginx/logs.htpasswd",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-access",
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "service": "logging-ui-init",
+      "started": "2026-11-14T02:38:25.37760343Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "destination": "/run/p07/admin.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "destination": "/run/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "service": "fluent-bit",
+      "started": "2026-11-14T02:16:35.684864127Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "service": "logging-init",
+      "started": "2026-11-14T02:17:22.743239176Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "destination": "/p07",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "destination": "/run/p07/admin.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "destination": "/run/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "service": "opensearch",
+      "started": "2026-11-14T02:13:30.952614428Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "destination": "/usr/share/opensearch/config/opensearch.yml",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "destination": "/usr/share/opensearch/config/p07/admin.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "destination": "/usr/share/opensearch/config/p07/node.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "destination": "/usr/share/opensearch/config/p07/node.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/usr/share/opensearch/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "service": "storage-monitor",
+      "started": "2026-11-14T02:24:04.982815535Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "destination": "/config/storage-monitor.py",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "destination": "/host-docker-data",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/stores/fluent-bit",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/stores/grafana",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/stores/opensearch",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/stores/prometheus",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/stores/tempo",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p05-monitoring"
+      ]
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "service": "grafana",
+      "started": "2026-11-14T02:12:13.462124388Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring",
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "service": "frontend",
+      "started": "2026-11-14T02:11:21.037998247Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "service": "gateway",
+      "started": "2026-11-14T02:11:15.687020204Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "service": "vocabulary-api",
+      "started": "2026-11-14T02:10:58.883310872Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "service": "user-api",
+      "started": "2026-11-14T02:10:38.569569353Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "destination": "/run/keys/jwt",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "service": "flyway-user",
+      "started": "2026-11-14T02:10:29.784833978Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "service": "flyway-vocabulary",
+      "started": "2026-11-14T02:10:44.352004077Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "service": "mysql",
+      "started": "2026-11-14T02:10:28.505009281Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_mysql_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "destination": "/var/lib/mysql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "service": "sqlserver-init",
+      "started": "2026-11-14T02:10:28.756739749Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "service": "jwks-api",
+      "started": "2026-11-14T02:07:57.547688835Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/app/data/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "destination": "/run/keys/jwks/user-publickey-1.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "destination": "/run/keys/jwks/user-publickey-2.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "destination": "/run/keys/jwks/user-publickey-3.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "service": "otel-collector",
+      "started": "2026-11-14T02:07:56.906790876Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "service": "tempo",
+      "started": "2026-11-14T02:07:58.056649903Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "service": "sqlserver",
+      "started": "2026-11-14T02:07:57.816168174Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_sqlserver_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "destination": "/var/opt/mssql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    }
+  ],
+  "sourcePreservation": {
+    "head": "5c53cb963ca29c5e9c8626fbb456dbae7c13b7d3",
+    "gitlinks": [
+      "160000 7d25cfe4830da3856661f7449260e9027c596afb 0\tangular",
+      "160000 bbbab2f4dc80c0275152d4bf008f52b75c5778d6 0\tdotnet",
+      "160000 815b637a799cab8009d154ee9c97cec0f1dce734 0\tquarkus",
+      "160000 e9b90c31dfa311e0121285c8b7caa37c09cf4287 0\tspringboot-jwks-api"
+    ],
+    "quarkusStatus": "M Dockerfile",
+    "quarkusHead": "815b637a799cab8009d154ee9c97cec0f1dce734",
+    "quarkusDockerfile": "5ae08351f4be9dc52f35e74562ed64111f72712d4af21870298bc9640622b03a",
+    "quarkusProperties": "a2797b77679f90c358dad81c858054e3ce178c2e662e02b56118c913c5501141",
+    "rootCompose": "698eea317a1a4191c8cbe19ce829611e8e29a00abe4527e05719b38271c8b27e"
+  },
+  "resumed_utc": "2026-11-14T02:54:55.828Z",
+  "validationCorrection": "Fixture writer requires the bulk cluster action in this engine version; added only to the isolated writer while preserving index scope and all prior evidence.",
+  "baselineDigest": {
+    "count": 12,
+    "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+  },
+  "retentionObservations": [
+    {
+      "time": "2026-11-14T02:57:03.737Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:09.275Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:14.788Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:20.307Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:25.827Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:31.408Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:36.951Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:42.454Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:47.965Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:53.472Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:57:58.970Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:04.608Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:10.129Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:15.675Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:21.214Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:26.749Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:32.260Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:37.783Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:43.330Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:48.860Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:54.390Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:58:59.909Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "state": {
+            "name": "retain",
+            "start_time": 1794625083242
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Successfully initialized policy: p07-accelerated"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:05.427Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:10.951Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:16.464Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:21.995Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:27.512Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:33.097Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:38.642Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:44.150Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:49.676Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T02:59:55.212Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T03:00:00.742Z",
+      "indexStatus": 200,
+      "metadata": {
+        "p07-expiry": {
+          "index.plugins.index_state_management.policy_id": "p07-accelerated",
+          "index.opendistro.index_state_management.policy_id": "p07-accelerated",
+          "index": "p07-expiry",
+          "index_uuid": "8wp45b_uS7yJJo6f9iVtNg",
+          "policy_id": "p07-accelerated",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794625021680,
+          "transition_to": "delete",
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Transitioning to delete [index=p07-expiry]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 1
+      }
+    },
+    {
+      "time": "2026-11-14T03:00:06.278Z",
+      "indexStatus": 404,
+      "metadata": {
+        "error": {
+          "root_cause": [
+            {
+              "type": "action_request_validation_exception",
+              "reason": "Validation Failed: 1: no documents to get;"
+            }
+          ],
+          "type": "action_request_validation_exception",
+          "reason": "Validation Failed: 1: no documents to get;"
+        },
+        "status": 400
+      }
+    }
+  ],
+  "retentionPassed": true,
+  "restoredDigest": {
+    "count": 12,
+    "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+  },
+  "migratedDigest": {
+    "count": 13,
+    "sha256": "8a86698d927b7a03ff3b0dc6a2f41e49380cc0831e2d91e7f762018b517a04e4"
+  },
+  "rollbackDigest": {
+    "count": 12,
+    "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+  },
+  "liveFinal": [
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "service": "prometheus",
+      "started": "2026-11-14T02:24:04.4098479Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "destination": "/etc/prometheus",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "destination": "/run/p07/monitor.token",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring"
+      ]
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "service": "opensearch-dashboards",
+      "started": "2026-11-14T02:17:22.223423846Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_dashboards_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "destination": "/usr/share/opensearch-dashboards/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage",
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "service": "logs-ui",
+      "started": "2026-11-14T02:17:33.450862743Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "destination": "/etc/nginx/logs.htpasswd",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-access",
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "service": "logging-ui-init",
+      "started": "2026-11-14T02:38:25.37760343Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "destination": "/run/p07/admin.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "destination": "/run/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "service": "fluent-bit",
+      "started": "2026-11-14T02:16:35.684864127Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "service": "logging-init",
+      "started": "2026-11-14T02:17:22.743239176Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "destination": "/p07",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "destination": "/run/p07/admin.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "destination": "/run/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "service": "opensearch",
+      "started": "2026-11-14T02:13:30.952614428Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "destination": "/usr/share/opensearch/config/opensearch.yml",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "destination": "/usr/share/opensearch/config/p07/admin.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "destination": "/usr/share/opensearch/config/p07/node.key",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "destination": "/usr/share/opensearch/config/p07/node.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/usr/share/opensearch/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "service": "storage-monitor",
+      "started": "2026-11-14T02:24:04.982815535Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "destination": "/config/storage-monitor.py",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "destination": "/host-docker-data",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/stores/fluent-bit",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/stores/grafana",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/stores/opensearch",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/stores/prometheus",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/stores/tempo",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p05-monitoring"
+      ]
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "service": "grafana",
+      "started": "2026-11-14T02:12:13.462124388Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring",
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "service": "frontend",
+      "started": "2026-11-14T02:11:21.037998247Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "service": "gateway",
+      "started": "2026-11-14T02:11:15.687020204Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "service": "vocabulary-api",
+      "started": "2026-11-14T02:10:58.883310872Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "service": "user-api",
+      "started": "2026-11-14T02:10:38.569569353Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "destination": "/run/keys/jwt",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "service": "flyway-user",
+      "started": "2026-11-14T02:10:29.784833978Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "service": "flyway-vocabulary",
+      "started": "2026-11-14T02:10:44.352004077Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "service": "mysql",
+      "started": "2026-11-14T02:10:28.505009281Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_mysql_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "destination": "/var/lib/mysql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "service": "sqlserver-init",
+      "started": "2026-11-14T02:10:28.756739749Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "service": "jwks-api",
+      "started": "2026-11-14T02:07:57.547688835Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/app/data/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "destination": "/run/keys/jwks/user-publickey-1.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "destination": "/run/keys/jwks/user-publickey-2.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "destination": "/run/keys/jwks/user-publickey-3.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "service": "otel-collector",
+      "started": "2026-11-14T02:07:56.906790876Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "service": "tempo",
+      "started": "2026-11-14T02:07:58.056649903Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "service": "sqlserver",
+      "started": "2026-11-14T02:07:57.816168174Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_sqlserver_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "destination": "/var/opt/mssql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "name": "p07_recovery_916fd74a_source_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/p07_recovery_916fd74a_source_data/_data"
+    },
+    {
+      "name": "p07_recovery_916fd74a_restore_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/p07_recovery_916fd74a_restore_data/_data"
+    }
+  ],
+  "snapshotFiles": [
+    {
+      "path": "index-0",
+      "bytes": 434,
+      "sha256": "e5802ee0a6763547ec41db1c18354605f898cb39b6144d4a2dd6fbb5afe33ded"
+    },
+    {
+      "path": "index.latest",
+      "bytes": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "path": "indices\\K0sKZTjtQLa1h96Bux_Mfw\\0\\index-hAIXhVSJSoWn9RVy7O1FlQ",
+      "bytes": 1044,
+      "sha256": "93614fb8706e219dd94292c24b721ed37a3a2d7ba3cfaf5d1034b88f5f3054aa"
+    },
+    {
+      "path": "indices\\K0sKZTjtQLa1h96Bux_Mfw\\0\\snap-0TbocKlXRRCy4lP0Bm5gpA.dat",
+      "bytes": 1036,
+      "sha256": "c3a6e1f1a450778a66eaef147ac7904ae9a9bd93a01a7a40e2a13de089dcbb65"
+    },
+    {
+      "path": "indices\\K0sKZTjtQLa1h96Bux_Mfw\\0\\__3puPVLquQT-FJnIYi0uJBQ",
+      "bytes": 474,
+      "sha256": "bf2732729960e7de687678be38a750c61204e7346959f0259a8df44c2fc57300"
+    },
+    {
+      "path": "indices\\K0sKZTjtQLa1h96Bux_Mfw\\0\\__BwW-YJ8kQVqsYWJxlPlo1g",
+      "bytes": 474,
+      "sha256": "d7ea4411d8e0e87d57cfdbfa29ddf778a857c134b1c710e9d83bb6fef47ddf43"
+    },
+    {
+      "path": "indices\\K0sKZTjtQLa1h96Bux_Mfw\\0\\__DLBel5JNSFOtQlYLCeNUWw",
+      "bytes": 4436,
+      "sha256": "95ec7465721cba885098f597f0507e77a1aa2f07184abd0e449eea9c29fe3ca8"
+    },
+    {
+      "path": "indices\\K0sKZTjtQLa1h96Bux_Mfw\\0\\__Txisji4AQiWnqgHpNoPQQw",
+      "bytes": 3398,
+      "sha256": "338d3d06576f1ce79576616600d7177a5ba79049a050504ea9566d8885ebd999"
+    },
+    {
+      "path": "indices\\K0sKZTjtQLa1h96Bux_Mfw\\meta-iYf716EBr3FbrFRRvxne.dat",
+      "bytes": 531,
+      "sha256": "ea7160fcecad9869d22f6532809247dec242976519629a6fdce163133ad5c5b1"
+    },
+    {
+      "path": "meta-0TbocKlXRRCy4lP0Bm5gpA.dat",
+      "bytes": 193,
+      "sha256": "e16466ccbdc5adcca12bcf4a00e7855cefedbfd5144539d275be9b3523f600b1"
+    },
+    {
+      "path": "snap-0TbocKlXRRCy4lP0Bm5gpA.dat",
+      "bytes": 279,
+      "sha256": "ddef65624d3b94be2f4b4cc3a7575dc3af800b769e06e68b5a8225dc467e8e85"
+    }
+  ],
+  "durabilityScope": "Named volumes and host D: snapshot files survive isolated container recreation. Same-host/same-engine synthetic recovery; no live DB/security-state/full-host disaster recovery claim.",
+  "finished_utc": "2026-11-14T03:02:13.283Z",
+  "passed": true
+}

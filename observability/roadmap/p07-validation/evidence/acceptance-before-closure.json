@@ -1,0 +1,179 @@
+{
+  "phase": "P07",
+  "decision": "BLOCKED",
+  "readyForFinalAcceptance": false,
+  "captured_utc": "2026-11-14T02:26:36.656Z",
+  "project": "jp_learning_dev",
+  "requested_project_exists": true,
+  "freshInitializationAuthorized": true,
+  "historicalDataRecovered": false,
+  "counts": {
+    "running": 16,
+    "healthy": 13,
+    "successfulJobs": 5
+  },
+  "checks": [
+    {
+      "id": "user_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "vocabulary_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "gateway_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "frontend_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_ready",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_datasource_prometheus",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_datasource_tempo",
+      "status": "PASS"
+    },
+    {
+      "id": "grafana_anonymous_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "logs_ui_auth",
+      "status": "PASS"
+    },
+    {
+      "id": "tracing_user-api",
+      "status": "PASS"
+    },
+    {
+      "id": "tracing_vocabulary-api",
+      "status": "PASS"
+    },
+    {
+      "id": "log_ingestion",
+      "status": "PASS"
+    },
+    {
+      "id": "sampled_log_privacy",
+      "status": "PASS"
+    },
+    {
+      "id": "fluent_health",
+      "status": "PASS"
+    },
+    {
+      "id": "prometheus_targets",
+      "status": "PASS"
+    },
+    {
+      "id": "prometheus_rules",
+      "status": "PASS"
+    },
+    {
+      "id": "notification_test_started",
+      "status": "PASS"
+    },
+    {
+      "id": "prometheus_notification_delivery",
+      "status": "PASS"
+    },
+    {
+      "id": "initializers",
+      "status": "PASS"
+    },
+    {
+      "id": "artifactMatches",
+      "status": "PASS"
+    },
+    {
+      "id": "jwksIngestion",
+      "status": "PASS"
+    },
+    {
+      "id": "fluentNoObservedErrors",
+      "status": "PASS"
+    },
+    {
+      "id": "notificationUnauthorizedRejected",
+      "status": "PASS"
+    },
+    {
+      "id": "authenticatedNotificationDelivery",
+      "status": "PASS"
+    },
+    {
+      "id": "physicalBackingMetricAccurate",
+      "status": "PASS"
+    },
+    {
+      "id": "allRequiredRunning",
+      "status": "PASS"
+    },
+    {
+      "id": "user-api_logLimits",
+      "status": "PASS"
+    },
+    {
+      "id": "vocabulary-api_logLimits",
+      "status": "PASS"
+    },
+    {
+      "id": "gateway_logLimits",
+      "status": "PASS"
+    },
+    {
+      "id": "frontend_logLimits",
+      "status": "PASS"
+    },
+    {
+      "id": "protectedQuarkus",
+      "status": "PASS"
+    },
+    {
+      "id": "gitlinks",
+      "status": "PASS"
+    },
+    {
+      "id": "existingAuthSetupPreserved",
+      "status": "PASS"
+    },
+    {
+      "id": "remoteReportPreserved",
+      "status": "PASS"
+    },
+    {
+      "id": "native_security",
+      "status": "PASS"
+    },
+    {
+      "id": "native_privacy_retry_tls",
+      "status": "PASS"
+    },
+    {
+      "id": "hard_persistent_quotas",
+      "status": "BLOCKED"
+    },
+    {
+      "id": "fresh_durable_recovery_elapsed_retention",
+      "status": "NOT_VERIFIED"
+    }
+  ],
+  "blockers": [
+    "Persistent per-volume filesystem quotas are not enforced by the Docker Desktop local-volume driver. Measured budgets, alerts, retention and watermarks do not impose hard total-disk ceilings.",
+    "30-day OpenSearch and 24-hour Tempo expiry were not elapsed end-to-end in this fresh runtime; prior isolated retention evidence is scoped, not a fresh durable recovery proof."
+  ],
+  "evidence": [
+    "fresh-runtime.json",
+    "fresh-security.json",
+    "fresh-native.json",
+    "fresh-final.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "captured_utc": "2026-11-14T00:05:51.458Z",
+  "head": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "develop": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+  "status": "M Dockerfile",
+  "propertiesSha256": "a2797b77679f90c358dad81c858054e3ce178c2e662e02b56118c913c5501141",
+  "propertiesMtimeUtc": "2026-11-13T23:56:45.336Z",
+  "propertiesMatchesIndex": true,
+  "swaggerSettingPresent": false,
+  "earlierPropertiesHash": "cc3b5b8314bd0d113a16d14441d168ea6efca805d16f5adacd0d7e23fbfd84be",
+  "DockerfileHashUnchanged": true,
+  "branchAndHeadUnchanged": true,
+  "sourceMutationsByThisTask": false,
+  "operatorInstruction": "Record the drift for review; leave the current file unchanged",
+  "operatorInstructionApplied": "Current file left unchanged; saved original file/patch retained",
+  "restorationPerformed": false
+}

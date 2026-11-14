@@ -1,0 +1,24 @@
+{
+  "captured_utc": "2026-11-13T23:55:27.340Z",
+  "hostPath": "D:\\japanese-learning\\secrets\\logging\\htpasswd",
+  "hostPathType": "directory",
+  "containerMetadata": {
+    "code": 0,
+    "text": "drwxrwxrwx    1 0        0              512 Nov  6 14:12 /etc/nginx/logs.htpasswd\n",
+    "error": ""
+  },
+  "diagnostics": [
+    "2026/11/13 23:37:44 [crit] 13#13: *343 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET / HTTP/1.1\", host: \"127.0.0.1:5601\"",
+    "2026/11/13 23:37:44 [crit] 14#14: *344 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET /favicon.ico HTTP/1.1\", host: \"127.0.0.1:5601\", referrer: \"http://127.0.0.1:5601/\"",
+    "2026/11/13 23:37:44 [crit] 13#13: *345 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET / HTTP/1.1\", host: \"127.0.0.1:5601\"",
+    "2026/11/13 23:37:44 [crit] 14#14: *346 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET /favicon.ico HTTP/1.1\", host: \"127.0.0.1:5601\", referrer: \"http://127.0.0.1:5601/\"",
+    "2026/11/13 23:37:44 [crit] 13#13: *347 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET / HTTP/1.1\", host: \"127.0.0.1:5601\"",
+    "2026/11/13 23:37:44 [crit] 13#13: *348 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET /favicon.ico HTTP/1.1\", host: \"127.0.0.1:5601\", referrer: \"http://127.0.0.1:5601/\"",
+    "2026/11/13 23:39:27 [crit] 14#14: *356 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET / HTTP/1.1\", host: \"127.0.0.1:5601\"",
+    "2026/11/13 23:39:27 [crit] 14#14: *358 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET /favicon.ico HTTP/1.1\", host: \"127.0.0.1:5601\", referrer: \"http://127.0.0.1:5601/\"",
+    "2026/11/13 23:39:30 [crit] 14#14: *357 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1\", host: \"127.0.0.1:5601\"",
+    "2026/11/13 23:41:49 [crit] 15#15: *369 pread() \"/etc/nginx/logs.htpasswd\" failed (21: Is a directory), client: 172.21.0.1, server: , request: \"GET / HTTP/1.1\", host: \"127.0.0.1:5601\""
+  ],
+  "credentialsRead": false,
+  "credentialsChanged": false
+}

@@ -1,0 +1,31 @@
+{
+  "status": "PROPOSED_NOT_DEPLOYED",
+  "host": {
+    "warningFreeBytes": 21474836480,
+    "criticalFreeBytes": 10737418240,
+    "emergencyFreeBytes": 5368709120,
+    "warningFor": "5m",
+    "criticalFor": "2m",
+    "emergencyFor": "immediate",
+    "recoveryFreeBytes": 26843545600,
+    "recoveryFor": "10m"
+  },
+  "guestFilesystem": {
+    "warningUsedRatio": 0.8,
+    "criticalUsedRatio": 0.9,
+    "emergencyUsedRatio": 0.95
+  },
+  "approvedPerStoreAllocation": {
+    "warningUsedRatio": 0.7,
+    "criticalUsedRatio": 0.85,
+    "emergencyUsedRatio": 0.9,
+    "source": "Integrated p07-storage-budget.md proposal; no allocations or quotas approved/enforced here"
+  },
+  "growthForecast": {
+    "warningTimeToFullHours": 24,
+    "criticalTimeToFullHours": 6,
+    "state": "NOT_EVALUABLE: representative growth series absent"
+  },
+  "automation": "Notify only; no automatic deletion, pruning, container stop, retention shortening or quota mutation.",
+  "currentHostState": "CRITICAL"
+}

@@ -1,0 +1,645 @@
+{
+  "captured_utc": "2026-11-14T02:26:10.250Z",
+  "checks": {
+    "artifactMatches": true,
+    "jwksIngestion": true,
+    "fluentNoObservedErrors": true,
+    "notificationUnauthorizedRejected": true,
+    "authenticatedNotificationDelivery": true,
+    "physicalBackingMetricAccurate": true,
+    "allRequiredRunning": true,
+    "user-api_logLimits": true,
+    "vocabulary-api_logLimits": true,
+    "gateway_logLimits": true,
+    "frontend_logLimits": true,
+    "protectedQuarkus": true,
+    "gitlinks": true,
+    "existingAuthSetupPreserved": true,
+    "remoteReportPreserved": true
+  },
+  "artifacts": [
+    {
+      "service": "fluent-bit",
+      "source": "observability/p07/fluent-bit/fluent-bit.conf",
+      "sha256": "e0640f8c3b65720d32ca23274af0dff4030ed1545d54f0676b6f4d3de88acefd",
+      "matches": true
+    },
+    {
+      "service": "fluent-bit",
+      "source": "observability/p07/fluent-bit/normalize.lua",
+      "sha256": "85e7952b458c14eddf1b2b3ff72e029276e6dbd6bd27b3745e223450a92b517b",
+      "matches": true
+    },
+    {
+      "service": "fluent-bit",
+      "source": "observability/p07/fluent-bit/parsers-app.conf",
+      "sha256": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+      "matches": true
+    },
+    {
+      "service": "otel-collector",
+      "source": "observability/p07/collector.yml",
+      "sha256": "dc9ff7286c2588fbf04aa8192317dee9977ba29788f4e1ba09edede54799e5dd",
+      "matches": true
+    },
+    {
+      "service": "tempo",
+      "source": "observability/p07/tempo.yml",
+      "sha256": "e0cd16a57ecddad47be53b68fd17c396b5125bd31062198c7f0d79b9bc79441c",
+      "matches": true
+    },
+    {
+      "service": "prometheus",
+      "source": "observability/p07/prometheus/prometheus.yml",
+      "sha256": "1c97b3e4dbdfcd1fdea9d72c314eaa364cc488466eb4cca382dc72fe428c03a9",
+      "matches": true
+    },
+    {
+      "service": "prometheus",
+      "source": "observability/p07/prometheus/rules/p05.rules.yml",
+      "sha256": "3d1573f633b189b4749ba1d7e371979a24887f851ccc6c2d19709c463cd6ceef",
+      "matches": true
+    },
+    {
+      "service": "prometheus",
+      "source": "observability/p07/prometheus/rules/storage.rules.yml",
+      "sha256": "3f86b96cb7badab72b2a10f8a55c7a8e93c88f42918351d153e8451253424ad2",
+      "matches": true
+    },
+    {
+      "service": "grafana",
+      "source": "observability/p07/grafana/provisioning/datasources/prometheus.yml",
+      "sha256": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd",
+      "matches": true
+    },
+    {
+      "service": "grafana",
+      "source": "observability/p07/grafana/provisioning/datasources/tempo.yml",
+      "sha256": "e15573d2a1fc3f5ad1dc62906f232646301e082297623e6a7fc630c78fd2e2ef",
+      "matches": true
+    },
+    {
+      "service": "opensearch",
+      "source": "observability/p07/opensearch/opensearch.yml",
+      "sha256": "37c4edfc8faaa171508f8f94727ae546e3aafa325050d153e1d60d6c327e800c",
+      "matches": true
+    },
+    {
+      "service": "opensearch-dashboards",
+      "source": "observability/p07/opensearch/dashboards.yml",
+      "sha256": "df3ef4350b2d356cd0caeddc7f1f85f7afd974121118a90e15a420a8164ae37c",
+      "matches": true
+    }
+  ],
+  "fluentMetrics": {
+    "input": {
+      "tail.0": {
+        "records": 6,
+        "bytes": 4580,
+        "files_opened": 1,
+        "files_closed": 0,
+        "files_rotated": 0,
+        "multiline_truncated": 0,
+        "long_line_truncated": 0,
+        "long_line_skipped": 0
+      },
+      "tail.1": {
+        "records": 120,
+        "bytes": 209826,
+        "files_opened": 1,
+        "files_closed": 0,
+        "files_rotated": 0,
+        "multiline_truncated": 0,
+        "long_line_truncated": 0,
+        "long_line_skipped": 0
+      },
+      "tail.2": {
+        "records": 48,
+        "bytes": 67946,
+        "files_opened": 1,
+        "files_closed": 0,
+        "files_rotated": 0,
+        "multiline_truncated": 0,
+        "long_line_truncated": 0,
+        "long_line_skipped": 0
+      }
+    },
+    "filter": {
+      "lua.0": {
+        "drop_records": 0,
+        "add_records": 0,
+        "records": 174,
+        "bytes": 107347,
+        "drop_bytes": 0
+      }
+    },
+    "output": {
+      "opensearch.0": {
+        "proc_records": 174,
+        "proc_bytes": 107347,
+        "errors": 0,
+        "retries": 0,
+        "retries_failed": 0,
+        "dropped_records": 0,
+        "retried_records": 0
+      }
+    }
+  },
+  "fluentStorage": {
+    "storage_layer": {
+      "chunks": {
+        "total_chunks": 0,
+        "mem_chunks": 0,
+        "fs_chunks": 0,
+        "fs_chunks_up": 0,
+        "fs_chunks_down": 0
+      }
+    },
+    "input_chunks": {
+      "tail.0": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b",
+          "mem_limit": "7.6M"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      },
+      "tail.1": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b",
+          "mem_limit": "7.6M"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      },
+      "tail.2": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b",
+          "mem_limit": "7.6M"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      }
+    }
+  },
+  "notification": {
+    "test_until": 1794623264.0702798,
+    "notifications": 1,
+    "test_notifications": 1,
+    "last_received": 1794623190.8818305
+  },
+  "storageMetrics": "p07_backing_disk_available_bytes 153266085888\np07_backing_disk_capacity_bytes 322123591680\np07_telemetry_storage_used_bytes{store=\"opensearch\"} 1822720\np07_telemetry_storage_budget_bytes{store=\"opensearch\"} 25769803776\np07_telemetry_storage_used_bytes{store=\"prometheus\"} 528384\np07_telemetry_storage_budget_bytes{store=\"prometheus\"} 2147483648\np07_telemetry_storage_measurement_error{store=\"tempo\"} 1\np07_telemetry_storage_measurement_error{store=\"grafana\"} 1\np07_telemetry_storage_used_bytes{store=\"fluent-bit\"} 888832\np07_telemetry_storage_budget_bytes{store=\"fluent-bit\"} 67108864\np07_notification_test 1\np07_notifications_received_total 1\np07_test_notifications_received_total 1",
+  "host": {
+    "path": "D:\\DockerData\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+    "fileBytes": 25557991424,
+    "dFreeBytes": 153266085888,
+    "cFreeBytes": 43073900544
+  },
+  "containers": [
+    {
+      "service": "prometheus",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring"
+      ],
+      "mounts": [
+        "jp_learning_dev_prometheus_data"
+      ]
+    },
+    {
+      "service": "opensearch-dashboards",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_log-storage",
+        "jp_learning_dev_log-ui"
+      ],
+      "mounts": [
+        "jp_learning_dev_dashboards_data"
+      ]
+    },
+    {
+      "service": "logs-ui",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_log-access",
+        "jp_learning_dev_log-ui"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "logging-ui-init",
+      "state": "exited",
+      "exit": 0,
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_log-ui"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "fluent-bit",
+      "state": "running",
+      "exit": 0,
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "mounts": [
+        "jp_learning_dev_fluent_bit_state",
+        "jp_learning_dev_jwks_api_logs",
+        "jp_learning_dev_user_api_logs",
+        "jp_learning_dev_vocabulary_api_logs"
+      ]
+    },
+    {
+      "service": "logging-init",
+      "state": "exited",
+      "exit": 0,
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "opensearch",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "mounts": [
+        "jp_learning_dev_opensearch_data"
+      ]
+    },
+    {
+      "service": "storage-monitor",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "2",
+          "max-size": "1m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_p05-monitoring"
+      ],
+      "mounts": [
+        "jp_learning_dev_fluent_bit_state",
+        "jp_learning_dev_grafana_data",
+        "jp_learning_dev_opensearch_data",
+        "jp_learning_dev_prometheus_data",
+        "jp_learning_dev_tempo_data"
+      ]
+    },
+    {
+      "service": "grafana",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "mounts": [
+        "jp_learning_dev_grafana_data"
+      ]
+    },
+    {
+      "service": "frontend",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "gateway",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "vocabulary-api",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": [
+        "jp_learning_dev_vocabulary_api_logs"
+      ]
+    },
+    {
+      "service": "user-api",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": [
+        "jp_learning_dev_user_api_logs"
+      ]
+    },
+    {
+      "service": "flyway-user",
+      "state": "exited",
+      "exit": 0,
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "logging": {
+        "Type": "local",
+        "Config": {}
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "flyway-vocabulary",
+      "state": "exited",
+      "exit": 0,
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "logging": {
+        "Type": "local",
+        "Config": {}
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "mysql",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "logging": {
+        "Type": "local",
+        "Config": {}
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": [
+        "jp_learning_dev_mysql_data"
+      ]
+    },
+    {
+      "service": "sqlserver-init",
+      "state": "exited",
+      "exit": 0,
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "logging": {
+        "Type": "local",
+        "Config": {}
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "jwks-api",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "logging": {
+        "Type": "local",
+        "Config": {}
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": [
+        "jp_learning_dev_jwks_api_logs"
+      ]
+    },
+    {
+      "service": "otel-collector",
+      "state": "running",
+      "exit": 0,
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "2",
+          "max-size": "5m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "mounts": []
+    },
+    {
+      "service": "tempo",
+      "state": "running",
+      "exit": 0,
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "logging": {
+        "Type": "local",
+        "Config": {
+          "max-file": "2",
+          "max-size": "5m"
+        }
+      },
+      "networks": [
+        "jp_learning_dev_p06-tracing"
+      ],
+      "mounts": [
+        "jp_learning_dev_tempo_data"
+      ]
+    },
+    {
+      "service": "sqlserver",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "logging": {
+        "Type": "local",
+        "Config": {}
+      },
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "mounts": [
+        "jp_learning_dev_sqlserver_data"
+      ]
+    }
+  ],
+  "counts": {
+    "running": 16,
+    "healthy": 13,
+    "successfulJobs": 5
+  },
+  "volumes": [
+    "jp_learning_dev_dashboards_data",
+    "jp_learning_dev_fluent_bit_state",
+    "jp_learning_dev_grafana_data",
+    "jp_learning_dev_jwks_api_logs",
+    "jp_learning_dev_mysql_data",
+    "jp_learning_dev_opensearch_data",
+    "jp_learning_dev_prometheus_data",
+    "jp_learning_dev_sqlserver_data",
+    "jp_learning_dev_tempo_data",
+    "jp_learning_dev_user_api_logs",
+    "jp_learning_dev_vocabulary_api_logs"
+  ],
+  "history": "Fresh initialization authorized; no historical data recovered. Pre-collector startup file content may be skipped by Read_from_Head Off; files retained. No zero-loss claim.",
+  "storageGuarantees": {
+    "retentionAndResourceBounds": true,
+    "physicalPressureMetrics": true,
+    "pressureRuleEvaluation": true,
+    "authenticatedLocalNotification": true,
+    "perVolumeHardPersistentQuota": false,
+    "externalPaging": false
+  },
+  "blockers": [
+    "Persistent per-volume filesystem quotas are not enforced by the Docker Desktop local-volume driver. Measured budgets, alerts, retention and watermarks do not impose hard total-disk ceilings.",
+    "30-day OpenSearch and 24-hour Tempo expiry were not elapsed end-to-end in this fresh runtime; prior isolated retention evidence is scoped, not a fresh durable recovery proof."
+  ],
+  "decision": "BLOCKED_FINAL_ACCEPTANCE",
+  "finished_utc": "2026-11-14T02:26:36.656Z",
+  "syntheticSecurityFixtureRetention": {
+    "updated_indices": 1,
+    "failures": false,
+    "failed_indices": []
+  }
+}

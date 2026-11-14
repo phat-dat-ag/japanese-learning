@@ -1,0 +1,330 @@
+{
+  "phase": "P07",
+  "decision": "BLOCKED",
+  "scope": "Laptop logs-ui authentication repair and read-only Docker storage review after P07 source integration",
+  "captured_utc": "2026-11-14T00:50:28.322Z",
+  "head": "5c53cb963ca29c5e9c8626fbb456dbae7c13b7d3",
+  "project": "jp_learning_dev",
+  "resumedTask": {
+    "completedBeforeInterruption": [
+      "Credential-preserving bcrypt recovery and exclusive auth-file validation",
+      "logs-ui-only recreation",
+      "Valid/invalid/missing authentication tests and startup guard tests",
+      "Read-only allocated telemetry-volume/log usage measurements"
+    ],
+    "completedThisTurn": [
+      "Confirmed same healthy logs-ui and unchanged auth/credentials",
+      "Minimal current HTTP authentication recheck",
+      "Measured actual VHD allocation and Windows backing-drive free capacity",
+      "Read-only cache reclamation metadata and non-deletion capacity options",
+      "Reviewed unchanged Swagger drift",
+      "Updated laptop-only report and acceptance evidence"
+    ],
+    "notRepeated": [
+      "Credential generation/hash helper tests and logs-ui recreation",
+      "P06 tracing tests/probes",
+      "P07 native security/recovery fixtures"
+    ]
+  },
+  "authentication": {
+    "status": "PASS",
+    "valid": 200,
+    "invalid": 401,
+    "priorMissingCredentialResult": 401,
+    "credentialsUnchanged": true,
+    "authFile": "secrets/logging/htpasswd.recovered",
+    "oldDirectoryPreserved": true,
+    "recreatedOnResume": false,
+    "rootCause": "Required htpasswd bind source was an empty directory, not a regular bcrypt file. Existing .env.logging credentials had not been materialized into a usable auth file; setup refused any existing parent/credential path, and neither mount nor former healthcheck validated file type. Historical command creating the directory is not proved.",
+    "fix": "Recovered bcrypt from the existing identity/password into a new file, changed only LOGS_AUTH_FILE, and added nonempty readable regular-file startup guard. Previously recreated logs-ui only; all prior tests retained."
+  },
+  "storage": {
+    "backingVhd": "C:\\Users\\nguye\\AppData\\Local\\Docker\\wsl\\disk\\docker_data.vhdx",
+    "backingDrive": "C",
+    "vhdAllocatedBytes": 39651901440,
+    "vhdAllocatedGiB": 36.93,
+    "hostDriveFreeBytes": 6892429312,
+    "hostDriveFreeGiB": 6.42,
+    "otherDriveDFreeGiB": 170.17,
+    "guestFilesystem": {
+      "totalBytes": 1081101176832,
+      "usedBytes": 38624522240,
+      "availableBytes": 987484299264,
+      "usedPercent": "4%"
+    },
+    "telemetryNamedVolumeAllocatedBytes": 51249152,
+    "telemetryNamedVolumeAllocatedMiB": 48.88,
+    "projectContainerLogAllocatedBytes": 4558848,
+    "projectContainerLogAllocatedMiB": 4.35,
+    "usageObservedUtc": "2026-11-14T00:30:56.154Z",
+    "quotaGuarantee": false,
+    "representativeGrowthMeasured": false,
+    "hostPressure": "CRITICAL"
+  },
+  "reclamation": {
+    "performed": false,
+    "noDeletionOptions": [
+      "Review supported relocation of the full Docker data disk from C: to D: in a separately approved maintenance window",
+      "Review host C: capacity expansion/reallocation",
+      "Only consider vendor-supported offline compaction of already-unused VHD blocks after review; gain/support unverified"
+    ],
+    "futureDeletionOnlyInventory": {
+      "globalDockerReportedBuildCacheReclaimable": "14.9GB",
+      "globalDockerReportedImageReclaimable": "6.475GB",
+      "oldUnsharedReclaimableCacheRecords": 220,
+      "oldUnsharedBytesApprox": 10396110592,
+      "notAdditive": true,
+      "authorized": false
+    },
+    "scope": "No deletion, pruning, compaction, relocation, resizing or Docker/WSL shutdown occurred. Cache/image figures are global/shared metadata, not guaranteed C: recovery."
+  },
+  "sourceRuntimeDrift": [
+    {
+      "service": "vocabulary-api",
+      "changes": [
+        {
+          "kind": "log-policy",
+          "active": {
+            "Type": "json-file",
+            "Config": {}
+          },
+          "wanted": {
+            "driver": "local",
+            "options": {
+              "max-file": "3",
+              "max-size": "10m"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "service": "grafana",
+      "changes": [
+        {
+          "kind": "bind-source",
+          "target": "/etc/grafana/provisioning",
+          "activeSource": "D:\\japanese-learning\\observability\\p06\\grafana\\provisioning",
+          "wantedSource": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning"
+        },
+        {
+          "kind": "grafana-hardening",
+          "setting": "GF_USERS_AUTO_ASSIGN_ORG_ROLE",
+          "active": null,
+          "wanted": "Viewer"
+        },
+        {
+          "kind": "grafana-hardening",
+          "setting": "GF_SECURITY_ALLOW_EMBEDDING",
+          "active": null,
+          "wanted": "false"
+        },
+        {
+          "kind": "grafana-hardening",
+          "setting": "GF_SECURITY_COOKIE_SAMESITE",
+          "active": null,
+          "wanted": "strict"
+        },
+        {
+          "kind": "grafana-hardening",
+          "setting": "GF_SECURITY_DISABLE_GRAVATAR",
+          "active": null,
+          "wanted": "true"
+        },
+        {
+          "kind": "grafana-hardening",
+          "setting": "GF_AUTH_LOGIN_MAXIMUM_INACTIVE_LIFETIME_DURATION",
+          "active": null,
+          "wanted": "4h"
+        },
+        {
+          "kind": "grafana-hardening",
+          "setting": "GF_AUTH_LOGIN_MAXIMUM_LIFETIME_DURATION",
+          "active": null,
+          "wanted": "7d"
+        }
+      ]
+    },
+    {
+      "service": "prometheus",
+      "changes": [
+        {
+          "kind": "bind-source",
+          "target": "/etc/prometheus",
+          "activeSource": "D:\\japanese-learning\\observability\\p05-candidate\\prometheus",
+          "wantedSource": "D:\\japanese-learning\\observability\\p07\\prometheus"
+        },
+        {
+          "kind": "command-flags",
+          "active": [
+            "--config.file=/etc/prometheus/prometheus.yml",
+            "--storage.tsdb.path=/prometheus",
+            "--storage.tsdb.retention.time=2d",
+            "--storage.tsdb.retention.size=512MB",
+            "--web.listen-address=0.0.0.0:9090"
+          ],
+          "wanted": [
+            "--config.file=/etc/prometheus/prometheus.yml",
+            "--storage.tsdb.path=/prometheus",
+            "--storage.tsdb.retention.time=2d",
+            "--storage.tsdb.retention.size=512MB",
+            "--web.listen-address=0.0.0.0:9090",
+            "--query.timeout=15s",
+            "--query.max-concurrency=4",
+            "--query.max-samples=5000000",
+            "--rules.max-concurrent-evals=2"
+          ]
+        }
+      ]
+    },
+    {
+      "service": "user-api",
+      "changes": [
+        {
+          "kind": "log-policy",
+          "active": {
+            "Type": "json-file",
+            "Config": {}
+          },
+          "wanted": {
+            "driver": "local",
+            "options": {
+              "max-file": "3",
+              "max-size": "10m"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "service": "tempo",
+      "changes": [
+        {
+          "kind": "bind-source",
+          "target": "/etc/tempo/config.yml",
+          "activeSource": "D:\\japanese-learning\\observability\\p06\\tempo.yml",
+          "wantedSource": "D:\\japanese-learning\\observability\\p07\\tempo.yml"
+        }
+      ]
+    },
+    {
+      "service": "otel-collector",
+      "changes": [
+        {
+          "kind": "bind-source",
+          "target": "/etc/otelcol/config.yml",
+          "activeSource": "D:\\japanese-learning\\observability\\p06\\collector.yml",
+          "wantedSource": "D:\\japanese-learning\\observability\\p07\\collector.yml"
+        }
+      ]
+    },
+    {
+      "service": "frontend",
+      "changes": [
+        {
+          "kind": "log-policy",
+          "active": {
+            "Type": "json-file",
+            "Config": {}
+          },
+          "wanted": {
+            "driver": "local",
+            "options": {
+              "max-file": "3",
+              "max-size": "10m"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "service": "gateway",
+      "changes": [
+        {
+          "kind": "log-policy",
+          "active": {
+            "Type": "json-file",
+            "Config": {}
+          },
+          "wanted": {
+            "driver": "local",
+            "options": {
+              "max-file": "3",
+              "max-size": "10m"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "service": "fluent-bit",
+      "changes": [
+        {
+          "kind": "image-baked-source",
+          "file": "fluent-bit.conf",
+          "activeSha256": "6f1fea4dfbae5e08084bc65a1bf014f42a463061e27135c236184e6503346fbd",
+          "wantedP07Sha256": "601ee3b6fc0fc5e5e5f8c2c04df5a65861c925115adfddff930c015829607ae3",
+          "provenance": "Saved byte-hash evidence reused for unchanged container/image; no new collector investigation or resource change."
+        },
+        {
+          "kind": "image-baked-source",
+          "file": "normalize.lua",
+          "activeSha256": "1d906bce9cb724756fe18b6e300ec5adc711434042d98265b8d118eb5b556b5b",
+          "wantedP07Sha256": "85e7952b458c14eddf1b2b3ff72e029276e6dbd6bd27b3745e223450a92b517b",
+          "provenance": "Saved byte-hash evidence reused for unchanged container/image; no new collector investigation or resource change."
+        }
+      ]
+    }
+  ],
+  "swagger": {
+    "captured_utc": "2026-11-14T00:45:02.549Z",
+    "head": "815b637a799cab8009d154ee9c97cec0f1dce734",
+    "branch": "",
+    "develop": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+    "status": "M Dockerfile",
+    "propertiesSha256": "a2797b77679f90c358dad81c858054e3ce178c2e662e02b56118c913c5501141",
+    "propertiesMtimeUtc": "2026-11-13T23:56:45.336Z",
+    "propertiesDiffFromIndex": "",
+    "swaggerSettingPresent": false,
+    "recentReflog": "815b637 HEAD@{2026-11-14 06:20:54 +0700}: checkout: moving from develop to 815b637a799cab8009d154ee9c97cec0f1dce734\nd664261 HEAD@{2026-11-13 18:35:16 +0700}: checkout: moving from e964cc391dae768ca69e875946d0e4eab26b7500 to develop",
+    "matchesPreviouslyReviewedDrift": true,
+    "cause": "Unattributed working-tree file change. No new commit or checkout explains the removed line; reflog cannot identify ordinary file edits.",
+    "action": "Review only; no source/ref/branch changes. Follow existing operator instruction to leave current file unchanged.",
+    "savedOriginalAvailable": true
+  },
+  "remainingBlockers": [
+    {
+      "id": "RUNTIME_ALIGNMENT",
+      "reason": "New P07 source is integrated but nine services retain older active bind/image/log-policy or Grafana/Prometheus settings; rollout is outside the current logs-ui-only authority."
+    },
+    {
+      "id": "BACKEND_SECURITY",
+      "reason": "Live native backend auth/RBAC/TLS, approved CA/identity/secret custody and historical-data access decisions remain unresolved."
+    },
+    {
+      "id": "PERSISTENT_CAPACITY",
+      "reason": "C: host is below proposed critical reserve; persistent named-volume quotas and live end-to-end filesystem pressure metrics/notifications are not established."
+    },
+    {
+      "id": "RECOVERY_AND_HANDOFF",
+      "reason": "Prior synthetic recovery fixtures do not prove durable real-data migration, consistent Fluent Bit state/offset acknowledgement reconciliation or safe legacy-buffer handoff."
+    },
+    {
+      "id": "SOURCE_DRIFT_REVIEW",
+      "reason": "Swagger source is unchanged from the already-recorded unexplained removal. Cause remains unattributed; no source restoration or branch change authorized."
+    }
+  ],
+  "p08MayBegin": false,
+  "actions": {
+    "servicesRecreated": [],
+    "dockerResourcesDeleted": false,
+    "credentialsReset": false,
+    "submodulesModified": false,
+    "jwksModified": false,
+    "springbootProjectModified": false,
+    "commitsCreated": false,
+    "push": false,
+    "executionPolicyChanged": false,
+    "p08Started": false
+  }
+}

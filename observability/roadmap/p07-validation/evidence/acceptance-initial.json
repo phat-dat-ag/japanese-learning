@@ -1,0 +1,133 @@
+{
+  "phase": "P07",
+  "decision": "BLOCKED",
+  "captured_utc": "2026-11-13T23:09:34.786Z",
+  "project": "jp_learning_dev",
+  "requested_project_exists": false,
+  "checks": [
+    {
+      "id": "actual_project",
+      "status": "PASS",
+      "details": "desktop-linux; jp_learning_dev; no jp_dev; docker-compose.yml only"
+    },
+    {
+      "id": "compose_runtime_consistency",
+      "status": "PASS",
+      "details": "All 20 runtime Compose configuration hashes match local rendered configuration; four baked logging files byte-identical. Hashes do not attest application build contents."
+    },
+    {
+      "id": "service_health",
+      "status": "PASS",
+      "details": "15 running: 12 healthy healthchecks; Fluent Bit endpoint healthy; Tempo ready; collector operational via User API trace delivery, no Docker healthcheck. Five initialization/migration containers exited 0."
+    },
+    {
+      "id": "fluent_bit",
+      "status": "PASS",
+      "details": "551 to 996 processed; retries stable at 27; zero errors/retries_failed/dropped_records; final pending chunks 0; no truncated/skipped lines. One old 4096-byte physical chunk file exists; not equated with pending work or deleted."
+    },
+    {
+      "id": "sqlite_offsets",
+      "status": "PASS",
+      "details": "All three copied DB/WAL/SHM sets quick_check ok and offsets readable; no live DB opened/reset. Non-atomic copies are diagnostic, not certified backup."
+    },
+    {
+      "id": "logging_privacy_limited",
+      "status": "PASS",
+      "details": "Synthetic bearer/cookie/query marker absent from bounded producer output and 3 correlated OpenSearch hits, including original; no full historical/rotated/compressed/buffer audit claimed."
+    },
+    {
+      "id": "opensearch_ingestion",
+      "status": "PASS",
+      "details": "Correlated probe records searchable; primary application indices green. Cluster yellow due to unassigned replica shards, not failed log primaries."
+    },
+    {
+      "id": "prometheus",
+      "status": "PASS",
+      "details": "3 targets up; 48 rules healthy; config/rule checks and native unit fixture pass; no firing alerts at snapshot."
+    },
+    {
+      "id": "grafana",
+      "status": "PASS",
+      "details": "Recovered transient startup health timeouts; HTTP health 200; both actual datasource UIDs return 200/OK; anonymous datasource access 401."
+    },
+    {
+      "id": "user_api_tracing",
+      "status": "PASS",
+      "details": "9 searchable User API traces after 80 unmatched GET probes at 10% configured sampling; fetched sample has allowlisted resource/span attributes and normalized route."
+    },
+    {
+      "id": "vocabulary_api_tracing",
+      "status": "BLOCKED",
+      "details": "No Vocabulary traces after 80 unmatched GETs plus 80 matched-route GETs (401). Quarkus source differs from parent gitlink; P06 tracing namespace/service/endpoint code absent in checked-out revision. Runtime startup reports quarkus-service. Sampling alone not established as explanation; authorized cross-service trace unverified."
+    },
+    {
+      "id": "retention",
+      "status": "PASS",
+      "details": "12 application indices assigned enabled 30-day ISM retention; Prometheus 2d/512MiB flags; Tempo 24h source config. Expiration execution and hard total disk caps not proven."
+    },
+    {
+      "id": "project_isolation",
+      "status": "PASS",
+      "details": "All 6 networks and 11 volumes project-owned; no foreign network members; raw stores unpublished and sensitive networks internal; all published ports loopback. Docker-daemon/host admin remains trusted."
+    },
+    {
+      "id": "native_auth_rbac_tls",
+      "status": "FAIL",
+      "details": "Active OpenSearch security disabled/plugin endpoint absent; internal HTTP stores/OTLP plaintext. Ingress Basic 401 and network isolation do not satisfy native P07 auth/TLS/RBAC matrix."
+    },
+    {
+      "id": "storage_quotas_alarms",
+      "status": "BLOCKED",
+      "details": "Queue bound and retention configured; no proven hard total quotas for OpenSearch/Tempo/state volumes; disk-headroom/quota alarm fixtures absent. 4% Docker data filesystem usage is not a quota."
+    },
+    {
+      "id": "pre_migration_restore_rollback",
+      "status": "NOT_VERIFIED",
+      "details": "No laptop candidate migration/restore/integrity/rollback fixture or approved P07 candidate design exists. No backup failure inferred from another machine."
+    },
+    {
+      "id": "certificate_role_matrix",
+      "status": "NOT_VERIFIED",
+      "details": "No P07 CA/role candidate; wrong-role/wrong-CA/expired-cert/hostname denial tests cannot meaningfully pass against current plaintext stack."
+    },
+    {
+      "id": "full_privacy_suite",
+      "status": "NOT_VERIFIED",
+      "details": "Exception/import/auth cancellation and outage sentinels require isolated fixtures; no live fault injection performed."
+    },
+    {
+      "id": "preservation",
+      "status": "PASS",
+      "details": "All 20 container IDs/starts/restart counts unchanged; no lifecycle actions, live offset resets, volume deletion, DB recreation, shared JWKS changes, commit/push or P08."
+    }
+  ],
+  "nativePromtoolFixtureCases": 42,
+  "operatorApprovals": [
+    {
+      "action": "Rebuild and recreate only vocabulary-api after source alignment has been reviewed",
+      "command": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --build vocabulary-api",
+      "preconditions": [
+        "Preserve the local Quarkus Swagger edit and branch work",
+        "Resolve Quarkus gitlink mismatch: parent expects 815b637a799cab8009d154ee9c97cec0f1dce734; actual d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+        "Review resulting P06 privacy/tracing implementation before rebuilding"
+      ],
+      "approved": false
+    },
+    {
+      "action": "Any P07 candidate container creation/recreation or cutover",
+      "approved": false,
+      "details": "No concrete P07 candidate configuration exists to approve yet. Prepare/review scoped auth/TLS, dedicated volumes, quota, isolated restore and rollback artifacts first; never enable native security in-place on current protected volume."
+    }
+  ],
+  "fixes": [
+    "Runtime validator uses discovered project and actual datasource UIDs",
+    "Distinguishes Docker healthchecks from application readiness and transient recovery",
+    "SQLite inspection uses disposable copies and metadata, not unavailable shell or live offset writes"
+  ],
+  "evidenceFiles": [
+    "runtime.json",
+    "followup.json",
+    "final-checks.json",
+    "preservation-final.json"
+  ]
+}

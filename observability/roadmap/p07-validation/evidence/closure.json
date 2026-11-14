@@ -1,0 +1,132 @@
+{
+  "phase": "P07",
+  "phaseStatus": "CLOSED",
+  "decision": "PASS",
+  "scope": "Laptop development environment; approved strict-quota exception; same-engine isolated synthetic telemetry recovery",
+  "created_utc": "2026-11-14T03:05:55.819Z",
+  "project": "jp_learning_dev",
+  "head": "5c53cb963ca29c5e9c8626fbb456dbae7c13b7d3",
+  "quota": {
+    "status": "EXCEPTION_APPROVED",
+    "strictQuotaTestPassed": false,
+    "approvalRequired": false,
+    "userApproval": "Approve development-only quota exception",
+    "approvalRecordedFrom": "Explicit user reply in this conversation",
+    "appliesTo": "Local jp_learning_dev development only",
+    "reason": "Standard local-driver persistent volumes have no safe in-place hard per-volume limit under current constraints. No new storage infrastructure, volume migration or Desktop settings were introduced.",
+    "safeguards": [
+      "Existing retention and bounded Docker logs",
+      "Resource/query/ingestion limits",
+      "Native OpenSearch watermarks (virtual filesystem)",
+      "Physical Windows D: free-space metrics, pressure/budget/missing-metric alerts",
+      "Authenticated local notification delivery"
+    ],
+    "productionAcceptance": false
+  },
+  "backupRestore": {
+    "status": "PASS",
+    "documents": 12,
+    "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454",
+    "snapshotDirectory": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\snapshots",
+    "snapshotFiles": 11,
+    "persistentVolumes": [
+      {
+        "name": "p07_recovery_916fd74a_source_data",
+        "driver": "local",
+        "options": null,
+        "mountpoint": "/var/lib/docker/volumes/p07_recovery_916fd74a_source_data/_data"
+      },
+      {
+        "name": "p07_recovery_916fd74a_restore_data",
+        "driver": "local",
+        "options": null,
+        "mountpoint": "/var/lib/docker/volumes/p07_recovery_916fd74a_restore_data/_data"
+      }
+    ],
+    "survivesContainerRecreation": true,
+    "scope": "Named volumes and host D: snapshot files survive isolated container recreation. Same-host/same-engine synthetic recovery; no live DB/security-state/full-host disaster recovery claim."
+  },
+  "rollback": {
+    "status": "PASS",
+    "baseline": {
+      "count": 12,
+      "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+    },
+    "migration": {
+      "count": 13,
+      "sha256": "8a86698d927b7a03ff3b0dc6a2f41e49380cc0831e2d91e7f762018b517a04e4"
+    },
+    "rollback": {
+      "count": 12,
+      "sha256": "59fb2385734d7cb7ea20e39459f3554f864e02d78aa297bd104d44575838b454"
+    },
+    "originalSchemaRestored": true,
+    "readerAllowed": true,
+    "anonymousAndReaderWritesDenied": true
+  },
+  "retention": {
+    "status": "PASS",
+    "scope": "Separate fresh synthetic index; accelerated native ISM delete action",
+    "syntheticDocumentsExpired": 3,
+    "baselineIndexUnchanged": true,
+    "observations": 34,
+    "productionPeriodElapsed": false
+  },
+  "live": {
+    "counts": {
+      "running": 16,
+      "healthy": 13
+    },
+    "allOriginalContainersUnchanged": true,
+    "postTestRuntimeChecks": {
+      "user_ready": true,
+      "vocabulary_ready": true,
+      "gateway_ready": true,
+      "frontend_ready": true,
+      "grafana_ready": true,
+      "grafana_datasource_prometheus": true,
+      "grafana_datasource_tempo": true,
+      "grafana_anonymous_denied": true,
+      "dashboard_reader": true,
+      "logs_ui_auth": true,
+      "tracing_user-api": true,
+      "tracing_vocabulary-api": true,
+      "log_ingestion": true,
+      "sampled_log_privacy": true,
+      "fluent_health": true,
+      "fluent_no_observed_errors_or_drops": true,
+      "prometheus_targets": true,
+      "prometheus_rules": true,
+      "notification_test_started": true,
+      "prometheus_notification_delivery": true,
+      "initializers": true
+    }
+  },
+  "sourcePreservation": {
+    "head": true,
+    "branch": true,
+    "gitlinks": true,
+    "quarkusHead": true,
+    "quarkusStatus": true,
+    "quarkusDockerfile": true,
+    "quarkusProperties": true,
+    "rootCompose": true
+  },
+  "remainingBlockers": [],
+  "limitations": [
+    "No hard persistent quota PASS is claimed; the development exception is explicitly approved.",
+    "Same-host D: snapshot and same OpenSearch engine version; no off-host, power-failure, full-cluster security-state or application-database disaster recovery claim.",
+    "Production-length retention was not elapsed; accelerated native deletion was tested on synthetic data.",
+    "Existing local notification sink is tested; external paging is not configured."
+  ],
+  "evidence": [
+    "closure-recovery.json",
+    "fresh-runtime.json",
+    "fresh-security.json",
+    "fresh-native.json",
+    "fresh-final.json"
+  ],
+  "p08Started": false,
+  "committed": false,
+  "pushed": false
+}

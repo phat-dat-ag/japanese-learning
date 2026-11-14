@@ -1,0 +1,25 @@
+﻿{
+    "command":  ".\\mvnw.cmd -B -ntp test -Dtest=TracingTest,TracingHttpTest -Dquarkus.http.test-port=0",
+    "exitCode":  0,
+    "build":  "SUCCESS",
+    "reports":  [
+                    {
+                        "name":  "com.japaneselearning.common.tracing.TracingTest",
+                        "tests":  5,
+                        "failures":  0,
+                        "errors":  0,
+                        "skipped":  0,
+                        "timestamp":  null,
+                        "seconds":  "0.208"
+                    },
+                    {
+                        "name":  "com.japaneselearning.security.TracingHttpTest",
+                        "tests":  2,
+                        "failures":  0,
+                        "errors":  0,
+                        "skipped":  0,
+                        "timestamp":  null,
+                        "seconds":  "13.832"
+                    }
+                ]
+}

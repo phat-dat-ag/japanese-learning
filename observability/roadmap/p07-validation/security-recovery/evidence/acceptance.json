@@ -1,0 +1,218 @@
+{
+  "phase": "P07",
+  "decision": "BLOCKED",
+  "p08MayBegin": false,
+  "captured_utc": "2026-11-14T00:06:52.704Z",
+  "liveProject": "jp_learning_dev",
+  "fixtureProject": "p07_accept_44b07b",
+  "checks": [
+    {
+      "id": "live_grafana_auth",
+      "status": "PASS",
+      "details": "Wrong/missing credentials return 401; existing admin can read organization (200). No user/credential changes. Viewer-role matrix not tested in live Grafana."
+    },
+    {
+      "id": "live_ingress_auth",
+      "status": "FAIL",
+      "details": "Credential source D:/japanese-learning/secrets/logging/htpasswd is a directory. Anonymous challenge returns 401 but credentials cause NGINX EISDIR and HTTP 500. Valid login cannot be accepted."
+    },
+    {
+      "id": "live_native_security",
+      "status": "FAIL",
+      "details": "OpenSearch still serves unauthenticated HTTP on its internal API with native security disabled; logs ingress has no HTTPS. Isolated candidate success is not live deployment acceptance."
+    },
+    {
+      "id": "live_network_boundary",
+      "status": "PASS",
+      "details": "Loopback published ports, private stores unpublished, gateway-to-store direct-IP request blocked; original network/volume memberships unchanged. Host/Docker admins remain trusted."
+    },
+    {
+      "id": "fixture_tls",
+      "status": "PASS",
+      "details": "Native OpenSearch HTTPS works with test CA/admin certificate; wrong CA, hostname, expired client certificate and plaintext rejected. Expiry confirmed by CertificateExpiredException. No TLS bypass used."
+    },
+    {
+      "id": "fixture_rbac",
+      "status": "PASS",
+      "details": "Scoped writer ingest succeeds, reader query succeeds; writer query, reader write/admin and out-of-scope write denied. Restored cluster reader allowed and writer read denied. Bulk permission added narrowly after observed initial denial."
+    },
+    {
+      "id": "fixture_collector_tls",
+      "status": "PASS",
+      "details": "Separate Fluent Bit delivered one synthetic record to native OpenSearch over CA/hostname-verified TLS with restricted writer credentials. Live Fluent Bit unchanged."
+    },
+    {
+      "id": "storage_headroom",
+      "status": "PASS",
+      "details": "Docker virtual filesystem and host C:/D: free space measured separately. Virtual free space is not physical backing capacity; VHD location/capacity guarantee unverified."
+    },
+    {
+      "id": "live_persistent_quotas",
+      "status": "BLOCKED",
+      "details": "All 11 original named volumes have null driver options; no enforced persistent volume quotas. Queue caps, retention, ingestion and memory limits do not bound total disk including WAL/offsets/compaction."
+    },
+    {
+      "id": "fixture_quota",
+      "status": "PASS",
+      "details": "1MiB tmpfs returns ENOSPC at 1048576 bytes; synthetic file truncation restores available capacity. Independent OpenSearch data volumes 96MiB each; snapshot tmpfs 64MiB. Memory-backed and non-durable only."
+    },
+    {
+      "id": "pressure_rule_fixtures",
+      "status": "PASS",
+      "details": "3 candidate rules; 3 native promtool scenarios with 10 firing/pending/recovery/missing-metric assertions pass. Rules are not loaded in live Prometheus."
+    },
+    {
+      "id": "live_pressure_alerts",
+      "status": "BLOCKED",
+      "details": "No active telemetry disk-pressure rules, node filesystem metric series or connected Alertmanager. End-to-end notification and metric collection not verified."
+    },
+    {
+      "id": "live_retention_configuration",
+      "status": "PASS",
+      "details": "OpenSearch enabled 30-day ISM assignments and Prometheus 2d/512MiB configuration inspected; prior Tempo 24h source evidence reused without repeating tracing. No live deletion test."
+    },
+    {
+      "id": "fixture_retention_transition",
+      "status": "PASS",
+      "details": "Native ISM history proves age transition to expired and policy completion. Policy contains no delete action. Poller missed transient state; raw result false superseded by native history, not rewritten. Attempted 10s sweep rejected (minimum 5m); no invalid change applied; transient reset succeeded."
+    },
+    {
+      "id": "fixture_native_recovery",
+      "status": "PASS",
+      "details": "Snapshot SUCCESS includes p07-fixture only, excludes global/security state. Restore to independent data volume: all 12 IDs and source hashes match. Native recovery and green primary health recorded."
+    },
+    {
+      "id": "fixture_migration_rollback",
+      "status": "PASS",
+      "details": "Compatible mapping addition preserves all 12 records. Snapshot rollback to fresh index restores original mapping/hash and keeps auth enforced. Same OpenSearch 3.9.0 only, not cross-version upgrade or live cutover."
+    },
+    {
+      "id": "persistent_migration_guarantees",
+      "status": "NOT_VERIFIED",
+      "details": "Tmpfs snapshot is ephemeral, unencrypted and same-host. No durable/off-host disaster recovery, legacy protected-data migration, live Dashboards/native-role integration, CA rotation/custody or real environment cutover acceptance demonstrated. P08 not started."
+    },
+    {
+      "id": "quarkus_preservation",
+      "status": "NOT_VERIFIED",
+      "details": "Earlier checkpoint matched both prior hashes; final check detected Swagger addition absent and properties clean at index. Cause unexplained. Operator explicitly requested recording drift for review; file left unchanged and original backup/patch retained. Dockerfile hash unchanged."
+    },
+    {
+      "id": "quarkus_branch_refs",
+      "status": "PASS",
+      "details": "Detached HEAD stays parent-pinned 815b637a; original develop ref unchanged. Safe future branch plan documented only; no ref/branch/commit operation executed."
+    },
+    {
+      "id": "original_runtime_preservation",
+      "status": "PASS",
+      "details": "All 20 original container IDs/start times/restart counts, normalized mounts/networks and 11 original volume options preserved. No application recreation, shared changes, DB/offset resets or original data/volume deletion. Only explicitly approved stopped fixture collector removed."
+    }
+  ],
+  "headroom": {
+    "dockerVirtualFilesystem": {
+      "total_in_bytes": 1081101176832,
+      "free_in_bytes": 1042579070976,
+      "available_in_bytes": 987586715648,
+      "cache_reserved_in_bytes": 0
+    },
+    "windowsDrives": [
+      {
+        "Name": "C",
+        "Used": 180452814848,
+        "Free": 6946922496
+      },
+      {
+        "Name": "D",
+        "Used": 139406364672,
+        "Free": 182717227008
+      }
+    ],
+    "backingVhdLocationVerified": false
+  },
+  "recovery": {
+    "syntheticOnly": true,
+    "engineVersion": "3.9.0",
+    "documentCount": 12,
+    "contentSha256": "af7ce2f96e051ba654539d9429258fec366bcb51de3018aa072a2bf136bca0ed",
+    "independentRestoreVolume": true,
+    "persistentDisasterRecovery": false,
+    "credentialsSnapshotIncluded": false
+  },
+  "safety": {
+    "originalContainersRecreated": false,
+    "originalContainersStopped": false,
+    "originalVolumesDeleted": false,
+    "originalCredentialsChanged": false,
+    "databasesReset": false,
+    "offsetsReset": false,
+    "sharedJwksChanged": false,
+    "springbootProjectChanged": false,
+    "branchesOrCommitsChanged": false,
+    "commitOrPush": false,
+    "p08Started": false,
+    "ownFixtureNodesStopped": true,
+    "ownFixtureVolumesRemoved": false,
+    "stoppedFixtureCollectorRemovalApproved": true
+  },
+  "operatorDecisions": [
+    {
+      "id": "ingress_repair",
+      "decision": "Supply/select an approved regular htpasswd file at a new valid path; preserve the existing directory and credentials; approve only logs-ui recreation after source validation.",
+      "command": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build logs-ui",
+      "executed": false
+    },
+    {
+      "id": "native_security",
+      "decision": "Approve actual CA/admin/read/ingest role ownership and protected secret custody, then review a dedicated persistent native-security candidate and Dashboards/collector trust configuration before any cutover. No in-place security enablement on protected volumes authorized."
+    },
+    {
+      "id": "storage_and_alerts",
+      "decision": "Choose enforceable persistent storage budgets/platform, confirm Docker backing-disk placement and physical reserve, and approve telemetry filesystem metric collection plus pressure-rule/notification destination deployment. Local tmpfs tests are not a persistent quota substitute."
+    },
+    {
+      "id": "migration_acceptance",
+      "decision": "Require persistent candidate pre/post IDs/counts and secure rollback with compatible readers before deployment acceptance. Current synthetic workflow passes but does not authorize real migration."
+    },
+    {
+      "id": "source_drift_review",
+      "decision": "Per operator instruction, record unexplained Swagger setting removal for review and leave current source unchanged. Saved original file/patch retained; no restoration or branch action authorized."
+    }
+  ],
+  "evidenceFiles": [
+    "acceptance.json",
+    "collector-cleanup-review.json",
+    "collector-native-tls.json",
+    "fixture-closeout.json",
+    "fixture-initial-attempt.json",
+    "fixture-manifest.json",
+    "fixture-role-initial-attempt.json",
+    "fixture-runtime.json",
+    "host-headroom.json",
+    "ingress-auth-defect.json",
+    "live-baseline.json",
+    "live-final-before-fixture-cleanup.json",
+    "live-final.json",
+    "manifest.json",
+    "pressure-initial-attempt.json",
+    "pressure-tests.json",
+    "quarkus-branch-state.json",
+    "quarkus-final-drift.json",
+    "retention-observation.json"
+  ],
+  "sourceDrift": {
+    "captured_utc": "2026-11-14T00:05:51.458Z",
+    "head": "815b637a799cab8009d154ee9c97cec0f1dce734",
+    "develop": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+    "status": "M Dockerfile",
+    "propertiesSha256": "a2797b77679f90c358dad81c858054e3ce178c2e662e02b56118c913c5501141",
+    "propertiesMtimeUtc": "2026-11-13T23:56:45.336Z",
+    "propertiesMatchesIndex": true,
+    "swaggerSettingPresent": false,
+    "earlierPropertiesHash": "cc3b5b8314bd0d113a16d14441d168ea6efca805d16f5adacd0d7e23fbfd84be",
+    "DockerfileHashUnchanged": true,
+    "branchAndHeadUnchanged": true,
+    "sourceMutationsByThisTask": false,
+    "operatorInstruction": "Record the drift for review; leave the current file unchanged",
+    "operatorInstructionApplied": "Current file left unchanged; saved original file/patch retained",
+    "restorationPerformed": false
+  }
+}

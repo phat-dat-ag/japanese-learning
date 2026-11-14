@@ -1,0 +1,300 @@
+{
+  "captured_utc": "2026-11-13T23:06:24.211Z",
+  "promtoolUnit": {
+    "code": 0,
+    "data": "  SUCCESS\n\n",
+    "error": ""
+  },
+  "vocabularyMatchedProbes": {
+    "path": "/api/v1/jlpt-levels",
+    "count": 80,
+    "sampling": 0.1,
+    "statuses": {
+      "401": 80
+    }
+  },
+  "traces": {
+    "code": 0,
+    "data": {
+      "traces": [
+        {
+          "traceID": "4456bd7449711422fb3c053e4efe037",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611031764905200"
+        },
+        {
+          "traceID": "18665467fff53d335be8c4d27a693705",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611029861488700",
+          "durationMs": 1
+        },
+        {
+          "traceID": "12c2fe0ec11de6d3977d5f28238864d8",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611027922634300"
+        },
+        {
+          "traceID": "b9a28085297d7a1060283858e0ff46c",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611027209543900",
+          "durationMs": 1
+        },
+        {
+          "traceID": "17a1b834981d5e79b841981dab57c385",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611026733360400",
+          "durationMs": 1
+        },
+        {
+          "traceID": "be4d5dbb735bdceb0484e7ab661c0ca",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611025292958800",
+          "durationMs": 3
+        },
+        {
+          "traceID": "7b8edaac3d07b540c18073f96d71f0f",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611021010288300"
+        },
+        {
+          "traceID": "6b6d1cd59c6f49312115b518dd9efab",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611019775967800"
+        },
+        {
+          "traceID": "f53655d42f9c29885cfead76a3a7fa8",
+          "rootServiceName": "user-api",
+          "rootTraceName": "HTTP server",
+          "startTimeUnixNano": "1794611015396811900",
+          "durationMs": 7
+        }
+      ],
+      "metrics": {
+        "inspectedTraces": 9,
+        "inspectedBytes": "60121",
+        "completedJobs": 3,
+        "totalJobs": 3
+      }
+    },
+    "error": ""
+  },
+  "fluentMetrics": {
+    "code": 0,
+    "data": {
+      "input": {
+        "tail.0": {
+          "records": 85,
+          "bytes": 44148,
+          "files_opened": 2,
+          "files_closed": 1,
+          "files_rotated": 1,
+          "multiline_truncated": 0,
+          "long_line_truncated": 0,
+          "long_line_skipped": 0
+        },
+        "tail.1": {
+          "records": 564,
+          "bytes": 941558,
+          "files_opened": 8,
+          "files_closed": 0,
+          "files_rotated": 0,
+          "multiline_truncated": 0,
+          "long_line_truncated": 0,
+          "long_line_skipped": 0
+        },
+        "tail.2": {
+          "records": 340,
+          "bytes": 443886,
+          "files_opened": 2,
+          "files_closed": 1,
+          "files_rotated": 0,
+          "multiline_truncated": 0,
+          "long_line_truncated": 0,
+          "long_line_skipped": 0
+        },
+        "storage_backlog.3": {
+          "records": 0,
+          "bytes": 0
+        }
+      },
+      "filter": {
+        "lua.0": {
+          "drop_records": 0,
+          "add_records": 0,
+          "records": 989,
+          "bytes": 1857410,
+          "drop_bytes": 0
+        }
+      },
+      "output": {
+        "opensearch.0": {
+          "proc_records": 988,
+          "proc_bytes": 1855251,
+          "errors": 0,
+          "retries": 27,
+          "retries_failed": 0,
+          "dropped_records": 0,
+          "retried_records": 110
+        }
+      }
+    },
+    "error": ""
+  },
+  "collectorMetrics": {
+    "code": 1,
+    "data": [],
+    "error": "wget: can't connect to remote host (172.19.0.6): Connection refused\n"
+  },
+  "vocabularyDiagnostics": {
+    "code": 0,
+    "matches": [
+      "{\"@timestamp\":\"2026-11-13T11:49:50.782Z\",\"sequence\":174,\"loggerClassName\":\"org.jboss.logmanager.Logger\",\"logger.name\":\"io.opentelemetry.usage\",\"level\":\"WARNING\",\"message\":\"OpenTelemetry API usage issue detected. To see more details, enable FINEST logging for io.opentelemetry.usage. Stacktraces are includes to identify the offending call site.\",\"thread.name\":\"main\",\"threadId\":1,\"hostName\":\"915ad83e78de\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"915ad83e78de\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"c700a0ce-03eb-4aaf-bc72-40d6ba9a15ed\",\"environment\":\"development\",\"event_name\":\"log.message\"}",
+      "{\"@timestamp\":\"2026-11-13T11:49:51.336Z\",\"sequence\":178,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"io.quarkus\",\"level\":\"INFO\",\"message\":\"Installed features: [cdi, hibernate-orm, hibernate-reactive, hibernate-reactive-panache, hibernate-validator, micrometer, oidc, opentelemetry, reactive-mysql-client, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-openapi, swagger-ui, vertx]\",\"thread.name\":\"main\",\"threadId\":1,\"hostName\":\"915ad83e78de\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"915ad83e78de\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"c700a0ce-03eb-4aaf-bc72-40d6ba9a15ed\",\"environment\":\"development\",\"event_name\":\"log.message\"}"
+    ]
+  },
+  "opensearchSecurity": {
+    "code": 0,
+    "data": "{\"error\":\"no handler found for uri [/_plugins/_security/authinfo] and method [GET]\"}\nHTTP_STATUS:400",
+    "error": ""
+  },
+  "volumeOwnership": {
+    "code": 0,
+    "data": [
+      {
+        "name": "jp_learning_dev_vocabulary_api_logs",
+        "labels": {
+          "com.docker.compose.config-hash": "fc4d2225007f4e255f3f4dbb3b5b8ca126334869b9bfbe73f8d8f14422709258",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "vocabulary_api_logs"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_grafana_data",
+        "labels": {
+          "com.docker.compose.config-hash": "d968b27361d5bede62702738afee8e9c8b373f829a6581483dc0e89da3da0b0d",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "grafana_data",
+          "jp.observability.owner": "japanese-learning",
+          "jp.observability.phase": "P05"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_jwks_api_logs",
+        "labels": {
+          "com.docker.compose.config-hash": "4b0760ada4f5788beee9bc0884dd9cdecae195a4f13e187000685aaddec27f78",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "jwks_api_logs"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_prometheus_data",
+        "labels": {
+          "com.docker.compose.config-hash": "04b442cb413a18e3148607282cd869b977ba9ef1aa7c07921825eed6b6b3c06b",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "prometheus_data",
+          "jp.observability.owner": "japanese-learning",
+          "jp.observability.phase": "P05"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_user_api_logs",
+        "labels": {
+          "com.docker.compose.config-hash": "ecf36ba5233e1d0569f80ca6178787530d89b0575547d0c2332b8a1583262d6d",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "user_api_logs"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_tempo_data",
+        "labels": {
+          "com.docker.compose.config-hash": "c98f42b2f979373ec313d4abf3bb2cdb2a5df7979edd79fc95ca56440eb5a1eb",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "tempo_data",
+          "jp.observability.owner": "japanese-learning",
+          "jp.observability.phase": "P06"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_fluent_bit_state",
+        "labels": {
+          "com.docker.compose.config-hash": "45bd8f1bf3af1e2a8e3c5d8c678b7055d644798d8dd407a4b966f5156c77eb95",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "fluent_bit_state"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_dashboards_data",
+        "labels": {
+          "com.docker.compose.config-hash": "baf9dbbd771205b04334a165b4722a59fae518707eae50aa1a0c2ae155988da5",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "dashboards_data"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_opensearch_data",
+        "labels": {
+          "com.docker.compose.config-hash": "09176b45ca724e6f59c2c44db7b9bdcf80b175197972f84216ecd109a92cf651",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "opensearch_data"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_mysql_data",
+        "labels": {
+          "com.docker.compose.config-hash": "bedc6a017795dac640a2d43aa80dd32f8f38d1079eebb97fa620ce606e3ddc4b",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "mysql_data"
+        },
+        "options": null
+      },
+      {
+        "name": "jp_learning_dev_sqlserver_data",
+        "labels": {
+          "com.docker.compose.config-hash": "5d1fb48be9dc2ffaf74135c94a333e1634429acae086314e44a831e093284d6d",
+          "com.docker.compose.project": "jp_learning_dev",
+          "com.docker.compose.version": "5.5.0",
+          "com.docker.compose.volume": "sqlserver_data"
+        },
+        "options": null
+      }
+    ],
+    "error": ""
+  },
+  "runtimeClock": {
+    "code": 0,
+    "data": "2026-11-13T23:06:58Z\n",
+    "error": ""
+  },
+  "submodule": {
+    "expected": "815b637a799cab8009d154ee9c97cec0f1dce734",
+    "actual": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+    "localEdit": "src/main/resources/application.properties: Swagger always-include; preserved"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "captured_utc": "2026-11-13T23:19:37.148Z",
+  "head": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+  "pinned": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "branch": "develop",
+  "status": " M src/main/resources/application.properties\n",
+  "staged": "",
+  "diff": "diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties\nindex 9385e27..2384af2 100644\n--- a/src/main/resources/application.properties\n+++ b/src/main/resources/application.properties\n@@ -1,5 +1,7 @@\n quarkus.application.name=${APP_SERVICE_NAME:quarkus-service}\n \n+quarkus.swagger-ui.always-include=true\n+\n # Database\n quarkus.datasource.db-kind=mysql\n quarkus.datasource.username=${DB_USERNAME}\n",
+  "originalHash": "c7e0e2f5ea58016b355a5afd647ef59f808c25973ff25b60012a3804781a9fa0",
+  "ignoredCollisionPaths": [],
+  "threeWayMergeExit": 0,
+  "expectedMergedHash": "0732cc605fc406d4ccbe1e982fcb1e134dd329d84e441c52b37a8ced7703ec94"
+}

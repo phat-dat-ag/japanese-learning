@@ -1,0 +1,13 @@
+{
+  "head": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "branch": "",
+  "originalDevelopRef": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+  "status": " M src/main/resources/application.properties\n",
+  "unmerged": "",
+  "diff": "diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties\nindex 508bb9d..680d6d3 100644\n--- a/src/main/resources/application.properties\n+++ b/src/main/resources/application.properties\n@@ -1,5 +1,7 @@\n quarkus.application.name=${APP_SERVICE_NAME:quarkus-service}\n \n+quarkus.swagger-ui.always-include=true\n+\n # Database\n quarkus.datasource.db-kind=mysql\n quarkus.datasource.username=${DB_USERNAME}\n",
+  "localPatchIdentical": false,
+  "mergedContentMatches": true,
+  "localHunksIdentical": true,
+  "preservationPassed": true,
+  "patchComparisonNote": "Raw patch index hashes differ because base revision changed; identical edit hunks and exact normalized merged file verified."
+}

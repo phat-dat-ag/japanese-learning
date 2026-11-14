@@ -1,0 +1,1281 @@
+{
+  "captured_utc": "2026-11-14T02:19:17.893Z",
+  "checks": {
+    "user_ready": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "vocabulary_ready": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "gateway_ready": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "frontend_ready": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "grafana_ready": {
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    "grafana_datasource_prometheus": {
+      "pass": true,
+      "details": {
+        "status": 200,
+        "health": "OK"
+      }
+    },
+    "grafana_datasource_tempo": {
+      "pass": true,
+      "details": {
+        "status": 200,
+        "health": "OK"
+      }
+    },
+    "grafana_anonymous_denied": {
+      "pass": true
+    },
+    "logs_ui_auth": {
+      "pass": true,
+      "details": {
+        "valid": 302,
+        "missing": 401,
+        "invalid": 401,
+        "nativeLoginStillRequired": true
+      }
+    },
+    "tracing_user-api": {
+      "pass": true,
+      "details": {
+        "traceId": "0000000000000001b1f6cb8a1373480e",
+        "privateSentinelAbsent": true
+      }
+    },
+    "tracing_vocabulary-api": {
+      "pass": true,
+      "details": {
+        "traceId": "0000000000000001f0060d588a707199",
+        "privateSentinelAbsent": true
+      }
+    },
+    "log_ingestion": {
+      "pass": true,
+      "details": {
+        "sampleCount": 100,
+        "correlated": 72,
+        "services": [
+          "vocabulary-api",
+          "user-api"
+        ]
+      }
+    },
+    "sampled_log_privacy": {
+      "pass": true,
+      "details": {
+        "scope": "new correlated API probes; not exhaustive history",
+        "sampleCount": 72
+      }
+    },
+    "fluent_health": {
+      "pass": true
+    },
+    "prometheus_targets": {
+      "pass": true,
+      "details": [
+        {
+          "job": "p07-storage",
+          "health": "up"
+        },
+        {
+          "job": "prometheus",
+          "health": "up"
+        },
+        {
+          "job": "user-api",
+          "health": "up"
+        },
+        {
+          "job": "vocabulary-api",
+          "health": "up"
+        }
+      ]
+    },
+    "prometheus_rules": {
+      "pass": true,
+      "details": {
+        "groups": 8,
+        "count": 54
+      }
+    },
+    "notification_test_started": {
+      "pass": true
+    },
+    "prometheus_notification_delivery": {
+      "pass": true,
+      "details": {
+        "test_until": 1794622870.6743279,
+        "notifications": 17,
+        "test_notifications": 1,
+        "last_received": 1794622800.8782482
+      }
+    },
+    "initializers": {
+      "pass": true
+    }
+  },
+  "probes": [
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001b1f6cb8a1373480e",
+      "correlation": "p07-4495994e-bc41-4281-b407-86d4f2b5d46e",
+      "status": 404,
+      "responseTraceId": "0000000000000001b1f6cb8a1373480e"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001bf52350b8ecdbc4c",
+      "correlation": "p07-23434e45-0e06-4bcd-8f79-f4823de787f5",
+      "status": 404,
+      "responseTraceId": "0000000000000001bf52350b8ecdbc4c"
+    },
+    {
+      "service": "user-api",
+      "traceId": "000000000000000199a2487403b11fbb",
+      "correlation": "p07-a0fd553c-65e7-4b77-91ed-6b80d838541a",
+      "status": 404,
+      "responseTraceId": "000000000000000199a2487403b11fbb"
+    },
+    {
+      "service": "user-api",
+      "traceId": "000000000000000153138bd2bed5fc43",
+      "correlation": "p07-64cc9fd6-e30f-43d4-8171-9c4c34bdb78a",
+      "status": 404,
+      "responseTraceId": "000000000000000153138bd2bed5fc43"
+    },
+    {
+      "service": "user-api",
+      "traceId": "000000000000000122e7b76e4443c183",
+      "correlation": "p07-2038cc6c-9077-45b1-ad88-7c5eaf270caf",
+      "status": 404,
+      "responseTraceId": "000000000000000122e7b76e4443c183"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000018cbfe0b7cc88fe57",
+      "correlation": "p07-f32dd3de-123d-4a97-9421-bdfcf00ea589",
+      "status": 404,
+      "responseTraceId": "00000000000000018cbfe0b7cc88fe57"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001e626c22c4b2237bf",
+      "correlation": "p07-7df9d2b3-6ce1-404c-b2ae-c3cc5dc2973e",
+      "status": 404,
+      "responseTraceId": "0000000000000001e626c22c4b2237bf"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001518fb800482a97e4",
+      "correlation": "p07-f044ee43-08e7-473b-bc4f-c4ca490f3f90",
+      "status": 404,
+      "responseTraceId": "0000000000000001518fb800482a97e4"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000011070375703efa65f",
+      "correlation": "p07-0aaabe94-5df7-4369-bdb2-d79af7bff60f",
+      "status": 404,
+      "responseTraceId": "00000000000000011070375703efa65f"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001126144d234219b9d",
+      "correlation": "p07-7fe497b2-de8f-451d-9810-1146f364d7fb",
+      "status": 404,
+      "responseTraceId": "0000000000000001126144d234219b9d"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000014d2bda9b5ff9793c",
+      "correlation": "p07-5ffe1716-4ab5-4c8d-a62b-74ff342ca291",
+      "status": 404,
+      "responseTraceId": "00000000000000014d2bda9b5ff9793c"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001208c8d7a4641965b",
+      "correlation": "p07-f182da91-31ab-43af-a695-4d7caf529ed3",
+      "status": 404,
+      "responseTraceId": "0000000000000001208c8d7a4641965b"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000018e4fee2d71b1fab0",
+      "correlation": "p07-a94716f4-11bd-42bc-ac72-ba9a036f7646",
+      "status": 404,
+      "responseTraceId": "00000000000000018e4fee2d71b1fab0"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000018123afa473997a13",
+      "correlation": "p07-5152e86e-6108-4b9d-bbc8-2103d1e0057f",
+      "status": 404,
+      "responseTraceId": "00000000000000018123afa473997a13"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000012f90a555d9d62c8e",
+      "correlation": "p07-4a3514c2-ee8f-4dbc-8bdf-058d22b724b1",
+      "status": 404,
+      "responseTraceId": "00000000000000012f90a555d9d62c8e"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001bcde6bcf04b0a3b8",
+      "correlation": "p07-61d494b8-7b89-4755-a081-512e3ce9ea2d",
+      "status": 404,
+      "responseTraceId": "0000000000000001bcde6bcf04b0a3b8"
+    },
+    {
+      "service": "user-api",
+      "traceId": "000000000000000179cd71b0234ed4f7",
+      "correlation": "p07-9e24b62e-abf7-4540-80f5-a847bec4fe35",
+      "status": 404,
+      "responseTraceId": "000000000000000179cd71b0234ed4f7"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000018cc738cb5fc5fe22",
+      "correlation": "p07-b487f651-28bf-4271-a86c-68f545c00393",
+      "status": 404,
+      "responseTraceId": "00000000000000018cc738cb5fc5fe22"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000011202df4e32efbb34",
+      "correlation": "p07-f4ff8d82-1687-4bd4-99a2-12cc4bbb31d3",
+      "status": 404,
+      "responseTraceId": "00000000000000011202df4e32efbb34"
+    },
+    {
+      "service": "user-api",
+      "traceId": "00000000000000010497a064fa00c338",
+      "correlation": "p07-570a3362-58de-419d-b7ff-2b37a9c8fa09",
+      "status": 404,
+      "responseTraceId": "00000000000000010497a064fa00c338"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001677d1f1170b03d41",
+      "correlation": "p07-734ce5ae-b3f2-4771-9d1f-9da24156d3f8",
+      "status": 404,
+      "responseTraceId": "0000000000000001677d1f1170b03d41"
+    },
+    {
+      "service": "user-api",
+      "traceId": "000000000000000136d5ac1798e5a1dc",
+      "correlation": "p07-608f2dc8-4344-438d-a239-a9b359d3b37f",
+      "status": 404,
+      "responseTraceId": "000000000000000136d5ac1798e5a1dc"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001344b42550ea35726",
+      "correlation": "p07-8a8c9620-4470-48f0-a7c9-03167d91916b",
+      "status": 404,
+      "responseTraceId": "0000000000000001344b42550ea35726"
+    },
+    {
+      "service": "user-api",
+      "traceId": "0000000000000001f250e491476ec9de",
+      "correlation": "p07-ecc7b754-ef31-45be-9726-52de6885d604",
+      "status": 404,
+      "responseTraceId": "0000000000000001f250e491476ec9de"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001f0060d588a707199",
+      "correlation": "p07-f770fbea-f4ca-4034-be4f-520823cb4a02",
+      "status": 401,
+      "responseTraceId": "0000000000000001f0060d588a707199"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "00000000000000014cf9f5f31b50e45e",
+      "correlation": "p07-53d58a1f-fa53-4775-8302-71d543b7d444",
+      "status": 401,
+      "responseTraceId": "00000000000000014cf9f5f31b50e45e"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "000000000000000185c73252a7518ea1",
+      "correlation": "p07-79db8dff-1cb3-402b-9243-acae99e2139d",
+      "status": 401,
+      "responseTraceId": "000000000000000185c73252a7518ea1"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001ff121b3e9ac3d10e",
+      "correlation": "p07-f594fedf-0b2b-4c2f-9692-16d5d95264a8",
+      "status": 401,
+      "responseTraceId": "0000000000000001ff121b3e9ac3d10e"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "000000000000000113419983300dabd7",
+      "correlation": "p07-5799cdae-8e4e-43e7-9772-63a2bbb7ba7b",
+      "status": 401,
+      "responseTraceId": "000000000000000113419983300dabd7"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "000000000000000189718815bf925f97",
+      "correlation": "p07-be7ca17d-086d-461a-9f1d-f1671e7cae8d",
+      "status": 401,
+      "responseTraceId": "000000000000000189718815bf925f97"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001ec030a29b0920ecd",
+      "correlation": "p07-20815653-62e3-40e3-b6ca-fef349903c86",
+      "status": 401,
+      "responseTraceId": "0000000000000001ec030a29b0920ecd"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "000000000000000176c8693fe4d37645",
+      "correlation": "p07-f0fc5c4c-14af-46fd-849d-8b3712ac0a80",
+      "status": 401,
+      "responseTraceId": "000000000000000176c8693fe4d37645"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001e8e4bc9647b2dfe1",
+      "correlation": "p07-5a4a34fb-65ff-4300-9ed4-deef42323e69",
+      "status": 401,
+      "responseTraceId": "0000000000000001e8e4bc9647b2dfe1"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001d5192755d6f633f8",
+      "correlation": "p07-97fe4d4f-ea24-4e7b-8d60-65ce033e26b6",
+      "status": 401,
+      "responseTraceId": "0000000000000001d5192755d6f633f8"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001a93addff6431992f",
+      "correlation": "p07-4374d31f-4971-4ae7-8f35-8b19e8e0858a",
+      "status": 401,
+      "responseTraceId": "0000000000000001a93addff6431992f"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "00000000000000015bd0082eb1ceaf4d",
+      "correlation": "p07-296f0d1b-c204-451a-a894-0fbdb78f433f",
+      "status": 401,
+      "responseTraceId": "00000000000000015bd0082eb1ceaf4d"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001af9c41ea3ad6c476",
+      "correlation": "p07-d9c789dc-9de8-4466-a0e4-9e8e995c6ef7",
+      "status": 401,
+      "responseTraceId": "0000000000000001af9c41ea3ad6c476"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "00000000000000017a075d344b7b3f10",
+      "correlation": "p07-0e2dc14d-1839-4fc4-bba0-8c98badfbf8f",
+      "status": 401,
+      "responseTraceId": "00000000000000017a075d344b7b3f10"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001bef9d3eb5eb264a6",
+      "correlation": "p07-c1f5ce3e-086a-48f0-943b-22c5d6970e3a",
+      "status": 401,
+      "responseTraceId": "0000000000000001bef9d3eb5eb264a6"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001c96e0eb41af5db1c",
+      "correlation": "p07-14f0f6ef-5bb0-461c-b769-6c417d941855",
+      "status": 401,
+      "responseTraceId": "0000000000000001c96e0eb41af5db1c"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "00000000000000012fc6d05e5146f06f",
+      "correlation": "p07-1dc8efec-44f8-4b07-8871-cbebb16099bc",
+      "status": 401,
+      "responseTraceId": "00000000000000012fc6d05e5146f06f"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001a528544005a2bf2a",
+      "correlation": "p07-c5093d8d-dd68-43a1-b676-5a0e742e1b7c",
+      "status": 401,
+      "responseTraceId": "0000000000000001a528544005a2bf2a"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "00000000000000015bc2eb589b377fe5",
+      "correlation": "p07-385e5adf-718d-43f1-aa3f-be03e2cc801d",
+      "status": 401,
+      "responseTraceId": "00000000000000015bc2eb589b377fe5"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001ff8c6352771efec0",
+      "correlation": "p07-c4a3e702-0ebf-40f6-b068-ea1bde50a67d",
+      "status": 401,
+      "responseTraceId": "0000000000000001ff8c6352771efec0"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001ed94066f62d83654",
+      "correlation": "p07-aff9c01a-ffe6-4079-99ca-72cbf31232c0",
+      "status": 401,
+      "responseTraceId": "0000000000000001ed94066f62d83654"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "00000000000000016887b93bd364912f",
+      "correlation": "p07-f5439e00-db75-4e63-91b6-e16002b53313",
+      "status": 401,
+      "responseTraceId": "00000000000000016887b93bd364912f"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001410aaae0e0d0e4e5",
+      "correlation": "p07-3a011fac-023d-49c4-8df4-6e795758e67b",
+      "status": 401,
+      "responseTraceId": "0000000000000001410aaae0e0d0e4e5"
+    },
+    {
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001d551bf52dfe3110d",
+      "correlation": "p07-1cfbc018-5005-4185-a34f-6022e17c741b",
+      "status": 401,
+      "responseTraceId": "0000000000000001d551bf52dfe3110d"
+    }
+  ],
+  "fluentMetrics": {
+    "input": {
+      "tail.0": {
+        "records": 0,
+        "bytes": 0,
+        "files_opened": 1,
+        "files_closed": 0,
+        "files_rotated": 0,
+        "multiline_truncated": 0,
+        "long_line_truncated": 0,
+        "long_line_skipped": 0
+      },
+      "tail.1": {
+        "records": 55,
+        "bytes": 97617,
+        "files_opened": 1,
+        "files_closed": 0,
+        "files_rotated": 0,
+        "multiline_truncated": 0,
+        "long_line_truncated": 0,
+        "long_line_skipped": 0
+      },
+      "tail.2": {
+        "records": 48,
+        "bytes": 67946,
+        "files_opened": 1,
+        "files_closed": 0,
+        "files_rotated": 0,
+        "multiline_truncated": 0,
+        "long_line_truncated": 0,
+        "long_line_skipped": 0
+      }
+    },
+    "filter": {
+      "lua.0": {
+        "drop_records": 0,
+        "add_records": 0,
+        "records": 103,
+        "bytes": 66846,
+        "drop_bytes": 0
+      }
+    },
+    "output": {
+      "opensearch.0": {
+        "proc_records": 103,
+        "proc_bytes": 66846,
+        "errors": 0,
+        "retries": 0,
+        "retries_failed": 0,
+        "dropped_records": 0,
+        "retried_records": 0
+      }
+    }
+  },
+  "fluentStorage": {
+    "storage_layer": {
+      "chunks": {
+        "total_chunks": 0,
+        "mem_chunks": 0,
+        "fs_chunks": 0,
+        "fs_chunks_up": 0,
+        "fs_chunks_down": 0
+      }
+    },
+    "input_chunks": {
+      "tail.0": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b",
+          "mem_limit": "7.6M"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      },
+      "tail.1": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b",
+          "mem_limit": "7.6M"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      },
+      "tail.2": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b",
+          "mem_limit": "7.6M"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      }
+    }
+  },
+  "sqliteOffsets": {
+    "user": [
+      [
+        "/logs/user/user-api-20261114.json",
+        233631,
+        284517
+      ]
+    ],
+    "vocabulary": [
+      [
+        "/logs/vocabulary/application.json.log",
+        81298,
+        355541
+      ]
+    ],
+    "jwks": [
+      [
+        "/logs/jwks/spool/jwks-api.2026-11-14.0.log",
+        10571,
+        133515
+      ]
+    ]
+  },
+  "retention": {
+    "ism": {
+      "_id": "application-logs-retention",
+      "_version": 2,
+      "_seq_no": 2,
+      "_primary_term": 1,
+      "policy": {
+        "policy_id": "application-logs-retention",
+        "description": "Application log retention, measured from daily index creation",
+        "last_updated_time": 1794622643289,
+        "schema_version": 31,
+        "error_notification": null,
+        "default_state": "retain",
+        "states": [
+          {
+            "name": "retain",
+            "actions": [],
+            "transitions": [
+              {
+                "state_name": "delete",
+                "conditions": {
+                  "min_index_age": "30d"
+                }
+              }
+            ]
+          },
+          {
+            "name": "delete",
+            "actions": [
+              {
+                "retry": {
+                  "count": 3,
+                  "backoff": "exponential",
+                  "delay": "1m"
+                },
+                "delete": {}
+              }
+            ],
+            "transitions": []
+          }
+        ],
+        "ism_template": [
+          {
+            "index_patterns": [
+              "application-logs-*"
+            ],
+            "priority": 100,
+            "last_updated_time": 1794622643289
+          }
+        ]
+      }
+    },
+    "attached": {
+      "application-logs-vocabulary-api-2026.11.14": {
+        "index.plugins.index_state_management.policy_id": "application-logs-retention",
+        "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+        "index": "application-logs-vocabulary-api-2026.11.14",
+        "index_uuid": "mAQMtf0kSR64W6z79zjrUg",
+        "policy_id": "application-logs-retention",
+        "enabled": true
+      },
+      "application-logs-p07-security": {
+        "index.plugins.index_state_management.policy_id": null,
+        "index.opendistro.index_state_management.policy_id": null,
+        "enabled": null
+      },
+      "application-logs-user-api-2026.11.14": {
+        "index.plugins.index_state_management.policy_id": "application-logs-retention",
+        "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+        "index": "application-logs-user-api-2026.11.14",
+        "index_uuid": "GBuCy6gWS-uOE3EGI2eUPA",
+        "policy_id": "application-logs-retention",
+        "enabled": true
+      },
+      "total_managed_indices": 2
+    },
+    "clusterSettings": {
+      "persistent": {
+        "search": {
+          "max_buckets": "10000"
+        }
+      },
+      "transient": {}
+    }
+  },
+  "containers": [
+    {
+      "service": "opensearch-dashboards",
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:d0458aba3b5a034808369b7feb73cf1b3438b96e01d5b975ac712d530d196f68",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_dashboards_data",
+          "destination": "/usr/share/opensearch-dashboards/data",
+          "rw": true
+        },
+        {
+          "destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "logs-ui",
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "rw": false
+        },
+        {
+          "destination": "/etc/nginx/logs.htpasswd",
+          "rw": false
+        },
+        {
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "logging-ui-init",
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "state": "exited",
+      "exit": 0,
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "destination": "/config",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/admin.key",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "fluent-bit",
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "state": "running",
+      "exit": 0,
+      "image": "sha256:a414d16af32cb5d7fc797bc688b0108e0dbdf37633cf485dc8300395847a22f6",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_fluent_bit_state",
+          "destination": "/state",
+          "rw": true
+        },
+        {
+          "name": "jp_learning_dev_jwks_api_logs",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_user_api_logs",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "logging-init",
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "state": "exited",
+      "exit": 0,
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "destination": "/config",
+          "rw": false
+        },
+        {
+          "destination": "/p07",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/admin.key",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "destination": "/run/p07/ca.pem",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "opensearch",
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_opensearch_data",
+          "destination": "/usr/share/opensearch/data",
+          "rw": true
+        },
+        {
+          "destination": "/usr/share/opensearch/config/opensearch.yml",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch/config/p07/admin.key",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch/config/p07/node.key",
+          "rw": false
+        },
+        {
+          "destination": "/usr/share/opensearch/config/p07/node.pem",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "storage-monitor",
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "2",
+          "max-size": "1m"
+        }
+      },
+      "mounts": [
+        {
+          "destination": "/host-docker-data",
+          "rw": false
+        },
+        {
+          "destination": "/config/storage-monitor.py",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_fluent_bit_state",
+          "destination": "/stores/fluent-bit",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_grafana_data",
+          "destination": "/stores/grafana",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_opensearch_data",
+          "destination": "/stores/opensearch",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_prometheus_data",
+          "destination": "/stores/prometheus",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_tempo_data",
+          "destination": "/stores/tempo",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "grafana",
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        },
+        {
+          "name": "jp_learning_dev_grafana_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "service": "frontend",
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:fe3d2786bf4eebf1f2b3e6545fef52b38112d3c55354dbc95128fa2de03fbed6",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mounts": []
+    },
+    {
+      "service": "gateway",
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "vocabulary-api",
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:bfb79dc85bc1e1977496c82a94936e77c65e095ecc9d59e4a30db901f3ee9687",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "service": "user-api",
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:627d12a7a76db96278ac918e0bfa5b339a279f170bc5c1abd3804d240c84519b",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_user_api_logs",
+          "destination": "/app/logs",
+          "rw": true
+        },
+        {
+          "destination": "/run/keys/jwt",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "flyway-user",
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "state": "exited",
+      "exit": 0,
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "logDriver": {
+        "Type": "local",
+        "Config": {}
+      },
+      "mounts": [
+        {
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "flyway-vocabulary",
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "state": "exited",
+      "exit": 0,
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "logDriver": {
+        "Type": "local",
+        "Config": {}
+      },
+      "mounts": [
+        {
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "mysql",
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "logDriver": {
+        "Type": "local",
+        "Config": {}
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_mysql_data",
+          "destination": "/var/lib/mysql",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "service": "sqlserver-init",
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "state": "exited",
+      "exit": 0,
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "logDriver": {
+        "Type": "local",
+        "Config": {}
+      },
+      "mounts": []
+    },
+    {
+      "service": "jwks-api",
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:c189edf950aacd300b3b0f0dda36d077013fe91fefca874af2e6a7bfbdd1c717",
+      "logDriver": {
+        "Type": "local",
+        "Config": {}
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_jwks_api_logs",
+          "destination": "/app/data/logs",
+          "rw": true
+        },
+        {
+          "destination": "/run/keys/jwks/user-publickey-1.pem",
+          "rw": false
+        },
+        {
+          "destination": "/run/keys/jwks/user-publickey-2.pem",
+          "rw": false
+        },
+        {
+          "destination": "/run/keys/jwks/user-publickey-3.pem",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "prometheus",
+      "id": "52e7c716ac1482b7290b6ac7486b7dd69f30b9d52abe030356f4efb88fb9305a",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_prometheus_data",
+          "destination": "/prometheus",
+          "rw": true
+        },
+        {
+          "destination": "/etc/prometheus",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "otel-collector",
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "state": "running",
+      "exit": 0,
+      "image": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "2",
+          "max-size": "5m"
+        }
+      },
+      "mounts": [
+        {
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "tempo",
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "state": "running",
+      "exit": 0,
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "logDriver": {
+        "Type": "local",
+        "Config": {
+          "max-file": "2",
+          "max-size": "5m"
+        }
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_tempo_data",
+          "destination": "/var/tempo",
+          "rw": true
+        },
+        {
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "service": "sqlserver",
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "logDriver": {
+        "Type": "local",
+        "Config": {}
+      },
+      "mounts": [
+        {
+          "name": "jp_learning_dev_sqlserver_data",
+          "destination": "/var/opt/mssql",
+          "rw": true
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "running": 16,
+    "healthy": 13
+  },
+  "finished_utc": "2026-11-14T02:20:08.126Z"
+}

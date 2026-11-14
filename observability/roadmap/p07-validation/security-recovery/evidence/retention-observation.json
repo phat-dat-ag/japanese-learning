@@ -1,0 +1,1548 @@
+{
+  "created_utc": "2026-11-13T23:54:36.489Z",
+  "scope": "Fixture-only scheduler acceleration; transition has no delete action",
+  "before": {
+    "code": 0,
+    "status": 200,
+    "data": {
+      "persistent": {},
+      "transient": {}
+    },
+    "error": ""
+  },
+  "observations": [
+    {
+      "captured_utc": "2026-11-13T23:54:36.884Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:54:42.002Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:54:47.124Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:54:52.238Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:54:57.359Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:02.488Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:07.627Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:12.766Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:17.886Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:23.000Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:28.112Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:33.252Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:38.395Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:43.534Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:48.658Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:53.816Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:55:59.002Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:04.298Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:09.538Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:14.689Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:19.820Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:24.948Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:30.070Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:35.248Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:40.446Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:45.636Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:50.802Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:56:55.922Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:57:01.043Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    {
+      "captured_utc": "2026-11-13T23:57:06.170Z",
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "policy_seq_no": 0,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794613697175,
+          "policy_completed": true,
+          "enabled": false,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    }
+  ],
+  "configure": {
+    "code": 0,
+    "status": 400,
+    "data": {
+      "error": {
+        "root_cause": [
+          {
+            "type": "illegal_argument_exception",
+            "reason": "failed to parse value [10s] for setting [plugins.index_state_management.coordinator.sweep_period], must be >= [5m]"
+          }
+        ],
+        "type": "illegal_argument_exception",
+        "reason": "failed to parse value [10s] for setting [plugins.index_state_management.coordinator.sweep_period], must be >= [5m]"
+      },
+      "status": 400
+    },
+    "error": ""
+  },
+  "restore": {
+    "code": 0,
+    "status": 200,
+    "data": {
+      "acknowledged": true,
+      "persistent": {},
+      "transient": {}
+    },
+    "error": ""
+  },
+  "collectorRecord": {
+    "code": 0,
+    "status": 200,
+    "data": {
+      "took": 2,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 1,
+          "relation": "eq"
+        },
+        "max_score": 1,
+        "hits": [
+          {
+            "_index": "p07-fixture-collector",
+            "_id": "199AB758-1AAF-55D1-7CEA-56966C281089",
+            "_score": 1,
+            "_source": {
+              "@timestamp": "2026-11-13T23:52:09.274Z",
+              "event": "p07-synthetic-collector",
+              "sequence": 1
+            }
+          }
+        ]
+      }
+    },
+    "error": ""
+  },
+  "finished_utc": "2026-11-13T23:57:11.416Z"
+}

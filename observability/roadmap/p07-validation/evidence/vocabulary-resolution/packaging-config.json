@@ -1,0 +1,7 @@
+{
+  "buildArgs": {
+    "APP_OTEL_EXPORT_ENABLED": "true"
+  },
+  "runtimeExport": "true",
+  "onlyBuildArgsChanged": true
+}

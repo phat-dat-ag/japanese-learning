@@ -1,0 +1,118 @@
+{
+  "rule_files": [
+    "/fixture/storage.rules.json"
+  ],
+  "evaluation_interval": "1m",
+  "tests": [
+    {
+      "interval": "1m",
+      "input_series": [
+        {
+          "series": "p07_telemetry_storage_capacity_bytes{store=\"opensearch\"}",
+          "values": "100x10"
+        },
+        {
+          "series": "p07_telemetry_storage_available_bytes{store=\"opensearch\"}",
+          "values": "50 10x5 50x4"
+        }
+      ],
+      "alert_rule_test": [
+        {
+          "eval_time": "1m",
+          "alertname": "P07TelemetryStorageWarning",
+          "exp_alerts": []
+        },
+        {
+          "eval_time": "3m",
+          "alertname": "P07TelemetryStorageWarning",
+          "exp_alerts": [
+            {
+              "exp_labels": {
+                "severity": "warning",
+                "phase": "P07",
+                "store": "opensearch"
+              }
+            }
+          ]
+        },
+        {
+          "eval_time": "7m",
+          "alertname": "P07TelemetryStorageWarning",
+          "exp_alerts": []
+        },
+        {
+          "eval_time": "3m",
+          "alertname": "P07TelemetryStorageCritical",
+          "exp_alerts": []
+        }
+      ]
+    },
+    {
+      "interval": "1m",
+      "input_series": [
+        {
+          "series": "p07_telemetry_storage_capacity_bytes{store=\"opensearch\"}",
+          "values": "100x10"
+        },
+        {
+          "series": "p07_telemetry_storage_available_bytes{store=\"opensearch\"}",
+          "values": "50 1x3 50x5"
+        }
+      ],
+      "alert_rule_test": [
+        {
+          "eval_time": "1m",
+          "alertname": "P07TelemetryStorageCritical",
+          "exp_alerts": []
+        },
+        {
+          "eval_time": "2m",
+          "alertname": "P07TelemetryStorageCritical",
+          "exp_alerts": [
+            {
+              "exp_labels": {
+                "severity": "critical",
+                "phase": "P07",
+                "store": "opensearch"
+              }
+            }
+          ]
+        },
+        {
+          "eval_time": "5m",
+          "alertname": "P07TelemetryStorageCritical",
+          "exp_alerts": []
+        },
+        {
+          "eval_time": "3m",
+          "alertname": "P07TelemetryStorageWarning",
+          "exp_alerts": []
+        }
+      ]
+    },
+    {
+      "interval": "1m",
+      "input_series": [],
+      "alert_rule_test": [
+        {
+          "eval_time": "1m",
+          "alertname": "P07TelemetryStorageMetricsMissing",
+          "exp_alerts": []
+        },
+        {
+          "eval_time": "3m",
+          "alertname": "P07TelemetryStorageMetricsMissing",
+          "exp_alerts": [
+            {
+              "exp_labels": {
+                "severity": "warning",
+                "phase": "P07",
+                "store": "opensearch"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

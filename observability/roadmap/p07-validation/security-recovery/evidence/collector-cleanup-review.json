@@ -1,0 +1,28 @@
+{
+  "id": "52f3e77e5fe2933a151044be11e11aa3da29cd78f7fa8409370296f266370844",
+  "name": "/p07_accept_44b07b-collector",
+  "state": "exited",
+  "fixtureLabel": "true",
+  "inheritedProject": "jp_learning_dev",
+  "mounts": [
+    {
+      "type": "bind",
+      "source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery/.private/fluent-bit.fixture.conf",
+      "destination": "/fluent-bit/etc/fluent-bit.conf",
+      "rw": false
+    },
+    {
+      "type": "bind",
+      "source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery/.private/ca.pem",
+      "destination": "/certs/ca.pem",
+      "rw": false
+    }
+  ],
+  "originalContainer": false,
+  "hasVolumes": false,
+  "proposedCommand": "docker rm 52f3e77e5fe2933a151044be11e11aa3da29cd78f7fa8409370296f266370844",
+  "removalApprovedAndExecuted": true,
+  "removalExitCode": 0,
+  "volumesRemoved": false,
+  "originalContainersRemoved": false
+}

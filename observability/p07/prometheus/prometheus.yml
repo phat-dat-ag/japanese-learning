@@ -9,7 +9,8 @@
     }
   },
   "rule_files": [
-    "rules/p05.rules.yml"
+    "rules/p05.rules.yml",
+    "rules/storage.rules.yml"
   ],
   "scrape_configs": [
     {
@@ -536,11 +537,41 @@
           "regex": ".+"
         }
       ]
+    },
+    {
+      "job_name": "p07-storage",
+      "static_configs": [
+        {
+          "targets": [
+            "storage-monitor:9105"
+          ]
+        }
+      ],
+      "sample_limit": 100,
+      "body_size_limit": "1MB"
     }
   ],
   "storage": {
     "exemplars": {
       "max_exemplars": 0
     }
+  },
+  "alerting": {
+    "alertmanagers": [
+      {
+        "static_configs": [
+          {
+            "targets": [
+              "storage-monitor:9105"
+            ]
+          }
+        ],
+        "api_version": "v2",
+        "timeout": "5s",
+        "authorization": {
+          "credentials_file": "/run/p07/monitor.token"
+        }
+      }
+    ]
   }
 }
