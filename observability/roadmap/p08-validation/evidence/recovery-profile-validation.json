@@ -1,0 +1,14 @@
+{
+  "createdUtc": "2026-11-14T05:58:34.376Z",
+  "pass": true,
+  "scope": "Disposable validation TTL only; prevent native expiry of archived history during comparison; no live TTL changes",
+  "profile": {
+    "metrics": "10d",
+    "traces": "240h"
+  },
+  "tempoOutput": "READY",
+  "prometheusOutput": "prometheus, version 3.14.0 (branch: HEAD, revision: d7598b7141418fa35be2b5ec5d0fefb634199610)\n  build user:       root@f423027f4410\n  build date:       20260817-16:49:19\n  go version:       go1.26.6\n  platform:         linux/amd64\n  tags:             netgo,builtinassets",
+  "configSha256": "fc3ca7878735fb22e71834135472e130ff579faf26d3c49306870341b9066fbd",
+  "drillSourceSha256": "08739cf19304a80573278db084e2ef4afafd1171547ff10033314fa9416b5872",
+  "fullFunctionalEvidence": "p08_local_b6f800537e4b146e.json (passed with stricter 2d/24h TTL; not rerun solely for validation TTL relaxation)"
+}

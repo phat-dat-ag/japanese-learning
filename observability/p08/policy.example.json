@@ -1,0 +1,25 @@
+{
+  "policy": {
+    "approved": false,
+    "offHostApproved": false,
+    "owner": null,
+    "dataClasses": [],
+    "offHostDestinationEvidence": null,
+    "keyCustody": null,
+    "retentionDays": null,
+    "maxDestinationBytes": null,
+    "backupIntervalHours": null,
+    "rpoSeconds": null,
+    "rtoSeconds": null,
+    "drillIntervalDays": null,
+    "approvalReference": null
+  },
+  "destination": "REQUIRES_APPROVED_OFF_HOST_STORAGE",
+  "keyFile": "REQUIRES_EXTERNAL_32_BYTE_KEY_FILE",
+  "package": {
+    "maxBytes": 16777216,
+    "newestRecoverableUtc": null,
+    "artifacts": [],
+    "configFiles": ["observability/p07/prometheus/rules/storage.rules.yml"]
+  }
+}

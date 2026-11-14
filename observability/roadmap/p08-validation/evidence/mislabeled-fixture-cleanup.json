@@ -1,0 +1,23 @@
+{
+  "createdUtc": "2026-11-14T05:43:52.505Z",
+  "reason": "Remove stopped, manifest-owned disposable collector whose inherited image labels falsely classify it as root runtime; retain complete investigation/evidence",
+  "target": {
+    "id": "ecea374667b85fc437d5fadbb472010353c444599e234582ee70b5829ffbdcd3",
+    "name": "/p08_local_a7b020597ef5a943-collector",
+    "state": "exited",
+    "owner": "p08_local_a7b020597ef5a943",
+    "mounts": [
+      {
+        "Destination": "/private",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private",
+        "Type": "bind"
+      }
+    ]
+  },
+  "volumesRemoved": 0,
+  "sourceContainersModified": 0,
+  "removed": true
+}

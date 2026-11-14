@@ -1,0 +1,46 @@
+{
+  "phase": "P08",
+  "runId": "p08_automated_f69dcb8839b4b03e",
+  "createdUtc": "2026-11-14T03:45:02.244Z",
+  "node": "v24.20.0",
+  "checks": {
+    "packages": {
+      "code": 0,
+      "output": "✔ authenticated roundtrip, manifest inventory and configuration (9.9319ms)\n✔ no overwrite of existing encrypted generation (36.7024ms)\n✔ wrong key denied and no plaintext destination created (0.5589ms)\n✔ missing backup rejected (0.2032ms)\n✔ every envelope region is authenticated (3.5594ms)\n✔ truncation rejected (0.7712ms)\n✔ missing entry, mismatched checksum, duplicate, inventory and path traversal rejected (7.6654ms)\n✔ pending policy fails closed before destination or key use (0.7998ms)\n✔ reject unreviewed data, oversized exports, empty exports and forbidden configuration (1.8219ms)\n✔ secret payload rejected (1.6273ms)\n✔ unattended runner: due, not due, lock collision, retention report and budget refusal (71.3614ms)\nℹ tests 11\nℹ suites 0\nℹ pass 11\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 266.6614\n"
+    },
+    "sqlite": {
+      "code": 0,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.365s\n\nOK\n"
+    },
+    "diff": {
+      "code": 0,
+      "output": ""
+    }
+  },
+  "scope": "Bounded synthetic package and offline SQLite checks, not off-host recovery",
+  "baseline": {
+    "head": "a39dda31802ebbbfa8d1b0f666f82b3d047c2b6f",
+    "branch": "develop",
+    "gitlinks": [
+      "160000 7d25cfe4830da3856661f7449260e9027c596afb 0\tangular",
+      "160000 bbbab2f4dc80c0275152d4bf008f52b75c5778d6 0\tdotnet",
+      "160000 e3836080a3214ff029d81e0676e6bb925ab4a1c5 0\tquarkus",
+      "160000 e9b90c31dfa311e0121285c8b7caa37c09cf4287 0\tspringboot-jwks-api"
+    ]
+  },
+  "pythonImage": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+  "sourceHashes": {
+    "observability/p08/backup.cjs": "ba2647dffbaff997fa0b4369878698ede806764976e551e23e3ea371f69511a4",
+    "observability/p08/native-sqlite.py": "ad888072a05ca66b8f1f20e031c78aa217683991273eb14b89d2f43384953c93",
+    "observability/p08/Invoke-P08Backup.ps1": "9d4b4206762dfcdd8566b97284487a78676b5420dd5bf0ddfbd147a6d62cfc84",
+    "observability/p08/policy.example.json": "9d4290d1e0c8121766c32443a389eb9d49c3cca795dface4b3a4493b2e6a982a",
+    "observability/roadmap/p08-validation/test-backup.cjs": "e4a489a7e0f5a984b02ca936b94e9c794396c4cd47bdb8835b8acf196f06cab0",
+    "observability/roadmap/p08-validation/test-sqlite.py": "5a6b6790e39fee0c680c90d76cfe284e91e27e905d1ae602e87adc40ca599b30",
+    "observability/roadmap/p08-validation/drill.cjs": "214679ccfa5fb68f7fde8654a6dc6dbda967552f49cac849d74e1161ca2bc75b",
+    "observability/roadmap/p08-validation/verify.cjs": "c989781f1ec06f136703baed38db3d4bc665bb18d673ae0e4649405ee81c9670"
+  },
+  "protectedTrackedFilesUnchanged": true,
+  "gitlinksUnchanged": true,
+  "passed": true,
+  "finishedUtc": "2026-11-14T03:45:04.961Z"
+}

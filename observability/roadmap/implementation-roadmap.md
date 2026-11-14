@@ -1,5 +1,9 @@
 # Implementation roadmap
 
+## P08 implementation progress — 2026-11-14
+
+**P08 PASS for approved local development only.** Actual daily encrypted telemetry/config backups and guarded seven-day retention are configured; the installed monthly task restored an actual daily-task backup with native logs/metrics/traces/dashboards/offsets/collector/alert checks and all 21 original live containers preserved. Conservative actual-event/config RPO **256.445s** and complete local RTO **543.938s** meet approved 24h/4h targets. See [development acceptance](p08-validation/evidence/development-acceptance.json), [policy/exceptions](p08-development-policy.md), [verification](p08-verification.md) and [runbook](p08-recovery-runbook.md). D: is not off-host or independently durable storage; production/off-host acceptance is not claimed. P07's development-only quota exception is unchanged. P09–P11 remain untouched; the overall roadmap is unfinished. Historical P00 authorization/status prose below is retained; the current user instruction authorizes P08 only.
+
 > P01 sequence/dependency and blocker refinements are authoritative: [P01 implementation plan](p01-implementation-plan.md). P00 sequence and disposable-environment design remain historical/reference evidence.
 
 P00 ends with review of this qualified baseline. No later-phase implementation, environment creation or shared repository update is authorized by these documents. Spring Boot observability remains stopped after Phase 6B.

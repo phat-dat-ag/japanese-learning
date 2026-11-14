@@ -1,0 +1,86 @@
+{
+  "phase": "P08",
+  "id": "3e9957ce2c2cb272",
+  "createdUtc": "2026-11-14T06:03:07.987Z",
+  "checks": {
+    "authentication_manifest_checksums": true,
+    "wrong_key_denied_before_plaintext": true,
+    "missing_denied_before_plaintext": true,
+    "corrupt_denied_before_plaintext": true,
+    "incomplete_denied_before_plaintext": true,
+    "unit_retention_tests": true,
+    "daily_scheduled": true,
+    "monthly_scheduled": true
+  },
+  "developmentOnly": true,
+  "offHost": false,
+  "actual": {
+    "file": "D:\\JapaneseLearningBackups\\p08-local-4815fdd93d5a35541e7ee661f3e94c40.enc",
+    "sha256": "e8b8f657c5d4ced23340ce88c19cfc260b8ef2c20b82363a6a7a69e5fd891a89",
+    "bytes": 4851499,
+    "files": 303,
+    "recoverableUtc": "2026-11-14T05:33:15.978Z"
+  },
+  "automated": {
+    "code": 0,
+    "output": "✔ authenticated roundtrip, manifest inventory and configuration (6.8849ms)\n✔ no overwrite of existing encrypted generation (34.0341ms)\n✔ wrong key denied and no plaintext destination created (0.5731ms)\n✔ missing backup rejected (0.2146ms)\n✔ every envelope region is authenticated (4.1583ms)\n✔ truncation rejected (0.8652ms)\n✔ missing entry, mismatched checksum, duplicate, inventory and path traversal rejected (6.5831ms)\n✔ pending policy fails closed before destination or key use (0.6528ms)\n✔ reject unreviewed data, oversized exports, empty exports and forbidden configuration (1.7312ms)\n✔ secret payload rejected (1.1473ms)\n✔ unattended runner: due, not due, lock collision, retention report and budget refusal (71.1408ms)\n✔ development exception is explicit and never off-host approval (0.8797ms)\n✔ seven-day retention deletes only authenticated owned expired generations; preserves newest/unrelated/unknown (18.8929ms)\n✔ even if all expire, newest valid generation survives (5.6026ms)\n✔ corrupt matching file or wrong credentials prevents every deletion (10.81ms)\n✔ reviewed committed privacy code allowed; JSON credentials still rejected (41.4722ms)\n✔ staging cleanup requires exact contained path and completed ownership evidence (3.601ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 242.9777\n"
+  },
+  "tasks": [
+    {
+      "name": "JapaneseLearning-P08-Daily",
+      "state": "Ready",
+      "lastResult": 0,
+      "lastRun": "2026-11-14T12:33:13.0000000+07:00",
+      "nextRun": "2026-11-15T03:00:00.0000000+07:00",
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.3\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\JapaneseLearning-P08-Daily</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-2320869548-2884623927-2772125846-1001</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT1H</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <Duration>PT10M</Duration>\r\n      <WaitTimeout>PT1H</WaitTimeout>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <CalendarTrigger>\r\n      <StartBoundary>2026-11-14T03:00:00+07:00</StartBoundary>\r\n      <ScheduleByDay>\r\n        <DaysInterval>1</DaysInterval>\r\n      </ScheduleByDay>\r\n    </CalendarTrigger>\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe</Command>\r\n      <Arguments>-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File \"D:\\japanese-learning\\observability\\p08\\Invoke-P08Local.ps1\" -Mode backup -Config \"D:\\japanese-learning\\.local\\p08-development\\config.json\" -Node \"C:\\Program Files\\nodejs\\node.exe\"</Arguments>\r\n      <WorkingDirectory>D:\\japanese-learning</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>"
+    },
+    {
+      "name": "JapaneseLearning-P08-MonthlyRecovery",
+      "state": "Ready",
+      "lastResult": 0,
+      "lastRun": "2026-11-14T12:36:36.0000000+07:00",
+      "nextRun": "2026-12-01T04:00:00.0000000+07:00",
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.3\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\JapaneseLearning-P08-MonthlyRecovery</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-2320869548-2884623927-2772125846-1001</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT1H</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <Duration>PT10M</Duration>\r\n      <WaitTimeout>PT1H</WaitTimeout>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <CalendarTrigger>\r\n      <StartBoundary>2026-12-01T04:00:00</StartBoundary>\r\n      <ScheduleByMonth>\r\n        <Months>\r\n          <January />\r\n          <February />\r\n          <March />\r\n          <April />\r\n          <May />\r\n          <June />\r\n          <July />\r\n          <August />\r\n          <September />\r\n          <October />\r\n          <November />\r\n          <December />\r\n        </Months>\r\n        <DaysOfMonth>\r\n          <Day>1</Day>\r\n        </DaysOfMonth>\r\n      </ScheduleByMonth>\r\n    </CalendarTrigger>\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe</Command>\r\n      <Arguments>-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File \"D:\\japanese-learning\\observability\\p08\\Invoke-P08Local.ps1\" -Mode drill -Config \"D:\\japanese-learning\\.local\\p08-development\\config.json\" -Node \"C:\\Program Files\\nodejs\\node.exe\"</Arguments>\r\n      <WorkingDirectory>D:\\japanese-learning</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>"
+    }
+  ],
+  "policy": {
+    "maxDestinationBytes": 1073741824,
+    "owner": "Current approved Windows development account (see task principal)",
+    "offHostApproved": false,
+    "approvalReference": "Explicit local development policy in current user instruction; not production approval",
+    "offHostException": {
+      "approved": true,
+      "limitation": "Same D: storage; no protection from physical disk/host loss",
+      "approvalReference": "User: Complete Local Development Backup & Recovery, 2026-11-14"
+    },
+    "rpoSeconds": 86400,
+    "dataClasses": [
+      "allowlisted canonical application telemetry",
+      "original stored metric samples",
+      "OTel traces",
+      "Grafana dashboard definitions",
+      "collector SQLite offsets",
+      "committed observability configuration"
+    ],
+    "approved": true,
+    "environment": "development",
+    "retentionDays": 7,
+    "backupIntervalHours": 24,
+    "rtoSeconds": 14400,
+    "keyCustody": "Current Windows user and SYSTEM ACL on ignored .local/p08-development; no key export or credential backup",
+    "offHostDestinationEvidence": "NOT OFF-HOST; explicitly approved development-only exception",
+    "drillIntervalDays": 30
+  },
+  "keyAcl": "D:\\japanese-learning\\.local\\p08-development\\backup.key NT AUTHORITY\\SYSTEM:(I)(F)\n                                                       DATNGUYEN\\nguye:(I)(F)\n\nSuccessfully processed 1 files; Failed processing 0 files\r\n",
+  "sourceHashes": {
+    "backup.cjs": "9ac712ac3488afb99e02c8cb005e680f0a46d4e35ade570b6397fb2896f01640",
+    "runtime.cjs": "538adf690e82982a7391b0d370ba34e07e9daafaf9eadd3b4602c23269588175",
+    "local-backup.cjs": "ba109066d28e3e7d5e11c0afb3db5eebf10909685d414aacf84dadb131efaf26",
+    "local-drill.cjs": "08739cf19304a80573278db084e2ef4afafd1171547ff10033314fa9416b5872",
+    "recovery-agent.py": "fa266758a205634b854277f87ad9ac0197adae8521360fa791df7b71280e1cbb",
+    "Configure-P08Development.ps1": "fa923f62c2d9a13bbd5fc1624c5272674744f8e1144e4cd3c327a94d8e95c434",
+    "Invoke-P08Local.ps1": "3f218dacd671741051e63e8eb6d51b0d6755b755b983cbbf534fc6a7e89c2596"
+  },
+  "passed": true,
+  "finishedUtc": "2026-11-14T06:03:11.172Z"
+}
