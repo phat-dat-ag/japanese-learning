@@ -11,8 +11,13 @@ HELPER = 'httpd:2.4.65-alpine@sha256:07b2fabb7029a0b8aeb2e0fd02651c28fe22c21c5b5
 def main():
     target = ROOT / 'secrets' / 'logging'
     credentials = ROOT / '.env.logging'
-    if target.exists() or credentials.exists():
-        raise RuntimeError('Logging credentials already exist; refusing to overwrite them.')
+    auth_file = target / 'htpasswd'
+    if auth_file.exists() and not auth_file.is_file():
+        raise RuntimeError('Logging auth source is not a regular file. Preserve it and recover existing credentials to a new path with scripts/log-access.cjs.')
+    if auth_file.exists() or credentials.exists():
+        raise RuntimeError('Logging credentials already exist; refusing to overwrite them. Use scripts/log-access.cjs validate or recover with a new auth-file path.')
+    if target.exists() and not target.is_dir():
+        raise RuntimeError('Logging credential parent must be a directory.')
     password = secrets.token_hex(32)
     result = subprocess.run(['docker', 'run', '--rm', '-i', '--network', 'none', '--read-only',
         '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges:true', '--user', '1000:1000',
@@ -20,7 +25,7 @@ def main():
         input=password + '\n', text=True, capture_output=True)
     if result.returncode or not result.stdout.startswith('logs-admin:$2'):
         raise RuntimeError('Password hashing failed; Docker diagnostics withheld.')
-    target.mkdir(parents=True, mode=0o700)
+    target.mkdir(parents=True, exist_ok=True, mode=0o700)
     with (target / 'htpasswd').open('x', encoding='utf-8', newline='\n') as file:
         file.write(result.stdout.strip() + '\n')
     os.chmod(target / 'htpasswd', 0o644)  # Hash only; parent private; NGINX UID 101 reads the bind.

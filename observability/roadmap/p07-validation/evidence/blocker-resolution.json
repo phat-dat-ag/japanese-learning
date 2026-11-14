@@ -1,0 +1,55 @@
+{
+  "status": "BLOCKED",
+  "ready_for_controlled_deployment": false,
+  "runtime_acceptance": "NOT EXECUTED",
+  "resolved_offline": [
+    "Backlog semantic incompatibility identified; inventory and approval-ledger assessment implemented",
+    "Native Tempo2.10.3 Windows configuration verification",
+    "Native Collector0.145.0 synthetic loopback privacy pipeline",
+    "Native Prometheus3.14.0 synthetic all-job label rejection; self-scrape privacy gap corrected",
+    "Reproducible runtime acceptance/historical remediation/recovery procedures"
+  ],
+  "remaining": [
+    {
+      "id": "B1",
+      "owner": "logging/data/operations",
+      "reason": "Live queue bytes/files/records and memory/inflight/ack history unknown; no consistent snapshot/restore, ledger or dedup/deferred-delivery approval"
+    },
+    {
+      "id": "N1",
+      "owner": "operations",
+      "reason": "Pinned Linux Fluent Bit parser/Lua/plugin/chunk behavior unverified; official Windows artifact endpoint403; only Docker Desktop WSL present, not used"
+    },
+    {
+      "id": "P1",
+      "owner": "security/data",
+      "reason": "Stored log/trace/sample privacy and historical containment unverified; future filters do not sanitize history"
+    },
+    {
+      "id": "A1",
+      "owner": "security/platform",
+      "reason": "Native backend RBAC/TLS/client identity absent; production gate or explicit development risk decision required; no credentials fabricated"
+    },
+    {
+      "id": "S1",
+      "owner": "platform/operations",
+      "reason": "No measured growth/full-volume sizes, enforced filesystem quotas or verified pressure/retention/recovery monitoring"
+    },
+    {
+      "id": "R1",
+      "owner": "operations/application",
+      "reason": "No approved deployment or Linux ingestion/Grafana retrieval/restart/isolation/rollback acceptance"
+    }
+  ],
+  "fluent_bit_pinned_source_sha256": {
+    "flb_input_chunk.c": "3fe542da7d534473d5eba2bd234cc0dec6d82bbc91e53a6effc4cb50c1bb1975",
+    "flb_storage.c": "17979c12275257ca2b507aa731d7a658a531b7e31a1892f54ce7d4fab063b1d4",
+    "opensearch.c": "71b459f0bb412b20b9659f93385d6e5d108e24425e31d78949d6460d0de0b0b1",
+    "sb.c": "023786a2d953194c70e930f137e5923f003079411080a3e2eb0270ac3b5369fa"
+  },
+  "loki": "No jp_dev Loki; protected springboot_project Loki not changed/inspected for contents",
+  "no_running_docker_mutation": true,
+  "no_historical_telemetry_remediation": true,
+  "superseded_current_status": "current-acceptance-status.json",
+  "scope_note": "Earlier offline-stage blockers; current source deployment/active Linux happy-path and narrower runtime proofs are updated in current-acceptance-status.json"
+}

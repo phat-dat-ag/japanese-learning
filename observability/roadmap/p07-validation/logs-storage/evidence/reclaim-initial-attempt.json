@@ -1,0 +1,15 @@
+{
+  "captured_utc": "2026-11-14T00:42:17.373Z",
+  "changesMade": false,
+  "globalSummary": {
+    "code": 0,
+    "output": "{\"Active\":\"17\",\"Reclaimable\":\"6.475GB (30%)\",\"Size\":\"21.34GB\",\"TotalCount\":\"35\",\"Type\":\"Images\"}\n{\"Active\":\"15\",\"Reclaimable\":\"1.176MB (79%)\",\"Size\":\"1.483MB\",\"TotalCount\":\"28\",\"Type\":\"Containers\"}\n{\"Active\":\"13\",\"Reclaimable\":\"255.2MB (36%)\",\"Size\":\"694.8MB\",\"TotalCount\":\"23\",\"Type\":\"Local Volumes\"}\n{\"Active\":\"0\",\"Reclaimable\":\"14.9GB\",\"Size\":\"19.39GB\",\"TotalCount\":\"450\",\"Type\":\"Build Cache\"}\n",
+    "error": ""
+  },
+  "cacheInspection": {
+    "code": 1,
+    "output": "",
+    "error": "ERROR: use `docker --context=default buildx` to switch to context \"default\"\n"
+  },
+  "warning": "Global Docker reclaimable categories share layers and must not be summed. No pruning/deletion/compaction/relocation performed or authorized. Removing cache/images is not a no-deletion action."
+}

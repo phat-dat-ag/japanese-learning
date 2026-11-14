@@ -16,6 +16,7 @@ Thumbs.db
 !.env.user-api.example
 !.env.db.production.example
 !.env.logging.example
+!.env.p07.example
 secrets/
 .local/
 *.[pP][eE][mM]

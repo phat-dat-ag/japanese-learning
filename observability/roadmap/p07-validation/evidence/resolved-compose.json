@@ -1,0 +1,1616 @@
+{
+  "name": "jp_dev",
+  "networks": {
+    "default": {
+      "name": "jp_dev_default",
+      "ipam": {}
+    },
+    "log-access": {
+      "name": "jp_dev_log-access",
+      "ipam": {}
+    },
+    "log-storage": {
+      "name": "jp_dev_log-storage",
+      "ipam": {},
+      "internal": true
+    },
+    "log-ui": {
+      "name": "jp_dev_log-ui",
+      "ipam": {},
+      "internal": true
+    },
+    "p05-monitoring": {
+      "name": "jp_dev_p05-monitoring",
+      "ipam": {},
+      "internal": true,
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      }
+    },
+    "p06-tracing": {
+      "name": "jp_dev_p06-tracing",
+      "ipam": {},
+      "internal": true,
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P06"
+      }
+    }
+  },
+  "services": {
+    "fluent-bit": {
+      "build": {
+        "context": "C:\\Personal\\japanese-learning\\observability\\p07\\fluent-bit",
+        "dockerfile": "Dockerfile"
+      },
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "logging-init": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "FLUENT_BIT_STORAGE_LIMIT": "1G",
+        "LOG_ENVIRONMENT": "development"
+      },
+      "group_add": [
+        "0",
+        "1654",
+        "10001"
+      ],
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "log-storage": null
+      },
+      "pids_limit": 128,
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "user": "185:185",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "fluent_bit_state",
+          "target": "/state",
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "jwks_api_logs",
+          "target": "/logs/jwks",
+          "read_only": true,
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "user_api_logs",
+          "target": "/logs/user",
+          "read_only": true,
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "vocabulary_api_logs",
+          "target": "/logs/vocabulary",
+          "read_only": true,
+          "volume": {}
+        }
+      ]
+    },
+    "flyway-user": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": [
+        "migrate"
+      ],
+      "depends_on": {
+        "sqlserver": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "sqlserver-init": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "FLYWAY_CONNECT_RETRIES": "60",
+        "FLYWAY_LOCATIONS": "filesystem:/flyway/sql",
+        "FLYWAY_PASSWORD": "Synthetic-P07-Only",
+        "FLYWAY_URL": "jdbc:sqlserver://sqlserver:1433;databaseName=p07_fixture;encrypt=false;trustServerCertificate=true",
+        "FLYWAY_USER": "sa",
+        "JAVA_ARGS": "-Duser.home=/tmp"
+      },
+      "image": "flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "init": true,
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 128,
+      "read_only": true,
+      "restart": "no",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "30s",
+      "tmpfs": [
+        "/tmp:rw,nosuid,nodev,size=128m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "user": "10001:10001",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\dotnet\\db\\migration",
+          "target": "/flyway/sql",
+          "read_only": true,
+          "bind": {}
+        }
+      ],
+      "working_dir": "/tmp"
+    },
+    "flyway-vocabulary": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": [
+        "migrate"
+      ],
+      "depends_on": {
+        "mysql": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "FLYWAY_CONNECT_RETRIES": "60",
+        "FLYWAY_LOCATIONS": "filesystem:/flyway/sql",
+        "FLYWAY_PASSWORD": "Synthetic-P07-Only",
+        "FLYWAY_URL": "jdbc:mysql://mysql:3306/p07_fixture",
+        "FLYWAY_USER": "synthetic",
+        "JAVA_ARGS": "-Duser.home=/tmp"
+      },
+      "image": "flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "init": true,
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 128,
+      "read_only": true,
+      "restart": "no",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "30s",
+      "tmpfs": [
+        "/tmp:rw,nosuid,nodev,size=128m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "user": "10001:10001",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "target": "/flyway/sql",
+          "read_only": true,
+          "bind": {}
+        }
+      ],
+      "working_dir": "/tmp"
+    },
+    "frontend": {
+      "build": {
+        "context": "C:\\Personal\\japanese-learning\\angular",
+        "dockerfile": "Dockerfile"
+      },
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "gateway": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "wget",
+          "-q",
+          "-O",
+          "/dev/null",
+          "http://127.0.0.1:8080/health"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 3,
+        "start_period": "5s"
+      },
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "268435456",
+      "memswap_limit": "268435456",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 128,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8088",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "1m15s",
+      "stop_signal": "SIGQUIT",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=128m,uid=101,gid=101,mode=0700"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "user": "101:101"
+    },
+    "gateway": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "user-api": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "vocabulary-api": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "nginx",
+        "-g",
+        "daemon off;"
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "wget",
+          "-q",
+          "-O",
+          "/dev/null",
+          "http://127.0.0.1:8080/health"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 3,
+        "start_period": "5s"
+      },
+      "image": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "268435456",
+      "memswap_limit": "268435456",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 128,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8080",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "1m15s",
+      "stop_signal": "SIGQUIT",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=128m,uid=101,gid=101,mode=0700"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "user": "101:101",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\gateway\\nginx.conf",
+          "target": "/etc/nginx/nginx.conf",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "grafana": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "prometheus": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES": "false",
+        "GF_ANALYTICS_CHECK_FOR_UPDATES": "false",
+        "GF_ANALYTICS_REPORTING_ENABLED": "false",
+        "GF_AUTH_ANONYMOUS_ENABLED": "false",
+        "GF_AUTH_LOGIN_MAXIMUM_INACTIVE_LIFETIME_DURATION": "4h",
+        "GF_AUTH_LOGIN_MAXIMUM_LIFETIME_DURATION": "7d",
+        "GF_LOG_LEVEL": "warn",
+        "GF_LOG_MODE": "console",
+        "GF_PATHS_LOGS": "/tmp/grafana-logs",
+        "GF_PLUGINS_PREINSTALL_DISABLED": "true",
+        "GF_SECURITY_ADMIN_PASSWORD": "Synthetic-P07-Only",
+        "GF_SECURITY_ADMIN_USER": "p07-synthetic",
+        "GF_SECURITY_ALLOW_EMBEDDING": "false",
+        "GF_SECURITY_COOKIE_SAMESITE": "strict",
+        "GF_SECURITY_DISABLE_GRAVATAR": "true",
+        "GF_USERS_ALLOW_SIGN_UP": "false",
+        "GF_USERS_AUTO_ASSIGN_ORG_ROLE": "Viewer"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "wget",
+          "-q",
+          "-O",
+          "/dev/null",
+          "http://127.0.0.1:3000/api/health"
+        ],
+        "timeout": "5s",
+        "interval": "15s",
+        "retries": 6,
+        "start_period": "30s"
+      },
+      "image": "grafana/grafana:13.2.2@sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "init": true,
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05",
+        "jp.observability.role": "monitoring"
+      },
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "default": null,
+        "p05-monitoring": null,
+        "p06-tracing": null
+      },
+      "pids_limit": 128,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 3000,
+          "published": "3001",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "30s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "user": "472:472",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "grafana_data",
+          "target": "/var/lib/grafana",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "target": "/etc/grafana/provisioning",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "target": "/etc/grafana/p05-dashboards",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "jwks-api": {
+      "build": {
+        "context": "C:\\Personal\\japanese-learning\\springboot-jwks-api",
+        "dockerfile": "Dockerfile"
+      },
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 2,
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "APP_LOG_DIR": "/app/data/logs",
+        "LOG_LEVEL": "INFO",
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "health",
+        "MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED": "true",
+        "SERVER_ADDRESS": "0.0.0.0",
+        "SERVER_PORT": "8080",
+        "SPRING_PROFILES_ACTIVE": "default"
+      },
+      "env_file": [
+        {
+          "path": "C:\\Personal\\japanese-learning\\.env.jwks-api"
+        }
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "curl",
+          "--fail",
+          "--silent",
+          "--output",
+          "/dev/null",
+          "--max-time",
+          "5",
+          "http://127.0.0.1:8080/actuator/health/readiness"
+        ],
+        "timeout": "6s",
+        "interval": "10s",
+        "retries": 12,
+        "start_period": "30s"
+      },
+      "init": true,
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 256,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8083",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "tmpfs": [
+        "/tmp:rw,nosuid,nodev,size=128m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "jwks_api_logs",
+          "target": "/app/data/logs",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "target": "/run/keys/jwks/user-publickey-1.pem",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "target": "/run/keys/jwks/user-publickey-2.pem",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "target": "/run/keys/jwks/user-publickey-3.pem",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "logging-init": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "opensearch": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "python",
+        "-B",
+        "/config/bootstrap.py"
+      ],
+      "environment": {
+        "LOG_RETENTION_DAYS": "30"
+      },
+      "image": "python:3.14-alpine@sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "134217728",
+      "memswap_limit": "134217728",
+      "networks": {
+        "log-storage": null
+      },
+      "pids_limit": 64,
+      "read_only": true,
+      "restart": "no",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=16m"
+      ],
+      "user": "1000:1000",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\logging",
+          "target": "/config",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    },
+    "logging-ui-init": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "opensearch-dashboards": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "python",
+        "-B",
+        "/config/bootstrap.py",
+        "--dashboards"
+      ],
+      "image": "python:3.14-alpine@sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "134217728",
+      "memswap_limit": "134217728",
+      "networks": {
+        "log-ui": null
+      },
+      "pids_limit": 64,
+      "read_only": true,
+      "restart": "no",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=16m"
+      ],
+      "user": "1000:1000",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\logging",
+          "target": "/config",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    },
+    "logs-ui": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "opensearch-dashboards": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "nginx",
+        "-g",
+        "daemon off;"
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "wget",
+          "-q",
+          "-O",
+          "/dev/null",
+          "http://127.0.0.1:8080/health"
+        ],
+        "timeout": "5s",
+        "interval": "15s",
+        "retries": 5
+      },
+      "image": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "134217728",
+      "memswap_limit": "134217728",
+      "networks": {
+        "log-access": null,
+        "log-ui": null
+      },
+      "pids_limit": 64,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "5601",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "stop_signal": "SIGQUIT",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=32m,uid=101,gid=101,mode=0700"
+      ],
+      "user": "101:101",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\logging\\nginx.conf",
+          "target": "/etc/nginx/nginx.conf",
+          "read_only": true,
+          "bind": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\secrets\\logging\\htpasswd",
+          "target": "/etc/nginx/logs.htpasswd",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "mysql": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 2,
+      "command": null,
+      "entrypoint": [
+        "/bin/bash",
+        "-ec",
+        "for name in MYSQL_DATABASE MYSQL_USER; do\n  value=\"$${!name-}\"\n  if [[ ! \"$$value\" =~ ^[A-Za-z0-9_-]{1,64}$$ ]]; then\n    echo \"Invalid $$name: use 1-64 ASCII letters, digits, underscores or hyphens.\" >&2\n    exit 64\n  fi\ndone\nfor name in MYSQL_ROOT_PASSWORD MYSQL_PASSWORD; do\n  value=\"$${!name-}\"\n  if [[ -z \"$${value//[[:space:]]/}\" || \"$$value\" == *\"'\"* || \"$$value\" == *'\"'* || \"$$value\" == *'\\'* || \"$$value\" =~ [[:cntrl:]] ]]; then\n    echo \"Invalid $$name: a nonblank password without quotes, backslashes or control characters is required by this MySQL image.\" >&2\n    exit 64\n  fi\ndone\nexec /usr/local/bin/docker-entrypoint.sh mysqld\n"
+      ],
+      "environment": {
+        "MYSQL_DATABASE": "p07_fixture",
+        "MYSQL_PASSWORD": "Synthetic-P07-Only",
+        "MYSQL_ROOT_PASSWORD": "Synthetic-P07-Only",
+        "MYSQL_USER": "synthetic"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "MYSQL_PWD=\"$${MYSQL_PASSWORD}\" mysql --protocol=TCP -h 127.0.0.1 -u \"$${MYSQL_USER}\" \"$${MYSQL_DATABASE}\" -e 'SELECT 1' >/dev/null"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 12,
+        "start_period": "30s"
+      },
+      "image": "mysql:8.4@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "init": true,
+      "mem_limit": "1073741824",
+      "memswap_limit": "1073741824",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 256,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 3306,
+          "published": "3306",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "1m0s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777",
+        "/var/run/mysqld:rw,noexec,nosuid,nodev,size=16m,uid=999,gid=999,mode=0750"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "user": "999:999",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "mysql_data",
+          "target": "/var/lib/mysql",
+          "volume": {}
+        }
+      ]
+    },
+    "opensearch": {
+      "build": {
+        "context": "C:\\Personal\\japanese-learning\\observability\\logging",
+        "dockerfile": "Dockerfile.opensearch"
+      },
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 2,
+      "command": null,
+      "entrypoint": [
+        "/usr/share/opensearch/bin/opensearch"
+      ],
+      "environment": {
+        "OPENSEARCH_JAVA_OPTS": "-Xms512m -Xmx512m"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "http://127.0.0.1:9200/_cluster/health?wait_for_status=yellow&timeout=5s"
+        ],
+        "timeout": "8s",
+        "interval": "15s",
+        "retries": 20,
+        "start_period": "1m0s"
+      },
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "2147483648",
+      "memswap_limit": "2147483648",
+      "networks": {
+        "log-storage": null
+      },
+      "pids_limit": 512,
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "tmpfs": [
+        "/tmp:rw,exec,nosuid,nodev,size=256m,mode=1777",
+        "/usr/share/opensearch/logs:rw,nosuid,nodev,size=64m,uid=1000,gid=1000"
+      ],
+      "ulimits": {
+        "core": {},
+        "nofile": {
+          "soft": 65536,
+          "hard": 65536
+        }
+      },
+      "user": "1000:1000",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "opensearch_data",
+          "target": "/usr/share/opensearch/data",
+          "volume": {}
+        }
+      ]
+    },
+    "opensearch-dashboards": {
+      "build": {
+        "context": "C:\\Personal\\japanese-learning\\observability\\logging",
+        "dockerfile": "Dockerfile.dashboards"
+      },
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "logging-init": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "curl",
+          "-fsS",
+          "http://127.0.0.1:5601/api/status"
+        ],
+        "timeout": "8s",
+        "interval": "15s",
+        "retries": 20,
+        "start_period": "1m0s"
+      },
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "1073741824",
+      "memswap_limit": "1073741824",
+      "networks": {
+        "log-storage": null,
+        "log-ui": null
+      },
+      "pids_limit": 256,
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=64m"
+      ],
+      "user": "1000:1000",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "dashboards_data",
+          "target": "/usr/share/opensearch-dashboards/data",
+          "volume": {}
+        }
+      ]
+    },
+    "otel-collector": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 0.5,
+      "command": [
+        "--config=/etc/otelcol/config.yml"
+      ],
+      "entrypoint": null,
+      "image": "otel/opentelemetry-collector-contrib:0.145.0@sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "init": true,
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P06",
+        "jp.observability.role": "tracing"
+      },
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "2",
+          "max-size": "5m"
+        }
+      },
+      "mem_limit": "268435456",
+      "memswap_limit": "268435456",
+      "networks": {
+        "default": null,
+        "p06-tracing": null
+      },
+      "pids_limit": 64,
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "10s",
+      "ulimits": {
+        "core": {}
+      },
+      "user": "10001:10001",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\p07\\collector.yml",
+          "target": "/etc/otelcol/config.yml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "prometheus": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": [
+        "--config.file=/etc/prometheus/prometheus.yml",
+        "--storage.tsdb.path=/prometheus",
+        "--storage.tsdb.retention.time=2d",
+        "--storage.tsdb.retention.size=512MB",
+        "--web.listen-address=0.0.0.0:9090",
+        "--query.timeout=15s",
+        "--query.max-concurrency=4",
+        "--query.max-samples=5000000",
+        "--rules.max-concurrent-evals=2"
+      ],
+      "entrypoint": null,
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "wget",
+          "-q",
+          "-O",
+          "/dev/null",
+          "http://127.0.0.1:9090/-/ready"
+        ],
+        "timeout": "5s",
+        "interval": "15s",
+        "retries": 6,
+        "start_period": "30s"
+      },
+      "image": "prom/prometheus:v3.14.0@sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "init": true,
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05",
+        "jp.observability.role": "monitoring"
+      },
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "default": null,
+        "p05-monitoring": null
+      },
+      "pids_limit": 128,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 9090,
+          "published": "9091",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "30s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "user": "65534:65534",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "prometheus_data",
+          "target": "/prometheus",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\p07\\prometheus",
+          "target": "/etc/prometheus",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "sqlserver": {
+      "cap_add": [
+        "NET_BIND_SERVICE"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 2,
+      "command": null,
+      "entrypoint": [
+        "/opt/mssql/bin/sqlservr"
+      ],
+      "environment": {
+        "ACCEPT_EULA": "Y",
+        "MSSQL_MEMORY_LIMIT_MB": "2048",
+        "MSSQL_SA_PASSWORD": "Synthetic-P07-Only"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD-SHELL",
+          "SQLCMDPASSWORD=\"$${MSSQL_SA_PASSWORD}\" /opt/mssql-tools18/bin/sqlcmd -S 127.0.0.1,1433 -U sa -C -b -l 3 -Q 'SELECT 1' >/dev/null"
+        ],
+        "timeout": "5s",
+        "interval": "10s",
+        "retries": 12,
+        "start_period": "30s"
+      },
+      "image": "mcr.microsoft.com/mssql/server:2022-latest@sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "init": true,
+      "mem_limit": "3221225472",
+      "memswap_limit": "3221225472",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 512,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 1433,
+          "published": "1433",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "1m0s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=128m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "sqlserver_data",
+          "target": "/var/opt/mssql",
+          "volume": {}
+        }
+      ]
+    },
+    "sqlserver-init": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": [
+        "-S",
+        "sqlserver,1433",
+        "-U",
+        "sa",
+        "-C",
+        "-b",
+        "-Q",
+        "IF DB_ID(N'p07_fixture') IS NULL CREATE DATABASE [p07_fixture];"
+      ],
+      "depends_on": {
+        "sqlserver": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "/opt/mssql-tools18/bin/sqlcmd"
+      ],
+      "environment": {
+        "SQLCMDPASSWORD": "Synthetic-P07-Only"
+      },
+      "image": "mcr.microsoft.com/mssql/server:2022-latest@sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "init": true,
+      "mem_limit": "268435456",
+      "memswap_limit": "268435456",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 64,
+      "read_only": true,
+      "restart": "no",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "30s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=16m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      }
+    },
+    "tempo": {
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 1,
+      "command": [
+        "-config.file=/etc/tempo/config.yml"
+      ],
+      "entrypoint": null,
+      "image": "grafana/tempo:2.10.3@sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "init": true,
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P06",
+        "jp.observability.role": "tracing"
+      },
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "2",
+          "max-size": "5m"
+        }
+      },
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "p06-tracing": null
+      },
+      "pids_limit": 128,
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "30s",
+      "ulimits": {
+        "core": {}
+      },
+      "user": "10001:10001",
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "tempo_data",
+          "target": "/var/tempo",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\observability\\p07\\tempo.yml",
+          "target": "/etc/tempo/config.yml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "user-api": {
+      "build": {
+        "context": "C:\\Personal\\japanese-learning\\dotnet",
+        "dockerfile": "Dockerfile"
+      },
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 2,
+      "command": null,
+      "depends_on": {
+        "flyway-user": {
+          "condition": "service_completed_successfully",
+          "required": true
+        },
+        "sqlserver": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "Database__Name": "p07_fixture",
+        "Database__Password": "Synthetic-P07-Only",
+        "Database__Server": "sqlserver,1433",
+        "Database__TrustServerCertificate": "true",
+        "Database__User": "sa",
+        "Jwt__AccessTokenExpirationMinutes": "15",
+        "Jwt__Audience": "p07-fixture",
+        "Jwt__Issuer": "p07-fixture",
+        "Jwt__JwksUrl": "http://jwks-api:8080/api/v1/jwks/user",
+        "Jwt__RefreshTokenExpirationDays": "7",
+        "Jwt__RequireHttpsMetadata": "false",
+        "LogFiles__Directory": "/app/logs",
+        "Tracing__Endpoint": "http://otel-collector:4317",
+        "Tracing__Environment": "development",
+        "Tracing__ExportEnabled": "false",
+        "Tracing__MaxRootsPerSecond": "10",
+        "Tracing__SampleRatio": "0.1"
+      },
+      "env_file": [
+        {
+          "path": "C:\\Personal\\japanese-learning\\.env.user-api"
+        }
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "curl",
+          "--fail",
+          "--silent",
+          "--output",
+          "/dev/null",
+          "--max-time",
+          "5",
+          "http://127.0.0.1:8080/health/ready"
+        ],
+        "timeout": "6s",
+        "interval": "10s",
+        "retries": 12,
+        "start_period": "30s"
+      },
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 256,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8081",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777",
+        "/home/app/.aspnet:rw,noexec,nosuid,nodev,size=1m,uid=1654,gid=1654,mode=0700"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "user_api_logs",
+          "target": "/app/logs",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "C:\\Personal\\japanese-learning\\secrets\\private\\user-api",
+          "target": "/run/keys/jwt",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ]
+    },
+    "vocabulary-api": {
+      "build": {
+        "context": "C:\\Personal\\japanese-learning\\quarkus",
+        "dockerfile": "Dockerfile"
+      },
+      "cap_drop": [
+        "ALL"
+      ],
+      "cpus": 2,
+      "command": null,
+      "depends_on": {
+        "flyway-vocabulary": {
+          "condition": "service_completed_successfully",
+          "required": true
+        },
+        "mysql": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "user-api": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "APP_ENVIRONMENT": "development",
+        "APP_LOG_DIR": "/deployments/data/logs",
+        "APP_OTEL_ENDPOINT": "http://otel-collector:4317",
+        "APP_OTEL_EXPORT_ENABLED": "false",
+        "APP_OTEL_MAX_ROOTS_PER_SECOND": "10",
+        "APP_OTEL_SAMPLE_RATIO": "0.1",
+        "AUTH_JWKS_CACHE_TTL": "10M",
+        "AUTH_JWKS_URL": "http://jwks-api:8080/api/v1/jwks/user",
+        "AUTH_JWT_AUDIENCE": "p07-fixture",
+        "AUTH_JWT_ISSUER": "p07-fixture",
+        "AUTH_SERVER_URL": "http://jwks-api:8080",
+        "DB_PASSWORD": "Synthetic-P07-Only",
+        "DB_REACTIVE_URL": "mysql://mysql:3306/p07_fixture",
+        "DB_USERNAME": "synthetic",
+        "QUARKUS_OIDC_CONNECTION_DELAY": "60S",
+        "QUARKUS_SHUTDOWN_TIMEOUT": "20S"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "curl",
+          "--fail",
+          "--silent",
+          "--output",
+          "/dev/null",
+          "--max-time",
+          "5",
+          "http://127.0.0.1:8080/q/health/ready"
+        ],
+        "timeout": "6s",
+        "interval": "10s",
+        "retries": 12,
+        "start_period": "30s"
+      },
+      "init": true,
+      "logging": {
+        "driver": "local",
+        "options": {
+          "max-file": "3",
+          "max-size": "10m"
+        }
+      },
+      "mem_limit": "1073741824",
+      "memswap_limit": "1073741824",
+      "networks": {
+        "default": null
+      },
+      "pids_limit": 256,
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8082",
+          "protocol": "tcp"
+        }
+      ],
+      "read_only": true,
+      "restart": "unless-stopped",
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "stop_grace_period": "45s",
+      "tmpfs": [
+        "/tmp:rw,nosuid,nodev,size=256m,mode=1777"
+      ],
+      "ulimits": {
+        "core": {}
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "vocabulary_api_logs",
+          "target": "/deployments/data/logs",
+          "volume": {}
+        }
+      ]
+    }
+  },
+  "volumes": {
+    "dashboards_data": {
+      "name": "jp_dev_dashboards_data"
+    },
+    "fluent_bit_state": {
+      "name": "jp_dev_fluent_bit_state"
+    },
+    "grafana_data": {
+      "name": "jp_dev_grafana_data",
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      }
+    },
+    "jwks_api_logs": {
+      "name": "jp_dev_jwks_api_logs"
+    },
+    "mysql_data": {
+      "name": "jp_dev_mysql_data"
+    },
+    "opensearch_data": {
+      "name": "jp_dev_opensearch_data"
+    },
+    "prometheus_data": {
+      "name": "jp_dev_prometheus_data",
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      }
+    },
+    "sqlserver_data": {
+      "name": "jp_dev_sqlserver_data"
+    },
+    "tempo_data": {
+      "name": "jp_dev_tempo_data",
+      "labels": {
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P06"
+      }
+    },
+    "user_api_logs": {
+      "name": "jp_dev_user_api_logs"
+    },
+    "vocabulary_api_logs": {
+      "name": "jp_dev_vocabulary_api_logs"
+    }
+  },
+  "x-container-security": {
+    "cap_drop": [
+      "ALL"
+    ],
+    "init": true,
+    "read_only": true,
+    "security_opt": [
+      "no-new-privileges:true"
+    ],
+    "ulimits": {
+      "core": 0
+    }
+  },
+  "x-log-security": {
+    "cap_drop": [
+      "ALL"
+    ],
+    "init": true,
+    "logging": {
+      "driver": "local",
+      "options": {
+        "max-file": "5",
+        "max-size": "10m"
+      }
+    },
+    "read_only": true,
+    "restart": "unless-stopped",
+    "security_opt": [
+      "no-new-privileges:true"
+    ],
+    "stop_grace_period": "45s"
+  }
+}

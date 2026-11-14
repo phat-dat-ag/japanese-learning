@@ -1,0 +1,157 @@
+{
+  "project": "p07_accept_44b07b",
+  "created_utc": "2026-11-13T23:47:15.919Z",
+  "checks": {
+    "start_source": {
+      "code": 0,
+      "output": " Container p07_accept_44b07b-source-1 Starting \n Container p07_accept_44b07b-source-1 Started \n"
+    },
+    "bootstrap_source": {
+      "code": 0,
+      "output": "Security Admin v7\nWill connect to source:9200 ... done\nConnected as \"CN=p07-admin\"\nOpenSearch Version: 3.9.0\nContacting opensearch cluster 'opensearch' and wait for YELLOW clusterstate ...\nClustername: p07-disposable\nClusterstate: Green\nNumber of nodes: 1\nNumber of data nodes: 1\n.opendistro_security index does not exists, attempt to create it ... done (0-all replicas)\nPopulate config from /usr/share/opensearch/config/opensearch-security/\nWill update '/config' with /usr/share/opensearch/config/opensearch-security/config.yml\n   SUCC: Configuration for 'config' created or updated\nWill update '/roles' with /usr/share/opensearch/config/opensearch-security/roles.yml\n   SUCC: Configuration for 'roles' created or updated\nWill update '/rolesmapping' with /usr/share/opensearch/config/opensearch-security/roles_mapping.yml\n   SUCC: Configuration for 'rolesmapping' created or updated\nWill update '/internalusers' with /usr/share/opensearch/config/opensearch-security/internal_users.yml\n   SUCC: Configuration for 'internalusers' created or updated\nWill update '/actiongroups' with /usr/share/opensearch/config/opensearch-security/action_groups.yml\n   SUCC: Configuration for 'actiongroups' created or updated\nWill update '/tenants' with /usr/share/opensearch/config/opensearch-security/tenants.yml\n   SUCC: Configuration for 'tenants' created or updated\nWill update '/nodesdn' with /usr/share/opensearch/config/opensearch-security/nodes_dn.yml\n   SUCC: Configuration for 'nodesdn' created or updated\nWill update '/audit' with /usr/share/opensearch/config/opensearch-security/audit.yml\n   SUCC: Configuration for 'audit' created or updated\nWill update '/allowlist' with /usr/share/opensearch/config/opensearch-security/allowlist.yml\n   SUCC: Configuration for 'allowlist' created or updated\nSUCC: Expected 9 config types for node {\"updated_config_types\":[\"allowlist\",\"tenants\",\"rolesmapping\",\"nodesdn\",\"audit\",\"roles\",\"actiongroups\",\"config\",\"internalusers\"],\"updated_config_size\":9,\"message\":null} is 9 ([\"allowlist\",\"tenants\",\"rolesmapping\",\"nodesdn\",\"audit\",\"roles\",\"actiongroups\",\"config\",\"internalusers\"]) due to: null\nDone with success\n"
+    },
+    "ready_source": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "cluster_name": "p07-disposable",
+        "status": "green",
+        "timed_out": false,
+        "number_of_nodes": 1,
+        "number_of_data_nodes": 1,
+        "discovered_master": true,
+        "discovered_cluster_manager": true,
+        "active_primary_shards": 2,
+        "active_shards": 2,
+        "relocating_shards": 0,
+        "initializing_shards": 0,
+        "unassigned_shards": 0,
+        "delayed_unassigned_shards": 0,
+        "number_of_pending_tasks": 0,
+        "number_of_in_flight_fetch": 0,
+        "task_max_waiting_in_queue_millis": 0,
+        "active_shards_percent_as_number": 100
+      },
+      "error": ""
+    },
+    "anonymous_denied": {
+      "code": 0,
+      "status": 401,
+      "data": "Unauthorized",
+      "error": ""
+    },
+    "wrong_credentials_denied": {
+      "code": 0,
+      "status": 401,
+      "data": "Unauthorized",
+      "error": ""
+    },
+    "wrong_ca_rejected": {
+      "code": 60,
+      "status": 0,
+      "data": "",
+      "error": "curl: (60) SSL certificate OpenSSL verify result: unable to get local issuer certificate (20)\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+    },
+    "wrong_hostname_rejected": {
+      "code": 60,
+      "status": 0,
+      "data": "",
+      "error": "curl: (60) SSL: no alternative certificate subject name matches target hostname 'wrong.example'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+    },
+    "expired_client_rejected": {
+      "code": 56,
+      "status": 0,
+      "data": "",
+      "error": "curl: (56) OpenSSL SSL_read: OpenSSL/3.5.8: error:0A000416:SSL routines::ssl/tls alert certificate unknown, errno 0\n"
+    },
+    "plaintext_rejected": {
+      "code": 52,
+      "status": 0,
+      "data": "",
+      "error": "curl: (52) Empty reply from server\n"
+    },
+    "create_writer": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'writer' created."
+      },
+      "error": ""
+    },
+    "role_writer": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_writer' created."
+      },
+      "error": ""
+    },
+    "mapping_writer": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_writer' created."
+      },
+      "error": ""
+    },
+    "create_reader": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'reader' created."
+      },
+      "error": ""
+    },
+    "role_reader": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_reader' created."
+      },
+      "error": ""
+    },
+    "mapping_reader": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_reader' created."
+      },
+      "error": ""
+    },
+    "create_fixture": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "acknowledged": true,
+        "shards_acknowledged": true,
+        "index": "p07-fixture"
+      },
+      "error": ""
+    },
+    "ingest_0": {
+      "code": 0,
+      "status": 403,
+      "data": {
+        "error": {
+          "root_cause": [
+            {
+              "type": "security_exception",
+              "reason": "no permissions for [indices:data/write/bulk] and User [name=writer, backend_roles=[], requestedTenant=null]"
+            }
+          ],
+          "type": "security_exception",
+          "reason": "no permissions for [indices:data/write/bulk] and User [name=writer, backend_roles=[], requestedTenant=null]"
+        },
+        "status": 403
+      },
+      "error": ""
+    }
+  },
+  "failure": "ingest_0 unexpected status 403 {\"error\":{\"root_cause\":[{\"type\":\"security_exception\",\"reason\":\"no permissions for [indices:data/write/bulk] and User [name=writer, backend_roles=[], requestedTenant=null]\"}],\"type\":\"security_exception\",\"reason\":\"no permissions for [indices:data/write/bulk] and User [name=writer, backend_roles=[], requestedTenant=null]\"},\"status\":403}"
+}

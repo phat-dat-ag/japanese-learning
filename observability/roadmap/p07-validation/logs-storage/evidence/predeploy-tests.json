@@ -1,0 +1,19 @@
+{
+  "captured_utc": "2026-11-14T00:25:55.669Z",
+  "directoryGuard": {
+    "code": 78,
+    "output": "",
+    "error": "Logs auth source must be a nonempty readable regular file; provision/validate existing credentials first.\n"
+  },
+  "runtimeUserCanRead": {
+    "code": 0,
+    "output": "",
+    "error": ""
+  },
+  "setupTests": {
+    "code": 0,
+    "output": "{\"tests\": 3, \"passed\": true}\n",
+    "error": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.003s\n\nOK\n"
+  },
+  "passed": true
+}

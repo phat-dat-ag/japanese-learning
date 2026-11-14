@@ -1,0 +1,44 @@
+{
+  "classification": "Unmeasured development planning assumptions, not approved quotas or production capacity",
+  "warning_fraction": 0.7,
+  "critical_fraction": 0.85,
+  "emergency_fraction": 0.9,
+  "assumptions": {
+    "application_services": 3,
+    "events_per_service_second": 1,
+    "bytes_per_event": 1024,
+    "opensearch_index_expansion_factor": 2,
+    "opensearch_retention_days": 30,
+    "prometheus_targets": 3,
+    "samples_per_target_scrape": 5000,
+    "scrape_seconds": 15,
+    "rule_series_allowance": 243,
+    "prometheus_bytes_per_sample": 2,
+    "prometheus_retention_days": 2,
+    "tempo_ingestion_limit_bytes_second": 16000,
+    "tempo_retention_days": 1
+  },
+  "budgets_gib": {
+    "user_log_files": 30,
+    "quarkus_log_files": 6,
+    "jwks_log_files": 3,
+    "fluent_bit_offset_state": 0.0625,
+    "opensearch": 24,
+    "prometheus": 2,
+    "grafana": 1,
+    "tempo": 4,
+    "docker_telemetry_logs": 2
+  },
+  "total_pool_proposal_gib": 80,
+  "hard_filesystem_quota_enforced": false,
+  "collector_disk_queue": "none",
+  "fluent_bit_candidate": {
+    "inputs": 3,
+    "memory_budget_each_mib": 8,
+    "persistent_record_chunks": false,
+    "persistent_state": "Existing fluent_bit_state volume; unchanged SQLite DB paths. Legacy raw chunks retained but not replayed; measure/protect/count before deployment.",
+    "retry_limit": 3,
+    "read_from_head": false
+  },
+  "record_limitations": "Rotation has overshoot; compression is variable; WAL/head/compaction and historical volumes require actual measurement. No finite total disk ceiling is established."
+}

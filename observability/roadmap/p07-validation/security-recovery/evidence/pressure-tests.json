@@ -1,0 +1,20 @@
+{
+  "captured_utc": "2026-11-13T23:47:27.148Z",
+  "pressureRulesScope": "Candidate-only; no live rule reload or metric exporter deployment",
+  "promtool": {
+    "code": 0,
+    "data": "  SUCCESS\n\n",
+    "error": ""
+  },
+  "tmpfsQuota": {
+    "code": 0,
+    "data": {
+      "errno": 28,
+      "enospc": true,
+      "bytes_written": 1048576,
+      "budget_bytes": 1048576,
+      "recovered_size": 0
+    },
+    "error": ""
+  }
+}

@@ -1,0 +1,1516 @@
+{
+  "captured_utc": "2026-11-14T01:02:22.800Z",
+  "services": [
+    {
+      "service": "fluent-bit",
+      "id": "845f059d5b5b2dc45812b6af0fd074ae34059cfbf4fdebc60bd05df57be750e7",
+      "state": "running",
+      "activeImage": "jp_learning_dev-fluent-bit",
+      "activeImageId": "sha256:6755b1349d10b4f85ea1c2a293d92b19f8fe44efc92a0cf4c16d9e8096fd062e",
+      "activePlatformManifest": "sha256:6dcadf19ba0afcaf900b90be447dc53dcdbae0ab7d61e70cbff0233773f0591b",
+      "cachedImage": {
+        "ref": "jp_learning_dev-fluent-bit",
+        "cached": true,
+        "id": "sha256:1357678984e84580391c9a7c57336afb47f086a2b7aefe903920e41e3b541ac2",
+        "created": "2026-11-06T14:07:58.080442403Z",
+        "lastTagTime": "2026-11-13T23:37:17.309950983Z",
+        "sizeBytes": 47833015,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:1357678984e84580391c9a7c57336afb47f086a2b7aefe903920e41e3b541ac2",
+          "size": 856
+        },
+        "platformManifest": "sha256:6dcadf19ba0afcaf900b90be447dc53dcdbae0ab7d61e70cbff0233773f0591b",
+        "runningManifest": "sha256:6dcadf19ba0afcaf900b90be447dc53dcdbae0ab7d61e70cbff0233773f0591b",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": {
+        "context": "D:\\japanese-learning\\observability\\p07\\fluent-bit",
+        "dockerfile": "Dockerfile"
+      },
+      "command": {
+        "active": null,
+        "wanted": null
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "local",
+          "Config": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "volume",
+          "source": "fluent_bit_state",
+          "target": "/state",
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "jwks_api_logs",
+          "target": "/logs/jwks",
+          "read_only": true,
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "user_api_logs",
+          "target": "/logs/user",
+          "read_only": true,
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "vocabulary_api_logs",
+          "target": "/logs/vocabulary",
+          "read_only": true,
+          "volume": {}
+        }
+      ],
+      "dependencies": {
+        "logging-init": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "ports": {
+        "2020/tcp": null
+      },
+      "desiredPorts": [],
+      "resourceLimits": {
+        "memory": 536870912,
+        "pids": 128,
+        "cpu": 1000000000
+      },
+      "stopGrace": "45s",
+      "healthcheckDefined": false
+    },
+    {
+      "service": "prometheus",
+      "id": "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8",
+      "state": "running",
+      "health": "healthy",
+      "activeImage": "prom/prometheus:v3.14.0@sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "activeImageId": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "activePlatformManifest": "sha256:e906cef998316bbe319f98711e1b4d8613ad37e14b08ff831d7036e77b7464f9",
+      "cachedImage": {
+        "ref": "prom/prometheus:v3.14.0@sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+        "cached": true,
+        "id": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+        "created": "2026-08-18T07:38:26.045520047Z",
+        "lastTagTime": "2026-11-13T11:44:44.671946956Z",
+        "sizeBytes": 109369379,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+          "digest": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+          "size": 2010
+        },
+        "platformManifest": "sha256:e906cef998316bbe319f98711e1b4d8613ad37e14b08ff831d7036e77b7464f9",
+        "runningManifest": "sha256:e906cef998316bbe319f98711e1b4d8613ad37e14b08ff831d7036e77b7464f9",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": [
+          "/prometheus"
+        ]
+      },
+      "desiredBuild": null,
+      "command": {
+        "active": [
+          "--config.file=/etc/prometheus/prometheus.yml",
+          "--storage.tsdb.path=/prometheus",
+          "--storage.tsdb.retention.time=2d",
+          "--storage.tsdb.retention.size=512MB",
+          "--web.listen-address=0.0.0.0:9090"
+        ],
+        "wanted": [
+          "--config.file=/etc/prometheus/prometheus.yml",
+          "--storage.tsdb.path=/prometheus",
+          "--storage.tsdb.retention.time=2d",
+          "--storage.tsdb.retention.size=512MB",
+          "--web.listen-address=0.0.0.0:9090",
+          "--query.timeout=15s",
+          "--query.max-concurrency=4",
+          "--query.max-samples=5000000",
+          "--rules.max-concurrent-evals=2"
+        ]
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "local",
+          "Config": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\prometheus",
+          "destination": "/etc/prometheus",
+          "rw": false
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "volume",
+          "source": "prometheus_data",
+          "target": "/prometheus",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "target": "/etc/prometheus",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "dependencies": {},
+      "ports": {
+        "9090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9091"
+          }
+        ]
+      },
+      "desiredPorts": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 9090,
+          "published": "9091",
+          "protocol": "tcp"
+        }
+      ],
+      "resourceLimits": {
+        "memory": 536870912,
+        "pids": 128,
+        "cpu": 1000000000
+      },
+      "stopGrace": "30s",
+      "healthcheckDefined": true
+    },
+    {
+      "service": "grafana",
+      "id": "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16",
+      "state": "running",
+      "health": "healthy",
+      "activeImage": "grafana/grafana:13.2.2@sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "activeImageId": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "activePlatformManifest": "sha256:9924c7fe0effe4a5fea08b3451905de54f09fde9d1589463a5f2d02d9ec158bc",
+      "cachedImage": {
+        "ref": "grafana/grafana:13.2.2@sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+        "cached": true,
+        "id": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+        "created": "2026-09-14T13:01:48Z",
+        "lastTagTime": "2026-11-13T11:45:11.793533035Z",
+        "sizeBytes": 475759432,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+          "digest": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+          "size": 1079
+        },
+        "platformManifest": "sha256:9924c7fe0effe4a5fea08b3451905de54f09fde9d1589463a5f2d02d9ec158bc",
+        "runningManifest": "sha256:9924c7fe0effe4a5fea08b3451905de54f09fde9d1589463a5f2d02d9ec158bc",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": null,
+      "command": {
+        "active": null,
+        "wanted": null
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "local",
+          "Config": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\grafana\\provisioning",
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "volume",
+          "source": "grafana_data",
+          "target": "/var/lib/grafana",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "target": "/etc/grafana/provisioning",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "target": "/etc/grafana/p05-dashboards",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "dependencies": {
+        "prometheus": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3001"
+          }
+        ]
+      },
+      "desiredPorts": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 3000,
+          "published": "3001",
+          "protocol": "tcp"
+        }
+      ],
+      "resourceLimits": {
+        "memory": 536870912,
+        "pids": 128,
+        "cpu": 1000000000
+      },
+      "stopGrace": "30s",
+      "healthcheckDefined": true
+    },
+    {
+      "service": "otel-collector",
+      "id": "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d",
+      "state": "running",
+      "activeImage": "otel/opentelemetry-collector-contrib:0.145.0@sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "activeImageId": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "activePlatformManifest": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "cachedImage": {
+        "ref": "otel/opentelemetry-collector-contrib:0.145.0@sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "cached": true,
+        "id": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "created": "2026-02-05T07:34:57.929588928Z",
+        "lastTagTime": "2026-11-13T11:42:44.046016013Z",
+        "sizeBytes": 93138453,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+          "size": 946
+        },
+        "platformManifest": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "runningManifest": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": null,
+      "command": {
+        "active": [
+          "--config=/etc/otelcol/config.yml"
+        ],
+        "wanted": [
+          "--config=/etc/otelcol/config.yml"
+        ]
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "local",
+          "Config": {
+            "max-file": "2",
+            "max-size": "5m"
+          }
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "2",
+            "max-size": "5m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\collector.yml",
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "target": "/etc/otelcol/config.yml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "dependencies": {},
+      "ports": {
+        "4317/tcp": null,
+        "4318/tcp": null,
+        "55679/tcp": null
+      },
+      "desiredPorts": [],
+      "resourceLimits": {
+        "memory": 268435456,
+        "pids": 64,
+        "cpu": 500000000
+      },
+      "stopGrace": "10s",
+      "healthcheckDefined": false
+    },
+    {
+      "service": "tempo",
+      "id": "d756f25b46b8c2bdfcac4aac74edd4027c2496604b5adff253f8f3f173914d49",
+      "state": "running",
+      "activeImage": "grafana/tempo:2.10.3@sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "activeImageId": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "activePlatformManifest": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "cachedImage": {
+        "ref": "grafana/tempo:2.10.3@sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "cached": true,
+        "id": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "created": "2026-03-17T17:38:40.596692534Z",
+        "lastTagTime": "2026-11-13T11:43:07.046672291Z",
+        "sizeBytes": 36306266,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+          "size": 3855
+        },
+        "platformManifest": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "runningManifest": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": null,
+      "command": {
+        "active": [
+          "-config.file=/etc/tempo/config.yml"
+        ],
+        "wanted": [
+          "-config.file=/etc/tempo/config.yml"
+        ]
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "local",
+          "Config": {
+            "max-file": "2",
+            "max-size": "5m"
+          }
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "2",
+            "max-size": "5m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\tempo.yml",
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "volume",
+          "source": "tempo_data",
+          "target": "/var/tempo",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "target": "/etc/tempo/config.yml",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "dependencies": {},
+      "ports": {},
+      "desiredPorts": [],
+      "resourceLimits": {
+        "memory": 536870912,
+        "pids": 128,
+        "cpu": 1000000000
+      },
+      "stopGrace": "30s",
+      "healthcheckDefined": false
+    },
+    {
+      "service": "user-api",
+      "id": "4aa27581dc9d485a2a9c44f882351d755538fffe44209fdec1ad620a02fc65ba",
+      "state": "running",
+      "health": "healthy",
+      "activeImage": "jp_learning_dev-user-api",
+      "activeImageId": "sha256:a0571ca101ba8305c1b0463c55f4fcb58bbf3467bc8536f8acd2c6a4d4c13651",
+      "activePlatformManifest": "sha256:cfba8a3ca83e5542daa4e9377108f5c228d98a65baf8ca117e0e5eb860e94a0f",
+      "cachedImage": {
+        "ref": "jp_learning_dev-user-api",
+        "cached": true,
+        "id": "sha256:e89b27d450ca59965f95f1b5ac8c56970556ea607b7c6b6556863dd9ceca7f71",
+        "created": "2026-11-13T11:46:42.922083304Z",
+        "lastTagTime": "2026-11-13T23:37:16.358427232Z",
+        "sizeBytes": 101728104,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:e89b27d450ca59965f95f1b5ac8c56970556ea607b7c6b6556863dd9ceca7f71",
+          "size": 856
+        },
+        "platformManifest": "sha256:cfba8a3ca83e5542daa4e9377108f5c228d98a65baf8ca117e0e5eb860e94a0f",
+        "runningManifest": "sha256:cfba8a3ca83e5542daa4e9377108f5c228d98a65baf8ca117e0e5eb860e94a0f",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": {
+        "context": "D:\\japanese-learning\\dotnet",
+        "dockerfile": "Dockerfile"
+      },
+      "command": {
+        "active": null,
+        "wanted": null
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "destination": "/run/keys/jwt",
+          "rw": false
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "volume",
+          "source": "user_api_logs",
+          "target": "/app/logs",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "target": "/run/keys/jwt",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "dependencies": {
+        "flyway-user": {
+          "condition": "service_completed_successfully",
+          "required": true
+        },
+        "sqlserver": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8081"
+          }
+        ]
+      },
+      "desiredPorts": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8081",
+          "protocol": "tcp"
+        }
+      ],
+      "resourceLimits": {
+        "memory": 536870912,
+        "pids": 256,
+        "cpu": 2000000000
+      },
+      "stopGrace": "45s",
+      "healthcheckDefined": true
+    },
+    {
+      "service": "vocabulary-api",
+      "id": "43ed8972f29d0b6db7cfb0c96e4ae8ac3b467b1984258424161cb0beb7c9795d",
+      "state": "running",
+      "health": "healthy",
+      "activeImage": "jp_learning_dev-vocabulary-api",
+      "activeImageId": "sha256:b900d539b9f7d25cefa361aa5bf36c4d09d3930ca185469f42529601ee55acc3",
+      "activePlatformManifest": "sha256:fbc45eb068378cde5edea6e730b652aecdc315d6202de6b819a427305c180704",
+      "cachedImage": {
+        "ref": "jp_learning_dev-vocabulary-api",
+        "cached": true,
+        "id": "sha256:ad213ae135266f5a173612987afc1c0bd9f5c1dc33c2b54f1600115195727abe",
+        "created": "2026-11-13T23:32:33.546300947Z",
+        "lastTagTime": "2026-11-13T23:37:16.774319145Z",
+        "sizeBytes": 190528041,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:ad213ae135266f5a173612987afc1c0bd9f5c1dc33c2b54f1600115195727abe",
+          "size": 856
+        },
+        "platformManifest": "sha256:fbc45eb068378cde5edea6e730b652aecdc315d6202de6b819a427305c180704",
+        "runningManifest": "sha256:fbc45eb068378cde5edea6e730b652aecdc315d6202de6b819a427305c180704",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": {
+        "context": "D:\\japanese-learning\\quarkus",
+        "dockerfile": "Dockerfile",
+        "args": {
+          "APP_OTEL_EXPORT_ENABLED": "true"
+        }
+      },
+      "command": {
+        "active": null,
+        "wanted": null
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "volume",
+          "source": "vocabulary_api_logs",
+          "target": "/deployments/data/logs",
+          "volume": {}
+        }
+      ],
+      "dependencies": {
+        "flyway-vocabulary": {
+          "condition": "service_completed_successfully",
+          "required": true
+        },
+        "mysql": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "user-api": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8082"
+          }
+        ]
+      },
+      "desiredPorts": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8082",
+          "protocol": "tcp"
+        }
+      ],
+      "resourceLimits": {
+        "memory": 1073741824,
+        "pids": 256,
+        "cpu": 2000000000
+      },
+      "stopGrace": "45s",
+      "healthcheckDefined": true
+    },
+    {
+      "service": "gateway",
+      "id": "f4cfd420288c1a0772be67111abd5bfa8bf4090c08630090f182ba1ba82bed9e",
+      "state": "running",
+      "health": "healthy",
+      "activeImage": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "activeImageId": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "activePlatformManifest": "sha256:9874b7a098bbd4e9454941c9e3f87600d7a6e2bb081a06f453202933fe7520d1",
+      "cachedImage": {
+        "ref": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+        "cached": true,
+        "id": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+        "created": "2026-09-15T23:13:27.90299344Z",
+        "lastTagTime": "2026-10-01T12:40:33.552807724Z",
+        "sizeBytes": 28563568,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+          "size": 10317
+        },
+        "platformManifest": "sha256:9874b7a098bbd4e9454941c9e3f87600d7a6e2bb081a06f453202933fe7520d1",
+        "runningManifest": "sha256:9874b7a098bbd4e9454941c9e3f87600d7a6e2bb081a06f453202933fe7520d1",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": null,
+      "command": {
+        "active": null,
+        "wanted": null
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      },
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "desiredMounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "target": "/etc/nginx/nginx.conf",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "dependencies": {
+        "user-api": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "vocabulary-api": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "desiredPorts": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8080",
+          "protocol": "tcp"
+        }
+      ],
+      "resourceLimits": {
+        "memory": 268435456,
+        "pids": 128,
+        "cpu": 1000000000
+      },
+      "stopGrace": "1m15s",
+      "healthcheckDefined": true
+    },
+    {
+      "service": "frontend",
+      "id": "a963f640f67f53b6e3cea71f354cced849dd7bf3f033505de96691770faed8f3",
+      "state": "running",
+      "health": "healthy",
+      "activeImage": "jp_learning_dev-frontend",
+      "activeImageId": "sha256:22b5b9b11ed769313a8d1fffd4b88f9a502ac25630b66409e38237f680a18532",
+      "activePlatformManifest": "sha256:7645fcee908cdebee1bf6983d6649ae50d275b15ec2ee53df79336891560bfea",
+      "cachedImage": {
+        "ref": "jp_learning_dev-frontend",
+        "cached": true,
+        "id": "sha256:ace3cd857b425a75b3f89966cd282e92ab8c00e64823288f5955890e945eae8c",
+        "created": "2026-11-13T11:45:32.54783521Z",
+        "lastTagTime": "2026-11-13T23:37:17.598714195Z",
+        "sizeBytes": 28809332,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:ace3cd857b425a75b3f89966cd282e92ab8c00e64823288f5955890e945eae8c",
+          "size": 856
+        },
+        "platformManifest": "sha256:7645fcee908cdebee1bf6983d6649ae50d275b15ec2ee53df79336891560bfea",
+        "runningManifest": "sha256:7645fcee908cdebee1bf6983d6649ae50d275b15ec2ee53df79336891560bfea",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "desiredBuild": {
+        "context": "D:\\japanese-learning\\angular",
+        "dockerfile": "Dockerfile"
+      },
+      "command": {
+        "active": null,
+        "wanted": null
+      },
+      "logPolicy": {
+        "active": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "wanted": {
+          "driver": "local",
+          "options": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      },
+      "mounts": [],
+      "dependencies": {
+        "gateway": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8088"
+          }
+        ]
+      },
+      "desiredPorts": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "8088",
+          "protocol": "tcp"
+        }
+      ],
+      "resourceLimits": {
+        "memory": 268435456,
+        "pids": 128,
+        "cpu": 1000000000
+      },
+      "stopGrace": "1m15s",
+      "healthcheckDefined": true
+    }
+  ],
+  "originalContainers": [
+    {
+      "id": "2cb2b89169dab2544959849626e29d0e4986928d1e879f828586e9ee9e0deea3",
+      "service": "logs-ui",
+      "started": "2026-11-14T00:26:18.564336954Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "destination": "/etc/nginx/logs.htpasswd",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-access",
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "43ed8972f29d0b6db7cfb0c96e4ae8ac3b467b1984258424161cb0beb7c9795d",
+      "service": "vocabulary-api",
+      "started": "2026-11-13T23:32:58.023304641Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16",
+      "service": "grafana",
+      "started": "2026-11-13T11:49:14.1810333Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\grafana\\provisioning",
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring",
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "0f60ddf65763a6e5d7cfe84574db9b03e022daa512c78dfa8d73eaba802e3574",
+      "service": "jwks-api",
+      "started": "2026-11-13T11:49:08.428251031Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/app/data/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "destination": "/run/keys/jwks/user-publickey-1.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "destination": "/run/keys/jwks/user-publickey-2.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "destination": "/run/keys/jwks/user-publickey-3.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8",
+      "service": "prometheus",
+      "started": "2026-11-13T11:49:08.426076882Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\prometheus",
+          "destination": "/etc/prometheus",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring"
+      ]
+    },
+    {
+      "id": "4aa27581dc9d485a2a9c44f882351d755538fffe44209fdec1ad620a02fc65ba",
+      "service": "user-api",
+      "started": "2026-11-13T11:49:21.691749254Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "destination": "/run/keys/jwt",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "d756f25b46b8c2bdfcac4aac74edd4027c2496604b5adff253f8f3f173914d49",
+      "service": "tempo",
+      "started": "2026-11-13T11:49:08.384773916Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\tempo.yml",
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d",
+      "service": "otel-collector",
+      "started": "2026-11-13T11:49:08.38313428Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\collector.yml",
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p06-tracing"
+      ]
+    },
+    {
+      "id": "a963f640f67f53b6e3cea71f354cced849dd7bf3f033505de96691770faed8f3",
+      "service": "frontend",
+      "started": "2026-11-13T11:49:54.391490192Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "f4cfd420288c1a0772be67111abd5bfa8bf4090c08630090f182ba1ba82bed9e",
+      "service": "gateway",
+      "started": "2026-11-13T11:38:37.163237514Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "ad61d42af7a7196223ef5d35a15ac553b9bc83883662bf215e4782a2a7e53381",
+      "service": "logging-ui-init",
+      "started": "2026-11-13T23:37:20.436577652Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "845f059d5b5b2dc45812b6af0fd074ae34059cfbf4fdebc60bd05df57be750e7",
+      "service": "fluent-bit",
+      "started": "2026-11-13T11:38:37.179827084Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "ce358e501dd819c9313c0c912a3706e96cef3e4ad0ece53cc3c38abe32a7916a",
+      "service": "opensearch-dashboards",
+      "started": "2026-11-13T11:38:37.195364961Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_dashboards_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "destination": "/usr/share/opensearch-dashboards/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage",
+        "jp_learning_dev_log-ui"
+      ]
+    },
+    {
+      "id": "59d0360c273d05a9209fda6ccd2b4dc362a6307a2ecac5e4fa8e38c572efdc94",
+      "service": "logging-init",
+      "started": "2026-11-13T23:37:18.747962672Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "fa3b9d61d7c85d0bb23d55ee1f2b751f7dcb65b63ef58e713320320da0f16fc1",
+      "service": "opensearch",
+      "started": "2026-11-13T11:38:37.192292148Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/usr/share/opensearch/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ]
+    },
+    {
+      "id": "aa00025b47b82ab1b81f87f740981b6b0885b04e395002fc2d94270512c65e9e",
+      "service": "flyway-user",
+      "started": "2026-11-13T23:37:19.431064309Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "0983d016e5a4c7b0471fedc0e3c4f0c6168c403887291cfbd20e8723fb696005",
+      "service": "flyway-vocabulary",
+      "started": "2026-11-13T23:37:18.750072295Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "1afbcf1f3662851acdc05e70a692d02a6efcc0a5ea03d5e572fd248faa92d407",
+      "service": "sqlserver-init",
+      "started": "2026-11-13T23:37:18.745993769Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "6e1f30436a7a06b1b1d8597f8d9e40f327382179d92454743aac1647ed49d700",
+      "service": "mysql",
+      "started": "2026-11-13T11:38:37.176541588Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_mysql_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "destination": "/var/lib/mysql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    },
+    {
+      "id": "67e8fbba23eb259b9d7fdafeb4ab7e30dd8a63188a4a0b9f077e9f3c301e4b1c",
+      "service": "sqlserver",
+      "started": "2026-11-13T11:38:37.137163097Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_sqlserver_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "destination": "/var/opt/mssql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "docker-compose.yml": "6ec7567ab201017eda8d8b790b1ed2a610d212267d1ea721948f949bbe047a64",
+    "observability/p07/fluent-bit/Dockerfile": "e61863f28c16f48c00a33d1de31d5e4a27efb167d2c8dd58edebda138c6d62f7",
+    "observability/p07/fluent-bit/fluent-bit.conf": "601ee3b6fc0fc5e5e5f8c2c04df5a65861c925115adfddff930c015829607ae3",
+    "observability/p07/fluent-bit/normalize.lua": "85e7952b458c14eddf1b2b3ff72e029276e6dbd6bd27b3745e223450a92b517b",
+    "observability/p07/fluent-bit/parsers-app.conf": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+    "observability/p07/prometheus/prometheus.yml": "1cbb02a3e9220d1c93da5c6985e9d928ee6c763fce30d06706ad5e4cf91b42d9",
+    "observability/p07/prometheus/rules/p05.rules.yml": "3d1573f633b189b4749ba1d7e371979a24887f851ccc6c2d19709c463cd6ceef",
+    "observability/p07/collector.yml": "dc9ff7286c2588fbf04aa8192317dee9977ba29788f4e1ba09edede54799e5dd",
+    "observability/p07/tempo.yml": "e0cd16a57ecddad47be53b68fd17c396b5125bd31062198c7f0d79b9bc79441c",
+    "observability/p07/grafana/provisioning/datasources/prometheus.yml": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd",
+    "observability/p07/grafana/provisioning/datasources/tempo.yml": "e15573d2a1fc3f5ad1dc62906f232646301e082297623e6a7fc630c78fd2e2ef",
+    "observability/p07/grafana/provisioning/dashboards/health.yml": "8c0b876052ad915090128dc3ee02b9482c7821f823a4ba219bcb752d0ef4f7b2",
+    "observability/roadmap/p07-verification.md": "0f12ffe535df5160f3db45ebd1aa3b3211046ba8ab8f100b2f1d2e9857512589"
+  },
+  "actions": {
+    "containerLifecycle": false,
+    "imageBuildPullOrTag": false,
+    "volumeWrite": false,
+    "sourceMutation": false
+  },
+  "baseImageCache": [
+    {
+      "ref": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "cached": true,
+      "id": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "created": "2026-09-15T23:13:27.90299344Z",
+      "lastTagTime": "2026-10-01T12:40:33.552807724Z",
+      "sizeBytes": 28563568,
+      "descriptor": {
+        "mediaType": "application/vnd.oci.image.index.v1+json",
+        "digest": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+        "size": 10317
+      },
+      "platformManifest": "sha256:9874b7a098bbd4e9454941c9e3f87600d7a6e2bb081a06f453202933fe7520d1",
+      "runningManifest": null,
+      "exactRunningPlatformManifest": false,
+      "declaredVolumes": []
+    },
+    {
+      "ref": "cr.fluentbit.io/fluent/fluent-bit:4.2.5@sha256:76d5a62479523c2ad54142ee2d93b1fd44fa06b96eae483fbf2e5f1f67a870fc",
+      "cached": false
+    }
+  ],
+  "fileComparison": {
+    "prometheus": {
+      "globalUnchanged": true,
+      "jobs": [
+        {
+          "name": "user-api",
+          "privacyDrops": 22,
+          "scrapeProtocols": [
+            "PrometheusText0.0.4"
+          ],
+          "labelNameLimit": 80,
+          "sampleLimit": 5000,
+          "bodyLimit": "5MB"
+        },
+        {
+          "name": "vocabulary-api",
+          "privacyDrops": 22,
+          "scrapeProtocols": [
+            "PrometheusText0.0.4"
+          ],
+          "labelNameLimit": 80,
+          "sampleLimit": 5000,
+          "bodyLimit": "5MB"
+        },
+        {
+          "name": "prometheus",
+          "privacyDrops": 22,
+          "scrapeProtocols": null,
+          "labelNameLimit": 80,
+          "sampleLimit": 5000,
+          "bodyLimit": "5MB"
+        }
+      ],
+      "exemplarLimit": 0,
+      "rulesByteIdentical": true
+    },
+    "grafana": {
+      "datasources/prometheus.yml": true,
+      "datasources/tempo.yml": true,
+      "dashboards/health.yml": true
+    }
+  },
+  "grafanaEffectiveSettings": {
+    "status": 200,
+    "selected": {
+      "autoAssignRole": "Viewer",
+      "allowEmbedding": "false",
+      "cookieSameSite": "lax",
+      "disableGravatar": "false",
+      "inactiveLifetime": "7d",
+      "maxLifetime": "30d"
+    }
+  },
+  "jwksLogPathMetadata": {
+    "root": {
+      "code": 0,
+      "matchingFileCount": 1,
+      "totalBytes": 47918,
+      "latestMtimeUnix": 1794570541.4257975,
+      "error": ""
+    },
+    "spool": {
+      "code": 0,
+      "matchingFileCount": 1,
+      "totalBytes": 18907,
+      "latestMtimeUnix": 1794612915.671446,
+      "error": ""
+    }
+  },
+  "originalContainerIdentityPreserved": true
+}

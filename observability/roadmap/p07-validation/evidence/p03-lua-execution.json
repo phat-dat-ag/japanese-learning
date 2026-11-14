@@ -1,0 +1,7 @@
+{
+  "engine": "LuaJIT 2.1.1774896198",
+  "output": [
+    "PASS: 229 Lua assertions (candidate adapter only; no Fluent Bit/OpenSearch)"
+  ],
+  "scope": "Actual P03 Lua adapter fixture; not Fluent Bit MessagePack or stored OpenSearch"
+}

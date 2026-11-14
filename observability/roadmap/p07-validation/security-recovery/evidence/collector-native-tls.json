@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-11-13T23:52:08.427Z",
+  "scope": "Disposable collector to TLS-native fixture only",
+  "index": {
+    "code": 22,
+    "text": "",
+    "error": "curl: (22) The requested URL returned error: 400\n"
+  },
+  "start": {
+    "code": 0,
+    "id": "52f3e77e5fe2933a151044be11e11aa3da29cd78f7fa8409370296f266370844",
+    "error": ""
+  },
+  "count": {
+    "code": 0,
+    "error": "",
+    "data": {
+      "count": 1,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      }
+    }
+  },
+  "diagnostics": {
+    "code": 0,
+    "text": "Fluent Bit v4.2.5\n* Copyright (C) 2015-2026 The Fluent Bit Authors\n* Fluent Bit is a CNCF graduated project under the Fluent organization\n* https://fluentbit.io\n\n______ _                  _    ______ _ _             ___   _____ \n|  ___| |                | |   | ___ (_) |           /   | / __  \\\n| |_  | |_   _  ___ _ __ | |_  | |_/ /_| |_  __   __/ /| | `' / /'\n|  _| | | | | |/ _ \\ '_ \\| __| | ___ \\ | __| \\ \\ / / /_| |   / /  \n| |   | | |_| |  __/ | | | |_  | |_/ / | |_   \\ V /\\___  |_./ /___\n\\_|   |_|\\__,_|\\___|_| |_|\\__| \\____/|_|\\__|   \\_/     |_(_)_____/\n                                                                  \n             Fluent Bit v4.2 – Direct Routes Ahead\n         Celebrating 10 Years of Open, Fluent Innovation!\n\n"
+  },
+  "passed": true,
+  "stop": {
+    "code": 0,
+    "text": "Flag --time has been deprecated, use --timeout instead\n52f3e77e5fe2933a151044be11e11aa3da29cd78f7fa8409370296f266370844\n",
+    "error": ""
+  }
+}

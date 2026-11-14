@@ -1,0 +1,51 @@
+﻿Classfile jar:file:///C:/Users/nguye/.m2/repository/io/quarkus/quarkus-opentelemetry/3.38.2/quarkus-opentelemetry-3.38.2.jar!/io/quarkus/opentelemetry/runtime/config/build/exporter/OtlpExporterBuildConfig.class
+  Last modified Aug 12, 2026; size 532 bytes
+  SHA-256 checksum 3ce644e8a7813552220ba9c4f55730068d572bcdb9ed5a30b7e541ddec835a8b
+  Compiled from "OtlpExporterBuildConfig.java"
+public interface io.quarkus.opentelemetry.runtime.config.build.exporter.OtlpExporterBuildConfig
+  minor version: 0
+  major version: 61
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #1                          // io/quarkus/opentelemetry/runtime/config/build/exporter/OtlpExporterBuildConfig
+  super_class: #3                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 1, attributes: 2
+Constant pool:
+   #1 = Class              #2             // io/quarkus/opentelemetry/runtime/config/build/exporter/OtlpExporterBuildConfig
+   #2 = Utf8               io/quarkus/opentelemetry/runtime/config/build/exporter/OtlpExporterBuildConfig
+   #3 = Class              #4             // java/lang/Object
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               enabled
+   #6 = Utf8               ()Z
+   #7 = Utf8               RuntimeVisibleAnnotations
+   #8 = Utf8               Lio/smallrye/config/WithDefault;
+   #9 = Utf8               value
+  #10 = Utf8               true
+  #11 = Utf8               SourceFile
+  #12 = Utf8               OtlpExporterBuildConfig.java
+  #13 = Utf8               Lio/smallrye/config/ConfigMapping;
+  #14 = Utf8               prefix
+  #15 = Utf8               quarkus.otel.exporter.otlp
+  #16 = Utf8               Lio/quarkus/runtime/annotations/ConfigRoot;
+  #17 = Utf8               phase
+  #18 = Utf8               Lio/quarkus/runtime/annotations/ConfigPhase;
+  #19 = Utf8               BUILD_AND_RUN_TIME_FIXED
+{
+  public abstract boolean enabled();
+    descriptor: ()Z
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #8(#9=s#10)
+        io.smallrye.config.WithDefault(
+          value="true"
+        )
+}
+SourceFile: "OtlpExporterBuildConfig.java"
+RuntimeVisibleAnnotations:
+  0: #13(#14=s#15)
+    io.smallrye.config.ConfigMapping(
+      prefix="quarkus.otel.exporter.otlp"
+    )
+  1: #16(#17=e#18.#19)
+    io.quarkus.runtime.annotations.ConfigRoot(
+      phase=Lio/quarkus/runtime/annotations/ConfigPhase;.BUILD_AND_RUN_TIME_FIXED
+    )

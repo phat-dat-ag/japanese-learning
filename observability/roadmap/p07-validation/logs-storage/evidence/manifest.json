@@ -1,0 +1,69 @@
+{
+  "created_utc": "2026-11-14T00:50:28.322Z",
+  "files": [
+    {
+      "file": "acceptance.json",
+      "sha256": "0e951a958a2c3ce450c4fd8847915102551c258e14dcac1c581872b0cfa6c42a"
+    },
+    {
+      "file": "credential-inventory.json",
+      "sha256": "e965183fce7619379895f4a0e7d805619e451292178d02b6a44105541094252a"
+    },
+    {
+      "file": "desktop-storage.json",
+      "sha256": "d2a89c03b513dab392bee6e5186fdc101f4d18ac5f98d3c8f6ba52e336ffb24d"
+    },
+    {
+      "file": "final-preservation.json",
+      "sha256": "ba1459ac67cb778593b5af78c63a9d90d5a1653c34f70fcf21914492adc129d8"
+    },
+    {
+      "file": "predeploy-initial-attempt.json",
+      "sha256": "f8e2a1a6c06f6f02553c2f6770f6f1dd37479c065bd289666b120d891e112e7c"
+    },
+    {
+      "file": "predeploy-tests.json",
+      "sha256": "2e2f9ab3120fcaf6d3dc88ddd201801b61c0e0db6b1228e9ba399b557e95dc50"
+    },
+    {
+      "file": "pressure-recommendations.json",
+      "sha256": "b3a9f02e74a41dd633049a662b274f0a14be4a67e9d4e3fff5602d55700b0787"
+    },
+    {
+      "file": "reclaim-initial-attempt.json",
+      "sha256": "ef6b0ae86be57717f730d52e2743d29d4f731f4f99055a2e07d8c68f97de7343"
+    },
+    {
+      "file": "reclaim-review.json",
+      "sha256": "16b5aaa1eea6429563996f2bafa8bd8e452b3c7686b34abdf4ce8cb141f6ba2b"
+    },
+    {
+      "file": "repair-preflight.json",
+      "sha256": "ca6dd2bcde23a7d20ef3363835022ee2643ef4d56ed7859d4b181d675174cd2b"
+    },
+    {
+      "file": "resume-verification.json",
+      "sha256": "11149b3f4b5130332619e4c94a0a3c3603b5c924f9f1703b0c890a446dfdd185"
+    },
+    {
+      "file": "runtime-baseline.json",
+      "sha256": "1c6a040a8f63fda577d4e8daadb4d7cea3c95bdbae183a8edcef6240ae4d4014"
+    },
+    {
+      "file": "runtime-verification.json",
+      "sha256": "89918320ddce6d93bcb5fe315b4878c0d7d26d2c6faeaf84588fbdd12fb33a0d"
+    },
+    {
+      "file": "source-preservation.json",
+      "sha256": "e776259cdd0452beb174fad4e1ad7c2ea9fe3047b92b9bf71fb4a64f0260ad8d"
+    },
+    {
+      "file": "swagger-drift-review.json",
+      "sha256": "6cf665e0304313e96f1cb217c8eecfa53765740d18134b9db987946529387468"
+    },
+    {
+      "file": "telemetry-usage.json",
+      "sha256": "42c2f2413667013234a4757a8a87b23b509549ad63f59863b42b25dfd15174d8"
+    }
+  ]
+}

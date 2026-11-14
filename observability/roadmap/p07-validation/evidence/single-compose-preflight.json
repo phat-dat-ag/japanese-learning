@@ -1,0 +1,6 @@
+{
+  "root_sha256": "a6df2363c12e70e05da1981e5405bb232de108f2918b7cd00343ca1eb3e3fdc6",
+  "head": "dcb831946f1af68280740ff300fcb590753c526c",
+  "prior_manifest_sha256": "ea6349157e3ab1b466829816b7c37c9ddc6e8b1270b934be33bcdcbfeccc5e0f",
+  "scope": "Root source integration only; existing state volume preserved"
+}

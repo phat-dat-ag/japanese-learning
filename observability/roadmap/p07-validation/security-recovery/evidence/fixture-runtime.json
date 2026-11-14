@@ -1,0 +1,1187 @@
+{
+  "project": "p07_accept_44b07b",
+  "created_utc": "2026-11-13T23:49:06.628Z",
+  "checks": {
+    "start_source": {
+      "code": 0,
+      "output": " Container p07_accept_44b07b-source-1 Running \n"
+    },
+    "bootstrap_source": {
+      "code": 0,
+      "output": "Already initialized fixture; no bootstrap overwrite"
+    },
+    "anonymous_denied": {
+      "code": 0,
+      "status": 401,
+      "data": "Unauthorized",
+      "error": ""
+    },
+    "wrong_credentials_denied": {
+      "code": 0,
+      "status": 401,
+      "data": "Unauthorized",
+      "error": ""
+    },
+    "wrong_ca_rejected": {
+      "code": 60,
+      "status": 0,
+      "data": "",
+      "error": "curl: (60) SSL certificate OpenSSL verify result: unable to get local issuer certificate (20)\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+    },
+    "wrong_hostname_rejected": {
+      "code": 60,
+      "status": 0,
+      "data": "",
+      "error": "curl: (60) SSL: no alternative certificate subject name matches target hostname 'wrong.example'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n"
+    },
+    "expired_client_rejected": {
+      "code": 56,
+      "status": 0,
+      "data": "",
+      "error": "curl: (56) OpenSSL SSL_read: OpenSSL/3.5.8: error:0A000416:SSL routines::ssl/tls alert certificate unknown, errno 0\n"
+    },
+    "plaintext_rejected": {
+      "code": 52,
+      "status": 0,
+      "data": "",
+      "error": "curl: (52) Empty reply from server\n"
+    },
+    "create_writer": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'writer' created."
+      },
+      "error": ""
+    },
+    "role_writer": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_writer' created."
+      },
+      "error": ""
+    },
+    "mapping_writer": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_writer' created."
+      },
+      "error": ""
+    },
+    "create_reader": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'reader' created."
+      },
+      "error": ""
+    },
+    "role_reader": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_reader' created."
+      },
+      "error": ""
+    },
+    "mapping_reader": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "status": "CREATED",
+        "message": "'p07_reader' created."
+      },
+      "error": ""
+    },
+    "create_fixture": {
+      "code": 0,
+      "status": 400,
+      "data": {
+        "error": {
+          "root_cause": [
+            {
+              "type": "resource_already_exists_exception",
+              "reason": "index [p07-fixture/p_Ym32a9RY-QGz-Z2VTtnw] already exists",
+              "index": "p07-fixture",
+              "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw"
+            }
+          ],
+          "type": "resource_already_exists_exception",
+          "reason": "index [p07-fixture/p_Ym32a9RY-QGz-Z2VTtnw] already exists",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw"
+        },
+        "status": 400
+      },
+      "error": ""
+    },
+    "ingest_0": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-00",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 0,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_1": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-01",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 1,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_2": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-02",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 2,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_3": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-03",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 3,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_4": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-04",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 4,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_5": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-05",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 5,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_6": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-06",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 6,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_7": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-07",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 7,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_8": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-08",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 8,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_9": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-09",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 9,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_10": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-10",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 10,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "ingest_11": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_index": "p07-fixture",
+        "_id": "synthetic-11",
+        "_version": 1,
+        "result": "created",
+        "forced_refresh": true,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "failed": 0
+        },
+        "_seq_no": 11,
+        "_primary_term": 1
+      },
+      "error": ""
+    },
+    "reader_allowed": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "took": 16,
+        "timed_out": false,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "skipped": 0,
+          "failed": 0
+        },
+        "hits": {
+          "total": {
+            "value": 12,
+            "relation": "eq"
+          },
+          "max_score": 1,
+          "hits": [
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-00",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 0
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-01",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 1
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-02",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 2
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-03",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 3
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-04",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 4
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-05",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 5
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-06",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 6
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-07",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 7
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-08",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 8
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-09",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 9
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-10",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 10
+              }
+            },
+            {
+              "_index": "p07-fixture",
+              "_id": "synthetic-11",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 11
+              }
+            }
+          ]
+        }
+      },
+      "error": ""
+    },
+    "writer_read_denied": {
+      "code": 0,
+      "status": 403,
+      "data": {
+        "error": {
+          "root_cause": [
+            {
+              "type": "security_exception",
+              "reason": "no permissions for [indices:data/read/search] and User [name=writer, backend_roles=[], requestedTenant=null]"
+            }
+          ],
+          "type": "security_exception",
+          "reason": "no permissions for [indices:data/read/search] and User [name=writer, backend_roles=[], requestedTenant=null]"
+        },
+        "status": 403
+      },
+      "error": ""
+    },
+    "reader_write_denied": {
+      "code": 0,
+      "status": 403,
+      "data": {
+        "error": {
+          "root_cause": [
+            {
+              "type": "security_exception",
+              "reason": "no permissions for [indices:data/write/index] and User [name=reader, backend_roles=[], requestedTenant=null]"
+            }
+          ],
+          "type": "security_exception",
+          "reason": "no permissions for [indices:data/write/index] and User [name=reader, backend_roles=[], requestedTenant=null]"
+        },
+        "status": 403
+      },
+      "error": ""
+    },
+    "reader_admin_denied": {
+      "code": 0,
+      "status": 403,
+      "data": {
+        "status": "FORBIDDEN",
+        "message": "No permission to access REST API: User reader with Security roles [p07_reader] does not have any role privileged for admin access. No client TLS certificate found in request"
+      },
+      "error": ""
+    },
+    "writer_other_index_denied": {
+      "code": 0,
+      "status": 403,
+      "data": {
+        "error": {
+          "root_cause": [
+            {
+              "type": "security_exception",
+              "reason": "no permissions for [indices:data/write/index] and User [name=writer, backend_roles=[], requestedTenant=null]"
+            }
+          ],
+          "type": "security_exception",
+          "reason": "no permissions for [indices:data/write/index] and User [name=writer, backend_roles=[], requestedTenant=null]"
+        },
+        "status": 403
+      },
+      "error": ""
+    },
+    "baselineDigest": {
+      "count": 12,
+      "sha256": "af7ce2f96e051ba654539d9429258fec366bcb51de3018aa072a2bf136bca0ed",
+      "ids": [
+        "synthetic-00",
+        "synthetic-01",
+        "synthetic-02",
+        "synthetic-03",
+        "synthetic-04",
+        "synthetic-05",
+        "synthetic-06",
+        "synthetic-07",
+        "synthetic-08",
+        "synthetic-09",
+        "synthetic-10",
+        "synthetic-11"
+      ]
+    },
+    "retention_policy": {
+      "code": 0,
+      "status": 201,
+      "data": {
+        "_id": "p07-eligibility",
+        "_version": 1,
+        "_primary_term": 1,
+        "_seq_no": 0,
+        "policy": {
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 1,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        }
+      },
+      "error": ""
+    },
+    "retention_attach": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "updated_indices": 1,
+        "failures": false,
+        "failed_indices": []
+      },
+      "error": ""
+    },
+    "register_repo": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "acknowledged": true
+      },
+      "error": ""
+    },
+    "snapshot": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "snapshot": {
+          "snapshot": "before",
+          "uuid": "VORcLKWIRWCZ_y7tqwRdJA",
+          "version_id": 137307827,
+          "version": "3.9.0",
+          "remote_store_index_shallow_copy": false,
+          "indices": [
+            "p07-fixture"
+          ],
+          "data_streams": [],
+          "include_global_state": false,
+          "state": "SUCCESS",
+          "start_time": "2026-11-13T23:49:18.386Z",
+          "start_time_in_millis": 1794613758386,
+          "end_time": "2026-11-13T23:49:18.386Z",
+          "end_time_in_millis": 1794613758386,
+          "duration_in_millis": 0,
+          "failures": [],
+          "shards": {
+            "total": 1,
+            "failed": 0,
+            "successful": 1
+          }
+        }
+      },
+      "error": ""
+    },
+    "snapshotIntegrity": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "snapshots": [
+          {
+            "snapshot": "before",
+            "uuid": "VORcLKWIRWCZ_y7tqwRdJA",
+            "version_id": 137307827,
+            "version": "3.9.0",
+            "remote_store_index_shallow_copy": false,
+            "indices": [
+              "p07-fixture"
+            ],
+            "data_streams": [],
+            "include_global_state": false,
+            "state": "SUCCESS",
+            "start_time": "2026-11-13T23:49:18.386Z",
+            "start_time_in_millis": 1794613758386,
+            "end_time": "2026-11-13T23:49:18.386Z",
+            "end_time_in_millis": 1794613758386,
+            "duration_in_millis": 0,
+            "failures": [],
+            "shards": {
+              "total": 1,
+              "failed": 0,
+              "successful": 1
+            }
+          }
+        ]
+      },
+      "error": ""
+    },
+    "start_restore": {
+      "code": 0,
+      "output": " Volume p07_accept_44b07b_restore_data Creating \n Volume p07_accept_44b07b_restore_data Creating \n Volume p07_accept_44b07b_restore_data Created \n Volume p07_accept_44b07b_restore_data Created \n Container p07_accept_44b07b-restore-1 Creating \n Container p07_accept_44b07b-restore-1 Created \n Container p07_accept_44b07b-restore-1 Starting \n Container p07_accept_44b07b-restore-1 Started \n"
+    },
+    "bootstrap_restore": {
+      "code": 0,
+      "output": "Security Admin v7\nWill connect to restore:9200 ... done\nConnected as \"CN=p07-admin\"\nOpenSearch Version: 3.9.0\nContacting opensearch cluster 'opensearch' and wait for YELLOW clusterstate ...\nClustername: p07-disposable\nClusterstate: Green\nNumber of nodes: 1\nNumber of data nodes: 1\n.opendistro_security index does not exists, attempt to create it ... done (0-all replicas)\nPopulate config from /usr/share/opensearch/config/opensearch-security/\nWill update '/config' with /usr/share/opensearch/config/opensearch-security/config.yml\n   SUCC: Configuration for 'config' created or updated\nWill update '/roles' with /usr/share/opensearch/config/opensearch-security/roles.yml\n   SUCC: Configuration for 'roles' created or updated\nWill update '/rolesmapping' with /usr/share/opensearch/config/opensearch-security/roles_mapping.yml\n   SUCC: Configuration for 'rolesmapping' created or updated\nWill update '/internalusers' with /usr/share/opensearch/config/opensearch-security/internal_users.yml\n   SUCC: Configuration for 'internalusers' created or updated\nWill update '/actiongroups' with /usr/share/opensearch/config/opensearch-security/action_groups.yml\n   SUCC: Configuration for 'actiongroups' created or updated\nWill update '/tenants' with /usr/share/opensearch/config/opensearch-security/tenants.yml\n   SUCC: Configuration for 'tenants' created or updated\nWill update '/nodesdn' with /usr/share/opensearch/config/opensearch-security/nodes_dn.yml\n   SUCC: Configuration for 'nodesdn' created or updated\nWill update '/audit' with /usr/share/opensearch/config/opensearch-security/audit.yml\n   SUCC: Configuration for 'audit' created or updated\nWill update '/allowlist' with /usr/share/opensearch/config/opensearch-security/allowlist.yml\n   SUCC: Configuration for 'allowlist' created or updated\nSUCC: Expected 9 config types for node {\"updated_config_types\":[\"allowlist\",\"tenants\",\"rolesmapping\",\"nodesdn\",\"audit\",\"roles\",\"actiongroups\",\"config\",\"internalusers\"],\"updated_config_size\":9,\"message\":null} is 9 ([\"allowlist\",\"tenants\",\"rolesmapping\",\"nodesdn\",\"audit\",\"roles\",\"actiongroups\",\"config\",\"internalusers\"]) due to: null\nDone with success\n"
+    },
+    "ready_restore": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "cluster_name": "p07-disposable",
+        "status": "green",
+        "timed_out": false,
+        "number_of_nodes": 1,
+        "number_of_data_nodes": 1,
+        "discovered_master": true,
+        "discovered_cluster_manager": true,
+        "active_primary_shards": 3,
+        "active_shards": 3,
+        "relocating_shards": 0,
+        "initializing_shards": 0,
+        "unassigned_shards": 0,
+        "delayed_unassigned_shards": 0,
+        "number_of_pending_tasks": 0,
+        "number_of_in_flight_fetch": 0,
+        "task_max_waiting_in_queue_millis": 0,
+        "active_shards_percent_as_number": 100
+      },
+      "error": ""
+    },
+    "restore_register_readonly": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "acknowledged": true
+      },
+      "error": ""
+    },
+    "restore": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "snapshot": {
+          "snapshot": "before",
+          "indices": [
+            "p07-fixture"
+          ],
+          "shards": {
+            "total": 1,
+            "failed": 0,
+            "successful": 1
+          }
+        }
+      },
+      "error": ""
+    },
+    "restore_health": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "cluster_name": "p07-disposable",
+        "status": "green",
+        "timed_out": false,
+        "number_of_nodes": 1,
+        "number_of_data_nodes": 1,
+        "discovered_master": true,
+        "discovered_cluster_manager": true,
+        "active_primary_shards": 1,
+        "active_shards": 1,
+        "relocating_shards": 0,
+        "initializing_shards": 0,
+        "unassigned_shards": 0,
+        "delayed_unassigned_shards": 0,
+        "number_of_pending_tasks": 0,
+        "number_of_in_flight_fetch": 0,
+        "task_max_waiting_in_queue_millis": 0,
+        "active_shards_percent_as_number": 100
+      },
+      "error": ""
+    },
+    "restoredDigest": {
+      "count": 12,
+      "sha256": "af7ce2f96e051ba654539d9429258fec366bcb51de3018aa072a2bf136bca0ed",
+      "ids": [
+        "synthetic-00",
+        "synthetic-01",
+        "synthetic-02",
+        "synthetic-03",
+        "synthetic-04",
+        "synthetic-05",
+        "synthetic-06",
+        "synthetic-07",
+        "synthetic-08",
+        "synthetic-09",
+        "synthetic-10",
+        "synthetic-11"
+      ]
+    },
+    "migration": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "acknowledged": true
+      },
+      "error": ""
+    },
+    "migratedDigest": {
+      "count": 12,
+      "sha256": "af7ce2f96e051ba654539d9429258fec366bcb51de3018aa072a2bf136bca0ed",
+      "ids": [
+        "synthetic-00",
+        "synthetic-01",
+        "synthetic-02",
+        "synthetic-03",
+        "synthetic-04",
+        "synthetic-05",
+        "synthetic-06",
+        "synthetic-07",
+        "synthetic-08",
+        "synthetic-09",
+        "synthetic-10",
+        "synthetic-11"
+      ]
+    },
+    "rollback": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "snapshot": {
+          "snapshot": "before",
+          "indices": [
+            "p07-fixture-rollback"
+          ],
+          "shards": {
+            "total": 1,
+            "failed": 0,
+            "successful": 1
+          }
+        }
+      },
+      "error": ""
+    },
+    "rollbackDigest": {
+      "count": 12,
+      "sha256": "af7ce2f96e051ba654539d9429258fec366bcb51de3018aa072a2bf136bca0ed",
+      "ids": [
+        "synthetic-00",
+        "synthetic-01",
+        "synthetic-02",
+        "synthetic-03",
+        "synthetic-04",
+        "synthetic-05",
+        "synthetic-06",
+        "synthetic-07",
+        "synthetic-08",
+        "synthetic-09",
+        "synthetic-10",
+        "synthetic-11"
+      ]
+    },
+    "rollbackMapping": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture-rollback": {
+          "mappings": {
+            "dynamic": "strict",
+            "properties": {
+              "event": {
+                "type": "keyword"
+              },
+              "sequence": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "error": ""
+    },
+    "rollbackAnonymousDenied": {
+      "code": 0,
+      "status": 401,
+      "data": "Unauthorized",
+      "error": ""
+    },
+    "restoredReaderAllowed": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "took": 11,
+        "timed_out": false,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "skipped": 0,
+          "failed": 0
+        },
+        "hits": {
+          "total": {
+            "value": 12,
+            "relation": "eq"
+          },
+          "max_score": 1,
+          "hits": [
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-00",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 0
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-01",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 1
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-02",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 2
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-03",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 3
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-04",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 4
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-05",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 5
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-06",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 6
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-07",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 7
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-08",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 8
+              }
+            },
+            {
+              "_index": "p07-fixture-rollback",
+              "_id": "synthetic-09",
+              "_score": 1,
+              "_source": {
+                "event": "p07-synthetic",
+                "sequence": 9
+              }
+            }
+          ]
+        }
+      },
+      "error": ""
+    },
+    "restoredWriterReadDenied": {
+      "code": 0,
+      "status": 403,
+      "data": {
+        "error": {
+          "root_cause": [
+            {
+              "type": "security_exception",
+              "reason": "no permissions for [indices:data/read/search] and User [name=writer, backend_roles=[], requestedTenant=null]"
+            }
+          ],
+          "type": "security_exception",
+          "reason": "no permissions for [indices:data/read/search] and User [name=writer, backend_roles=[], requestedTenant=null]"
+        },
+        "status": 403
+      },
+      "error": ""
+    },
+    "nativeRecovery": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "shards": [
+            {
+              "id": 0,
+              "type": "SNAPSHOT",
+              "stage": "DONE",
+              "primary": true,
+              "start_time_in_millis": 1794613823516,
+              "stop_time_in_millis": 1794613823692,
+              "total_time_in_millis": 176,
+              "source": {
+                "repository": "p07",
+                "snapshot": "before",
+                "version": "3.9.0",
+                "index": "p07-fixture",
+                "restoreUUID": "wx-DPdepRl6ONlRFArMJjw",
+                "isSearchableSnapshot": false,
+                "remoteStoreIndexShallowCopy": false,
+                "sourceRemoteStoreRepository": null,
+                "sourceRemoteTranslogRepository": null
+              },
+              "target": {
+                "id": "aeOgiwblTEupGA0xAQV2Tg",
+                "host": "172.24.0.3",
+                "transport_address": "172.24.0.3:9300",
+                "ip": "172.24.0.3",
+                "name": "p07-node"
+              },
+              "index": {
+                "size": {
+                  "total_in_bytes": 9833,
+                  "reused_in_bytes": 0,
+                  "recovered_in_bytes": 9833,
+                  "percent": "100.0%"
+                },
+                "files": {
+                  "total": 7,
+                  "reused": 0,
+                  "recovered": 7,
+                  "percent": "100.0%"
+                },
+                "total_time_in_millis": 163,
+                "source_throttle_time_in_millis": 0,
+                "target_throttle_time_in_millis": 0
+              },
+              "translog": {
+                "recovered": 0,
+                "total": 0,
+                "percent": "100.0%",
+                "total_on_start": 0,
+                "total_time_in_millis": 9
+              },
+              "verify_index": {
+                "check_index_time_in_millis": 0,
+                "total_time_in_millis": 0
+              }
+            }
+          ]
+        },
+        "p07-fixture-rollback": {
+          "shards": [
+            {
+              "id": 0,
+              "type": "SNAPSHOT",
+              "stage": "DONE",
+              "primary": true,
+              "start_time_in_millis": 1794613825294,
+              "stop_time_in_millis": 1794613825391,
+              "total_time_in_millis": 97,
+              "source": {
+                "repository": "p07",
+                "snapshot": "before",
+                "version": "3.9.0",
+                "index": "p07-fixture",
+                "restoreUUID": "OoJByqTdRrimHeSszbAF8g",
+                "isSearchableSnapshot": false,
+                "remoteStoreIndexShallowCopy": false,
+                "sourceRemoteStoreRepository": null,
+                "sourceRemoteTranslogRepository": null
+              },
+              "target": {
+                "id": "aeOgiwblTEupGA0xAQV2Tg",
+                "host": "172.24.0.3",
+                "transport_address": "172.24.0.3:9300",
+                "ip": "172.24.0.3",
+                "name": "p07-node"
+              },
+              "index": {
+                "size": {
+                  "total_in_bytes": 9833,
+                  "reused_in_bytes": 0,
+                  "recovered_in_bytes": 9833,
+                  "percent": "100.0%"
+                },
+                "files": {
+                  "total": 7,
+                  "reused": 0,
+                  "recovered": 7,
+                  "percent": "100.0%"
+                },
+                "total_time_in_millis": 18,
+                "source_throttle_time_in_millis": 0,
+                "target_throttle_time_in_millis": 0
+              },
+              "translog": {
+                "recovered": 0,
+                "total": 0,
+                "percent": "100.0%",
+                "total_on_start": 0,
+                "total_time_in_millis": 76
+              },
+              "verify_index": {
+                "check_index_time_in_millis": 0,
+                "total_time_in_millis": 0
+              }
+            }
+          ]
+        }
+      },
+      "error": ""
+    },
+    "retentionFinal": {
+      "code": 0,
+      "status": 200,
+      "data": {
+        "p07-fixture": {
+          "index.plugins.index_state_management.policy_id": "p07-eligibility",
+          "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+          "index": "p07-fixture",
+          "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+          "policy_id": "p07-eligibility",
+          "enabled": true,
+          "policy": {
+            "policy_id": "p07-eligibility",
+            "description": "Disposable eligibility transition only; no delete action",
+            "last_updated_time": 1794613757128,
+            "schema_version": 31,
+            "error_notification": null,
+            "default_state": "retain",
+            "states": [
+              {
+                "name": "retain",
+                "actions": [],
+                "transitions": [
+                  {
+                    "state_name": "expired",
+                    "conditions": {
+                      "min_index_age": "1s"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "expired",
+                "actions": [],
+                "transitions": []
+              }
+            ],
+            "ism_template": null
+          }
+        },
+        "total_managed_indices": 1
+      },
+      "error": ""
+    },
+    "fixtureDf": {
+      "code": 0,
+      "stdout": "Filesystem     1K-blocks  Used Available Use% Mounted on\ntmpfs              98304  1488     96816   2% /usr/share/opensearch/data\ntmpfs              65536    48     65488   1% /snapshots\n",
+      "stderr": ""
+    }
+  },
+  "integrityPassed": true,
+  "tlsNegativePassed": true,
+  "finished_utc": "2026-11-13T23:50:28.162Z"
+}

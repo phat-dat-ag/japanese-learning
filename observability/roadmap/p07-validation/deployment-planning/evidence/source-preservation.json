@@ -1,0 +1,19 @@
+{
+  "captured_utc": "2026-11-14T01:04:43.486Z",
+  "head": "5c53cb963ca29c5e9c8626fbb456dbae7c13b7d3",
+  "branch": "develop",
+  "remoteReportSha256": "0f12ffe535df5160f3db45ebd1aa3b3211046ba8ab8f100b2f1d2e9857512589",
+  "remoteReportDiff": "",
+  "trackedLocalHashes": {
+    "docker-compose.yml": "6ec7567ab201017eda8d8b790b1ed2a610d212267d1ea721948f949bbe047a64",
+    "scripts/setup-log-access.py": "f56f3c8994373bfa3457c6fdd55445ae9cb9101450424e84c15d3bb708ac991c"
+  },
+  "quarkusHead": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "quarkusStatus": "M Dockerfile",
+  "quarkusHashes": {
+    "quarkus/Dockerfile": "5ae08351f4be9dc52f35e74562ed64111f72712d4af21870298bc9640622b03a",
+    "quarkus/src/main/resources/application.properties": "a2797b77679f90c358dad81c858054e3ce178c2e662e02b56118c913c5501141"
+  },
+  "gitlinks": "160000 7d25cfe4830da3856661f7449260e9027c596afb 0\tangular\n160000 bbbab2f4dc80c0275152d4bf008f52b75c5778d6 0\tdotnet\n160000 815b637a799cab8009d154ee9c97cec0f1dce734 0\tquarkus\n160000 e9b90c31dfa311e0121285c8b7caa37c09cf4287 0\tspringboot-jwks-api",
+  "laptopBackup": "D:\\japanese-learning\\.local\\p07-deployment-planning\\2026-11-14T01-04-43-481Z\\p07-laptop-verification.md"
+}

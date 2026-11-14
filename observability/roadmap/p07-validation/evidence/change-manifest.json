@@ -1,0 +1,451 @@
+{
+  "phase": "P07",
+  "ready_for_controlled_deployment": false,
+  "continuation_changes": {
+    "modified": [
+      "observability/p07/prometheus/prometheus.yml",
+      "observability/roadmap/p07-privacy-hardening.md",
+      "observability/roadmap/p07-rollback.md",
+      "observability/roadmap/p07-runtime-isolation.md",
+      "observability/roadmap/p07-security-inventory.md",
+      "observability/roadmap/p07-storage-budget.md",
+      "observability/roadmap/p07-test-matrix.md",
+      "observability/roadmap/p07-validation/check_config.py",
+      "observability/roadmap/p07-validation/evidence/config-validation.json",
+      "observability/roadmap/p07-validation/evidence/preservation.json",
+      "observability/roadmap/p07-validation/evidence/test-summary.json",
+      "observability/roadmap/p07-validation/finalize.py",
+      "observability/roadmap/p07-validation/prepare.py",
+      "observability/roadmap/p07-verification.md"
+    ],
+    "added": [
+      "observability/roadmap/p07-backlog-handoff.md",
+      "observability/roadmap/p07-runtime-acceptance.md",
+      "observability/roadmap/p07-stored-data-privacy.md",
+      "observability/roadmap/p07-validation/audit_acceptance.py",
+      "observability/roadmap/p07-validation/audit_active.py",
+      "observability/roadmap/p07-validation/backlog_handoff.py",
+      "observability/roadmap/p07-validation/check_live_traces.py",
+      "observability/roadmap/p07-validation/evidence/acceptance-runtime-after.json",
+      "observability/roadmap/p07-validation/evidence/acceptance-runtime-before.json",
+      "observability/roadmap/p07-validation/evidence/active-acceptance-checks.json",
+      "observability/roadmap/p07-validation/evidence/active-runtime-audit.json",
+      "observability/roadmap/p07-validation/evidence/active-runtime-followup.json",
+      "observability/roadmap/p07-validation/evidence/active-source-preservation.json",
+      "observability/roadmap/p07-validation/evidence/backlog-tests.json",
+      "observability/roadmap/p07-validation/evidence/blocker-resolution.json",
+      "observability/roadmap/p07-validation/evidence/blockers-runtime-after.json",
+      "observability/roadmap/p07-validation/evidence/blockers-runtime-before.json",
+      "observability/roadmap/p07-validation/evidence/blockers-source-baseline.json",
+      "observability/roadmap/p07-validation/evidence/collector-native-pipeline.json",
+      "observability/roadmap/p07-validation/evidence/current-acceptance-status.json",
+      "observability/roadmap/p07-validation/evidence/historical-original-sample.json",
+      "observability/roadmap/p07-validation/evidence/live-trace-probes.json",
+      "observability/roadmap/p07-validation/evidence/live-trace-ratio-boundary-probes.json",
+      "observability/roadmap/p07-validation/evidence/native-artifacts.json",
+      "observability/roadmap/p07-validation/evidence/prometheus-native-pipeline.json",
+      "observability/roadmap/p07-validation/evidence/runtime-case-observations.json",
+      "observability/roadmap/p07-validation/evidence/tempo-native-validation.json",
+      "observability/roadmap/p07-validation/handoff-ledger.template.json",
+      "observability/roadmap/p07-validation/inspect_readonly.py",
+      "observability/roadmap/p07-validation/requirements-native.txt",
+      "observability/roadmap/p07-validation/runtime-acceptance.template.json",
+      "observability/roadmap/p07-validation/test_backlog_handoff.py",
+      "observability/roadmap/p07-validation/test_collector_native.py",
+      "observability/roadmap/p07-validation/test_prometheus_native.py"
+    ],
+    "root_compose_changed_this_continuation": false
+  },
+  "status": "P07 active configs verified; partial runtime acceptance; BLOCKED",
+  "all_entries": "P07 additions plus authorized docker-compose.yml modification; redundant Compose candidate removed",
+  "files": [
+    {
+      "path": "docker-compose.yml",
+      "sha256": "c516834111f506f76622f098598c5fa8f57c7491126154d4f9c8767d4684c9fc",
+      "action": "modified"
+    },
+    {
+      "path": "observability/p07/collector.yml",
+      "sha256": "dc9ff7286c2588fbf04aa8192317dee9977ba29788f4e1ba09edede54799e5dd",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/fluent-bit/Dockerfile",
+      "sha256": "e61863f28c16f48c00a33d1de31d5e4a27efb167d2c8dd58edebda138c6d62f7",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/fluent-bit/fluent-bit.conf",
+      "sha256": "601ee3b6fc0fc5e5e5f8c2c04df5a65861c925115adfddff930c015829607ae3",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/fluent-bit/normalize.lua",
+      "sha256": "85e7952b458c14eddf1b2b3ff72e029276e6dbd6bd27b3745e223450a92b517b",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/fluent-bit/parsers-app.conf",
+      "sha256": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/fluent-bit/registry.json",
+      "sha256": "1c576f42750b48bc40b425b949033e89b72d240f6e7b52f5b9bbdd1eb26f0cb2",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/grafana/provisioning/dashboards/health.yml",
+      "sha256": "8c0b876052ad915090128dc3ee02b9482c7821f823a4ba219bcb752d0ef4f7b2",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/grafana/provisioning/datasources/prometheus.yml",
+      "sha256": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/grafana/provisioning/datasources/tempo.yml",
+      "sha256": "e15573d2a1fc3f5ad1dc62906f232646301e082297623e6a7fc630c78fd2e2ef",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/opensearch/cluster-settings.json",
+      "sha256": "723ada7b8844048c7376f80fa6900c252137d5073de8397e658ea3d6dc8b7f24",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/opensearch/index-template.json",
+      "sha256": "c89871f806496dbfc801839cc93bccb92056ee73ce03eb4e970f800c3befa1ca",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/prometheus/prometheus.yml",
+      "sha256": "1cbb02a3e9220d1c93da5c6985e9d928ee6c763fce30d06706ad5e4cf91b42d9",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/prometheus/rules/p05.rules.yml",
+      "sha256": "3d1573f633b189b4749ba1d7e371979a24887f851ccc6c2d19709c463cd6ceef",
+      "action": "added"
+    },
+    {
+      "path": "observability/p07/tempo.yml",
+      "sha256": "e0cd16a57ecddad47be53b68fd17c396b5125bd31062198c7f0d79b9bc79441c",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-backlog-handoff.md",
+      "sha256": "4091cfbc267e9528af2e67780ee2e4da68053bfbd55f8c97e5b2720492acc834",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-privacy-hardening.md",
+      "sha256": "a07b9913bc794e35ccdfe6b61533702f84fa98220173f0cc72ee08552ce74698",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-rollback.md",
+      "sha256": "5d421be47cc7c04b737dd6077ddfc0b70b2637e9e484e13ec333ce4d92254855",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-runtime-acceptance.md",
+      "sha256": "2aae5885154d5a759b27d4d1900c613b230ff226ca2bc3cc2f746b40b129fc82",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-runtime-isolation.md",
+      "sha256": "47b16f3bf0dc053d00ae4c37abd755b347f9c56c3812ba7ce022e3140b1f8d5e",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-security-inventory.md",
+      "sha256": "2198ae7af6f8d5b0a688e3f30baf767f0b5baf3a16df0158d53315de32c6e2a2",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-storage-budget.md",
+      "sha256": "804ebe4107c51e6461b8bb6dfa0c8f5e71f1eb2ad162a48f6eaf84768754f043",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-stored-data-privacy.md",
+      "sha256": "8cafc145b7b2a2e881cf4dd24ea4f609686d2d9c3ca758c72fa8fbd6ff0f1c86",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-test-matrix.md",
+      "sha256": "78b42d1bb0f315d5081f596f18c38dbac75e7ca6ed9e0db48663a58c8bd1366f",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/audit_acceptance.py",
+      "sha256": "0c5d18b484e9bda4acf7266602a02e49ee3c063708ac0c51365657e5cac8360f",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/audit_active.py",
+      "sha256": "85f936612b9403545d98edb63a559833b4f4a0cb78527c2982dc336597818821",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/backlog_handoff.py",
+      "sha256": "5d1ea107020a74b15c7beb735aa1e99d62212b172dba6200a9c7354d6b2f9742",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/check_config.py",
+      "sha256": "e4ee668886792e62716811f4719dd126ed41fde3d5609ab6075beaf03b8ef5b4",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/check_live_traces.py",
+      "sha256": "89ad60a59857f7593fbbbe1e0e3778361414563d60e6309db98c7e745cb08e70",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/compose-fixture.env",
+      "sha256": "1ca6890d9e988c39ac5486358d48101c69e8e4d42e0c33156d2de4a421e0eaa3",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/acceptance-runtime-after.json",
+      "sha256": "5e10d61c0cb46563999cc7c80f0cb6500e7503b55aaf9680667cce419784d832",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/acceptance-runtime-before.json",
+      "sha256": "bf7c4457e4b8f4a6df8088f488270d61d9978c238d75bbbf089345ca69a28e03",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/active-acceptance-checks.json",
+      "sha256": "c2f48b20de8cf646e9368cae0eece8e9fea5d738fa2a295a0fed8473284678cd",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/active-runtime-audit.json",
+      "sha256": "07829092672c909ba1358be806f9bad45d6e89aa8367a3a5074fc408b491f5cf",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/active-runtime-followup.json",
+      "sha256": "b24cc5ae11130b73ff349aceffa1db2603dfd4dd7e0f6b6d97997b2237685d93",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/active-source-preservation.json",
+      "sha256": "7777a912ce6d81ca5dd983381fd054e3fc26e03d568406cf5e3649b2eb7db162",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/backlog-tests.json",
+      "sha256": "8c2ce1713ae2b9888c1d3d557808f5214a0e5d34584f7541c57d7155a88c0970",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/blocker-resolution.json",
+      "sha256": "210d2d7f25607f9c0752608a4abb42f70932edc8d0225da4763a80828f664654",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/blockers-runtime-after.json",
+      "sha256": "83ea45fefd5fac79dfab932c8eccd4f1ad85b3640112e2f2fa0d33f07957cea6",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/blockers-runtime-before.json",
+      "sha256": "84cf158c74a8e8b11728aae8067d8de4c2b02b8b934e9f1e9b5717c7a2b5c4b9",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/blockers-source-baseline.json",
+      "sha256": "f49b13b0828ea7e392a789fb9d71bb64efc544be67589b35fb3354d13e913420",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/collector-native-pipeline.json",
+      "sha256": "04eec7a347ce0c114980f93e6f17fb19b037bb927db7f9f5632078f17d19d340",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/config-validation.json",
+      "sha256": "746dd83882d56961695be83741db4817e466bc63a8cf196decfb88584fee45ff",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/current-acceptance-status.json",
+      "sha256": "d698cbde71ff4e3914cf71915f2aef9de4faa6f0d6c8cf2d7874fa8c3460ae67",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/historical-original-sample.json",
+      "sha256": "14f1dcf06d3909ac858b39c38005abb2ea1a8a91eee153a22220666880a86341",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/live-trace-probes.json",
+      "sha256": "ad7e834e64dae57b44d5fd1a852564b21db489c227668b175c9d86fc0dddb3fc",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/live-trace-ratio-boundary-probes.json",
+      "sha256": "7291b4b6e21f7f62573be57f29e828ac30d15a548971e3c612a6ef3814b982c5",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/monitoring-readonly.json",
+      "sha256": "451535b7f1c092d2a7ed38b2b33f972a842cd72eb1498e5b36b5100bfa63c81e",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/native-artifacts.json",
+      "sha256": "27c667ca99b4027974686004c5ce1b1e9b8b188046b4864aa402443645e1b761",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/p03-lua-execution.json",
+      "sha256": "36b6767411210a3bc8335d4544e5bc6c3c349f8e905d637fc92aba5cdab37f0b",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/preflight.json",
+      "sha256": "662b3387f5c0bf13aa3e703548bf537fc247a6683fcf9129086a8ff9b1015ea6",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/preservation.json",
+      "sha256": "47aa3325305c906a671128389d2cc09867b1fba95581245bd872342c5fcff8b2",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/prometheus-native-pipeline.json",
+      "sha256": "3851b1f6fc6f43ac71dceab0cec4cb54e2fbf6855aff9c4d49f2e5231f7d7926",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/resolved-compose.json",
+      "sha256": "7f688fda4ca023f5b2b19c97dfea0108c46cc228b4b61ce721a872474c9340b4",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/runtime-baseline.json",
+      "sha256": "bc0e395d8591e8feca23d734a5ae22c78239b1de643a0bfcd4d7528f19200776",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/runtime-case-observations.json",
+      "sha256": "cf8f292d1c6517829bca1f29afc53db3476cfabcde14d057c966bf2b89236115",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/runtime-final.json",
+      "sha256": "dd8b6c113e567c18d5205c7203c64044510dc6c3b05a426cb831bb61448bd8d0",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/security-tests.json",
+      "sha256": "81700b14997d717816a2e0189029b33f03c6e6c8ef21fa23b390d18ce5683a34",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/single-compose-preflight.json",
+      "sha256": "31d64e9b4811efc80761bff5648a7225bae1690f12a465798e3f1217e424ef90",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/tempo-native-validation.json",
+      "sha256": "8749fe6b43e2ed50ae5912b13e2969bd1ed6b3040ac73ed645f91a4b61f6d2fa",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/evidence/test-summary.json",
+      "sha256": "9e447987679cb7fbedebeea74f255e2000386e1d58c2f347cf42b32a6210ffdd",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/finalize.py",
+      "sha256": "62dbc1fa6f477cccea31c0a1bb5b2fbe473cb3a5dc51379c681da8ea1d0b5098",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/handoff-ledger.template.json",
+      "sha256": "99ae571a3bdf06b8f5a19cbab1b5479d1195dcd83900767e2bba5649d341d539",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/inspect_readonly.py",
+      "sha256": "66a8278b988ff506dd83984717d403e27e0281ada9c271afce6a71d7c782db0d",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/prepare.py",
+      "sha256": "1c62f2bc65a6aa7a11d87727876df8985f334511e5bebbafb864b7bbaa12c4c1",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/read_monitoring.py",
+      "sha256": "5c900d0de6df00fa0c4d31aa8b1bfeee5d075ced41b9b0b7fc412702d5a51f19",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/requirements-native.txt",
+      "sha256": "13938dabcf0430190aa3f1e12a08107d4408fbd71c5da11e7e340f345548215a",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/runtime-acceptance.template.json",
+      "sha256": "07b1fcfaa568fccbac3fb3dbf41869f27ad6388495e3aedccc1fc96a0bf56b3a",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/runtime_snapshot.py",
+      "sha256": "d44761c4c2b93f14b52beb4a5f941826a35e1f588cc7582f24d517092d8e711d",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/storage-budget.json",
+      "sha256": "a890ee7890e9b4612c7c9a1c1dcbf30241cebd89a30030813658100c44db32a8",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/test_backlog_handoff.py",
+      "sha256": "0f5957e52d16acee9ace0ea3886e0b155f34cd88aaec40769b18a2fb13154608",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/test_collector_native.py",
+      "sha256": "4505fe89b6f60398cf9c8118ce6388776487325d8ed8fd4b6405b8d8c16f4cc9",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/test_prometheus_native.py",
+      "sha256": "7245ad5905e0b7c1a7289f552c483908a89968d2c9e60740cf1b7b2e35c3327b",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-validation/test_security.py",
+      "sha256": "0c5391bf5e89d80562004f43694e3e23f6eea4c34e35e2b4484058af77a76583",
+      "action": "added"
+    },
+    {
+      "path": "observability/roadmap/p07-verification.md",
+      "sha256": "0f12ffe535df5160f3db45ebd1aa3b3211046ba8ab8f100b2f1d2e9857512589",
+      "action": "added"
+    }
+  ],
+  "removed_files": [
+    "observability/p07/compose.candidate.yml"
+  ],
+  "removed_proposal": "p07_fluent_bit_state: never created; original fluent_bit_state remains mounted",
+  "self_hash": "excluded to avoid circular digest",
+  "external_ignored_artifacts": "Local validators, dependency runtimes and regression outputs; no binary committed",
+  "unrelated_untracked": [],
+  "shared_jwks": "source/index/HEAD/gitlink unchanged",
+  "runtime_preservation": "PASS: fresh before/after selective metadata only",
+  "runtime_preservation_scope": "Fresh selective38-container comparison PASS; earlier failed historical comparison retained separately; no data-integrity/runtime acceptance",
+  "deployment_commit_push_p08": false,
+  "action_scope": "This agent performed no deployment/commit/push/P08; externally activated P07 independently observed",
+  "current_acceptance_status": "current-acceptance-status.json"
+}

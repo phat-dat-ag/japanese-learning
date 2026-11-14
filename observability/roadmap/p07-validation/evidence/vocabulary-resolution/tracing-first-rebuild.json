@@ -1,0 +1,1716 @@
+{
+  "captured_utc": "2026-11-13T23:28:26.949Z",
+  "probes": [
+    {
+      "kind": "sampled-low",
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001a419068cccf6a6ea",
+      "status": 401,
+      "responseTraceId": "0000000000000001a419068cccf6a6ea"
+    },
+    {
+      "kind": "sampled-high",
+      "service": "vocabulary-api",
+      "traceId": "ffffffffffffffffc53383aceb4d9ff3",
+      "status": 401,
+      "responseTraceId": "ffffffffffffffffc53383aceb4d9ff3"
+    },
+    {
+      "kind": "unsampled-low",
+      "service": "vocabulary-api",
+      "traceId": "0000000000000001060918df3e5d382e",
+      "status": 401,
+      "responseTraceId": "0000000000000001060918df3e5d382e"
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "2706bba7bbcdbea3dd94ca66ee590802",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "45141d9f208c96ebcf7d74c24f603435",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "ff4e9229d99fe75ccd67d5df95e76da5",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "8b2609f47ed638f58b2090ea655d586e",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "f078e617af0611da224362315badd49c",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "5ab3dffe4fc183ab744d5171b994ae29",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "4825de2c1664ff3167a68d0b81b21eda",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "f7037d9c576d7e086f902a034b5f0a86",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "75646615f03d9ec7de2de4b849e143fd",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "5677e798baf1e2bdb416f1eec1143dbd",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "678979d9b80cdf51d2d281bcdb04c3b1",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "ea3ee11bf79078fb18e84a977ee2ff1f",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "1adbc6787e09870cd111c78b427a3a25",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "8c75b7224d623c53f2639013cd9bb5af",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "21041562250b9ff11c9c09d0e15e3232",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "493ec636a14d28f5a395403b762ec644",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "3fc568c95b6df1533983089fc820f08f",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "904ec76e96cd4a84cf134a735fd66c5d",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "f01a981e321c568e30326b3fb37b884b",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "3b793b19e5932aade2149c6b316c100b",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "aec7008ca66dbcdb1e6715f6aab553bd",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "e7e74a634c7a9d9fc387e1fee98b6655",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "a259b9407e78be90942569efe3a14084",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "1ac5e0a7c56abe3e856f6fe06b40b31a",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "2d847cce0af2c8b15170a577608d0b83",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "c1fbe14e1eb8ea3d6f6e6136fd1f61b6",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "43dd8518d7418cfc97e46e01052a9002",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "e546ddcccc0090f3b9efd39e27e65414",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "9b6eb9109094e452dc9f7002f76f9bdb",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "98c4e93680920850e780f377e1560c6c",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "5258b09bb45a80e3d8b89b2ebf25b4bc",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "999ee853381ee2a34643ade327614d13",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "b2e1087963f95094bade7d1d92453667",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "67a1bf66c4848e0714441edbe91f5dcb",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "ec80a4a6cf0e93e9ad101055a35130f5",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "66165c24c61b4885640d220a58445aff",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "8e6daf4cc00689664f9d940428cafb68",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "e8ebe43ab75a5979165a5bc4af7a27ad",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "8d6d6d4141a3778961151f973b023f83",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "7dcd6f220246d2ed22a35675f9441ea1",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "411e58a4cc0d7a01056400da62932949",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "d5b60d470346dbb936a5768296794360",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "ae76e8b20a6513e4694eb16228a1efb3",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "3cde10e60758e9388ed3cebb41e9f1f8",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "d55159b2fa38149533788fa0bcf5d189",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "e67584199b43fa67f34cf317c8b921a7",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "37b6dbb1d92708e06fafed1c2a235bb8",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "a779850aa2e70527d11172d8146bb833",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "438875db4dc7ada3a9b1994db828698f",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "8a680920ff61473a1bdbebe3c6498aac",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "e78ffc5f247853571343b5a9ff9a9b5b",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "cc06b95ff3b94532f249d6655a0960d9",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "8e64dee523c9658f774940b04bd2a083",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "e1c97080ae94fb04e22863c031641a44",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "4a2bc60170f9e1c1fffbf0bdf70bd75b",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "9eb30ae049766f59451d2c817a89a760",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "f2abce8d518267b83a997d91c789c310",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "8d247ffebdc69355a49295d592410c47",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "2556070a18246bca7324cf40f2170fb3",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "45d0ffbfc919b6dc5939433b9ea6584f",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "208b675d27ca52b80fbf8855bc408e48",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "b387c7f6ebe23246575465b4991141cb",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "cf30f1fe91b6b60913e1d254d0be50ad",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "fa9d81d9f0e295490fb26c2d64610d95",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "ea87eebd0934c18e4bdf76b4c419f2c6",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "5d1f538a600b645f53bd86e4f2d9493b",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "67ebb8ba8e8039a040525f205718012a",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "b67df58a043f24b1f5f21b5c981a37fd",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "0be312cbf4ba32d8c1b9a1f5d3bef046",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "c208a7ce38991a7dd0451064a7ac2071",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "d834d05cb8f764290d24a28229578171",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "9645cbcff9ccb296bfcf5610996ada6c",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "e26ebb454b0e915c786f009f9b201a84",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "2dbadc5df6978b51c5b0dbc73e7d27b3",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "518110a7c520088466b435811c98f35e",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "9d09a2c7aa2a790f51491cc591ec5643",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "b33a23b57099e9abbd11e60cdfe49be3",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "1fb02b2ead6e8b3f1c19ee72a2c4b144",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "d1c36567157e9c445d4cb18440032001",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "vocabulary-api",
+      "traceId": "1ea626d1bf0f1261bbae6f88c1c8c550",
+      "status": 401
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "9a03a8616b49a0c1dcd51690d113c44b",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "87c3d9e791fcd5a365e13a088236a67d",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "772348b4c2a731ffa368d48853ad97f6",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "5b2f172b5eb0717cd3d20e983a560eb9",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "7fc41277f3568274e5a7401d934bc37e",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "ce26fae468a0299b25ededa16bb06f9a",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "d1c6975a885e634fb1ef1c99c1bb330e",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "5fe8137eca8d1ba8a46a9f1d7ac113c3",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "7fdea2205b8c5bf2de6289c9dd8ed7c8",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "19529aba80391e3a986285d38eddfdbf",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "cc6496b89ca3ba1bffa7268245d03722",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "05dc5f805b04ab3da703e7226a316851",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "0a1c791555c3efce821ae8af26666cc5",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "dbf1bd10372562cbc1b8cafa26b7f7a9",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "2f22f531827595348c4acd1fc224e508",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "00d42859ebd4d27c4d1e8c75f901d721",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "d870e4b9282bbbb45358ef76b257ff6b",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "8585114a368840657ec5d60b95f64916",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "6d8e9d0d626bcf563d2d2f9d2c108ebc",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "732885fe277bf135dc1ba0bd7d728503",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "7cd8c86077aa7f61e1de95d1b3f73e53",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "f648b48cdf97ba2f2e68cfa86e80bc5a",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "a8377991fa6c2739b52c9a42f7407d45",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "9f08b470dce87c4549fd41af9242da95",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "c2b209218e4ab83180aed17ac4a41002",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "272d05ded86421ec0c41afdbfec646a2",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "51bfb366067cd089af61d8c13ed41fcd",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "b20dca121fa1f1745540429c7ba894e9",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "726160da9955ce527fd7a6313bf3f590",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "6e4fe5ae34babf406b81eb6ede136dcd",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "2e8976ca7c1b16e3a02fe92b1b70f569",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "9a82c5dd4a5227f618e77e0944460cac",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "d8b8ac48a7995aec6776b5098cd2a36a",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "b2dc66f3cfddf1378a6ae93faf692af8",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "8277c63531333cd80e9831da01bd8b89",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "6347a9f255f69dd6a368bafd5192e76b",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "5259afe72e186bbf6dfb52f8806527d1",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "9f4f3cf39a916c4970497d6ddc6c5249",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "19820a8588db7528219ab15ad3918c26",
+      "status": 404
+    },
+    {
+      "kind": "random-root",
+      "service": "user-api",
+      "traceId": "d5dde83218d4bacd8144046ca10f40f1",
+      "status": 404
+    }
+  ],
+  "checks": {
+    "runtimeSettings": [
+      "APP_ENVIRONMENT=development",
+      "APP_OTEL_ENDPOINT=http://otel-collector:4317",
+      "APP_OTEL_EXPORT_ENABLED=true",
+      "APP_OTEL_SAMPLE_RATIO=0.1",
+      "APP_OTEL_MAX_ROOTS_PER_SECOND=10"
+    ],
+    "collectorDns": {
+      "ok": true,
+      "data": "172.19.0.6      otel-collector"
+    },
+    "collectorTcp": {
+      "ok": true,
+      "data": ""
+    },
+    "tempoReady": {
+      "ok": true,
+      "data": "ready"
+    },
+    "tempoSearch": {
+      "ok": true,
+      "data": {
+        "traces": [
+          {
+            "traceID": "d42859ebd4d27c4d1e8c75f901d721",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612529917929500"
+          },
+          {
+            "traceID": "a1c791555c3efce821ae8af26666cc5",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612529283339200"
+          },
+          {
+            "traceID": "5dc5f805b04ab3da703e7226a316851",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612529046952900"
+          },
+          {
+            "traceID": "19529aba80391e3a986285d38eddfdbf",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612528633561500",
+            "durationMs": 1
+          }
+        ],
+        "metrics": {
+          "inspectedTraces": 4,
+          "inspectedBytes": "20369",
+          "completedJobs": 3,
+          "totalJobs": 3
+        }
+      }
+    },
+    "controlledTraces": {
+      "sampled-low": {
+        "ok": false,
+        "error": "  HTTP/1.1 404 Not Found\nwget: server returned error: HTTP/1.1 404 Not Found\n"
+      },
+      "sampled-high": {
+        "ok": false,
+        "error": "  HTTP/1.1 404 Not Found\nwget: server returned error: HTTP/1.1 404 Not Found\n"
+      },
+      "unsampled-low": {
+        "ok": false,
+        "error": "  HTTP/1.1 404 Not Found\nwget: server returned error: HTTP/1.1 404 Not Found\n"
+      }
+    },
+    "serviceTraces": {
+      "vocabulary-api": {
+        "randomProbeCount": 80,
+        "matchingTraces": []
+      },
+      "user-api": {
+        "randomProbeCount": 40,
+        "matchingTraces": [
+          {
+            "traceID": "d42859ebd4d27c4d1e8c75f901d721",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612529917929500"
+          },
+          {
+            "traceID": "a1c791555c3efce821ae8af26666cc5",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612529283339200"
+          },
+          {
+            "traceID": "5dc5f805b04ab3da703e7226a316851",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612529046952900"
+          },
+          {
+            "traceID": "19529aba80391e3a986285d38eddfdbf",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794612528633561500",
+            "durationMs": 1
+          }
+        ]
+      }
+    },
+    "sample_user-api": {
+      "ok": true,
+      "data": {
+        "batches": [
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "deployment.environment.name",
+                  "value": {
+                    "stringValue": "development"
+                  }
+                },
+                {
+                  "key": "service.instance.id",
+                  "value": {
+                    "stringValue": "094341f3-71df-426f-b216-3252c46eaf69"
+                  }
+                },
+                {
+                  "key": "service.namespace",
+                  "value": {
+                    "stringValue": "japanese-learning"
+                  }
+                },
+                {
+                  "key": "service.version",
+                  "value": {
+                    "stringValue": "unknown"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "user-api"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "Microsoft.AspNetCore"
+                },
+                "spans": [
+                  {
+                    "traceId": "ANQoWevU0nxNHox1+QHXIQ==",
+                    "spanId": "cAW97BoSSnM=",
+                    "name": "HTTP server",
+                    "kind": "SPAN_KIND_SERVER",
+                    "startTimeUnixNano": "1794612529917929500",
+                    "endTimeUnixNano": "1794612529918626300",
+                    "attributes": [
+                      {
+                        "key": "http.response.status_code",
+                        "value": {
+                          "intValue": "404"
+                        }
+                      },
+                      {
+                        "key": "http.request.method",
+                        "value": {
+                          "stringValue": "GET"
+                        }
+                      },
+                      {
+                        "key": "http.route",
+                        "value": {
+                          "stringValue": "/unmatched"
+                        }
+                      }
+                    ],
+                    "status": {}
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "promTargets": {
+      "status": 200,
+      "traceId": null,
+      "data": {
+        "status": "success",
+        "data": {
+          "activeTargets": [
+            {
+              "discoveredLabels": {
+                "__address__": "prometheus:9090",
+                "__always_scrape_classic_histograms__": "false",
+                "__convert_classic_histograms_to_nhcb__": "false",
+                "__metrics_path__": "/metrics",
+                "__scheme__": "http",
+                "__scrape_interval__": "15s",
+                "__scrape_native_histograms__": "false",
+                "__scrape_timeout__": "5s",
+                "job": "prometheus"
+              },
+              "labels": {
+                "instance": "prometheus:9090",
+                "job": "prometheus"
+              },
+              "scrapePool": "prometheus",
+              "scrapeUrl": "http://prometheus:9090/metrics",
+              "globalUrl": "http://prometheus:9090/metrics",
+              "lastError": "",
+              "lastScrape": "2026-11-13T23:28:55.729132772Z",
+              "lastScrapeDuration": 0.004179941,
+              "health": "up",
+              "scrapeInterval": "15s",
+              "scrapeTimeout": "5s"
+            },
+            {
+              "discoveredLabels": {
+                "__address__": "user-api:8080",
+                "__always_scrape_classic_histograms__": "false",
+                "__convert_classic_histograms_to_nhcb__": "false",
+                "__metrics_path__": "/metrics",
+                "__scheme__": "http",
+                "__scrape_interval__": "15s",
+                "__scrape_native_histograms__": "false",
+                "__scrape_timeout__": "5s",
+                "job": "user-api"
+              },
+              "labels": {
+                "instance": "user-api:8080",
+                "job": "user-api"
+              },
+              "scrapePool": "user-api",
+              "scrapeUrl": "http://user-api:8080/metrics",
+              "globalUrl": "http://user-api:8080/metrics",
+              "lastError": "",
+              "lastScrape": "2026-11-13T23:29:02.564001414Z",
+              "lastScrapeDuration": 0.003113515,
+              "health": "up",
+              "scrapeInterval": "15s",
+              "scrapeTimeout": "5s"
+            },
+            {
+              "discoveredLabels": {
+                "__address__": "vocabulary-api:8080",
+                "__always_scrape_classic_histograms__": "false",
+                "__convert_classic_histograms_to_nhcb__": "false",
+                "__metrics_path__": "/q/metrics",
+                "__scheme__": "http",
+                "__scrape_interval__": "15s",
+                "__scrape_native_histograms__": "false",
+                "__scrape_timeout__": "5s",
+                "job": "vocabulary-api"
+              },
+              "labels": {
+                "instance": "vocabulary-api:8080",
+                "job": "vocabulary-api"
+              },
+              "scrapePool": "vocabulary-api",
+              "scrapeUrl": "http://vocabulary-api:8080/q/metrics",
+              "globalUrl": "http://vocabulary-api:8080/q/metrics",
+              "lastError": "",
+              "lastScrape": "2026-11-13T23:28:56.088434759Z",
+              "lastScrapeDuration": 0.0054307,
+              "health": "up",
+              "scrapeInterval": "15s",
+              "scrapeTimeout": "5s"
+            }
+          ],
+          "droppedTargets": [],
+          "droppedTargetCounts": {
+            "prometheus": 0,
+            "user-api": 0,
+            "vocabulary-api": 0
+          }
+        }
+      }
+    },
+    "userHealth": {
+      "status": 200,
+      "traceId": "2842b48d7b3ce4747a7069a2a66d5b92",
+      "data": "Healthy"
+    },
+    "vocabularyHealth": {
+      "status": 200,
+      "traceId": "7766941e57d948d72c0c45f653f539f3",
+      "data": {
+        "status": "UP",
+        "checks": [
+          {
+            "name": "Reactive MySQL connections health check",
+            "status": "UP"
+          }
+        ]
+      }
+    },
+    "fluentHealth": {
+      "ok": true,
+      "data": "ok"
+    },
+    "fluentMetrics": {
+      "ok": true,
+      "data": {
+        "input": {
+          "tail.0": {
+            "records": 85,
+            "bytes": 44148,
+            "files_opened": 2,
+            "files_closed": 1,
+            "files_rotated": 1,
+            "multiline_truncated": 0,
+            "long_line_truncated": 0,
+            "long_line_skipped": 0
+          },
+          "tail.1": {
+            "records": 835,
+            "bytes": 1412585,
+            "files_opened": 8,
+            "files_closed": 0,
+            "files_rotated": 0,
+            "multiline_truncated": 0,
+            "long_line_truncated": 0,
+            "long_line_skipped": 0
+          },
+          "tail.2": {
+            "records": 1193,
+            "bytes": 1664280,
+            "files_opened": 2,
+            "files_closed": 1,
+            "files_rotated": 0,
+            "multiline_truncated": 0,
+            "long_line_truncated": 0,
+            "long_line_skipped": 0
+          },
+          "storage_backlog.3": {
+            "records": 0,
+            "bytes": 0
+          }
+        },
+        "filter": {
+          "lua.0": {
+            "drop_records": 0,
+            "add_records": 0,
+            "records": 2113,
+            "bytes": 4166498,
+            "drop_bytes": 0
+          }
+        },
+        "output": {
+          "opensearch.0": {
+            "proc_records": 2112,
+            "proc_bytes": 4164339,
+            "errors": 0,
+            "retries": 27,
+            "retries_failed": 0,
+            "dropped_records": 0,
+            "retried_records": 110
+          }
+        }
+      }
+    },
+    "vocabulary-apiDiagnostics": {
+      "code": 0,
+      "matches": [
+        "{\"@timestamp\":\"2026-11-13T23:28:41.303Z\",\"sequence\":347,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"2fd215b2188547989f06bf8578554936\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"f2abce8d518267b83a997d91c789c310\",\"span_id\":\"f68b090e8f21cae5\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"f68b090e8f21cae5\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"2fd215b2188547989f06bf8578554936\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"f2abce8d518267b83a997d91c789c310\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:41.540Z\",\"sequence\":349,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 2 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"f14c66b853264f80897880145e2971fe\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"8d247ffebdc69355a49295d592410c47\",\"span_id\":\"7210f6e28421f967\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":2,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"7210f6e28421f967\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"f14c66b853264f80897880145e2971fe\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"8d247ffebdc69355a49295d592410c47\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":2,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:41.764Z\",\"sequence\":351,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"d5111d9082404baa9be968204e7b9445\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"2556070a18246bca7324cf40f2170fb3\",\"span_id\":\"104c9562d34dbff2\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"104c9562d34dbff2\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"d5111d9082404baa9be968204e7b9445\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"2556070a18246bca7324cf40f2170fb3\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:41.988Z\",\"sequence\":353,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"add56dc109b6485c9ff3ac7b6ca77834\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"45d0ffbfc919b6dc5939433b9ea6584f\",\"span_id\":\"3485b9ef4b2f57c9\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"3485b9ef4b2f57c9\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"add56dc109b6485c9ff3ac7b6ca77834\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"45d0ffbfc919b6dc5939433b9ea6584f\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:42.219Z\",\"sequence\":355,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"134076c317dc48589e592bcb7242db9b\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"208b675d27ca52b80fbf8855bc408e48\",\"span_id\":\"c3da46ad1244fb10\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"c3da46ad1244fb10\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"134076c317dc48589e592bcb7242db9b\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"208b675d27ca52b80fbf8855bc408e48\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:42.448Z\",\"sequence\":357,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"58533f7644fe4bfa916faccceb34a524\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"b387c7f6ebe23246575465b4991141cb\",\"span_id\":\"532df25e49eeb617\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"532df25e49eeb617\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"58533f7644fe4bfa916faccceb34a524\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"b387c7f6ebe23246575465b4991141cb\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:42.655Z\",\"sequence\":359,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"be6158cdd0c24b37b584952aebc6d1b6\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"cf30f1fe91b6b60913e1d254d0be50ad\",\"span_id\":\"b939598ce433711d\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"b939598ce433711d\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"be6158cdd0c24b37b584952aebc6d1b6\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"cf30f1fe91b6b60913e1d254d0be50ad\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:42.879Z\",\"sequence\":361,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"8edbfd1864d34cf19cccc3d83541796c\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"fa9d81d9f0e295490fb26c2d64610d95\",\"span_id\":\"9fbc49725e815ead\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"9fbc49725e815ead\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"8edbfd1864d34cf19cccc3d83541796c\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"fa9d81d9f0e295490fb26c2d64610d95\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:43.112Z\",\"sequence\":363,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"55dacb18acd34931940e92080007969c\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"ea87eebd0934c18e4bdf76b4c419f2c6\",\"span_id\":\"8720c886531690bd\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"8720c886531690bd\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"55dacb18acd34931940e92080007969c\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"ea87eebd0934c18e4bdf76b4c419f2c6\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:43.322Z\",\"sequence\":365,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"ba1620969c6740918fc7d3fe659ae03b\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"5d1f538a600b645f53bd86e4f2d9493b\",\"span_id\":\"f432f7f6a8cbb547\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"f432f7f6a8cbb547\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"ba1620969c6740918fc7d3fe659ae03b\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"5d1f538a600b645f53bd86e4f2d9493b\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:43.532Z\",\"sequence\":367,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"6783cf3883644e01816ed1a08a2012b1\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"67ebb8ba8e8039a040525f205718012a\",\"span_id\":\"cec623150fdb7b97\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"cec623150fdb7b97\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"6783cf3883644e01816ed1a08a2012b1\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"67ebb8ba8e8039a040525f205718012a\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:43.751Z\",\"sequence\":369,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 2 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"99a577a815f94913b821b251c546eb59\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"b67df58a043f24b1f5f21b5c981a37fd\",\"span_id\":\"340b28af14d79171\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":2,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"340b28af14d79171\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"99a577a815f94913b821b251c546eb59\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"b67df58a043f24b1f5f21b5c981a37fd\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":2,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:43.966Z\",\"sequence\":371,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 2 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"04be3c0c581c436d8d6b007412c5f086\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"0be312cbf4ba32d8c1b9a1f5d3bef046\",\"span_id\":\"7477dd740450f5c7\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":2,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"7477dd740450f5c7\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"04be3c0c581c436d8d6b007412c5f086\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"0be312cbf4ba32d8c1b9a1f5d3bef046\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":2,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:44.187Z\",\"sequence\":373,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"9c5484b2b3c940ff8c0867542044bd21\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"c208a7ce38991a7dd0451064a7ac2071\",\"span_id\":\"f7d9b2c60a17810d\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"f7d9b2c60a17810d\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"9c5484b2b3c940ff8c0867542044bd21\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"c208a7ce38991a7dd0451064a7ac2071\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:44.406Z\",\"sequence\":375,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"32c4f8ec0ee74e028ba54e8c57db965c\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"d834d05cb8f764290d24a28229578171\",\"span_id\":\"9ba73a205761a1cd\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"9ba73a205761a1cd\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"32c4f8ec0ee74e028ba54e8c57db965c\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"d834d05cb8f764290d24a28229578171\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:44.624Z\",\"sequence\":377,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"5921ab87170044fcab81e72ddcc9a7bb\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"9645cbcff9ccb296bfcf5610996ada6c\",\"span_id\":\"533f365ecce0a95b\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"533f365ecce0a95b\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"5921ab87170044fcab81e72ddcc9a7bb\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"9645cbcff9ccb296bfcf5610996ada6c\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:44.831Z\",\"sequence\":379,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"2d217386b4ce463eb4fe6c030279b3ea\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"e26ebb454b0e915c786f009f9b201a84\",\"span_id\":\"aa17994515caed7e\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"aa17994515caed7e\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"2d217386b4ce463eb4fe6c030279b3ea\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"e26ebb454b0e915c786f009f9b201a84\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:45.043Z\",\"sequence\":381,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"702f0de92ba34316be8a38b9b2e9ba80\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"2dbadc5df6978b51c5b0dbc73e7d27b3\",\"span_id\":\"84b8a5d0b2a07bc6\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"84b8a5d0b2a07bc6\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"702f0de92ba34316be8a38b9b2e9ba80\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"2dbadc5df6978b51c5b0dbc73e7d27b3\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:45.266Z\",\"sequence\":383,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"9da4efdf3da6424f87db43ea64faebf7\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"518110a7c520088466b435811c98f35e\",\"span_id\":\"fa7660ecfc87a758\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"fa7660ecfc87a758\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"9da4efdf3da6424f87db43ea64faebf7\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"518110a7c520088466b435811c98f35e\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:45.487Z\",\"sequence\":385,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"244db5b202a647239dc97040f60ddfc9\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"9d09a2c7aa2a790f51491cc591ec5643\",\"span_id\":\"5c2b9ef9d048341f\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"5c2b9ef9d048341f\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"244db5b202a647239dc97040f60ddfc9\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"9d09a2c7aa2a790f51491cc591ec5643\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:45.721Z\",\"sequence\":387,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"1837a23a763b461aa71d594768ec1607\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"b33a23b57099e9abbd11e60cdfe49be3\",\"span_id\":\"80d650b10f39a05c\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"80d650b10f39a05c\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"1837a23a763b461aa71d594768ec1607\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"b33a23b57099e9abbd11e60cdfe49be3\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:45.955Z\",\"sequence\":389,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 2 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"b91c7c5a0424493d90bee44b978c69b3\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"1fb02b2ead6e8b3f1c19ee72a2c4b144\",\"span_id\":\"c171a21703c0ac54\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":2,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"c171a21703c0ac54\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"b91c7c5a0424493d90bee44b978c69b3\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"1fb02b2ead6e8b3f1c19ee72a2c4b144\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":2,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:46.184Z\",\"sequence\":391,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"95adf04e6afe41e29854f4768e4c11ae\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"d1c36567157e9c445d4cb18440032001\",\"span_id\":\"a3693cbd2766df32\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"a3693cbd2766df32\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"95adf04e6afe41e29854f4768e4c11ae\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"d1c36567157e9c445d4cb18440032001\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "{\"@timestamp\":\"2026-11-13T23:28:46.406Z\",\"sequence\":393,\"loggerClassName\":\"org.jboss.logging.Logger\",\"logger.name\":\"com.japaneselearning.common.web.CorrelationIdFilter\",\"level\":\"WARN\",\"message\":\"Rejected GET /api/v1/jlpt-levels/* with status 401 in 1 ms\",\"thread.name\":\"vert.x-eventloop-thread-1\",\"threadId\":24,\"hostName\":\"9ac9474fb35b\",\"processName\":\"/usr/lib/jvm/java-17-openjdk-17.0.20.1.1-1.2.el9.x86_64/bin/java\",\"processId\":7,\"service.instance.id\":\"9ac9474fb35b\",\"service.version\":\"1.0.0-SNAPSHOT\",\"service.name\":\"quarkus-service\",\"deployment.environment\":\"development\",\"log.schema.version\":1,\"service_name\":\"vocabulary-api\",\"service_version\":\"unknown\",\"service_instance_id\":\"57cbcaa9-3591-4922-9046-c999df13db1f\",\"environment\":\"development\",\"event_name\":\"http.request.completed\",\"correlation_id\":\"39e66bcb726541f1b4508ddd7f19a2f1\",\"error_type\":\"authentication\",\"error_code\":\"UNAUTHORIZED\",\"trace_id\":\"1ea626d1bf0f1261bbae6f88c1c8c550\",\"span_id\":\"67a307d997ffe26e\",\"http_method\":\"GET\",\"http_route\":\"/unmatched\",\"route_family\":\"jlpt_levels\",\"http_status\":401,\"duration_ms\":1,\"error_category\":\"authentication\",\"error.type\":\"authentication\",\"spanId\":\"67a307d997ffe26e\",\"caller.service.claimed\":\"unknown\",\"correlationId\":\"39e66bcb726541f1b4508ddd7f19a2f1\",\"network.protocol.version\":\"HTTP_1_1\",\"traceId\":\"1ea626d1bf0f1261bbae6f88c1c8c550\",\"outcome\":\"failure\",\"url.scheme\":\"http\",\"http.request.method\":\"GET\",\"error.code\":\"UNAUTHORIZED\",\"event.name\":\"http.request.failed\",\"http.route\":\"/api/v1/jlpt-levels/*\",\"http.response.body.size\":251,\"http.response.status_code\":401,\"slowThresholdMs\":1000,\"durationMs\":1,\"http.response.started\":\"true\",\"isSlow\":\"false\"}",
+        "INFO exec -a \"java\" java -XX:MaxRAMPercentage=80.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:+ExitOnOutOfMemoryError -Djava.util.logging.manager=org.jboss.logmanager.LogManager -cp \".\" -jar /deployments/quarkus-run.jar "
+      ]
+    },
+    "otel-collectorDiagnostics": {
+      "code": 0,
+      "matches": []
+    },
+    "tempoDiagnostics": {
+      "code": 0,
+      "matches": []
+    }
+  },
+  "finalContainers": [
+    {
+      "id": "9ac9474fb35b7df5919a9fb3bc65f6bdad3e172e4109b7461ef1dd4ec581dac1",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "project": "jp_learning_dev",
+      "service": "vocabulary-api",
+      "started": "2026-11-13T23:28:08.927796588Z",
+      "restarts": 0,
+      "image": "sha256:63708f66588bcb2627169eb31c9ad3528b358e55e72018e0e13f90f53a19d1fb",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": [
+        "APP_ENVIRONMENT=development",
+        "APP_OTEL_ENDPOINT=http://otel-collector:4317",
+        "APP_OTEL_EXPORT_ENABLED=true",
+        "APP_OTEL_SAMPLE_RATIO=0.1",
+        "APP_OTEL_MAX_ROOTS_PER_SECOND=10"
+      ]
+    },
+    {
+      "id": "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16",
+      "name": "/jp_learning_dev-grafana-1",
+      "project": "jp_learning_dev",
+      "service": "grafana",
+      "started": "2026-11-13T11:49:14.1810333Z",
+      "restarts": 0,
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\grafana\\provisioning",
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "0f60ddf65763a6e5d7cfe84574db9b03e022daa512c78dfa8d73eaba802e3574",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "project": "jp_learning_dev",
+      "service": "jwks-api",
+      "started": "2026-11-13T11:49:08.428251031Z",
+      "restarts": 0,
+      "image": "sha256:5bd22ff07472603c37b5b5b810c5580c41240775d31507b49063cf928d38a23d",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "destination": "/run/keys/jwks/user-publickey-2.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "destination": "/run/keys/jwks/user-publickey-3.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/app/data/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "destination": "/run/keys/jwks/user-publickey-1.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8",
+      "name": "/jp_learning_dev-prometheus-1",
+      "project": "jp_learning_dev",
+      "service": "prometheus",
+      "started": "2026-11-13T11:49:08.426076882Z",
+      "restarts": 0,
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\prometheus",
+          "destination": "/etc/prometheus",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "4aa27581dc9d485a2a9c44f882351d755538fffe44209fdec1ad620a02fc65ba",
+      "name": "/jp_learning_dev-user-api-1",
+      "project": "jp_learning_dev",
+      "service": "user-api",
+      "started": "2026-11-13T11:49:21.691749254Z",
+      "restarts": 0,
+      "image": "sha256:a0571ca101ba8305c1b0463c55f4fcb58bbf3467bc8536f8acd2c6a4d4c13651",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "destination": "/run/keys/jwt",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "d756f25b46b8c2bdfcac4aac74edd4027c2496604b5adff253f8f3f173914d49",
+      "name": "/jp_learning_dev-tempo-1",
+      "project": "jp_learning_dev",
+      "service": "tempo",
+      "started": "2026-11-13T11:49:08.384773916Z",
+      "restarts": 0,
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\tempo.yml",
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p06-tracing"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "project": "jp_learning_dev",
+      "service": "otel-collector",
+      "started": "2026-11-13T11:49:08.38313428Z",
+      "restarts": 0,
+      "image": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\collector.yml",
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "a963f640f67f53b6e3cea71f354cced849dd7bf3f033505de96691770faed8f3",
+      "name": "/jp_learning_dev-frontend-1",
+      "project": "jp_learning_dev",
+      "service": "frontend",
+      "started": "2026-11-13T11:49:54.391490192Z",
+      "restarts": 0,
+      "image": "sha256:22b5b9b11ed769313a8d1fffd4b88f9a502ac25630b66409e38237f680a18532",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "f4cfd420288c1a0772be67111abd5bfa8bf4090c08630090f182ba1ba82bed9e",
+      "name": "/jp_learning_dev-gateway-1",
+      "project": "jp_learning_dev",
+      "service": "gateway",
+      "started": "2026-11-13T11:38:37.163237514Z",
+      "restarts": 0,
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "7937aeaa7daa6e8ddda829e94d5f66906ccd7af38569f109f4c0577fe30de51a",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "project": "jp_learning_dev",
+      "service": "logs-ui",
+      "started": "2026-11-13T11:38:37.189580734Z",
+      "restarts": 0,
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\logging\\htpasswd",
+          "destination": "/etc/nginx/logs.htpasswd",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-access",
+        "jp_learning_dev_log-ui"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "ad61d42af7a7196223ef5d35a15ac553b9bc83883662bf215e4782a2a7e53381",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "project": "jp_learning_dev",
+      "service": "logging-ui-init",
+      "started": "2026-11-13T23:16:29.044879894Z",
+      "restarts": 0,
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-ui"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "845f059d5b5b2dc45812b6af0fd074ae34059cfbf4fdebc60bd05df57be750e7",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "project": "jp_learning_dev",
+      "service": "fluent-bit",
+      "started": "2026-11-13T11:38:37.179827084Z",
+      "restarts": 0,
+      "image": "sha256:6755b1349d10b4f85ea1c2a293d92b19f8fe44efc92a0cf4c16d9e8096fd062e",
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "ce358e501dd819c9313c0c912a3706e96cef3e4ad0ece53cc3c38abe32a7916a",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "project": "jp_learning_dev",
+      "service": "opensearch-dashboards",
+      "started": "2026-11-13T11:38:37.195364961Z",
+      "restarts": 0,
+      "image": "sha256:8a05fb2ca21c689d06979a9da21b4ce88fa0d90b3f1df2e3ca8ebb3c8621b18c",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_dashboards_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "destination": "/usr/share/opensearch-dashboards/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage",
+        "jp_learning_dev_log-ui"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "59d0360c273d05a9209fda6ccd2b4dc362a6307a2ecac5e4fa8e38c572efdc94",
+      "name": "/jp_learning_dev-logging-init-1",
+      "project": "jp_learning_dev",
+      "service": "logging-init",
+      "started": "2026-11-13T23:16:27.258535186Z",
+      "restarts": 0,
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "fa3b9d61d7c85d0bb23d55ee1f2b751f7dcb65b63ef58e713320320da0f16fc1",
+      "name": "/jp_learning_dev-opensearch-1",
+      "project": "jp_learning_dev",
+      "service": "opensearch",
+      "started": "2026-11-13T11:38:37.192292148Z",
+      "restarts": 0,
+      "image": "sha256:834dfaf615d3accc97d179360062c479a4b3b6d2a16ee4fc1207d7c683969dc9",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/usr/share/opensearch/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "aa00025b47b82ab1b81f87f740981b6b0885b04e395002fc2d94270512c65e9e",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "project": "jp_learning_dev",
+      "service": "flyway-user",
+      "started": "2026-11-13T23:16:28.005653306Z",
+      "restarts": 0,
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "0983d016e5a4c7b0471fedc0e3c4f0c6168c403887291cfbd20e8723fb696005",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "project": "jp_learning_dev",
+      "service": "flyway-vocabulary",
+      "started": "2026-11-13T23:16:27.270075299Z",
+      "restarts": 0,
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "1afbcf1f3662851acdc05e70a692d02a6efcc0a5ea03d5e572fd248faa92d407",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "project": "jp_learning_dev",
+      "service": "sqlserver-init",
+      "started": "2026-11-13T23:16:27.262199566Z",
+      "restarts": 0,
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "state": "exited",
+      "exit": 0,
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "6e1f30436a7a06b1b1d8597f8d9e40f327382179d92454743aac1647ed49d700",
+      "name": "/jp_learning_dev-mysql-1",
+      "project": "jp_learning_dev",
+      "service": "mysql",
+      "started": "2026-11-13T11:38:37.176541588Z",
+      "restarts": 0,
+      "image": "sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_mysql_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "destination": "/var/lib/mysql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    },
+    {
+      "id": "67e8fbba23eb259b9d7fdafeb4ab7e30dd8a63188a4a0b9f077e9f3c301e4b1c",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "project": "jp_learning_dev",
+      "service": "sqlserver",
+      "started": "2026-11-13T11:38:37.137163097Z",
+      "restarts": 0,
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_sqlserver_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "destination": "/var/opt/mssql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "tracing": []
+    }
+  ],
+  "preservation": {
+    "vocabularyRecreated": true,
+    "othersUnchanged": false,
+    "vocabularyMountsPreserved": true,
+    "volumesPreserved": true
+  }
+}

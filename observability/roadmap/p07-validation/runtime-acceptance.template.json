@@ -1,0 +1,83 @@
+{
+  "deployment_approval_ref": null,
+  "image_config_hashes_ref": null,
+  "operator_reviewer_ref": null,
+  "cases": [
+    {
+      "id": "L1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "L2",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "M1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "M2",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "T1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "T2",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "T3",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "G1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "S1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "S2",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "S3",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "B1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "R1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "I1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    },
+    {
+      "id": "RB1",
+      "status": "NOT_EXECUTED",
+      "evidence_ref": null
+    }
+  ],
+  "runtime_acceptance": "BLOCKED"
+}

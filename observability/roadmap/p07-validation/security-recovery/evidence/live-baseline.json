@@ -1,0 +1,3259 @@
+{
+  "captured_utc": "2026-11-13T23:41:48.680Z",
+  "context": "desktop-linux",
+  "containers": [
+    {
+      "id": "43ed8972f29d0b6db7cfb0c96e4ae8ac3b467b1984258424161cb0beb7c9795d",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "project": "jp_learning_dev",
+      "service": "vocabulary-api",
+      "started": "2026-11-13T23:32:58.023304641Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8082"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 1073741824,
+        "swap": 1073741824,
+        "cpu": 2000000000,
+        "pids": 256,
+        "tmpfs": {
+          "/tmp": "rw,nosuid,nodev,size=256m,mode=1777"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16",
+      "name": "/jp_learning_dev-grafana-1",
+      "project": "jp_learning_dev",
+      "service": "grafana",
+      "started": "2026-11-13T11:49:14.1810333Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\grafana\\provisioning",
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3001"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 1000000000,
+        "pids": 128,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=64m,mode=1777"
+        },
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "0f60ddf65763a6e5d7cfe84574db9b03e022daa512c78dfa8d73eaba802e3574",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "project": "jp_learning_dev",
+      "service": "jwks-api",
+      "started": "2026-11-13T11:49:08.428251031Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "destination": "/run/keys/jwks/user-publickey-2.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "destination": "/run/keys/jwks/user-publickey-3.pem",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/app/data/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "destination": "/run/keys/jwks/user-publickey-1.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8083"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 2000000000,
+        "pids": 256,
+        "tmpfs": {
+          "/tmp": "rw,nosuid,nodev,size=128m,mode=1777"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8",
+      "name": "/jp_learning_dev-prometheus-1",
+      "project": "jp_learning_dev",
+      "service": "prometheus",
+      "started": "2026-11-13T11:49:08.426076882Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\prometheus",
+          "destination": "/etc/prometheus",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring"
+      ],
+      "ports": {
+        "9090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9091"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 1000000000,
+        "pids": 128,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=64m,mode=1777"
+        },
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "3",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "4aa27581dc9d485a2a9c44f882351d755538fffe44209fdec1ad620a02fc65ba",
+      "name": "/jp_learning_dev-user-api-1",
+      "project": "jp_learning_dev",
+      "service": "user-api",
+      "started": "2026-11-13T11:49:21.691749254Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "destination": "/run/keys/jwt",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8081"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 2000000000,
+        "pids": 256,
+        "tmpfs": {
+          "/home/app/.aspnet": "rw,noexec,nosuid,nodev,size=1m,uid=1654,gid=1654,mode=0700",
+          "/tmp": "rw,noexec,nosuid,nodev,size=64m,mode=1777"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "d756f25b46b8c2bdfcac4aac74edd4027c2496604b5adff253f8f3f173914d49",
+      "name": "/jp_learning_dev-tempo-1",
+      "project": "jp_learning_dev",
+      "service": "tempo",
+      "started": "2026-11-13T11:49:08.384773916Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\tempo.yml",
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p06-tracing"
+      ],
+      "ports": {},
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 1000000000,
+        "pids": 128,
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "2",
+            "max-size": "5m"
+          }
+        }
+      }
+    },
+    {
+      "id": "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "project": "jp_learning_dev",
+      "service": "otel-collector",
+      "started": "2026-11-13T11:49:08.38313428Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\collector.yml",
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "ports": {
+        "4317/tcp": null,
+        "4318/tcp": null,
+        "55679/tcp": null
+      },
+      "resources": {
+        "memory": 268435456,
+        "swap": 268435456,
+        "cpu": 500000000,
+        "pids": 64,
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "2",
+            "max-size": "5m"
+          }
+        }
+      }
+    },
+    {
+      "id": "a963f640f67f53b6e3cea71f354cced849dd7bf3f033505de96691770faed8f3",
+      "name": "/jp_learning_dev-frontend-1",
+      "project": "jp_learning_dev",
+      "service": "frontend",
+      "started": "2026-11-13T11:49:54.391490192Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8088"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 268435456,
+        "swap": 268435456,
+        "cpu": 1000000000,
+        "pids": 128,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=128m,uid=101,gid=101,mode=0700"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "f4cfd420288c1a0772be67111abd5bfa8bf4090c08630090f182ba1ba82bed9e",
+      "name": "/jp_learning_dev-gateway-1",
+      "project": "jp_learning_dev",
+      "service": "gateway",
+      "started": "2026-11-13T11:38:37.163237514Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 268435456,
+        "swap": 268435456,
+        "cpu": 1000000000,
+        "pids": 128,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=128m,uid=101,gid=101,mode=0700"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "7937aeaa7daa6e8ddda829e94d5f66906ccd7af38569f109f4c0577fe30de51a",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "project": "jp_learning_dev",
+      "service": "logs-ui",
+      "started": "2026-11-13T11:38:37.189580734Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\logging\\htpasswd",
+          "destination": "/etc/nginx/logs.htpasswd",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-access",
+        "jp_learning_dev_log-ui"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "5601"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 134217728,
+        "swap": 134217728,
+        "cpu": 1000000000,
+        "pids": 64,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=32m,uid=101,gid=101,mode=0700"
+        },
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "ad61d42af7a7196223ef5d35a15ac553b9bc83883662bf215e4782a2a7e53381",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "project": "jp_learning_dev",
+      "service": "logging-ui-init",
+      "started": "2026-11-13T23:37:20.436577652Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-ui"
+      ],
+      "ports": {},
+      "resources": {
+        "memory": 134217728,
+        "swap": 134217728,
+        "cpu": 1000000000,
+        "pids": 64,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=16m"
+        },
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "845f059d5b5b2dc45812b6af0fd074ae34059cfbf4fdebc60bd05df57be750e7",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "project": "jp_learning_dev",
+      "service": "fluent-bit",
+      "started": "2026-11-13T11:38:37.179827084Z",
+      "restarts": 0,
+      "state": "running",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "ports": {
+        "2020/tcp": null
+      },
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 1000000000,
+        "pids": 128,
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "ce358e501dd819c9313c0c912a3706e96cef3e4ad0ece53cc3c38abe32a7916a",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "project": "jp_learning_dev",
+      "service": "opensearch-dashboards",
+      "started": "2026-11-13T11:38:37.195364961Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_dashboards_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "destination": "/usr/share/opensearch-dashboards/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage",
+        "jp_learning_dev_log-ui"
+      ],
+      "ports": {
+        "5601/tcp": null
+      },
+      "resources": {
+        "memory": 1073741824,
+        "swap": 1073741824,
+        "cpu": 1000000000,
+        "pids": 256,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=64m"
+        },
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "59d0360c273d05a9209fda6ccd2b4dc362a6307a2ecac5e4fa8e38c572efdc94",
+      "name": "/jp_learning_dev-logging-init-1",
+      "project": "jp_learning_dev",
+      "service": "logging-init",
+      "started": "2026-11-13T23:37:18.747962672Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "ports": {},
+      "resources": {
+        "memory": 134217728,
+        "swap": 134217728,
+        "cpu": 1000000000,
+        "pids": 64,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=16m"
+        },
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "fa3b9d61d7c85d0bb23d55ee1f2b751f7dcb65b63ef58e713320320da0f16fc1",
+      "name": "/jp_learning_dev-opensearch-1",
+      "project": "jp_learning_dev",
+      "service": "opensearch",
+      "started": "2026-11-13T11:38:37.192292148Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/usr/share/opensearch/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "ports": {
+        "9200/tcp": null,
+        "9300/tcp": null,
+        "9600/tcp": null,
+        "9650/tcp": null
+      },
+      "resources": {
+        "memory": 2147483648,
+        "swap": 2147483648,
+        "cpu": 2000000000,
+        "pids": 512,
+        "tmpfs": {
+          "/tmp": "rw,exec,nosuid,nodev,size=256m,mode=1777",
+          "/usr/share/opensearch/logs": "rw,nosuid,nodev,size=64m,uid=1000,gid=1000"
+        },
+        "log": {
+          "Type": "local",
+          "Config": {
+            "max-file": "5",
+            "max-size": "10m"
+          }
+        }
+      }
+    },
+    {
+      "id": "aa00025b47b82ab1b81f87f740981b6b0885b04e395002fc2d94270512c65e9e",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "project": "jp_learning_dev",
+      "service": "flyway-user",
+      "started": "2026-11-13T23:37:19.431064309Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {},
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 1000000000,
+        "pids": 128,
+        "tmpfs": {
+          "/tmp": "rw,nosuid,nodev,size=128m,mode=1777"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "0983d016e5a4c7b0471fedc0e3c4f0c6168c403887291cfbd20e8723fb696005",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "project": "jp_learning_dev",
+      "service": "flyway-vocabulary",
+      "started": "2026-11-13T23:37:18.750072295Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {},
+      "resources": {
+        "memory": 536870912,
+        "swap": 536870912,
+        "cpu": 1000000000,
+        "pids": 128,
+        "tmpfs": {
+          "/tmp": "rw,nosuid,nodev,size=128m,mode=1777"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "1afbcf1f3662851acdc05e70a692d02a6efcc0a5ea03d5e572fd248faa92d407",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "project": "jp_learning_dev",
+      "service": "sqlserver-init",
+      "started": "2026-11-13T23:37:18.745993769Z",
+      "restarts": 0,
+      "state": "exited",
+      "exit": 0,
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {},
+      "resources": {
+        "memory": 268435456,
+        "swap": 268435456,
+        "cpu": 1000000000,
+        "pids": 64,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=16m,mode=1777"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "6e1f30436a7a06b1b1d8597f8d9e40f327382179d92454743aac1647ed49d700",
+      "name": "/jp_learning_dev-mysql-1",
+      "project": "jp_learning_dev",
+      "service": "mysql",
+      "started": "2026-11-13T11:38:37.176541588Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_mysql_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "destination": "/var/lib/mysql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "3306/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3306"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 1073741824,
+        "swap": 1073741824,
+        "cpu": 2000000000,
+        "pids": 256,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=64m,mode=1777",
+          "/var/run/mysqld": "rw,noexec,nosuid,nodev,size=16m,uid=999,gid=999,mode=0750"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "67e8fbba23eb259b9d7fdafeb4ab7e30dd8a63188a4a0b9f077e9f3c301e4b1c",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "project": "jp_learning_dev",
+      "service": "sqlserver",
+      "started": "2026-11-13T11:38:37.137163097Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "exit": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_sqlserver_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "destination": "/var/opt/mssql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "1433/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "1433"
+          }
+        ]
+      },
+      "resources": {
+        "memory": 3221225472,
+        "swap": 3221225472,
+        "cpu": 2000000000,
+        "pids": 512,
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=128m,mode=1777"
+        },
+        "log": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    }
+  ],
+  "checks": {
+    "disk": {
+      "code": 0,
+      "data": "Filesystem      1K-blocks     Used Available Use% Mounted on\n/dev/sdd       1055762868 37619240 964440156   4% /usr/share/opensearch/data\n",
+      "error": ""
+    },
+    "osStorage": {
+      "code": 0,
+      "data": {
+        "nodes": {
+          "VPJHaGmqQaKpwYbxDGTe6g": {
+            "indices": {
+              "store": {
+                "size_in_bytes": 10016278,
+                "reserved_in_bytes": 0
+              }
+            },
+            "fs": {
+              "total": {
+                "total_in_bytes": 1081101176832,
+                "free_in_bytes": 1042579070976,
+                "available_in_bytes": 987586715648,
+                "cache_reserved_in_bytes": 0
+              }
+            }
+          }
+        }
+      },
+      "error": ""
+    },
+    "watermarks": {
+      "code": 0,
+      "data": {
+        "defaults": {
+          "cluster": {
+            "routing": {
+              "allocation": {
+                "disk": {
+                  "threshold_enabled": "true",
+                  "watermark": {
+                    "flood_stage": "95%",
+                    "high": "90%",
+                    "low": "85%",
+                    "enable_for_single_data_node": "false"
+                  },
+                  "include_relocations": "true",
+                  "warm_threshold_enabled": "true",
+                  "reroute_interval": "60s"
+                }
+              }
+            }
+          }
+        }
+      },
+      "error": ""
+    },
+    "retention": {
+      "code": 0,
+      "data": {
+        "policies": [
+          {
+            "_id": "application-logs-retention",
+            "_seq_no": 1159,
+            "_primary_term": 3,
+            "policy": {
+              "policy_id": "application-logs-retention",
+              "description": "Application log retention, measured from daily index creation",
+              "last_updated_time": 1794613039390,
+              "schema_version": 31,
+              "error_notification": null,
+              "default_state": "retain",
+              "states": [
+                {
+                  "name": "retain",
+                  "actions": [],
+                  "transitions": [
+                    {
+                      "state_name": "delete",
+                      "conditions": {
+                        "min_index_age": "30d"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "delete",
+                  "actions": [
+                    {
+                      "retry": {
+                        "count": 3,
+                        "backoff": "exponential",
+                        "delay": "1m"
+                      },
+                      "delete": {}
+                    }
+                  ],
+                  "transitions": []
+                }
+              ],
+              "ism_template": [
+                {
+                  "index_patterns": [
+                    "application-logs-*"
+                  ],
+                  "priority": 100,
+                  "last_updated_time": 1794613039390
+                }
+              ]
+            }
+          }
+        ],
+        "total_policies": 1
+      },
+      "error": ""
+    },
+    "retentionAssignments": {
+      "code": 0,
+      "data": {
+        "application-logs-user-api-2026.11.12": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-user-api-2026.11.12",
+          "index_uuid": "rHX46rP7Q_OWp5Ny0cQhDA",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 415,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794485567630,
+          "state": {
+            "name": "retain",
+            "start_time": 1794485967089
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794486174485,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794486174485,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-user-api-2026.11.12]"
+          },
+          "enabled": true
+        },
+        "application-logs-vocabulary-api-2026.11.13": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-vocabulary-api-2026.11.13",
+          "index_uuid": "JRMVGE2GQY26F5hIo0nwTw",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 415,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794569955363,
+          "state": {
+            "name": "retain",
+            "start_time": 1794570396885
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794570626266,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794570626266,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-vocabulary-api-2026.11.13]"
+          },
+          "enabled": true
+        },
+        "application-logs-jwks-api-2026.11.07": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-jwks-api-2026.11.07",
+          "index_uuid": "lDiOjWRdT22LwH6WObITLg",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 16,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794016016114,
+          "state": {
+            "name": "retain",
+            "start_time": 1794024105236
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794024105826,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794024105826,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-jwks-api-2026.11.07]"
+          },
+          "enabled": true
+        },
+        "application-logs-jwks-api-2026.11.06": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-jwks-api-2026.11.06",
+          "index_uuid": "IzbEAegHQbedwD3IPflWhg",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 1,
+          "policy_primary_term": 1,
+          "index_creation_date": 1793974690593,
+          "state": {
+            "name": "retain",
+            "start_time": 1793975009393
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1793975423583,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1793975423583,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-jwks-api-2026.11.06]"
+          },
+          "enabled": true
+        },
+        "application-logs-vocabulary-api-2026.11.12": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-vocabulary-api-2026.11.12",
+          "index_uuid": "Tj5guzI3StiUx-a_DANabw",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 415,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794485572489,
+          "state": {
+            "name": "retain",
+            "start_time": 1794485902041
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794486194670,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794486194670,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-vocabulary-api-2026.11.12]"
+          },
+          "enabled": true
+        },
+        "application-logs-jwks-api-2026.11.12": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-jwks-api-2026.11.12",
+          "index_uuid": "W2gz72-0QAmOGxNVr7owzg",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 415,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794485566583,
+          "state": {
+            "name": "retain",
+            "start_time": 1794485958707
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794486217539,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794486217539,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-jwks-api-2026.11.12]"
+          },
+          "enabled": true
+        },
+        "application-logs-vocabulary-api-2026.11.07": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-vocabulary-api-2026.11.07",
+          "index_uuid": "mq5YVE-nQiCZ2u9CZY7mxQ",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 16,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794024022650,
+          "state": {
+            "name": "retain",
+            "start_time": 1794024381710
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794024627025,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794024627025,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-vocabulary-api-2026.11.07]"
+          },
+          "enabled": true
+        },
+        "application-logs-vocabulary-api-2026.11.06": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-vocabulary-api-2026.11.06",
+          "index_uuid": "dJ_8nPKPRNaRl_Xs1bn3tw",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 1,
+          "policy_primary_term": 1,
+          "index_creation_date": 1793974706468,
+          "state": {
+            "name": "retain",
+            "start_time": 1793975027008
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1793975482918,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1793975482918,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-vocabulary-api-2026.11.06]"
+          },
+          "enabled": true
+        },
+        "application-logs-user-api-2026.11.13": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-user-api-2026.11.13",
+          "index_uuid": "ebhjadJNQcePVrgPTRWwDg",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 415,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794569958286,
+          "state": {
+            "name": "retain",
+            "start_time": 1794570372677
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794570619681,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794570619681,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-user-api-2026.11.13]"
+          },
+          "enabled": true
+        },
+        "application-logs-jwks-api-2026.11.13": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-jwks-api-2026.11.13",
+          "index_uuid": "uiZH1QUdQIeclmmbqPgXGg",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 415,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794569956286,
+          "state": {
+            "name": "retain",
+            "start_time": 1794570318473
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794570627463,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794570627463,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-jwks-api-2026.11.13]"
+          },
+          "enabled": true
+        },
+        "application-logs-user-api-2026.11.07": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-user-api-2026.11.07",
+          "index_uuid": "KLJm7CGDTjWwMlNjK2QAWQ",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 16,
+          "policy_primary_term": 1,
+          "index_creation_date": 1794016015881,
+          "state": {
+            "name": "retain",
+            "start_time": 1794024143954
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1794024218950,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1794024218950,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-user-api-2026.11.07]"
+          },
+          "enabled": true
+        },
+        "application-logs-user-api-2026.11.06": {
+          "index.plugins.index_state_management.policy_id": "application-logs-retention",
+          "index.opendistro.index_state_management.policy_id": "application-logs-retention",
+          "index": "application-logs-user-api-2026.11.06",
+          "index_uuid": "hXLRpS3KSki4fYYyNzvyyA",
+          "policy_id": "application-logs-retention",
+          "policy_seq_no": 1,
+          "policy_primary_term": 1,
+          "index_creation_date": 1793974691115,
+          "state": {
+            "name": "retain",
+            "start_time": 1793975099904
+          },
+          "action": {
+            "name": "transition",
+            "start_time": 1793975321784,
+            "index": -1,
+            "failed": false,
+            "consumed_retries": 0,
+            "last_retry_time": 0
+          },
+          "step": {
+            "name": "attempt_transition_step",
+            "start_time": 1793975321785,
+            "step_status": "condition_not_met"
+          },
+          "retry_info": {
+            "failed": false,
+            "consumed_retries": 0
+          },
+          "info": {
+            "message": "Evaluating transition conditions [index=application-logs-user-api-2026.11.06]"
+          },
+          "enabled": true
+        },
+        "total_managed_indices": 12
+      },
+      "error": ""
+    },
+    "fluentStorage": {
+      "code": 0,
+      "data": {
+        "storage_layer": {
+          "chunks": {
+            "total_chunks": 0,
+            "mem_chunks": 0,
+            "fs_chunks": 0,
+            "fs_chunks_up": 0,
+            "fs_chunks_down": 0
+          }
+        },
+        "input_chunks": {
+          "tail.0": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "0b",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 0,
+              "up": 0,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          },
+          "tail.1": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "0b",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 0,
+              "up": 0,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          },
+          "tail.2": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "0b",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 0,
+              "up": 0,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          },
+          "storage_backlog.3": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "0b",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 0,
+              "up": 0,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          }
+        }
+      },
+      "error": ""
+    },
+    "nativeAnonymous": {
+      "code": 0,
+      "data": "{\"cluster_name\":\"japanese-learning-logs\",\"status\":\"yellow\",\"timed_out\":false,\"number_of_nodes\":1,\"number_of_data_nodes\":1,\"discovered_master\":true,\"discovered_cluster_manager\":true,\"active_primary_shards\":22,\"active_shards\":22,\"relocating_shards\":0,\"initializing_shards\":0,\"unassigned_shards\":2,\"delayed_unassigned_shards\":0,\"number_of_pending_tasks\":0,\"number_of_in_flight_fetch\":0,\"task_max_waiting_in_queue_millis\":0,\"active_shards_percent_as_number\":91.66666666666666}\nSTATUS:200",
+      "error": ""
+    },
+    "nativeSecurity": {
+      "code": 0,
+      "data": "{\"error\":\"no handler found for uri [/_plugins/_security/authinfo] and method [GET]\"}\nSTATUS:400",
+      "error": ""
+    },
+    "promRules": {
+      "status": 200,
+      "data": {
+        "status": "success",
+        "data": {
+          "groups": [
+            {
+              "name": "jp_p05.availability",
+              "file": "/etc/prometheus/rules/p05.rules.yml",
+              "rules": [
+                {
+                  "state": "inactive",
+                  "name": "JpServiceScrapeUnavailable",
+                  "query": "max by (job) (up{job=~\"user-api|vocabulary-api|prometheus\"}) == 0",
+                  "duration": 60,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "availability"
+                  },
+                  "annotations": {
+                    "description": "All configured instances of this job failed scraping for one minute; this is not proof the application process is down.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+                    "summary": "A Japanese Learning target cannot be scraped"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000196328,
+                  "lastEvaluation": "2026-11-13T23:41:40.163176331Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpExpectedUserTargetMissing",
+                  "query": "absent(up{job=\"user-api\"})",
+                  "duration": 60,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "user-api",
+                    "severity": "critical",
+                    "signal": "availability"
+                  },
+                  "annotations": {
+                    "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+                    "summary": "An expected Japanese Learning target is absent"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000035405,
+                  "lastEvaluation": "2026-11-13T23:41:40.163377324Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpExpectedLearningTargetMissing",
+                  "query": "absent(up{job=\"vocabulary-api\"})",
+                  "duration": 60,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "vocabulary-api",
+                    "severity": "critical",
+                    "signal": "availability"
+                  },
+                  "annotations": {
+                    "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+                    "summary": "An expected Japanese Learning target is absent"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000020246,
+                  "lastEvaluation": "2026-11-13T23:41:40.163414467Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpExpectedPrometheusTargetMissing",
+                  "query": "absent(up{job=\"prometheus\"})",
+                  "duration": 60,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "prometheus",
+                    "severity": "critical",
+                    "signal": "availability"
+                  },
+                  "annotations": {
+                    "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+                    "summary": "An expected Japanese Learning target is absent"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.00001847,
+                  "lastEvaluation": "2026-11-13T23:41:40.163436499Z",
+                  "type": "alerting"
+                }
+              ],
+              "interval": 15,
+              "limit": 0,
+              "evaluationTime": 0.000311086,
+              "lastEvaluation": "2026-11-13T23:41:40.163145801Z"
+            },
+            {
+              "name": "jp_p05.capacity",
+              "file": "/etc/prometheus/rules/p05.rules.yml",
+              "rules": [
+                {
+                  "state": "inactive",
+                  "name": "JpSqlPoolBusy",
+                  "query": "(sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"active\"}) / sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"pooled\"}) > 0.9) and on (job) (sum by (job) (app_database_pool_connections{job=\"user-api\",state=\"pooled\"}) >= 10)",
+                  "duration": 900,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "pool"
+                  },
+                  "annotations": {
+                    "description": "More than ninety percent of at least ten allocated connections are active. The pool can grow: this is not proof of configured-maximum saturation.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "Allocated SqlClient connections remain busy"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000574166,
+                  "lastEvaluation": "2026-11-13T23:41:35.34099141Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpReactivePoolWarning",
+                  "query": "(max by (job) (sql_pool_ratio{job=\"vocabulary-api\",pool=\"default\"}) > 0.85) and on (job) (max by (job) (sql_pool_queue_size{job=\"vocabulary-api\",pool=\"default\"}) > 0)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "pool"
+                  },
+                  "annotations": {
+                    "description": "Native SQL pool ratio above 0.85 with queued work; verify actual reactive datasource collection and max size before adoption.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "Reactive SQL pool pressure persists"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000168116,
+                  "lastEvaluation": "2026-11-13T23:41:35.341577006Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpReactivePoolCritical",
+                  "query": "(max by (job) (sql_pool_ratio{job=\"vocabulary-api\",pool=\"default\"}) > 0.95) and on (job) (max by (job) (sql_pool_queue_size{job=\"vocabulary-api\",pool=\"default\"}) > 0)",
+                  "duration": 300,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "pool"
+                  },
+                  "annotations": {
+                    "description": "Native SQL pool ratio above 0.95 with queued work; verify actual reactive datasource collection and max size before adoption.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "Reactive SQL pool pressure persists"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000115191,
+                  "lastEvaluation": "2026-11-13T23:41:35.341750203Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpUserMemoryWarning",
+                  "query": "max by (job) (process_working_set_bytes{job=\"user-api\"}) / 536870912 > 0.8",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "memory"
+                  },
+                  "annotations": {
+                    "description": "Working set exceeds 0.8 of the source-declared 512MiB envelope; actual container cap and overhead are NOT VERIFIED.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "User API exceeds a proposed memory budget"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000229913,
+                  "lastEvaluation": "2026-11-13T23:41:35.341869243Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpUserMemoryCritical",
+                  "query": "max by (job) (process_working_set_bytes{job=\"user-api\"}) / 536870912 > 0.95",
+                  "duration": 300,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "memory"
+                  },
+                  "annotations": {
+                    "description": "Working set exceeds 0.95 of the source-declared 512MiB envelope; actual container cap and overhead are NOT VERIFIED.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "User API exceeds a proposed memory budget"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000105193,
+                  "lastEvaluation": "2026-11-13T23:41:35.342106492Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpLearningHeapWarning",
+                  "query": "(sum by (job) (jvm_memory_used_bytes{area=\"heap\",job=\"vocabulary-api\"}) / sum by (job) (jvm_memory_max_bytes{area=\"heap\",job=\"vocabulary-api\"} > 0) > 0.85) and on (job) (sum by (job) (jvm_memory_max_bytes{area=\"heap\",job=\"vocabulary-api\"} > 0) > 0)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "memory"
+                  },
+                  "annotations": {
+                    "description": "Used heap exceeds 0.85 of positive native heap maxima; this excludes native/off-heap/container memory and requires GC/max semantics acceptance.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "Learning API heap occupancy persists"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000239006,
+                  "lastEvaluation": "2026-11-13T23:41:35.342217397Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpLearningHeapCritical",
+                  "query": "(sum by (job) (jvm_memory_used_bytes{area=\"heap\",job=\"vocabulary-api\"}) / sum by (job) (jvm_memory_max_bytes{area=\"heap\",job=\"vocabulary-api\"} > 0) > 0.95) and on (job) (sum by (job) (jvm_memory_max_bytes{area=\"heap\",job=\"vocabulary-api\"} > 0) > 0)",
+                  "duration": 300,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "memory"
+                  },
+                  "annotations": {
+                    "description": "Used heap exceeds 0.95 of positive native heap maxima; this excludes native/off-heap/container memory and requires GC/max semantics acceptance.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "Learning API heap occupancy persists"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000237512,
+                  "lastEvaluation": "2026-11-13T23:41:35.342459683Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpUserCpuBudget",
+                  "query": "sum by (job) (rate(process_cpu_seconds_total{job=\"user-api\"}[5m])) > 1.6",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "cpu"
+                  },
+                  "annotations": {
+                    "description": "More than 1.6 CPU-seconds per second against a provisional source two-vCPU budget; verify actual quota before adoption.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "User API CPU consumption is sustained"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000113221,
+                  "lastEvaluation": "2026-11-13T23:41:35.342702286Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpLearningCpuBusy",
+                  "query": "max by (job) (process_cpu_usage{job=\"vocabulary-api\"}) > 0.8",
+                  "duration": 900,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "cpu"
+                  },
+                  "annotations": {
+                    "description": "Native process CPU fraction exceeds 0.8; this is not a verified cgroup/quota utilization ratio.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "Learning API native process CPU usage is high"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000062263,
+                  "lastEvaluation": "2026-11-13T23:41:35.34281912Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpScrapeSampleWarning",
+                  "query": "max by (job) (scrape_samples_post_metric_relabeling{job=~\"user-api|vocabulary-api|prometheus\"}) > 4000",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "samples"
+                  },
+                  "annotations": {
+                    "description": "More than 4000 post-relabel samples against 5000 per-target limit; not TSDB active-head cardinality or disk-free capacity.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "A scrape approaches its sample budget"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.00009546,
+                  "lastEvaluation": "2026-11-13T23:41:35.342884715Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpScrapeSampleCritical",
+                  "query": "max by (job) (scrape_samples_post_metric_relabeling{job=~\"user-api|vocabulary-api|prometheus\"}) > 4750",
+                  "duration": 300,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "samples"
+                  },
+                  "annotations": {
+                    "description": "More than 4750 post-relabel samples against 5000 per-target limit; not TSDB active-head cardinality or disk-free capacity.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#capacity",
+                    "summary": "A scrape approaches its sample budget"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000080176,
+                  "lastEvaluation": "2026-11-13T23:41:35.342985138Z",
+                  "type": "alerting"
+                }
+              ],
+              "interval": 15,
+              "limit": 0,
+              "evaluationTime": 0.002119492,
+              "lastEvaluation": "2026-11-13T23:41:35.340948543Z"
+            },
+            {
+              "name": "jp_p05.dependencies",
+              "file": "/etc/prometheus/rules/p05.rules.yml",
+              "rules": [
+                {
+                  "state": "inactive",
+                  "name": "JpJwksDependencyWarning",
+                  "query": "(jp_p05:jwks_failed:increase10m >= 3) and on (job) (jp_p05:jwks_failed:increase10m / jp_p05:jwks_observed:increase10m > 0.2)",
+                  "duration": 300,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "jwks_errors"
+                  },
+                  "annotations": {
+                    "description": "Provisional 3 failed/timeout observations in ten minutes and failure fraction above 0.2; cached keys and unanswered Quarkus attempts are not counted as responses.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies",
+                    "summary": "Observed JWKS fetches are failing"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000146221,
+                  "lastEvaluation": "2026-11-13T23:41:47.761128072Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpJwksDependencyCritical",
+                  "query": "(jp_p05:jwks_failed:increase10m >= 10) and on (job) (jp_p05:jwks_failed:increase10m / jp_p05:jwks_observed:increase10m > 0.8)",
+                  "duration": 300,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "jwks_errors"
+                  },
+                  "annotations": {
+                    "description": "Provisional 10 failed/timeout observations in ten minutes and failure fraction above 0.8; cached keys and unanswered Quarkus attempts are not counted as responses.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies",
+                    "summary": "Observed JWKS fetches are failing"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.00003314,
+                  "lastEvaluation": "2026-11-13T23:41:47.761277429Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpJwksResponseSlow",
+                  "query": "(jp_p05:jwks_slow2s:ratio10m > 0.2) and on (job) (jp_p05:jwks_observed:increase10m >= 3)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "jwks_latency"
+                  },
+                  "annotations": {
+                    "description": "At least three observed attempts/responses, with more than one fifth above two seconds; .NET and Quarkus completion boundaries differ.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies",
+                    "summary": "Observed JWKS retrieval latency is high"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000030925,
+                  "lastEvaluation": "2026-11-13T23:41:47.761312273Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpJwksAttemptsUnresolved",
+                  "query": "(jp_p05:jwks_attempts:increase10m - (sum by (job) (increase(app_dependency_duration_seconds_count{dependency=\"jwks-api\",job=\"vocabulary-api\",operation=\"jwks.fetch\"}[10m])) or on (job) (0 * jp_p05:jwks_attempts:increase10m))) > 3",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "jwks_gap"
+                  },
+                  "annotations": {
+                    "description": "More than three unmatched initiations over ten minutes; missing completion series means unresolved, not a fabricated transport failure. In-flight work, lost samples and resets can contribute.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies",
+                    "summary": "JWKS attempt and response accounting diverge"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000091929,
+                  "lastEvaluation": "2026-11-13T23:41:47.761343997Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpSqlConnectFailures",
+                  "query": "sum by (job) (increase(app_database_operations_total{dependency=\"sqlserver\",job=\"user-api\",operation=\"connect\",outcome=\"failure\"}[5m])) >= 5",
+                  "duration": 300,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "database"
+                  },
+                  "annotations": {
+                    "description": "At least five observed provider connection failures per five minutes; passive adapter availability needs real-provider acceptance.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies",
+                    "summary": "SqlClient connection failures increased"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000043896,
+                  "lastEvaluation": "2026-11-13T23:41:47.761437651Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpLearningDatabaseFailures",
+                  "query": "sum by (job) (increase(app_database_failures_total{category=\"database\",dependency=\"mysql\",job=\"vocabulary-api\"}[5m])) >= 5",
+                  "duration": 300,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "database"
+                  },
+                  "annotations": {
+                    "description": "At least five classified unexpected database failures per five minutes; not every recovered or background failure is covered.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#dependencies",
+                    "summary": "Request-boundary database failures increased"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000025147,
+                  "lastEvaluation": "2026-11-13T23:41:47.761483708Z",
+                  "type": "alerting"
+                }
+              ],
+              "interval": 15,
+              "limit": 0,
+              "evaluationTime": 0.000407248,
+              "lastEvaluation": "2026-11-13T23:41:47.761103542Z"
+            },
+            {
+              "name": "jp_p05.http",
+              "file": "/etc/prometheus/rules/p05.rules.yml",
+              "rules": [
+                {
+                  "state": "inactive",
+                  "name": "JpHttp5xxWarning",
+                  "query": "(jp_p05:http_5xx:rate5m / jp_p05:http_requests:rate5m > 0.02) and on (job) (jp_p05:http_requests:rate5m >= 1)",
+                  "duration": 300,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "http_errors"
+                  },
+                  "annotations": {
+                    "description": "Provisional 2 percent five-minute 5xx fraction with at least one request per second; not an approved business SLO.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#http",
+                    "summary": "Sustained HTTP server failures"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000160044,
+                  "lastEvaluation": "2026-11-13T23:41:36.2407606Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpHttp5xxCritical",
+                  "query": "(jp_p05:http_5xx:rate5m / jp_p05:http_requests:rate5m > 0.1) and on (job) (jp_p05:http_requests:rate5m >= 1)",
+                  "duration": 300,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "http_errors"
+                  },
+                  "annotations": {
+                    "description": "Provisional 10 percent five-minute 5xx fraction with at least one request per second; not an approved business SLO.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#http",
+                    "summary": "Sustained HTTP server failures"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000040646,
+                  "lastEvaluation": "2026-11-13T23:41:36.240923684Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpHttpSlowWarning",
+                  "query": "(jp_p05:http_slow2s:ratio5m > 0.01) and on (job) (jp_p05:http_duration:rate5m >= 1)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "http_latency"
+                  },
+                  "annotations": {
+                    "description": "Provisional fraction above two seconds exceeds 1 percent at one request per second; import route excluded, no per-instance percentile averaging.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#http",
+                    "summary": "Sustained interactive HTTP latency"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.00003157,
+                  "lastEvaluation": "2026-11-13T23:41:36.240965744Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpHttpSlowCritical",
+                  "query": "(jp_p05:http_slow2s:ratio5m > 0.05) and on (job) (jp_p05:http_duration:rate5m >= 1)",
+                  "duration": 300,
+                  "keepFiringFor": 120,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "critical",
+                    "signal": "http_latency"
+                  },
+                  "annotations": {
+                    "description": "Provisional fraction above two seconds exceeds 5 percent at one request per second; import route excluded, no per-instance percentile averaging.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#http",
+                    "summary": "Sustained interactive HTTP latency"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000029045,
+                  "lastEvaluation": "2026-11-13T23:41:36.240998592Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpHttpFailuresBurst",
+                  "query": "jp_p05:http_5xx:increase5m >= 50",
+                  "duration": 120,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "http_errors"
+                  },
+                  "annotations": {
+                    "description": "At least fifty 5xx responses in a rolling five-minute window; intentionally catches material low-volume bursts excluded by ratio guards.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#http",
+                    "summary": "A material HTTP failure burst occurred"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000012654,
+                  "lastEvaluation": "2026-11-13T23:41:36.24102865Z",
+                  "type": "alerting"
+                }
+              ],
+              "interval": 15,
+              "limit": 0,
+              "evaluationTime": 0.000302463,
+              "lastEvaluation": "2026-11-13T23:41:36.240740613Z"
+            },
+            {
+              "name": "jp_p05.integrity",
+              "file": "/etc/prometheus/rules/p05.rules.yml",
+              "rules": [
+                {
+                  "state": "inactive",
+                  "name": "JpScrapeDataStale",
+                  "query": "max by (job) (time() - timestamp(up{job=~\"user-api|vocabulary-api|prometheus\"})) > 45",
+                  "duration": 60,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "scrape"
+                  },
+                  "annotations": {
+                    "description": "Newest retained up sample is older than three proposed scrape intervals; a stopped evaluator cannot detect itself.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity",
+                    "summary": "Japanese Learning scrape samples are stale"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.00016327,
+                  "lastEvaluation": "2026-11-13T23:41:49.573228658Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpScrapeSlow",
+                  "query": "max by (job) (scrape_duration_seconds{job=~\"user-api|vocabulary-api|prometheus\"}) > 4",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "scrape"
+                  },
+                  "annotations": {
+                    "description": "Scrapes exceed 80 percent of the proposed five-second timeout for ten minutes.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity",
+                    "summary": "Scraping approaches its timeout"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000042709,
+                  "lastEvaluation": "2026-11-13T23:41:49.573396743Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpUserCoreMetricsMissing",
+                  "query": "(max by (job) (up{job=\"user-api\"}) == 1) unless on (job) (count by (job) (process_working_set_bytes{job=\"user-api\"}) > 0)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "metrics_contract"
+                  },
+                  "annotations": {
+                    "description": "An always-registered native runtime family is missing despite successful scrapes; optional or idle HTTP families are not assumed present.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity",
+                    "summary": "A healthy scrape lacks expected runtime metrics"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.00004996,
+                  "lastEvaluation": "2026-11-13T23:41:49.573442288Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpLearningCoreMetricsMissing",
+                  "query": "(max by (job) (up{job=\"vocabulary-api\"}) == 1) unless on (job) (count by (job) (jvm_memory_used_bytes{job=\"vocabulary-api\"}) > 0)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-operations",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "metrics_contract"
+                  },
+                  "annotations": {
+                    "description": "An always-registered native runtime family is missing despite successful scrapes; optional or idle HTTP families are not assumed present.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity",
+                    "summary": "A healthy scrape lacks expected runtime metrics"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000054279,
+                  "lastEvaluation": "2026-11-13T23:41:49.573495197Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpHttpLatencyBucketMissing",
+                  "query": "(jp_p05:http_duration:rate5m >= 1) unless on (job) (jp_p05:http_fast2s:rate5m >= 0)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-application",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "metrics_contract"
+                  },
+                  "annotations": {
+                    "description": "Observed interactive duration volume lacks the required two-second bucket. Missing data is not treated as fast traffic.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#integrity",
+                    "summary": "HTTP latency coverage is incomplete"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000039171,
+                  "lastEvaluation": "2026-11-13T23:41:49.573550947Z",
+                  "type": "alerting"
+                }
+              ],
+              "interval": 15,
+              "limit": 0,
+              "evaluationTime": 0.000399364,
+              "lastEvaluation": "2026-11-13T23:41:49.573192233Z"
+            },
+            {
+              "name": "jp_p05.recording",
+              "file": "/etc/prometheus/rules/p05.rules.yml",
+              "rules": [
+                {
+                  "name": "jp_p05:http_requests:rate5m",
+                  "query": "sum by (job) (rate(http_requests_received_total{job=\"user-api\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000360916,
+                  "lastEvaluation": "2026-11-13T23:41:40.90610729Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:http_5xx:rate5m",
+                  "query": "sum by (job) (rate(http_requests_received_total{code=~\"5..\",job=\"user-api\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\",status=~\"5..\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.00014889,
+                  "lastEvaluation": "2026-11-13T23:41:40.906510985Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:http_5xx:increase5m",
+                  "query": "sum by (job) (increase(http_requests_received_total{code=~\"5..\",job=\"user-api\"}[5m])) or sum by (job) (increase(http_server_requests_seconds_count{job=\"vocabulary-api\",status=~\"5..\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000069271,
+                  "lastEvaluation": "2026-11-13T23:41:40.906664023Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:http_requests:increase5m",
+                  "query": "sum by (job) (increase(http_requests_received_total{job=\"user-api\"}[5m])) or sum by (job) (increase(http_server_requests_seconds_count{job=\"vocabulary-api\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000116539,
+                  "lastEvaluation": "2026-11-13T23:41:40.906735932Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:http_duration:rate5m",
+                  "query": "sum by (job) (rate(http_request_duration_seconds_count{job=\"user-api\",route!=\"import\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_count{job=\"vocabulary-api\",route!=\"import\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000106449,
+                  "lastEvaluation": "2026-11-13T23:41:40.906854923Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:http_fast2s:rate5m",
+                  "query": "sum by (job) (rate(http_request_duration_seconds_bucket{job=\"user-api\",le=~\"2([.]0)?\",route!=\"import\"}[5m])) or sum by (job) (rate(http_server_requests_seconds_bucket{job=\"vocabulary-api\",le=~\"2([.]0)?\",route!=\"import\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000261619,
+                  "lastEvaluation": "2026-11-13T23:41:40.906964945Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:http_slow2s:ratio5m",
+                  "query": "1 - (jp_p05:http_fast2s:rate5m / jp_p05:http_duration:rate5m)",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.00007835,
+                  "lastEvaluation": "2026-11-13T23:41:40.907231144Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:jwks_observed:increase10m",
+                  "query": "sum by (job) (increase(app_dependency_duration_seconds_count{dependency=\"jwks-api\",job=~\"user-api|vocabulary-api\",operation=\"jwks.fetch\"}[10m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000070018,
+                  "lastEvaluation": "2026-11-13T23:41:40.907312109Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:jwks_failed:increase10m",
+                  "query": "sum by (job) (increase(app_dependency_duration_seconds_count{dependency=\"jwks-api\",job=~\"user-api|vocabulary-api\",operation=\"jwks.fetch\",outcome=~\"failure|timeout\"}[10m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000053471,
+                  "lastEvaluation": "2026-11-13T23:41:40.907383953Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:jwks_fast2s:increase10m",
+                  "query": "sum by (job) (increase(app_dependency_duration_seconds_bucket{dependency=\"jwks-api\",job=~\"user-api|vocabulary-api\",le=~\"2([.]0)?\",operation=\"jwks.fetch\"}[10m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000075961,
+                  "lastEvaluation": "2026-11-13T23:41:40.907440048Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:jwks_slow2s:ratio10m",
+                  "query": "1 - (jp_p05:jwks_fast2s:increase10m / jp_p05:jwks_observed:increase10m)",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000051572,
+                  "lastEvaluation": "2026-11-13T23:41:40.907518185Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:auth_events:increase5m",
+                  "query": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=~\"login|refresh|authentication\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000066002,
+                  "lastEvaluation": "2026-11-13T23:41:40.907571568Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:auth_failed:increase5m",
+                  "query": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=~\"login|refresh|authentication\",outcome=~\"unauthenticated|denied|failure\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.00004103,
+                  "lastEvaluation": "2026-11-13T23:41:40.907639533Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:authorization_denied:increase5m",
+                  "query": "sum by (job) (increase(app_security_events_total{job=~\"user-api|vocabulary-api\",operation=\"authorization\",outcome=\"denied\"}[5m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000026165,
+                  "lastEvaluation": "2026-11-13T23:41:40.907682726Z",
+                  "type": "recording"
+                },
+                {
+                  "name": "jp_p05:jwks_attempts:increase10m",
+                  "query": "sum by (job) (increase(app_dependency_requests_total{dependency=\"jwks-api\",job=\"vocabulary-api\",operation=\"jwks.fetch\"}[10m]))",
+                  "labels": {},
+                  "health": "ok",
+                  "evaluationTime": 0.000038504,
+                  "lastEvaluation": "2026-11-13T23:41:40.907710755Z",
+                  "type": "recording"
+                }
+              ],
+              "interval": 15,
+              "limit": 0,
+              "evaluationTime": 0.001686961,
+              "lastEvaluation": "2026-11-13T23:41:40.906063741Z"
+            },
+            {
+              "name": "jp_p05.security",
+              "file": "/etc/prometheus/rules/p05.rules.yml",
+              "rules": [
+                {
+                  "state": "inactive",
+                  "name": "JpAuthenticationFailureSpike",
+                  "query": "(jp_p05:auth_failed:increase5m >= 20) and on (job) (jp_p05:auth_failed:increase5m / jp_p05:auth_events:increase5m >= 0.5)",
+                  "duration": 300,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-security",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "authentication"
+                  },
+                  "annotations": {
+                    "description": "At least twenty failures and half of observed login/refresh/authentication outcomes in five minutes; no account, token or failure message is included.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#security",
+                    "summary": "Authentication rejection volume increased"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000225104,
+                  "lastEvaluation": "2026-11-13T23:41:36.722133624Z",
+                  "type": "alerting"
+                },
+                {
+                  "state": "inactive",
+                  "name": "JpAuthorizationDenialSpike",
+                  "query": "(jp_p05:authorization_denied:increase5m >= 20) and on (job) (jp_p05:authorization_denied:increase5m / jp_p05:http_requests:increase5m >= 0.1)",
+                  "duration": 600,
+                  "keepFiringFor": 0,
+                  "labels": {
+                    "monitoring_project": "jp_dev",
+                    "owner": "jp-security",
+                    "service": "{{ $labels.job }}",
+                    "severity": "warning",
+                    "signal": "authorization"
+                  },
+                  "annotations": {
+                    "description": "At least twenty denials and ten percent of total HTTP requests in five minutes; the denominator is requests, not denial-only security events.",
+                    "runbook_ref": "observability/roadmap/p05-alert-contract.md#security",
+                    "summary": "Authorization denial volume increased"
+                  },
+                  "alerts": [],
+                  "health": "ok",
+                  "evaluationTime": 0.000050086,
+                  "lastEvaluation": "2026-11-13T23:41:36.722363402Z",
+                  "type": "alerting"
+                }
+              ],
+              "interval": 15,
+              "limit": 0,
+              "evaluationTime": 0.000322196,
+              "lastEvaluation": "2026-11-13T23:41:36.722093605Z"
+            }
+          ]
+        }
+      }
+    },
+    "promFlags": {
+      "status": 200,
+      "data": {
+        "status": "success",
+        "data": {
+          "agent": "false",
+          "alertmanager.drain-notification-queue-on-shutdown": "true",
+          "alertmanager.notification-batch-size": "256",
+          "alertmanager.notification-queue-capacity": "10000",
+          "auto-gomaxprocs": "true",
+          "auto-gomemlimit": "true",
+          "auto-gomemlimit.ratio": "0.9",
+          "config.auto-reload": "false",
+          "config.auto-reload-interval": "30s",
+          "config.file": "/etc/prometheus/prometheus.yml",
+          "enable-feature": "",
+          "log.format": "logfmt",
+          "log.level": "info",
+          "query.lookback-delta": "5m",
+          "query.max-concurrency": "20",
+          "query.max-samples": "50000000",
+          "query.timeout": "2m",
+          "rules.alert.for-grace-period": "10m",
+          "rules.alert.for-outage-tolerance": "1h",
+          "rules.alert.resend-delay": "1m",
+          "rules.max-concurrent-evals": "4",
+          "scrape.adjust-timestamps": "true",
+          "scrape.discovery-reload-interval": "5s",
+          "scrape.timestamp-tolerance": "2ms",
+          "storage.agent.checkpoint-batch-size": "1000",
+          "storage.agent.checkpoint-from-in-memory-series": "false",
+          "storage.agent.no-lockfile": "false",
+          "storage.agent.path": "data-agent/",
+          "storage.agent.retention.max-time": "4h",
+          "storage.agent.retention.min-time": "5m",
+          "storage.agent.wal-compression": "true",
+          "storage.agent.wal-compression-type": "snappy",
+          "storage.agent.wal-segment-size": "0B",
+          "storage.agent.wal-truncate-frequency": "0s",
+          "storage.remote.flush-deadline": "1m",
+          "storage.remote.read-concurrent-limit": "10",
+          "storage.remote.read-max-bytes-in-frame": "1048576",
+          "storage.remote.read-sample-limit": "50000000",
+          "storage.tsdb.allow-overlapping-compaction": "true",
+          "storage.tsdb.block-reload-interval": "1m",
+          "storage.tsdb.delay-compact-file.path": "",
+          "storage.tsdb.delayed-compaction.max-percent": "10",
+          "storage.tsdb.head-chunks-write-queue-size": "0",
+          "storage.tsdb.max-block-chunk-segment-size": "0B",
+          "storage.tsdb.max-block-duration": "4h48m",
+          "storage.tsdb.min-block-duration": "2h",
+          "storage.tsdb.no-lockfile": "false",
+          "storage.tsdb.path": "/prometheus",
+          "storage.tsdb.retention.size": "512MiB",
+          "storage.tsdb.retention.time": "2d",
+          "storage.tsdb.samples-per-chunk": "120",
+          "storage.tsdb.wal-compression": "true",
+          "storage.tsdb.wal-compression-type": "snappy",
+          "storage.tsdb.wal-segment-size": "0B",
+          "web.config.file": "",
+          "web.console.libraries": "console_libraries",
+          "web.console.templates": "consoles",
+          "web.cors.origin": ".*",
+          "web.enable-admin-api": "false",
+          "web.enable-lifecycle": "false",
+          "web.enable-otlp-receiver": "false",
+          "web.enable-remote-write-receiver": "false",
+          "web.external-url": "",
+          "web.listen-address": "0.0.0.0:9090",
+          "web.max-connections": "512",
+          "web.max-notifications-subscribers": "16",
+          "web.page-title": "Prometheus Time Series Collection and Processing Server",
+          "web.read-timeout": "5m",
+          "web.remote-write-receiver.accepted-protobuf-messages": "prometheus.WriteRequest,io.prometheus.write.v2.Request",
+          "web.route-prefix": "/",
+          "web.search.max-limit": "10000",
+          "web.user-assets": "",
+          "write-documentation": "false"
+        }
+      }
+    },
+    "logsNoAuth": {
+      "status": 401,
+      "data": "<html>\r\n<head><title>401 Authorization Required</title></head>\r\n<body>\r\n<center><h1>401 Authorization Required</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    },
+    "logsWrongAuth": {
+      "status": 500,
+      "data": "<html>\r\n<head><title>500 Internal Server Error</title></head>\r\n<body>\r\n<center><h1>500 Internal Server Error</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    },
+    "logsHttps": {
+      "error": "ERR_SSL_WRONG_VERSION_NUMBER"
+    },
+    "grafanaNoAuth": {
+      "status": 401,
+      "data": {
+        "extra": null,
+        "message": "Unauthorized",
+        "messageId": "auth.unauthorized",
+        "statusCode": 401,
+        "traceID": ""
+      }
+    },
+    "grafanaWrongAuth": {
+      "status": 401,
+      "data": {
+        "extra": null,
+        "message": "Invalid username or password",
+        "messageId": "password-auth.failed",
+        "statusCode": 401,
+        "traceID": ""
+      }
+    },
+    "grafanaAdminAllowed": {
+      "status": 200
+    },
+    "gatewayToStore": {
+      "code": 1,
+      "data": "",
+      "error": "wget: download timed out\n"
+    }
+  },
+  "volumes": [
+    {
+      "CreatedAt": "2026-10-10T10:47:04Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "fc4d2225007f4e255f3f4dbb3b5b8ca126334869b9bfbe73f8d8f14422709258",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "vocabulary_api_logs"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+      "Name": "jp_learning_dev_vocabulary_api_logs",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-13T11:49:00Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "d968b27361d5bede62702738afee8e9c8b373f829a6581483dc0e89da3da0b0d",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "grafana_data",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+      "Name": "jp_learning_dev_grafana_data",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-06T14:12:13Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "4b0760ada4f5788beee9bc0884dd9cdecae195a4f13e187000685aaddec27f78",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "jwks_api_logs"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+      "Name": "jp_learning_dev_jwks_api_logs",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-13T11:49:00Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "04b442cb413a18e3148607282cd869b977ba9ef1aa7c07921825eed6b6b3c06b",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "prometheus_data",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+      "Name": "jp_learning_dev_prometheus_data",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-10-10T10:47:04Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "ecf36ba5233e1d0569f80ca6178787530d89b0575547d0c2332b8a1583262d6d",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "user_api_logs"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+      "Name": "jp_learning_dev_user_api_logs",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-13T11:49:00Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "c98f42b2f979373ec313d4abf3bb2cdb2a5df7979edd79fc95ca56440eb5a1eb",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "tempo_data",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P06"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+      "Name": "jp_learning_dev_tempo_data",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-06T14:12:13Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "45bd8f1bf3af1e2a8e3c5d8c678b7055d644798d8dd407a4b966f5156c77eb95",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "fluent_bit_state"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+      "Name": "jp_learning_dev_fluent_bit_state",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-06T14:12:13Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "baf9dbbd771205b04334a165b4722a59fae518707eae50aa1a0c2ae155988da5",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "dashboards_data"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+      "Name": "jp_learning_dev_dashboards_data",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-06T14:12:13Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "09176b45ca724e6f59c2c44db7b9bdcf80b175197972f84216ecd109a92cf651",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "opensearch_data"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+      "Name": "jp_learning_dev_opensearch_data",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-10-10T10:47:04Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "bedc6a017795dac640a2d43aa80dd32f8f38d1079eebb97fa620ce606e3ddc4b",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "mysql_data"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+      "Name": "jp_learning_dev_mysql_data",
+      "Options": null,
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-10-10T10:47:04Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "5d1fb48be9dc2ffaf74135c94a333e1634429acae086314e44a831e093284d6d",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "sqlserver_data"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+      "Name": "jp_learning_dev_sqlserver_data",
+      "Options": null,
+      "Scope": "local"
+    }
+  ],
+  "networks": [
+    {
+      "Name": "jp_learning_dev_default",
+      "Id": "f35575a65f538569985bd4e0c15f2c2bbf93ce8e1a7b8edac8daeab1fcce9ad1",
+      "Created": "2026-10-25T13:27:09.760540142Z",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv4": true,
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": null,
+        "Config": [
+          {
+            "Subnet": "172.19.0.0/16",
+            "Gateway": "172.19.0.1"
+          }
+        ]
+      },
+      "Internal": false,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Options": {
+        "com.docker.network.enable_ipv4": "true",
+        "com.docker.network.enable_ipv6": "false"
+      },
+      "Labels": {
+        "com.docker.compose.config-hash": "1a21049e6df4d861ea06f2f12b07b899349be630bbee0f896a5ae8d45e79571e",
+        "com.docker.compose.network": "default",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0"
+      },
+      "Containers": {
+        "0f60ddf65763a6e5d7cfe84574db9b03e022daa512c78dfa8d73eaba802e3574": {
+          "Name": "jp_learning_dev-jwks-api-1",
+          "EndpointID": "ae77a237203a33257faa15b3603cb9cf02068155ccc89395b5f760bc98d62d84",
+          "MacAddress": "da:4c:47:40:e4:22",
+          "IPv4Address": "172.19.0.4/16",
+          "IPv6Address": ""
+        },
+        "43ed8972f29d0b6db7cfb0c96e4ae8ac3b467b1984258424161cb0beb7c9795d": {
+          "Name": "jp_learning_dev-vocabulary-api-1",
+          "EndpointID": "b58adc5cbc6d104e50dda4d66a43cf145c574debc3ceec8e534a197682a6cb94",
+          "MacAddress": "4a:3e:a2:d0:5e:47",
+          "IPv4Address": "172.19.0.9/16",
+          "IPv6Address": ""
+        },
+        "4aa27581dc9d485a2a9c44f882351d755538fffe44209fdec1ad620a02fc65ba": {
+          "Name": "jp_learning_dev-user-api-1",
+          "EndpointID": "21ed7632e61279ca5c33eb8fac023833f45e32015b8c2cf41ebdd0652a3e568d",
+          "MacAddress": "fa:f5:24:cc:f3:81",
+          "IPv4Address": "172.19.0.8/16",
+          "IPv6Address": ""
+        },
+        "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d": {
+          "Name": "jp_learning_dev-otel-collector-1",
+          "EndpointID": "2cf3dd0b16e947fd09ac015f8b1d29f93f3d2cc9e569f9be8efe47e189a1f890",
+          "MacAddress": "16:0b:01:95:ec:21",
+          "IPv4Address": "172.19.0.6/16",
+          "IPv6Address": ""
+        },
+        "67e8fbba23eb259b9d7fdafeb4ab7e30dd8a63188a4a0b9f077e9f3c301e4b1c": {
+          "Name": "jp_learning_dev-sqlserver-1",
+          "EndpointID": "9ef98af82007fed81a70b5d608646a7a7cf4e8aa63cbf634ede6ff894f768978",
+          "MacAddress": "6e:e8:36:e5:bc:40",
+          "IPv4Address": "172.19.0.2/16",
+          "IPv6Address": ""
+        },
+        "6e1f30436a7a06b1b1d8597f8d9e40f327382179d92454743aac1647ed49d700": {
+          "Name": "jp_learning_dev-mysql-1",
+          "EndpointID": "138eab3119d04e44cdf27743fcc0599f9d2a914d4042262912cfc9bdbf801f76",
+          "MacAddress": "b6:d3:3f:99:74:35",
+          "IPv4Address": "172.19.0.5/16",
+          "IPv6Address": ""
+        },
+        "a963f640f67f53b6e3cea71f354cced849dd7bf3f033505de96691770faed8f3": {
+          "Name": "jp_learning_dev-frontend-1",
+          "EndpointID": "d133fe03bd58bc9525de60c15c9ec964e9eada98829d7e248650c3e3aacfb7f1",
+          "MacAddress": "ba:40:64:22:53:9e",
+          "IPv4Address": "172.19.0.11/16",
+          "IPv6Address": ""
+        },
+        "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16": {
+          "Name": "jp_learning_dev-grafana-1",
+          "EndpointID": "0e8f1a7eb3ffee772099c219a926d71bce7bcc2d57b2e874f5abf458110724c9",
+          "MacAddress": "4a:33:9e:5a:cf:e8",
+          "IPv4Address": "172.19.0.10/16",
+          "IPv6Address": ""
+        },
+        "f4cfd420288c1a0772be67111abd5bfa8bf4090c08630090f182ba1ba82bed9e": {
+          "Name": "jp_learning_dev-gateway-1",
+          "EndpointID": "744300f6d8a103e9097481eb850d4c8ba00ad634734b01e6801d738a278d9d46",
+          "MacAddress": "e2:c9:a0:93:79:4f",
+          "IPv4Address": "172.19.0.3/16",
+          "IPv6Address": ""
+        },
+        "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8": {
+          "Name": "jp_learning_dev-prometheus-1",
+          "EndpointID": "44fdb6450fd840c3ddc51e6784df2b8fc9087fd26afaae9bd33074898a4c334c",
+          "MacAddress": "d6:b1:09:2f:7b:91",
+          "IPv4Address": "172.19.0.7/16",
+          "IPv6Address": ""
+        }
+      },
+      "Status": {
+        "IPAM": {
+          "Subnets": {
+            "172.19.0.0/16": {
+              "IPsInUse": 13,
+              "DynamicIPsAvailable": 65523
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "jp_learning_dev_p05-monitoring",
+      "Id": "0092691ba33106e621a0613ff2535f2e1f9ff437477a1f771fd0503d074bf727",
+      "Created": "2026-11-13T11:49:00.515480809Z",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv4": true,
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": null,
+        "Config": [
+          {
+            "Subnet": "172.20.0.0/16",
+            "Gateway": "172.20.0.1"
+          }
+        ]
+      },
+      "Internal": true,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Options": {
+        "com.docker.network.enable_ipv4": "true",
+        "com.docker.network.enable_ipv6": "false"
+      },
+      "Labels": {
+        "com.docker.compose.config-hash": "d474aeb95d0dcb50277f193981c3839ea9012a3511f1095f237786335356e591",
+        "com.docker.compose.network": "p05-monitoring",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      },
+      "Containers": {
+        "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16": {
+          "Name": "jp_learning_dev-grafana-1",
+          "EndpointID": "02ab7a3f5a624455cb579ed78d1b8aa7039908d2584cbdd70130379b916d6b74",
+          "MacAddress": "da:a6:d2:99:91:f1",
+          "IPv4Address": "172.20.0.3/16",
+          "IPv6Address": ""
+        },
+        "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8": {
+          "Name": "jp_learning_dev-prometheus-1",
+          "EndpointID": "16f316e5b3f635ee9e34ff0b353d64472a5e66b550167d681f32428cdae60ad5",
+          "MacAddress": "9a:27:df:da:70:dc",
+          "IPv4Address": "172.20.0.2/16",
+          "IPv6Address": ""
+        }
+      },
+      "Status": {
+        "IPAM": {
+          "Subnets": {
+            "172.20.0.0/16": {
+              "IPsInUse": 5,
+              "DynamicIPsAvailable": 65531
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "jp_learning_dev_p06-tracing",
+      "Id": "5636b14133b46f7859cd98e1c28fb622ef0090526e3c0e50cf42b6cb72e4cda4",
+      "Created": "2026-11-13T11:49:00.515483948Z",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv4": true,
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": null,
+        "Config": [
+          {
+            "Subnet": "172.23.0.0/16",
+            "Gateway": "172.23.0.1"
+          }
+        ]
+      },
+      "Internal": true,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Options": {
+        "com.docker.network.enable_ipv4": "true",
+        "com.docker.network.enable_ipv6": "false"
+      },
+      "Labels": {
+        "com.docker.compose.config-hash": "893b2d4e891313f60670c2cb64407f3eff5ec5ea9fd821f4436bfb6389dcc966",
+        "com.docker.compose.network": "p06-tracing",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P06"
+      },
+      "Containers": {
+        "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d": {
+          "Name": "jp_learning_dev-otel-collector-1",
+          "EndpointID": "82fc913d8c245eeb1eb69daf41da1dcc7a7479d992e13a72e21b0b91513fa154",
+          "MacAddress": "16:72:e7:91:7f:b1",
+          "IPv4Address": "172.23.0.3/16",
+          "IPv6Address": ""
+        },
+        "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16": {
+          "Name": "jp_learning_dev-grafana-1",
+          "EndpointID": "4af13bc64913b35ed9971c61cc2c9e788a670646c19217519be30233f562504e",
+          "MacAddress": "72:01:df:19:de:91",
+          "IPv4Address": "172.23.0.4/16",
+          "IPv6Address": ""
+        },
+        "d756f25b46b8c2bdfcac4aac74edd4027c2496604b5adff253f8f3f173914d49": {
+          "Name": "jp_learning_dev-tempo-1",
+          "EndpointID": "aeb4f8041554ff5d7ee5b9143a38fc364b2cca78bf32838a117fc1b52c80bf72",
+          "MacAddress": "8a:80:ea:2a:ff:a4",
+          "IPv4Address": "172.23.0.2/16",
+          "IPv6Address": ""
+        }
+      },
+      "Status": {
+        "IPAM": {
+          "Subnets": {
+            "172.23.0.0/16": {
+              "IPsInUse": 6,
+              "DynamicIPsAvailable": 65530
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "jp_learning_dev_log-access",
+      "Id": "d596941aec1e50d53c646ad650cb9ec7c33e89b188654be47355061788fa7898",
+      "Created": "2026-11-06T14:12:13.449294267Z",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv4": true,
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": null,
+        "Config": [
+          {
+            "Subnet": "172.21.0.0/16",
+            "Gateway": "172.21.0.1"
+          }
+        ]
+      },
+      "Internal": false,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Options": {
+        "com.docker.network.enable_ipv4": "true",
+        "com.docker.network.enable_ipv6": "false"
+      },
+      "Labels": {
+        "com.docker.compose.config-hash": "11c6782d59937e4bd510dbcf0bbd06a7ea2ca75a96de6d838eea5aac9bae30df",
+        "com.docker.compose.network": "log-access",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0"
+      },
+      "Containers": {
+        "7937aeaa7daa6e8ddda829e94d5f66906ccd7af38569f109f4c0577fe30de51a": {
+          "Name": "jp_learning_dev-logs-ui-1",
+          "EndpointID": "2b43bb91ac613c8843be8c6986f989b5ce8b93859c5ae15ef6ab9948c13e6569",
+          "MacAddress": "86:38:95:e2:e0:34",
+          "IPv4Address": "172.21.0.2/16",
+          "IPv6Address": ""
+        }
+      },
+      "Status": {
+        "IPAM": {
+          "Subnets": {
+            "172.21.0.0/16": {
+              "IPsInUse": 4,
+              "DynamicIPsAvailable": 65532
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "jp_learning_dev_log-ui",
+      "Id": "1e623fbad802727721e5a67323a5a55d1d710b48030b64dfbc45b4e4e692e3cc",
+      "Created": "2026-11-06T14:12:13.434327632Z",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv4": true,
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": null,
+        "Config": [
+          {
+            "Subnet": "172.18.0.0/16",
+            "Gateway": "172.18.0.1"
+          }
+        ]
+      },
+      "Internal": true,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Options": {
+        "com.docker.network.enable_ipv4": "true",
+        "com.docker.network.enable_ipv6": "false"
+      },
+      "Labels": {
+        "com.docker.compose.config-hash": "1ff19e063f88671a0d578b77c13106e46428ee52250b94d6de9f4b8e580622bc",
+        "com.docker.compose.network": "log-ui",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0"
+      },
+      "Containers": {
+        "7937aeaa7daa6e8ddda829e94d5f66906ccd7af38569f109f4c0577fe30de51a": {
+          "Name": "jp_learning_dev-logs-ui-1",
+          "EndpointID": "3a841bd3f4b6f65f217d205909657ce94ad8b10993b69257453794ee6497d269",
+          "MacAddress": "c6:5d:ec:f4:77:09",
+          "IPv4Address": "172.18.0.2/16",
+          "IPv6Address": ""
+        },
+        "ce358e501dd819c9313c0c912a3706e96cef3e4ad0ece53cc3c38abe32a7916a": {
+          "Name": "jp_learning_dev-opensearch-dashboards-1",
+          "EndpointID": "156585fdf567a9c8317bd6eb93aaa0b9db33848722d66245433923b60efaf385",
+          "MacAddress": "ae:9d:a5:66:6c:e2",
+          "IPv4Address": "172.18.0.3/16",
+          "IPv6Address": ""
+        }
+      },
+      "Status": {
+        "IPAM": {
+          "Subnets": {
+            "172.18.0.0/16": {
+              "IPsInUse": 5,
+              "DynamicIPsAvailable": 65531
+            }
+          }
+        }
+      }
+    },
+    {
+      "Name": "jp_learning_dev_log-storage",
+      "Id": "b940ce1d45c2571a23faa2993ed5da5b928e43ddb5e268f47ec65d39ab7b3ffc",
+      "Created": "2026-11-06T14:12:13.452584054Z",
+      "Scope": "local",
+      "Driver": "bridge",
+      "EnableIPv4": true,
+      "EnableIPv6": false,
+      "IPAM": {
+        "Driver": "default",
+        "Options": null,
+        "Config": [
+          {
+            "Subnet": "172.22.0.0/16",
+            "Gateway": "172.22.0.1"
+          }
+        ]
+      },
+      "Internal": true,
+      "Attachable": false,
+      "Ingress": false,
+      "ConfigFrom": {
+        "Network": ""
+      },
+      "ConfigOnly": false,
+      "Options": {
+        "com.docker.network.enable_ipv4": "true",
+        "com.docker.network.enable_ipv6": "false"
+      },
+      "Labels": {
+        "com.docker.compose.config-hash": "1dcb4edf2a869ebfc81c08145c902144347b46c64d5d580816cb1a4398f783c0",
+        "com.docker.compose.network": "log-storage",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.5.0"
+      },
+      "Containers": {
+        "845f059d5b5b2dc45812b6af0fd074ae34059cfbf4fdebc60bd05df57be750e7": {
+          "Name": "jp_learning_dev-fluent-bit-1",
+          "EndpointID": "dbbddf89beb6b9339e70df4535a671fe02875a5ecd69cc39efc2051a099ca4d0",
+          "MacAddress": "66:8c:b9:85:ea:7f",
+          "IPv4Address": "172.22.0.2/16",
+          "IPv6Address": ""
+        },
+        "ce358e501dd819c9313c0c912a3706e96cef3e4ad0ece53cc3c38abe32a7916a": {
+          "Name": "jp_learning_dev-opensearch-dashboards-1",
+          "EndpointID": "0b7a7842effc198077a2542b8bcf4cd1b2a57bfc0ebd9f024551e6275f0bfc65",
+          "MacAddress": "1e:07:b0:04:e4:f2",
+          "IPv4Address": "172.22.0.4/16",
+          "IPv6Address": ""
+        },
+        "fa3b9d61d7c85d0bb23d55ee1f2b751f7dcb65b63ef58e713320320da0f16fc1": {
+          "Name": "jp_learning_dev-opensearch-1",
+          "EndpointID": "c941cd4ceecee846b85d8de70ef07c2acca5b0529b580952f1013a6e24ccac11",
+          "MacAddress": "02:9a:98:b4:f9:5b",
+          "IPv4Address": "172.22.0.3/16",
+          "IPv6Address": ""
+        }
+      },
+      "Status": {
+        "IPAM": {
+          "Subnets": {
+            "172.22.0.0/16": {
+              "IPsInUse": 6,
+              "DynamicIPsAvailable": 65530
+            }
+          }
+        }
+      }
+    }
+  ]
+}

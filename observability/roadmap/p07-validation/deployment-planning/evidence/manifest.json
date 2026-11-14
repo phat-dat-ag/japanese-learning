@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-11-14T01:20:25.075Z",
+  "files": [
+    {
+      "path": "deployment-plan.json",
+      "sha256": "fd2d1c515a52ca26ba2cacd58cfc94376b54cba30a3828e7974c997cbddd9060"
+    },
+    {
+      "path": "execution-preflight.json",
+      "sha256": "ebbb7461a9806ba16f106d56b42667cf61318c57bfce549a731087b448ee6ad9"
+    },
+    {
+      "path": "final-preservation.json",
+      "sha256": "8c3f588e9579b81eaa489e4b35ddd9583d85377e71327be00c9bf0ce883e0720"
+    },
+    {
+      "path": "host-space.json",
+      "sha256": "bd043e4ac848ae316afd7144db2ea7a1663a4db0886462cb2e985668e03785dd"
+    },
+    {
+      "path": "runtime-assessment.json",
+      "sha256": "dc52c4dfe6f3eb54bf962696f87c6e14c247ff320c837df0de188746d2ebe459"
+    },
+    {
+      "path": "source-preservation.json",
+      "sha256": "e645a9b8451f43d614e8318957cb19977a9096d4feb36b2fa1b7a2f776583381"
+    }
+  ],
+  "report": {
+    "path": "../../../p07-runtime-deployment-plan.md",
+    "sha256": "4c963d45abf515160b484ae6df18c23b1e4f7193d48a36dead8167cd8ba97f5c"
+  },
+  "updated_utc": "2026-11-14T01:37:31.377Z"
+}

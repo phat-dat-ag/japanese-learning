@@ -1,0 +1,170 @@
+{
+  "captured_utc": "2026-11-13T23:35:34.388Z",
+  "scope": "Quarkus alignment and Vocabulary tracing; P08 not started",
+  "status": "RESOLVED",
+  "p07Decision": "BLOCKED",
+  "originalRevision": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+  "pinnedRevision": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "alignedHead": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "branch": "detached HEAD; original develop ref preserved",
+  "localWork": {
+    "originalStatus": " M src/main/resources/application.properties\n",
+    "untrackedFiles": [],
+    "preserved": true,
+    "backup": "application.original.properties",
+    "patch": "local-work.patch",
+    "originalBackupSha256": "c7e0e2f5ea58016b355a5afd647ef59f808c25973ff25b60012a3804781a9fa0"
+  },
+  "tests": {
+    "command": ".\\mvnw.cmd -B -ntp test -Dtest=TracingTest,TracingHttpTest -Dquarkus.http.test-port=0",
+    "exitCode": 0,
+    "build": "SUCCESS",
+    "reports": [
+      {
+        "name": "com.japaneselearning.common.tracing.TracingTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "timestamp": null,
+        "seconds": "0.208"
+      },
+      {
+        "name": "com.japaneselearning.security.TracingHttpTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "timestamp": null,
+        "seconds": "13.832"
+      }
+    ]
+  },
+  "packaging": {
+    "buildArgs": {
+      "APP_OTEL_EXPORT_ENABLED": "true"
+    },
+    "runtimeExport": "true",
+    "onlyBuildArgsChanged": true
+  },
+  "rootCause": "OTLP exporter is BUILD_AND_RUN_TIME_FIXED; the runtime-only true flag could not enable an exporter augmented with false. Compose now passes the flag as a build argument and Dockerfile supplies an explicit Maven build property.",
+  "sampling": {
+    "configuredRatio": 0.1,
+    "rootBudgetPerSecond": 10,
+    "randomVocabularyProbes": 80,
+    "randomVocabularyTraces": 11,
+    "randomUserProbes": 40,
+    "randomUserTraces": 1,
+    "controlledLowExported": true,
+    "controlledHighAbsent": true,
+    "controlledUnsampledAbsent": true,
+    "note": "Observed ratios are not expected to equal 10% exactly; controlled IDs test deterministic boundary behavior without changing configured sampling."
+  },
+  "tracePrivacyAllowlistPassed": true,
+  "recreatedServices": [
+    "vocabulary-api"
+  ],
+  "recreationCount": 2,
+  "preservation": {
+    "vocabularyRecreated": true,
+    "othersUnchanged": true,
+    "vocabularyMountsPreserved": true,
+    "volumesPreserved": true
+  },
+  "finalVocabulary": {
+    "id": "43ed8972f29d0b6db7cfb0c96e4ae8ac3b467b1984258424161cb0beb7c9795d",
+    "name": "/jp_learning_dev-vocabulary-api-1",
+    "project": "jp_learning_dev",
+    "service": "vocabulary-api",
+    "started": "2026-11-13T23:32:58.023304641Z",
+    "restarts": 0,
+    "image": "sha256:b900d539b9f7d25cefa361aa5bf36c4d09d3930ca185469f42529601ee55acc3",
+    "state": "running",
+    "health": "healthy",
+    "exit": 0,
+    "mounts": [
+      {
+        "type": "volume",
+        "name": "jp_learning_dev_vocabulary_api_logs",
+        "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+        "destination": "/deployments/data/logs",
+        "rw": true
+      }
+    ],
+    "networks": [
+      "jp_learning_dev_default"
+    ],
+    "tracing": [
+      "APP_OTEL_SAMPLE_RATIO=0.1",
+      "APP_OTEL_EXPORT_ENABLED=true",
+      "APP_ENVIRONMENT=development",
+      "APP_OTEL_ENDPOINT=http://otel-collector:4317",
+      "APP_OTEL_MAX_ROOTS_PER_SECOND=10"
+    ]
+  },
+  "checks": {
+    "dns": true,
+    "tcp4317": true,
+    "tempoReady": true,
+    "vocabularyHealthy": true,
+    "userHealthy": true,
+    "otherHealthchecksHealthy": true,
+    "prometheusTargets": [
+      {
+        "job": "prometheus",
+        "health": "up"
+      },
+      {
+        "job": "user-api",
+        "health": "up"
+      },
+      {
+        "job": "vocabulary-api",
+        "health": "up"
+      }
+    ],
+    "fluentBitHealth": "ok",
+    "fluentBitOutput": {
+      "opensearch.0": {
+        "proc_records": 2383,
+        "proc_bytes": 4684854,
+        "errors": 0,
+        "retries": 27,
+        "retries_failed": 0,
+        "dropped_records": 0,
+        "retried_records": 110
+      }
+    },
+    "fluentBitPendingChunks": {
+      "total_chunks": 0,
+      "mem_chunks": 0,
+      "fs_chunks": 0,
+      "fs_chunks_up": 0,
+      "fs_chunks_down": 0
+    }
+  },
+  "remainingP07Blockers": [
+    "Native telemetry auth/RBAC/TLS and certificate denial matrix",
+    "Hard total-volume quotas and disk-headroom alarm acceptance",
+    "Approved isolated candidate pre-migration restore, integrity and secure rollback evidence",
+    "Broader privacy/failure fixture acceptance and remaining P03-P06 prerequisite dispositions"
+  ],
+  "limitations": [
+    "Runtime probes cover unauthenticated 401 and unmatched 404 paths; no authorized business workflow or application-to-application span chain claimed",
+    "Changing JP_TRACE_EXPORT_ENABLED for Vocabulary requires rebuilding its image",
+    "Historical initial evidence retained; first recreation did not export spans until packaging fix",
+    "Mount/network comparison normalizes order; first validation false positive retained in tracing-first-rebuild.json"
+  ],
+  "operatorApprovalsNeeded": [],
+  "safety": {
+    "otherContainersRecreated": false,
+    "volumeDeletion": false,
+    "databaseReset": false,
+    "offsetReset": false,
+    "sharedJwksChanges": false,
+    "springbootProjectChanges": false,
+    "commit": false,
+    "push": false,
+    "p08Started": false
+  }
+}

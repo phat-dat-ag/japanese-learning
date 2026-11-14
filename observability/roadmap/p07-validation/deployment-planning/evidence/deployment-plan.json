@@ -1,0 +1,777 @@
+{
+  "phase": "P07",
+  "decision": "BLOCKED_NO_DEPLOYMENT_AUTHORIZED",
+  "created_utc": "2026-11-14T01:11:24.249Z",
+  "branch": "develop",
+  "head": "5c53cb963ca29c5e9c8626fbb456dbae7c13b7d3",
+  "project": "jp_learning_dev",
+  "services": [
+    {
+      "classes": [
+        "security-critical",
+        "storage-related",
+        "observability-related"
+      ],
+      "differences": [
+        "Baked config/Lua change to fail-closed allowlisted output; arbitrary original/rendered/exception payloads no longer forwarded",
+        "JWKS input /logs/jwks/*.log -> /logs/jwks/spool/*.log; populated spool exists and old root file remains",
+        "Filesystem chunk storage and infinite retries -> memory inputs, 8MiB each, Retry_Limit3; no storage.path; Grace30s ->10s; Read_from_Head On ->Off",
+        "Same /state/jwks.db,user.db,vocabulary.db and named state volume; legacy /state/buffer retained but not replayed; compatibility env1G no longer caps these memory queues"
+      ],
+      "recreate": true,
+      "needsNewArtifact": true,
+      "build": "Existing cached tag is the old image. Full P07 adoption requires a separately supplied/verified P07 image or an approved collector-only build; no build performed.",
+      "stateRisk": "Highest risk: unknown legacy delivery/ack state, durable-buffer removal, bounded retry loss, memory loss on restart, and new spool files starting at EOF. Preserve original buffers and offsets; counted handoff/consistent snapshot and explicit unread-spool disposition required.",
+      "service": "fluent-bit",
+      "activeContainer": "845f059d5b5b2dc45812b6af0fd074ae34059cfbf4fdebc60bd05df57be750e7",
+      "healthyOrRunning": "running",
+      "cachedImage": {
+        "ref": "jp_learning_dev-fluent-bit",
+        "cached": true,
+        "id": "sha256:1357678984e84580391c9a7c57336afb47f086a2b7aefe903920e41e3b541ac2",
+        "created": "2026-11-06T14:07:58.080442403Z",
+        "lastTagTime": "2026-11-13T23:37:17.309950983Z",
+        "sizeBytes": 47833015,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:1357678984e84580391c9a7c57336afb47f086a2b7aefe903920e41e3b541ac2",
+          "size": 856
+        },
+        "platformManifest": "sha256:6dcadf19ba0afcaf900b90be447dc53dcdbae0ab7d61e70cbff0233773f0591b",
+        "runningManifest": "sha256:6dcadf19ba0afcaf900b90be447dc53dcdbae0ab7d61e70cbff0233773f0591b",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {
+        "logging-init": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "activeVolumes": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        }
+      ],
+      "desiredVolumeRefs": [
+        {
+          "type": "volume",
+          "source": "fluent_bit_state",
+          "target": "/state",
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "jwks_api_logs",
+          "target": "/logs/jwks",
+          "read_only": true,
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "user_api_logs",
+          "target": "/logs/user",
+          "read_only": true,
+          "volume": {}
+        },
+        {
+          "type": "volume",
+          "source": "vocabulary_api_logs",
+          "target": "/logs/vocabulary",
+          "read_only": true,
+          "volume": {}
+        }
+      ],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": null,
+      "commandDesired": null,
+      "stopGrace": "45s",
+      "healthcheckDefined": false,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 fluent-bit",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "security-critical",
+        "storage-related",
+        "observability-related"
+      ],
+      "differences": [
+        "Config bind p05-candidate/prometheus -> p07/prometheus",
+        "22 private-label drop rules on each of 3 existing jobs; app scrapes explicitly PrometheusText0.0.4; label-name limit80; exemplar storage0",
+        "New query timeout15s, max concurrency4, max samples5,000,000, rule eval concurrency2",
+        "Same scrape targets, global timing, 48 byte-identical recording/alert rules, 2d/512MiB block retention"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No build/pull needed; exact cached platform manifest matches running image.",
+      "stateRisk": "Reuse jp_learning_dev_prometheus_data. WAL replay, head/compaction temporary disk, scrape/rule gap and intentional rejected private series. Existing TSDB private history is not sanitized by future scrape filters.",
+      "service": "prometheus",
+      "activeContainer": "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8",
+      "healthyOrRunning": "healthy",
+      "cachedImage": {
+        "ref": "prom/prometheus:v3.14.0@sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+        "cached": true,
+        "id": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+        "created": "2026-08-18T07:38:26.045520047Z",
+        "lastTagTime": "2026-11-13T11:44:44.671946956Z",
+        "sizeBytes": 109369379,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+          "digest": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+          "size": 2010
+        },
+        "platformManifest": "sha256:e906cef998316bbe319f98711e1b4d8613ad37e14b08ff831d7036e77b7464f9",
+        "runningManifest": "sha256:e906cef998316bbe319f98711e1b4d8613ad37e14b08ff831d7036e77b7464f9",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": [
+          "/prometheus"
+        ]
+      },
+      "dependencies": {},
+      "activeVolumes": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        }
+      ],
+      "desiredVolumeRefs": [
+        {
+          "type": "volume",
+          "source": "prometheus_data",
+          "target": "/prometheus",
+          "volume": {}
+        }
+      ],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": [
+        "--config.file=/etc/prometheus/prometheus.yml",
+        "--storage.tsdb.path=/prometheus",
+        "--storage.tsdb.retention.time=2d",
+        "--storage.tsdb.retention.size=512MB",
+        "--web.listen-address=0.0.0.0:9090"
+      ],
+      "commandDesired": [
+        "--config.file=/etc/prometheus/prometheus.yml",
+        "--storage.tsdb.path=/prometheus",
+        "--storage.tsdb.retention.time=2d",
+        "--storage.tsdb.retention.size=512MB",
+        "--web.listen-address=0.0.0.0:9090",
+        "--query.timeout=15s",
+        "--query.max-concurrency=4",
+        "--query.max-samples=5000000",
+        "--rules.max-concurrent-evals=2"
+      ],
+      "stopGrace": "30s",
+      "healthcheckDefined": true,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 prometheus",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "security-critical",
+        "observability-related",
+        "harmless"
+      ],
+      "differences": [
+        "Provisioning bind p06 -> p07; all 3 provisioning files byte-identical (harmless path relocation)",
+        "Effective cookie SameSite lax ->strict, Gravatar false ->disabled, inactive lifetime7d ->4h, maximum lifetime30d ->7d",
+        "Explicit new-user org roleViewer and allow_embedding=false already equal effective current settings (harmless explicit defaults)",
+        "Same datasource UIDs/URLs, dashboards, image, admin credential settings and SQLite state volume"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No build/pull needed; exact cached platform manifest matches running image.",
+      "stateRisk": "Reuse jp_learning_dev_grafana_data; same version, but provisioning can update SQLite rows and stricter cookie/lifetime controls can require re-login. Defaults do not retroactively downgrade existing accounts or prove a full Viewer/Editor/Admin role matrix.",
+      "service": "grafana",
+      "activeContainer": "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16",
+      "healthyOrRunning": "healthy",
+      "cachedImage": {
+        "ref": "grafana/grafana:13.2.2@sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+        "cached": true,
+        "id": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+        "created": "2026-09-14T13:01:48Z",
+        "lastTagTime": "2026-11-13T11:45:11.793533035Z",
+        "sizeBytes": 475759432,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+          "digest": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+          "size": 1079
+        },
+        "platformManifest": "sha256:9924c7fe0effe4a5fea08b3451905de54f09fde9d1589463a5f2d02d9ec158bc",
+        "runningManifest": "sha256:9924c7fe0effe4a5fea08b3451905de54f09fde9d1589463a5f2d02d9ec158bc",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {
+        "prometheus": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "activeVolumes": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        }
+      ],
+      "desiredVolumeRefs": [
+        {
+          "type": "volume",
+          "source": "grafana_data",
+          "target": "/var/lib/grafana",
+          "volume": {}
+        }
+      ],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": null,
+      "commandDesired": null,
+      "stopGrace": "30s",
+      "healthcheckDefined": true,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 grafana",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "security-critical",
+        "observability-related",
+        "storage-related"
+      ],
+      "differences": [
+        "Config bind p06/collector.yml ->p07/collector.yml",
+        "Only user-api/vocabulary-api namespace spans accepted; link-bearing spans rejected; events removed",
+        "Resource allowlist narrows to service/name/namespace/environment; service version/instance and http.route removed; instrumentation scope/method/error/attribute values normalized",
+        "max_concurrent_streams16; memory/batch/queue64 requests and30s retry window remain; OTLP transport still plaintext/internal"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No build/pull needed; exact cached platform manifest matches running image.",
+      "stateRisk": "No persistent collector queue. Restart loses unaccounted memory/inflight spans; privacy filtering intentionally drops unsupported spans/fields. Preserve required Docker diagnostic logs before old container replacement.",
+      "service": "otel-collector",
+      "activeContainer": "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d",
+      "healthyOrRunning": "running",
+      "cachedImage": {
+        "ref": "otel/opentelemetry-collector-contrib:0.145.0@sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "cached": true,
+        "id": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "created": "2026-02-05T07:34:57.929588928Z",
+        "lastTagTime": "2026-11-13T11:42:44.046016013Z",
+        "sizeBytes": 93138453,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+          "size": 946
+        },
+        "platformManifest": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "runningManifest": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {},
+      "activeVolumes": [],
+      "desiredVolumeRefs": [],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": [
+        "--config=/etc/otelcol/config.yml"
+      ],
+      "commandDesired": [
+        "--config=/etc/otelcol/config.yml"
+      ],
+      "stopGrace": "10s",
+      "healthcheckDefined": false,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 otel-collector",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "observability-related",
+        "storage-related",
+        "harmless"
+      ],
+      "differences": [
+        "Config bind p06/tempo.yml ->p07/tempo.yml",
+        "Explicit querier concurrency4; search/trace lookup timeout10s; frontend API timeout15s; expression limit16384B; max retries1; multi-tenant queries/MCP disabled",
+        "Same24h trace retention, local WAL/blocks, OTLP endpoints, ingestion/per-trace limits; comments/phase labels are harmless"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No build/pull needed; exact cached platform manifest matches running image.",
+      "stateRisk": "Reuse jp_learning_dev_tempo_data; in-memory ingestion, WAL recovery/flush/compaction and queue outage windows must be accounted. Query limits can reject long/expensive requests; not a disk quota.",
+      "service": "tempo",
+      "activeContainer": "d756f25b46b8c2bdfcac4aac74edd4027c2496604b5adff253f8f3f173914d49",
+      "healthyOrRunning": "running",
+      "cachedImage": {
+        "ref": "grafana/tempo:2.10.3@sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "cached": true,
+        "id": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "created": "2026-03-17T17:38:40.596692534Z",
+        "lastTagTime": "2026-11-13T11:43:07.046672291Z",
+        "sizeBytes": 36306266,
+        "descriptor": {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+          "size": 3855
+        },
+        "platformManifest": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "runningManifest": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {},
+      "activeVolumes": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        }
+      ],
+      "desiredVolumeRefs": [
+        {
+          "type": "volume",
+          "source": "tempo_data",
+          "target": "/var/tempo",
+          "volume": {}
+        }
+      ],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": [
+        "-config.file=/etc/tempo/config.yml"
+      ],
+      "commandDesired": [
+        "-config.file=/etc/tempo/config.yml"
+      ],
+      "stopGrace": "30s",
+      "healthcheckDefined": false,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 tempo",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "storage-related",
+        "observability-related"
+      ],
+      "differences": [
+        "Docker logging json-file with no rotation options -> local max-size10m/max-file3",
+        "No application-image, JWT/DB, source env or API behavior change required for this drift"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No app rebuild needed. Cached OCI platform manifest exactly matches running app despite different index/attestation IDs.",
+      "stateRisk": "Single-instance request interruption; reuse user_api_logs and read-only signing-key binds, no DB migration. Old Docker log history/writable layer replaced; transient Data Protection/tmpfs state not preserved.",
+      "service": "user-api",
+      "activeContainer": "4aa27581dc9d485a2a9c44f882351d755538fffe44209fdec1ad620a02fc65ba",
+      "healthyOrRunning": "healthy",
+      "cachedImage": {
+        "ref": "jp_learning_dev-user-api",
+        "cached": true,
+        "id": "sha256:e89b27d450ca59965f95f1b5ac8c56970556ea607b7c6b6556863dd9ceca7f71",
+        "created": "2026-11-13T11:46:42.922083304Z",
+        "lastTagTime": "2026-11-13T23:37:16.358427232Z",
+        "sizeBytes": 101728104,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:e89b27d450ca59965f95f1b5ac8c56970556ea607b7c6b6556863dd9ceca7f71",
+          "size": 856
+        },
+        "platformManifest": "sha256:cfba8a3ca83e5542daa4e9377108f5c228d98a65baf8ca117e0e5eb860e94a0f",
+        "runningManifest": "sha256:cfba8a3ca83e5542daa4e9377108f5c228d98a65baf8ca117e0e5eb860e94a0f",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {
+        "flyway-user": {
+          "condition": "service_completed_successfully",
+          "required": true
+        },
+        "sqlserver": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "activeVolumes": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        }
+      ],
+      "desiredVolumeRefs": [
+        {
+          "type": "volume",
+          "source": "user_api_logs",
+          "target": "/app/logs",
+          "volume": {}
+        }
+      ],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": null,
+      "commandDesired": null,
+      "stopGrace": "45s",
+      "healthcheckDefined": true,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 user-api",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "storage-related",
+        "observability-related"
+      ],
+      "differences": [
+        "Docker logging json-file with no rotation options -> local max-size10m/max-file3",
+        "Current verified tracing image can be reused; APP_OTEL_EXPORT_ENABLED build argument stays true; no Quarkus rebuild or Swagger/source change required"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No app rebuild needed. Exact cached platform manifest matches running app; do not use --build for a log-driver change.",
+      "stateRisk": "Single-instance request/inflight work interruption; reuse vocabulary_api_logs and existing MySQL service unchanged. No Flyway/init work or offset/DB reset.",
+      "service": "vocabulary-api",
+      "activeContainer": "43ed8972f29d0b6db7cfb0c96e4ae8ac3b467b1984258424161cb0beb7c9795d",
+      "healthyOrRunning": "healthy",
+      "cachedImage": {
+        "ref": "jp_learning_dev-vocabulary-api",
+        "cached": true,
+        "id": "sha256:ad213ae135266f5a173612987afc1c0bd9f5c1dc33c2b54f1600115195727abe",
+        "created": "2026-11-13T23:32:33.546300947Z",
+        "lastTagTime": "2026-11-13T23:37:16.774319145Z",
+        "sizeBytes": 190528041,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:ad213ae135266f5a173612987afc1c0bd9f5c1dc33c2b54f1600115195727abe",
+          "size": 856
+        },
+        "platformManifest": "sha256:fbc45eb068378cde5edea6e730b652aecdc315d6202de6b819a427305c180704",
+        "runningManifest": "sha256:fbc45eb068378cde5edea6e730b652aecdc315d6202de6b819a427305c180704",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {
+        "flyway-vocabulary": {
+          "condition": "service_completed_successfully",
+          "required": true
+        },
+        "mysql": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "user-api": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "activeVolumes": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "desiredVolumeRefs": [
+        {
+          "type": "volume",
+          "source": "vocabulary_api_logs",
+          "target": "/deployments/data/logs",
+          "volume": {}
+        }
+      ],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": null,
+      "commandDesired": null,
+      "stopGrace": "45s",
+      "healthcheckDefined": true,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 vocabulary-api",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "storage-related",
+        "observability-related"
+      ],
+      "differences": [
+        "Docker logging json-file with no rotation options -> local max-size10m/max-file3",
+        "Same pinned NGINX image/config/ports/networks; upstream DNS already refreshes with10s resolver"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No build/pull needed; exact cached platform manifest matches running image.",
+      "stateRisk": "Brief gateway interruption; graceful stop75s still not zero downtime. Docker stdout history and tmpfs state are transient; no named data volume changes.",
+      "service": "gateway",
+      "activeContainer": "f4cfd420288c1a0772be67111abd5bfa8bf4090c08630090f182ba1ba82bed9e",
+      "healthyOrRunning": "healthy",
+      "cachedImage": {
+        "ref": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+        "cached": true,
+        "id": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+        "created": "2026-09-15T23:13:27.90299344Z",
+        "lastTagTime": "2026-10-01T12:40:33.552807724Z",
+        "sizeBytes": 28563568,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+          "size": 10317
+        },
+        "platformManifest": "sha256:9874b7a098bbd4e9454941c9e3f87600d7a6e2bb081a06f453202933fe7520d1",
+        "runningManifest": "sha256:9874b7a098bbd4e9454941c9e3f87600d7a6e2bb081a06f453202933fe7520d1",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {
+        "user-api": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "vocabulary-api": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "activeVolumes": [],
+      "desiredVolumeRefs": [],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": null,
+      "commandDesired": null,
+      "stopGrace": "1m15s",
+      "healthcheckDefined": true,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 gateway",
+      "commandExecuted": false
+    },
+    {
+      "classes": [
+        "storage-related",
+        "observability-related"
+      ],
+      "differences": [
+        "Docker logging json-file with no rotation options -> local max-size10m/max-file3",
+        "Same cached UI image/config and gateway dependency; no Angular build required"
+      ],
+      "recreate": true,
+      "needsNewArtifact": false,
+      "build": "No app rebuild needed; exact cached platform manifest matches running image.",
+      "stateRisk": "Brief frontend/static proxy interruption; writable/tmpfs and Docker stdout history replaced; no application database state touched.",
+      "service": "frontend",
+      "activeContainer": "a963f640f67f53b6e3cea71f354cced849dd7bf3f033505de96691770faed8f3",
+      "healthyOrRunning": "healthy",
+      "cachedImage": {
+        "ref": "jp_learning_dev-frontend",
+        "cached": true,
+        "id": "sha256:ace3cd857b425a75b3f89966cd282e92ab8c00e64823288f5955890e945eae8c",
+        "created": "2026-11-13T11:45:32.54783521Z",
+        "lastTagTime": "2026-11-13T23:37:17.598714195Z",
+        "sizeBytes": 28809332,
+        "descriptor": {
+          "mediaType": "application/vnd.oci.image.index.v1+json",
+          "digest": "sha256:ace3cd857b425a75b3f89966cd282e92ab8c00e64823288f5955890e945eae8c",
+          "size": 856
+        },
+        "platformManifest": "sha256:7645fcee908cdebee1bf6983d6649ae50d275b15ec2ee53df79336891560bfea",
+        "runningManifest": "sha256:7645fcee908cdebee1bf6983d6649ae50d275b15ec2ee53df79336891560bfea",
+        "exactRunningPlatformManifest": true,
+        "declaredVolumes": []
+      },
+      "dependencies": {
+        "gateway": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "activeVolumes": [],
+      "desiredVolumeRefs": [],
+      "sameNamedVolumesAndDestinations": true,
+      "noNewPersistentVolumeDeclared": true,
+      "commandCurrent": null,
+      "commandDesired": null,
+      "stopGrace": "1m15s",
+      "healthcheckDefined": true,
+      "proposedCommand": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build --pull never --wait --wait-timeout 180 frontend",
+      "commandExecuted": false
+    }
+  ],
+  "exactServiceList": [
+    "fluent-bit",
+    "prometheus",
+    "grafana",
+    "otel-collector",
+    "tempo",
+    "user-api",
+    "vocabulary-api",
+    "gateway",
+    "frontend"
+  ],
+  "recreationForFullRootAlignment": 9,
+  "withoutNewImage": 8,
+  "newCollectorArtifactRequired": true,
+  "metadataDifferencesHarmless": [
+    "OCI index/attestation IDs differ for some local tags but exact platform manifests match the running containers",
+    "Grafana provisioning files are byte-identical despite path relocation",
+    "Grafana effective Viewer and allow_embedding=false already match the two explicit P07 defaults",
+    "P05 recording/alert file bytes, global scrape timing and48 rules unchanged; comments/phase labels not runtime hardening"
+  ],
+  "disk": {
+    "cFreeBytes": 6860124160,
+    "cFreeGiB": "6.39",
+    "dFreeGiB": "170.17",
+    "state": "Below proposed10GiB critical reserve",
+    "eightCachedRecreations": "No intended downloads/builds or duplicate immutable image layers, but nonzero writable/log/startup WAL/head/compaction and rollback/capture space; exact peaks unknown",
+    "fluentCandidate": "Current image47,833,015bytes is a size reference, not an incremental-build bound. New layers/cache/metadata/import and possible missing base transfer require an explicit budget. No build on present host recommended.",
+    "oldDockerLogs": "Old per-container stdout logs may be removed by Compose replacement. Required protected capture is part of pre-deployment approval; named-volume preservation alone does not preserve them."
+  },
+  "stages": [
+    {
+      "id": 0,
+      "name": "Pre-deployment stop gates",
+      "services": [],
+      "status": "BLOCKED",
+      "requirements": [
+        "Raise/secure physical backing-store reserve or obtain explicit measured no-build capacity-risk acceptance; C is currently below proposed10GiB critical reserve",
+        "Approve exact target services, interruption window and required old Docker-log/writable-state capture; source/image hashes must still match this assessment",
+        "Review exact candidate native validation evidence; no unsupported config/schema claims; preserve old immutable image refs and compatible secure rollback artifacts",
+        "Do not start initializers, migrations, databases, shared JWKS or springboot_project; root Compose only and --no-deps everywhere"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Independent no-build monitoring/privacy wave",
+      "services": [
+        "prometheus",
+        "tempo",
+        "otel-collector",
+        "grafana"
+      ],
+      "status": "AWAITING_SEPARATE_APPROVAL_AFTER_STAGE_0",
+      "requirements": [
+        "One service at a time; Prometheus first preserves target/rule visibility before later steps",
+        "Tempo before Collector (downstream before upstream); independently verify /ready because running is not readiness",
+        "Bounded collector queue/retry window is30s; no-loss requires counted drain/producer quiescence. Approve/measure unavoidable single-instance gaps; do not assume restart finishes within retry window",
+        "Collector validation must include successful sanitized ingestion and sampling-aware IDs, not just running state; no Docker healthcheck exists",
+        "Grafana last, after Prometheus/Tempo readiness; verify actual authenticated datasource health and cookie/session behavior"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Collector build/artifact and backlog handoff",
+      "services": [
+        "fluent-bit"
+      ],
+      "status": "BLOCKED_ARTIFACT_AND_HANDOFF",
+      "requirements": [
+        "Obtain separately approved P07 collector image build/load under disk budget; existing tag contains old baked config. Retain exact old image refs; no unreviewed tagging or pull/build implicit in up",
+        "Standalone pinned Fluent Bit base reference is not present in image store; BuildKit layer reuse possible but offline/no-download build not proven",
+        "Quiesce under an approved producer/source continuity window; capture consistent whole state/source boundary, offsets, memory/inflight and item acknowledgements",
+        "Retain legacy chunks; decide reviewed quarantine/deferred delivery or reconciled sanitized delivery. No replay, zero-loss claim, discard, offset reset or Read_from_Head override",
+        "Account unread JWKS spool records; known populated new path with no established DB rows will start at EOF",
+        "Verify candidate schemas, permissions, exact baked hashes and count/ID continuity on approved disposable copies before touching sole live state; future raw collection only after explicit handoff approval"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Storage-only application/proxy wave",
+      "services": [
+        "user-api",
+        "vocabulary-api",
+        "gateway",
+        "frontend"
+      ],
+      "status": "AWAITING_SEPARATE_APPLICATION_INTERRUPTION_APPROVAL",
+      "requirements": [
+        "Prefer after new Fluent Bit sanitized pipeline/handoff is accepted, so startup telemetry uses the reviewed pipeline",
+        "Order user-api then vocabulary-api then gateway then frontend; validate each readiness and critical read-only routes before next",
+        "Reuse exact inspected cached app manifests, no --build or pulls. Recheck tags immediately before approval/execution",
+        "--no-deps prevents SQL Server/MySQL/Flyway/JWKS or dependent service lifecycle; do not rerun initialization jobs",
+        "Archive required Docker log history under approved custody first; Compose replacement removes old container and its log/writable layer history even though named volumes survive"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Final acceptance",
+      "services": [],
+      "status": "NOT_AUTHORIZED",
+      "requirements": [
+        "Compare all unrelated original IDs/start times/restarts/mounts/networks and all volume identities; demonstrate only explicitly approved services changed",
+        "Validate privacy rejection and native limits without altering existing telemetry; retain historical data separately and do not claim future filters sanitized old records",
+        "Close native backend access/TLS/RBAC, durable quotas/reserves/alerts, retention behavior and real recovery/handoff gates; require owner decisions/sign-off",
+        "No automatic rollback to raw legacy collector/backlog or weaker privacy controls; preserve evidence and stop acceptance on unaccounted records/errors. P08 remains out of scope"
+      ]
+    }
+  ],
+  "doNotRecreate": [
+    "logs-ui",
+    "opensearch",
+    "opensearch-dashboards",
+    "mysql",
+    "sqlserver",
+    "jwks-api",
+    "logging-init",
+    "logging-ui-init",
+    "sqlserver-init",
+    "flyway-user",
+    "flyway-vocabulary"
+  ],
+  "remainingRequirements": {
+    "backendSecurity": "Native store auth/RBAC/TLS, verified collector/Dashboards trust, secret/CA/rotation owners, denial matrix and historical data custody. Nine-service alignment does not implement these.",
+    "storageQuota": "Reviewed durable per-store budget/enforcement and independent host backing reserve. Retention, queue limits, query caps and logging rotation are not hard persistent quotas.",
+    "diskPressureAlerts": "Actual filesystem metric collection, warning/critical/emergency rules, missing-metric detection and tested notification destination. Existing48 rules remain identical and cannot establish disk monitoring.",
+    "recovery": "Consistent protected state/source snapshot, restored counts/IDs/schema and role integrity, acknowledgement/offset ledger, unread/spool/buffer disposition, compatible readers and privacy-safe rollback. Synthetic tmpfs tests do not satisfy durable real-data recovery.",
+    "retention": "Observe actual attachments and effective policies; prove expiry/compaction mechanism on appropriately approved fixtures without purging existing telemetry; include grace/overhead.",
+    "runtimeRisk": "Single-instance downtime, finite memory/retry loss and transient key/cache state must be approved/accounted. No zero-downtime/lossless guarantee."
+  },
+  "approval": {
+    "requestedNow": false,
+    "blanketRolloutRecommended": false,
+    "requiredBeforeAnyLifecycle": true,
+    "reason": "Planning only. Disk capacity/log custody/rollback and Fluent artifact/handoff gates must be resolved first. Separate approvals: monitoring wave, collector build/load+handoff, application/proxy interruption wave."
+  },
+  "actions": {
+    "containerLifecycle": false,
+    "imageBuildPullTag": false,
+    "volumeModification": false,
+    "desktopSettingChange": false,
+    "submoduleChange": false,
+    "sharedServiceChange": false,
+    "commitPush": false,
+    "p08Started": false
+  }
+}

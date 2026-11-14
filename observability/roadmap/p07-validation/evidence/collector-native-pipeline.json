@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Actual native Windows0.145.0 Collector with synthetic loopback OTLP ingress/egress. No Docker, Tempo or stored-data validation.",
+  "production_config_sha256": "dc9ff7286c2588fbf04aa8192317dee9977ba29788f4e1ba09edede54799e5dd",
+  "temporary_changes": "Receiver/exporter endpoints to127.0.0.1; self-telemetry disabled; pipeline/processors unchanged",
+  "input_spans": 6,
+  "exported_spans": 2,
+  "assertions": [
+    "both API resources retained",
+    "unknown service rejected",
+    "linked spans rejected",
+    "events removed",
+    "sentinels absent from serialized output and diagnostics",
+    "trace/span identity and error status preserved"
+  ],
+  "dependencies": {
+    "grpcio": "1.85.1",
+    "protobuf": "7.36.2",
+    "opentelemetry-proto": "1.45.2"
+  }
+}

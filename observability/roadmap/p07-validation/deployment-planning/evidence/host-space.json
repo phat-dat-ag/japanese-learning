@@ -1,0 +1,12 @@
+﻿[
+    {
+        "name":  "C",
+        "free_bytes":  6860124160,
+        "total_bytes":  187399737344
+    },
+    {
+        "name":  "D",
+        "free_bytes":  182713708544,
+        "total_bytes":  322123591680
+    }
+]

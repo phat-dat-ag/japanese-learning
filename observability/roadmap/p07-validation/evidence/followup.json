@@ -1,0 +1,692 @@
+{
+  "captured_utc": "2026-11-13T23:05:00.571Z",
+  "checks": {
+    "jp-dev-prometheus": {
+      "status": 200,
+      "data": {
+        "details": {
+          "application": "Prometheus",
+          "features": {
+            "rulerApiEnabled": false
+          }
+        },
+        "message": "Successfully queried the Prometheus API.",
+        "status": "OK"
+      }
+    },
+    "jp-dev-tempo": {
+      "status": 200,
+      "data": {
+        "message": "Data source is working",
+        "status": "OK"
+      }
+    },
+    "tempoReady": {
+      "code": 0,
+      "data": "ready\n",
+      "error": ""
+    },
+    "tempoSearch": {
+      "code": 0,
+      "data": {
+        "traces": [
+          {
+            "traceID": "4456bd7449711422fb3c053e4efe037",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611031764905200"
+          },
+          {
+            "traceID": "18665467fff53d335be8c4d27a693705",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611029861488700",
+            "durationMs": 1
+          },
+          {
+            "traceID": "12c2fe0ec11de6d3977d5f28238864d8",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611027922634300"
+          },
+          {
+            "traceID": "b9a28085297d7a1060283858e0ff46c",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611027209543900",
+            "durationMs": 1
+          },
+          {
+            "traceID": "17a1b834981d5e79b841981dab57c385",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611026733360400",
+            "durationMs": 1
+          },
+          {
+            "traceID": "be4d5dbb735bdceb0484e7ab661c0ca",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611025292958800",
+            "durationMs": 3
+          },
+          {
+            "traceID": "7b8edaac3d07b540c18073f96d71f0f",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611021010288300"
+          },
+          {
+            "traceID": "6b6d1cd59c6f49312115b518dd9efab",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611019775967800"
+          },
+          {
+            "traceID": "f53655d42f9c29885cfead76a3a7fa8",
+            "rootServiceName": "user-api",
+            "rootTraceName": "HTTP server",
+            "startTimeUnixNano": "1794611015396811900",
+            "durationMs": 7
+          }
+        ],
+        "metrics": {
+          "inspectedTraces": 9,
+          "inspectedBytes": "60121",
+          "completedJobs": 3,
+          "totalJobs": 3
+        }
+      },
+      "error": ""
+    },
+    "traceServices": {
+      "user-api": {
+        "count": 9,
+        "ids": [
+          "4456bd7449711422fb3c053e4efe037",
+          "18665467fff53d335be8c4d27a693705",
+          "12c2fe0ec11de6d3977d5f28238864d8",
+          "b9a28085297d7a1060283858e0ff46c",
+          "17a1b834981d5e79b841981dab57c385",
+          "be4d5dbb735bdceb0484e7ab661c0ca",
+          "7b8edaac3d07b540c18073f96d71f0f",
+          "6b6d1cd59c6f49312115b518dd9efab",
+          "f53655d42f9c29885cfead76a3a7fa8"
+        ]
+      },
+      "vocabulary-api": {
+        "count": 0,
+        "ids": []
+      }
+    },
+    "trace_user-api": {
+      "code": 0,
+      "data": {
+        "batches": [
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "deployment.environment.name",
+                  "value": {
+                    "stringValue": "development"
+                  }
+                },
+                {
+                  "key": "service.instance.id",
+                  "value": {
+                    "stringValue": "094341f3-71df-426f-b216-3252c46eaf69"
+                  }
+                },
+                {
+                  "key": "service.namespace",
+                  "value": {
+                    "stringValue": "japanese-learning"
+                  }
+                },
+                {
+                  "key": "service.version",
+                  "value": {
+                    "stringValue": "unknown"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "user-api"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "Microsoft.AspNetCore"
+                },
+                "spans": [
+                  {
+                    "traceId": "BEVr10SXEUIvs8BT5O/gNw==",
+                    "spanId": "8Nzz2WORkWk=",
+                    "name": "HTTP server",
+                    "kind": "SPAN_KIND_SERVER",
+                    "startTimeUnixNano": "1794611031764905200",
+                    "endTimeUnixNano": "1794611031765481800",
+                    "attributes": [
+                      {
+                        "key": "http.response.status_code",
+                        "value": {
+                          "intValue": "404"
+                        }
+                      },
+                      {
+                        "key": "http.request.method",
+                        "value": {
+                          "stringValue": "GET"
+                        }
+                      },
+                      {
+                        "key": "http.route",
+                        "value": {
+                          "stringValue": "/unmatched"
+                        }
+                      }
+                    ],
+                    "status": {}
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "error": ""
+    },
+    "sqlite": {
+      "method": "Copies of SQLite DB/WAL/SHM only; live offsets never opened or reset; not a proven backup/restore",
+      "databases": {
+        "jwks": {
+          "copies": [
+            {
+              "file": "jwks.db",
+              "bytes": 8192
+            },
+            {
+              "file": "jwks.db-wal",
+              "bytes": 4120032
+            },
+            {
+              "file": "jwks.db-shm",
+              "bytes": 32768
+            }
+          ],
+          "integrity": [
+            {
+              "quick_check": "ok"
+            }
+          ],
+          "tables": [
+            {
+              "name": "in_tail_files"
+            }
+          ],
+          "offsets": [
+            {
+              "id": 1,
+              "name": "/logs/jwks/jwks-api.log",
+              "offset": 47918,
+              "inode": 214727
+            }
+          ]
+        },
+        "user": {
+          "copies": [
+            {
+              "file": "user.db",
+              "bytes": 8192
+            },
+            {
+              "file": "user.db-wal",
+              "bytes": 4120032
+            },
+            {
+              "file": "user.db-shm",
+              "bytes": 32768
+            }
+          ],
+          "integrity": [
+            {
+              "quick_check": "ok"
+            }
+          ],
+          "tables": [
+            {
+              "name": "in_tail_files"
+            }
+          ],
+          "offsets": [
+            {
+              "id": 5,
+              "name": "/logs/user/user-api-20261024.json",
+              "offset": 2574472,
+              "inode": 44442
+            },
+            {
+              "id": 6,
+              "name": "/logs/user/user-api-20261025.json",
+              "offset": 1882603,
+              "inode": 44938
+            },
+            {
+              "id": 7,
+              "name": "/logs/user/user-api-20261026.json",
+              "offset": 404432,
+              "inode": 44443
+            },
+            {
+              "id": 8,
+              "name": "/logs/user/user-api-20261029.json",
+              "offset": 21731,
+              "inode": 44444
+            },
+            {
+              "id": 9,
+              "name": "/logs/user/user-api-20261106.json",
+              "offset": 1112573,
+              "inode": 214779
+            },
+            {
+              "id": 10,
+              "name": "/logs/user/user-api-20261107.json",
+              "offset": 1357251,
+              "inode": 260908
+            },
+            {
+              "id": 11,
+              "name": "/logs/user/user-api-20261112.json",
+              "offset": 111971,
+              "inode": 44881
+            },
+            {
+              "id": 12,
+              "name": "/logs/user/user-api-20261113.json",
+              "offset": 1031914,
+              "inode": 44589
+            }
+          ]
+        },
+        "vocabulary": {
+          "copies": [
+            {
+              "file": "vocabulary.db",
+              "bytes": 8192
+            },
+            {
+              "file": "vocabulary.db-wal",
+              "bytes": 1796352
+            },
+            {
+              "file": "vocabulary.db-shm",
+              "bytes": 32768
+            }
+          ],
+          "integrity": [
+            {
+              "quick_check": "ok"
+            }
+          ],
+          "tables": [
+            {
+              "name": "in_tail_files"
+            }
+          ],
+          "offsets": [
+            {
+              "id": 1,
+              "name": "/logs/vocabulary/application.json.log",
+              "offset": 248978,
+              "inode": 520927
+            }
+          ]
+        }
+      }
+    },
+    "bakedConfig": {
+      "observability/logging/fluent-bit.conf": {
+        "byteEqual": true,
+        "normalizedEqual": true,
+        "sha256": "6f1fea4dfbae5e08084bc65a1bf014f42a463061e27135c236184e6503346fbd"
+      },
+      "observability/logging/normalize.lua": {
+        "byteEqual": true,
+        "normalizedEqual": true,
+        "sha256": "1d906bce9cb724756fe18b6e300ec5adc711434042d98265b8d118eb5b556b5b"
+      },
+      "observability/logging/parsers-app.conf": {
+        "byteEqual": true,
+        "normalizedEqual": true,
+        "sha256": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c"
+      },
+      "observability/logging/opensearch.yml": {
+        "byteEqual": true,
+        "normalizedEqual": true,
+        "sha256": "8761780d89a51dd00aead35f940a106babf9c8956a750a6972276ffc3a6563fb"
+      }
+    },
+    "privacy": {
+      "scope": "Synthetic authorization/cookie/query markers on harmless unmatched GET; bounded output search, not full historical audit",
+      "correlationId": "p07-59d29752-db4b-4cde-94c0-edb9abf14dc0",
+      "collectorOutput": {
+        "code": 0,
+        "hits": {
+          "value": 3,
+          "relation": "eq"
+        },
+        "markerOccurrences": 0,
+        "sourceFields": [
+          "collected_at",
+          "trace_id",
+          "span_id",
+          "original",
+          "parent_span_id",
+          "@timestamp",
+          "http_method",
+          "service_name",
+          "index_prefix",
+          "http_route",
+          "environment",
+          "authenticated",
+          "is_slow",
+          "level",
+          "error_code",
+          "http_status",
+          "duration_ms",
+          "caller_service",
+          "message",
+          "outcome",
+          "event_name",
+          "correlation_id",
+          "error_type"
+        ]
+      },
+      "user-api": {
+        "code": 0,
+        "correlationFound": true,
+        "markerOccurrences": 0
+      },
+      "vocabulary-api": {
+        "code": 0,
+        "correlationFound": true,
+        "markerOccurrences": 0
+      }
+    },
+    "fluentFinal": {
+      "code": 0,
+      "data": {
+        "input": {
+          "tail.0": {
+            "records": 85,
+            "bytes": 44148,
+            "files_opened": 2,
+            "files_closed": 1,
+            "files_rotated": 1,
+            "multiline_truncated": 0,
+            "long_line_truncated": 0,
+            "long_line_skipped": 0
+          },
+          "tail.1": {
+            "records": 546,
+            "bytes": 910479,
+            "files_opened": 8,
+            "files_closed": 0,
+            "files_rotated": 0,
+            "multiline_truncated": 0,
+            "long_line_truncated": 0,
+            "long_line_skipped": 0
+          },
+          "tail.2": {
+            "records": 180,
+            "bytes": 229806,
+            "files_opened": 2,
+            "files_closed": 1,
+            "files_rotated": 0,
+            "multiline_truncated": 0,
+            "long_line_truncated": 0,
+            "long_line_skipped": 0
+          },
+          "storage_backlog.3": {
+            "records": 0,
+            "bytes": 0
+          }
+        },
+        "filter": {
+          "lua.0": {
+            "drop_records": 0,
+            "add_records": 0,
+            "records": 811,
+            "bytes": 1528505,
+            "drop_bytes": 0
+          }
+        },
+        "output": {
+          "opensearch.0": {
+            "proc_records": 810,
+            "proc_bytes": 1526346,
+            "errors": 0,
+            "retries": 27,
+            "retries_failed": 0,
+            "dropped_records": 0,
+            "retried_records": 110
+          }
+        }
+      },
+      "error": ""
+    },
+    "fluentStorageFinal": {
+      "code": 0,
+      "data": {
+        "storage_layer": {
+          "chunks": {
+            "total_chunks": 1,
+            "mem_chunks": 0,
+            "fs_chunks": 1,
+            "fs_chunks_up": 1,
+            "fs_chunks_down": 0
+          }
+        },
+        "input_chunks": {
+          "tail.0": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "0b",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 0,
+              "up": 0,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          },
+          "tail.1": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "2.1K",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 1,
+              "up": 1,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          },
+          "tail.2": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "0b",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 0,
+              "up": 0,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          },
+          "storage_backlog.3": {
+            "status": {
+              "overlimit": false,
+              "mem_size": "0b",
+              "mem_limit": "0b"
+            },
+            "chunks": {
+              "total": 0,
+              "up": 0,
+              "down": 0,
+              "busy": 0,
+              "busy_size": "0b"
+            }
+          }
+        }
+      },
+      "error": ""
+    },
+    "healthFinal": [
+      {
+        "service": "vocabulary-api",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "grafana",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "jwks-api",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "prometheus",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "user-api",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "tempo",
+        "state": "running",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "otel-collector",
+        "state": "running",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "frontend",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "gateway",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "logs-ui",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "logging-ui-init",
+        "state": "exited",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "fluent-bit",
+        "state": "running",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "opensearch-dashboards",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "logging-init",
+        "state": "exited",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "opensearch",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "flyway-user",
+        "state": "exited",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "flyway-vocabulary",
+        "state": "exited",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "sqlserver-init",
+        "state": "exited",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "mysql",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      },
+      {
+        "service": "sqlserver",
+        "state": "running",
+        "health": "healthy",
+        "exit": 0,
+        "unchanged": true
+      }
+    ]
+  }
+}

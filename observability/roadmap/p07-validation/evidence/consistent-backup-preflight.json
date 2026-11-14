@@ -1,0 +1,162 @@
+{
+  "preflight": "PASS",
+  "backup_target": ".local/p07-backups",
+  "source_volume": "jp_dev_fluent_bit_state",
+  "steps": [],
+  "fluent_bit_health": "healthy",
+  "storage_counters": {
+    "storage_layer": {
+      "chunks": {
+        "total_chunks": 0,
+        "mem_chunks": 0,
+        "fs_chunks": 0,
+        "fs_chunks_up": 0,
+        "fs_chunks_down": 0
+      }
+    },
+    "input_chunks": {
+      "tail.0": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      },
+      "tail.1": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      },
+      "tail.2": {
+        "status": {
+          "overlimit": false,
+          "mem_size": "0b"
+        },
+        "chunks": {
+          "total": 0,
+          "up": 0,
+          "down": 0,
+          "busy": 0,
+          "busy_size": "0b"
+        }
+      }
+    }
+  },
+  "output_metrics": {
+    "input": {
+      "tail.0": {
+        "records": 27,
+        "bytes": 11894
+      },
+      "tail.1": {
+        "records": 130,
+        "bytes": 226161
+      },
+      "tail.2": {
+        "records": 98,
+        "bytes": 133610
+      }
+    },
+    "filter": {
+      "lua.0": {
+        "records": 255,
+        "bytes": 141561
+      }
+    },
+    "output": {
+      "opensearch.0": {
+        "proc_records": 255,
+        "proc_bytes": 141561,
+        "errors": 0,
+        "retries": 0,
+        "retries_failed": 0,
+        "dropped_records": 0
+      }
+    }
+  },
+  "state_files": [
+    {
+      "relative_path": "buffer/tail.1/7-1794561299.40802560.flb",
+      "bytes": 4096,
+      "sha256": "b9cd7f0c922a2c532fff3d7fa1b40bf0bae8f3c3315656aef918d8f88b36b99a"
+    },
+    {
+      "relative_path": "buffer/tail.2/7-1794561300.152002544.flb",
+      "bytes": 4096,
+      "sha256": "2c6a46237e0bf370169d1ecf60b29214dbdb97aa35c3c5d1008503ab675b8858"
+    },
+    {
+      "relative_path": "jwks.db",
+      "bytes": 8192,
+      "sha256": "1dab52d0ceedeac51aa71a769ea64229d9eabb46f6d16d4ab03c651d55f3e519"
+    },
+    {
+      "relative_path": "jwks.db-shm",
+      "bytes": 32768,
+      "sha256": "e73d677b61abc43fea7764381a8e80ff534056a1d3446d2336af427cc2e9f2e6"
+    },
+    {
+      "relative_path": "jwks.db-wal",
+      "bytes": 12392,
+      "sha256": "188b1db7106c4e7b3aed3cad95953652cf4feb90b476e7f379967914a8a625f1"
+    },
+    {
+      "relative_path": "user.db",
+      "bytes": 8192,
+      "sha256": "948a29ccfddbd1d061e0f633225efa2bb86dd750927c0b554ca54b1a27e92eee"
+    },
+    {
+      "relative_path": "user.db-shm",
+      "bytes": 32768,
+      "sha256": "73b2ddc67fed485758a064b1c54200b89f740777d6e7ec95caa2b4bdbe8364c0"
+    },
+    {
+      "relative_path": "user.db-wal",
+      "bytes": 486192,
+      "sha256": "36c05f08aebe39785dfd8bc85efc4064350d7dab885848bbba509c688435cbf1"
+    },
+    {
+      "relative_path": "vocabulary.db",
+      "bytes": 8192,
+      "sha256": "9967ac168038fb3959dd0dd108c7038407c0832b57a26a79b7926d2afd70e277"
+    },
+    {
+      "relative_path": "vocabulary.db-shm",
+      "bytes": 32768,
+      "sha256": "2fb071a3c6cbd6ab0032ad0a221fcaff62a90a15ca5548e67f323662f8e2ccc2"
+    },
+    {
+      "relative_path": "vocabulary.db-wal",
+      "bytes": 346112,
+      "sha256": "97f5ad4d39ca2c3b7d5b27d5e06192ba964010cafd522c5e260b32360d7cf699"
+    }
+  ],
+  "retained_chunk_count": 2,
+  "retained_chunks": [
+    {
+      "relative_path": "buffer/tail.1/7-1794561299.40802560.flb",
+      "bytes": 4096,
+      "sha256": "b9cd7f0c922a2c532fff3d7fa1b40bf0bae8f3c3315656aef918d8f88b36b99a"
+    },
+    {
+      "relative_path": "buffer/tail.2/7-1794561300.152002544.flb",
+      "bytes": 4096,
+      "sha256": "2c6a46237e0bf370169d1ecf60b29214dbdb97aa35c3c5d1008503ab675b8858"
+    }
+  ],
+  "decision": "Graceful Fluent Bit stop and consistent state archive are permitted by operator; no other service targeted."
+}

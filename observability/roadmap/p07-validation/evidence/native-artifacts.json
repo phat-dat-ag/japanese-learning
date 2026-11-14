@@ -1,0 +1,12 @@
+{
+  "tempo": {
+    "download": "PASS",
+    "source": "https://github.com/grafana/tempo/releases/download/v2.10.3/tempo_2.10.3_windows_amd64.tar.gz",
+    "sha256": "5ca2249984c85f605f703358e0483c3992cf1a94f62d063b97510b66e02b516e"
+  },
+  "fluent-bit": {
+    "download": "UNVERIFIED",
+    "source": "https://packages.fluentbit.io/windows/fluent-bit-4.2.5-win64.zip",
+    "reason": "HTTP Error 403: Forbidden"
+  }
+}

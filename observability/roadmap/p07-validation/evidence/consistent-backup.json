@@ -1,0 +1,8 @@
+{
+  "captured_utc": "2026-11-13T09:48:50.067122+00:00",
+  "source_volume": "jp_dev_fluent_bit_state",
+  "container": "jp_dev-fluent-bit-1",
+  "status": "FAIL",
+  "failure_type": "AssertionError",
+  "detail": "Backup verification failed; no source files/volume were modified. Fluent Bit remains stopped for operator review."
+}

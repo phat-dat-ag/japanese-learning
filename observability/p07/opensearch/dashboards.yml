@@ -1,0 +1,14 @@
+server.name: japanese-learning-logs
+server.host: 0.0.0.0
+server.port: 5601
+server.ssl.enabled: true
+server.ssl.certificate: /usr/share/opensearch-dashboards/config/p07/dashboards.pem
+server.ssl.key: /usr/share/opensearch-dashboards/config/p07/dashboards.key
+opensearch.hosts: ["https://opensearch:9200"]
+opensearch.username: kibanaserver
+opensearch.password: "${P07_DASHBOARDS_PASSWORD}"
+opensearch.ssl.verificationMode: full
+opensearch.ssl.certificateAuthorities: ["/usr/share/opensearch-dashboards/config/p07/ca.pem"]
+opensearch.requestHeadersAllowlist: [authorization, securitytenant]
+opensearch_security.cookie.secure: false
+opensearch_security.readonly_mode.roles: [p07_reader]

@@ -1,0 +1,14 @@
+{
+  "head": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "branch": "",
+  "developRef": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+  "status": " M Dockerfile\n M src/main/resources/application.properties\n",
+  "localPropertiesPreserved": true,
+  "originalBackupHash": "c7e0e2f5ea58016b355a5afd647ef59f808c25973ff25b60012a3804781a9fa0",
+  "sourceHashes": {
+    "Dockerfile": "5ae08351f4be9dc52f35e74562ed64111f72712d4af21870298bc9640622b03a",
+    "src/main/resources/application.properties": "cc3b5b8314bd0d113a16d14441d168ea6efca805d16f5adacd0d7e23fbfd84be"
+  },
+  "taskDiff": "diff --git a/Dockerfile b/Dockerfile\nindex 3ac2643..63ef715 100644\n--- a/Dockerfile\n+++ b/Dockerfile\n@@ -3,13 +3,16 @@ FROM eclipse-temurin:17-jdk-jammy@sha256:51d32af96fb8a13ffbc96c719d7b05447a04ca6\n # Keep the wrapper on its checksum-pinned ZIP distribution.\n RUN apt-get update && apt-get install -y --no-install-recommends unzip && rm -rf /var/lib/apt/lists/*\n WORKDIR /workspace\n+# Quarkus fixes exporter enablement during augmentation; Compose passes the runtime choice.\n+ARG APP_OTEL_EXPORT_ENABLED=false\n COPY .mvn/ .mvn/\n COPY mvnw pom.xml ./\n # Windows checkouts may give the wrapper CRLF line endings.\n RUN sed -i 's/\\r$//' mvnw && chmod +x mvnw\n COPY src/main/ src/main/\n # Tests run separately; no test fixtures or credentials enter the build context.\n-RUN ./mvnw -B -ntp package -Dmaven.test.skip=true\n+RUN ./mvnw -B -ntp package -Dmaven.test.skip=true \\\n+    -Dquarkus.otel.exporter.otlp.enabled=${APP_OTEL_EXPORT_ENABLED}\n \n # Follow the Quarkus fast-jar layout and container-aware Java launcher.\n FROM registry.access.redhat.com/ubi9/openjdk-17-runtime:1.24@sha256:5db930442757ef371837b40e9d90c4b6d4afd07c54ff3957afadb09ebb68c82c\n",
+  "unmerged": ""
+}

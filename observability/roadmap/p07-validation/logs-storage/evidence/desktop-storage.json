@@ -1,0 +1,48 @@
+﻿{
+    "captured_utc":  "2026-11-14T00:40:39.9633754Z",
+    "backing_vhd_path":  "C:\\Users\\nguye\\AppData\\Local\\Docker\\wsl\\disk\\docker_data.vhdx",
+    "vhd_file_length_bytes":  39651901440,
+    "vhd_allocated_bytes":  39651901440,
+    "vhd_attributes":  "Archive",
+    "backing_drive":  "C",
+    "parent_links":  [
+                         {
+                             "path":  "C:\\Users\\nguye\\AppData\\Local\\Docker\\wsl\\disk",
+                             "linkType":  null,
+                             "target":  [
+
+                                        ]
+                         },
+                         {
+                             "path":  "C:\\Users\\nguye\\AppData\\Local\\Docker\\wsl",
+                             "linkType":  null,
+                             "target":  [
+
+                                        ]
+                         },
+                         {
+                             "path":  "C:\\Users\\nguye\\AppData\\Local\\Docker",
+                             "linkType":  null,
+                             "target":  [
+
+                                        ]
+                         }
+                     ],
+    "drives":  [
+                   {
+                       "name":  "C",
+                       "used_bytes":  180507308032,
+                       "free_bytes":  6892429312,
+                       "total_bytes":  187399737344
+                   },
+                   {
+                       "name":  "D",
+                       "used_bytes":  139409485824,
+                       "free_bytes":  182714105856,
+                       "total_bytes":  322123591680
+                   }
+               ],
+    "wsl_mapping":  "NAME           SIZE FSTYPE  MOUNTPOINT\nloop0     819689472 iso9660 /tmp/docker-desktop-root/run/desktop/mnt/host/wsl/docker-desktop/cli-tools\nloop1     778131456 iso9660 /tmp/docker-desktop-root-ro\nsda       374251520 ext4    \nsdb       167149568 ext4    \nsdc      2147487744 swap    [SWAP]\nsdd   1099511627776 ext4    /tmp/docker-desktop-root/run/desktop/mnt/docker-desktop-disk\nsde       148339712 ext4    /tmp/docker-desktop-root/run/desktop/mnt/host/wslg/distro\nFilesystem           1024-blocks    Used Available Capacity Mounted on\n/dev/sdd             1055762868  37719260 964340136   4% /mnt/docker-desktop-disk\n/dev/sdd[/data] /tmp/docker-desktop-root/var/lib",
+    "disk_modified_by_task":  false,
+    "execution_policy_changed":  false
+}

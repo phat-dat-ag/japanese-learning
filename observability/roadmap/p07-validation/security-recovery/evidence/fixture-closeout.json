@@ -1,0 +1,362 @@
+{
+  "captured_utc": "2026-11-13T23:58:06.646Z",
+  "scope": "Fixture metadata and owned-fixture stop only; no remove commands",
+  "containers": [
+    {
+      "id": "b451393d5067f6aac4f7319803f4407635298355e27c50edb2c84cb09f1c6f0e",
+      "name": "/p07_accept_44b07b-restore-1",
+      "state": "running",
+      "oomKilled": false,
+      "ports": {
+        "9200/tcp": null,
+        "9300/tcp": null,
+        "9600/tcp": null,
+        "9650/tcp": null
+      },
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "p07_accept_44b07b_restore_data",
+          "Source": "p07_accept_44b07b_restore_data",
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        },
+        {
+          "Type": "volume",
+          "Name": "p07_accept_44b07b_snapshots",
+          "Source": "p07_accept_44b07b_snapshots",
+          "Destination": "/snapshots",
+          "Driver": "local",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": ""
+        },
+        {
+          "Type": "bind",
+          "Source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery\\.private\\opensearch.yml",
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        },
+        {
+          "Type": "bind",
+          "Source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery\\.private",
+          "Destination": "/usr/share/opensearch/config/certs",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        },
+        {
+          "Type": "bind",
+          "Source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery\\.private\\internal_users.yml",
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "networks": [
+        "p07_accept_44b07b_fixture"
+      ]
+    },
+    {
+      "id": "74b9c1ae048fbb3cab6326de5d0ed50c113d7ee9d69542ea75eb3e9a5dde0a47",
+      "name": "/p07_accept_44b07b-source-1",
+      "state": "running",
+      "oomKilled": false,
+      "ports": {
+        "9200/tcp": null,
+        "9300/tcp": null,
+        "9600/tcp": null,
+        "9650/tcp": null
+      },
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "p07_accept_44b07b_snapshots",
+          "Source": "p07_accept_44b07b_snapshots",
+          "Destination": "/snapshots",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        },
+        {
+          "Type": "bind",
+          "Source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery\\.private\\opensearch.yml",
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        },
+        {
+          "Type": "bind",
+          "Source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery\\.private",
+          "Destination": "/usr/share/opensearch/config/certs",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        },
+        {
+          "Type": "bind",
+          "Source": "D:\\japanese-learning\\observability\\roadmap\\p07-validation\\security-recovery\\.private\\internal_users.yml",
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        },
+        {
+          "Type": "volume",
+          "Name": "p07_accept_44b07b_source_data",
+          "Source": "p07_accept_44b07b_source_data",
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        }
+      ],
+      "networks": [
+        "p07_accept_44b07b_fixture"
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "CreatedAt": "2026-11-13T23:49:19Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "f83dae0bfd53d428c3d3b27d9d8d473f2ad05a2ca95394b7177c073e691c7f9a",
+        "com.docker.compose.project": "p07_accept_44b07b",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "restore_data",
+        "jp.p07.fixture": "true"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/p07_accept_44b07b_restore_data/_data",
+      "Name": "p07_accept_44b07b_restore_data",
+      "Options": {
+        "device": "tmpfs",
+        "o": "size=96m,uid=1000,gid=1000,mode=0700",
+        "type": "tmpfs"
+      },
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-13T23:43:14Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "cc771494632e961bc1d17525cd1fd65920326e385679c6eb23f6b0c78896e426",
+        "com.docker.compose.project": "p07_accept_44b07b",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "snapshots",
+        "jp.p07.fixture": "true"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/p07_accept_44b07b_snapshots/_data",
+      "Name": "p07_accept_44b07b_snapshots",
+      "Options": {
+        "device": "tmpfs",
+        "o": "size=64m,uid=1000,gid=1000,mode=0700",
+        "type": "tmpfs"
+      },
+      "Scope": "local"
+    },
+    {
+      "CreatedAt": "2026-11-13T23:43:14Z",
+      "Driver": "local",
+      "Labels": {
+        "com.docker.compose.config-hash": "83f5d7ac70b7f1710beaea523cdc467ad9ce19bef2f7b45d974c91a637e473e9",
+        "com.docker.compose.project": "p07_accept_44b07b",
+        "com.docker.compose.version": "5.5.0",
+        "com.docker.compose.volume": "source_data",
+        "jp.p07.fixture": "true"
+      },
+      "Mountpoint": "/var/lib/docker/volumes/p07_accept_44b07b_source_data/_data",
+      "Name": "p07_accept_44b07b_source_data",
+      "Options": {
+        "device": "tmpfs",
+        "o": "size=96m,uid=1000,gid=1000,mode=0700",
+        "type": "tmpfs"
+      },
+      "Scope": "local"
+    }
+  ],
+  "retentionHistory": {
+    "code": 0,
+    "data": {
+      "took": 1,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 3,
+          "relation": "eq"
+        },
+        "max_score": 1,
+        "hits": [
+          {
+            "_index": ".opendistro-ism-managed-index-history-2026.11.13-1",
+            "_id": "LWZS16EBucpN_AlYOM2N",
+            "_score": 1,
+            "_source": {
+              "managed_index_meta_data": {
+                "index": "p07-fixture",
+                "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+                "policy_id": "p07-eligibility",
+                "policy_seq_no": 0,
+                "policy_primary_term": 1,
+                "index_creation_date": 1794613697175,
+                "state": {
+                  "name": "retain",
+                  "start_time": 1794613852102
+                },
+                "retry_info": {
+                  "failed": false,
+                  "consumed_retries": 0
+                },
+                "info": {
+                  "message": "Successfully initialized policy: p07-eligibility"
+                },
+                "history_timestamp": 1794613852299
+              }
+            }
+          },
+          {
+            "_index": ".opendistro-ism-managed-index-history-2026.11.13-1",
+            "_id": "LmZS16EBucpN_AlY9839",
+            "_score": 1,
+            "_source": {
+              "managed_index_meta_data": {
+                "index": "p07-fixture",
+                "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+                "policy_id": "p07-eligibility",
+                "policy_seq_no": 0,
+                "policy_primary_term": 1,
+                "index_creation_date": 1794613697175,
+                "transition_to": "expired",
+                "retry_info": {
+                  "failed": false,
+                  "consumed_retries": 0
+                },
+                "info": {
+                  "message": "Transitioning to expired [index=p07-fixture]"
+                },
+                "history_timestamp": 1794613901309
+              }
+            }
+          },
+          {
+            "_index": ".opendistro-ism-managed-index-history-2026.11.13-1",
+            "_id": "NWZU16EBucpN_AlYFc1W",
+            "_score": 1,
+            "_source": {
+              "managed_index_meta_data": {
+                "index": "p07-fixture",
+                "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+                "policy_id": "p07-eligibility",
+                "policy_seq_no": 0,
+                "policy_primary_term": 1,
+                "index_creation_date": 1794613697175,
+                "policy_completed": true,
+                "history_timestamp": 1794613974358
+              }
+            }
+          }
+        ]
+      }
+    },
+    "error": ""
+  },
+  "retentionStatus": {
+    "code": 0,
+    "data": {
+      "p07-fixture": {
+        "index.plugins.index_state_management.policy_id": "p07-eligibility",
+        "index.opendistro.index_state_management.policy_id": "p07-eligibility",
+        "index": "p07-fixture",
+        "index_uuid": "p_Ym32a9RY-QGz-Z2VTtnw",
+        "policy_id": "p07-eligibility",
+        "policy_seq_no": 0,
+        "policy_primary_term": 1,
+        "index_creation_date": 1794613697175,
+        "policy_completed": true,
+        "enabled": false,
+        "policy": {
+          "policy_id": "p07-eligibility",
+          "description": "Disposable eligibility transition only; no delete action",
+          "last_updated_time": 1794613757128,
+          "schema_version": 31,
+          "error_notification": null,
+          "default_state": "retain",
+          "states": [
+            {
+              "name": "retain",
+              "actions": [],
+              "transitions": [
+                {
+                  "state_name": "expired",
+                  "conditions": {
+                    "min_index_age": "1s"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "expired",
+              "actions": [],
+              "transitions": []
+            }
+          ],
+          "ism_template": null
+        }
+      },
+      "total_managed_indices": 1
+    },
+    "error": ""
+  },
+  "expiryDiagnostics": [
+    "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: java.security.cert.CertificateExpiredException: NotAfter: Thu Jan 02 00:00:00 UTC 2020",
+    "[2026-11-13T23:48:13,424][ERROR][o.o.h.n.s.SecureNetty4HttpServerTransport] [p07-node] Exception during establishing a SSL connection: javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: java.security.cert.CertificateExpiredException: NotAfter: Thu Jan 02 00:00:00 UTC 2020",
+    "io.netty.handler.codec.DecoderException: javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: java.security.cert.CertificateExpiredException: NotAfter: Thu Jan 02 00:00:00 UTC 2020",
+    "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: java.security.cert.CertificateExpiredException: NotAfter: Thu Jan 02 00:00:00 UTC 2020",
+    "[2026-11-13T23:49:08,803][ERROR][o.o.h.n.s.SecureNetty4HttpServerTransport] [p07-node] Exception during establishing a SSL connection: javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: java.security.cert.CertificateExpiredException: NotAfter: Thu Jan 02 00:00:00 UTC 2020",
+    "io.netty.handler.codec.DecoderException: javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: javax.net.ssl.SSLHandshakeException: (certificate_unknown) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+    "Caused by: java.security.cert.CertificateExpiredException: NotAfter: Thu Jan 02 00:00:00 UTC 2020"
+  ],
+  "stop": {
+    "code": 0,
+    "data": "b451393d5067f6aac4f7319803f4407635298355e27c50edb2c84cb09f1c6f0e\n74b9c1ae048fbb3cab6326de5d0ed50c113d7ee9d69542ea75eb3e9a5dde0a47\n",
+    "error": ""
+  },
+  "finalStates": [
+    {
+      "id": "b451393d5067f6aac4f7319803f4407635298355e27c50edb2c84cb09f1c6f0e",
+      "name": "/p07_accept_44b07b-restore-1",
+      "state": "exited",
+      "exit": 143
+    },
+    {
+      "id": "74b9c1ae048fbb3cab6326de5d0ed50c113d7ee9d69542ea75eb3e9a5dde0a47",
+      "name": "/p07_accept_44b07b-source-1",
+      "state": "exited",
+      "exit": 143
+    }
+  ]
+}

@@ -1,18 +1,27 @@
 """Idempotent mappings, daily-index retention, and Discover index-pattern setup."""
 import json
 import os
+import ssl
+import base64
 import time
 import urllib.error
 import urllib.request
 
-BASE = 'http://opensearch:9200'
+BASE = 'https://opensearch:9200'
+TLS = ssl.create_default_context(cafile='/run/p07/ca.pem')
+TLS.load_cert_chain('/run/p07/admin.pem', '/run/p07/admin.key')
 
 
 def request(path, body=None, method=None, base=BASE):
     data = None if body is None else json.dumps(body).encode()
     req = urllib.request.Request(base + path, data=data, method=method,
                                  headers={'Content-Type': 'application/json', 'osd-xsrf': 'logging-setup'})
-    with urllib.request.urlopen(req, timeout=20) as response:
+    if base != BASE:
+        # Default global metadata alias; avoid the version-specific tenant-header
+        # mismatch. The reader has read-only access to this exact alias/index.
+        req.add_header('Authorization', 'Basic ' + base64.b64encode(
+            ('administrator:' + os.environ['P07_ADMIN_PASSWORD']).encode()).decode())
+    with urllib.request.urlopen(req, timeout=20, context=TLS) as response:
         return json.load(response)
 
 
@@ -48,6 +57,11 @@ def configure():
     request('/_index_template/application-logs', {'index_patterns': ['application-logs-*'], 'priority': 100,
         'template': {'settings': {'number_of_shards': 1, 'number_of_replicas': 0},
                      'mappings': {'dynamic': False, 'properties': properties}}}, 'PUT')
+    with open('/p07/index-template.json', encoding='utf-8') as template_file:
+        template = json.load(template_file)
+    template['_meta'] = {'phase': 'P07', 'status': 'active development'}
+    request('/_index_template/application-logs-p07', template, 'PUT')
+    request('/_cluster/settings', {'persistent': {'search.max_buckets': 10000}}, 'PUT')
     print('Configured log mappings and {}-day index retention.'.format(days), flush=True)
 
 
@@ -59,9 +73,9 @@ def dashboards():
                          'application-logs-user-api', 'application-logs-vocabulary-api'):
                 request('/api/saved_objects/index-pattern/' + name + '?overwrite=true',
                         {'attributes': {'title': name + '-*', 'timeFieldName': '@timestamp'}},
-                        'POST', base='http://opensearch-dashboards:5601')
+                        'POST', base='https://opensearch-dashboards:5601')
             request('/api/opensearch-dashboards/settings', {'changes': {'defaultIndex': 'application-logs'}},
-                    'POST', base='http://opensearch-dashboards:5601')
+                    'POST', base='https://opensearch-dashboards:5601')
             print('Configured combined and per-service Discover index patterns.', flush=True)
             return
         except (OSError, ValueError):

@@ -1,0 +1,16 @@
+{
+  "captured_utc": "2026-11-14T00:45:02.549Z",
+  "head": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "branch": "",
+  "develop": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+  "status": "M Dockerfile",
+  "propertiesSha256": "a2797b77679f90c358dad81c858054e3ce178c2e662e02b56118c913c5501141",
+  "propertiesMtimeUtc": "2026-11-13T23:56:45.336Z",
+  "propertiesDiffFromIndex": "",
+  "swaggerSettingPresent": false,
+  "recentReflog": "815b637 HEAD@{2026-11-14 06:20:54 +0700}: checkout: moving from develop to 815b637a799cab8009d154ee9c97cec0f1dce734\nd664261 HEAD@{2026-11-13 18:35:16 +0700}: checkout: moving from e964cc391dae768ca69e875946d0e4eab26b7500 to develop",
+  "matchesPreviouslyReviewedDrift": true,
+  "cause": "Unattributed working-tree file change. No new commit or checkout explains the removed line; reflog cannot identify ordinary file edits.",
+  "action": "Review only; no source/ref/branch changes. Follow existing operator instruction to leave current file unchanged.",
+  "savedOriginalAvailable": true
+}

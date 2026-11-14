@@ -1,0 +1,123 @@
+{
+  "created_utc": "2026-11-14T02:38:19.251Z",
+  "checks": {
+    "user_administrator": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "user_ingestion_writer": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "user_dashboard_reader": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "user_kibanaserver": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "role_p07_writer": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "role_p07_reader": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "mapping_all_access": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "mapping_security_rest_api_access": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "mapping_p07_writer": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "mapping_p07_reader": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "mapping_kibana_server": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "mapping_kibana_user": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "anonymous_denied": {
+      "status": 401,
+      "code": 0,
+      "pass": true
+    },
+    "wrong_password_denied": {
+      "status": 401,
+      "code": 0,
+      "pass": true
+    },
+    "admin_allowed": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "reader_admin_denied": {
+      "status": 403,
+      "code": 0,
+      "pass": true
+    },
+    "writer_other_index_denied": {
+      "status": 403,
+      "code": 0,
+      "pass": true
+    },
+    "reader_write_denied": {
+      "status": 403,
+      "code": 0,
+      "pass": true
+    },
+    "writer_allowed": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "reader_allowed": {
+      "status": 200,
+      "code": 0,
+      "pass": true
+    },
+    "writer_read_denied": {
+      "status": 403,
+      "code": 0,
+      "pass": true
+    },
+    "plaintext_rejected": {
+      "pass": true
+    },
+    "dashboard_reader_global_patterns": {
+      "pass": true,
+      "status": 200,
+      "patterns": 4
+    },
+    "dashboard_reader_saved_object_write_denied": {
+      "pass": true,
+      "status": 403
+    }
+  },
+  "passed": true
+}

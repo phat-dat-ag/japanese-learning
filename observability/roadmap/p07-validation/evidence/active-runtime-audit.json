@@ -1,0 +1,267 @@
+{
+  "captured_utc": "2026-11-13T09:44:07.298191+00:00",
+  "checks": {
+    "fluent_bit_config": {
+      "status": "MATCH",
+      "active_sha256": "601ee3b6fc0fc5e5e5f8c2c04df5a65861c925115adfddff930c015829607ae3",
+      "intended_sha256": "601ee3b6fc0fc5e5e5f8c2c04df5a65861c925115adfddff930c015829607ae3",
+      "memory_inputs": 3,
+      "filesystem_inputs": 0,
+      "retry_limit": [
+        "3"
+      ],
+      "storage_path_present": false
+    },
+    "fluent_bit_lua": {
+      "status": "MATCH",
+      "active_sha256": "85e7952b458c14eddf1b2b3ff72e029276e6dbd6bd27b3745e223450a92b517b",
+      "intended_sha256": "85e7952b458c14eddf1b2b3ff72e029276e6dbd6bd27b3745e223450a92b517b"
+    },
+    "fluent_bit_parser": {
+      "status": "MATCH",
+      "active_sha256": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c",
+      "intended_sha256": "a31fe0d5ad246f9e354e066a6389a3fba32ecd2f363c6a2efc30c3447f27c42c"
+    },
+    "collector_config": {
+      "status": "MATCH",
+      "active_sha256": "dc9ff7286c2588fbf04aa8192317dee9977ba29788f4e1ba09edede54799e5dd",
+      "intended_sha256": "dc9ff7286c2588fbf04aa8192317dee9977ba29788f4e1ba09edede54799e5dd"
+    },
+    "tempo_config": {
+      "status": "MATCH",
+      "active_sha256": "e0cd16a57ecddad47be53b68fd17c396b5125bd31062198c7f0d79b9bc79441c",
+      "intended_sha256": "e0cd16a57ecddad47be53b68fd17c396b5125bd31062198c7f0d79b9bc79441c"
+    },
+    "prometheus_config": {
+      "status": "MATCH",
+      "active_sha256": "1cbb02a3e9220d1c93da5c6985e9d928ee6c763fce30d06706ad5e4cf91b42d9",
+      "intended_sha256": "1cbb02a3e9220d1c93da5c6985e9d928ee6c763fce30d06706ad5e4cf91b42d9"
+    },
+    "prometheus_rules": {
+      "status": "MATCH",
+      "active_sha256": "3d1573f633b189b4749ba1d7e371979a24887f851ccc6c2d19709c463cd6ceef",
+      "intended_sha256": "3d1573f633b189b4749ba1d7e371979a24887f851ccc6c2d19709c463cd6ceef"
+    },
+    "grafana_prometheus": {
+      "status": "MATCH",
+      "active_sha256": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd",
+      "intended_sha256": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd"
+    },
+    "grafana_tempo": {
+      "status": "MATCH",
+      "active_sha256": "e15573d2a1fc3f5ad1dc62906f232646301e082297623e6a7fc630c78fd2e2ef",
+      "intended_sha256": "e15573d2a1fc3f5ad1dc62906f232646301e082297623e6a7fc630c78fd2e2ef"
+    },
+    "fluent_bit_version": {
+      "version": "4.2.5"
+    },
+    "fluent_bit_state": {
+      "regular_files": 11,
+      "regular_buffer_chunk_files": 2,
+      "regular_buffer_chunk_bytes": 8192,
+      "logical_bytes": 275368,
+      "tail_db_files_bytes": {
+        "jwks.db": 8192,
+        "jwks.db-shm": 32768,
+        "jwks.db-wal": 8272,
+        "user.db": 8192,
+        "user.db-shm": 32768,
+        "user.db-wal": 127752,
+        "vocabulary.db": 8192,
+        "vocabulary.db-shm": 32768,
+        "vocabulary.db-wal": 8272
+      },
+      "other_files": 2,
+      "consistent_backup": false,
+      "memory_inflight_or_delivery_ack_proof": false
+    },
+    "fluent_bit_metrics_first": {
+      "input": {
+        "tail.0": {
+          "records": 26,
+          "bytes": 11055
+        },
+        "tail.1": {
+          "records": 43,
+          "bytes": 70310
+        },
+        "tail.2": {
+          "records": 8,
+          "bytes": 6253
+        }
+      },
+      "filter": {
+        "lua.0": {
+          "records": 77,
+          "bytes": 33472
+        }
+      },
+      "output": {
+        "opensearch.0": {
+          "proc_records": 77,
+          "proc_bytes": 33472,
+          "errors": 0,
+          "retries": 0,
+          "retries_failed": 0,
+          "dropped_records": 0
+        }
+      }
+    },
+    "fluent_bit_storage_first": {
+      "storage_layer": {
+        "chunks": {
+          "total_chunks": 0,
+          "mem_chunks": 0,
+          "fs_chunks": 0,
+          "fs_chunks_up": 0,
+          "fs_chunks_down": 0
+        }
+      },
+      "input_chunks": {
+        "tail.0": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        },
+        "tail.1": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        },
+        "tail.2": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        }
+      }
+    },
+    "fluent_bit_metrics_second": {
+      "input": {
+        "tail.0": {
+          "records": 26,
+          "bytes": 11055
+        },
+        "tail.1": {
+          "records": 45,
+          "bytes": 73760
+        },
+        "tail.2": {
+          "records": 8,
+          "bytes": 6253
+        }
+      },
+      "filter": {
+        "lua.0": {
+          "records": 79,
+          "bytes": 34629
+        }
+      },
+      "output": {
+        "opensearch.0": {
+          "proc_records": 79,
+          "proc_bytes": 34629,
+          "errors": 0,
+          "retries": 0,
+          "retries_failed": 0,
+          "dropped_records": 0
+        }
+      }
+    },
+    "fluent_bit_storage_second": {
+      "storage_layer": {
+        "chunks": {
+          "total_chunks": 0,
+          "mem_chunks": 0,
+          "fs_chunks": 0,
+          "fs_chunks_up": 0,
+          "fs_chunks_down": 0
+        }
+      },
+      "input_chunks": {
+        "tail.0": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        },
+        "tail.1": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        },
+        "tail.2": {
+          "status": {
+            "overlimit": false,
+            "mem_size": "0b"
+          },
+          "chunks": {
+            "total": 0,
+            "up": 0,
+            "down": 0,
+            "busy": 0,
+            "busy_size": "0b"
+          }
+        }
+      }
+    },
+    "fluent_bit_health": {
+      "healthy": true
+    },
+    "opensearch_latest_privacy_sample": {
+      "sampled_documents": 20,
+      "documents_with_forbidden_keys": 0,
+      "documents_with_original": 0,
+      "latest_collected_at": "2026-11-13T09:44:10.299Z",
+      "limits": "Bounded latest sample/key scan only; no complete value/sentinel/historical privacy proof; no payload retained"
+    },
+    "prometheus_targets_runtime": {
+      "targets": 3,
+      "up": 3,
+      "with_error": 0
+    },
+    "prometheus_rules_runtime": {
+      "rules": 48,
+      "healthy": 48
+    }
+  },
+  "scope": "Current read-only source hashes, metadata, counters and bounded aggregate privacy scan; no ingestion/fault/restart"
+}

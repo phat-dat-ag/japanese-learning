@@ -1,0 +1,668 @@
+{
+  "captured_utc": "2026-11-14T00:30:55.262Z",
+  "authentication": {
+    "validApi": {
+      "status": 200,
+      "bytes": 12855,
+      "overall": "green"
+    },
+    "validRoot": {
+      "status": 302,
+      "bytes": 0
+    },
+    "invalidApi": {
+      "status": 401,
+      "bytes": 172
+    },
+    "invalidRoot": {
+      "status": 401,
+      "bytes": 172
+    },
+    "missingApi": {
+      "status": 401,
+      "bytes": 172
+    },
+    "missingRoot": {
+      "status": 401,
+      "bytes": 172
+    },
+    "anonymousHealth": {
+      "status": 200,
+      "bytes": 2
+    }
+  },
+  "containers": [
+    {
+      "id": "2cb2b89169dab2544959849626e29d0e4986928d1e879f828586e9ee9e0deea3",
+      "service": "logs-ui",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-14T00:26:18.564336954Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "destination": "/etc/nginx/logs.htpasswd",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-access",
+        "jp_learning_dev_log-ui"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "5601"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "101:101"
+    },
+    {
+      "id": "43ed8972f29d0b6db7cfb0c96e4ae8ac3b467b1984258424161cb0beb7c9795d",
+      "service": "vocabulary-api",
+      "image": "sha256:b900d539b9f7d25cefa361aa5bf36c4d09d3930ca185469f42529601ee55acc3",
+      "started": "2026-11-13T23:32:58.023304641Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/deployments/data/logs",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8082"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "185"
+    },
+    {
+      "id": "c847f6fb1a3e1480bd700332dcde71127e8019202156691dd1405c57bc82eb16",
+      "service": "grafana",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-13T11:49:14.1810333Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_grafana_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "destination": "/var/lib/grafana",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "destination": "/etc/grafana/p05-dashboards",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\grafana\\provisioning",
+          "destination": "/etc/grafana/provisioning",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3001"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "472:472"
+    },
+    {
+      "id": "0f60ddf65763a6e5d7cfe84574db9b03e022daa512c78dfa8d73eaba802e3574",
+      "service": "jwks-api",
+      "image": "sha256:5bd22ff07472603c37b5b5b810c5580c41240775d31507b49063cf928d38a23d",
+      "started": "2026-11-13T11:49:08.428251031Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/app/data/logs",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "destination": "/run/keys/jwks/user-publickey-1.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "destination": "/run/keys/jwks/user-publickey-2.pem",
+          "rw": false
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "destination": "/run/keys/jwks/user-publickey-3.pem",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8083"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "10001:10001"
+    },
+    {
+      "id": "f4d5e66c918fec67f03137df74dc66798e65538f73050191a4336418e86fdca8",
+      "service": "prometheus",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-13T11:49:08.426076882Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_prometheus_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "destination": "/prometheus",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p05-candidate\\prometheus",
+          "destination": "/etc/prometheus",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p05-monitoring"
+      ],
+      "ports": {
+        "9090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9091"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "65534:65534"
+    },
+    {
+      "id": "4aa27581dc9d485a2a9c44f882351d755538fffe44209fdec1ad620a02fc65ba",
+      "service": "user-api",
+      "image": "sha256:a0571ca101ba8305c1b0463c55f4fcb58bbf3467bc8536f8acd2c6a4d4c13651",
+      "started": "2026-11-13T11:49:21.691749254Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "destination": "/run/keys/jwt",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/app/logs",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8081"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "1654"
+    },
+    {
+      "id": "d756f25b46b8c2bdfcac4aac74edd4027c2496604b5adff253f8f3f173914d49",
+      "service": "tempo",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-13T11:49:08.384773916Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_tempo_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "destination": "/var/tempo",
+          "rw": true
+        },
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\tempo.yml",
+          "destination": "/etc/tempo/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_p06-tracing"
+      ],
+      "ports": {},
+      "readOnly": true,
+      "user": "10001:10001"
+    },
+    {
+      "id": "652e2778eb916eeb2f00d47d500164f7a935e32495e6e951b97146520a7dde4d",
+      "service": "otel-collector",
+      "image": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "started": "2026-11-13T11:49:08.38313428Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\p06\\collector.yml",
+          "destination": "/etc/otelcol/config.yml",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default",
+        "jp_learning_dev_p06-tracing"
+      ],
+      "ports": {
+        "4317/tcp": null,
+        "4318/tcp": null,
+        "55679/tcp": null
+      },
+      "readOnly": true,
+      "user": "10001:10001"
+    },
+    {
+      "id": "a963f640f67f53b6e3cea71f354cced849dd7bf3f033505de96691770faed8f3",
+      "service": "frontend",
+      "image": "sha256:22b5b9b11ed769313a8d1fffd4b88f9a502ac25630b66409e38237f680a18532",
+      "started": "2026-11-13T11:49:54.391490192Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8088"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "101:101"
+    },
+    {
+      "id": "f4cfd420288c1a0772be67111abd5bfa8bf4090c08630090f182ba1ba82bed9e",
+      "service": "gateway",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-13T11:38:37.163237514Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "destination": "/etc/nginx/nginx.conf",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "101:101"
+    },
+    {
+      "id": "ad61d42af7a7196223ef5d35a15ac553b9bc83883662bf215e4782a2a7e53381",
+      "service": "logging-ui-init",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-13T23:37:20.436577652Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-ui"
+      ],
+      "ports": {},
+      "readOnly": true,
+      "user": "1000:1000"
+    },
+    {
+      "id": "845f059d5b5b2dc45812b6af0fd074ae34059cfbf4fdebc60bd05df57be750e7",
+      "service": "fluent-bit",
+      "image": "sha256:6755b1349d10b4f85ea1c2a293d92b19f8fe44efc92a0cf4c16d9e8096fd062e",
+      "started": "2026-11-13T11:38:37.179827084Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_jwks_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "destination": "/logs/jwks",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_user_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "destination": "/logs/user",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_vocabulary_api_logs",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "destination": "/logs/vocabulary",
+          "rw": false
+        },
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_fluent_bit_state",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "destination": "/state",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "ports": {
+        "2020/tcp": null
+      },
+      "readOnly": true,
+      "user": "185:185"
+    },
+    {
+      "id": "ce358e501dd819c9313c0c912a3706e96cef3e4ad0ece53cc3c38abe32a7916a",
+      "service": "opensearch-dashboards",
+      "image": "sha256:8a05fb2ca21c689d06979a9da21b4ce88fa0d90b3f1df2e3ca8ebb3c8621b18c",
+      "started": "2026-11-13T11:38:37.195364961Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_dashboards_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "destination": "/usr/share/opensearch-dashboards/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage",
+        "jp_learning_dev_log-ui"
+      ],
+      "ports": {
+        "5601/tcp": null
+      },
+      "readOnly": true,
+      "user": "1000:1000"
+    },
+    {
+      "id": "59d0360c273d05a9209fda6ccd2b4dc362a6307a2ecac5e4fa8e38c572efdc94",
+      "service": "logging-init",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-13T23:37:18.747962672Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\observability\\logging",
+          "destination": "/config",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "ports": {},
+      "readOnly": true,
+      "user": "1000:1000"
+    },
+    {
+      "id": "fa3b9d61d7c85d0bb23d55ee1f2b751f7dcb65b63ef58e713320320da0f16fc1",
+      "service": "opensearch",
+      "image": "sha256:834dfaf615d3accc97d179360062c479a4b3b6d2a16ee4fc1207d7c683969dc9",
+      "started": "2026-11-13T11:38:37.192292148Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_opensearch_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "destination": "/usr/share/opensearch/data",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_log-storage"
+      ],
+      "ports": {
+        "9200/tcp": null,
+        "9300/tcp": null,
+        "9600/tcp": null,
+        "9650/tcp": null
+      },
+      "readOnly": true,
+      "user": "1000:1000"
+    },
+    {
+      "id": "aa00025b47b82ab1b81f87f740981b6b0885b04e395002fc2d94270512c65e9e",
+      "service": "flyway-user",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-13T23:37:19.431064309Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {},
+      "readOnly": true,
+      "user": "10001:10001"
+    },
+    {
+      "id": "0983d016e5a4c7b0471fedc0e3c4f0c6168c403887291cfbd20e8723fb696005",
+      "service": "flyway-vocabulary",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-13T23:37:18.750072295Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "destination": "/flyway/sql",
+          "rw": false
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {},
+      "readOnly": true,
+      "user": "10001:10001"
+    },
+    {
+      "id": "1afbcf1f3662851acdc05e70a692d02a6efcc0a5ea03d5e572fd248faa92d407",
+      "service": "sqlserver-init",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-13T23:37:18.745993769Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {},
+      "readOnly": true,
+      "user": "mssql"
+    },
+    {
+      "id": "6e1f30436a7a06b1b1d8597f8d9e40f327382179d92454743aac1647ed49d700",
+      "service": "mysql",
+      "image": "sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "started": "2026-11-13T11:38:37.176541588Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_mysql_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "destination": "/var/lib/mysql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "3306/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3306"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "999:999"
+    },
+    {
+      "id": "67e8fbba23eb259b9d7fdafeb4ab7e30dd8a63188a4a0b9f077e9f3c301e4b1c",
+      "service": "sqlserver",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-13T11:38:37.137163097Z",
+      "restarts": 0,
+      "state": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "jp_learning_dev_sqlserver_data",
+          "source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "destination": "/var/opt/mssql",
+          "rw": true
+        }
+      ],
+      "networks": [
+        "jp_learning_dev_default"
+      ],
+      "ports": {
+        "1433/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "1433"
+          }
+        ]
+      },
+      "readOnly": true,
+      "user": "mssql"
+    }
+  ],
+  "preservation": {
+    "logsUiRecreated": true,
+    "logsUiImageUnchanged": true,
+    "otherContainersUnchanged": true,
+    "credentialsUnchanged": true,
+    "oldDirectoryPreserved": true,
+    "authFileHashUnchanged": true,
+    "loopbackPortUnchanged": true,
+    "networksUnchanged": true,
+    "readOnlyNonRootPreserved": true
+  },
+  "authenticationPassed": true,
+  "runtimeHealthy": true
+}

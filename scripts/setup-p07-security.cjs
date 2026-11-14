@@ -1,0 +1,15 @@
+// Development-only credentials. Never emit secrets or replace existing identities.
+const fs=require('fs'),cp=require('child_process'),path=require('path'),crypto=require('crypto');
+const root=path.resolve(__dirname,'..'),dir=path.join(root,'secrets/p07');fs.mkdirSync(dir,{recursive:true});
+const ssl='C:/Program Files/Git/usr/bin/openssl.exe';
+function openssl(...a){const r=cp.spawnSync(ssl,a,{cwd:dir,encoding:'utf8'});if(r.status!==0)throw Error('OpenSSL failed: '+r.stderr);return r.stdout;}
+const credfile=path.join(dir,'credentials.json');let credentials;
+if(fs.existsSync(credfile))credentials=JSON.parse(fs.readFileSync(credfile));else{credentials=Object.fromEntries(['administrator','ingestion_writer','dashboard_reader','kibanaserver'].map(u=>[u,crypto.randomBytes(36).toString('base64url')]));fs.writeFileSync(credfile,JSON.stringify(credentials,null,2)+'\n',{mode:0o600});}
+if(!fs.existsSync(path.join(dir,'ca.pem'))){openssl('genpkey','-algorithm','RSA','-pkeyopt','rsa_keygen_bits:3072','-out','ca.key');openssl('req','-new','-x509','-key','ca.key','-sha256','-days','365','-subj','/CN=jp-learning-development-CA','-addext','basicConstraints=critical,CA:TRUE','-addext','keyUsage=critical,keyCertSign,cRLSign','-out','ca.pem');}
+if(!openssl('x509','-in','ca.pem','-noout','-text').includes('Certificate Sign')){fs.copyFileSync(path.join(dir,'ca.pem'),path.join(dir,'ca.before-strict-validation.pem'));openssl('req','-new','-x509','-key','ca.key','-sha256','-days','365','-subj','/CN=jp-learning-development-CA','-addext','basicConstraints=critical,CA:TRUE','-addext','keyUsage=critical,keyCertSign,cRLSign','-out','ca.pem');}
+function cert(name,cn,san,eku){if(fs.existsSync(path.join(dir,name+'.pem')))return;openssl('genpkey','-algorithm','RSA','-pkeyopt','rsa_keygen_bits:2048','-out',name+'.key');openssl('req','-new','-key',name+'.key','-subj','/CN='+cn,'-out',name+'.csr');fs.writeFileSync(path.join(dir,name+'.ext'),'basicConstraints=CA:FALSE\nkeyUsage=digitalSignature,keyEncipherment\nextendedKeyUsage='+eku+'\n'+(san?'subjectAltName='+san+'\n':''));openssl('x509','-req','-in',name+'.csr','-CA','ca.pem','-CAkey','ca.key','-CAcreateserial','-days','90','-sha256','-extfile',name+'.ext','-out',name+'.pem');}
+cert('node','opensearch','DNS:opensearch,DNS:localhost,IP:127.0.0.1','serverAuth,clientAuth');cert('admin','p07-dev-admin','','clientAuth');cert('dashboards','opensearch-dashboards','DNS:opensearch-dashboards,DNS:localhost','serverAuth');
+fs.writeFileSync(path.join(dir,'internal_users.yml'),'_meta:\n  type: internalusers\n  config_version: 2\n');
+for(const [file,user,key]of [['writer.env','ingestion_writer','P07_WRITER_PASSWORD'],['dashboards.env','kibanaserver','P07_DASHBOARDS_PASSWORD'],['admin.env','administrator','P07_ADMIN_PASSWORD']])fs.writeFileSync(path.join(dir,file),key+'='+credentials[user]+'\n',{mode:0o600});
+// Only public trust and service-specific keys are mounted into runtime clients.
+console.log('Development security material ready in Git-ignored secrets/p07; no credentials printed.');

@@ -1,0 +1,50 @@
+{
+  "captured_utc": "2026-11-13T09:31:27.747463+00:00",
+  "scope": "Read-only GET probes using synthetic context; normal new telemetry only; no business writes",
+  "probes": [
+    {
+      "service": "user-api",
+      "http_status": 401,
+      "trace_id": "01b7f81eb7fd209ea62ea3b24ca6b2b3",
+      "parent_id": "7bb56439086a04d7",
+      "correlation_id": "p07-probe-964cff37367a",
+      "via_gateway": true,
+      "sampling_fixture": "Below configured0.1 public-boundary threshold; remote flag01",
+      "tempo_retrieval": "PASS",
+      "private_sentinel_present": false,
+      "parent_id_present": true,
+      "service_identity_present": true,
+      "spans": 1,
+      "span_ids_unique": true,
+      "server_spans": 1,
+      "events": 0,
+      "links": 0,
+      "correlated_log_documents": 1,
+      "logs_matching_trace_id": 1,
+      "log_private_sentinel_present": false,
+      "log_original_present": false,
+      "retrieval_http_statuses": [
+        "200"
+      ],
+      "parent_comparison_encoding": "Tempo JSON base64 decoded / W3C hex matched"
+    },
+    {
+      "service": "vocabulary-api",
+      "http_status": 401,
+      "trace_id": "010ac628dda63fa53fbca440adf7f736",
+      "parent_id": "2ca64b864f6b888d",
+      "correlation_id": "p07-probe-91c64640278c",
+      "via_gateway": true,
+      "sampling_fixture": "Below configured0.1 public-boundary threshold; remote flag01",
+      "tempo_retrieval": "NOT_FOUND_WITHIN_WINDOW",
+      "correlated_log_documents": 2,
+      "logs_matching_trace_id": 2,
+      "log_private_sentinel_present": false,
+      "log_original_present": false,
+      "retrieval_http_statuses": [
+        "404",
+        "404"
+      ]
+    }
+  ]
+}

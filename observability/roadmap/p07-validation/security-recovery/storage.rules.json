@@ -1,0 +1,38 @@
+{
+  "groups": [
+    {
+      "name": "p07.fixture.storage",
+      "interval": "1m",
+      "rules": [
+        {
+          "alert": "P07TelemetryStorageWarning",
+          "expr": "(1 - (p07_telemetry_storage_available_bytes / p07_telemetry_storage_capacity_bytes) > 0.8) and (1 - (p07_telemetry_storage_available_bytes / p07_telemetry_storage_capacity_bytes) <= 0.95)",
+          "for": "2m",
+          "labels": {
+            "severity": "warning",
+            "phase": "P07"
+          }
+        },
+        {
+          "alert": "P07TelemetryStorageCritical",
+          "expr": "1 - (p07_telemetry_storage_available_bytes / p07_telemetry_storage_capacity_bytes) > 0.95",
+          "for": "1m",
+          "labels": {
+            "severity": "critical",
+            "phase": "P07"
+          }
+        },
+        {
+          "alert": "P07TelemetryStorageMetricsMissing",
+          "expr": "absent(p07_telemetry_storage_capacity_bytes{store=\"opensearch\"})",
+          "for": "2m",
+          "labels": {
+            "severity": "warning",
+            "phase": "P07",
+            "store": "opensearch"
+          }
+        }
+      ]
+    }
+  ]
+}

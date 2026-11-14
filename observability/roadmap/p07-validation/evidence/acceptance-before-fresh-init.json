@@ -1,0 +1,302 @@
+{
+  "phase": "P07",
+  "decision": "BLOCKED",
+  "captured_utc": "2026-11-14T01:37:20.803Z",
+  "project": "jp_learning_dev",
+  "requested_project_exists": false,
+  "checks": [
+    {
+      "id": "execution_preflight",
+      "status": "BLOCKED",
+      "details": "All eleven expected project volumes and all twenty previously recorded containers are absent from the current desktop-linux engine. Consistent with reported down -v; exact deletion command and recoverability not established. Historical database and telemetry preservation cannot be claimed. Remaining fixture volumes are not real project backups."
+    },
+    {
+      "id": "runtime_acceptance",
+      "status": "NOT_RUN",
+      "details": "No containers exist. Prior runtime results are historical, not current acceptance."
+    }
+  ],
+  "nativePromtoolFixtureCases": 42,
+  "operatorApprovals": [
+    {
+      "action": "Rebuild and recreate only vocabulary-api after source alignment has been reviewed",
+      "command": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --build vocabulary-api",
+      "preconditions": [
+        "Preserve the local Quarkus Swagger edit and branch work",
+        "Resolve Quarkus gitlink mismatch: parent expects 815b637a799cab8009d154ee9c97cec0f1dce734; actual d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+        "Review resulting P06 privacy/tracing implementation before rebuilding"
+      ],
+      "approved": true,
+      "completed": true,
+      "details": "Explicit user approval received; source aligned and both controlled recreations completed for vocabulary-api only."
+    },
+    {
+      "action": "Any P07 candidate container creation/recreation or cutover",
+      "approved": false,
+      "details": "No concrete P07 candidate configuration exists to approve yet. Prepare/review scoped auth/TLS, dedicated volumes, quota, isolated restore and rollback artifacts first; never enable native security in-place on current protected volume."
+    }
+  ],
+  "fixes": [
+    "Runtime validator uses discovered project and actual datasource UIDs",
+    "Distinguishes Docker healthchecks from application readiness and transient recovery",
+    "SQLite inspection uses disposable copies and metadata, not unavailable shell or live offset writes",
+    "Quarkus aligned to pinned P06 while preserving local Swagger edit; build/runtime OTLP flag synchronized for Vocabulary; mount ordering normalized"
+  ],
+  "evidenceFiles": [
+    "runtime.json",
+    "followup.json",
+    "final-checks.json",
+    "preservation-final.json"
+  ],
+  "vocabularyResolution": "vocabulary-resolution/resolution.json",
+  "p08MayBegin": false,
+  "securityStorageRecoveryEvidence": "../security-recovery/evidence/acceptance.json",
+  "currentOperatorDecisions": [
+    {
+      "id": "ingress_repair",
+      "decision": "Supply/select an approved regular htpasswd file at a new valid path; preserve the existing directory and credentials; approve only logs-ui recreation after source validation.",
+      "command": "docker compose -p jp_learning_dev -f docker-compose.yml up -d --no-deps --no-build logs-ui",
+      "executed": false,
+      "completed": true,
+      "approvalUsed": "Prior logs-ui-only approval; credentials preserved, repair validated200/401; no new recreation on resume"
+    },
+    {
+      "id": "native_security",
+      "decision": "Approve actual CA/admin/read/ingest role ownership and protected secret custody, then review a dedicated persistent native-security candidate and Dashboards/collector trust configuration before any cutover. No in-place security enablement on protected volumes authorized."
+    },
+    {
+      "id": "storage_and_alerts",
+      "decision": "Choose enforceable persistent storage budgets/platform, confirm Docker backing-disk placement and physical reserve, and approve telemetry filesystem metric collection plus pressure-rule/notification destination deployment. Local tmpfs tests are not a persistent quota substitute."
+    },
+    {
+      "id": "migration_acceptance",
+      "decision": "Require persistent candidate pre/post IDs/counts and secure rollback with compatible readers before deployment acceptance. Current synthetic workflow passes but does not authorize real migration."
+    },
+    {
+      "id": "source_drift_review",
+      "decision": "Per operator instruction, record unexplained Swagger setting removal for review and leave current source unchanged. Saved original file/patch retained; no restoration or branch action authorized."
+    }
+  ],
+  "laptopLogsStorageEvidence": "../logs-storage/evidence/acceptance.json",
+  "laptopRemainingBlockers": [
+    {
+      "id": "RUNTIME_ALIGNMENT",
+      "reason": "New P07 source is integrated but nine services retain older active bind/image/log-policy or Grafana/Prometheus settings; rollout is outside the current logs-ui-only authority."
+    },
+    {
+      "id": "BACKEND_SECURITY",
+      "reason": "Live native backend auth/RBAC/TLS, approved CA/identity/secret custody and historical-data access decisions remain unresolved."
+    },
+    {
+      "id": "PERSISTENT_CAPACITY",
+      "reason": "C: host is below proposed critical reserve; persistent named-volume quotas and live end-to-end filesystem pressure metrics/notifications are not established."
+    },
+    {
+      "id": "RECOVERY_AND_HANDOFF",
+      "reason": "Prior synthetic recovery fixtures do not prove durable real-data migration, consistent Fluent Bit state/offset acknowledgement reconciliation or safe legacy-buffer handoff."
+    },
+    {
+      "id": "SOURCE_DRIFT_REVIEW",
+      "reason": "Swagger source is unchanged from the already-recorded unexplained removal. Cause remains unattributed; no source restoration or branch change authorized."
+    }
+  ],
+  "previous_checks_historical": [
+    {
+      "id": "actual_project",
+      "status": "PASS",
+      "details": "desktop-linux; jp_learning_dev; no jp_dev; docker-compose.yml only"
+    },
+    {
+      "id": "compose_runtime_consistency",
+      "status": "BLOCKED",
+      "details": "Remote P07 source integrated into develop; nine running services retain earlier mounts/image configuration, hardening flags or log policies. No rollout authorized here."
+    },
+    {
+      "id": "service_health",
+      "status": "PASS",
+      "details": "After approved Vocabulary-only recreation: 15 running, all 12 Docker healthchecks healthy; both API readiness endpoints 200, Tempo ready, Fluent Bit ok; all 3 Prometheus targets up."
+    },
+    {
+      "id": "fluent_bit",
+      "status": "PASS",
+      "details": "551 to 996 processed; retries stable at 27; zero errors/retries_failed/dropped_records; final pending chunks 0; no truncated/skipped lines. One old 4096-byte physical chunk file exists; not equated with pending work or deleted."
+    },
+    {
+      "id": "sqlite_offsets",
+      "status": "PASS",
+      "details": "All three copied DB/WAL/SHM sets quick_check ok and offsets readable; no live DB opened/reset. Non-atomic copies are diagnostic, not certified backup."
+    },
+    {
+      "id": "logging_privacy_limited",
+      "status": "PASS",
+      "details": "Synthetic bearer/cookie/query marker absent from bounded producer output and 3 correlated OpenSearch hits, including original; no full historical/rotated/compressed/buffer audit claimed."
+    },
+    {
+      "id": "opensearch_ingestion",
+      "status": "PASS",
+      "details": "Correlated probe records searchable; primary application indices green. Cluster yellow due to unassigned replica shards, not failed log primaries."
+    },
+    {
+      "id": "prometheus",
+      "status": "PASS",
+      "details": "3 targets up; 48 rules healthy; config/rule checks and native unit fixture pass; no firing alerts at snapshot."
+    },
+    {
+      "id": "grafana",
+      "status": "PASS",
+      "details": "Recovered transient startup health timeouts; HTTP health 200; both actual datasource UIDs return 200/OK; anonymous datasource access 401. Live auth missing/wrong credentials 401 and existing admin 200; no live viewer-role test. Live auth missing/wrong credentials 401 and existing admin 200; no live viewer-role test."
+    },
+    {
+      "id": "user_api_tracing",
+      "status": "PASS",
+      "details": "Fresh User API tracing confirmed: 1 probe-matched trace(s) from 40 random GET probes; prior trace evidence retained."
+    },
+    {
+      "id": "vocabulary_api_tracing",
+      "status": "PASS",
+      "details": "Quarkus aligned, local edit preserved, 7 tracing tests passed; exporter build-time fix deployed to vocabulary-api only. 11/80 random Vocabulary and 1/40 random User traces matched; deterministic sampled/unsampled controls pass. Authorized business/cross-service workflow remains unverified."
+    },
+    {
+      "id": "retention",
+      "status": "PASS",
+      "details": "12 application indices assigned enabled 30-day ISM retention; Prometheus 2d/512MiB flags; Tempo 24h source config. Expiration execution and hard total disk caps not proven."
+    },
+    {
+      "id": "project_isolation",
+      "status": "PASS",
+      "details": "All 6 networks and 11 volumes project-owned; no foreign network members; raw stores unpublished and sensitive networks internal; all published ports loopback. Docker-daemon/host admin remains trusted."
+    },
+    {
+      "id": "native_auth_rbac_tls",
+      "status": "FAIL",
+      "details": "Live backend native auth/TLS remains unaccepted. Logs UI Basic authentication is now repaired; isolated TLS/RBAC proofs remain scoped."
+    },
+    {
+      "id": "storage_quotas_alarms",
+      "status": "BLOCKED",
+      "details": "Live persistent quotas and disk-pressure alert/metric/delivery absent. tmpfs ENOSPC and candidate promtool threshold/missing/recovery tests pass only in isolated fixtures."
+    },
+    {
+      "id": "pre_migration_restore_rollback",
+      "status": "NOT_VERIFIED",
+      "details": "Synthetic native snapshot/independent restore/compatible mapping migration/rollback PASS with 12 matching document hashes. Durable candidate/legacy real-data migration and protected-volume rollback remain NOT VERIFIED."
+    },
+    {
+      "id": "certificate_role_matrix",
+      "status": "PASS",
+      "details": "Allowed writer/reader, wrong-role/index/admin denials; wrong CA/hostname, expired-client and plaintext rejected on dedicated native OpenSearch. No live native-security or production CA/custody acceptance.",
+      "scope": "isolated_synthetic_fixture"
+    },
+    {
+      "id": "full_privacy_suite",
+      "status": "NOT_VERIFIED",
+      "details": "Exception/import/auth cancellation and outage sentinels require isolated fixtures; no live fault injection performed."
+    },
+    {
+      "id": "preservation",
+      "status": "PASS",
+      "details": "Vocabulary API alone rebuilt/recreated twice under explicit approval. Other 19 containers IDs/starts/restarts/mounts/networks unchanged; all volume names and Vocabulary mounts preserved. No DB/offset reset, shared changes, commit/push or P08. Security/recovery turn preserves all 20 original containers and 11 original volumes; only disposable fixture nodes stopped and approved stopped test collector removed. Security/recovery turn preserves all 20 original containers and 11 original volumes; only disposable fixture nodes stopped and approved stopped test collector removed."
+    },
+    {
+      "id": "security_recovery_live_grafana_auth",
+      "status": "PASS",
+      "details": "Wrong/missing credentials return 401; existing admin can read organization (200). No user/credential changes. Viewer-role matrix not tested in live Grafana."
+    },
+    {
+      "id": "security_recovery_live_ingress_auth",
+      "status": "PASS",
+      "details": "Resolved: preserved credentials recovered to a new regular bcrypt file; prior logs-ui-only recreation and current200/401 verification pass."
+    },
+    {
+      "id": "security_recovery_live_native_security",
+      "status": "FAIL",
+      "details": "OpenSearch still serves unauthenticated HTTP on its internal API with native security disabled; logs ingress has no HTTPS. Isolated candidate success is not live deployment acceptance."
+    },
+    {
+      "id": "security_recovery_live_network_boundary",
+      "status": "PASS",
+      "details": "Loopback published ports, private stores unpublished, gateway-to-store direct-IP request blocked; original network/volume memberships unchanged. Host/Docker admins remain trusted."
+    },
+    {
+      "id": "security_recovery_fixture_tls",
+      "status": "PASS",
+      "details": "Native OpenSearch HTTPS works with test CA/admin certificate; wrong CA, hostname, expired client certificate and plaintext rejected. Expiry confirmed by CertificateExpiredException. No TLS bypass used."
+    },
+    {
+      "id": "security_recovery_fixture_rbac",
+      "status": "PASS",
+      "details": "Scoped writer ingest succeeds, reader query succeeds; writer query, reader write/admin and out-of-scope write denied. Restored cluster reader allowed and writer read denied. Bulk permission added narrowly after observed initial denial."
+    },
+    {
+      "id": "security_recovery_fixture_collector_tls",
+      "status": "PASS",
+      "details": "Separate Fluent Bit delivered one synthetic record to native OpenSearch over CA/hostname-verified TLS with restricted writer credentials. Live Fluent Bit unchanged."
+    },
+    {
+      "id": "security_recovery_storage_headroom",
+      "status": "PASS",
+      "details": "Actual Windows Docker VHD path and physical host reserve measured; C: about6.42GiB free is critically low under proposed thresholds. See laptop storage artifact; guest free space is not host capacity."
+    },
+    {
+      "id": "security_recovery_live_persistent_quotas",
+      "status": "BLOCKED",
+      "details": "All 11 original named volumes have null driver options; no enforced persistent volume quotas. Queue caps, retention, ingestion and memory limits do not bound total disk including WAL/offsets/compaction."
+    },
+    {
+      "id": "security_recovery_fixture_quota",
+      "status": "PASS",
+      "details": "1MiB tmpfs returns ENOSPC at 1048576 bytes; synthetic file truncation restores available capacity. Independent OpenSearch data volumes 96MiB each; snapshot tmpfs 64MiB. Memory-backed and non-durable only."
+    },
+    {
+      "id": "security_recovery_pressure_rule_fixtures",
+      "status": "PASS",
+      "details": "3 candidate rules; 3 native promtool scenarios with 10 firing/pending/recovery/missing-metric assertions pass. Rules are not loaded in live Prometheus."
+    },
+    {
+      "id": "security_recovery_live_pressure_alerts",
+      "status": "BLOCKED",
+      "details": "No active telemetry disk-pressure rules, node filesystem metric series or connected Alertmanager. End-to-end notification and metric collection not verified."
+    },
+    {
+      "id": "security_recovery_live_retention_configuration",
+      "status": "PASS",
+      "details": "OpenSearch enabled 30-day ISM assignments and Prometheus 2d/512MiB configuration inspected; prior Tempo 24h source evidence reused without repeating tracing. No live deletion test."
+    },
+    {
+      "id": "security_recovery_fixture_retention_transition",
+      "status": "PASS",
+      "details": "Native ISM history proves age transition to expired and policy completion. Policy contains no delete action. Poller missed transient state; raw result false superseded by native history, not rewritten. Attempted 10s sweep rejected (minimum 5m); no invalid change applied; transient reset succeeded."
+    },
+    {
+      "id": "security_recovery_fixture_native_recovery",
+      "status": "PASS",
+      "details": "Snapshot SUCCESS includes p07-fixture only, excludes global/security state. Restore to independent data volume: all 12 IDs and source hashes match. Native recovery and green primary health recorded."
+    },
+    {
+      "id": "security_recovery_fixture_migration_rollback",
+      "status": "PASS",
+      "details": "Compatible mapping addition preserves all 12 records. Snapshot rollback to fresh index restores original mapping/hash and keeps auth enforced. Same OpenSearch 3.9.0 only, not cross-version upgrade or live cutover."
+    },
+    {
+      "id": "security_recovery_persistent_migration_guarantees",
+      "status": "NOT_VERIFIED",
+      "details": "Tmpfs snapshot is ephemeral, unencrypted and same-host. No durable/off-host disaster recovery, legacy protected-data migration, live Dashboards/native-role integration, CA rotation/custody or real environment cutover acceptance demonstrated. P08 not started."
+    },
+    {
+      "id": "security_recovery_quarkus_preservation",
+      "status": "NOT_VERIFIED",
+      "details": "Earlier checkpoint matched both prior hashes; final check detected Swagger addition absent and properties clean at index. Cause unexplained. Operator explicitly requested recording drift for review; file left unchanged and original backup/patch retained. Dockerfile hash unchanged."
+    },
+    {
+      "id": "security_recovery_quarkus_branch_refs",
+      "status": "PASS",
+      "details": "Detached HEAD stays parent-pinned 815b637a; original develop ref unchanged. Safe future branch plan documented only; no ref/branch/commit operation executed."
+    },
+    {
+      "id": "security_recovery_original_runtime_preservation",
+      "status": "PASS",
+      "details": "All 20 original container IDs/start times/restart counts, normalized mounts/networks and 11 original volume options preserved. No application recreation, shared changes, DB/offset resets or original data/volume deletion. Only explicitly approved stopped fixture collector removed."
+    }
+  ],
+  "execution_preflight": "deployment-planning/evidence/execution-preflight.json"
+}

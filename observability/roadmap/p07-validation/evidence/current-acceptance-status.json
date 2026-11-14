@@ -1,0 +1,66 @@
+{
+  "status": "BLOCKED",
+  "configuration_state": "P07 active; no additional deployment performed or justified by current comparison",
+  "confirmed_active": [
+    "Fluent Bit4.2.5 P07 config/Lua/parser",
+    "Collector P07 pipeline",
+    "Tempo P07 config",
+    "Prometheus P07 config/48 rules/query limits",
+    "Grafana Prometheus/Tempo provisioning/security defaults",
+    "All nine requested service Docker log policies",
+    "Both API export toggles true; ratio0.1; root budget10"
+  ],
+  "passed_current": [
+    "Nine inspected component artifacts byte-match intended source",
+    "Fluent Bit output advances; no errors/retries/retry failures/drops in reported counters",
+    "Fluent Bit active chunk counters zero at both checkpoints; health OK",
+    "Three Prometheus targets UP;48 rules healthy",
+    "OpenSearch ISM30d policy attached to26 indices",
+    "Latest20 documents exclude original and scanned forbidden keys",
+    "User API through gateway: stored trace, one SERVER span, correct parent, service/namespace, no events/links/sentinel, correlated safe log",
+    "38-container before/after metadata equal; no shared network IDs"
+  ],
+  "findings": [
+    {
+      "id": "B1",
+      "state": "OPEN",
+      "reason": "Two retained regular .flb files total8192 bytes exist despite zero active chunk counters; contents/delivery history unknown. Preserve in place; no automatic replay or migration."
+    },
+    {
+      "id": "T1",
+      "state": "OPEN",
+      "reason": "Learning API401 probe correlated logs but exact synthetic trace remained404 in Tempo; authenticated/read-only accepted-request coverage and export behavior remain unverified; no root cause claimed."
+    },
+    {
+      "id": "P1",
+      "state": "CONFIRMED_HISTORICAL_PRIVACY_FINDING",
+      "reason": "Oldest20 documents all contain original; future filters did not sanitize history. Classification/containment/remediation owner approval required."
+    },
+    {
+      "id": "S1",
+      "state": "OPEN",
+      "reason": "No enforced filesystem quota, retention expiry/pressure/recovery/restart acceptance or complete consistent backup/offset/ack reconciliation"
+    },
+    {
+      "id": "A1",
+      "state": "OPEN",
+      "reason": "Native backend auth/TLS absent; stored history custody and development/production access decision required"
+    },
+    {
+      "id": "G1",
+      "state": "PARTIAL",
+      "reason": "Provisioning hashes/settings match and backend network paths verified; authenticated Grafana datasource/RBAC/session matrix not executed"
+    }
+  ],
+  "prior_native_fluent_bit_download_gap": "Superseded for active Linux happy-path parser/Lua/output compatibility by exact config hashes and successful runtime ingestion; outage/corruption/restart branches remain untested",
+  "no_running_configuration_changes": true,
+  "normal_telemetry_added": "Four unauthenticated read-only GET requests; no business writes",
+  "approvals_required": [
+    "Use a dedicated approved test identity/session for authenticated Learning API read-only tracing and Grafana datasource/RBAC checks; no credential rotation",
+    "Consistent state backup/quiesce or platform snapshot plan; classification/custody decision for retained8KiB files; no replay/delete without separate approval",
+    "Isolated exact-image outage/restart/pressure/retention/rollback tests with named disposable resources",
+    "Security/data/platform decision on historical original containment, backend auth/TLS and quota/headroom monitoring"
+  ],
+  "no_blanket_redeployment_requested": true,
+  "p08_started": false
+}

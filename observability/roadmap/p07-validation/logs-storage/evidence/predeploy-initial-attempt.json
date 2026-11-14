@@ -1,0 +1,19 @@
+{
+  "captured_utc": "2026-11-14T00:24:49.856Z",
+  "directoryGuard": {
+    "code": 78,
+    "output": "",
+    "error": "Logs auth source must be a nonempty readable regular file; provision/validate existing credentials first.\n"
+  },
+  "runtimeUserCanRead": {
+    "code": 0,
+    "output": "",
+    "error": ""
+  },
+  "setupTests": {
+    "code": 1,
+    "output": "{\"tests\": 3, \"passed\": false}\n",
+    "error": "..E\n======================================================================\nERROR: test_existing_empty_parent_is_supported (__main__.Safety.test_existing_empty_parent_is_supported)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<string>\", line 23, in test_existing_empty_parent_is_supported\n    m.main();self.assertTrue((root/'secrets/logging/htpasswd').is_file());self.assertTrue((root/'.env.logging').is_file())\n    ~~~~~~^^\n  File \"/workspace/scripts/setup-log-access.py\", line 15, in main\n    raise RuntimeError('Logging credentials already exist; refusing to overwrite them.')\nRuntimeError: Logging credentials already exist; refusing to overwrite them.\n\n----------------------------------------------------------------------\nRan 3 tests in 0.007s\n\nFAILED (errors=1)\n"
+  },
+  "passed": false
+}

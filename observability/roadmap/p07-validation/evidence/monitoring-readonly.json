@@ -1,0 +1,100 @@
+{
+  "captured_utc": "2026-11-13T08:10:04.214714+00:00",
+  "scope": "Read-only point-in-time metadata, not P07 deployment or capacity validation",
+  "grafana": {
+    "version": "13.2.2",
+    "database": "ok"
+  },
+  "unauthenticated_grafana": {
+    "/api/datasources": 401,
+    "/api/search": 401
+  },
+  "targets": [
+    {
+      "job": "prometheus",
+      "health": "up",
+      "error_present": false
+    },
+    {
+      "job": "user-api",
+      "health": "up",
+      "error_present": false
+    },
+    {
+      "job": "vocabulary-api",
+      "health": "up",
+      "error_present": false
+    }
+  ],
+  "rules": [
+    {
+      "name": "jp_p05.availability",
+      "count": 4,
+      "health": [
+        "ok"
+      ]
+    },
+    {
+      "name": "jp_p05.capacity",
+      "count": 11,
+      "health": [
+        "ok"
+      ]
+    },
+    {
+      "name": "jp_p05.dependencies",
+      "count": 6,
+      "health": [
+        "ok"
+      ]
+    },
+    {
+      "name": "jp_p05.http",
+      "count": 5,
+      "health": [
+        "ok"
+      ]
+    },
+    {
+      "name": "jp_p05.integrity",
+      "count": 5,
+      "health": [
+        "ok"
+      ]
+    },
+    {
+      "name": "jp_p05.recording",
+      "count": 15,
+      "health": [
+        "ok"
+      ]
+    },
+    {
+      "name": "jp_p05.security",
+      "count": 2,
+      "health": [
+        "ok"
+      ]
+    }
+  ],
+  "prometheus_point_measurements": {
+    "prometheus_tsdb_head_series": [
+      [
+        1794557404.34,
+        "1502"
+      ]
+    ],
+    "prometheus_tsdb_storage_blocks_bytes": [
+      [
+        1794557404.35,
+        "1666641"
+      ]
+    ],
+    "prometheus_tsdb_wal_storage_size_bytes": [
+      [
+        1794557404.364,
+        "7304213"
+      ]
+    ]
+  }
+}

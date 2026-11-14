@@ -1,0 +1,4 @@
+grpcio==1.85.1
+opentelemetry-proto==1.45.2
+protobuf==7.36.2
+typing-extensions==4.16.0

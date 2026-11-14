@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "Native Windows3.14.0 synthetic scrape/relabel/isolated temporary TSDB; not Docker, existing samples, retention expiry or pressure validation",
+  "source_sha256": "1cbb02a3e9220d1c93da5c6985e9d928ee6c763fce30d06706ad5e4cf91b42d9",
+  "private_label_names_exercised": [
+    "Authorization",
+    "Cookie",
+    "UserId",
+    "api_key",
+    "authorization",
+    "cookie",
+    "correlation_id",
+    "db_query",
+    "db_query_text",
+    "db_statement",
+    "email",
+    "password",
+    "query",
+    "session_id",
+    "span_id",
+    "trace_id",
+    "uri",
+    "url",
+    "url_full",
+    "user_id",
+    "userid",
+    "username"
+  ],
+  "safe_series_preserved": 3,
+  "private_series_exported": 0,
+  "temporary_changes": "Loopback targets/listener,1s scrape/500ms timeout,absolute rule paths and temporary synthetic TSDB; relabel rules unchanged"
+}

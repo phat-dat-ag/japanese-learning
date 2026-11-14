@@ -1,0 +1,20 @@
+{
+  "captured_utc": "2026-11-13T23:55:16.662Z",
+  "head": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "branch": "",
+  "develop": "d6642616abf0d3373c4ebe1f514d69ec9b669f2a",
+  "originDevelop": "815b637a799cab8009d154ee9c97cec0f1dce734",
+  "developAncestorOfHead": true,
+  "status": "M Dockerfile\n M src/main/resources/application.properties",
+  "filePreservation": {
+    "Dockerfile": {
+      "sha256": "5ae08351f4be9dc52f35e74562ed64111f72712d4af21870298bc9640622b03a",
+      "unchanged": true
+    },
+    "src/main/resources/application.properties": {
+      "sha256": "cc3b5b8314bd0d113a16d14441d168ea6efca805d16f5adacd0d7e23fbfd84be",
+      "unchanged": true
+    }
+  },
+  "branchOrCommitMutated": false
+}
