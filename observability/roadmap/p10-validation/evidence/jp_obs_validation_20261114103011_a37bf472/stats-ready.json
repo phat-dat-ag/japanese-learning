@@ -1,0 +1,35 @@
+[
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "0.01%",
+    "Container": "fca9cb715e5898e24ddc344ba9f15e7ee8e72b7c470c31a332ff930a3cdbb00f",
+    "ID": "fca9cb715e58",
+    "MemPerc": "11.02%",
+    "MemUsage": "14.11MiB / 128MiB",
+    "Name": "jp_obs_validation_20261114103011_a37bf472-agent-1",
+    "NetIO": "4.19kB / 2.21kB",
+    "PIDs": "1"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "0.31%",
+    "Container": "51cb87318bc0f45c3b312f4a232e2a6068ddbf56a4437c3a3d9c13cb195c43c2",
+    "ID": "51cb87318bc0",
+    "MemPerc": "12.22%",
+    "MemUsage": "31.27MiB / 256MiB",
+    "Name": "jp_obs_validation_20261114103011_a37bf472-prometheus-1",
+    "NetIO": "3.12kB / 1.43kB",
+    "PIDs": "6"
+  },
+  {
+    "BlockIO": "2.6MB / 0B",
+    "CPUPerc": "0.99%",
+    "Container": "aa2e759987ae29be68f981f8e68954a0f5ea10c71df73bd6641dbfc5884b1c16",
+    "ID": "aa2e759987ae",
+    "MemPerc": "48.03%",
+    "MemUsage": "245.9MiB / 512MiB",
+    "Name": "jp_obs_validation_20261114103011_a37bf472-grafana-1",
+    "NetIO": "2.3kB / 972B",
+    "PIDs": "99"
+  }
+]

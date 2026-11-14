@@ -1,0 +1,3 @@
+{
+  "logs": "2026-11-14T13:17:48.486Z\twarn\tbuilders/builders.go:40\t\"otlp\" alias is deprecated; use \"otlp_grpc\" instead\t{\"resource\": {\"service.instance.id\": \"49a3ba42-ee22-4ad3-90f9-61cb41510dd5\", \"service.name\": \"otelcol-contrib\", \"service.version\": \"0.145.0\"}, \"otelcol.component.id\": \"otlp/tempo\", \"otelcol.component.kind\": \"exporter\", \"otelcol.signal\": \"traces\"}\n"
+}

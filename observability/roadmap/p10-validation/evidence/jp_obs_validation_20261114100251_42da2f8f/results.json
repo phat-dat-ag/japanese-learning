@@ -1,0 +1,50 @@
+{
+  "run": "jp_obs_validation_20261114100251_42da2f8f",
+  "phase": "P10",
+  "kind": "native dependency adapters",
+  "status": "BLOCKED",
+  "checks": {
+    "preservation_final": true
+  },
+  "scenarios": [],
+  "resources": [
+    {
+      "service": "database",
+      "id": "7d56a51a7e0f5023e25b01dcbcd95266fde40f6b0d5cb9edb19a1de4893483cf"
+    },
+    {
+      "service": "jwks",
+      "id": "1736b0c2db86ba0ef508312d9a21df71f6d4d35c78934412a7f9d92a5ea4ab3e"
+    },
+    {
+      "service": "app",
+      "id": "310ae5c50fefaecd5b3fee04ead6b9382f0115b8d1c8c536050be077fb72411c"
+    },
+    {
+      "service": "probe",
+      "id": "f98c63a019a4a1b90da4942814f9593c75210e24bf50cdd0203a379fe3c27447"
+    },
+    {
+      "service": "gateway",
+      "id": "2e8ec189229abfd169cdcc2c21a7970cf830c690fe9792bfa42c2b3cf6768e67"
+    }
+  ],
+  "scope": "Real SQLite dependency behind an HTTP adapter, fresh RSA JWKS, synthetic JWT-verifying application and native NGINX. Not SQL Server/MySQL or production application acceptance.",
+  "storagePlan": {
+    "hardTmpfsMiB": 28,
+    "logsMiB": 5,
+    "configurationAndEvidenceAllowanceMiB": 16,
+    "totalMiB": 49,
+    "maximumMiB": 512
+  },
+  "modelSha256": "9bfe272d990453a1007c021f45250eec5055ca891eaec8d0fa16e18026970680",
+  "images": {
+    "database": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "jwks": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "app": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "probe": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "gateway": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f"
+  },
+  "error": "Native dependency readiness",
+  "finishedUtc": "2026-11-14T10:03:09.533Z"
+}

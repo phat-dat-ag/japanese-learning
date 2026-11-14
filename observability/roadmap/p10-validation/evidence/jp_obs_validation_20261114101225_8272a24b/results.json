@@ -1,0 +1,150 @@
+{
+  "run": "jp_obs_validation_20261114101225_8272a24b",
+  "phase": "P10",
+  "kind": "native dependency adapters",
+  "status": "PASS",
+  "checks": {
+    "normal": {
+      "status": 200,
+      "data": {
+        "outcome": "ok"
+      },
+      "seconds": 0.10591710699964096
+    },
+    "reject_invalid": {
+      "pass": true,
+      "status": 401
+    },
+    "reject_expired": {
+      "pass": true,
+      "status": 401
+    },
+    "reject_tampered": {
+      "pass": true,
+      "status": 401
+    },
+    "reject_none": {
+      "pass": true,
+      "status": 401
+    },
+    "preservation_baseline": true,
+    "preservation_database": true,
+    "preservation_jwks": true,
+    "preservation_app": true,
+    "preservation_gateway": true,
+    "preservation_sqlite-lock": true,
+    "preservation_final": true
+  },
+  "scenarios": [
+    {
+      "name": "database_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 3.393,
+      "failureStatus": 503,
+      "failureResponseSeconds": 0.4962450699999863,
+      "recoveryStatus": 200,
+      "recoverySeconds": 2.118,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Application metrics native endpoint available for independent scrape; no alert-routing assertion in this fixture"
+    },
+    {
+      "name": "jwks_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 3.492,
+      "failureStatus": 503,
+      "failureResponseSeconds": 0.4902226859999246,
+      "recoveryStatus": 200,
+      "recoverySeconds": 2.217,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Application metrics native endpoint available for independent scrape; no alert-routing assertion in this fixture"
+    },
+    {
+      "name": "app_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 4.042,
+      "failureStatus": 504,
+      "failureResponseSeconds": 1.094185909999851,
+      "recoveryStatus": 200,
+      "recoverySeconds": 2.298,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Application metrics native endpoint available for independent scrape; no alert-routing assertion in this fixture"
+    },
+    {
+      "name": "gateway_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 4.447,
+      "failureStatus": 0,
+      "failureResponseSeconds": 1.5163558750000448,
+      "recoveryStatus": 200,
+      "recoverySeconds": 2.243,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Application metrics native endpoint available for independent scrape; no alert-routing assertion in this fixture"
+    },
+    {
+      "name": "native_sqlite_exclusive_lock",
+      "status": "PASS",
+      "faultSeconds": 5,
+      "observationSeconds": 7.169,
+      "failure": {
+        "status": 503,
+        "data": null,
+        "seconds": 0.2291602430000239
+      },
+      "recovered": {
+        "status": 200,
+        "data": {
+          "outcome": "ok"
+        },
+        "seconds": 0.0971608740001102
+      },
+      "scope": "Native SQLite behind fixture HTTP adapter; not MySQL or SQL Server wire protocol"
+    }
+  ],
+  "resources": [
+    {
+      "service": "database",
+      "id": "3db23d072a3f3e179a4ca00ac261b206dbd886f1f4e6807a8cfbd84bbeba52ce"
+    },
+    {
+      "service": "jwks",
+      "id": "fe638c9ae0d8287f52a2ade33a4f9d0b0b3bf25eb33ff99ac09f4639ed3cf612"
+    },
+    {
+      "service": "app",
+      "id": "5443e70ca78d09394e3291ac10d8cf4b06cc7a38c25c6ce8160d3c6462b3f782"
+    },
+    {
+      "service": "probe",
+      "id": "344a0c1d37c9e2232f1cbf7bc7cd642083e29483f0f96ae4cf1fc0dcb1d1ad5b"
+    },
+    {
+      "service": "gateway",
+      "id": "b2465c33eefffa25f7c2da49ba02f240dd219a6f227af67e12d9432b0ff573a7"
+    }
+  ],
+  "scope": "Real SQLite dependency behind an HTTP adapter, fresh RSA JWKS, synthetic JWT-verifying application and native NGINX. Not SQL Server/MySQL or production application acceptance.",
+  "storagePlan": {
+    "hardTmpfsMiB": 28,
+    "logsMiB": 5,
+    "configurationAndEvidenceAllowanceMiB": 16,
+    "totalMiB": 49,
+    "maximumMiB": 512
+  },
+  "modelSha256": "c3ca5fa88b8a49caf5a26ba60b2b76a386d8e38c44d3749db3965d6e232b84a0",
+  "images": {
+    "database": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "jwks": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "app": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "probe": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "gateway": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f"
+  },
+  "finishedUtc": "2026-11-14T10:13:26.817Z"
+}

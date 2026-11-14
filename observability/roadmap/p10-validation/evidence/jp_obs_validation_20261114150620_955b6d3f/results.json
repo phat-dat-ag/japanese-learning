@@ -1,0 +1,1587 @@
+{
+  "phase": "P10",
+  "project": "jp_obs_validation_20261114150620_955b6d3f",
+  "utc": "2026-11-14T15:06:20.571Z",
+  "status": "PASS",
+  "fullRecoveryExecuted": true,
+  "samples": [
+    {
+      "utc": "2026-11-14T15:06:41.190Z",
+      "windowsAvailableBytes": 4639145984,
+      "nodeBytes": 118857728,
+      "dockerRamBytes": 0,
+      "cpuCores": 0,
+      "hostStagingBytes": 32928320,
+      "storageBytes": 166445584
+    },
+    {
+      "utc": "2026-11-14T15:06:45.392Z",
+      "windowsAvailableBytes": 4253753344,
+      "nodeBytes": 363847680,
+      "dockerRamBytes": 0,
+      "cpuCores": 0,
+      "hostStagingBytes": 111871981,
+      "storageBytes": 244505629
+    },
+    {
+      "utc": "2026-11-14T15:06:49.721Z",
+      "windowsAvailableBytes": 3806240768,
+      "nodeBytes": 364085248,
+      "dockerRamBytes": 413872947.20000005,
+      "cpuCores": 2.6693,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 280834048,
+      "clientRequests": 1,
+      "storageBytes": 525339922
+    },
+    {
+      "utc": "2026-11-14T15:06:54.344Z",
+      "windowsAvailableBytes": 3113418752,
+      "nodeBytes": 364707840,
+      "dockerRamBytes": 882722734.08,
+      "cpuCores": 1.5882,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 3002368,
+      "clientRequests": 3,
+      "storageBytes": 247508846
+    },
+    {
+      "utc": "2026-11-14T15:06:58.848Z",
+      "windowsAvailableBytes": 3665133568,
+      "nodeBytes": 109789184,
+      "dockerRamBytes": 925473177.6,
+      "cpuCores": 1.5021,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 3190784,
+      "clientRequests": 5,
+      "storageBytes": 247697576
+    },
+    {
+      "utc": "2026-11-14T15:07:03.371Z",
+      "windowsAvailableBytes": 3587899392,
+      "nodeBytes": 114483200,
+      "dockerRamBytes": 955735080.9599999,
+      "cpuCores": 1.0213999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 3330048,
+      "clientRequests": 6,
+      "storageBytes": 247837160
+    },
+    {
+      "utc": "2026-11-14T15:07:07.996Z",
+      "windowsAvailableBytes": 3545985024,
+      "nodeBytes": 114499584,
+      "dockerRamBytes": 983417487.3600001,
+      "cpuCores": 1.0505,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 3371008,
+      "clientRequests": 8,
+      "storageBytes": 247878464
+    },
+    {
+      "utc": "2026-11-14T15:07:12.475Z",
+      "windowsAvailableBytes": 3481341952,
+      "nodeBytes": 114683904,
+      "dockerRamBytes": 1024364380.1600001,
+      "cpuCores": 1.5434,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 3387392,
+      "clientRequests": 10,
+      "storageBytes": 247895178
+    },
+    {
+      "utc": "2026-11-14T15:07:16.934Z",
+      "windowsAvailableBytes": 3483652096,
+      "nodeBytes": 114581504,
+      "dockerRamBytes": 1076835123.2,
+      "cpuCores": 1.4188,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 3399680,
+      "clientRequests": 12,
+      "storageBytes": 247907795
+    },
+    {
+      "utc": "2026-11-14T15:07:21.474Z",
+      "windowsAvailableBytes": 3495149568,
+      "nodeBytes": 115015680,
+      "dockerRamBytes": 1111280844.8000002,
+      "cpuCores": 1.3598,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 3420160,
+      "clientRequests": 13,
+      "storageBytes": 247928591
+    },
+    {
+      "utc": "2026-11-14T15:07:25.981Z",
+      "windowsAvailableBytes": 3500285952,
+      "nodeBytes": 115077120,
+      "dockerRamBytes": 1166530314.2399998,
+      "cpuCores": 1.1238,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 17747968,
+      "clientRequests": 15,
+      "storageBytes": 262256734
+    },
+    {
+      "utc": "2026-11-14T15:07:30.423Z",
+      "windowsAvailableBytes": 3496783872,
+      "nodeBytes": 115163136,
+      "dockerRamBytes": 1209322700.8,
+      "cpuCores": 1.4922,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 18108416,
+      "clientRequests": 17,
+      "storageBytes": 262617513
+    },
+    {
+      "utc": "2026-11-14T15:07:34.881Z",
+      "windowsAvailableBytes": 3491696640,
+      "nodeBytes": 115654656,
+      "dockerRamBytes": 1312838123.52,
+      "cpuCores": 0.8574999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 19812352,
+      "clientRequests": 17,
+      "storageBytes": 264321767
+    },
+    {
+      "utc": "2026-11-14T15:07:39.354Z",
+      "windowsAvailableBytes": 3413770240,
+      "nodeBytes": 115793920,
+      "dockerRamBytes": 1403445575.68,
+      "cpuCores": 1.0033,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 20025344,
+      "clientRequests": 17,
+      "storageBytes": 264535096
+    },
+    {
+      "utc": "2026-11-14T15:07:43.806Z",
+      "windowsAvailableBytes": 3411841024,
+      "nodeBytes": 115904512,
+      "dockerRamBytes": 1406685675.52,
+      "cpuCores": 1.0004,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 20062208,
+      "clientRequests": 17,
+      "storageBytes": 264572285
+    },
+    {
+      "utc": "2026-11-14T15:07:48.262Z",
+      "windowsAvailableBytes": 3424456704,
+      "nodeBytes": 115994624,
+      "dockerRamBytes": 1251716628.48,
+      "cpuCores": 1.1255,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 19963904,
+      "clientRequests": 19,
+      "storageBytes": 264474305
+    },
+    {
+      "utc": "2026-11-14T15:07:52.714Z",
+      "windowsAvailableBytes": 3471458304,
+      "nodeBytes": 115945472,
+      "dockerRamBytes": 1255292272.64,
+      "cpuCores": 0.9213,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 20164608,
+      "clientRequests": 25,
+      "storageBytes": 264675333
+    },
+    {
+      "utc": "2026-11-14T15:07:57.112Z",
+      "windowsAvailableBytes": 3466203136,
+      "nodeBytes": 115957760,
+      "dockerRamBytes": 1263240478.72,
+      "cpuCores": 0.902,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22044672,
+      "clientRequests": 42,
+      "storageBytes": 266555721
+    },
+    {
+      "utc": "2026-11-14T15:08:01.532Z",
+      "windowsAvailableBytes": 3460845568,
+      "nodeBytes": 117014528,
+      "dockerRamBytes": 1268525301.76,
+      "cpuCores": 0.19760000000000003,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22810624,
+      "clientRequests": 59,
+      "storageBytes": 267323082
+    },
+    {
+      "utc": "2026-11-14T15:08:05.970Z",
+      "windowsAvailableBytes": 3435859968,
+      "nodeBytes": 117026816,
+      "dockerRamBytes": 1261206241.2800002,
+      "cpuCores": 0.7867000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22814720,
+      "clientRequests": 65,
+      "storageBytes": 267328108
+    },
+    {
+      "utc": "2026-11-14T15:08:10.530Z",
+      "windowsAvailableBytes": 3433791488,
+      "nodeBytes": 117149696,
+      "dockerRamBytes": 1250636595.2,
+      "cpuCores": 0.7996000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 70,
+      "storageBytes": 267333160
+    },
+    {
+      "utc": "2026-11-14T15:08:15.087Z",
+      "windowsAvailableBytes": 3291856896,
+      "nodeBytes": 236716032,
+      "dockerRamBytes": 1518285619.2000003,
+      "cpuCores": 0.8137,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 74,
+      "storageBytes": 267333909
+    },
+    {
+      "utc": "2026-11-14T15:08:19.622Z",
+      "windowsAvailableBytes": 3041443840,
+      "nodeBytes": 528613376,
+      "dockerRamBytes": 1351698350.08,
+      "cpuCores": 0.4231,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 76,
+      "storageBytes": 267334384
+    },
+    {
+      "utc": "2026-11-14T15:08:24.062Z",
+      "windowsAvailableBytes": 3068276736,
+      "nodeBytes": 528617472,
+      "dockerRamBytes": 1353648701.4399998,
+      "cpuCores": 0.4056,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 78,
+      "storageBytes": 267334708
+    },
+    {
+      "utc": "2026-11-14T15:08:28.466Z",
+      "windowsAvailableBytes": 3317530624,
+      "nodeBytes": 274718720,
+      "dockerRamBytes": 1354676305.9199998,
+      "cpuCores": 0.399,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 80,
+      "storageBytes": 267335037
+    },
+    {
+      "utc": "2026-11-14T15:08:32.866Z",
+      "windowsAvailableBytes": 3331977216,
+      "nodeBytes": 275890176,
+      "dockerRamBytes": 1371369635.8400002,
+      "cpuCores": 0.41209999999999997,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 82,
+      "storageBytes": 267335365
+    },
+    {
+      "utc": "2026-11-14T15:08:37.292Z",
+      "windowsAvailableBytes": 3319918592,
+      "nodeBytes": 277323776,
+      "dockerRamBytes": 1369471713.2800002,
+      "cpuCores": 0.6997,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 89,
+      "storageBytes": 267335707
+    },
+    {
+      "utc": "2026-11-14T15:08:41.793Z",
+      "windowsAvailableBytes": 3292782592,
+      "nodeBytes": 277676032,
+      "dockerRamBytes": 1365088665.6,
+      "cpuCores": 0.6423,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22818816,
+      "clientRequests": 96,
+      "storageBytes": 267336036
+    },
+    {
+      "utc": "2026-11-14T15:08:46.382Z",
+      "windowsAvailableBytes": 3278278656,
+      "nodeBytes": 277815296,
+      "dockerRamBytes": 1369954058.24,
+      "cpuCores": 0.7956000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22855680,
+      "clientRequests": 102,
+      "storageBytes": 267373223
+    },
+    {
+      "utc": "2026-11-14T15:08:51.000Z",
+      "windowsAvailableBytes": 3255758848,
+      "nodeBytes": 278093824,
+      "dockerRamBytes": 1385085009.9199998,
+      "cpuCores": 0.7632,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22855680,
+      "clientRequests": 109,
+      "storageBytes": 267373564
+    },
+    {
+      "utc": "2026-11-14T15:08:55.462Z",
+      "windowsAvailableBytes": 3278766080,
+      "nodeBytes": 278138880,
+      "dockerRamBytes": 1356249169.9199998,
+      "cpuCores": 0.6645999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22888448,
+      "clientRequests": 116,
+      "storageBytes": 267406662
+    },
+    {
+      "utc": "2026-11-14T15:09:00.024Z",
+      "windowsAvailableBytes": 3266330624,
+      "nodeBytes": 282349568,
+      "dockerRamBytes": 1355011850.2399998,
+      "cpuCores": 0.7771999999999998,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22888448,
+      "clientRequests": 122,
+      "storageBytes": 267407004
+    },
+    {
+      "utc": "2026-11-14T15:09:04.593Z",
+      "windowsAvailableBytes": 3272286208,
+      "nodeBytes": 282628096,
+      "dockerRamBytes": 1352872755.2,
+      "cpuCores": 0.6527000000000002,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22921216,
+      "clientRequests": 129,
+      "storageBytes": 267440114
+    },
+    {
+      "utc": "2026-11-14T15:09:09.109Z",
+      "windowsAvailableBytes": 3258150912,
+      "nodeBytes": 282677248,
+      "dockerRamBytes": 1346161868.8,
+      "cpuCores": 0.6962,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22921216,
+      "clientRequests": 136,
+      "storageBytes": 267440451
+    },
+    {
+      "utc": "2026-11-14T15:09:13.629Z",
+      "windowsAvailableBytes": 3271815168,
+      "nodeBytes": 282853376,
+      "dockerRamBytes": 1355137679.36,
+      "cpuCores": 0.6462,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22953984,
+      "clientRequests": 142,
+      "storageBytes": 267473543
+    },
+    {
+      "utc": "2026-11-14T15:09:18.194Z",
+      "windowsAvailableBytes": 3256651776,
+      "nodeBytes": 282931200,
+      "dockerRamBytes": 1358073692.1599998,
+      "cpuCores": 0.5874,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22953984,
+      "clientRequests": 149,
+      "storageBytes": 267473868
+    },
+    {
+      "utc": "2026-11-14T15:09:22.695Z",
+      "windowsAvailableBytes": 3276197888,
+      "nodeBytes": 282935296,
+      "dockerRamBytes": 1358482636.8,
+      "cpuCores": 0.7173999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22953984,
+      "clientRequests": 156,
+      "storageBytes": 267474198
+    },
+    {
+      "utc": "2026-11-14T15:09:27.193Z",
+      "windowsAvailableBytes": 3279994880,
+      "nodeBytes": 282935296,
+      "dockerRamBytes": 1354760192,
+      "cpuCores": 0.6273,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22986752,
+      "clientRequests": 162,
+      "storageBytes": 267507302
+    },
+    {
+      "utc": "2026-11-14T15:09:31.737Z",
+      "windowsAvailableBytes": 3287638016,
+      "nodeBytes": 282939392,
+      "dockerRamBytes": 1347965419.52,
+      "cpuCores": 0.7851,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22986752,
+      "clientRequests": 169,
+      "storageBytes": 267507624
+    },
+    {
+      "utc": "2026-11-14T15:09:36.311Z",
+      "windowsAvailableBytes": 3266482176,
+      "nodeBytes": 282972160,
+      "dockerRamBytes": 1365623439.36,
+      "cpuCores": 0.6457,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23134208,
+      "clientRequests": 175,
+      "storageBytes": 267655405
+    },
+    {
+      "utc": "2026-11-14T15:09:40.830Z",
+      "windowsAvailableBytes": 3264638976,
+      "nodeBytes": 282918912,
+      "dockerRamBytes": 1357444546.5600002,
+      "cpuCores": 0.6945999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23138304,
+      "clientRequests": 182,
+      "storageBytes": 267659826
+    },
+    {
+      "utc": "2026-11-14T15:09:45.377Z",
+      "windowsAvailableBytes": 3260260352,
+      "nodeBytes": 282984448,
+      "dockerRamBytes": 1358797209.6000001,
+      "cpuCores": 0.7902999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23175168,
+      "clientRequests": 189,
+      "storageBytes": 267697032
+    },
+    {
+      "utc": "2026-11-14T15:09:49.918Z",
+      "windowsAvailableBytes": 3268210688,
+      "nodeBytes": 283025408,
+      "dockerRamBytes": 1362823741.4399998,
+      "cpuCores": 0.7217,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23175168,
+      "clientRequests": 196,
+      "storageBytes": 267697374
+    },
+    {
+      "utc": "2026-11-14T15:09:54.473Z",
+      "windowsAvailableBytes": 3272048640,
+      "nodeBytes": 283217920,
+      "dockerRamBytes": 1369597542.4,
+      "cpuCores": 0.6399000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23212032,
+      "clientRequests": 202,
+      "storageBytes": 267734568
+    },
+    {
+      "utc": "2026-11-14T15:09:59.012Z",
+      "windowsAvailableBytes": 3269103616,
+      "nodeBytes": 283242496,
+      "dockerRamBytes": 1361859051.52,
+      "cpuCores": 0.7093,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23212032,
+      "clientRequests": 209,
+      "storageBytes": 267734904
+    },
+    {
+      "utc": "2026-11-14T15:10:03.609Z",
+      "windowsAvailableBytes": 3152044032,
+      "nodeBytes": 284037120,
+      "dockerRamBytes": 1360957276.1599998,
+      "cpuCores": 0.7594,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23339008,
+      "clientRequests": 215,
+      "storageBytes": 267862205
+    },
+    {
+      "utc": "2026-11-14T15:10:08.149Z",
+      "windowsAvailableBytes": 3083042816,
+      "nodeBytes": 284246016,
+      "dockerRamBytes": 1363610173.4399998,
+      "cpuCores": 0.6707,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23339008,
+      "clientRequests": 221,
+      "storageBytes": 267862535
+    },
+    {
+      "utc": "2026-11-14T15:10:12.917Z",
+      "windowsAvailableBytes": 2504425472,
+      "nodeBytes": 284266496,
+      "dockerRamBytes": 1365109637.1200001,
+      "cpuCores": 0.6174,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23339008,
+      "clientRequests": 226,
+      "storageBytes": 267862865
+    },
+    {
+      "utc": "2026-11-14T15:10:17.594Z",
+      "windowsAvailableBytes": 2434588672,
+      "nodeBytes": 284266496,
+      "dockerRamBytes": 1320891187.2,
+      "cpuCores": 0.5792,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23375872,
+      "clientRequests": 232,
+      "storageBytes": 267900059
+    },
+    {
+      "utc": "2026-11-14T15:10:22.298Z",
+      "windowsAvailableBytes": 2198564864,
+      "nodeBytes": 284270592,
+      "dockerRamBytes": 1332362608.64,
+      "cpuCores": 0.7808000000000002,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23375872,
+      "clientRequests": 238,
+      "storageBytes": 267900383
+    },
+    {
+      "utc": "2026-11-14T15:10:26.988Z",
+      "windowsAvailableBytes": 2211254272,
+      "nodeBytes": 284377088,
+      "dockerRamBytes": 1324215173.12,
+      "cpuCores": 0.6258999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23412736,
+      "clientRequests": 244,
+      "storageBytes": 267937584
+    },
+    {
+      "utc": "2026-11-14T15:10:31.753Z",
+      "windowsAvailableBytes": 2267377664,
+      "nodeBytes": 284393472,
+      "dockerRamBytes": 1331995607.04,
+      "cpuCores": 0.7475000000000002,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23412736,
+      "clientRequests": 250,
+      "storageBytes": 267937921
+    },
+    {
+      "utc": "2026-11-14T15:10:36.463Z",
+      "windowsAvailableBytes": 2285572096,
+      "nodeBytes": 284418048,
+      "dockerRamBytes": 1321384017.92,
+      "cpuCores": 0.6811000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23449600,
+      "clientRequests": 256,
+      "storageBytes": 267975122
+    },
+    {
+      "utc": "2026-11-14T15:10:41.118Z",
+      "windowsAvailableBytes": 2442010624,
+      "nodeBytes": 284614656,
+      "dockerRamBytes": 1338077347.84,
+      "cpuCores": 0.7035,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23556096,
+      "clientRequests": 262,
+      "storageBytes": 268081955
+    },
+    {
+      "utc": "2026-11-14T15:10:45.747Z",
+      "windowsAvailableBytes": 2481053696,
+      "nodeBytes": 292872192,
+      "dockerRamBytes": 1337899089.92,
+      "cpuCores": 0.6205,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23597056,
+      "clientRequests": 268,
+      "storageBytes": 268123240
+    },
+    {
+      "utc": "2026-11-14T15:10:50.399Z",
+      "windowsAvailableBytes": 2476810240,
+      "nodeBytes": 293146624,
+      "dockerRamBytes": 1331628605.44,
+      "cpuCores": 0.5846,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23597056,
+      "clientRequests": 275,
+      "storageBytes": 268123565
+    },
+    {
+      "utc": "2026-11-14T15:10:54.893Z",
+      "windowsAvailableBytes": 2493198336,
+      "nodeBytes": 293146624,
+      "dockerRamBytes": 1331901235.1999998,
+      "cpuCores": 0.6008,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23633920,
+      "clientRequests": 281,
+      "storageBytes": 268160754
+    },
+    {
+      "utc": "2026-11-14T15:10:59.547Z",
+      "windowsAvailableBytes": 2481819648,
+      "nodeBytes": 293146624,
+      "dockerRamBytes": 1322034135.04,
+      "cpuCores": 0.5373,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23633920,
+      "clientRequests": 288,
+      "storageBytes": 268161084
+    },
+    {
+      "utc": "2026-11-14T15:11:04.083Z",
+      "windowsAvailableBytes": 2504478720,
+      "nodeBytes": 293146624,
+      "dockerRamBytes": 1337018286.08,
+      "cpuCores": 0.7721,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23670784,
+      "clientRequests": 294,
+      "storageBytes": 268198273
+    },
+    {
+      "utc": "2026-11-14T15:11:08.709Z",
+      "windowsAvailableBytes": 2487971840,
+      "nodeBytes": 293130240,
+      "dockerRamBytes": 1322705223.68,
+      "cpuCores": 0.5626999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23670784,
+      "clientRequests": 301,
+      "storageBytes": 268198598
+    },
+    {
+      "utc": "2026-11-14T15:11:13.232Z",
+      "windowsAvailableBytes": 2518851584,
+      "nodeBytes": 293158912,
+      "dockerRamBytes": 1333264384,
+      "cpuCores": 0.7449,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23711744,
+      "clientRequests": 307,
+      "storageBytes": 268239895
+    },
+    {
+      "utc": "2026-11-14T15:11:17.831Z",
+      "windowsAvailableBytes": 2531876864,
+      "nodeBytes": 293756928,
+      "dockerRamBytes": 1322264821.7600002,
+      "cpuCores": 0.642,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23711744,
+      "clientRequests": 314,
+      "storageBytes": 268240217
+    },
+    {
+      "utc": "2026-11-14T15:11:22.436Z",
+      "windowsAvailableBytes": 2517282816,
+      "nodeBytes": 293883904,
+      "dockerRamBytes": 1325442007.0400002,
+      "cpuCores": 0.7382,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23711744,
+      "clientRequests": 320,
+      "storageBytes": 268240546
+    },
+    {
+      "utc": "2026-11-14T15:11:27.037Z",
+      "windowsAvailableBytes": 2515398656,
+      "nodeBytes": 293883904,
+      "dockerRamBytes": 1334344417.28,
+      "cpuCores": 0.626,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23748608,
+      "clientRequests": 327,
+      "storageBytes": 268277740
+    },
+    {
+      "utc": "2026-11-14T15:11:31.710Z",
+      "windowsAvailableBytes": 2510581760,
+      "nodeBytes": 294461440,
+      "dockerRamBytes": 1331544719.36,
+      "cpuCores": 0.6319,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23748608,
+      "clientRequests": 333,
+      "storageBytes": 268278064
+    },
+    {
+      "utc": "2026-11-14T15:11:36.227Z",
+      "windowsAvailableBytes": 2509942784,
+      "nodeBytes": 293761024,
+      "dockerRamBytes": 1326343782.4,
+      "cpuCores": 0.7547999999999998,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23785472,
+      "clientRequests": 340,
+      "storageBytes": 268315253
+    },
+    {
+      "utc": "2026-11-14T15:11:40.828Z",
+      "windowsAvailableBytes": 2520453120,
+      "nodeBytes": 293883904,
+      "dockerRamBytes": 1324708003.84,
+      "cpuCores": 0.7584,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23785472,
+      "clientRequests": 346,
+      "storageBytes": 268315589
+    },
+    {
+      "utc": "2026-11-14T15:11:45.421Z",
+      "windowsAvailableBytes": 2491371520,
+      "nodeBytes": 294141952,
+      "dockerRamBytes": 1326102609.92,
+      "cpuCores": 0.7140000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23822336,
+      "clientRequests": 352,
+      "storageBytes": 268352778
+    },
+    {
+      "utc": "2026-11-14T15:11:50.043Z",
+      "windowsAvailableBytes": 2406662144,
+      "nodeBytes": 294260736,
+      "dockerRamBytes": 1350702202.8799999,
+      "cpuCores": 0.5684999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24084480,
+      "clientRequests": 359,
+      "storageBytes": 268615259
+    },
+    {
+      "utc": "2026-11-14T15:11:54.552Z",
+      "windowsAvailableBytes": 2436464640,
+      "nodeBytes": 293666816,
+      "dockerRamBytes": 1411697868.8,
+      "cpuCores": 0.6297999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24125440,
+      "clientRequests": 365,
+      "storageBytes": 268656562
+    },
+    {
+      "utc": "2026-11-14T15:11:59.207Z",
+      "windowsAvailableBytes": 2419679232,
+      "nodeBytes": 293666816,
+      "dockerRamBytes": 1450935582.72,
+      "cpuCores": 0.5432,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24256512,
+      "clientRequests": 372,
+      "storageBytes": 268787970
+    },
+    {
+      "utc": "2026-11-14T15:12:03.724Z",
+      "windowsAvailableBytes": 2405253120,
+      "nodeBytes": 293732352,
+      "dockerRamBytes": 1504350044.16,
+      "cpuCores": 0.7494,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24256512,
+      "clientRequests": 378,
+      "storageBytes": 268788295
+    },
+    {
+      "utc": "2026-11-14T15:12:08.366Z",
+      "windowsAvailableBytes": 2377998336,
+      "nodeBytes": 293732352,
+      "dockerRamBytes": 1551284305.92,
+      "cpuCores": 0.7918000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24260608,
+      "clientRequests": 384,
+      "storageBytes": 268792716
+    },
+    {
+      "utc": "2026-11-14T15:12:12.920Z",
+      "windowsAvailableBytes": 2317688832,
+      "nodeBytes": 293769216,
+      "dockerRamBytes": 1589955788.8000002,
+      "cpuCores": 0.6838,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24260608,
+      "clientRequests": 390,
+      "storageBytes": 268793048
+    },
+    {
+      "utc": "2026-11-14T15:12:17.545Z",
+      "windowsAvailableBytes": 2348085248,
+      "nodeBytes": 293847040,
+      "dockerRamBytes": 1612405800.96,
+      "cpuCores": 0.6273999999999998,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24260608,
+      "clientRequests": 396,
+      "storageBytes": 268793383
+    },
+    {
+      "utc": "2026-11-14T15:12:22.161Z",
+      "windowsAvailableBytes": 2334191616,
+      "nodeBytes": 293847040,
+      "dockerRamBytes": 1635851960.32,
+      "cpuCores": 0.6448,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24260608,
+      "clientRequests": 403,
+      "storageBytes": 268793715
+    },
+    {
+      "utc": "2026-11-14T15:12:26.752Z",
+      "windowsAvailableBytes": 2316312576,
+      "nodeBytes": 293928960,
+      "dockerRamBytes": 1677050511.3600001,
+      "cpuCores": 0.8101,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24260608,
+      "clientRequests": 409,
+      "storageBytes": 268794040
+    },
+    {
+      "utc": "2026-11-14T15:12:31.245Z",
+      "windowsAvailableBytes": 2316193792,
+      "nodeBytes": 294232064,
+      "dockerRamBytes": 1680112353.28,
+      "cpuCores": 0.7063999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 24260608,
+      "clientRequests": 415,
+      "storageBytes": 268794375
+    },
+    {
+      "utc": "2026-11-14T15:12:35.814Z",
+      "windowsAvailableBytes": 2320056320,
+      "nodeBytes": 294424576,
+      "dockerRamBytes": 1689989939.2,
+      "cpuCores": 0.5882999999999998,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23633920,
+      "clientRequests": 421,
+      "storageBytes": 268168019
+    },
+    {
+      "utc": "2026-11-14T15:12:40.420Z",
+      "windowsAvailableBytes": 2343104512,
+      "nodeBytes": 294432768,
+      "dockerRamBytes": 1692527493.12,
+      "cpuCores": 0.8119999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23633920,
+      "clientRequests": 428,
+      "storageBytes": 268168354
+    },
+    {
+      "utc": "2026-11-14T15:12:44.942Z",
+      "windowsAvailableBytes": 2353332224,
+      "nodeBytes": 294461440,
+      "dockerRamBytes": 1681485987.8400002,
+      "cpuCores": 0.6398,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23638016,
+      "clientRequests": 434,
+      "storageBytes": 268172788
+    },
+    {
+      "utc": "2026-11-14T15:12:49.539Z",
+      "windowsAvailableBytes": 2370924544,
+      "nodeBytes": 294486016,
+      "dockerRamBytes": 1688794562.56,
+      "cpuCores": 0.6203,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23638016,
+      "clientRequests": 440,
+      "storageBytes": 268173118
+    },
+    {
+      "utc": "2026-11-14T15:12:54.154Z",
+      "windowsAvailableBytes": 2422476800,
+      "nodeBytes": 294580224,
+      "dockerRamBytes": 1695578849.28,
+      "cpuCores": 0.7634,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23638016,
+      "clientRequests": 447,
+      "storageBytes": 268173443
+    },
+    {
+      "utc": "2026-11-14T15:12:58.755Z",
+      "windowsAvailableBytes": 2417483776,
+      "nodeBytes": 294715392,
+      "dockerRamBytes": 1689801195.52,
+      "cpuCores": 0.7139999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 23396352,
+      "clientRequests": 453,
+      "storageBytes": 267932104
+    },
+    {
+      "utc": "2026-11-14T15:13:03.307Z",
+      "windowsAvailableBytes": 2421956608,
+      "nodeBytes": 294744064,
+      "dockerRamBytes": 1679682437.12,
+      "cpuCores": 0.6592,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22220800,
+      "clientRequests": 459,
+      "storageBytes": 266756889
+    },
+    {
+      "utc": "2026-11-14T15:13:07.955Z",
+      "windowsAvailableBytes": 2417602560,
+      "nodeBytes": 294772736,
+      "dockerRamBytes": 1690168197.12,
+      "cpuCores": 0.6609000000000002,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22220800,
+      "clientRequests": 466,
+      "storageBytes": 266757214
+    },
+    {
+      "utc": "2026-11-14T15:13:12.543Z",
+      "windowsAvailableBytes": 2446057472,
+      "nodeBytes": 294817792,
+      "dockerRamBytes": 1674796072.96,
+      "cpuCores": 0.7956,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22220800,
+      "clientRequests": 472,
+      "storageBytes": 266757551
+    },
+    {
+      "utc": "2026-11-14T15:13:17.042Z",
+      "windowsAvailableBytes": 2451771392,
+      "nodeBytes": 294961152,
+      "dockerRamBytes": 1630766366.72,
+      "cpuCores": 0.8023,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22220800,
+      "clientRequests": 478,
+      "storageBytes": 266757876
+    },
+    {
+      "utc": "2026-11-14T15:13:21.575Z",
+      "windowsAvailableBytes": 2462224384,
+      "nodeBytes": 294985728,
+      "dockerRamBytes": 1637645025.28,
+      "cpuCores": 0.6266999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22220800,
+      "clientRequests": 484,
+      "storageBytes": 266758201
+    },
+    {
+      "utc": "2026-11-14T15:13:26.152Z",
+      "windowsAvailableBytes": 2457976832,
+      "nodeBytes": 294985728,
+      "dockerRamBytes": 1641084354.56,
+      "cpuCores": 0.6649,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 491,
+      "storageBytes": 266762634
+    },
+    {
+      "utc": "2026-11-14T15:13:30.751Z",
+      "windowsAvailableBytes": 2454052864,
+      "nodeBytes": 294895616,
+      "dockerRamBytes": 1647145123.8400002,
+      "cpuCores": 0.8294999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 497,
+      "storageBytes": 266762959
+    },
+    {
+      "utc": "2026-11-14T15:13:35.287Z",
+      "windowsAvailableBytes": 2456518656,
+      "nodeBytes": 295292928,
+      "dockerRamBytes": 1640088207.36,
+      "cpuCores": 0.6621999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 503,
+      "storageBytes": 266763301
+    },
+    {
+      "utc": "2026-11-14T15:13:39.923Z",
+      "windowsAvailableBytes": 2452643840,
+      "nodeBytes": 296009728,
+      "dockerRamBytes": 1643800166.3999999,
+      "cpuCores": 0.6926000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 510,
+      "storageBytes": 266763638
+    },
+    {
+      "utc": "2026-11-14T15:13:44.523Z",
+      "windowsAvailableBytes": 2479185920,
+      "nodeBytes": 296013824,
+      "dockerRamBytes": 1630346936.32,
+      "cpuCores": 0.6901,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 516,
+      "storageBytes": 266763980
+    },
+    {
+      "utc": "2026-11-14T15:13:49.202Z",
+      "windowsAvailableBytes": 2482069504,
+      "nodeBytes": 296079360,
+      "dockerRamBytes": 1630535680,
+      "cpuCores": 0.679,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 523,
+      "storageBytes": 266764305
+    },
+    {
+      "utc": "2026-11-14T15:13:53.738Z",
+      "windowsAvailableBytes": 2483007488,
+      "nodeBytes": 296112128,
+      "dockerRamBytes": 1643621908.48,
+      "cpuCores": 0.81,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 529,
+      "storageBytes": 266764626
+    },
+    {
+      "utc": "2026-11-14T15:13:58.244Z",
+      "windowsAvailableBytes": 2489421824,
+      "nodeBytes": 296235008,
+      "dockerRamBytes": 1642877419.52,
+      "cpuCores": 0.7764,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 535,
+      "storageBytes": 266764949
+    },
+    {
+      "utc": "2026-11-14T15:14:02.838Z",
+      "windowsAvailableBytes": 2504605696,
+      "nodeBytes": 296304640,
+      "dockerRamBytes": 1641881272.32,
+      "cpuCores": 0.7248999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 542,
+      "storageBytes": 266765274
+    },
+    {
+      "utc": "2026-11-14T15:14:07.467Z",
+      "windowsAvailableBytes": 2492862464,
+      "nodeBytes": 296304640,
+      "dockerRamBytes": 1644261539.8400002,
+      "cpuCores": 0.7707999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 548,
+      "storageBytes": 266765611
+    },
+    {
+      "utc": "2026-11-14T15:14:12.124Z",
+      "windowsAvailableBytes": 2499211264,
+      "nodeBytes": 296394752,
+      "dockerRamBytes": 1640759296,
+      "cpuCores": 0.5969,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 554,
+      "storageBytes": 266765953
+    },
+    {
+      "utc": "2026-11-14T15:14:16.718Z",
+      "windowsAvailableBytes": 2517614592,
+      "nodeBytes": 297189376,
+      "dockerRamBytes": 1647386296.32,
+      "cpuCores": 0.7663999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22224896,
+      "clientRequests": 561,
+      "storageBytes": 266766275
+    },
+    {
+      "utc": "2026-11-14T15:14:21.221Z",
+      "windowsAvailableBytes": 2512703488,
+      "nodeBytes": 297226240,
+      "dockerRamBytes": 1635443015.68,
+      "cpuCores": 0.5962,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 567,
+      "storageBytes": 266770708
+    },
+    {
+      "utc": "2026-11-14T15:14:25.844Z",
+      "windowsAvailableBytes": 2479525888,
+      "nodeBytes": 297234432,
+      "dockerRamBytes": 1642604789.7599998,
+      "cpuCores": 0.6998000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 574,
+      "storageBytes": 266771033
+    },
+    {
+      "utc": "2026-11-14T15:14:30.569Z",
+      "windowsAvailableBytes": 2481065984,
+      "nodeBytes": 297439232,
+      "dockerRamBytes": 1644481740.8000002,
+      "cpuCores": 0.8130999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 580,
+      "storageBytes": 266771375
+    },
+    {
+      "utc": "2026-11-14T15:14:35.120Z",
+      "windowsAvailableBytes": 2457772032,
+      "nodeBytes": 297566208,
+      "dockerRamBytes": 1686267494.4,
+      "cpuCores": 0.7953999999999999,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 586,
+      "storageBytes": 266771717
+    },
+    {
+      "utc": "2026-11-14T15:14:39.712Z",
+      "windowsAvailableBytes": 2451906560,
+      "nodeBytes": 297873408,
+      "dockerRamBytes": 1699343237.12,
+      "cpuCores": 0.7698,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 592,
+      "storageBytes": 266772053
+    },
+    {
+      "utc": "2026-11-14T15:14:44.346Z",
+      "windowsAvailableBytes": 2453311488,
+      "nodeBytes": 297897984,
+      "dockerRamBytes": 1696249937.92,
+      "cpuCores": 0.8229000000000002,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 599,
+      "storageBytes": 266772378
+    },
+    {
+      "utc": "2026-11-14T15:14:48.884Z",
+      "windowsAvailableBytes": 2444787712,
+      "nodeBytes": 297988096,
+      "dockerRamBytes": 1692999352.3200002,
+      "cpuCores": 0.7784000000000001,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 605,
+      "storageBytes": 266772715
+    },
+    {
+      "utc": "2026-11-14T15:14:53.498Z",
+      "windowsAvailableBytes": 2433654784,
+      "nodeBytes": 298065920,
+      "dockerRamBytes": 1696847626.24,
+      "cpuCores": 0.7482,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 611,
+      "storageBytes": 266773057
+    },
+    {
+      "utc": "2026-11-14T15:14:58.126Z",
+      "windowsAvailableBytes": 2419761152,
+      "nodeBytes": 298115072,
+      "dockerRamBytes": 1695148933.12,
+      "cpuCores": 0.7693000000000002,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 618,
+      "storageBytes": 266773382
+    },
+    {
+      "utc": "2026-11-14T15:15:02.633Z",
+      "windowsAvailableBytes": 2439700480,
+      "nodeBytes": 298278912,
+      "dockerRamBytes": 1686257008.6399999,
+      "cpuCores": 0.7112,
+      "hostStagingBytes": 111871981,
+      "volumeUsedBytes": 22220800,
+      "clientRequests": 624,
+      "storageBytes": 266765662
+    },
+    {
+      "utc": "2026-11-14T15:15:07.138Z",
+      "windowsAvailableBytes": 2440777728,
+      "nodeBytes": 298299392,
+      "dockerRamBytes": 1701545246.7199998,
+      "cpuCores": 0.6779,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22228992,
+      "clientRequests": 630,
+      "storageBytes": 266775036
+    },
+    {
+      "utc": "2026-11-14T15:15:11.670Z",
+      "windowsAvailableBytes": 2420711424,
+      "nodeBytes": 298332160,
+      "dockerRamBytes": 1720786616.3199997,
+      "cpuCores": 0.6221,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 634,
+      "storageBytes": 266792055
+    },
+    {
+      "utc": "2026-11-14T15:15:16.282Z",
+      "windowsAvailableBytes": 2453254144,
+      "nodeBytes": 298336256,
+      "dockerRamBytes": 1711087288.3200002,
+      "cpuCores": 0.023599999999999996,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 636,
+      "storageBytes": 266792385
+    },
+    {
+      "utc": "2026-11-14T15:15:20.716Z",
+      "windowsAvailableBytes": 2468659200,
+      "nodeBytes": 298340352,
+      "dockerRamBytes": 1709482967.04,
+      "cpuCores": 0.46349999999999997,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 638,
+      "storageBytes": 266792729
+    },
+    {
+      "utc": "2026-11-14T15:15:25.145Z",
+      "windowsAvailableBytes": 2457382912,
+      "nodeBytes": 298340352,
+      "dockerRamBytes": 1711810805.7600002,
+      "cpuCores": 0.021200000000000004,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 639,
+      "storageBytes": 266793067
+    },
+    {
+      "utc": "2026-11-14T15:15:29.723Z",
+      "windowsAvailableBytes": 2437341184,
+      "nodeBytes": 298356736,
+      "dockerRamBytes": 1722464337.92,
+      "cpuCores": 0.6057999999999999,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 643,
+      "storageBytes": 266793634
+    },
+    {
+      "utc": "2026-11-14T15:15:34.291Z",
+      "windowsAvailableBytes": 2457227264,
+      "nodeBytes": 298356736,
+      "dockerRamBytes": 1710552514.56,
+      "cpuCores": 0.020900000000000002,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 644,
+      "storageBytes": 266793966
+    },
+    {
+      "utc": "2026-11-14T15:15:38.717Z",
+      "windowsAvailableBytes": 2450501632,
+      "nodeBytes": 298352640,
+      "dockerRamBytes": 1710416199.6799998,
+      "cpuCores": 0.4163,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 646,
+      "storageBytes": 266794305
+    },
+    {
+      "utc": "2026-11-14T15:15:43.170Z",
+      "windowsAvailableBytes": 2476089344,
+      "nodeBytes": 298373120,
+      "dockerRamBytes": 1721468190.7199998,
+      "cpuCores": 0.21689999999999998,
+      "hostStagingBytes": 111872571,
+      "volumeUsedBytes": 22245376,
+      "clientRequests": 648,
+      "storageBytes": 266795414
+    }
+  ],
+  "peaks": {
+    "dockerRamBytes": 1722464337.92,
+    "hostNodeBytes": 528617472,
+    "cpuCores": 2.6693,
+    "storageBytes": 525339922,
+    "hostStagingBytes": 111872571
+  },
+  "minimumHostAvailableBytes": 2198564864,
+  "sampling": "Sequential samples approximately every 3–8 seconds; sampled peaks are not continuous high-water marks. Hard model caps bound between-sample consumption.",
+  "cleanup": [
+    "63b2374e62a6e7996d51ca75346105957bab8751f57ecf5daad13f4013c20949",
+    "0175453f1a180375ec8446c897f706284e5ee2a69071c5b5feb3ecc1a01d4252",
+    "37202486e8b2156fcb45618b2e4e3ed3bf2b1bc148d5390d7e193047314bdfca",
+    "ab61c1802b8140817d4cd6df3315b866f6d0f6a8750eced8e5ab7dd024291401",
+    "e9413445f6075daacdc8190c0de9d5ab8d28d7e59b2083c312699bc53cff7917",
+    "bea6f8b6c1d64d57b384554d3802305cbcef543e6b9a2e1da593da418ff2638d",
+    "jp_obs_validation_20261114150620_955b6d3f_restore_0",
+    "jp_obs_validation_20261114150620_955b6d3f_restore_1",
+    "jp_obs_validation_20261114150620_955b6d3f_restore_2",
+    "jp_obs_validation_20261114150620_955b6d3f_agent_0",
+    "jp_obs_validation_20261114150620_955b6d3f_prometheus_0",
+    "jp_obs_validation_20261114150620_955b6d3f_prometheus_1",
+    "jp_obs_validation_20261114150620_955b6d3f_tempo_0",
+    "jp_obs_validation_20261114150620_955b6d3f_tempo_1",
+    "jp_obs_validation_20261114150620_955b6d3f_grafana_0",
+    "jp_obs_validation_20261114150620_955b6d3f_grafana_1",
+    "jp_obs_validation_20261114150620_955b6d3f_recovery"
+  ],
+  "preflightEvidence": "full-recovery-start-955b6d3f.json",
+  "workerPid": 25208,
+  "latestVolumeUsage": {
+    "prometheus_0": 1515520,
+    "restore_2": 176128,
+    "grafana_1": 0,
+    "restore_0": 1773568,
+    "tempo_0": 1470464,
+    "tempo_1": 0,
+    "restore_1": 15675392,
+    "agent_0": 4096,
+    "grafana_0": 1630208,
+    "prometheus_1": 0
+  },
+  "restoreStatus": "PASS",
+  "recovery": {
+    "rpoSeconds": 34403.272,
+    "rtoSeconds": 544.245,
+    "start": "2026-11-14T15:06:39.250Z",
+    "end": "2026-11-14T15:15:43.495Z",
+    "scope": "Actual local encrypted generation retrieval/decryption; native logs/metrics/traces/offsets/dashboard/datasource/collector and authenticated alert delivery+resolve"
+  },
+  "restoreChecks": {
+    "authenticated_manifest_checksums_before_restore": {
+      "status": "PASS",
+      "actual": {
+        "files": 303
+      }
+    },
+    "native_log_counts_mapping_settings_digest": {
+      "status": "PASS",
+      "actual": [
+        {
+          "index": "application-logs-jwks-api-2026.11.14",
+          "count": 6,
+          "sha256": "a29e0ee8d1ab76b1977154ac340f54c60f23f9a2e1c3e8c19feba916bfb05d73",
+          "mapping": true,
+          "settings": true
+        },
+        {
+          "index": "application-logs-p07-security",
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "mapping": true,
+          "settings": true
+        },
+        {
+          "index": "application-logs-user-api-2026.11.14",
+          "count": 1765,
+          "sha256": "c509d49327065abfed7bdc236b749347b5e211b0f87731eb8472f14b5cca6316",
+          "mapping": true,
+          "settings": true
+        },
+        {
+          "index": "application-logs-vocabulary-api-2026.11.14",
+          "count": 96,
+          "sha256": "0f84cb54bc32334df8502b7dcedda73c9ce4295bbb9dbce19d05ed4d3556693c",
+          "mapping": true,
+          "settings": true
+        }
+      ]
+    },
+    "reader_query": {
+      "status": "PASS"
+    },
+    "anonymous_denied": {
+      "status": "PASS",
+      "actual": {
+        "expected": 401
+      }
+    },
+    "invalid_denied": {
+      "status": "PASS",
+      "actual": {
+        "expected": 401
+      }
+    },
+    "reader_write_denied": {
+      "status": "PASS",
+      "actual": {
+        "expected": 403
+      }
+    },
+    "writer_read_denied": {
+      "status": "PASS",
+      "actual": {
+        "expected": 403
+      }
+    },
+    "reader_admin_denied": {
+      "status": "PASS",
+      "actual": {
+        "expected": 403
+      }
+    },
+    "native_offset_integrity": {
+      "status": "PASS"
+    },
+    "native_metrics_history_0": {
+      "status": "PASS",
+      "actual": {
+        "series": 0,
+        "samples": 828320
+      }
+    },
+    "native_metrics_history_1": {
+      "status": "PASS",
+      "actual": {
+        "series": 0,
+        "samples": 828320
+      }
+    },
+    "native_metrics_history_2": {
+      "status": "PASS",
+      "actual": {
+        "series": 0,
+        "samples": 828320
+      }
+    },
+    "native_metrics_history_3": {
+      "status": "PASS",
+      "actual": {
+        "series": 0,
+        "samples": 828320
+      }
+    },
+    "native_metrics_history_4": {
+      "status": "PASS",
+      "actual": {
+        "series": 0,
+        "samples": 828320
+      }
+    },
+    "native_metrics_history_5": {
+      "status": "PASS",
+      "actual": {
+        "series": 0,
+        "samples": 828320
+      }
+    },
+    "native_metrics_history_6": {
+      "status": "PASS",
+      "actual": {
+        "series": 0,
+        "samples": 828320
+      }
+    },
+    "native_metrics_history_7": {
+      "status": "PASS",
+      "actual": {
+        "series": 1211,
+        "samples": 828320
+      }
+    },
+    "native_trace_recovery": {
+      "status": "PASS",
+      "actual": {
+        "traces": 271,
+        "expected": 271
+      }
+    },
+    "dashboard_jp-dev-p05-health": {
+      "status": "PASS"
+    },
+    "grafana_anonymous_denied": {
+      "status": "PASS"
+    },
+    "datasource_jp-dev-prometheus": {
+      "status": "PASS"
+    },
+    "datasource_jp-dev-tempo": {
+      "status": "PASS"
+    },
+    "native_collector_ingest_query": {
+      "status": "PASS",
+      "actual": {
+        "hits": 1
+      }
+    },
+    "sink_unauthorized_denied": {
+      "status": "PASS"
+    },
+    "recovered_alert_delivered": {
+      "status": "PASS",
+      "actual": {
+        "active": true,
+        "firing": 1,
+        "resolved": 0,
+        "activeUntil": 1550.435603248,
+        "incoming": 278
+      }
+    },
+    "recovered_alert_resolved": {
+      "status": "PASS",
+      "actual": {
+        "active": false,
+        "firing": 1,
+        "resolved": 1,
+        "activeUntil": 1568.342917543,
+        "incoming": 294
+      }
+    },
+    "approved_RPO": {
+      "status": "PASS",
+      "actual": 34403.272
+    },
+    "approved_RTO": {
+      "status": "PASS",
+      "actual": 544.245
+    }
+  },
+  "requests": {
+    "client": {
+      "count": 648,
+      "last": 1557.456536871
+    },
+    "sink": {
+      "active": false,
+      "firing": 1,
+      "resolved": 1,
+      "activeUntil": 1568.342917543,
+      "incoming": 296
+    }
+  },
+  "finalEvidence": "full-recovery-finish-955b6d3f.json",
+  "preservation": {
+    "containers": true,
+    "volumes": true,
+    "backups": true,
+    "schedules": true,
+    "git": true,
+    "noDisposableContainers": true
+  },
+  "finishedUtc": "2026-11-14T15:16:15.914Z"
+}

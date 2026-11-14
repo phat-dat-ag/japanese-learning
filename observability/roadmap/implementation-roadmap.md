@@ -1,3 +1,31 @@
+# P10 completed resilience validation — 2026-11-14
+
+**P10 PASS for approved local development.** The remaining [full native multi-store recovery](p10-full-recovery.md) passed fresh resource/isolation guards and actual encrypted checkpoint integrity: **1,867 logs, 828,320 metric samples, 271 trace payloads, one backed-up dashboard/datasources, collector offsets/resumed ingestion and isolated alert firing/resolution**. Measured **RPO 34,403.272s / RTO 544.245s** satisfy 24h/4h targets. Resource caps and sampled Windows headroom pass; exact owned cleanup and all 52 original containers, original volumes, backups, schedules and revisions are preserved. [Immutable acceptance](p10-validation/evidence/jp_obs_validation_20261114150620_955b6d3f/acceptance.json) retains prior native outage, ENOSPC correction, privacy and retention evidence, including all failures. **11/12 phases complete; P11 remains unstarted and untouched.** Existing local exceptions/loss boundaries remain explicit; production readiness is not claimed.
+
+# P10 approved WSL2 maintenance — 2026-11-14
+
+**P10 PARTIAL.** The [approved 9 GiB WSL2 change and single controlled interruption](p10-wsl-maintenance.md) completed, preserving all 52 container identities, original volumes, backups, schedules and revisions. All development services recovered; expected start-time changes are recorded. Engine headroom now passes (**4,848.480 MiB**), but Windows available RAM fails (**463.957 / 1,024 MiB required; deficit 560.043 MiB**). Full multi-store recovery was not executed, with no new recovery peaks or RPO/RTO claimed. Prior accepted evidence remains valid. **10/12 phases complete; P11 remains unstarted.**
+
+# P10 safe memory investigation — 2026-11-14
+
+**P10 PARTIAL; full recovery remains capacity blocked.** The [fresh investigation](p10-memory-investigation.md) measures **3,471.542 MiB available / 3,680 MiB required**, a **208.458 MiB deficit**. All other guards and preservation checks pass for 52 existing containers, volumes, backups, schedules and revisions. No abandoned P10 runtime was verified, nothing was reclaimed or restarted, and no memory configuration changed. Full recovery was not executed. The proposed future WSL 9 GiB ceiling requires separate approval for an infrastructure maintenance interruption. Prior evidence and approved budgets remain intact. **10/12 phases complete; P11 unstarted.**
+
+# P10 file audit and approved recovery preflight — 2026-11-14
+
+**P10 PARTIAL; full-recovery execution BLOCKED by capacity.** The user approved the 4 GiB recovery envelope. File audit/consolidation preserves all history with no removals; 49 exact duplicate paths are retained in a verified archive. A fresh read-only guard measured **3,435.576 MiB available versus 3,680 MiB required**, so no recovery resources were created. All 52 original containers, volumes, backups, schedules and revisions are preserved. See [audit, categories and guard evidence](p10-file-audit.md). Prior native passes remain valid; **10/12 phases complete, P11 unstarted**. Earlier authorization/progress paragraphs below are historical.
+
+# P10 ENOSPC resolution progress — 2026-11-14
+
+**P10 PARTIAL for local development.** The bounded deterministic-ID source/search recovery candidate reconciles the native ENOSPC cohort (20/20 final unique documents, zero missing/duplicates); new outage-privacy and native retention/source-ack boundaries pass. Full multi-store recovery is not executed: the known reference exceeds current storage/data/request caps, and its proposed memory reserve is not currently available. See [resolution and precise proposal](p10-resolution.md). All prior P10 passes/failures, approved limits and P07/P08 policies remain intact. **10/12 phases complete; P11 remains unstarted and untouched.** No production readiness claim.
+
+# P10 integrated continuation progress — 2026-11-14
+
+**P10 PARTIAL for local development.** Approved budgets are recorded; native Fluent Bit/OpenSearch and Collector/Tempo outages, Prometheus/Grafana datasource failure, synthetic dependency/JWT checks, native alert grouping/resolution, offsets/restart and limited encrypted logical restore executed. Native queue pressure leaves 12 sequenced events missing; full recovery/privacy/retention acceptance remains incomplete. All 52 original containers and original volume identities, P08 schedules and backup artifacts are preserved. See [current verification](p10-verification.md), [scenario matrix](p10-continuation.md) and [machine acceptance](p10-validation/evidence/continuation-acceptance.json). P00–P09 remain complete for applicable development scopes (**10/12**); P11 remains unstarted and untouched. No production readiness claim. Earlier progress/authorization paragraphs below remain historical evidence.
+
+# P10 validation progress — 2026-11-14
+
+**P10 BLOCKED for integrated acceptance.** Read-only baseline, encrypted backup authentication, 13 source guard checks and bounded 8 MiB synthetic tmpfs/queue checks executed. All 52 pre-existing containers (21 development containers) preserved. Native outage/load/notification/recovery scenarios remain NOT VERIFIED pending approved workload/fault/loss/performance budgets required by the P01 P10 gate. See [P10 verification and acceptance matrix](p10-verification.md). P07/P08 development exceptions unchanged. P00–P09 remain complete for applicable development scopes (10/12); P11 remains unstarted and untouched. Historical authorization paragraphs below remain prior-phase evidence; current user authorization covers P10 only.
+
 # Implementation roadmap
 
 ## P09 implementation progress — 2026-11-14

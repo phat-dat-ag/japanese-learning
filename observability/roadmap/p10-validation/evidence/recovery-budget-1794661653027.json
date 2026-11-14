@@ -1,0 +1,214 @@
+{
+  "utc": "2026-11-14T13:07:29.026Z",
+  "phase": "P10",
+  "scope": "Read-only size computation on latest authenticated actual P08 package; no drill executed",
+  "backup": {
+    "name": "p08-local-4815fdd93d5a35541e7ee661f3e94c40.enc",
+    "encryptedBytes": 4851499,
+    "sha256": "e8b8f657c5d4ced23340ce88c19cfc260b8ef2c20b82363a6a7a69e5fd891a89",
+    "createdUtc": "2026-11-14T05:34:42.630Z"
+  },
+  "types": {
+    "opensearch-logical": {
+      "files": 6,
+      "bytes": 1342348
+    },
+    "prometheus-series": {
+      "files": 9,
+      "bytes": 1817547
+    },
+    "tempo-otlp": {
+      "files": 271,
+      "bytes": 217612
+    },
+    "grafana-dashboards": {
+      "files": 1,
+      "bytes": 564
+    },
+    "fluentbit-sqlite": {
+      "files": 3,
+      "bytes": 24576
+    },
+    "configuration": {
+      "files": 13,
+      "bytes": 158085
+    }
+  },
+  "extractionBytes": 3560732,
+  "samples": 828320,
+  "openmetricsBytes": 108214021,
+  "maxDecodedChunkBytes": 19812101,
+  "chunkSizes": [
+    {
+      "name": "metrics/series-0.json.gz",
+      "decodedJsonBytes": 2,
+      "openmetricsBytes": 0
+    },
+    {
+      "name": "metrics/series-1.json.gz",
+      "decodedJsonBytes": 2,
+      "openmetricsBytes": 0
+    },
+    {
+      "name": "metrics/series-2.json.gz",
+      "decodedJsonBytes": 2,
+      "openmetricsBytes": 0
+    },
+    {
+      "name": "metrics/series-3.json.gz",
+      "decodedJsonBytes": 2,
+      "openmetricsBytes": 0
+    },
+    {
+      "name": "metrics/series-4.json.gz",
+      "decodedJsonBytes": 2,
+      "openmetricsBytes": 0
+    },
+    {
+      "name": "metrics/series-5.json.gz",
+      "decodedJsonBytes": 2,
+      "openmetricsBytes": 0
+    },
+    {
+      "name": "metrics/series-6.json.gz",
+      "decodedJsonBytes": 2,
+      "openmetricsBytes": 0
+    },
+    {
+      "name": "metrics/series-7.json.gz",
+      "decodedJsonBytes": 19812101,
+      "openmetricsBytes": 108214015
+    }
+  ],
+  "nativeFilesystemsMiB": {
+    "opensearchData": 512,
+    "prometheusData": 1024,
+    "prometheusTmp": 64,
+    "tempoData": 256,
+    "tempoTmp": 16,
+    "grafanaData": 128,
+    "grafanaTmp": 64,
+    "agentTmp": 16
+  },
+  "sourceTmpfsMiB": 2080,
+  "hostStageBytes": 111774753,
+  "referenceMemoryMiB": {
+    "opensearch": 1024,
+    "prometheus": 1024,
+    "tempo": 512,
+    "grafana": 512,
+    "agent": 128,
+    "collector": 96
+  },
+  "historicalRtoSeconds": 543.938,
+  "measuredPeaks": {
+    "storage": null,
+    "memory": null,
+    "reason": "Prior drill did not retain continuous/high-water storage or memory samples; stopped tmpfs contents are gone. Allocations are not measured peaks."
+  },
+  "referenceRequestLowerBound": {
+    "traceUploads": 271,
+    "traceRetrievalsAtLeast": 271,
+    "otherNativeQueries": "Additional logs/auth/metrics/dashboard/collector/alert calls; source loops can exceed this minimum"
+  },
+  "referenceGaps": [
+    "OpenSearch writable root/log/tmp has no explicit hard cap in original P08 model",
+    "Existing drill writes destination lock files, so it cannot be invoked unchanged under this user preservation scope"
+  ],
+  "proposed": {
+    "totalDisposableStorageMiB": 4096,
+    "backendAndScratchMiB": 2152,
+    "logsMiB": 24,
+    "extractionMiB": 64,
+    "openmetricsInputMiB": 128,
+    "evidenceConfigurationAndEncryptedCopyMiB": 192,
+    "dockerMemoryMiB": 3296,
+    "hostNodeMemoryMiB": 768,
+    "cpuCores": 6,
+    "executionSeconds": 1200,
+    "requestsPerFullDrill": 1500,
+    "requestRate": 5,
+    "concurrentClients": 2,
+    "maxDataPerFullDrillMiB": 512,
+    "faultSeconds": 30,
+    "perDrainObservationSeconds": 120,
+    "execution": "NOT AUTHORIZED / NOT EXECUTED",
+    "plannedMiBBeforeMargin": 2560,
+    "safetyMarginMiB": 1536
+  },
+  "lowerResourceAlternative": {
+    "candidate": "Reuse smaller P10 native stores, split OpenMetrics into non-overlapping TSDB time blocks and import one block at a time; batch trace upload; keep all per-store integrity checks",
+    "largestExistingSixHourInputMiB": 103.20092678070068,
+    "status": "NOT VERIFIED",
+    "risks": "Block overlap/compaction high-water, complete sample fidelity, per-store minima and total request ceiling require a new native experiment. Not equivalent to the accepted reference drill."
+  },
+  "capacity": {
+    "engineBytes": 8165945344,
+    "protectedUsedBytesSampled": 4468458389.504001,
+    "headroomExcludingOwnP10Bytes": 3697486954.4959993,
+    "requiredEngineHeadroomMiB": 3552,
+    "feasibleAtSample": false,
+    "physicalDisks": "{\"dockerVirtualFilesystem\": {\"total\": 1081101176832, \"used\": 24665268224, \"free\": 1001443553280}}",
+    "note": "Docker virtual free space is not independent physical backing capacity. No engine settings changed."
+  },
+  "retainedReferenceContainers": [
+    {
+      "id": "4a841486f57ff448f9fc600fcd8ab987b0d541eecc9588d56df3510bffb3edd5",
+      "memory": 1073741824,
+      "memorySwap": 1073741824,
+      "nanoCpus": 1000000000,
+      "tmpfs": {
+        "/usr/share/opensearch/data": "uid=1000,gid=1000,size=536870912"
+      },
+      "readonlyRoot": false,
+      "oomKilled": false
+    },
+    {
+      "id": "bc2c6567fc5dfa5127e0f5850698b1add4bf9c6c2d2bb8ef56a742f0eb7aa72e",
+      "memory": 134217728,
+      "memorySwap": 268435456,
+      "nanoCpus": 1000000000,
+      "tmpfs": {
+        "/tmp": "size=16777216,mode=1777"
+      },
+      "readonlyRoot": true,
+      "oomKilled": false
+    },
+    {
+      "id": "0e3e7081e6afb683d85e22efa629d3e382236ad5a223b84bc4565e7ae2d60cbb",
+      "memory": 1073741824,
+      "memorySwap": 1073741824,
+      "nanoCpus": 1000000000,
+      "tmpfs": {
+        "/prometheus": "uid=65534,gid=65534,size=1073741824",
+        "/tmp": "mode=1777,size=67108864"
+      },
+      "readonlyRoot": true,
+      "oomKilled": false
+    },
+    {
+      "id": "537e2d7ebbff78c226ad2cef9a4ef85cb76cb3db639c4d4980896df8726ac7e4",
+      "memory": 536870912,
+      "memorySwap": 1073741824,
+      "nanoCpus": 1000000000,
+      "tmpfs": {
+        "/tmp": "size=16777216",
+        "/var/tempo": "uid=10001,gid=10001,size=268435456"
+      },
+      "readonlyRoot": true,
+      "oomKilled": false
+    },
+    {
+      "id": "94cbbb768368e0043808280a3418d1a5a8d1bad2f31330f2ac4e207a2dfd909d",
+      "memory": 536870912,
+      "memorySwap": 1073741824,
+      "nanoCpus": 1000000000,
+      "tmpfs": {
+        "/tmp": "size=67108864,mode=1777",
+        "/var/lib/grafana": "uid=472,gid=472,size=134217728"
+      },
+      "readonlyRoot": true,
+      "oomKilled": false
+    }
+  ]
+}

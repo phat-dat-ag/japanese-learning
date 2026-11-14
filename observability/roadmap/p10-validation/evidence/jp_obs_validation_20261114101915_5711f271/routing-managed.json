@@ -1,0 +1,207 @@
+{
+  "run": "jp_obs_validation_20261114101915_5711f271",
+  "utc": "2026-11-14T10:19:42.435Z",
+  "status": "BLOCKED",
+  "scope": "Native Grafana-managed multidimensional rule -> embedded Alertmanager -> private webhook; existing Prometheus destination untouched",
+  "contact": {
+    "status": 202,
+    "data": {
+      "uid": "p10-private",
+      "name": "p10-private",
+      "type": "webhook",
+      "settings": {
+        "httpMethod": "POST",
+        "url": "http://agent:8001/webhook"
+      },
+      "disableResolveMessage": false
+    }
+  },
+  "policy": {
+    "status": 202,
+    "data": {
+      "message": "policies updated"
+    }
+  },
+  "folder": 200,
+  "rule": {
+    "status": 201,
+    "data": {
+      "id": 1,
+      "uid": "p10-native-grouping",
+      "orgID": 1,
+      "folderUID": "p10-routing",
+      "ruleGroup": "p10-routing",
+      "title": "P10NativeManagedGrouping",
+      "condition": "B",
+      "data": [
+        {
+          "refId": "A",
+          "queryType": "",
+          "relativeTimeRange": {
+            "from": 60,
+            "to": 0
+          },
+          "datasourceUid": "jp-dev-prometheus",
+          "model": {
+            "expr": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+            "instant": true,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "range": false,
+            "refId": "A"
+          }
+        },
+        {
+          "refId": "B",
+          "queryType": "",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          },
+          "datasourceUid": "__expr__",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    0.5
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": [
+                    "B"
+                  ]
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "last"
+                },
+                "type": "query"
+              }
+            ],
+            "expression": "A",
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "B",
+            "type": "threshold"
+          }
+        }
+      ],
+      "updated": "2026-11-14T10:19:46.377159494Z",
+      "noDataState": "NoData",
+      "execErrState": "Error",
+      "for": "0s",
+      "keep_firing_for": "0s",
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "P10 isolated native grouping"
+      },
+      "labels": {
+        "owner": "jp-operations"
+      },
+      "provenance": "api",
+      "isPaused": false,
+      "notification_settings": null,
+      "record": null
+    }
+  },
+  "group": {
+    "status": 200,
+    "data": {
+      "title": "p10-routing",
+      "folderUid": "p10-routing",
+      "interval": 10,
+      "rules": [
+        {
+          "id": 0,
+          "uid": "p10-native-grouping",
+          "orgID": 1,
+          "folderUID": "p10-routing",
+          "ruleGroup": "p10-routing",
+          "title": "P10NativeManagedGrouping",
+          "condition": "B",
+          "data": [
+            {
+              "refId": "A",
+              "queryType": "",
+              "relativeTimeRange": {
+                "from": 60,
+                "to": 0
+              },
+              "datasourceUid": "jp-dev-prometheus",
+              "model": {
+                "refId": "A",
+                "expr": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                "instant": true,
+                "range": false,
+                "intervalMs": 1000,
+                "maxDataPoints": 43200
+              }
+            },
+            {
+              "refId": "B",
+              "queryType": "",
+              "relativeTimeRange": {
+                "from": 0,
+                "to": 0
+              },
+              "datasourceUid": "__expr__",
+              "model": {
+                "refId": "B",
+                "type": "threshold",
+                "expression": "A",
+                "conditions": [
+                  {
+                    "evaluator": {
+                      "params": [
+                        0.5
+                      ],
+                      "type": "gt"
+                    },
+                    "operator": {
+                      "type": "and"
+                    },
+                    "query": {
+                      "params": [
+                        "B"
+                      ]
+                    },
+                    "reducer": {
+                      "type": "last",
+                      "params": []
+                    },
+                    "type": "query"
+                  }
+                ],
+                "intervalMs": 1000,
+                "maxDataPoints": 43200
+              }
+            }
+          ],
+          "updated": "0001-01-01T00:00:00Z",
+          "noDataState": "NoData",
+          "execErrState": "Error",
+          "for": "0s",
+          "keep_firing_for": "0s",
+          "annotations": {
+            "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+            "summary": "P10 isolated native grouping"
+          },
+          "labels": {
+            "owner": "jp-operations"
+          },
+          "isPaused": false,
+          "notification_settings": null,
+          "record": null
+        }
+      ]
+    }
+  },
+  "faultSeconds": 21.874,
+  "reason": "Routing observation deadline",
+  "finishedUtc": "2026-11-14T10:20:09.110Z"
+}

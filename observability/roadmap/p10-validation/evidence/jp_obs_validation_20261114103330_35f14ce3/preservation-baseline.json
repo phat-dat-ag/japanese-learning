@@ -1,0 +1,1678 @@
+{
+  "pass": true,
+  "inventory": [
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "image": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "started": "2026-11-14T09:29:25.959474894Z",
+      "state": "running",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/otelcol/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "0e3e7081e6afb683d85e22efa629d3e382236ad5a223b84bc4565e7ae2d60cbb",
+      "name": "/p08_local_b6f800537e4b146e-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T05:36:52.100747354Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/restored",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\recovered\\configuration\\observability\\p07",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/samples.om",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\samples.om",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "150cd5baed5c7d2ba0506b2de0b35088d36f44223d0a2ffd6336317271f78847",
+      "name": "/p08_local_a7b020597ef5a943-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T05:21:56.872278746Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-14T03:40:03.657946174Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": []
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-14T03:40:04.468052653Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "1ce5a367777adbc7b7a30ab72f83ce0dd346a170aeca5a0e27a68b9c28a4d289",
+      "name": "/p08_local_a7b020597ef5a943-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:21:57.230506977Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private\\tempo.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "21ce59e0cdbb472bb8fb6e8cd2aca8b1f1498288932bd3261d22be2c22523717",
+      "name": "/p08-sqlite-validation-20261114",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T03:38:26.918697697Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/work/observability",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:/japanese-learning/observability",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "224f3bda9210e0f4825fed93c0c08d7ee0d1949f4061253ddaebbbc4e0cd0102",
+      "name": "/p08_local_b6f800537e4b146e-collector",
+      "image": "sha256:7aa3a705cd19cf734b841721ce0ac046bd7439296f31141117cce1c1215372e5",
+      "started": "2026-11-14T05:45:16.674259329Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "24ab6bfaa069ed6f1a254648ca8880e0b030d7be225d9ca3f872f869784728a7",
+      "name": "/p08_local_293e6c6e6df6c3cf-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T04:12:18.906985107Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\recovered\\configuration\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "29662d70196b54d59e7450ec9569093fc873b1fe80dccaa7299b5237bb573cf5",
+      "name": "/p08_local_293e6c6e6df6c3cf-agent-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T04:12:14.90539258Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/agent.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p08\\recovery-agent.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/recovered",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\recovered",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "2b16139c7183f866882a9de73a6be3d41d50ae7159ef2a160a570d2bf1402aa0",
+      "name": "/p08_local_293e6c6e6df6c3cf-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T04:12:17.827565953Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private\\tempo.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "318c57b515aee2e1ab4587ce8582bb97f1e58d75789e6d0ecb3b71527d415ec2",
+      "name": "/p08_drill_5ffec34627f7f0c1-rules",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T03:46:11.896859096Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "",
+          "Name": "7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\unsealed\\configuration\\observability\\p07\\prometheus",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "image": "sha256:d0458aba3b5a034808369b7feb73cf1b3438b96e01d5b975ac712d530d196f68",
+      "started": "2026-11-14T09:29:25.970724517Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch-dashboards/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_dashboards_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "name": "/jp_learning_dev-opensearch-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T09:29:25.97533868Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "40bc6c63fb021260786254527a09126eb3209b85d2d0903f5bc82dbd53e0a47b",
+      "name": "/p08_drill_4c41444f416bb565-source-1",
+      "image": "sha256:64ab620a7c28c2bf955d78b6df9753c858e4d1a16bb8d82c3477fff1b11271e0",
+      "started": "2026-11-14T03:39:21.078977448Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "41dfd98716fc7a0997813cb11999a311ce1b6f2e8d611bb32bfb9ae917cfa92d",
+      "name": "/p07_recovery_916fd74a-restore-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T03:01:13.590947433Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "p07_recovery_916fd74a_restore_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "p07_recovery_916fd74a_restore_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/recovery",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-14T09:29:25.966593536Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/var/opt/mssql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_sqlserver_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-14T09:29:25.942095483Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/logs.htpasswd",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "4a841486f57ff448f9fc600fcd8ab987b0d541eecc9588d56df3510bffb3edd5",
+      "name": "/p08_local_b6f800537e4b146e-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T05:36:51.938458051Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "name": "/jp_learning_dev-frontend-1",
+      "image": "sha256:fe3d2786bf4eebf1f2b3e6545fef52b38112d3c55354dbc95128fa2de03fbed6",
+      "started": "2026-11-14T09:29:25.917084909Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": []
+    },
+    {
+      "id": "530d92fe0b10426b3524eb5193807f34e147d31a8a00ebcc0e49732fa88c8cbd",
+      "name": "/p08_local_a7b020597ef5a943-agent-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T05:21:56.70271302Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/agent.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p08\\recovery-agent.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/recovered",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\recovered",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "537e2d7ebbff78c226ad2cef9a4ef85cb76cb3db639c4d4980896df8726ac7e4",
+      "name": "/p08_local_b6f800537e4b146e-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:36:52.334418022Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private\\tempo.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "image": "sha256:a414d16af32cb5d7fc797bc688b0108e0dbdf37633cf485dc8300395847a22f6",
+      "started": "2026-11-14T09:29:25.952685535Z",
+      "state": "running",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/state",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/jwks",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/user",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/vocabulary",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "660c30a91bd9812d4ccc405d76e54a662383aa069fc7959c1240ae96af8ce273",
+      "name": "/p08_profile_ecb2beee5957efee-prometheus",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T05:58:34.181402624Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "",
+          "Name": "d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "name": "/jp_learning_dev-logging-init-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T03:40:03.45946961Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/p07",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "71841ec0461d97351694df894e36dcd0146ebd4e48e96e8d9a9a85012506e2cd",
+      "name": "/p08_drill_5ffec34627f7f0c1-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T03:45:07.334722276Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\unsealed\\logs",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "image": "sha256:c189edf950aacd300b3b0f0dda36d077013fe91fefca874af2e6a7bfbdd1c717",
+      "started": "2026-11-14T09:29:25.873421933Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/app/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-1.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-2.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-3.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T03:40:04.708527429Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T09:29:25.956986547Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/host-docker-data",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/config/storage-monitor.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/stores/fluent-bit",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/grafana",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/opensearch",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/prometheus",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/tempo",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "name": "/jp_learning_dev-mysql-1",
+      "image": "sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "started": "2026-11-14T09:29:25.963969386Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/var/lib/mysql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_mysql_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "84f859e23591ccaead62afd0cf3a92a0001ac272b7018b23e3321dda3eb1ab99",
+      "name": "/p08_automated_f69dcb8839b4b03e",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T03:45:02.950997687Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/work/observability",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "name": "/jp_learning_dev-user-api-1",
+      "image": "sha256:627d12a7a76db96278ac918e0bfa5b339a279f170bc5c1abd3804d240c84519b",
+      "started": "2026-11-14T09:29:25.97693223Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/app/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwt",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "94cbbb768368e0043808280a3418d1a5a8d1bad2f31330f2ac4e207a2dfd909d",
+      "name": "/p08_local_b6f800537e4b146e-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T05:36:52.499800265Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\recovered\\configuration\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "a18dfbb28a9119db5775290122c03c0526ddf955a1a7aa37be5004934b2ba640",
+      "name": "/p08_profile_ecb2beee5957efee-probe",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T05:58:17.514107589Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": []
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-14T03:40:03.275109096Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "a76c14f355554d3b55bb4c92c28e54fa688d32eb50261bbcb505e0ef0067e776",
+      "name": "/p08_drill_659e384d40ef3d70-restore-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T03:35:03.513542369Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\unsealed\\logs",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "image": "sha256:bfb79dc85bc1e1977496c82a94936e77c65e095ecc9d59e4a30db901f3ee9687",
+      "started": "2026-11-14T09:29:25.890657602Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/deployments/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "b439fbab2bcf0aba1e3105dfa60c7330ab4757e0d9bddf96fd6753e97a0dd79e",
+      "name": "/p08_drill_5ffec34627f7f0c1-source-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T03:44:00.603358458Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "bc2c6567fc5dfa5127e0f5850698b1add4bf9c6c2d2bb8ef56a742f0eb7aa72e",
+      "name": "/p08_local_b6f800537e4b146e-agent-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T05:36:51.781669448Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/agent.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p08\\recovery-agent.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/recovered",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\recovered",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "bfabc10fab3bbbdaba3018fe79badbb10ebe6721adac05a9ccc1e93724fe3652",
+      "name": "/p08_local_293e6c6e6df6c3cf-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T04:12:16.804175911Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/restored",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\recovered\\configuration\\observability\\p07",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/samples.om",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\samples.om",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "c0bc27011f2b09c3dcb50de11cf97f748441b9132a8f254e4214bbaa76c48392",
+      "name": "/p08_drill_659e384d40ef3d70-rules",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T03:36:11.766318737Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "",
+          "Name": "23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\unsealed\\configuration\\observability\\p07\\prometheus",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "name": "/jp_learning_dev-gateway-1",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-14T09:29:25.929463807Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "d633a8152081e5a2ddb19e4a35293e867d8428d42e3769a4724635ed26dac254",
+      "name": "/p08_local_293e6c6e6df6c3cf-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T04:12:15.876954429Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "da2d72fa7d55d519802568b99a2cc19b8a3ff8f2188c4c5ae335198f482c734a",
+      "name": "/p08_profile_ecb2beee5957efee-tempo",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:58:16.860923151Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_profile_ecb2beee5957efee\\tempo.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "dddbe69396577c9f47621342487a93d57768d328c751f8c22ef8488a94542319",
+      "name": "/p08_local_a7b020597ef5a943-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T05:21:57.018504323Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/restored",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\recovered\\configuration\\observability\\p07",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/samples.om",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\samples.om",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "name": "/jp_learning_dev-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T09:29:25.931636125Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/p05-dashboards",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "e1d3718930bb2e55fd4568be6350ac21fc3b188d436cd762781e995de0419643",
+      "name": "/p07_recovery_916fd74a-source-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T02:56:03.610208594Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "p07_recovery_916fd74a_source_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "p07_recovery_916fd74a_source_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/recovery",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "e62ec03bd3368fa3f4243c449eb494998022fdcef9ac0b28f9f1c85c64bbe495",
+      "name": "/p08_profile_141e7b7c226ef32d-tempo",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:55:05.452324543Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_profile_141e7b7c226ef32d\\tempo.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "eba199e092e954f50311005a533be97568d19a0c2806c683afc150a94259ff50",
+      "name": "/p08_local_a7b020597ef5a943-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T05:21:57.398993958Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\recovered\\configuration\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "name": "/jp_learning_dev-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T09:29:25.876913962Z",
+      "state": "running",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/var/tempo",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/tempo/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "name": "/jp_learning_dev-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T09:29:25.918999767Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/monitor.token",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "fea2e46f6255e57f68359606f6d4134721ca35224b65d1fd96958a38acc542b4",
+      "name": "/p08_drill_659e384d40ef3d70-source-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T03:33:53.172534607Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ]
+    }
+  ]
+}

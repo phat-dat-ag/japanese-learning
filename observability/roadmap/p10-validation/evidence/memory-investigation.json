@@ -1,0 +1,1064 @@
+{
+  "phase": "P10",
+  "utc": "2026-11-14T14:37:05.764Z",
+  "actions": [],
+  "fullRecoveryExecuted": false,
+  "before": {
+    "utc": "2026-11-14T14:37:08.309Z",
+    "engine": {
+      "totalBytes": 8165945344,
+      "cpus": 16,
+      "os": "Docker Desktop",
+      "kernel": "6.18.33.2-microsoft-standard-WSL2"
+    },
+    "vm": {
+      "MemTotal": 8165945344,
+      "MemFree": 1084563456,
+      "MemAvailable": 3614924800,
+      "Cached": 2519355392,
+      "SwapTotal": 2147483648,
+      "SwapFree": 2110939136,
+      "Shmem": 60260352,
+      "SReclaimable": 112635904
+    },
+    "workingSetBytes": 4553902653.44,
+    "engineHeadroomUpperEstimateBytes": 3612042690.5600004,
+    "guardAvailableMiB": 3444.7123437500004,
+    "requiredMiB": 3680,
+    "deficitMiB": 235.2876562499996,
+    "running": [
+      {
+        "name": "jp_learning_dev-opensearch-1",
+        "workingSetBytes": 1175747297.28,
+        "reportedMemory": "1.095GiB / 2GiB",
+        "pids": 76,
+        "cpuPercent": 0.99
+      },
+      {
+        "name": "jp_learning_dev-sqlserver-1",
+        "workingSetBytes": 1033161932.8,
+        "reportedMemory": "985.3MiB / 3GiB",
+        "pids": 220,
+        "cpuPercent": 1.55
+      },
+      {
+        "name": "jp_learning_dev-mysql-1",
+        "workingSetBytes": 467664896,
+        "reportedMemory": "446MiB / 1GiB",
+        "pids": 42,
+        "cpuPercent": 4.2
+      },
+      {
+        "name": "jp_learning_dev-grafana-1",
+        "workingSetBytes": 424044134.4,
+        "reportedMemory": "404.4MiB / 512MiB",
+        "pids": 107,
+        "cpuPercent": 1.29
+      },
+      {
+        "name": "jp_learning_dev-opensearch-dashboards-1",
+        "workingSetBytes": 279340646.4,
+        "reportedMemory": "266.4MiB / 1GiB",
+        "pids": 12,
+        "cpuPercent": 0
+      },
+      {
+        "name": "jp_learning_dev-vocabulary-api-1",
+        "workingSetBytes": 260990566.4,
+        "reportedMemory": "248.9MiB / 1GiB",
+        "pids": 29,
+        "cpuPercent": 0.14
+      },
+      {
+        "name": "jp_learning_dev-jwks-api-1",
+        "workingSetBytes": 234985881.6,
+        "reportedMemory": "224.1MiB / 512MiB",
+        "pids": 34,
+        "cpuPercent": 0.16
+      },
+      {
+        "name": "jp_learning_dev-otel-collector-1",
+        "workingSetBytes": 190526259.2,
+        "reportedMemory": "181.7MiB / 256MiB",
+        "pids": 17,
+        "cpuPercent": 0.05
+      },
+      {
+        "name": "jp_learning_dev-tempo-1",
+        "workingSetBytes": 143759769.6,
+        "reportedMemory": "137.1MiB / 512MiB",
+        "pids": 38,
+        "cpuPercent": 0.47
+      },
+      {
+        "name": "jp_learning_dev-prometheus-1",
+        "workingSetBytes": 118489088,
+        "reportedMemory": "113MiB / 512MiB",
+        "pids": 9,
+        "cpuPercent": 0.22
+      },
+      {
+        "name": "jp_learning_dev-user-api-1",
+        "workingSetBytes": 112092774.4,
+        "reportedMemory": "106.9MiB / 512MiB",
+        "pids": 20,
+        "cpuPercent": 0.06
+      },
+      {
+        "name": "jp_learning_dev-storage-monitor-1",
+        "workingSetBytes": 45424312.32,
+        "reportedMemory": "43.32MiB / 64MiB",
+        "pids": 2,
+        "cpuPercent": 5.49
+      },
+      {
+        "name": "jp_learning_dev-fluent-bit-1",
+        "workingSetBytes": 20656947.2,
+        "reportedMemory": "19.7MiB / 512MiB",
+        "pids": 7,
+        "cpuPercent": 0.06
+      },
+      {
+        "name": "jp_learning_dev-gateway-1",
+        "workingSetBytes": 18360565.76,
+        "reportedMemory": "17.51MiB / 256MiB",
+        "pids": 18,
+        "cpuPercent": 0
+      },
+      {
+        "name": "jp_learning_dev-frontend-1",
+        "workingSetBytes": 17102274.56,
+        "reportedMemory": "16.31MiB / 256MiB",
+        "pids": 18,
+        "cpuPercent": 0
+      },
+      {
+        "name": "jp_learning_dev-logs-ui-1",
+        "workingSetBytes": 11555307.52,
+        "reportedMemory": "11.02MiB / 128MiB",
+        "pids": 18,
+        "cpuPercent": 0
+      }
+    ]
+  },
+  "host": {
+    "totalBytes": 16859082752,
+    "availableBytes": 3790569472
+  },
+  "wsl": {
+    "status": "Default Distribution: docker-desktop\r\nDefault Version: 2",
+    "distributions": "NAME              STATE           VERSION\r\n* docker-desktop    Running         2",
+    "userConfigExists": false,
+    "selectedUserSettings": []
+  },
+  "desktopSettings": [
+    {
+      "file": "settings-store.json",
+      "rootType": "object",
+      "selectedMemorySettings": [
+        {
+          "setting": "CustomWslDistroDir",
+          "value": "D:\\DockerData\\DockerDesktopWSL"
+        },
+        {
+          "setting": "EngineTypeWindows",
+          "value": "wsl2"
+        }
+      ]
+    }
+  ],
+  "containerLimits": [
+    {
+      "id": "660c30a91bd9812d4ccc405d76e54a662383aa069fc7959c1240ae96af8ce273",
+      "name": "/p08_profile_ecb2beee5957efee-prometheus",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "a18dfbb28a9119db5775290122c03c0526ddf955a1a7aa37be5004934b2ba640",
+      "name": "/p08_profile_ecb2beee5957efee-probe",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 67108864,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 134217728,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "da2d72fa7d55d519802568b99a2cc19b8a3ff8f2188c4c5ae335198f482c734a",
+      "name": "/p08_profile_ecb2beee5957efee-tempo",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 268435456,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "e62ec03bd3368fa3f4243c449eb494998022fdcef9ac0b28f9f1c85c64bbe495",
+      "name": "/p08_profile_141e7b7c226ef32d-tempo",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "224f3bda9210e0f4825fed93c0c08d7ee0d1949f4061253ddaebbbc4e0cd0102",
+      "name": "/p08_local_b6f800537e4b146e-collector",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 100663296,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 201326592,
+      "nanoCpus": 250000000
+    },
+    {
+      "id": "bc2c6567fc5dfa5127e0f5850698b1add4bf9c6c2d2bb8ef56a742f0eb7aa72e",
+      "name": "/p08_local_b6f800537e4b146e-agent-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "4a841486f57ff448f9fc600fcd8ab987b0d541eecc9588d56df3510bffb3edd5",
+      "name": "/p08_local_b6f800537e4b146e-restore-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "0e3e7081e6afb683d85e22efa629d3e382236ad5a223b84bc4565e7ae2d60cbb",
+      "name": "/p08_local_b6f800537e4b146e-prometheus-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "94cbbb768368e0043808280a3418d1a5a8d1bad2f31330f2ac4e207a2dfd909d",
+      "name": "/p08_local_b6f800537e4b146e-grafana-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "537e2d7ebbff78c226ad2cef9a4ef85cb76cb3db639c4d4980896df8726ac7e4",
+      "name": "/p08_local_b6f800537e4b146e-tempo-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "150cd5baed5c7d2ba0506b2de0b35088d36f44223d0a2ffd6336317271f78847",
+      "name": "/p08_local_a7b020597ef5a943-restore-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "530d92fe0b10426b3524eb5193807f34e147d31a8a00ebcc0e49732fa88c8cbd",
+      "name": "/p08_local_a7b020597ef5a943-agent-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "dddbe69396577c9f47621342487a93d57768d328c751f8c22ef8488a94542319",
+      "name": "/p08_local_a7b020597ef5a943-prometheus-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "eba199e092e954f50311005a533be97568d19a0c2806c683afc150a94259ff50",
+      "name": "/p08_local_a7b020597ef5a943-grafana-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "1ce5a367777adbc7b7a30ab72f83ce0dd346a170aeca5a0e27a68b9c28a4d289",
+      "name": "/p08_local_a7b020597ef5a943-tempo-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "29662d70196b54d59e7450ec9569093fc873b1fe80dccaa7299b5237bb573cf5",
+      "name": "/p08_local_293e6c6e6df6c3cf-agent-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "d633a8152081e5a2ddb19e4a35293e867d8428d42e3769a4724635ed26dac254",
+      "name": "/p08_local_293e6c6e6df6c3cf-restore-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "24ab6bfaa069ed6f1a254648ca8880e0b030d7be225d9ca3f872f869784728a7",
+      "name": "/p08_local_293e6c6e6df6c3cf-grafana-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "bfabc10fab3bbbdaba3018fe79badbb10ebe6721adac05a9ccc1e93724fe3652",
+      "name": "/p08_local_293e6c6e6df6c3cf-prometheus-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "2b16139c7183f866882a9de73a6be3d41d50ae7159ef2a160a570d2bf1402aa0",
+      "name": "/p08_local_293e6c6e6df6c3cf-tempo-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "318c57b515aee2e1ab4587ce8582bb97f1e58d75789e6d0ecb3b71527d415ec2",
+      "name": "/p08_drill_5ffec34627f7f0c1-rules",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "71841ec0461d97351694df894e36dcd0146ebd4e48e96e8d9a9a85012506e2cd",
+      "name": "/p08_drill_5ffec34627f7f0c1-restore-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "84f859e23591ccaead62afd0cf3a92a0001ac272b7018b23e3321dda3eb1ab99",
+      "name": "/p08_automated_f69dcb8839b4b03e",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 67108864,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 134217728,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "b439fbab2bcf0aba1e3105dfa60c7330ab4757e0d9bddf96fd6753e97a0dd79e",
+      "name": "/p08_drill_5ffec34627f7f0c1-source-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "40bc6c63fb021260786254527a09126eb3209b85d2d0903f5bc82dbd53e0a47b",
+      "name": "/p08_drill_4c41444f416bb565-source-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "21ce59e0cdbb472bb8fb6e8cd2aca8b1f1498288932bd3261d22be2c22523717",
+      "name": "/p08-sqlite-validation-20261114",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 67108864,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 134217728,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "c0bc27011f2b09c3dcb50de11cf97f748441b9132a8f254e4214bbaa76c48392",
+      "name": "/p08_drill_659e384d40ef3d70-rules",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "a76c14f355554d3b55bb4c92c28e54fa688d32eb50261bbcb505e0ef0067e776",
+      "name": "/p08_drill_659e384d40ef3d70-restore-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "fea2e46f6255e57f68359606f6d4134721ca35224b65d1fd96958a38acc542b4",
+      "name": "/p08_drill_659e384d40ef3d70-source-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "41dfd98716fc7a0997813cb11999a311ce1b6f2e8d611bb32bfb9ae917cfa92d",
+      "name": "/p07_recovery_916fd74a-restore-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "e1d3718930bb2e55fd4568be6350ac21fc3b188d436cd762781e995de0419643",
+      "name": "/p07_recovery_916fd74a-source-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "name": "/jp_learning_dev-prometheus-1",
+      "state": "running",
+      "pid": 963,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "state": "running",
+      "pid": 1311,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "state": "running",
+      "pid": 1128,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 134217728,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 134217728,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "state": "running",
+      "pid": 1223,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "name": "/jp_learning_dev-logging-init-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 134217728,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 134217728,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "name": "/jp_learning_dev-opensearch-1",
+      "state": "running",
+      "pid": 1371,
+      "memoryLimitBytes": 2147483648,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 2147483648,
+      "nanoCpus": 2000000000
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "state": "running",
+      "pid": 1369,
+      "memoryLimitBytes": 67108864,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 67108864,
+      "nanoCpus": 250000000
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "name": "/jp_learning_dev-grafana-1",
+      "state": "running",
+      "pid": 1032,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "name": "/jp_learning_dev-frontend-1",
+      "state": "running",
+      "pid": 981,
+      "memoryLimitBytes": 268435456,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "name": "/jp_learning_dev-gateway-1",
+      "state": "running",
+      "pid": 1024,
+      "memoryLimitBytes": 268435456,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "state": "running",
+      "pid": 851,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 2000000000
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "name": "/jp_learning_dev-user-api-1",
+      "state": "running",
+      "pid": 1376,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 2000000000
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "name": "/jp_learning_dev-mysql-1",
+      "state": "running",
+      "pid": 1353,
+      "memoryLimitBytes": 1073741824,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 1073741824,
+      "nanoCpus": 2000000000
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "state": "exited",
+      "pid": 0,
+      "memoryLimitBytes": 268435456,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "state": "running",
+      "pid": 852,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 2000000000
+    },
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "state": "running",
+      "pid": 1214,
+      "memoryLimitBytes": 268435456,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 268435456,
+      "nanoCpus": 500000000
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "name": "/jp_learning_dev-tempo-1",
+      "state": "running",
+      "pid": 850,
+      "memoryLimitBytes": 536870912,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 536870912,
+      "nanoCpus": 1000000000
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "state": "running",
+      "pid": 1310,
+      "memoryLimitBytes": 3221225472,
+      "memoryReservationBytes": 0,
+      "memorySwapLimitBytes": 3221225472,
+      "nanoCpus": 2000000000
+    }
+  ],
+  "hostProcesses": [
+    {
+      "pid": 11964,
+      "parentPid": 17608,
+      "name": "com.docker.backend.exe",
+      "workingSetBytes": 74383360,
+      "created": "/Date(1794648555030)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 16376,
+      "parentPid": 11964,
+      "name": "com.docker.backend.exe",
+      "workingSetBytes": 279212032,
+      "created": "/Date(1794648555732)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 18548,
+      "parentPid": 16376,
+      "name": "wsl.exe",
+      "workingSetBytes": 11939840,
+      "created": "/Date(1794648557380)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 15904,
+      "parentPid": 16376,
+      "name": "wsl.exe",
+      "workingSetBytes": 11837440,
+      "created": "/Date(1794648557381)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 6320,
+      "parentPid": 14844,
+      "name": "vmmemWSL",
+      "workingSetBytes": 2385690624,
+      "created": "/Date(1794648557710)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 19820,
+      "parentPid": 5344,
+      "name": "wslhost.exe",
+      "workingSetBytes": 11530240,
+      "created": "/Date(1794648559945)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 19868,
+      "parentPid": 5344,
+      "name": "wslhost.exe",
+      "workingSetBytes": 11161600,
+      "created": "/Date(1794648559974)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 19952,
+      "parentPid": 18548,
+      "name": "wslhost.exe",
+      "workingSetBytes": 11014144,
+      "created": "/Date(1794648559986)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 19984,
+      "parentPid": 15904,
+      "name": "wslhost.exe",
+      "workingSetBytes": 11026432,
+      "created": "/Date(1794648559993)/",
+      "mentionsP10": false,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 23356,
+      "parentPid": 20508,
+      "name": "node.exe",
+      "workingSetBytes": 37928960,
+      "created": "/Date(1794648615686)/",
+      "mentionsP10": false,
+      "isCodexControl": true,
+      "isCurrentInvestigation": false
+    },
+    {
+      "pid": 25700,
+      "parentPid": 4476,
+      "name": "powershell.exe",
+      "workingSetBytes": 69345280,
+      "created": "/Date(1794667025027)/",
+      "mentionsP10": true,
+      "isCodexControl": false,
+      "isCurrentInvestigation": true
+    },
+    {
+      "pid": 25220,
+      "parentPid": 25700,
+      "name": "node.exe",
+      "workingSetBytes": 50167808,
+      "created": "/Date(1794667025727)/",
+      "mentionsP10": true,
+      "isCodexControl": false,
+      "isCurrentInvestigation": true
+    },
+    {
+      "pid": 19920,
+      "parentPid": 25220,
+      "name": "powershell.exe",
+      "workingSetBytes": 85659648,
+      "created": "/Date(1794667032031)/",
+      "mentionsP10": true,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    }
+  ],
+  "processCandidates": [
+    {
+      "pid": 19920,
+      "parentPid": 25220,
+      "name": "powershell.exe",
+      "workingSetBytes": 85659648,
+      "created": "/Date(1794667032031)/",
+      "mentionsP10": true,
+      "isCodexControl": false,
+      "isCurrentInvestigation": false
+    }
+  ],
+  "disposableInventory": {
+    "containers": "",
+    "ownerLabelContainers": "",
+    "volumes": "",
+    "networks": "",
+    "images": ""
+  },
+  "reclamation": {
+    "verifiedOrphans": [],
+    "actionsTaken": [],
+    "reclaimedByActionBytes": 0,
+    "reason": "Candidates lack a matching abandoned-PID manifest; no process stopped"
+  },
+  "after": {
+    "utc": "2026-11-14T14:37:15.747Z",
+    "engine": {
+      "totalBytes": 8165945344,
+      "cpus": 16,
+      "os": "Docker Desktop",
+      "kernel": "6.18.33.2-microsoft-standard-WSL2"
+    },
+    "vm": {
+      "MemTotal": 8165945344,
+      "MemFree": 1086078976,
+      "MemAvailable": 3616477184,
+      "Cached": 2519367680,
+      "SwapTotal": 2147483648,
+      "SwapFree": 2110939136,
+      "Shmem": 60260352,
+      "SReclaimable": 112635904
+    },
+    "workingSetBytes": 4555427282.944,
+    "engineHeadroomUpperEstimateBytes": 3610518061.0559998,
+    "guardAvailableMiB": 3443.2583437499998,
+    "requiredMiB": 3680,
+    "deficitMiB": 236.74165625000023,
+    "running": [
+      {
+        "name": "jp_learning_dev-opensearch-1",
+        "workingSetBytes": 1176821039.104,
+        "reportedMemory": "1.096GiB / 2GiB",
+        "pids": 76,
+        "cpuPercent": 0.8
+      },
+      {
+        "name": "jp_learning_dev-sqlserver-1",
+        "workingSetBytes": 1033686220.8,
+        "reportedMemory": "985.8MiB / 3GiB",
+        "pids": 220,
+        "cpuPercent": 1.81
+      },
+      {
+        "name": "jp_learning_dev-mysql-1",
+        "workingSetBytes": 466826035.2,
+        "reportedMemory": "445.2MiB / 1GiB",
+        "pids": 42,
+        "cpuPercent": 0.66
+      },
+      {
+        "name": "jp_learning_dev-grafana-1",
+        "workingSetBytes": 423100416,
+        "reportedMemory": "403.5MiB / 512MiB",
+        "pids": 107,
+        "cpuPercent": 1.2
+      },
+      {
+        "name": "jp_learning_dev-opensearch-dashboards-1",
+        "workingSetBytes": 279655219.2,
+        "reportedMemory": "266.7MiB / 1GiB",
+        "pids": 12,
+        "cpuPercent": 0
+      },
+      {
+        "name": "jp_learning_dev-vocabulary-api-1",
+        "workingSetBytes": 261619712,
+        "reportedMemory": "249.5MiB / 1GiB",
+        "pids": 29,
+        "cpuPercent": 0.16
+      },
+      {
+        "name": "jp_learning_dev-jwks-api-1",
+        "workingSetBytes": 234356736,
+        "reportedMemory": "223.5MiB / 512MiB",
+        "pids": 34,
+        "cpuPercent": 0.15
+      },
+      {
+        "name": "jp_learning_dev-otel-collector-1",
+        "workingSetBytes": 191365120,
+        "reportedMemory": "182.5MiB / 256MiB",
+        "pids": 17,
+        "cpuPercent": 0.07
+      },
+      {
+        "name": "jp_learning_dev-tempo-1",
+        "workingSetBytes": 143969484.8,
+        "reportedMemory": "137.3MiB / 512MiB",
+        "pids": 38,
+        "cpuPercent": 0.25
+      },
+      {
+        "name": "jp_learning_dev-prometheus-1",
+        "workingSetBytes": 118908518.4,
+        "reportedMemory": "113.4MiB / 512MiB",
+        "pids": 9,
+        "cpuPercent": 0.33
+      },
+      {
+        "name": "jp_learning_dev-user-api-1",
+        "workingSetBytes": 113141350.4,
+        "reportedMemory": "107.9MiB / 512MiB",
+        "pids": 19,
+        "cpuPercent": 2.63
+      },
+      {
+        "name": "jp_learning_dev-storage-monitor-1",
+        "workingSetBytes": 44711280.64,
+        "reportedMemory": "42.64MiB / 64MiB",
+        "pids": 2,
+        "cpuPercent": 0.02
+      },
+      {
+        "name": "jp_learning_dev-fluent-bit-1",
+        "workingSetBytes": 20667432.96,
+        "reportedMemory": "19.71MiB / 512MiB",
+        "pids": 7,
+        "cpuPercent": 0.22
+      },
+      {
+        "name": "jp_learning_dev-gateway-1",
+        "workingSetBytes": 17647534.08,
+        "reportedMemory": "16.83MiB / 256MiB",
+        "pids": 18,
+        "cpuPercent": 0.01
+      },
+      {
+        "name": "jp_learning_dev-frontend-1",
+        "workingSetBytes": 16536043.52,
+        "reportedMemory": "15.77MiB / 256MiB",
+        "pids": 18,
+        "cpuPercent": 0
+      },
+      {
+        "name": "jp_learning_dev-logs-ui-1",
+        "workingSetBytes": 12415139.84,
+        "reportedMemory": "11.84MiB / 128MiB",
+        "pids": 18,
+        "cpuPercent": 1.94
+      }
+    ]
+  },
+  "preflightEvidence": "full-recovery-memory-preflight.json",
+  "counts": {
+    "allContainers": 52,
+    "running": 16,
+    "stopped": 36,
+    "stoppedWithRuntimePid": 0
+  },
+  "runningLimitsBytes": 12817793024,
+  "runningReservationsBytes": 0,
+  "interpretation": {
+    "limitingResource": "Effective Docker/WSL VM capacity minus protected running consumption; not disk, stopped-container limits or an abandoned P10 workload",
+    "wslDefaultInference": "No user override plus observed roughly half-host VM capacity is consistent with documented WSL defaults; observed MemTotal is authoritative, not an unused Desktop UI value",
+    "defaultReference": "https://learn.microsoft.com/en-us/windows/wsl/wsl-config",
+    "memoryLeakEstablished": false,
+    "fullDrillPeaks": {
+      "storage": null,
+      "ram": null,
+      "cpu": null,
+      "rpo": null,
+      "rto": null
+    },
+    "remediation": {
+      "now": "Retain guard and wait for genuine natural headroom; no forced GC, cache flush, service configuration or runtime changes",
+      "maintenanceOnly": "Propose WSL memory=9GB instead of the apparent approximately 8GB default, retaining all test guards. Requires separate explicit approval and a planned WSL/Docker restart window; prohibited in this execution.",
+      "hostCaveat": "Recheck Windows RAM and all guards first. Raising a VM ceiling does not reserve or create physical RAM."
+    }
+  },
+  "status": "PARTIAL; full recovery blocked by current capacity",
+  "hostProcessPeakRssBytes": 50987008,
+  "finalGuard": {
+    "utc": "2026-11-14T14:37:34.725Z",
+    "checks": {
+      "engineMemory": {
+        "pass": false,
+        "requiredBytes": 3858759680,
+        "availableBytes": 3640175984.6400003,
+        "availableMiB": 3471.5423437500003,
+        "shortfallMiB": 208.45765624999967,
+        "workingSetUpperEstimateBytes": 3640175984.6400003,
+        "reportedWorkingSetBytes": 4525769359.36,
+        "vmMemAvailableBytes": 3646382080,
+        "method": "Minimum of engine total minus all running working sets, and VM /proc/meminfo MemAvailable; formatted working sets are rounded, insufficient headroom is not treated as PASS"
+      },
+      "hostMemory": {
+        "pass": true,
+        "requiredMiB": 1024,
+        "availableBytes": 3735015424
+      },
+      "physicalWorkspace": {
+        "pass": true,
+        "requiredMiB": 4352
+      },
+      "cpus": {
+        "pass": true,
+        "available": 16,
+        "maximumRequested": 6
+      },
+      "cachedImages": {
+        "pass": true
+      },
+      "noExistingP10Runtime": {
+        "pass": true
+      },
+      "branch": {
+        "pass": true,
+        "actual": "develop"
+      }
+    },
+    "preservation": {
+      "containers": true,
+      "volumes": true,
+      "backups": true,
+      "schedules": true,
+      "gitRevisions": true
+    },
+    "decision": "BLOCKED: do not execute full recovery"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "phase": "P10",
+  "project": "jp_obs_validation_20261114150429_7a6de3bb",
+  "utc": "2026-11-14T15:04:29.165Z",
+  "status": "PARTIAL",
+  "fullRecoveryExecuted": false,
+  "samples": [
+    {
+      "utc": "2026-11-14T15:04:49.537Z",
+      "windowsAvailableBytes": 5073317888,
+      "nodeBytes": 135401472,
+      "dockerRamBytes": 0,
+      "cpuCores": 0,
+      "hostStagingBytes": 46930067,
+      "storageBytes": 46931939
+    },
+    {
+      "utc": "2026-11-14T15:04:53.709Z",
+      "windowsAvailableBytes": 4560474112,
+      "nodeBytes": 362795008,
+      "dockerRamBytes": 0,
+      "cpuCores": 0,
+      "hostStagingBytes": 111871985,
+      "storageBytes": 111890936
+    }
+  ],
+  "peaks": {
+    "dockerRamBytes": 0,
+    "hostNodeBytes": 362795008,
+    "cpuCores": 0,
+    "storageBytes": 111890936,
+    "hostStagingBytes": 111871985
+  },
+  "minimumHostAvailableBytes": 4560474112,
+  "sampling": "Sequential samples approximately every 3–8 seconds; sampled peaks are not continuous high-water marks. Hard model caps bound between-sample consumption.",
+  "cleanup": [
+    "69ff9e7b5e4a39154ac4ea6378819ff84d9a48aa39fa1377e87254d7fe3291e0",
+    "c6087aa328af172ee4976d08919e229c0635874840549b908815390bfc1bc414",
+    "260efeccb8524aad97f88d34135016e1e21a7fbd44729adb7d459e36d51e7161",
+    "f6715f0911fc1dcc368882b7eba2312da528c952dd864d51c6a7aa4372fb831a",
+    "296e1a3e2d3a83067e82cecff0666a4e8938d439ed43c96948d418ba31b53f72",
+    "jp_obs_validation_20261114150429_7a6de3bb_restore_0",
+    "jp_obs_validation_20261114150429_7a6de3bb_restore_1",
+    "jp_obs_validation_20261114150429_7a6de3bb_restore_2",
+    "jp_obs_validation_20261114150429_7a6de3bb_agent_0",
+    "jp_obs_validation_20261114150429_7a6de3bb_prometheus_0",
+    "jp_obs_validation_20261114150429_7a6de3bb_prometheus_1",
+    "jp_obs_validation_20261114150429_7a6de3bb_tempo_0",
+    "jp_obs_validation_20261114150429_7a6de3bb_tempo_1",
+    "jp_obs_validation_20261114150429_7a6de3bb_grafana_0",
+    "jp_obs_validation_20261114150429_7a6de3bb_grafana_1",
+    "jp_obs_validation_20261114150429_7a6de3bb_recovery"
+  ],
+  "preflightEvidence": "full-recovery-start-7a6de3bb.json",
+  "workerPid": 26132,
+  "restoreStatus": "FAIL",
+  "recovery": null,
+  "restoreChecks": {
+    "authenticated_manifest_checksums_before_restore": {
+      "status": "PASS",
+      "actual": {
+        "files": 303
+      }
+    }
+  },
+  "error": "Ownership mismatch",
+  "finalEvidence": "full-recovery-finish-7a6de3bb.json",
+  "preservation": {
+    "containers": true,
+    "volumes": true,
+    "backups": true,
+    "schedules": true,
+    "git": true,
+    "noDisposableContainers": true
+  },
+  "finishedUtc": "2026-11-14T15:05:17.048Z"
+}

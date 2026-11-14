@@ -1,0 +1,746 @@
+{
+  "utc": "2026-11-14T10:12:26.720Z",
+  "inventory": [
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "testOwner": null,
+      "service": "otel-collector",
+      "started": "2026-11-14T09:29:25.959474894Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/otelcol/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "testOwner": null,
+      "service": "sqlserver-init",
+      "started": "2026-11-14T03:40:03.657946174Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": []
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "testOwner": null,
+      "service": "flyway-user",
+      "started": "2026-11-14T03:40:04.468052653Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "testOwner": null,
+      "service": "opensearch-dashboards",
+      "started": "2026-11-14T09:29:25.970724517Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_dashboards_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "name": "/jp_learning_dev-opensearch-1",
+      "testOwner": null,
+      "service": "opensearch",
+      "started": "2026-11-14T09:29:25.97533868Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "testOwner": null,
+      "service": "sqlserver",
+      "started": "2026-11-14T09:29:25.966593536Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/opt/mssql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_sqlserver_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "testOwner": null,
+      "service": "logs-ui",
+      "started": "2026-11-14T09:29:25.942095483Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/logs.htpasswd",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "name": "/jp_learning_dev-frontend-1",
+      "testOwner": null,
+      "service": "frontend",
+      "started": "2026-11-14T09:29:25.917084909Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": []
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "testOwner": null,
+      "service": "fluent-bit",
+      "started": "2026-11-14T09:29:25.952685535Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/logs/jwks",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/user",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/vocabulary",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/state",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "name": "/jp_learning_dev-logging-init-1",
+      "testOwner": null,
+      "service": "logging-init",
+      "started": "2026-11-14T03:40:03.45946961Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/p07",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "testOwner": null,
+      "service": "jwks-api",
+      "started": "2026-11-14T09:29:25.873421933Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-1.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-2.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-3.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "testOwner": null,
+      "service": "logging-ui-init",
+      "started": "2026-11-14T03:40:04.708527429Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "testOwner": null,
+      "service": "storage-monitor",
+      "started": "2026-11-14T09:29:25.956986547Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/config/storage-monitor.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/host-docker-data",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/stores/fluent-bit",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/grafana",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/opensearch",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/prometheus",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/tempo",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "name": "/jp_learning_dev-mysql-1",
+      "testOwner": null,
+      "service": "mysql",
+      "started": "2026-11-14T09:29:25.963969386Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/lib/mysql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_mysql_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "name": "/jp_learning_dev-user-api-1",
+      "testOwner": null,
+      "service": "user-api",
+      "started": "2026-11-14T09:29:25.97693223Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwt",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "testOwner": null,
+      "service": "flyway-vocabulary",
+      "started": "2026-11-14T03:40:03.275109096Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "testOwner": null,
+      "service": "vocabulary-api",
+      "started": "2026-11-14T09:29:25.890657602Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/deployments/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "name": "/jp_learning_dev-gateway-1",
+      "testOwner": null,
+      "service": "gateway",
+      "started": "2026-11-14T09:29:25.929463807Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "name": "/jp_learning_dev-grafana-1",
+      "testOwner": null,
+      "service": "grafana",
+      "started": "2026-11-14T09:29:25.931636125Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/p05-dashboards",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "name": "/jp_learning_dev-tempo-1",
+      "testOwner": null,
+      "service": "tempo",
+      "started": "2026-11-14T09:29:25.876913962Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/tempo/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/tempo",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "name": "/jp_learning_dev-prometheus-1",
+      "testOwner": null,
+      "service": "prometheus",
+      "started": "2026-11-14T09:29:25.918999767Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/monitor.token",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "Type": "bind"
+        }
+      ]
+    }
+  ],
+  "volumes": "{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/2d15cd3117b3d3f9fe09cbef36732d78cc36d63e00767cb8efa8c4e46435be9e/_data\",\"Name\":\"2d15cd3117b3d3f9fe09cbef36732d78cc36d63e00767cb8efa8c4e46435be9e\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/3a36a6a20a31e9582887f884ad1e7bea7352e345365e267a4df0de21b7190e8d/_data\",\"Name\":\"3a36a6a20a31e9582887f884ad1e7bea7352e345365e267a4df0de21b7190e8d\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/3eea3a93206f25b07833c3c803811e915efb4c00b0b7f132757641eb23d7002d/_data\",\"Name\":\"3eea3a93206f25b07833c3c803811e915efb4c00b0b7f132757641eb23d7002d\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/5fc743c5d97c628f48db026a16ac38b2546e1b084ba85da5e7c30df7a4672a8d/_data\",\"Name\":\"5fc743c5d97c628f48db026a16ac38b2546e1b084ba85da5e7c30df7a4672a8d\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405/_data\",\"Name\":\"23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/94af83a914e49df556783526e1f51ab66a61ed5e54ed6e669806f4d86503312b/_data\",\"Name\":\"94af83a914e49df556783526e1f51ab66a61ed5e54ed6e669806f4d86503312b\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/337bb8674a175e5850d030c13b8824992193899e36dcede55e1b9e0ca883f876/_data\",\"Name\":\"337bb8674a175e5850d030c13b8824992193899e36dcede55e1b9e0ca883f876\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5/_data\",\"Name\":\"7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/85408976df5d85d6b6a6ea143f1a7dd109ed3782b78d243d9c7709d1c32f4f75/_data\",\"Name\":\"85408976df5d85d6b6a6ea143f1a7dd109ed3782b78d243d9c7709d1c32f4f75\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/b7be45dc3b8f4ecd93897e9f08a253ec0874fe98d3f6200cfda31458304a56c1/_data\",\"Name\":\"b7be45dc3b8f4ecd93897e9f08a253ec0874fe98d3f6200cfda31458304a56c1\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/c2d5f63dbee36dfa9f4d98ee8757031e89eef6555e2b78336ff9c1227fbabe6f/_data\",\"Name\":\"c2d5f63dbee36dfa9f4d98ee8757031e89eef6555e2b78336ff9c1227fbabe6f\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.volume.anonymous=\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe/_data\",\"Name\":\"d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=baf9dbbd771205b04334a165b4722a59fae518707eae50aa1a0c2ae155988da5,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=dashboards_data\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data\",\"Name\":\"jp_learning_dev_dashboards_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=45bd8f1bf3af1e2a8e3c5d8c678b7055d644798d8dd407a4b966f5156c77eb95,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=fluent_bit_state\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data\",\"Name\":\"jp_learning_dev_fluent_bit_state\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=d968b27361d5bede62702738afee8e9c8b373f829a6581483dc0e89da3da0b0d,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=grafana_data,jp.observability.owner=japanese-learning,jp.observability.phase=P05\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data\",\"Name\":\"jp_learning_dev_grafana_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=4b0760ada4f5788beee9bc0884dd9cdecae195a4f13e187000685aaddec27f78,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=jwks_api_logs\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data\",\"Name\":\"jp_learning_dev_jwks_api_logs\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=bedc6a017795dac640a2d43aa80dd32f8f38d1079eebb97fa620ce606e3ddc4b,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=mysql_data\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data\",\"Name\":\"jp_learning_dev_mysql_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=09176b45ca724e6f59c2c44db7b9bdcf80b175197972f84216ecd109a92cf651,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=opensearch_data\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data\",\"Name\":\"jp_learning_dev_opensearch_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=04b442cb413a18e3148607282cd869b977ba9ef1aa7c07921825eed6b6b3c06b,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=prometheus_data,jp.observability.owner=japanese-learning,jp.observability.phase=P05\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data\",\"Name\":\"jp_learning_dev_prometheus_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=5d1fb48be9dc2ffaf74135c94a333e1634429acae086314e44a831e093284d6d,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=sqlserver_data\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data\",\"Name\":\"jp_learning_dev_sqlserver_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=c98f42b2f979373ec313d4abf3bb2cdb2a5df7979edd79fc95ca56440eb5a1eb,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=tempo_data,jp.observability.owner=japanese-learning,jp.observability.phase=P06\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data\",\"Name\":\"jp_learning_dev_tempo_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=ecf36ba5233e1d0569f80ca6178787530d89b0575547d0c2332b8a1583262d6d,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=user_api_logs\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data\",\"Name\":\"jp_learning_dev_user_api_logs\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=fc4d2225007f4e255f3f4dbb3b5b8ca126334869b9bfbe73f8d8f14422709258,com.docker.compose.project=jp_learning_dev,com.docker.compose.version=5.7.0,com.docker.compose.volume=vocabulary_api_logs\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data\",\"Name\":\"jp_learning_dev_vocabulary_api_logs\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=d121a91cb61c430d7f51a98b4d4de854347242c72303c06d8176ac6a711b7a18,com.docker.compose.project=p07_recovery_916fd74a,com.docker.compose.version=5.7.0,com.docker.compose.volume=restore_data,jp.p07.recovery=p07_recovery_916fd74a\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/p07_recovery_916fd74a_restore_data/_data\",\"Name\":\"p07_recovery_916fd74a_restore_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}\n{\"Availability\":\"N/A\",\"Driver\":\"local\",\"Group\":\"N/A\",\"Labels\":\"com.docker.compose.config-hash=3adf9debf154dc7b1e03d090ea49923145a556ae60fa6ea99927f62c22780bee,com.docker.compose.project=p07_recovery_916fd74a,com.docker.compose.version=5.7.0,com.docker.compose.volume=source_data,jp.p07.recovery=p07_recovery_916fd74a\",\"Links\":\"N/A\",\"Mountpoint\":\"/var/lib/docker/volumes/p07_recovery_916fd74a_source_data/_data\",\"Name\":\"p07_recovery_916fd74a_source_data\",\"Scope\":\"local\",\"Size\":\"N/A\",\"Status\":\"N/A\"}",
+  "git": "1ba53cf0d1e472e7639e2de03370605512367b11"
+}

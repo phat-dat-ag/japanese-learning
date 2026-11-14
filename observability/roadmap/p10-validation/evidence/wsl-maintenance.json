@@ -1,0 +1,46 @@
+{
+  "createdUtc": "2026-11-14T14:48:42.322Z",
+  "authority": "User explicitly approves 9 GiB WSL2 ceiling and one controlled Docker/WSL interruption",
+  "actions": [],
+  "backupTasks": [
+    {
+      "TaskName": "JapaneseLearning-P08-Daily",
+      "State": "Ready"
+    },
+    {
+      "TaskName": "JapaneseLearning-P08-MonthlyRecovery",
+      "State": "Ready"
+    }
+  ],
+  "databaseBefore": {
+    "mysqlMetadataSha256": "aea262c0b65bbedfb25eca1521b4a0db12781c2f237fe833ed532e414c5955ae",
+    "sqlDatabaseMetadataSha256": "0856073d9307c37b9ad5f07c4d1ea011d8c3db23fdeb7e5ad0e38b5430112c1b",
+    "maintenanceActive": false,
+    "scope": "Read-only database/table metadata; no business row contents exposed. MySQL TABLE_ROWS is an estimate."
+  },
+  "configBefore": {
+    "exists": false,
+    "contents": null
+  },
+  "configurationBackup": "D:\\japanese-learning\\.local\\p10-wsl-maintenance\\wslconfig-before.json",
+  "desktopSettings": "C:\\Users\\nguye\\AppData\\Roaming\\Docker\\settings-store.json",
+  "desktopSettingsSha256": "b2ba16351e46c11cb70aba918b6aa36c8210b3d1cff961d7cc352ee05df2554e",
+  "preparedUtc": "2026-11-14T14:48:45.608Z",
+  "configAfter": {
+    "contents": "[wsl2]\r\nmemory=9GB\r\n",
+    "sha256": "d4f748ea8f222563e1beb8319e62496c62635ce052aa4dd380ee332b73375268"
+  },
+  "configuredUtc": "2026-11-14T14:48:58.694Z",
+  "stopRequestedUtc": "2026-11-14T14:49:01.700Z",
+  "desktopStoppedUtc": "2026-11-14T14:49:29.251Z",
+  "wslShutdownUtc": "2026-11-14T14:49:30.692Z",
+  "startRequestedUtc": "2026-11-14T14:49:43.367Z",
+  "desktopStartedUtc": "2026-11-14T14:49:48.782Z",
+  "databaseAfter": {
+    "mysqlMetadataSha256": "aea262c0b65bbedfb25eca1521b4a0db12781c2f237fe833ed532e414c5955ae",
+    "sqlDatabaseMetadataSha256": "0856073d9307c37b9ad5f07c4d1ea011d8c3db23fdeb7e5ad0e38b5430112c1b",
+    "maintenanceActive": false,
+    "scope": "Read-only database/table metadata; no business row contents exposed. MySQL TABLE_ROWS is an estimate."
+  },
+  "databaseMetadataMatch": true
+}

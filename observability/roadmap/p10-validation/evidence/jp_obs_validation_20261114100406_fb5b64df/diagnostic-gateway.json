@@ -1,0 +1,3 @@
+{
+  "text": "2026/11/14 10:04:12 [emerg] 1#1: mkdir() \"/var/cache/nginx/fastcgi_temp\" failed (30: Read-only file system)\nnginx: [emerg] mkdir() \"/var/cache/nginx/fastcgi_temp\" failed (30: Read-only file system)\n"
+}

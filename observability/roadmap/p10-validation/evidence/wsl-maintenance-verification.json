@@ -1,0 +1,299 @@
+{
+  "utc": "2026-11-14T14:52:23.565Z",
+  "fullRecoveryExecuted": false,
+  "checks": {
+    "original_container_identities": {
+      "pass": true
+    },
+    "original_volume_identities": {
+      "pass": true
+    },
+    "backups_unchanged": {
+      "pass": true
+    },
+    "scheduled_task_definitions_unchanged": {
+      "pass": true
+    },
+    "git_revisions_unchanged": {
+      "pass": true
+    },
+    "database_metadata_unchanged": {
+      "pass": true,
+      "actual": "Read-only database/table metadata; no business row contents exposed. MySQL TABLE_ROWS is an estimate."
+    },
+    "services_recovered": {
+      "pass": true
+    },
+    "p08_tasks_enabled": {
+      "pass": true
+    },
+    "existing_logs_accessible": {
+      "pass": true,
+      "actual": {
+        "count": 5338
+      }
+    },
+    "existing_metrics_accessible": {
+      "pass": true,
+      "actual": {
+        "series": 4
+      }
+    },
+    "existing_trace_storage_accessible": {
+      "pass": true,
+      "actual": {
+        "traces": 1
+      }
+    },
+    "existing_dashboards_accessible": {
+      "pass": true,
+      "actual": {
+        "count": 3
+      }
+    },
+    "no_p10_runtime": {
+      "pass": true
+    }
+  },
+  "memorySamples": [
+    {
+      "utc": "2026-11-14T14:52:24.5063784Z",
+      "totalBytes": 16859082752,
+      "availableBytes": 517390336
+    },
+    {
+      "utc": "2026-11-14T14:52:40.4866781Z",
+      "totalBytes": 16859082752,
+      "availableBytes": 544243712
+    },
+    {
+      "utc": "2026-11-14T14:52:56.7814784Z",
+      "totalBytes": 16859082752,
+      "availableBytes": 456257536
+    }
+  ],
+  "restartEffects": [
+    {
+      "name": "/jp_learning_dev-otel-collector-1",
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "startedBefore": "2026-11-14T09:29:25.959474894Z",
+      "startedAfter": "2026-11-14T14:49:50.321893837Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "startedBefore": "2026-11-14T09:29:25.970724517Z",
+      "startedAfter": "2026-11-14T14:49:50.371919578Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-opensearch-1",
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "startedBefore": "2026-11-14T09:29:25.97533868Z",
+      "startedAfter": "2026-11-14T14:49:50.417080239Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-sqlserver-1",
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "startedBefore": "2026-11-14T09:29:25.966593536Z",
+      "startedAfter": "2026-11-14T14:49:50.31715956Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-logs-ui-1",
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "startedBefore": "2026-11-14T09:29:25.942095483Z",
+      "startedAfter": "2026-11-14T14:49:50.388728595Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-frontend-1",
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "startedBefore": "2026-11-14T09:29:25.917084909Z",
+      "startedAfter": "2026-11-14T14:49:50.400761357Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "startedBefore": "2026-11-14T09:29:25.952685535Z",
+      "startedAfter": "2026-11-14T14:49:50.446839545Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-jwks-api-1",
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "startedBefore": "2026-11-14T09:29:25.873421933Z",
+      "startedAfter": "2026-11-14T14:49:50.427473636Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "startedBefore": "2026-11-14T09:29:25.956986547Z",
+      "startedAfter": "2026-11-14T14:49:50.403815682Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-mysql-1",
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "startedBefore": "2026-11-14T09:29:25.963969386Z",
+      "startedAfter": "2026-11-14T14:49:50.434171382Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-user-api-1",
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "startedBefore": "2026-11-14T09:29:25.97693223Z",
+      "startedAfter": "2026-11-14T14:49:50.40637759Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "startedBefore": "2026-11-14T09:29:25.890657602Z",
+      "startedAfter": "2026-11-14T14:49:50.35268589Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-gateway-1",
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "startedBefore": "2026-11-14T09:29:25.929463807Z",
+      "startedAfter": "2026-11-14T14:49:50.39824438Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-grafana-1",
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "startedBefore": "2026-11-14T09:29:25.931636125Z",
+      "startedAfter": "2026-11-14T14:49:50.439316579Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-tempo-1",
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "startedBefore": "2026-11-14T09:29:25.876913962Z",
+      "startedAfter": "2026-11-14T14:49:50.436718717Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    },
+    {
+      "name": "/jp_learning_dev-prometheus-1",
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "startedBefore": "2026-11-14T09:29:25.918999767Z",
+      "startedAfter": "2026-11-14T14:49:50.424524348Z",
+      "restartsBefore": 0,
+      "restartsAfter": 0,
+      "stateBefore": "running",
+      "stateAfter": "running"
+    }
+  ],
+  "measurements": {
+    "peakStorageBytes": null,
+    "peakRamBytes": null,
+    "peakCpu": null,
+    "rpoSeconds": null,
+    "rtoSeconds": null,
+    "reason": "No disposable recovery workload executed"
+  },
+  "largestHostProcesses": [
+    {
+      "ProcessName": "vmmemWSL",
+      "Id": 20004,
+      "WorkingSet64": 7749402624
+    },
+    {
+      "ProcessName": "chrome",
+      "Id": 18400,
+      "WorkingSet64": 424857600
+    },
+    {
+      "ProcessName": "chrome",
+      "Id": 13236,
+      "WorkingSet64": 288800768
+    },
+    {
+      "ProcessName": "chrome",
+      "Id": 8456,
+      "WorkingSet64": 279371776
+    },
+    {
+      "ProcessName": "MsMpEng",
+      "Id": 5284,
+      "WorkingSet64": 255954944
+    },
+    {
+      "ProcessName": "Code",
+      "Id": 8144,
+      "WorkingSet64": 255852544
+    },
+    {
+      "ProcessName": "Memory Compression",
+      "Id": 3532,
+      "WorkingSet64": 243535872
+    },
+    {
+      "ProcessName": "explorer",
+      "Id": 10044,
+      "WorkingSet64": 229683200
+    },
+    {
+      "ProcessName": "com.docker.backend",
+      "Id": 25352,
+      "WorkingSet64": 190693376
+    },
+    {
+      "ProcessName": "msedge",
+      "Id": 19044,
+      "WorkingSet64": 180236288
+    }
+  ],
+  "status": "PARTIAL",
+  "reason": "Full recovery requires every resource guard; see fresh final preflight. No settings rollback or second interruption is authorized."
+}

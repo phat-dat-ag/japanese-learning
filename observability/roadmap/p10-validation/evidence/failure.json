@@ -1,0 +1,5 @@
+{
+  "utc": "2026-11-14T09:35:56.207Z",
+  "message": "docker start operation failed: Error response from daemon: failed to create task for container: failed to initialize logging driver: compression cannot be enabled when max file count is 1\n",
+  "stack": "Error: docker start operation failed: Error response from daemon: failed to create task for container: failed to initialize logging driver: compression cannot be enabled when max file count is 1\n\n    at command (D:\\japanese-learning\\observability\\roadmap\\p10-validation\\validate.cjs:6:147)\n    at docker (D:\\japanese-learning\\observability\\roadmap\\p10-validation\\validate.cjs:7:28)\n    at main (D:\\japanese-learning\\observability\\roadmap\\p10-validation\\validate.cjs:43:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+}

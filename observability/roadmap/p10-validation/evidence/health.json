@@ -1,0 +1,135 @@
+{
+  "utc": "2026-11-14T09:36:07.585Z",
+  "checks": {
+    "targets": [
+      {
+        "job": "p07-storage",
+        "health": "up",
+        "error": false
+      },
+      {
+        "job": "prometheus",
+        "health": "up",
+        "error": false
+      },
+      {
+        "job": "user-api",
+        "health": "up",
+        "error": false
+      },
+      {
+        "job": "vocabulary-api",
+        "health": "up",
+        "error": false
+      }
+    ],
+    "alerts": [],
+    "rules": [
+      {
+        "name": "jp_p05.availability",
+        "healthy": true
+      },
+      {
+        "name": "jp_p05.capacity",
+        "healthy": true
+      },
+      {
+        "name": "jp_p05.dependencies",
+        "healthy": true
+      },
+      {
+        "name": "jp_p05.http",
+        "healthy": true
+      },
+      {
+        "name": "jp_p05.integrity",
+        "healthy": true
+      },
+      {
+        "name": "jp_p05.recording",
+        "healthy": true
+      },
+      {
+        "name": "jp_p05.security",
+        "healthy": true
+      },
+      {
+        "name": "p07.storage",
+        "healthy": true
+      }
+    ],
+    "dashboards": [
+      {
+        "uid": "jp-dev-p05-health",
+        "title": "JP Dev P05 Monitoring Health (candidate)"
+      },
+      {
+        "uid": "jp-dev-p09-apis",
+        "title": "JP Dev P09 API Operations"
+      },
+      {
+        "uid": "jp-dev-p09-telemetry",
+        "title": "JP Dev P09 Telemetry and Capacity"
+      }
+    ],
+    "jp-dev-prometheus": {
+      "details": {
+        "application": "Prometheus",
+        "features": {
+          "rulerApiEnabled": false
+        }
+      },
+      "message": "Successfully queried the Prometheus API.",
+      "status": "OK"
+    },
+    "jp-dev-tempo": {
+      "message": "Data source is working",
+      "status": "OK"
+    },
+    "opensearch": {
+      "status": "yellow",
+      "nodes": 1
+    },
+    "tempo": {
+      "inspectedTraces": 1,
+      "inspectedBytes": "19437",
+      "completedJobs": 2,
+      "totalJobs": 3
+    },
+    "backup": {
+      "latest": {
+        "name": "p08-local-4815fdd93d5a35541e7ee661f3e94c40.enc",
+        "createdUtc": "2026-11-14T05:34:42.630Z",
+        "sha256": "e8b8f657c5d4ced23340ce88c19cfc260b8ef2c20b82363a6a7a69e5fd891a89",
+        "files": 303
+      },
+      "validGenerations": 2,
+      "ageSeconds": 14485.994
+    },
+    "scheduledTasks": [
+      {
+        "Name": "JapaneseLearning-P08-Daily",
+        "State": "Ready",
+        "Enabled": true,
+        "StartWhenAvailable": true,
+        "Triggers": [
+          {}
+        ],
+        "NextRun": "/Date(1794686400000)/",
+        "LastResult": 0
+      },
+      {
+        "Name": "JapaneseLearning-P08-MonthlyRecovery",
+        "State": "Ready",
+        "Enabled": true,
+        "StartWhenAvailable": true,
+        "Triggers": [
+          {}
+        ],
+        "NextRun": "/Date(1796072400000)/",
+        "LastResult": 0
+      }
+    ]
+  },
+  "errors": []
+}

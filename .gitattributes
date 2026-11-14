@@ -1,2 +1,5 @@
 scripts/generate-production-keys.sh text eol=lf
 observability/logging/logs-ui-entrypoint.sh text eol=lf
+observability/roadmap/p10-validation/evidence/*.json text eol=lf
+observability/roadmap/p10-validation/evidence/**/*.json text eol=lf
+observability/roadmap/p10-validation/evidence/duplicate-evidence.json.gz -text

@@ -1,0 +1,15 @@
+{
+  "scope": "Synthetic Python queue and Linux tmpfs only; no Fluent Bit/OTel/backend loss claim",
+  "enospc": true,
+  "bytes_written": 8388608,
+  "queue_capacity": 16,
+  "generated": 24,
+  "recovered": 16,
+  "dropped": 8,
+  "duplicates": 0,
+  "integrity": true,
+  "payload_sha256": "c93a97baab10624bb22a6d2d17dc91d1682535dc1606e908e249e8dd65032eb0",
+  "pressure_seconds": 0.01183239799996727,
+  "write_recovery_seconds": 0.06931500399997503,
+  "total_seconds": 0.08166214799996396
+}

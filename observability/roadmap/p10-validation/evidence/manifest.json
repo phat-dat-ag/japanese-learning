@@ -1,0 +1,10 @@
+{
+  "project": "jp_obs_validation_20261114093611_89a26856",
+  "owner": "P10",
+  "run": "jp_obs_validation_20261114093611_89a26856",
+  "network": "none",
+  "hardBytes": 8388608,
+  "expiresUtc": "2026-11-14T09:41:11.681Z",
+  "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+  "id": "909a81c5eefac12017a7ca85bc59d2308e382578819ded922a22ac8e0cd47354"
+}
