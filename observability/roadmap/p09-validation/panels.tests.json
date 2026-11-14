@@ -1,0 +1,766 @@
+{
+  "evaluation_interval": "15s",
+  "tests": [
+    {
+      "name": "data",
+      "interval": "15s",
+      "input_series": [
+        {
+          "series": "up{job=\"user-api\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "up{job=\"vocabulary-api\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "up{job=\"prometheus\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "up{job=\"p07-storage\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "http_requests_received_total{job=\"user-api\",code=\"500\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "http_server_requests_seconds_count{job=\"vocabulary-api\",status=\"500\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "http_request_duration_seconds_bucket{job=\"user-api\",le=\"1\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "http_request_duration_seconds_bucket{job=\"user-api\",le=\"+Inf\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "http_server_requests_seconds_bucket{job=\"vocabulary-api\",le=\"1\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "http_server_requests_seconds_bucket{job=\"vocabulary-api\",le=\"+Inf\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "process_cpu_seconds_total{job=\"user-api\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "prometheus_notifications_errors_total{job=\"prometheus\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "p07_notifications_received_total{job=\"p07-storage\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "prometheus_rule_evaluation_failures_total{job=\"prometheus\"}",
+          "values": "0+15x20"
+        },
+        {
+          "series": "dotnet_total_memory_bytes{job=\"user-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "jvm_memory_used_bytes{job=\"vocabulary-api\",area=\"heap\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "process_cpu_usage{job=\"vocabulary-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "app_database_pool_connections{job=\"user-api\",state=\"active\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "sql_pool_queue_size{job=\"vocabulary-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "sql_pool_ratio{job=\"vocabulary-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_backing_disk_available_bytes{job=\"p07-storage\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_telemetry_storage_used_bytes{job=\"p07-storage\",store=\"tempo\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_telemetry_storage_budget_bytes{job=\"p07-storage\",store=\"tempo\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_telemetry_storage_measurement_error{job=\"p07-storage\",store=\"tempo\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "ALERTS{alertstate=\"firing\",severity=\"warning\"}",
+          "values": "4+0x20"
+        }
+      ],
+      "promql_expr_test": [
+        {
+          "expr": "count((max by(job)(up{job=~\"user-api|vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\",code=~\"5..\"}[5m])) / sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\",status=~\"5..\"}[5m])) / sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((histogram_quantile(0.95,sum by(job,le)(rate(http_request_duration_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m]))) or histogram_quantile(0.95,sum by(job,le)(rate(http_server_requests_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m])))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(dotnet_total_memory_bytes{job=~\"user-api|vocabulary-api\"}) or sum by(job)(jvm_memory_used_bytes{job=~\"user-api|vocabulary-api\",area=\"heap\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(rate(process_cpu_seconds_total{job=\"user-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(job)(process_cpu_usage{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(state)(app_database_pool_connections{job=\"user-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(sql_pool_queue_size{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max(sql_pool_ratio{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(job)(up{job=~\"prometheus|p07-storage\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((min(p07_backing_disk_available_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_used_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_used_bytes / p07_telemetry_storage_budget_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_measurement_error)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((count by(store)(p07_telemetry_storage_used_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((count by(alertstate,severity)(ALERTS)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(rate(prometheus_notifications_errors_total{job=\"prometheus\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(rate(p07_notifications_received_total[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(rate(prometheus_rule_evaluation_failures_total{job=\"prometheus\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "histogram_quantile(0.95,sum by(job,le)(rate(http_request_duration_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m]))) or histogram_quantile(0.95,sum by(job,le)(rate(http_server_requests_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m])))",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{job=\"user-api\"}",
+              "value": 0.95
+            },
+            {
+              "labels": "{job=\"vocabulary-api\"}",
+              "value": 0.95
+            }
+          ]
+        },
+        {
+          "expr": "sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\",code=~\"5..\"}[5m])) / sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\",status=~\"5..\"}[5m])) / sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{job=\"user-api\"}",
+              "value": 1
+            },
+            {
+              "labels": "{job=\"vocabulary-api\"}",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "no-data",
+      "interval": "15s",
+      "input_series": [],
+      "promql_expr_test": [
+        {
+          "expr": "count((max by(job)(up{job=~\"user-api|vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\",code=~\"5..\"}[5m])) / sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\",status=~\"5..\"}[5m])) / sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((histogram_quantile(0.95,sum by(job,le)(rate(http_request_duration_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m]))) or histogram_quantile(0.95,sum by(job,le)(rate(http_server_requests_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m])))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum by(job)(dotnet_total_memory_bytes{job=~\"user-api|vocabulary-api\"}) or sum by(job)(jvm_memory_used_bytes{job=~\"user-api|vocabulary-api\",area=\"heap\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum by(job)(rate(process_cpu_seconds_total{job=\"user-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((max by(job)(process_cpu_usage{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum by(state)(app_database_pool_connections{job=\"user-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum(sql_pool_queue_size{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((max(sql_pool_ratio{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((max by(job)(up{job=~\"prometheus|p07-storage\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((min(p07_backing_disk_available_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_used_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_used_bytes / p07_telemetry_storage_budget_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_measurement_error)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((count by(store)(p07_telemetry_storage_used_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((count by(alertstate,severity)(ALERTS)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum(rate(prometheus_notifications_errors_total{job=\"prometheus\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum(rate(p07_notifications_received_total[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        },
+        {
+          "expr": "count((sum(rate(prometheus_rule_evaluation_failures_total{job=\"prometheus\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": []
+        }
+      ]
+    },
+    {
+      "name": "counter-reset",
+      "interval": "15s",
+      "input_series": [
+        {
+          "series": "up{job=\"user-api\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "up{job=\"vocabulary-api\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "up{job=\"prometheus\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "up{job=\"p07-storage\"}",
+          "values": "1+0x20"
+        },
+        {
+          "series": "http_requests_received_total{job=\"user-api\",code=\"500\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "http_server_requests_seconds_count{job=\"vocabulary-api\",status=\"500\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "http_request_duration_seconds_bucket{job=\"user-api\",le=\"1\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "http_request_duration_seconds_bucket{job=\"user-api\",le=\"+Inf\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "http_server_requests_seconds_bucket{job=\"vocabulary-api\",le=\"1\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "http_server_requests_seconds_bucket{job=\"vocabulary-api\",le=\"+Inf\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "process_cpu_seconds_total{job=\"user-api\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "prometheus_notifications_errors_total{job=\"prometheus\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "p07_notifications_received_total{job=\"p07-storage\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "prometheus_rule_evaluation_failures_total{job=\"prometheus\"}",
+          "values": "0 15 30 45 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+        },
+        {
+          "series": "dotnet_total_memory_bytes{job=\"user-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "jvm_memory_used_bytes{job=\"vocabulary-api\",area=\"heap\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "process_cpu_usage{job=\"vocabulary-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "app_database_pool_connections{job=\"user-api\",state=\"active\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "sql_pool_queue_size{job=\"vocabulary-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "sql_pool_ratio{job=\"vocabulary-api\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_backing_disk_available_bytes{job=\"p07-storage\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_telemetry_storage_used_bytes{job=\"p07-storage\",store=\"tempo\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_telemetry_storage_budget_bytes{job=\"p07-storage\",store=\"tempo\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "p07_telemetry_storage_measurement_error{job=\"p07-storage\",store=\"tempo\"}",
+          "values": "4+0x20"
+        },
+        {
+          "series": "ALERTS{alertstate=\"firing\",severity=\"warning\"}",
+          "values": "4+0x20"
+        }
+      ],
+      "promql_expr_test": [
+        {
+          "expr": "count((max by(job)(up{job=~\"user-api|vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\",code=~\"5..\"}[5m])) / sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\",status=~\"5..\"}[5m])) / sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((histogram_quantile(0.95,sum by(job,le)(rate(http_request_duration_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m]))) or histogram_quantile(0.95,sum by(job,le)(rate(http_server_requests_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m])))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(dotnet_total_memory_bytes{job=~\"user-api|vocabulary-api\"}) or sum by(job)(jvm_memory_used_bytes{job=~\"user-api|vocabulary-api\",area=\"heap\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(job)(rate(process_cpu_seconds_total{job=\"user-api\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(job)(process_cpu_usage{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum by(state)(app_database_pool_connections{job=\"user-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(sql_pool_queue_size{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max(sql_pool_ratio{job=\"vocabulary-api\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(job)(up{job=~\"prometheus|p07-storage\"})) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "expr": "count((min(p07_backing_disk_available_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_used_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_used_bytes / p07_telemetry_storage_budget_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((max by(store)(p07_telemetry_storage_measurement_error)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((count by(store)(p07_telemetry_storage_used_bytes)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((count by(alertstate,severity)(ALERTS)) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(rate(prometheus_notifications_errors_total{job=\"prometheus\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(rate(p07_notifications_received_total[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "count((sum(rate(prometheus_rule_evaluation_failures_total{job=\"prometheus\"}[5m]))) >= 0)",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{}",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "expr": "resets(http_requests_received_total[5m])",
+          "eval_time": "5m",
+          "exp_samples": [
+            {
+              "labels": "{code=\"500\",job=\"user-api\"}",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

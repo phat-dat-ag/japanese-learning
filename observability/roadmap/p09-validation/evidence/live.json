@@ -1,0 +1,1488 @@
+{
+  "phase": "P09",
+  "scope": "jp_learning_dev read-only telemetry verification",
+  "utc": "2026-11-14T07:06:24.497Z",
+  "operator": "Codex with user-authorized P09 scope",
+  "node": "v24.20.0",
+  "git": {
+    "head": "9383ad2b82a999571f85383b73adfd5b670ae440",
+    "gitlinks": [
+      "160000 7d25cfe4830da3856661f7449260e9027c596afb 0\tangular",
+      "160000 bbbab2f4dc80c0275152d4bf008f52b75c5778d6 0\tdotnet",
+      "160000 e3836080a3214ff029d81e0676e6bb925ab4a1c5 0\tquarkus",
+      "160000 e9b90c31dfa311e0121285c8b7caa37c09cf4287 0\tspringboot-jwks-api"
+    ],
+    "status": "?? observability/p05-candidate/grafana/dashboards/p09-api-operations.json\n?? observability/p05-candidate/grafana/dashboards/p09-telemetry-capacity.json\n?? observability/p09/\n?? observability/roadmap/p09-implementation.md\n?? observability/roadmap/p09-incident-runbooks.md\n?? observability/roadmap/p09-validation/\n"
+  },
+  "checks": {
+    "jp-dev-p09-apis_provisioned": true,
+    "jp-dev-p09-apis_page": true,
+    "jp-dev-p09-telemetry_provisioned": true,
+    "jp-dev-p09-telemetry_page": true,
+    "jp-dev-prometheus": true,
+    "jp-dev-tempo": true,
+    "existing_rules": true,
+    "old_dashboard": true,
+    "service_selectors": true,
+    "grafana_anonymous_denied": true,
+    "logs_anonymous_denied": true,
+    "reader_log_search": true,
+    "actual_trace_query": true,
+    "runtime_preserved": true,
+    "no_new_exported_names": true
+  },
+  "queries": [
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 1,
+      "title": "Scrape availability (not application readiness)",
+      "query": "max by(job)(up{job=~\"user-api|vocabulary-api\"})",
+      "unit": "short",
+      "status": "PASS",
+      "series": 2,
+      "values": [
+        {
+          "metric": {
+            "job": "user-api"
+          },
+          "value": [
+            1794639984.881,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "job": "vocabulary-api"
+          },
+          "value": [
+            1794639984.881,
+            "1"
+          ]
+        }
+      ],
+      "rangeSeries": 2,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 2,
+      "title": "HTTP throughput / 5m",
+      "query": "sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))",
+      "unit": "reqps",
+      "status": "PASS",
+      "series": 2,
+      "values": [
+        {
+          "metric": {
+            "job": "user-api"
+          },
+          "value": [
+            1794639985.201,
+            "0"
+          ]
+        },
+        {
+          "metric": {
+            "job": "vocabulary-api"
+          },
+          "value": [
+            1794639985.201,
+            "0.16491170206420325"
+          ]
+        }
+      ],
+      "rangeSeries": 2,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 3,
+      "title": "HTTP 5xx fraction / 5m",
+      "query": "sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\",code=~\"5..\"}[5m])) / sum by(job)(rate(http_requests_received_total{job=~\"user-api|vocabulary-api\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\",status=~\"5..\"}[5m])) / sum by(job)(rate(http_server_requests_seconds_count{job=~\"user-api|vocabulary-api\"}[5m]))",
+      "unit": "percentunit",
+      "status": "PASS",
+      "series": 0,
+      "values": [],
+      "rangeSeries": 0,
+      "emptyDisposition": "Explicit gap; see runbook, not a healthy zero"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 4,
+      "title": "HTTP p95 / 5m",
+      "query": "histogram_quantile(0.95,sum by(job,le)(rate(http_request_duration_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m]))) or histogram_quantile(0.95,sum by(job,le)(rate(http_server_requests_seconds_bucket{job=~\"user-api|vocabulary-api\"}[5m])))",
+      "unit": "s",
+      "status": "PASS",
+      "series": 2,
+      "values": [
+        {
+          "metric": {
+            "job": "user-api"
+          },
+          "value": [
+            1794639985.837,
+            "NaN"
+          ]
+        },
+        {
+          "metric": {
+            "job": "vocabulary-api"
+          },
+          "value": [
+            1794639985.837,
+            "0.009706521739130437"
+          ]
+        }
+      ],
+      "rangeSeries": 2,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 5,
+      "title": "Managed / JVM heap memory",
+      "query": "sum by(job)(dotnet_total_memory_bytes{job=~\"user-api|vocabulary-api\"}) or sum by(job)(jvm_memory_used_bytes{job=~\"user-api|vocabulary-api\",area=\"heap\"})",
+      "unit": "bytes",
+      "status": "PASS",
+      "series": 2,
+      "values": [
+        {
+          "metric": {
+            "job": "user-api"
+          },
+          "value": [
+            1794639986.154,
+            "13433912"
+          ]
+        },
+        {
+          "metric": {
+            "job": "vocabulary-api"
+          },
+          "value": [
+            1794639986.154,
+            "26981608"
+          ]
+        }
+      ],
+      "rangeSeries": 2,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 6,
+      "title": "User API CPU / 5m",
+      "query": "sum by(job)(rate(process_cpu_seconds_total{job=\"user-api\"}[5m]))",
+      "unit": "short",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {
+            "job": "user-api"
+          },
+          "value": [
+            1794639986.514,
+            "0.0006618035087719214"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 7,
+      "title": "Vocabulary process CPU fraction",
+      "query": "max by(job)(process_cpu_usage{job=\"vocabulary-api\"})",
+      "unit": "percentunit",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {
+            "job": "vocabulary-api"
+          },
+          "value": [
+            1794639986.837,
+            "0.0015151515151515152"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 8,
+      "title": "SQL Server client pool connections",
+      "query": "sum by(state)(app_database_pool_connections{job=\"user-api\"})",
+      "unit": "short",
+      "status": "PASS",
+      "series": 3,
+      "values": [
+        {
+          "metric": {
+            "state": "pooled"
+          },
+          "value": [
+            1794639987.142,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "state": "active"
+          },
+          "value": [
+            1794639987.142,
+            "0"
+          ]
+        },
+        {
+          "metric": {
+            "state": "idle"
+          },
+          "value": [
+            1794639987.142,
+            "1"
+          ]
+        }
+      ],
+      "rangeSeries": 3,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 9,
+      "title": "Vocabulary pool queue",
+      "query": "sum(sql_pool_queue_size{job=\"vocabulary-api\"})",
+      "unit": "short",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {},
+          "value": [
+            1794639987.462,
+            "0"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-apis",
+      "panel": 10,
+      "title": "Vocabulary pool utilization",
+      "query": "max(sql_pool_ratio{job=\"vocabulary-api\"})",
+      "unit": "percentunit",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {},
+          "value": [
+            1794639987.763,
+            "0"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 1,
+      "title": "Telemetry scrape availability",
+      "query": "max by(job)(up{job=~\"prometheus|p07-storage\"})",
+      "unit": "short",
+      "status": "PASS",
+      "series": 2,
+      "values": [
+        {
+          "metric": {
+            "job": "prometheus"
+          },
+          "value": [
+            1794639988.204,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "job": "p07-storage"
+          },
+          "value": [
+            1794639988.204,
+            "1"
+          ]
+        }
+      ],
+      "rangeSeries": 2,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 2,
+      "title": "Physical backing disk free",
+      "query": "min(p07_backing_disk_available_bytes)",
+      "unit": "bytes",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {},
+          "value": [
+            1794639988.571,
+            "152972902400"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 3,
+      "title": "Telemetry stored bytes",
+      "query": "max by(store)(p07_telemetry_storage_used_bytes)",
+      "unit": "bytes",
+      "status": "PASS",
+      "series": 3,
+      "values": [
+        {
+          "metric": {
+            "store": "opensearch"
+          },
+          "value": [
+            1794639988.899,
+            "7262208"
+          ]
+        },
+        {
+          "metric": {
+            "store": "prometheus"
+          },
+          "value": [
+            1794639988.899,
+            "10440704"
+          ]
+        },
+        {
+          "metric": {
+            "store": "fluent-bit"
+          },
+          "value": [
+            1794639988.899,
+            "4673536"
+          ]
+        }
+      ],
+      "rangeSeries": 3,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 4,
+      "title": "Telemetry budget utilization",
+      "query": "max by(store)(p07_telemetry_storage_used_bytes / p07_telemetry_storage_budget_bytes)",
+      "unit": "percentunit",
+      "status": "PASS",
+      "series": 3,
+      "values": [
+        {
+          "metric": {
+            "store": "opensearch"
+          },
+          "value": [
+            1794639989.225,
+            "0.0002818107604980469"
+          ]
+        },
+        {
+          "metric": {
+            "store": "prometheus"
+          },
+          "value": [
+            1794639989.225,
+            "0.0048618316650390625"
+          ]
+        },
+        {
+          "metric": {
+            "store": "fluent-bit"
+          },
+          "value": [
+            1794639989.225,
+            "0.06964111328125"
+          ]
+        }
+      ],
+      "rangeSeries": 3,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 5,
+      "title": "Storage measurement errors",
+      "query": "max by(store)(p07_telemetry_storage_measurement_error)",
+      "unit": "short",
+      "status": "PASS",
+      "series": 2,
+      "values": [
+        {
+          "metric": {
+            "store": "tempo"
+          },
+          "value": [
+            1794639989.564,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "store": "grafana"
+          },
+          "value": [
+            1794639989.564,
+            "1"
+          ]
+        }
+      ],
+      "rangeSeries": 2,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 6,
+      "title": "Storage measurement coverage",
+      "query": "count by(store)(p07_telemetry_storage_used_bytes)",
+      "unit": "short",
+      "status": "PASS",
+      "series": 3,
+      "values": [
+        {
+          "metric": {
+            "store": "opensearch"
+          },
+          "value": [
+            1794639989.87,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "store": "prometheus"
+          },
+          "value": [
+            1794639989.87,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "store": "fluent-bit"
+          },
+          "value": [
+            1794639989.87,
+            "1"
+          ]
+        }
+      ],
+      "rangeSeries": 3,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 7,
+      "title": "Alert states",
+      "query": "count by(alertstate,severity)(ALERTS)",
+      "unit": "short",
+      "status": "PASS",
+      "series": 0,
+      "values": [],
+      "rangeSeries": 0,
+      "emptyDisposition": "Explicit gap; see runbook, not a healthy zero"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 8,
+      "title": "Notification delivery failures / 5m",
+      "query": "sum(rate(prometheus_notifications_errors_total{job=\"prometheus\"}[5m]))",
+      "unit": "ops",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {},
+          "value": [
+            1794639990.515,
+            "0"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 9,
+      "title": "Local sink notifications / 5m",
+      "query": "sum(rate(p07_notifications_received_total[5m]))",
+      "unit": "ops",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {},
+          "value": [
+            1794639990.825,
+            "0"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    },
+    {
+      "dashboard": "jp-dev-p09-telemetry",
+      "panel": 10,
+      "title": "Prometheus rule evaluation failures / 5m",
+      "query": "sum(rate(prometheus_rule_evaluation_failures_total{job=\"prometheus\"}[5m]))",
+      "unit": "ops",
+      "status": "PASS",
+      "series": 1,
+      "values": [
+        {
+          "metric": {},
+          "value": [
+            1794639991.153,
+            "0"
+          ]
+        }
+      ],
+      "rangeSeries": 1,
+      "emptyDisposition": "Data returned; values inspected"
+    }
+  ],
+  "rules": [
+    {
+      "name": "jp_p05.availability",
+      "rules": 4,
+      "healthy": true
+    },
+    {
+      "name": "jp_p05.capacity",
+      "rules": 11,
+      "healthy": true
+    },
+    {
+      "name": "jp_p05.dependencies",
+      "rules": 6,
+      "healthy": true
+    },
+    {
+      "name": "jp_p05.http",
+      "rules": 5,
+      "healthy": true
+    },
+    {
+      "name": "jp_p05.integrity",
+      "rules": 5,
+      "healthy": true
+    },
+    {
+      "name": "jp_p05.recording",
+      "rules": 15,
+      "healthy": true
+    },
+    {
+      "name": "jp_p05.security",
+      "rules": 2,
+      "healthy": true
+    },
+    {
+      "name": "p07.storage",
+      "rules": 6,
+      "healthy": true
+    }
+  ],
+  "selectors": [
+    {
+      "job": "user-api",
+      "panel": 1,
+      "status": "PASS"
+    },
+    {
+      "job": "user-api",
+      "panel": 2,
+      "status": "PASS"
+    },
+    {
+      "job": "user-api",
+      "panel": 3,
+      "status": "PASS"
+    },
+    {
+      "job": "user-api",
+      "panel": 4,
+      "status": "PASS"
+    },
+    {
+      "job": "user-api",
+      "panel": 5,
+      "status": "PASS"
+    },
+    {
+      "job": "vocabulary-api",
+      "panel": 1,
+      "status": "PASS"
+    },
+    {
+      "job": "vocabulary-api",
+      "panel": 2,
+      "status": "PASS"
+    },
+    {
+      "job": "vocabulary-api",
+      "panel": 3,
+      "status": "PASS"
+    },
+    {
+      "job": "vocabulary-api",
+      "panel": 4,
+      "status": "PASS"
+    },
+    {
+      "job": "vocabulary-api",
+      "panel": 5,
+      "status": "PASS"
+    }
+  ],
+  "logCoverage": {
+    "environments": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "production",
+          "doc_count": 2696
+        },
+        {
+          "key": "development",
+          "doc_count": 102
+        }
+      ]
+    },
+    "services": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "user-api",
+          "doc_count": 2696
+        },
+        {
+          "key": "vocabulary-api",
+          "doc_count": 96
+        },
+        {
+          "key": "jwks-api",
+          "doc_count": 6
+        }
+      ]
+    }
+  },
+  "targets": [
+    {
+      "job": "p07-storage",
+      "health": "up",
+      "error": false
+    },
+    {
+      "job": "prometheus",
+      "health": "up",
+      "error": false
+    },
+    {
+      "job": "user-api",
+      "health": "up",
+      "error": false
+    },
+    {
+      "job": "vocabulary-api",
+      "health": "up",
+      "error": false
+    }
+  ],
+  "tempo": [
+    {
+      "service": "vocabulary-api",
+      "hasTraceId": true
+    },
+    {
+      "service": "vocabulary-api",
+      "hasTraceId": true
+    },
+    {
+      "service": "vocabulary-api",
+      "hasTraceId": true
+    },
+    {
+      "service": "vocabulary-api",
+      "hasTraceId": true
+    },
+    {
+      "service": "vocabulary-api",
+      "hasTraceId": true
+    }
+  ],
+  "after": [
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "testOwner": null,
+      "service": "otel-collector",
+      "started": "2026-11-14T02:07:56.906790876Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/otelcol/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "testOwner": null,
+      "service": "sqlserver-init",
+      "started": "2026-11-14T03:40:03.657946174Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": []
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "testOwner": null,
+      "service": "flyway-user",
+      "started": "2026-11-14T03:40:04.468052653Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "testOwner": null,
+      "service": "opensearch-dashboards",
+      "started": "2026-11-14T02:17:22.223423846Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_dashboards_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "name": "/jp_learning_dev-opensearch-1",
+      "testOwner": null,
+      "service": "opensearch",
+      "started": "2026-11-14T02:13:30.952614428Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "testOwner": null,
+      "service": "sqlserver",
+      "started": "2026-11-14T02:07:57.816168174Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/opt/mssql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_sqlserver_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "testOwner": null,
+      "service": "logs-ui",
+      "started": "2026-11-14T03:57:06.955787809Z",
+      "restarts": 28,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/logs.htpasswd",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "name": "/jp_learning_dev-frontend-1",
+      "testOwner": null,
+      "service": "frontend",
+      "started": "2026-11-14T02:11:21.037998247Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": []
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "testOwner": null,
+      "service": "fluent-bit",
+      "started": "2026-11-14T02:16:35.684864127Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/logs/jwks",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/user",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/vocabulary",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/state",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "name": "/jp_learning_dev-logging-init-1",
+      "testOwner": null,
+      "service": "logging-init",
+      "started": "2026-11-14T03:40:03.45946961Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/p07",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "testOwner": null,
+      "service": "jwks-api",
+      "started": "2026-11-14T02:07:57.547688835Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-1.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-2.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-3.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "testOwner": null,
+      "service": "logging-ui-init",
+      "started": "2026-11-14T03:40:04.708527429Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "testOwner": null,
+      "service": "storage-monitor",
+      "started": "2026-11-14T02:24:04.982815535Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/config/storage-monitor.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/host-docker-data",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/stores/fluent-bit",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/grafana",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/opensearch",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/prometheus",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/tempo",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "name": "/jp_learning_dev-mysql-1",
+      "testOwner": null,
+      "service": "mysql",
+      "started": "2026-11-14T02:10:28.505009281Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/lib/mysql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_mysql_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "name": "/jp_learning_dev-user-api-1",
+      "testOwner": null,
+      "service": "user-api",
+      "started": "2026-11-14T02:10:38.569569353Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwt",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "testOwner": null,
+      "service": "flyway-vocabulary",
+      "started": "2026-11-14T03:40:03.275109096Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "testOwner": null,
+      "service": "vocabulary-api",
+      "started": "2026-11-14T02:10:58.883310872Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/deployments/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "name": "/jp_learning_dev-gateway-1",
+      "testOwner": null,
+      "service": "gateway",
+      "started": "2026-11-14T02:11:15.687020204Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "name": "/jp_learning_dev-grafana-1",
+      "testOwner": null,
+      "service": "grafana",
+      "started": "2026-11-14T02:12:13.462124388Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/p05-dashboards",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "name": "/jp_learning_dev-tempo-1",
+      "testOwner": null,
+      "service": "tempo",
+      "started": "2026-11-14T02:07:58.056649903Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/tempo/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/tempo",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "name": "/jp_learning_dev-prometheus-1",
+      "testOwner": null,
+      "service": "prometheus",
+      "started": "2026-11-14T02:24:04.4098479Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/monitor.token",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "Type": "bind"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Live Grafana currently has only an Admin account; viewer denial must be tested in isolated fixture, no live users added.",
+    "Missing Tempo/Grafana store measurements, absent 5xx series and absent direct backend/exporter metrics remain explicit gaps.",
+    "HTML route checks plus provisioned API JSON are reproducible loading evidence, not screenshots."
+  ]
+}

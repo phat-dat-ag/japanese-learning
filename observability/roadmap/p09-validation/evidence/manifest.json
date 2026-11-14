@@ -1,0 +1,200 @@
+{
+  "utc": "2026-11-14T07:09:43.205Z",
+  "artifacts": [
+    {
+      "file": "observability/roadmap/p09-validation/build.cjs",
+      "sha256": "b08f15f06259dd58eac3e5057a8247663b8ed075b206239f0ce0a566355e39de",
+      "bytes": 7435
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/baseline.json",
+      "sha256": "fee110fd70e396d0bc9d92f76fb004c0b5b8e64f525a06673bf23c6ef0df028b",
+      "bytes": 43302
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/cleanup.json",
+      "sha256": "5ed3896d0b9373ded0dd7e693e4e005bd9efc0edbdb7226eaa19fc89ae831fc0",
+      "bytes": 115
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/isolated.json",
+      "sha256": "528c65e021c3558aec5fcdfd9d742affb5248080ca1c8b06d1319aed18e29359",
+      "bytes": 53254
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/live.json",
+      "sha256": "534658048b3225bc46da4822e00aeb09f02c202817494c8fd914311101d6bacc",
+      "bytes": 41697
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/navigation-tests.json",
+      "sha256": "26d834e02e540c07daf8641e7aeb925de941c6cd6dd1765563d63304b2f48417",
+      "bytes": 541
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/p09_fixture_0b71a81bba2b.json",
+      "sha256": "a033a198771198166e90d22b7b3c40c195591bfa4b94925e6d87a411bcacc325",
+      "bytes": 52019
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/p09_fixture_2e7671b6d461.json",
+      "sha256": "4894ebb769cce68a180a69470b1a88437f0e16484c73910305462a0a4a22c5a7",
+      "bytes": 53079
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/p09_fixture_445a992f73b7.json",
+      "sha256": "528c65e021c3558aec5fcdfd9d742affb5248080ca1c8b06d1319aed18e29359",
+      "bytes": 53254
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/p09_fixture_6133276737db.json",
+      "sha256": "220ce778c0fc44810a7620827e0b4758b403043bdb790a01b6d604b86e6ec0b0",
+      "bytes": 48655
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/p09_fixture_746103e2a816.json",
+      "sha256": "991c9611e63981a6cca5f72ee6d6d49b095c18bb9f2a0ab129e56c936cc0b767",
+      "bytes": 51741
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/p09_fixture_ca40baaada08.json",
+      "sha256": "10595fe682f55b18f0963745055e1a4d6677517920b54e8e036feb3cec6860aa",
+      "bytes": 48655
+    },
+    {
+      "file": "observability/roadmap/p09-validation/evidence/panel-tests.json",
+      "sha256": "9616a7de4b673447ea93bf9fbb9eb9691ae93cf08fbdff11c2ce6726555562fc",
+      "bytes": 398
+    },
+    {
+      "file": "observability/roadmap/p09-validation/finalize.cjs",
+      "sha256": "40fda421ca1362c0fd950d6a6be1296713a43b5185beb5abe00ece0a210f2999",
+      "bytes": 5655
+    },
+    {
+      "file": "observability/roadmap/p09-validation/fixture.py",
+      "sha256": "ce36419d8aa6c1215d9aedfa31b8f98f4edccbfdde838870d05382de8ca5357e",
+      "bytes": 1605
+    },
+    {
+      "file": "observability/roadmap/p09-validation/isolated.cjs",
+      "sha256": "44be67d3bde911f44137a1d19788c64f7b880de48d6f5f3c2fab4aa00af02e8d",
+      "bytes": 10017
+    },
+    {
+      "file": "observability/roadmap/p09-validation/panels.tests.json",
+      "sha256": "ba65fa36414ce5c31a35e0f1f149b7ecd2b76a224e94b7307a68186a9e87f1ca",
+      "bytes": 25095
+    },
+    {
+      "file": "observability/roadmap/p09-validation/runtime.cjs",
+      "sha256": "5f55ab9871b7c68f80ca9aebb16f8110102d3765fbf6e5a6885c656be42c2944",
+      "bytes": 982
+    },
+    {
+      "file": "observability/roadmap/p09-validation/test-navigation.cjs",
+      "sha256": "ba22ba63b6d8c16dcc51588649321900d4690cef4bd789971388ab10f60aea1d",
+      "bytes": 2264
+    },
+    {
+      "file": "observability/roadmap/p09-validation/test-panels.cjs",
+      "sha256": "a3f8900722a3665a63641a7e229783d041358c2c117a6c73d550e1bd422df583",
+      "bytes": 4463
+    },
+    {
+      "file": "observability/roadmap/p09-validation/verify-cleanup.cjs",
+      "sha256": "5b62aa4a82898c9dfab49ab205ebf92268d38d3e384b0aabe0e8c5a156c88969",
+      "bytes": 587
+    },
+    {
+      "file": "observability/roadmap/p09-validation/verify-live.cjs",
+      "sha256": "55074054d3c7f378ff8a2bcee30c00aee07b01aa4346c7d3e55c808824abb9d6",
+      "bytes": 5818
+    },
+    {
+      "file": "observability/p09/discover-views.json",
+      "sha256": "81102ed4e8b886dfe1a63d5cbccfede4a63f762476512a71d4c1d31c4c07cb80",
+      "bytes": 2253
+    },
+    {
+      "file": "observability/p05-candidate/grafana/dashboards/p09-api-operations.json",
+      "sha256": "0e58e1fdf456dbf890ca5e061112bfeb0b2e432d47c4fd4f5bc4b8b48510ca20",
+      "bytes": 14186
+    },
+    {
+      "file": "observability/p05-candidate/grafana/dashboards/p09-telemetry-capacity.json",
+      "sha256": "a2a2bfc531b5b2e90c9569228f2c2b991562b31065d0b4b4223ab6e310990cdc",
+      "bytes": 13326
+    },
+    {
+      "file": "observability/roadmap/p09-implementation.md",
+      "sha256": "01b71c9e9bbd63468bb3bdcd4b79e5c612d728305d05a5e1a06aeac663eadd54",
+      "bytes": 7827
+    },
+    {
+      "file": "observability/roadmap/p09-incident-runbooks.md",
+      "sha256": "15cfc9db2933f2db7c75a10b630e7e40a01d4391c2601a585666bf9f49e7d03a",
+      "bytes": 7104
+    },
+    {
+      "file": "observability/roadmap/p09-verification.md",
+      "sha256": "7217806d154974cacff0f6b87f471940b43756ad55d7b70513e4785acbde0bc3",
+      "bytes": 5690
+    },
+    {
+      "file": "observability/roadmap/implementation-roadmap.md",
+      "sha256": "b7c2d2c1384a97a376b522700d60ce58cfa78466ccf7a813cbf62b1a41e29835",
+      "bytes": 9598
+    }
+  ],
+  "unchangedReferenceConfigs": [
+    {
+      "file": "docker-compose.yml",
+      "sha256": "f49ffe680c7914ae8164e7a9cdc7a1638e5a3675d001ef6b107ce1f4a3081c9d"
+    },
+    {
+      "file": "observability/p07/grafana/provisioning/dashboards/health.yml",
+      "sha256": "8c0b876052ad915090128dc3ee02b9482c7821f823a4ba219bcb752d0ef4f7b2"
+    },
+    {
+      "file": "observability/p07/grafana/provisioning/datasources/prometheus.yml",
+      "sha256": "74fab96fef095f01986f28da9b9b18af5bb01e9895e5028b50e8cba68fc228dd"
+    },
+    {
+      "file": "observability/p07/grafana/provisioning/datasources/tempo.yml",
+      "sha256": "e15573d2a1fc3f5ad1dc62906f232646301e082297623e6a7fc630c78fd2e2ef"
+    },
+    {
+      "file": "observability/p05-candidate/grafana/dashboards/monitoring-health.json",
+      "sha256": "3acfa3acf6e4ae216719834506d0276db0ae428144e8981e94503ee361da53ff"
+    },
+    {
+      "file": "observability/p07/prometheus/prometheus.yml",
+      "sha256": "58cd78e2adf9344911ef44078c0ab9bb7144bc083bfd5f231e632019da9cf5ec"
+    },
+    {
+      "file": "observability/p07/prometheus/rules/p05.rules.yml",
+      "sha256": "3d1573f633b189b4749ba1d7e371979a24887f851ccc6c2d19709c463cd6ceef"
+    },
+    {
+      "file": "observability/p07/prometheus/rules/storage.rules.yml",
+      "sha256": "5160d1da480fa26f958462fbaaf53ff51a757c37cb5c8da0f4a59e8f60ff044f"
+    },
+    {
+      "file": "observability/p08/runtime.cjs",
+      "sha256": "39b739039b7996a82e9bd0e741a39616c43ce487acd8ed8b4ffcaeec67940f73"
+    },
+    {
+      "file": "observability/p08/local-backup.cjs",
+      "sha256": "64df2c6a957f75538617a79c622ddb60a9ae0e4762f04337772a6e897f6ade00"
+    },
+    {
+      "file": "observability/p08/local-drill.cjs",
+      "sha256": "99bd64a67230ebcdfe705fb6182343460f98525804ff801c3f23d282bf2d523c"
+    },
+    {
+      "file": "observability/roadmap/p08-development-policy.md",
+      "sha256": "406a58ec55763f3b5b9fd837961dc9e8d131f98259e2834052592aeb1faacc98"
+    }
+  ]
+}
