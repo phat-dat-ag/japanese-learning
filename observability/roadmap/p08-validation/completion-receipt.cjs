@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path');
+const r=require('../../p08/runtime.cjs');
+const base='observability/roadmap/p08-validation/evidence/',read=f=>JSON.parse(fs.readFileSync(base+f));
+const accepted=read('development-acceptance.json'),profile=read('recovery-profile-validation.json'),verification=read('development-verification-3e9957ce2c2cb272.json'),old=read('acceptance.json');
+const preserved=(old.retainedEvidence||[]).every(f=>r.hash(fs.readFileSync(base+f.file))===f.sha256);
+if(accepted.decision!=='PASS'||!profile.pass||!verification.passed||!preserved)throw Error('Completion gate failed');
+const config=JSON.parse(fs.readFileSync('.local/p08-development/config.json'));
+const temp='verification-'+verification.id;if(fs.existsSync(path.join(config.stagingRoot,temp)))require('../../p08/cleanup-staging.cjs').clean(config.stagingRoot,temp,base+'development-verification-3e9957ce2c2cb272.json');
+const other='verification-3805d3ba19ddc4df';if(fs.existsSync(path.join(config.stagingRoot,other)))require('../../p08/cleanup-staging.cjs').clean(config.stagingRoot,other,base+'development-verification-3805d3ba19ddc4df.json');
+const result={phase:'P08',status:'PASS_LOCAL_DEVELOPMENT_ONLY',createdUtc:new Date().toISOString(),originalCandidateEvidenceBytePreserved:preserved,finalAutomatedChecksPassed:verification.passed,nativeFunctionalAcceptance:'development-acceptance.json',finalDisposableExpiryProfileNativeValidated:profile.pass,profileScope:profile.scope,sourceHashes:verification.sourceHashes,protectedRuntimeNow:r.inventory(),noCommitOrPush:true,p09Started:false,overallRoadmap:'Unfinished; P09-P11 untouched',references:['development-acceptance.json','development-verification-3e9957ce2c2cb272.json','recovery-profile-validation.json'].map(file=>({file,sha256:r.hash(fs.readFileSync(base+file))}))};
+fs.writeFileSync(base+'development-completion.json',JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({status:result.status,oldEvidenceBytePreserved:preserved}));

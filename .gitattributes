@@ -1,1 +1,2 @@
 scripts/generate-production-keys.sh text eol=lf
+observability/logging/logs-ui-entrypoint.sh text eol=lf

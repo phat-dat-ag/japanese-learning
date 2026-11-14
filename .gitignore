@@ -19,6 +19,7 @@ Thumbs.db
 !.env.p07.example
 secrets/
 .local/
+JapaneseLearningBackups/
 *.[pP][eE][mM]
 *.key
 *.pfx

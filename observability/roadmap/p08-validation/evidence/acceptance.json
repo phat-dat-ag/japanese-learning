@@ -1,0 +1,137 @@
+{
+  "phase": "P08",
+  "status": "PARTIAL",
+  "phaseAcceptance": "BLOCKED",
+  "createdUtc": "2026-11-14T03:47:44.543Z",
+  "scope": "Candidate implementation and same-host synthetic validation only",
+  "automatedPassed": true,
+  "nativeChecks": {
+    "source_ready": "PASS",
+    "source_writer_user": "PASS",
+    "source_writer_role": "PASS",
+    "source_writer_map": "PASS",
+    "source_reader_user": "PASS",
+    "source_reader_role": "PASS",
+    "source_reader_map": "PASS",
+    "create_index": "PASS",
+    "synthetic_0": "PASS",
+    "synthetic_1": "PASS",
+    "synthetic_2": "PASS",
+    "synthetic_3": "PASS",
+    "synthetic_4": "PASS",
+    "synthetic_5": "PASS",
+    "synthetic_6": "PASS",
+    "synthetic_7": "PASS",
+    "synthetic_8": "PASS",
+    "synthetic_9": "PASS",
+    "synthetic_10": "PASS",
+    "synthetic_11": "PASS",
+    "source_search": "PASS",
+    "snapshot_repo": "PASS",
+    "native_snapshot": "PASS",
+    "native_snapshot_success": "PASS",
+    "authenticated_package_restore": "PASS",
+    "restore_ready": "PASS",
+    "restore_writer_user": "PASS",
+    "restore_writer_role": "PASS",
+    "restore_writer_map": "PASS",
+    "restore_reader_user": "PASS",
+    "restore_reader_role": "PASS",
+    "restore_reader_map": "PASS",
+    "readonly_repository": "PASS",
+    "native_restore": "PASS",
+    "native_shard_integrity": "PASS",
+    "index_green": "PASS",
+    "restore_search": "PASS",
+    "document_integrity": "PASS",
+    "mapping_query": "PASS",
+    "mapping_restored": "PASS",
+    "settings_query": "PASS",
+    "settings_restored": "PASS",
+    "reader_query": "PASS",
+    "anonymous_denied": "PASS",
+    "invalid_credentials_denied": "PASS",
+    "reader_write_denied": "PASS",
+    "writer_read_denied": "PASS",
+    "reader_admin_denied": "PASS",
+    "writer_out_of_scope_denied": "PASS",
+    "post_restore_ingest": "PASS",
+    "representative_query": "PASS",
+    "ingest_query": "PASS",
+    "restored_alert_rule_evaluation": "PASS",
+    "live_resources_unchanged": "FAIL"
+  },
+  "candidateSourcesMatch": true,
+  "localCandidateRecovery": {
+    "rpoSeconds": 5.573,
+    "rtoSeconds": 65.938,
+    "start": "2026-11-14T03:45:06.304Z",
+    "end": "2026-11-14T03:46:12.242Z",
+    "scope": "Snapshot event to local declaration; full decrypt/native startup/auth/query/ingest plus rule evaluation. Excludes off-host transfer, restored Grafana/metrics/traces and notification delivery. NOT authoritative full-service RTO."
+  },
+  "offHostRecovery": "NOT VERIFIED",
+  "fullServiceRPO_RTO": "NOT VERIFIED",
+  "retentionGovernance": "BLOCKED_PENDING_APPROVAL",
+  "unattendedDeployment": "NOT INSTALLED",
+  "nativeAcquisitionAdapters": "NOT VERIFIED for recurring real-store acquisition",
+  "protectedInventoryChanges": [
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "changedFields": [
+        "started",
+        "restarts"
+      ],
+      "beforeStarted": "2026-11-14T03:43:04.187554111Z",
+      "afterStarted": "2026-11-14T03:46:04.89382058Z",
+      "beforeRestarts": 15,
+      "afterRestarts": 18
+    }
+  ],
+  "preservation": "FAIL observed runtime drift; not waived or rewritten",
+  "policyApprovals": "D06 and R10–R13 remain pending",
+  "p07QuotaException": "Unchanged; development-only, not a hard-quota PASS",
+  "externalNotificationsSent": false,
+  "committed": false,
+  "pushed": false,
+  "blockers": [
+    "Approved ownership/data classification, independent destination, transport and key custody, retention/storage budget, backup/drill schedules and RPO/RTO",
+    "Approved complete store acquisition/configuration set, scale-appropriate backup backend and independently restored metrics/traces/Grafana/collector/alert pipeline",
+    "Investigate changed existing initialization timestamps and Logs UI restart state before claiming protected-runtime preservation; P08 issues no lifecycle commands for them"
+  ],
+  "evidence": [
+    {
+      "file": "observability/roadmap/p08-validation/evidence/p08_automated_f69dcb8839b4b03e.json",
+      "sha256": "ed9bf527fe5b68a6c74185320733e3bbf2e4b34985f752e0aca941e86c91abcb"
+    },
+    {
+      "file": "observability/roadmap/p08-validation/evidence/p08_drill_5ffec34627f7f0c1.json",
+      "sha256": "26955dfc8674df23755e9da1c96132c47e977ca1b524b31427e28528f80c7bcf"
+    }
+  ],
+  "finalReadOnlyInventory": {
+    "code": 0,
+    "output": "fe3e899eb918 jp_learning_dev-prometheus-1 Up About an hour (healthy)\n3a6c42728e92 jp_learning_dev-opensearch-dashboards-1 Up 2 hours (healthy)\n4a7e82a13a94 jp_learning_dev-logs-ui-1 Restarting (2) 39 seconds ago\n7e63fc5112fd jp_learning_dev-logging-ui-init-1 Exited (0) 7 minutes ago\n605bb21e8fbe jp_learning_dev-fluent-bit-1 Up 2 hours\n6781af78bf91 jp_learning_dev-logging-init-1 Exited (0) 7 minutes ago\n3b44d22c3c04 jp_learning_dev-opensearch-1 Up 2 hours (healthy)\n83033855dac0 jp_learning_dev-storage-monitor-1 Up About an hour (healthy)\ne069b646cb21 jp_learning_dev-grafana-1 Up 2 hours (healthy)\n4e9c586148e6 jp_learning_dev-frontend-1 Up 2 hours (healthy)\ncea182cbaac2 jp_learning_dev-gateway-1 Up 2 hours (healthy)\nb198d608d42e jp_learning_dev-vocabulary-api-1 Up 2 hours (healthy)\n8c85bc3b117a jp_learning_dev-user-api-1 Up 2 hours (healthy)\n18babbc67581 jp_learning_dev-flyway-user-1 Exited (0) 7 minutes ago\na5dcce7aaaa5 jp_learning_dev-flyway-vocabulary-1 Exited (0) 7 minutes ago\n84b98ea41601 jp_learning_dev-mysql-1 Up 2 hours (healthy)\n17f08e4ed9dc jp_learning_dev-sqlserver-init-1 Exited (0) 7 minutes ago\n75e87b13b349 jp_learning_dev-jwks-api-1 Up 2 hours (healthy)\n0825f1575433 jp_learning_dev-otel-collector-1 Up 2 hours\ned12a0929c49 jp_learning_dev-tempo-1 Up 2 hours\n46aa76144deb jp_learning_dev-sqlserver-1 Up 2 hours (healthy)\n"
+  },
+  "retainedEvidence": [
+    {
+      "file": "p08_automated_f69dcb8839b4b03e.json",
+      "sha256": "ed9bf527fe5b68a6c74185320733e3bbf2e4b34985f752e0aca941e86c91abcb"
+    },
+    {
+      "file": "p08_drill_4c41444f416bb565.json",
+      "sha256": "0fbe1f7d53ddf7725cd9f48581acb6d060b180a0f7660c30e73068bd0f9c8558"
+    },
+    {
+      "file": "p08_drill_5ffec34627f7f0c1.json",
+      "sha256": "26955dfc8674df23755e9da1c96132c47e977ca1b524b31427e28528f80c7bcf"
+    },
+    {
+      "file": "p08_drill_659e384d40ef3d70.json",
+      "sha256": "3a916c7d3d446d62632dd7ce505354410bd1af677895040bcdfb891cddd09f72"
+    },
+    {
+      "file": "p08_drill_ef94e87f97216e26.json",
+      "sha256": "49b0f8a7b72b815a50b6a73a5604e83b9c8298bf996aa0d8a2ad4beacbc81cc6"
+    }
+  ]
+}
