@@ -1,0 +1,11 @@
+{
+  "run": "jp_obs_validation_20261114094944_d6fdccb7",
+  "utc": "2026-11-14T09:51:33.947Z",
+  "removed": [
+    "cc57412800d9f5074ff6113f827a39daddac60684986e2c020af6b1669af071a",
+    "329aa3f892ae344a742267ecaee5c84d949f4360175bd8aabef9c62c20f6da48",
+    "7b6601817913d74990a21a3ef87bfc82ea7e5815ce9c6958974670e5c00e81ab",
+    "jp_obs_validation_20261114094944_d6fdccb7_source",
+    "jp_obs_validation_20261114094944_d6fdccb7_queue"
+  ]
+}

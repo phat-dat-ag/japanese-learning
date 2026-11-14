@@ -1,0 +1,43 @@
+{
+  "positive": true,
+  "negativeCases": [
+    {
+      "project": ""
+    },
+    {
+      "project": "jp_learning_dev"
+    },
+    {
+      "project": "springboot_project"
+    },
+    {
+      "collision": true
+    },
+    {
+      "owner": "wrong"
+    },
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6"
+    },
+    {
+      "external": true
+    },
+    {
+      "symlink": true
+    },
+    {
+      "protectedEndpoint": true
+    },
+    {
+      "binds": true
+    },
+    {
+      "hardBytes": 0
+    },
+    {
+      "network": "host"
+    }
+  ],
+  "passed": 12,
+  "total": 12
+}

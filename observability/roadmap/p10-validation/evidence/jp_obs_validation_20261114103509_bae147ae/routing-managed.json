@@ -1,0 +1,585 @@
+{
+  "run": "jp_obs_validation_20261114103509_bae147ae",
+  "utc": "2026-11-14T10:35:38.959Z",
+  "status": "PASS",
+  "scope": "Native Grafana-managed multidimensional rule -> embedded Alertmanager -> private webhook; existing Prometheus destination untouched",
+  "contact": {
+    "status": 202,
+    "data": {
+      "uid": "p10-private",
+      "name": "p10-private",
+      "type": "webhook",
+      "settings": {
+        "httpMethod": "POST",
+        "url": "http://agent:8001/webhook"
+      },
+      "disableResolveMessage": false
+    }
+  },
+  "policy": {
+    "status": 202,
+    "data": {
+      "message": "policies updated"
+    }
+  },
+  "folder": 200,
+  "rule": {
+    "status": 201,
+    "data": {
+      "id": 1,
+      "uid": "p10-native-grouping",
+      "orgID": 1,
+      "folderUID": "p10-routing",
+      "ruleGroup": "p10-routing",
+      "title": "P10NativeManagedGrouping",
+      "condition": "B",
+      "data": [
+        {
+          "refId": "A",
+          "queryType": "",
+          "relativeTimeRange": {
+            "from": 60,
+            "to": 0
+          },
+          "datasourceUid": "jp-dev-prometheus",
+          "model": {
+            "expr": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+            "instant": true,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "range": false,
+            "refId": "A"
+          }
+        },
+        {
+          "refId": "B",
+          "queryType": "",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          },
+          "datasourceUid": "__expr__",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    0.5
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": [
+                    "B"
+                  ]
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "last"
+                },
+                "type": "query"
+              }
+            ],
+            "expression": "A",
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "B",
+            "type": "threshold"
+          }
+        }
+      ],
+      "updated": "2026-11-14T10:35:42.87350109Z",
+      "noDataState": "NoData",
+      "execErrState": "Error",
+      "for": "0s",
+      "keep_firing_for": "0s",
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "P10 isolated native grouping"
+      },
+      "labels": {
+        "owner": "jp-operations"
+      },
+      "provenance": "api",
+      "isPaused": false,
+      "notification_settings": null,
+      "record": null
+    }
+  },
+  "group": {
+    "status": 200,
+    "data": {
+      "title": "p10-routing",
+      "folderUid": "p10-routing",
+      "interval": 10,
+      "rules": [
+        {
+          "id": 1,
+          "uid": "p10-native-grouping",
+          "orgID": 1,
+          "folderUID": "p10-routing",
+          "ruleGroup": "p10-routing",
+          "title": "P10NativeManagedGrouping",
+          "condition": "B",
+          "data": [
+            {
+              "refId": "A",
+              "queryType": "",
+              "relativeTimeRange": {
+                "from": 60,
+                "to": 0
+              },
+              "datasourceUid": "jp-dev-prometheus",
+              "model": {
+                "expr": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                "instant": true,
+                "intervalMs": 1000,
+                "maxDataPoints": 43200,
+                "range": false,
+                "refId": "A"
+              }
+            },
+            {
+              "refId": "B",
+              "queryType": "",
+              "relativeTimeRange": {
+                "from": 0,
+                "to": 0
+              },
+              "datasourceUid": "__expr__",
+              "model": {
+                "conditions": [
+                  {
+                    "evaluator": {
+                      "params": [
+                        0.5
+                      ],
+                      "type": "gt"
+                    },
+                    "operator": {
+                      "type": "and"
+                    },
+                    "query": {
+                      "params": [
+                        "B"
+                      ]
+                    },
+                    "reducer": {
+                      "params": [],
+                      "type": "last"
+                    },
+                    "type": "query"
+                  }
+                ],
+                "expression": "A",
+                "intervalMs": 1000,
+                "maxDataPoints": 43200,
+                "refId": "B",
+                "type": "threshold"
+              }
+            }
+          ],
+          "updated": "2026-11-14T10:35:42.87350109Z",
+          "noDataState": "NoData",
+          "execErrState": "Error",
+          "for": "0s",
+          "keep_firing_for": "0s",
+          "annotations": {
+            "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+            "summary": "P10 isolated native grouping"
+          },
+          "labels": {
+            "owner": "jp-operations"
+          },
+          "provenance": "api",
+          "isPaused": false,
+          "notification_settings": null,
+          "record": null
+        }
+      ]
+    }
+  },
+  "runtimeRules": {
+    "status": 200,
+    "data": {
+      "status": "success",
+      "data": {
+        "groups": [
+          {
+            "name": "p10-routing",
+            "file": "P10 isolated routing",
+            "folderUid": "p10-routing",
+            "rules": [
+              {
+                "state": "inactive",
+                "name": "P10NativeManagedGrouping",
+                "query": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                "queriedDatasourceUIDs": [
+                  "jp-dev-prometheus"
+                ],
+                "annotations": {
+                  "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                  "summary": "P10 isolated native grouping"
+                },
+                "alerts": [
+                  {
+                    "labels": {
+                      "alertname": "P10NativeManagedGrouping",
+                      "dependency": "database",
+                      "grafana_folder": "P10 isolated routing",
+                      "instance": "agent:8000",
+                      "job": "fixture",
+                      "owner": "jp-operations"
+                    },
+                    "annotations": {
+                      "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                      "summary": "P10 isolated native grouping"
+                    },
+                    "state": "Normal",
+                    "activeAt": "2026-11-14T10:35:50Z",
+                    "value": ""
+                  },
+                  {
+                    "labels": {
+                      "alertname": "P10NativeManagedGrouping",
+                      "dependency": "jwks",
+                      "grafana_folder": "P10 isolated routing",
+                      "instance": "agent:8000",
+                      "job": "fixture",
+                      "owner": "jp-operations"
+                    },
+                    "annotations": {
+                      "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                      "summary": "P10 isolated native grouping"
+                    },
+                    "state": "Normal",
+                    "activeAt": "2026-11-14T10:35:50Z",
+                    "value": ""
+                  }
+                ],
+                "totals": {
+                  "normal": 2
+                },
+                "totalsFiltered": {
+                  "normal": 2
+                },
+                "uid": "p10-native-grouping",
+                "folderUid": "p10-routing",
+                "labels": {
+                  "owner": "jp-operations"
+                },
+                "health": "ok",
+                "type": "alerting",
+                "lastEvaluation": "2026-11-14T10:35:50Z",
+                "evaluationTime": 0.00555176,
+                "isPaused": false,
+                "provenance": "api"
+              }
+            ],
+            "totals": {
+              "inactive": 1
+            },
+            "interval": 10,
+            "lastEvaluation": "2026-11-14T10:35:50Z",
+            "evaluationTime": 0.00555176
+          }
+        ],
+        "totals": {
+          "inactive": 1
+        }
+      }
+    }
+  },
+  "activeAlertmanager": {
+    "status": 200,
+    "data": {
+      "cluster": {
+        "peers": [],
+        "status": "disabled"
+      },
+      "config": {
+        "route": {
+          "receiver": "p10-private",
+          "group_by": [
+            "alertname"
+          ],
+          "routes": [
+            {
+              "receiver": "p10-private",
+              "object_matchers": [
+                [
+                  "__grafana_autogenerated__",
+                  "=",
+                  "true"
+                ]
+              ],
+              "routes": [
+                {
+                  "receiver": "empty",
+                  "group_by": [
+                    "grafana_folder",
+                    "alertname"
+                  ],
+                  "object_matchers": [
+                    [
+                      "__grafana_receiver__",
+                      "=",
+                      "empty"
+                    ]
+                  ]
+                },
+                {
+                  "receiver": "p10-private",
+                  "group_by": [
+                    "grafana_folder",
+                    "alertname"
+                  ],
+                  "object_matchers": [
+                    [
+                      "__grafana_receiver__",
+                      "=",
+                      "p10-private"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "group_wait": "1s",
+          "group_interval": "5s",
+          "repeat_interval": "1h"
+        },
+        "receivers": [
+          {
+            "name": "empty"
+          },
+          {
+            "name": "p10-private",
+            "grafana_managed_receiver_configs": [
+              {
+                "uid": "p10-private",
+                "name": "p10-private",
+                "type": "webhook",
+                "version": "v1",
+                "disableResolveMessage": false,
+                "settings": {
+                  "httpMethod": "POST",
+                  "url": "http://agent:8001/webhook"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "uptime": null,
+      "versionInfo": {
+        "branch": "N/A",
+        "buildDate": "N/A",
+        "buildUser": "N/A",
+        "goVersion": "N/A",
+        "revision": "N/A",
+        "version": "N/A"
+      }
+    }
+  },
+  "duringFaultRules": {
+    "status": 200,
+    "data": {
+      "status": "success",
+      "data": {
+        "groups": [
+          {
+            "name": "p10-routing",
+            "file": "P10 isolated routing",
+            "folderUid": "p10-routing",
+            "rules": [
+              {
+                "state": "firing",
+                "name": "P10NativeManagedGrouping",
+                "query": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                "queriedDatasourceUIDs": [
+                  "jp-dev-prometheus"
+                ],
+                "annotations": {
+                  "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                  "summary": "P10 isolated native grouping"
+                },
+                "activeAt": "2026-11-14T10:36:40Z",
+                "alerts": [
+                  {
+                    "labels": {
+                      "alertname": "P10NativeManagedGrouping",
+                      "dependency": "database",
+                      "grafana_folder": "P10 isolated routing",
+                      "instance": "agent:8000",
+                      "job": "fixture",
+                      "owner": "jp-operations"
+                    },
+                    "annotations": {
+                      "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                      "summary": "P10 isolated native grouping"
+                    },
+                    "state": "Alerting",
+                    "activeAt": "2026-11-14T10:36:40Z",
+                    "value": "1e+00"
+                  },
+                  {
+                    "labels": {
+                      "alertname": "P10NativeManagedGrouping",
+                      "dependency": "jwks",
+                      "grafana_folder": "P10 isolated routing",
+                      "instance": "agent:8000",
+                      "job": "fixture",
+                      "owner": "jp-operations"
+                    },
+                    "annotations": {
+                      "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                      "summary": "P10 isolated native grouping"
+                    },
+                    "state": "Alerting",
+                    "activeAt": "2026-11-14T10:36:40Z",
+                    "value": "1e+00"
+                  }
+                ],
+                "totals": {
+                  "alerting": 2
+                },
+                "totalsFiltered": {
+                  "alerting": 2
+                },
+                "uid": "p10-native-grouping",
+                "folderUid": "p10-routing",
+                "labels": {
+                  "owner": "jp-operations"
+                },
+                "health": "ok",
+                "type": "alerting",
+                "lastEvaluation": "2026-11-14T10:36:40Z",
+                "evaluationTime": 0.003227812,
+                "isPaused": false,
+                "provenance": "api"
+              }
+            ],
+            "totals": {
+              "firing": 1
+            },
+            "interval": 10,
+            "lastEvaluation": "2026-11-14T10:36:40Z",
+            "evaluationTime": 0.003227812
+          }
+        ],
+        "totals": {
+          "firing": 1
+        }
+      }
+    }
+  },
+  "duringFaultEvents": [
+    {
+      "received": 1794652601.016049,
+      "status": "firing",
+      "groupKey": "{}:{alertname=\"P10NativeManagedGrouping\"}",
+      "alerts": [
+        {
+          "status": "firing",
+          "labels": {
+            "alertname": "P10NativeManagedGrouping",
+            "dependency": "database",
+            "grafana_folder": "P10 isolated routing",
+            "instance": "agent:8000",
+            "job": "fixture",
+            "owner": "jp-operations"
+          },
+          "fingerprint": "b36d214ecc5d0a82"
+        },
+        {
+          "status": "firing",
+          "labels": {
+            "alertname": "P10NativeManagedGrouping",
+            "dependency": "jwks",
+            "grafana_folder": "P10 isolated routing",
+            "instance": "agent:8000",
+            "job": "fixture",
+            "owner": "jp-operations"
+          },
+          "fingerprint": "e0b34bc9fa4584f6"
+        }
+      ]
+    }
+  ],
+  "firingSeconds": 7.295,
+  "faultSeconds": 11.172,
+  "resolutionSeconds": 7.613,
+  "events": [
+    {
+      "received": 1794652601.016049,
+      "status": "firing",
+      "groupKey": "{}:{alertname=\"P10NativeManagedGrouping\"}",
+      "alerts": [
+        {
+          "status": "firing",
+          "labels": {
+            "alertname": "P10NativeManagedGrouping",
+            "dependency": "database",
+            "grafana_folder": "P10 isolated routing",
+            "instance": "agent:8000",
+            "job": "fixture",
+            "owner": "jp-operations"
+          },
+          "fingerprint": "b36d214ecc5d0a82"
+        },
+        {
+          "status": "firing",
+          "labels": {
+            "alertname": "P10NativeManagedGrouping",
+            "dependency": "jwks",
+            "grafana_folder": "P10 isolated routing",
+            "instance": "agent:8000",
+            "job": "fixture",
+            "owner": "jp-operations"
+          },
+          "fingerprint": "e0b34bc9fa4584f6"
+        }
+      ]
+    },
+    {
+      "received": 1794652611.0145319,
+      "status": "resolved",
+      "groupKey": "{}:{alertname=\"P10NativeManagedGrouping\"}",
+      "alerts": [
+        {
+          "status": "resolved",
+          "labels": {
+            "alertname": "P10NativeManagedGrouping",
+            "dependency": "database",
+            "grafana_folder": "P10 isolated routing",
+            "instance": "agent:8000",
+            "job": "fixture",
+            "owner": "jp-operations"
+          },
+          "fingerprint": "b36d214ecc5d0a82"
+        },
+        {
+          "status": "resolved",
+          "labels": {
+            "alertname": "P10NativeManagedGrouping",
+            "dependency": "jwks",
+            "grafana_folder": "P10 isolated routing",
+            "instance": "agent:8000",
+            "job": "fixture",
+            "owner": "jp-operations"
+          },
+          "fingerprint": "e0b34bc9fa4584f6"
+        }
+      ]
+    }
+  ],
+  "firingDeliveries": 1,
+  "groupedAlertCounts": [
+    2
+  ],
+  "finishedUtc": "2026-11-14T10:36:53.099Z"
+}

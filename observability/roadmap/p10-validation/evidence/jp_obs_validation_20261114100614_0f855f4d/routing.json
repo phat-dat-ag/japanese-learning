@@ -1,0 +1,32 @@
+{
+  "run": "jp_obs_validation_20261114100614_0f855f4d",
+  "utc": "2026-11-14T10:09:12.164Z",
+  "status": "BLOCKED",
+  "scope": "Native embedded Grafana Alertmanager grouping/deduplication/resolution to a private receiver; direct synthetic alert input, not a live destination",
+  "contact": {
+    "status": 202,
+    "data": {
+      "uid": "p10-private",
+      "name": "p10-private",
+      "type": "webhook",
+      "settings": {
+        "httpMethod": "POST",
+        "url": "http://agent:8001/webhook"
+      },
+      "disableResolveMessage": false
+    }
+  },
+  "policy": {
+    "status": 202,
+    "data": {
+      "message": "policies updated"
+    }
+  },
+  "posts": [
+    400,
+    400,
+    400
+  ],
+  "reason": "Embedded Alertmanager rejected external synthetic alert input",
+  "finishedUtc": "2026-11-14T10:09:22.923Z"
+}

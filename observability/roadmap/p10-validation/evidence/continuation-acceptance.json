@@ -1,0 +1,1309 @@
+{
+  "phase": "P10",
+  "status": "PARTIAL",
+  "scope": "Local development only; no production readiness",
+  "utc": "2026-11-14T10:52:48.766Z",
+  "authority": "p10-development-policy.md and current user P10 continuation instruction",
+  "selected": {
+    "native": "jp_obs_validation_20261114100614_0f855f4d",
+    "pressure": "jp_obs_validation_20261114101510_db3b3b73",
+    "dependencies": "jp_obs_validation_20261114103330_35f14ce3",
+    "routing": "jp_obs_validation_20261114103509_bae147ae",
+    "monitoring": "jp_obs_validation_20261114103848_5de8e2be"
+  },
+  "runs": [
+    {
+      "run": "jp_obs_validation_20261114094744_16f8080c",
+      "status": "BLOCKED",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T09:48:09.342Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114094944_d6fdccb7",
+      "status": "BLOCKED",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T09:50:09.197Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114095134_410dae74",
+      "status": "BLOCKED",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T09:54:09.708Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114095521_4caad727",
+      "status": "BLOCKED",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T09:57:53.377Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114095846_703afeb9",
+      "status": "BLOCKED",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T10:01:20.252Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114100251_42da2f8f",
+      "status": "BLOCKED",
+      "kind": "native dependency adapters",
+      "finishedUtc": "2026-11-14T10:03:09.533Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114100406_fb5b64df",
+      "status": "BLOCKED",
+      "kind": "native dependency adapters",
+      "finishedUtc": "2026-11-14T10:06:14.257Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114100614_0f855f4d",
+      "status": "PARTIAL",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T10:11:15.025Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114101225_8272a24b",
+      "status": "PASS",
+      "kind": "native dependency adapters",
+      "finishedUtc": "2026-11-14T10:13:26.817Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114101510_db3b3b73",
+      "status": "PARTIAL",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T10:17:42.224Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114101915_5711f271",
+      "status": "PARTIAL",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T10:20:22.589Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114103011_a37bf472",
+      "status": "PARTIAL",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T10:31:25.953Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114103330_35f14ce3",
+      "status": "PASS",
+      "kind": "native dependency adapters",
+      "finishedUtc": "2026-11-14T10:35:09.093Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114103509_bae147ae",
+      "status": "PARTIAL",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T10:37:07.024Z"
+    },
+    {
+      "run": "jp_obs_validation_20261114103848_5de8e2be",
+      "status": "PARTIAL",
+      "kind": "native telemetry",
+      "finishedUtc": "2026-11-14T10:39:51.299Z"
+    }
+  ],
+  "checks": {
+    "originalContainersPreserved": true,
+    "originalContainerCount": 52,
+    "originalVolumesPreserved": true,
+    "backupPreservation": true,
+    "schedulePreservation": true,
+    "privacy": true,
+    "artifactAllowance": true,
+    "disposableCleanup": true
+  },
+  "artifactBytes": 11958938,
+  "originalRuleCases": 43,
+  "scenarios": {
+    "fluent": {
+      "status": "PASS",
+      "startedUtc": "2026-11-14T10:08:11.782Z",
+      "workload": {
+        "nominal": {
+          "count": 8,
+          "ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "seconds": 2.002790793999793,
+          "statuses": {},
+          "bytes": 598
+        },
+        "generated": {
+          "count": 20,
+          "ids": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "seconds": 5.007964171999902,
+          "statuses": {},
+          "bytes": 1510
+        }
+      },
+      "outageSeconds": 8.022,
+      "recoverySeconds": 3.688,
+      "drainSeconds": 2.74,
+      "drainDeadlineReached": false,
+      "expected": 28,
+      "delivered": 28,
+      "unique": 28,
+      "missing": [],
+      "duplicates": 0,
+      "storage": {
+        "/queue": {
+          "bytes": 8388608,
+          "used": 159744
+        },
+        "/source": {
+          "bytes": 8388608,
+          "used": 4096
+        }
+      },
+      "lossPolicy": "Bounded retries (3), filesystem queue candidate; observed loss is explicitly counted, not a zero-loss guarantee",
+      "totalSeconds": 18.285
+    },
+    "tempo": {
+      "status": "PASS",
+      "startedUtc": "2026-11-14T10:08:33.113Z",
+      "workload": {
+        "nominal": {
+          "count": 4,
+          "ids": [
+            101,
+            102,
+            103,
+            104
+          ],
+          "seconds": 1.0346430550002879,
+          "statuses": {
+            "200": 4
+          },
+          "bytes": 0
+        },
+        "generated": {
+          "count": 20,
+          "ids": [
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ],
+          "seconds": 5.05642856500026,
+          "statuses": {
+            "200": 20
+          },
+          "bytes": 0
+        }
+      },
+      "outageSeconds": 8.24,
+      "recoveryAndQuerySeconds": 34.782,
+      "expected": 24,
+      "delivered": 24,
+      "missing": [],
+      "spanCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "queryVisibleDuplicates": 0,
+      "duplicateLimit": "Tempo may deduplicate identical span IDs; transport retry duplication cannot be inferred solely from native trace query",
+      "privacySentinelAbsent": true,
+      "totalSeconds": 46.98
+    },
+    "scraping": {
+      "status": "PASS",
+      "startedUtc": "2026-11-14T10:09:23.198Z",
+      "faultSeconds": 10.881,
+      "detectionSeconds": 9.771,
+      "recoverySeconds": 7.622,
+      "alert": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "dashboardProvisioned": true,
+      "observedDownSamples": 2,
+      "collectionBehavior": "Scrape up=0 samples recorded; application exposition unavailable during fault, not backfilled",
+      "ruleScope": "Short fixture rule (3s pending); original long pending rules unchanged",
+      "totalSeconds": 19.502
+    },
+    "pressure": {
+      "status": "PARTIAL",
+      "startedUtc": "2026-11-14T10:16:35.076Z",
+      "workload": {
+        "count": 12,
+        "ids": [
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212
+        ],
+        "seconds": 3.0051086450002913,
+        "statuses": {},
+        "bytes": 922
+      },
+      "postRecoveryWorkload": {
+        "count": 4,
+        "ids": [
+          301,
+          302,
+          303,
+          304
+        ],
+        "seconds": 1.0017893100002766,
+        "statuses": {},
+        "bytes": 307
+      },
+      "postRecoveryDelivered": 4,
+      "pressure": {
+        "bytes": 8306688,
+        "freeBytes": 0
+      },
+      "pressureSeconds": 8.936,
+      "recoveryObservationSeconds": 6.088,
+      "expected": 12,
+      "delivered": 0,
+      "unique": 0,
+      "missing": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212
+      ],
+      "duplicates": 0,
+      "storageAfter": {
+        "/queue": {
+          "bytes": 8388608,
+          "used": 98304
+        },
+        "/source": {
+          "bytes": 8388608,
+          "used": 4096
+        }
+      },
+      "scope": "Fluent Bit active offset/chunk filesystem forced ENOSPC on dedicated 8MiB volume; no host pressure",
+      "lossDisposition": "Missing records measured; native drop-counter reconciliation and approved loss disposition remain unresolved",
+      "totalSeconds": 20.432
+    },
+    "offsets": {
+      "status": "PASS",
+      "startedUtc": "2026-11-14T10:16:58.247Z",
+      "offsetsBefore": {
+        "integrity": "ok",
+        "rows": [
+          [
+            "/source/events.json",
+            1826
+          ]
+        ],
+        "fileBytes": 1826
+      },
+      "offsetsAfter": {
+        "integrity": "ok",
+        "rows": [
+          [
+            "/source/events.json",
+            1826
+          ]
+        ],
+        "fileBytes": 1826
+      },
+      "generated": {
+        "count": 4,
+        "ids": [
+          401,
+          402,
+          403,
+          404
+        ],
+        "seconds": 1.0013425729998744,
+        "statuses": {},
+        "bytes": 305
+      },
+      "recordsBefore": 12,
+      "recordsAfter": 16,
+      "duplicates": 0,
+      "collectorRestartToVerifiedDeliverySeconds": 14.104,
+      "scope": "Native tail SQLite offsets and filesystem chunks survive owned collector restart while independent bounded volumes remain mounted; not host-loss durability",
+      "totalSeconds": 16.109
+    },
+    "recovery": {
+      "status": "PASS",
+      "startedUtc": "2026-11-14T10:17:17.200Z",
+      "scope": "Synthetic native log logical restore into a new index on the isolated store; not complete store/host disaster recovery",
+      "records": 16,
+      "bytes": 1759,
+      "expectedHash": "c0594b95fca4d887f3d58f878dc5c3b084311cd5c203159e44e323fac6db8d8e",
+      "actualHash": "c0594b95fca4d887f3d58f878dc5c3b084311cd5c203159e44e323fac6db8d8e",
+      "rpoSeconds": 12.00935595703125,
+      "rtoSeconds": 4.463,
+      "rpoTargetSeconds": 86400,
+      "rtoTargetSeconds": 14400,
+      "serviceOrder": [
+        "authenticate package",
+        "decrypt create-only directory",
+        "create fresh isolated index",
+        "bulk import",
+        "refresh",
+        "query IDs/content"
+      ],
+      "fullTelemetryAndOffsetsRecovery": "NOT VERIFIED",
+      "totalSeconds": 6.518
+    },
+    "dependencies": [
+      {
+        "name": "database_unavailability",
+        "status": "PASS",
+        "workloadRequests": 2,
+        "clients": 1,
+        "faultSeconds": 5.264,
+        "detectionSeconds": 5.108,
+        "alertEvidence": [
+          {
+            "labels": {
+              "alertname": "P10DependencyFailure",
+              "dependency": "database",
+              "instance": "gateway:8080",
+              "job": "p10-gateway",
+              "owner": "jp-application"
+            },
+            "annotations": {
+              "summary": "Isolated dependency failure"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-14T10:33:59.374620321Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "P10DependencyFailure",
+              "dependency": "database",
+              "instance": "app:8003",
+              "job": "p10-app",
+              "owner": "jp-application"
+            },
+            "annotations": {
+              "summary": "Isolated dependency failure"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-14T10:33:59.374620321Z",
+            "value": "0e+00"
+          }
+        ],
+        "resolved": true,
+        "failureStatus": 503,
+        "failureResponseSeconds": 0.49634701600007247,
+        "recoveryStatus": 200,
+        "recoverySeconds": 4.353,
+        "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+        "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+      },
+      {
+        "name": "jwks_unavailability",
+        "status": "PASS",
+        "workloadRequests": 2,
+        "clients": 1,
+        "faultSeconds": 5.055,
+        "detectionSeconds": 4.895,
+        "alertEvidence": [
+          {
+            "labels": {
+              "alertname": "P10DependencyFailure",
+              "dependency": "jwks",
+              "instance": "app:8003",
+              "job": "p10-app",
+              "owner": "jp-application"
+            },
+            "annotations": {
+              "summary": "Isolated dependency failure"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-14T10:34:12.374620321Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "P10DependencyFailure",
+              "dependency": "jwks",
+              "instance": "gateway:8080",
+              "job": "p10-gateway",
+              "owner": "jp-application"
+            },
+            "annotations": {
+              "summary": "Isolated dependency failure"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-14T10:34:12.374620321Z",
+            "value": "0e+00"
+          }
+        ],
+        "resolved": true,
+        "failureStatus": 503,
+        "failureResponseSeconds": 0.493284587999824,
+        "recoveryStatus": 200,
+        "recoverySeconds": 4.366,
+        "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+        "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+      },
+      {
+        "name": "app_unavailability",
+        "status": "PASS",
+        "workloadRequests": 2,
+        "clients": 1,
+        "faultSeconds": 5.716,
+        "detectionSeconds": 5.575,
+        "alertEvidence": [
+          {
+            "labels": {
+              "alertname": "P10DependencyScrapeDown",
+              "instance": "app:8003",
+              "job": "p10-app",
+              "owner": "jp-operations"
+            },
+            "annotations": {
+              "summary": "Isolated application or gateway unavailable"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-14T10:34:23.374620321Z",
+            "value": "0e+00"
+          }
+        ],
+        "resolved": true,
+        "failureStatus": 504,
+        "failureResponseSeconds": 1.0182085830001597,
+        "recoveryStatus": 200,
+        "recoverySeconds": 4.278,
+        "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+        "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+      },
+      {
+        "name": "gateway_unavailability",
+        "status": "PASS",
+        "workloadRequests": 2,
+        "clients": 1,
+        "faultSeconds": 6.12,
+        "detectionSeconds": 5.972,
+        "alertEvidence": [
+          {
+            "labels": {
+              "alertname": "P10DependencyScrapeDown",
+              "instance": "gateway:8080",
+              "job": "p10-gateway",
+              "owner": "jp-operations"
+            },
+            "annotations": {
+              "summary": "Isolated application or gateway unavailable"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-14T10:34:37.374620321Z",
+            "value": "0e+00"
+          }
+        ],
+        "resolved": true,
+        "failureStatus": 0,
+        "failureResponseSeconds": 1.5946162459999869,
+        "recoveryStatus": 200,
+        "recoverySeconds": 4.531,
+        "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+        "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+      },
+      {
+        "name": "native_sqlite_exclusive_lock",
+        "status": "PASS",
+        "faultSeconds": 5,
+        "observationSeconds": 7.179,
+        "failure": {
+          "status": 503,
+          "data": null,
+          "seconds": 0.22368139999980485
+        },
+        "recovered": {
+          "status": 200,
+          "data": {
+            "outcome": "ok"
+          },
+          "seconds": 0.09482113300009587
+        },
+        "scope": "Native SQLite behind fixture HTTP adapter; not MySQL or SQL Server wire protocol"
+      }
+    ],
+    "routing": {
+      "run": "jp_obs_validation_20261114103509_bae147ae",
+      "utc": "2026-11-14T10:35:38.959Z",
+      "status": "PASS",
+      "scope": "Native Grafana-managed multidimensional rule -> embedded Alertmanager -> private webhook; existing Prometheus destination untouched",
+      "contact": {
+        "status": 202,
+        "data": {
+          "uid": "p10-private",
+          "name": "p10-private",
+          "type": "webhook",
+          "settings": {
+            "httpMethod": "POST",
+            "url": "http://agent:8001/webhook"
+          },
+          "disableResolveMessage": false
+        }
+      },
+      "policy": {
+        "status": 202,
+        "data": {
+          "message": "policies updated"
+        }
+      },
+      "folder": 200,
+      "rule": {
+        "status": 201,
+        "data": {
+          "id": 1,
+          "uid": "p10-native-grouping",
+          "orgID": 1,
+          "folderUID": "p10-routing",
+          "ruleGroup": "p10-routing",
+          "title": "P10NativeManagedGrouping",
+          "condition": "B",
+          "data": [
+            {
+              "refId": "A",
+              "queryType": "",
+              "relativeTimeRange": {
+                "from": 60,
+                "to": 0
+              },
+              "datasourceUid": "jp-dev-prometheus",
+              "model": {
+                "expr": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                "instant": true,
+                "intervalMs": 1000,
+                "maxDataPoints": 43200,
+                "range": false,
+                "refId": "A"
+              }
+            },
+            {
+              "refId": "B",
+              "queryType": "",
+              "relativeTimeRange": {
+                "from": 0,
+                "to": 0
+              },
+              "datasourceUid": "__expr__",
+              "model": {
+                "conditions": [
+                  {
+                    "evaluator": {
+                      "params": [
+                        0.5
+                      ],
+                      "type": "gt"
+                    },
+                    "operator": {
+                      "type": "and"
+                    },
+                    "query": {
+                      "params": [
+                        "B"
+                      ]
+                    },
+                    "reducer": {
+                      "params": [],
+                      "type": "last"
+                    },
+                    "type": "query"
+                  }
+                ],
+                "expression": "A",
+                "intervalMs": 1000,
+                "maxDataPoints": 43200,
+                "refId": "B",
+                "type": "threshold"
+              }
+            }
+          ],
+          "updated": "2026-11-14T10:35:42.87350109Z",
+          "noDataState": "NoData",
+          "execErrState": "Error",
+          "for": "0s",
+          "keep_firing_for": "0s",
+          "annotations": {
+            "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+            "summary": "P10 isolated native grouping"
+          },
+          "labels": {
+            "owner": "jp-operations"
+          },
+          "provenance": "api",
+          "isPaused": false,
+          "notification_settings": null,
+          "record": null
+        }
+      },
+      "group": {
+        "status": 200,
+        "data": {
+          "title": "p10-routing",
+          "folderUid": "p10-routing",
+          "interval": 10,
+          "rules": [
+            {
+              "id": 1,
+              "uid": "p10-native-grouping",
+              "orgID": 1,
+              "folderUID": "p10-routing",
+              "ruleGroup": "p10-routing",
+              "title": "P10NativeManagedGrouping",
+              "condition": "B",
+              "data": [
+                {
+                  "refId": "A",
+                  "queryType": "",
+                  "relativeTimeRange": {
+                    "from": 60,
+                    "to": 0
+                  },
+                  "datasourceUid": "jp-dev-prometheus",
+                  "model": {
+                    "expr": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                    "instant": true,
+                    "intervalMs": 1000,
+                    "maxDataPoints": 43200,
+                    "range": false,
+                    "refId": "A"
+                  }
+                },
+                {
+                  "refId": "B",
+                  "queryType": "",
+                  "relativeTimeRange": {
+                    "from": 0,
+                    "to": 0
+                  },
+                  "datasourceUid": "__expr__",
+                  "model": {
+                    "conditions": [
+                      {
+                        "evaluator": {
+                          "params": [
+                            0.5
+                          ],
+                          "type": "gt"
+                        },
+                        "operator": {
+                          "type": "and"
+                        },
+                        "query": {
+                          "params": [
+                            "B"
+                          ]
+                        },
+                        "reducer": {
+                          "params": [],
+                          "type": "last"
+                        },
+                        "type": "query"
+                      }
+                    ],
+                    "expression": "A",
+                    "intervalMs": 1000,
+                    "maxDataPoints": 43200,
+                    "refId": "B",
+                    "type": "threshold"
+                  }
+                }
+              ],
+              "updated": "2026-11-14T10:35:42.87350109Z",
+              "noDataState": "NoData",
+              "execErrState": "Error",
+              "for": "0s",
+              "keep_firing_for": "0s",
+              "annotations": {
+                "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                "summary": "P10 isolated native grouping"
+              },
+              "labels": {
+                "owner": "jp-operations"
+              },
+              "provenance": "api",
+              "isPaused": false,
+              "notification_settings": null,
+              "record": null
+            }
+          ]
+        }
+      },
+      "runtimeRules": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "groups": [
+              {
+                "name": "p10-routing",
+                "file": "P10 isolated routing",
+                "folderUid": "p10-routing",
+                "rules": [
+                  {
+                    "state": "inactive",
+                    "name": "P10NativeManagedGrouping",
+                    "query": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                    "queriedDatasourceUIDs": [
+                      "jp-dev-prometheus"
+                    ],
+                    "annotations": {
+                      "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                      "summary": "P10 isolated native grouping"
+                    },
+                    "alerts": [
+                      {
+                        "labels": {
+                          "alertname": "P10NativeManagedGrouping",
+                          "dependency": "database",
+                          "grafana_folder": "P10 isolated routing",
+                          "instance": "agent:8000",
+                          "job": "fixture",
+                          "owner": "jp-operations"
+                        },
+                        "annotations": {
+                          "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                          "summary": "P10 isolated native grouping"
+                        },
+                        "state": "Normal",
+                        "activeAt": "2026-11-14T10:35:50Z",
+                        "value": ""
+                      },
+                      {
+                        "labels": {
+                          "alertname": "P10NativeManagedGrouping",
+                          "dependency": "jwks",
+                          "grafana_folder": "P10 isolated routing",
+                          "instance": "agent:8000",
+                          "job": "fixture",
+                          "owner": "jp-operations"
+                        },
+                        "annotations": {
+                          "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                          "summary": "P10 isolated native grouping"
+                        },
+                        "state": "Normal",
+                        "activeAt": "2026-11-14T10:35:50Z",
+                        "value": ""
+                      }
+                    ],
+                    "totals": {
+                      "normal": 2
+                    },
+                    "totalsFiltered": {
+                      "normal": 2
+                    },
+                    "uid": "p10-native-grouping",
+                    "folderUid": "p10-routing",
+                    "labels": {
+                      "owner": "jp-operations"
+                    },
+                    "health": "ok",
+                    "type": "alerting",
+                    "lastEvaluation": "2026-11-14T10:35:50Z",
+                    "evaluationTime": 0.00555176,
+                    "isPaused": false,
+                    "provenance": "api"
+                  }
+                ],
+                "totals": {
+                  "inactive": 1
+                },
+                "interval": 10,
+                "lastEvaluation": "2026-11-14T10:35:50Z",
+                "evaluationTime": 0.00555176
+              }
+            ],
+            "totals": {
+              "inactive": 1
+            }
+          }
+        }
+      },
+      "activeAlertmanager": {
+        "status": 200,
+        "data": {
+          "cluster": {
+            "peers": [],
+            "status": "disabled"
+          },
+          "config": {
+            "route": {
+              "receiver": "p10-private",
+              "group_by": [
+                "alertname"
+              ],
+              "routes": [
+                {
+                  "receiver": "p10-private",
+                  "object_matchers": [
+                    [
+                      "__grafana_autogenerated__",
+                      "=",
+                      "true"
+                    ]
+                  ],
+                  "routes": [
+                    {
+                      "receiver": "empty",
+                      "group_by": [
+                        "grafana_folder",
+                        "alertname"
+                      ],
+                      "object_matchers": [
+                        [
+                          "__grafana_receiver__",
+                          "=",
+                          "empty"
+                        ]
+                      ]
+                    },
+                    {
+                      "receiver": "p10-private",
+                      "group_by": [
+                        "grafana_folder",
+                        "alertname"
+                      ],
+                      "object_matchers": [
+                        [
+                          "__grafana_receiver__",
+                          "=",
+                          "p10-private"
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "group_wait": "1s",
+              "group_interval": "5s",
+              "repeat_interval": "1h"
+            },
+            "receivers": [
+              {
+                "name": "empty"
+              },
+              {
+                "name": "p10-private",
+                "grafana_managed_receiver_configs": [
+                  {
+                    "uid": "p10-private",
+                    "name": "p10-private",
+                    "type": "webhook",
+                    "version": "v1",
+                    "disableResolveMessage": false,
+                    "settings": {
+                      "httpMethod": "POST",
+                      "url": "http://agent:8001/webhook"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "uptime": null,
+          "versionInfo": {
+            "branch": "N/A",
+            "buildDate": "N/A",
+            "buildUser": "N/A",
+            "goVersion": "N/A",
+            "revision": "N/A",
+            "version": "N/A"
+          }
+        }
+      },
+      "duringFaultRules": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "groups": [
+              {
+                "name": "p10-routing",
+                "file": "P10 isolated routing",
+                "folderUid": "p10-routing",
+                "rules": [
+                  {
+                    "state": "firing",
+                    "name": "P10NativeManagedGrouping",
+                    "query": "p10_dependency_available{dependency=~\"database|jwks\"} * on() group_left() p07_notification_test",
+                    "queriedDatasourceUIDs": [
+                      "jp-dev-prometheus"
+                    ],
+                    "annotations": {
+                      "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                      "summary": "P10 isolated native grouping"
+                    },
+                    "activeAt": "2026-11-14T10:36:40Z",
+                    "alerts": [
+                      {
+                        "labels": {
+                          "alertname": "P10NativeManagedGrouping",
+                          "dependency": "database",
+                          "grafana_folder": "P10 isolated routing",
+                          "instance": "agent:8000",
+                          "job": "fixture",
+                          "owner": "jp-operations"
+                        },
+                        "annotations": {
+                          "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                          "summary": "P10 isolated native grouping"
+                        },
+                        "state": "Alerting",
+                        "activeAt": "2026-11-14T10:36:40Z",
+                        "value": "1e+00"
+                      },
+                      {
+                        "labels": {
+                          "alertname": "P10NativeManagedGrouping",
+                          "dependency": "jwks",
+                          "grafana_folder": "P10 isolated routing",
+                          "instance": "agent:8000",
+                          "job": "fixture",
+                          "owner": "jp-operations"
+                        },
+                        "annotations": {
+                          "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+                          "summary": "P10 isolated native grouping"
+                        },
+                        "state": "Alerting",
+                        "activeAt": "2026-11-14T10:36:40Z",
+                        "value": "1e+00"
+                      }
+                    ],
+                    "totals": {
+                      "alerting": 2
+                    },
+                    "totalsFiltered": {
+                      "alerting": 2
+                    },
+                    "uid": "p10-native-grouping",
+                    "folderUid": "p10-routing",
+                    "labels": {
+                      "owner": "jp-operations"
+                    },
+                    "health": "ok",
+                    "type": "alerting",
+                    "lastEvaluation": "2026-11-14T10:36:40Z",
+                    "evaluationTime": 0.003227812,
+                    "isPaused": false,
+                    "provenance": "api"
+                  }
+                ],
+                "totals": {
+                  "firing": 1
+                },
+                "interval": 10,
+                "lastEvaluation": "2026-11-14T10:36:40Z",
+                "evaluationTime": 0.003227812
+              }
+            ],
+            "totals": {
+              "firing": 1
+            }
+          }
+        }
+      },
+      "duringFaultEvents": [
+        {
+          "received": 1794652601.016049,
+          "status": "firing",
+          "groupKey": "{}:{alertname=\"P10NativeManagedGrouping\"}",
+          "alerts": [
+            {
+              "status": "firing",
+              "labels": {
+                "alertname": "P10NativeManagedGrouping",
+                "dependency": "database",
+                "grafana_folder": "P10 isolated routing",
+                "instance": "agent:8000",
+                "job": "fixture",
+                "owner": "jp-operations"
+              },
+              "fingerprint": "b36d214ecc5d0a82"
+            },
+            {
+              "status": "firing",
+              "labels": {
+                "alertname": "P10NativeManagedGrouping",
+                "dependency": "jwks",
+                "grafana_folder": "P10 isolated routing",
+                "instance": "agent:8000",
+                "job": "fixture",
+                "owner": "jp-operations"
+              },
+              "fingerprint": "e0b34bc9fa4584f6"
+            }
+          ]
+        }
+      ],
+      "firingSeconds": 7.295,
+      "faultSeconds": 11.172,
+      "resolutionSeconds": 7.613,
+      "events": [
+        {
+          "received": 1794652601.016049,
+          "status": "firing",
+          "groupKey": "{}:{alertname=\"P10NativeManagedGrouping\"}",
+          "alerts": [
+            {
+              "status": "firing",
+              "labels": {
+                "alertname": "P10NativeManagedGrouping",
+                "dependency": "database",
+                "grafana_folder": "P10 isolated routing",
+                "instance": "agent:8000",
+                "job": "fixture",
+                "owner": "jp-operations"
+              },
+              "fingerprint": "b36d214ecc5d0a82"
+            },
+            {
+              "status": "firing",
+              "labels": {
+                "alertname": "P10NativeManagedGrouping",
+                "dependency": "jwks",
+                "grafana_folder": "P10 isolated routing",
+                "instance": "agent:8000",
+                "job": "fixture",
+                "owner": "jp-operations"
+              },
+              "fingerprint": "e0b34bc9fa4584f6"
+            }
+          ]
+        },
+        {
+          "received": 1794652611.0145319,
+          "status": "resolved",
+          "groupKey": "{}:{alertname=\"P10NativeManagedGrouping\"}",
+          "alerts": [
+            {
+              "status": "resolved",
+              "labels": {
+                "alertname": "P10NativeManagedGrouping",
+                "dependency": "database",
+                "grafana_folder": "P10 isolated routing",
+                "instance": "agent:8000",
+                "job": "fixture",
+                "owner": "jp-operations"
+              },
+              "fingerprint": "b36d214ecc5d0a82"
+            },
+            {
+              "status": "resolved",
+              "labels": {
+                "alertname": "P10NativeManagedGrouping",
+                "dependency": "jwks",
+                "grafana_folder": "P10 isolated routing",
+                "instance": "agent:8000",
+                "job": "fixture",
+                "owner": "jp-operations"
+              },
+              "fingerprint": "e0b34bc9fa4584f6"
+            }
+          ]
+        }
+      ],
+      "firingDeliveries": 1,
+      "groupedAlertCounts": [
+        2
+      ],
+      "finishedUtc": "2026-11-14T10:36:53.099Z"
+    },
+    "monitoring": {
+      "status": "PASS",
+      "startedUtc": "2026-11-14T10:39:18.561Z",
+      "outageSeconds": 11.899,
+      "recoverySeconds": 2.787,
+      "direct": {
+        "status": 0,
+        "data": null,
+        "errorClass": "TimeoutError",
+        "diagnostic": "timed out"
+      },
+      "datasource": {
+        "status": 0,
+        "data": null,
+        "errorClass": "TimeoutError",
+        "diagnostic": "timed out"
+      },
+      "panel": {
+        "status": 0,
+        "data": null,
+        "errorClass": "TimeoutError",
+        "diagnostic": "timed out"
+      },
+      "restoredStatus": 200,
+      "historyPreserved": true,
+      "largestSampleGapSeconds": 12.492000102996826,
+      "beforeSamples": 4,
+      "afterSamples": 6,
+      "alertDisposition": "Independent test client detected Prometheus outage; Prometheus cannot detect its own complete outage. No watchdog acceptance claimed.",
+      "dashboardDisposition": "Actual Grafana datasource proxy query failed during outage and recovered; no browser screenshot/visual rendering claim",
+      "totalSeconds": 16.508
+    }
+  },
+  "interpretations": [
+    "The first full-run pressure row was mechanically marked PASS by the generic wrapper. It did not prove post-clear delivery or loss reconciliation. The focused pressure result supersedes that interpretation: PARTIAL, 12 missing, 4 fresh events delivered, 0 duplicates. Historical JSON is retained unchanged.",
+    "Earlier approved-budget blockers are closed by the explicit current user approval; failed startup/routing attempts remain historical evidence."
+  ],
+  "remaining": [
+    "Native ENOSPC loses 12 sequenced records; source offsets advance beyond them, output drop counter does not reconcile the loss. An approved loss disposition or corrected candidate with re-verification is required.",
+    "Full P08 multi-store recovery tooling exceeds the 512 MiB cap unchanged; current P10 restore is synthetic native log logical recovery only, not complete telemetry/config/offset restoration.",
+    "Full outage privacy regression across all token/header/body/key/PII classes, rotated/buffered logs and actual production application auth paths remains NOT VERIFIED.",
+    "Real SQL Server/MySQL and production application/JWKS/gateway behavior is not established by the SQLite HTTP adapter and synthetic RSA application.",
+    "No independent deployed watchdog or external notification/production readiness acceptance.",
+    "Full copied P05 rule catalogue emitted absent-job alerts for intentionally omitted application jobs in the native telemetry fixture; raw receiver repeat notifications remain visible. Native Grafana grouping is separately verified and does not change the live Prometheus receiver."
+  ],
+  "roadmap": {
+    "completeDevelopmentPhases": 10,
+    "total": 12,
+    "P10": "PARTIAL",
+    "P11": "unstarted"
+  },
+  "committed": false,
+  "pushed": false,
+  "resourceSamples": {
+    "samples": [
+      {
+        "run": "jp_obs_validation_20261114100614_0f855f4d",
+        "sample": "stats-finished.json",
+        "totalMemoryBytes": 1224642396.16,
+        "aggregateCpuPercent": 3.04
+      },
+      {
+        "run": "jp_obs_validation_20261114100614_0f855f4d",
+        "sample": "stats-ready.json",
+        "totalMemoryBytes": 1116701982.72,
+        "aggregateCpuPercent": 3.3600000000000003
+      },
+      {
+        "run": "jp_obs_validation_20261114101510_db3b3b73",
+        "sample": "stats-finished.json",
+        "totalMemoryBytes": 1209081528.32,
+        "aggregateCpuPercent": 4.6000000000000005
+      },
+      {
+        "run": "jp_obs_validation_20261114101510_db3b3b73",
+        "sample": "stats-ready.json",
+        "totalMemoryBytes": 1184775536.6399999,
+        "aggregateCpuPercent": 4.03
+      },
+      {
+        "run": "jp_obs_validation_20261114101915_5711f271",
+        "sample": "stats-ready.json",
+        "totalMemoryBytes": 352824852.48,
+        "aggregateCpuPercent": 1.25
+      },
+      {
+        "run": "jp_obs_validation_20261114103011_a37bf472",
+        "sample": "stats-ready.json",
+        "totalMemoryBytes": 305429217.28,
+        "aggregateCpuPercent": 1.31
+      },
+      {
+        "run": "jp_obs_validation_20261114103509_bae147ae",
+        "sample": "stats-ready.json",
+        "totalMemoryBytes": 289973207.04,
+        "aggregateCpuPercent": 1.19
+      },
+      {
+        "run": "jp_obs_validation_20261114103848_5de8e2be",
+        "sample": "stats-ready.json",
+        "totalMemoryBytes": 298990960.64,
+        "aggregateCpuPercent": 0.85
+      }
+    ],
+    "maxSampledCandidateMemoryBytes": 1224642396.16,
+    "continuousPeakMeasured": false
+  },
+  "cleanup": {
+    "utc": "2026-11-14T10:52:47.4966363Z",
+    "containers": [],
+    "volumes": [],
+    "networks": [],
+    "pass": true
+  }
+}

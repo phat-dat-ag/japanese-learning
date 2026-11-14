@@ -1,0 +1,307 @@
+{
+  "phase": "P10",
+  "status": "PARTIAL",
+  "utc": "2026-11-14T13:34:03.516Z",
+  "selected": {
+    "correction": "jp_obs_validation_20261114130109_183210b6",
+    "privacy": "jp_obs_validation_20261114131138_01655ef1",
+    "retention": "jp_obs_validation_20261114131728_dc5f783a"
+  },
+  "checks": {
+    "originalContainersPreserved": true,
+    "originalContainerCount": 52,
+    "originalVolumesPreserved": true,
+    "backupArtifactsPreserved": true,
+    "backupSchedulesPreserved": true,
+    "submodulesPreserved": true,
+    "cleanup": true,
+    "publishedEvidencePrivacy": true,
+    "reusedP09DashboardsUnchanged": true
+  },
+  "cleanup": {
+    "containers": "",
+    "volumes": "",
+    "networks": ""
+  },
+  "dashboardComparisons": [
+    {
+      "file": "observability/p05-candidate/grafana/dashboards/p09-api-operations.json",
+      "priorSha256": "0e58e1fdf456dbf890ca5e061112bfeb0b2e432d47c4fd4f5bc4b8b48510ca20",
+      "currentRawSha256": "4b3feaf8216c4e08dbd56a1e6dbd4573314fe63768195086fe2e7f717aa4b65b",
+      "currentLfSha256": "0e58e1fdf456dbf890ca5e061112bfeb0b2e432d47c4fd4f5bc4b8b48510ca20"
+    },
+    {
+      "file": "observability/p05-candidate/grafana/dashboards/p09-telemetry-capacity.json",
+      "priorSha256": "a2a2bfc531b5b2e90c9569228f2c2b991562b31065d0b4b4223ab6e310990cdc",
+      "currentRawSha256": "708c562b9258e35e694361649dc7fc71ce7c71de9a3ff4f51ee9b6db359ea118",
+      "currentLfSha256": "a2a2bfc531b5b2e90c9569228f2c2b991562b31065d0b4b4223ab6e310990cdc"
+    }
+  ],
+  "correction": {
+    "status": "PASS",
+    "startedUtc": "2026-11-14T13:02:36.587Z",
+    "nominal": {
+      "count": 4,
+      "ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "seconds": 1.0013203669996074,
+      "statuses": {},
+      "bytes": 426
+    },
+    "generated": {
+      "count": 12,
+      "ids": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212
+      ],
+      "seconds": 3.0056020810006885,
+      "statuses": {},
+      "bytes": 1307
+    },
+    "pressure": {
+      "bytes": 8269824,
+      "freeBytes": 0
+    },
+    "faultSeconds": 8.385,
+    "recoverySeconds": 9.338,
+    "generatedUnique": 16,
+    "persistedAtSource": 16,
+    "admittedBeforeRecovery": {
+      "fluentbit_input_records_total{name=\"storage_backlog.2\"}": 0,
+      "fluentbit_input_records_total{name=\"tail.0\"}": 4,
+      "fluentbit_input_records_total{name=\"tail.1\"}": 0,
+      "fluentbit_output_dropped_records_total{name=\"opensearch.0\"}": 0,
+      "fluentbit_output_dropped_records_total{name=\"opensearch.1\"}": 0,
+      "fluentbit_output_proc_records_total{name=\"opensearch.0\"}": 4,
+      "fluentbit_output_proc_records_total{name=\"opensearch.1\"}": 0,
+      "fluentbit_output_retries_failed_total{name=\"opensearch.0\"}": 0,
+      "fluentbit_output_retries_failed_total{name=\"opensearch.1\"}": 0,
+      "fluentbit_output_retries_total{name=\"opensearch.0\"}": 0,
+      "fluentbit_output_retries_total{name=\"opensearch.1\"}": 0
+    },
+    "searchableBeforeReplay": 4,
+    "replay": {
+      "generatedUnique": 16,
+      "alreadySearchable": 4,
+      "replayedIds": [
+        "p10-event-000201",
+        "p10-event-000202",
+        "p10-event-000203",
+        "p10-event-000204",
+        "p10-event-000205",
+        "p10-event-000206",
+        "p10-event-000207",
+        "p10-event-000208",
+        "p10-event-000209",
+        "p10-event-000210",
+        "p10-event-000211",
+        "p10-event-000212"
+      ],
+      "replayPasses": 1,
+      "bytes": 1307,
+      "sourcePreserved": true
+    },
+    "delivered": 16,
+    "missing": [],
+    "duplicates": 0,
+    "remainingBuffered": 0,
+    "admittedAfterRecovery": 16,
+    "nativeOutputProcessed": 16,
+    "nativeOutputDropped": 0,
+    "fresh": {
+      "count": 4,
+      "ids": [
+        401,
+        402,
+        403,
+        404
+      ],
+      "seconds": 1.0023029359999782,
+      "statuses": {},
+      "bytes": 434
+    },
+    "finalGeneratedUnique": 20,
+    "finalDelivered": 20,
+    "collectorRestartVerificationSeconds": 8.317,
+    "recoveryDrops": 0,
+    "nativeAdmissionFailures": 12,
+    "sourceOriginalOffsetBeforeReplay": [
+      [
+        "/source/events.json",
+        426
+      ]
+    ],
+    "sourceOriginalOffsetAfterReplay": [
+      [
+        "/source/events.json",
+        426
+      ],
+      [
+        "/source/reconcile-once.json",
+        1307
+      ]
+    ],
+    "capacityFiring": true,
+    "capacityResolved": true,
+    "scope": "Bounded source-to-search acknowledgement/replay candidate; original Fluent Bit admission defect remains visible; no live deployment or unlimited retry",
+    "totalSeconds": 41.401
+  },
+  "privacy": {
+    "status": "PASS",
+    "startedUtc": "2026-11-14T13:13:04.695Z",
+    "generated": {
+      "count": 8,
+      "classes": [
+        "jwt",
+        "credential",
+        "authorization",
+        "query",
+        "request_body",
+        "response_body",
+        "pii",
+        "signing_key"
+      ],
+      "bytes": 5415
+    },
+    "logs": 8,
+    "traces": {
+      "count": 8,
+      "statuses": {
+        "200": 8
+      },
+      "ids": [
+        801,
+        802,
+        803,
+        804,
+        805,
+        806,
+        807,
+        808
+      ]
+    },
+    "storedTraces": 8,
+    "backendFaultSeconds": 4.156,
+    "logSentinelOccurrences": 0,
+    "traceSentinelOccurrences": 0,
+    "metricPrivacy": true,
+    "dashboardPrivacy": true,
+    "persistedScan": {
+      "persistedCollectorFilesScanned": 6,
+      "sentinelOccurrences": 0,
+      "controlledRawSourceExcluded": true,
+      "processMemoryNotDumped": true
+    },
+    "diagnosticOccurrences": 0,
+    "logFilter": "Exact copied P07 normalize.lua",
+    "traceFilter": "Exact P07 processors; HTTP fixture receiver/metrics added only",
+    "scope": "Collector/store synthetic payload regression; intentional raw source fixture excluded",
+    "totalSeconds": 24.358
+  },
+  "retention": {
+    "status": "PASS",
+    "startedUtc": "2026-11-14T13:18:58.316Z",
+    "attach": {
+      "updated_indices": 1,
+      "failures": false,
+      "failed_indices": []
+    },
+    "expiredIndexDeleted": true,
+    "deleteObservationSeconds": 134.552,
+    "unrelatedIndexPreserved": true,
+    "telemetryCountPreserved": 4,
+    "sqliteIntegrity": "ok",
+    "sourceRetention": {
+      "removed": [
+        "acknowledged.expired"
+      ],
+      "retained": [
+        "unacknowledged.expired",
+        "unrelated.keep"
+      ],
+      "scope": "Owned pre-expired synthetic source files only; do not deploy a source retention policy from this fixture"
+    },
+    "fresh": {
+      "count": 4,
+      "ids": [
+        501,
+        502,
+        503,
+        504
+      ],
+      "seconds": 1.001611525998669,
+      "statuses": {},
+      "bytes": 435
+    },
+    "postRetentionDelivered": 8,
+    "postRetentionSqliteIntegrity": "ok",
+    "scope": "Native ISM deletion on a pre-expired disposable index; prior accepted P07 age eligibility retained; no accelerated live retention or 30-day timing claim",
+    "totalSeconds": 145.861
+  },
+  "fullRecovery": {
+    "status": "BLOCKED",
+    "budgetEvidence": "recovery-budget-1794662156639.json",
+    "referenceTmpfsMiB": 2080,
+    "extractionBytes": 3560732,
+    "openmetricsBytes": 108214021,
+    "referenceTraceRequestMinimum": 542,
+    "measuredStoragePeak": null,
+    "measuredMemoryPeak": null,
+    "proposal": {
+      "totalDisposableStorageMiB": 4096,
+      "backendAndScratchMiB": 2152,
+      "logsMiB": 24,
+      "extractionMiB": 64,
+      "openmetricsInputMiB": 128,
+      "evidenceConfigurationAndEncryptedCopyMiB": 192,
+      "dockerMemoryMiB": 3424,
+      "hostNodeMemoryMiB": 768,
+      "cpuCores": 6,
+      "executionSeconds": 1200,
+      "requestsPerFullDrill": 1500,
+      "requestRate": 5,
+      "concurrentClients": 2,
+      "maxDataPerFullDrillMiB": 512,
+      "faultSeconds": 30,
+      "perDrainObservationSeconds": 120,
+      "execution": "NOT AUTHORIZED / NOT EXECUTED",
+      "plannedMiBBeforeMargin": 2560,
+      "safetyMarginMiB": 1536,
+      "dockerSwapMiB": 0,
+      "memoryJustification": "Reference limits total 3296 MiB. Raise only the isolated Python agent from 128 to 256 MiB and disallow swap, matching its former 256 MiB RAM+swap envelope; largest decoded metric chunk is about 19 MiB. This is a conservative cap, not a measured peak."
+    },
+    "capacity": {
+      "engineBytes": 8165945344,
+      "protectedUsedBytesSampled": 4512586661.888,
+      "headroomExcludingOwnP10Bytes": 3653358682.1120005,
+      "requiredEngineHeadroomMiB": 3680,
+      "feasibleAtSample": false,
+      "physicalDisks": "{\"dockerVirtualFilesystem\": {\"total\": 1081101176832, \"used\": 24665317376, \"free\": 1001443504128}}",
+      "note": "Docker virtual free space is not independent physical backing capacity. No engine settings changed. Defer the drill until headroom meets the guard; never restart the live engine to obtain it."
+    },
+    "authorization": "NOT GRANTED; no over-budget drill executed"
+  },
+  "priorPasses": "All prior native P10 passes and acceptance/manifest bundles retained; current correction is a finite recovery candidate, not a live deployment or a Fluent Bit binary fix",
+  "roadmap": {
+    "acceptedDevelopmentPhases": 10,
+    "total": 12,
+    "P10": "PARTIAL",
+    "P11": "unstarted"
+  },
+  "committed": false,
+  "pushed": false
+}

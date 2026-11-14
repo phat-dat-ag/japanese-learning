@@ -1,0 +1,1159 @@
+{
+  "faults": {
+    "scrape": false,
+    "notification": false
+  },
+  "notifications": [
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650860.9710846
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650860.971091
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650860.9710937
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650875.9711397
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650875.971143
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650875.9711447
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650890.9704895
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650890.9705067
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650890.970508
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650905.9798224
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650905.9798253
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650905.9798274
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650920.9708154
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650920.9708188
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650920.9708207
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650935.9706259
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650935.9706283
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650935.97063
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650950.970978
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650950.9709811
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650950.9709823
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650965.9701588
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650965.9701614
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650965.9701629
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "firing",
+      "received": 1794650971.8241017
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "firing",
+      "received": 1794650977.823972
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794650978.824267
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650980.974833
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650980.9748352
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650980.9748366
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794650984.8237028
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794650990.8233807
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "firing",
+      "received": 1794650991.8241436
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650995.9701653
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650995.9701684
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794650995.9701698
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794650996.8232267
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "firing",
+      "received": 1794650997.8234315
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "resolved",
+      "received": 1794650998.8244317
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794651002.823999
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "resolved",
+      "received": 1794651004.8245227
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794651008.8241503
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "resolved",
+      "received": 1794651010.8243747
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794651010.9704418
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794651010.9704442
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794651010.9704456
+    },
+    {
+      "name": "P07AcceptanceNotification",
+      "labels": {
+        "alertname": "P07AcceptanceNotification",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "phase": "P07",
+        "purpose": "acceptance",
+        "severity": "info"
+      },
+      "annotations": {},
+      "state": "firing",
+      "received": 1794651014.5788531
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794651014.8233795
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "resolved",
+      "received": 1794651016.823372
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794651020.8234663
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "resolved",
+      "received": 1794651022.8239954
+    },
+    {
+      "name": "JpExpectedUserTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedUserTargetMissing",
+        "job": "user-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "user-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794651025.9702134
+    },
+    {
+      "name": "JpExpectedLearningTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedLearningTargetMissing",
+        "job": "vocabulary-api",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "vocabulary-api",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794651025.9702158
+    },
+    {
+      "name": "JpExpectedPrometheusTargetMissing",
+      "labels": {
+        "alertname": "JpExpectedPrometheusTargetMissing",
+        "job": "prometheus",
+        "monitoring_project": "jp_dev",
+        "owner": "jp-operations",
+        "service": "prometheus",
+        "severity": "critical",
+        "signal": "availability"
+      },
+      "annotations": {
+        "description": "Expected configured job has no current up series; inspect config, discovery and staleness before treating this as application failure.",
+        "runbook_ref": "observability/roadmap/p05-alert-contract.md#availability",
+        "summary": "An expected Japanese Learning target is absent"
+      },
+      "state": "firing",
+      "received": 1794651025.970218
+    },
+    {
+      "name": "P10ShortTargetDown",
+      "labels": {
+        "alertname": "P10ShortTargetDown",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "warning"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated P10 scrape unavailable"
+      },
+      "state": "resolved",
+      "received": 1794651026.8236609
+    },
+    {
+      "name": "P10ShortCapacity",
+      "labels": {
+        "alertname": "P10ShortCapacity",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "owner": "jp-operations",
+        "severity": "critical",
+        "store": "fluent-bit"
+      },
+      "annotations": {
+        "runbook_url": "observability/roadmap/p09-incident-runbooks.md",
+        "summary": "Isolated bounded queue pressure"
+      },
+      "state": "resolved",
+      "received": 1794651028.8230639
+    },
+    {
+      "name": "P07AcceptanceNotification",
+      "labels": {
+        "alertname": "P07AcceptanceNotification",
+        "instance": "agent:8000",
+        "job": "fixture",
+        "phase": "P07",
+        "purpose": "acceptance",
+        "severity": "info"
+      },
+      "annotations": {},
+      "state": "resolved",
+      "received": 1794651029.5779552
+    }
+  ],
+  "notification_batches": [
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "P07AcceptanceNotification"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "JpExpectedUserTargetMissing",
+      "JpExpectedLearningTargetMissing",
+      "JpExpectedPrometheusTargetMissing"
+    ],
+    [
+      "P10ShortTargetDown"
+    ],
+    [
+      "P10ShortCapacity"
+    ],
+    [
+      "P07AcceptanceNotification"
+    ]
+  ],
+  "requests": 0,
+  "errors": 0
+}

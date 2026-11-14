@@ -1,0 +1,259 @@
+{
+  "run": "jp_obs_validation_20261114103330_35f14ce3",
+  "phase": "P10",
+  "kind": "native dependency adapters",
+  "status": "PASS",
+  "checks": {
+    "normal": {
+      "status": 200,
+      "data": {
+        "outcome": "ok"
+      },
+      "seconds": 0.10486762500022451
+    },
+    "reject_invalid": {
+      "pass": true,
+      "status": 401
+    },
+    "reject_expired": {
+      "pass": true,
+      "status": 401
+    },
+    "reject_tampered": {
+      "pass": true,
+      "status": 401
+    },
+    "reject_none": {
+      "pass": true,
+      "status": 401
+    },
+    "preservation_baseline": true,
+    "preservation_database": true,
+    "preservation_jwks": true,
+    "preservation_app": true,
+    "preservation_gateway": true,
+    "preservation_sqlite-lock": true,
+    "preservation_final": true
+  },
+  "scenarios": [
+    {
+      "name": "database_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 5.264,
+      "detectionSeconds": 5.108,
+      "alertEvidence": [
+        {
+          "labels": {
+            "alertname": "P10DependencyFailure",
+            "dependency": "database",
+            "instance": "gateway:8080",
+            "job": "p10-gateway",
+            "owner": "jp-application"
+          },
+          "annotations": {
+            "summary": "Isolated dependency failure"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-14T10:33:59.374620321Z",
+          "value": "0e+00"
+        },
+        {
+          "labels": {
+            "alertname": "P10DependencyFailure",
+            "dependency": "database",
+            "instance": "app:8003",
+            "job": "p10-app",
+            "owner": "jp-application"
+          },
+          "annotations": {
+            "summary": "Isolated dependency failure"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-14T10:33:59.374620321Z",
+          "value": "0e+00"
+        }
+      ],
+      "resolved": true,
+      "failureStatus": 503,
+      "failureResponseSeconds": 0.49634701600007247,
+      "recoveryStatus": 200,
+      "recoverySeconds": 4.353,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+    },
+    {
+      "name": "jwks_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 5.055,
+      "detectionSeconds": 4.895,
+      "alertEvidence": [
+        {
+          "labels": {
+            "alertname": "P10DependencyFailure",
+            "dependency": "jwks",
+            "instance": "app:8003",
+            "job": "p10-app",
+            "owner": "jp-application"
+          },
+          "annotations": {
+            "summary": "Isolated dependency failure"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-14T10:34:12.374620321Z",
+          "value": "0e+00"
+        },
+        {
+          "labels": {
+            "alertname": "P10DependencyFailure",
+            "dependency": "jwks",
+            "instance": "gateway:8080",
+            "job": "p10-gateway",
+            "owner": "jp-application"
+          },
+          "annotations": {
+            "summary": "Isolated dependency failure"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-14T10:34:12.374620321Z",
+          "value": "0e+00"
+        }
+      ],
+      "resolved": true,
+      "failureStatus": 503,
+      "failureResponseSeconds": 0.493284587999824,
+      "recoveryStatus": 200,
+      "recoverySeconds": 4.366,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+    },
+    {
+      "name": "app_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 5.716,
+      "detectionSeconds": 5.575,
+      "alertEvidence": [
+        {
+          "labels": {
+            "alertname": "P10DependencyScrapeDown",
+            "instance": "app:8003",
+            "job": "p10-app",
+            "owner": "jp-operations"
+          },
+          "annotations": {
+            "summary": "Isolated application or gateway unavailable"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-14T10:34:23.374620321Z",
+          "value": "0e+00"
+        }
+      ],
+      "resolved": true,
+      "failureStatus": 504,
+      "failureResponseSeconds": 1.0182085830001597,
+      "recoveryStatus": 200,
+      "recoverySeconds": 4.278,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+    },
+    {
+      "name": "gateway_unavailability",
+      "status": "PASS",
+      "workloadRequests": 2,
+      "clients": 1,
+      "faultSeconds": 6.12,
+      "detectionSeconds": 5.972,
+      "alertEvidence": [
+        {
+          "labels": {
+            "alertname": "P10DependencyScrapeDown",
+            "instance": "gateway:8080",
+            "job": "p10-gateway",
+            "owner": "jp-operations"
+          },
+          "annotations": {
+            "summary": "Isolated application or gateway unavailable"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-14T10:34:37.374620321Z",
+          "value": "0e+00"
+        }
+      ],
+      "resolved": true,
+      "failureStatus": 0,
+      "failureResponseSeconds": 1.5946162459999869,
+      "recoveryStatus": 200,
+      "recoverySeconds": 4.531,
+      "retryPolicy": "One application dependency attempt with 0.4s timeout; NGINX upstream retries off, read timeout 1s",
+      "telemetry": "Native Prometheus short fixture alerts fire and resolve; native SQLite HTTP adapter and RSA JWKS, not production application providers"
+    },
+    {
+      "name": "native_sqlite_exclusive_lock",
+      "status": "PASS",
+      "faultSeconds": 5,
+      "observationSeconds": 7.179,
+      "failure": {
+        "status": 503,
+        "data": null,
+        "seconds": 0.22368139999980485
+      },
+      "recovered": {
+        "status": 200,
+        "data": {
+          "outcome": "ok"
+        },
+        "seconds": 0.09482113300009587
+      },
+      "scope": "Native SQLite behind fixture HTTP adapter; not MySQL or SQL Server wire protocol"
+    }
+  ],
+  "resources": [
+    {
+      "service": "database",
+      "id": "2d18b7a46f7bae29704725492decc02ad72d0919bdeeefe9a07a627dbeb879b4"
+    },
+    {
+      "service": "jwks",
+      "id": "1bc6a8bc3811431dbb4f1b85f1c4b0d0379b6effe6e3924b3ce6e75f15107d50"
+    },
+    {
+      "service": "app",
+      "id": "6eced191c85dde0a6be98eabe91360c705c107e0d6a5e3bcd95d1e2e9b5ecf2b"
+    },
+    {
+      "service": "probe",
+      "id": "6e4487e963817111e400c1a1842a4e755995457fe06bb2f066bafaf4bd4ebc21"
+    },
+    {
+      "service": "gateway",
+      "id": "23bc6a3ce94df48e546749315b22e27faf47db4845908f8657bd644dd0a74850"
+    },
+    {
+      "service": "prometheus",
+      "id": "c90aff14da93a5d210f5c302e132c1625920e7a9cd9135e7b714a7d3fb495362"
+    }
+  ],
+  "scope": "Real SQLite dependency behind an HTTP adapter, fresh RSA JWKS, synthetic JWT-verifying application and native NGINX. Not SQL Server/MySQL or production application acceptance.",
+  "storagePlan": {
+    "hardTmpfsMiB": 64,
+    "logsMiB": 6,
+    "configurationAndEvidenceAllowanceMiB": 16,
+    "totalMiB": 86,
+    "maximumMiB": 512
+  },
+  "modelSha256": "765b6e7cb63c44a12378b41ac50987116473e78702a3f271038d4339b73ba8c3",
+  "images": {
+    "database": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "jwks": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "app": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "probe": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+    "gateway": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+    "prometheus": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0"
+  },
+  "finishedUtc": "2026-11-14T10:35:09.093Z"
+}

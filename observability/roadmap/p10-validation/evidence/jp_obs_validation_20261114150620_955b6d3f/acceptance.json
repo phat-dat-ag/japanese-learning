@@ -1,0 +1,58 @@
+{
+  "phase": "P10",
+  "scope": "Approved local development only; not production readiness",
+  "utc": "2026-11-14T15:16:29.299Z",
+  "status": "PASS",
+  "run": "jp_obs_validation_20261114150620_955b6d3f",
+  "checks": {
+    "priorResolutionAccepted": true,
+    "nativeFullRecovery": true,
+    "runtimePreservation": true,
+    "noAbort": true,
+    "modelLimits": true,
+    "measuredLimits": true,
+    "duration": true,
+    "rpo": true,
+    "rto": true,
+    "requests": true,
+    "publishedEvidencePrivacy": true
+  },
+  "priorEvidence": "resolution-acceptance-1794663243516.json",
+  "fullRecoveryEvidence": "jp_obs_validation_20261114150620_955b6d3f/results.json",
+  "recovery": {
+    "rpoSeconds": 34403.272,
+    "rtoSeconds": 544.245,
+    "start": "2026-11-14T15:06:39.250Z",
+    "end": "2026-11-14T15:15:43.495Z",
+    "scope": "Actual local encrypted generation retrieval/decryption; native logs/metrics/traces/offsets/dashboard/datasource/collector and authenticated alert delivery+resolve"
+  },
+  "restored": {
+    "logs": 1867,
+    "metrics": 828320,
+    "traces": 271,
+    "dashboards": 1,
+    "offsetDatabases": 3
+  },
+  "peaks": {
+    "dockerRamBytes": 1722464337.92,
+    "hostNodeBytes": 528617472,
+    "cpuCores": 2.6693,
+    "storageBytes": 525339922,
+    "hostStagingBytes": 111872571
+  },
+  "sampling": "Sequential samples approximately every 3–8 seconds; sampled peaks are not continuous high-water marks. Hard model caps bound between-sample consumption.",
+  "minimumHostAvailableBytes": 2198564864,
+  "requests": {
+    "client": 648,
+    "sinkIncoming": 296,
+    "conservativeTotal": 978,
+    "allowance": 34,
+    "allowanceReason": "32 reserved securityadmin internal requests plus two collector attempts; sink-bound client calls are conservatively counted twice"
+  },
+  "roadmap": {
+    "acceptedDevelopmentPhases": 11,
+    "total": 12,
+    "P10": "PASS",
+    "P11": "unstarted"
+  }
+}

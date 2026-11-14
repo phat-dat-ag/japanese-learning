@@ -1,0 +1,3 @@
+{
+  "text": "2026/11/14 10:34:25 [error] 7#7: *60 upstream timed out (110: Operation timed out) while reading response header from upstream, client: 192.168.16.5, server: , request: \"GET / HTTP/1.1\", upstream: \"http://192.168.16.4:8003/\", host: \"gateway:8080\"\n"
+}

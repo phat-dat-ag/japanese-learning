@@ -1,0 +1,13 @@
+{
+  "authority": "Explicit user P10 resume instruction in this session; local development only",
+  "concurrentClients": 2,
+  "requestsPerSecond": 5,
+  "requestsPerScenario": 300,
+  "faultSeconds": 30,
+  "drainSeconds": 120,
+  "scenarioBytes": 67108864,
+  "totalBytes": 536870912,
+  "rpoSeconds": 86400,
+  "rtoSeconds": 14400,
+  "notifications": "isolated test endpoint only"
+}

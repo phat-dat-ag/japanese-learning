@@ -1,0 +1,7 @@
+{
+  "ramBytes": 3590324224,
+  "storageCeilingBytes": 2777835529,
+  "cpuCores": 5.25,
+  "modelSha256": "e8099d838c463004821f6c670a5447d7e8abac395a98c32d0393f5775bd29665",
+  "logging": "none; no unbounded Docker log files"
+}

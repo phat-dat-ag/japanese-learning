@@ -1,0 +1,408 @@
+{
+  "before": {
+    "sourceIds": [
+      "p10-event-000001",
+      "p10-event-000002",
+      "p10-event-000003",
+      "p10-event-000004"
+    ],
+    "sourceBytes": 426,
+    "offsets": [
+      [
+        "/source/events.json",
+        426
+      ]
+    ],
+    "sqliteIntegrity": "ok",
+    "chunks": []
+  },
+  "during": {
+    "sourceIds": [
+      "p10-event-000001",
+      "p10-event-000002",
+      "p10-event-000003",
+      "p10-event-000004",
+      "p10-event-000201",
+      "p10-event-000202",
+      "p10-event-000203",
+      "p10-event-000204",
+      "p10-event-000205",
+      "p10-event-000206",
+      "p10-event-000207",
+      "p10-event-000208",
+      "p10-event-000209",
+      "p10-event-000210",
+      "p10-event-000211",
+      "p10-event-000212"
+    ],
+    "sourceBytes": 1733,
+    "offsets": [
+      [
+        "/source/events.json",
+        426
+      ]
+    ],
+    "sqliteIntegrity": "ok",
+    "chunks": [
+      {
+        "name": "chunks/tail.0/1-1794661366.497723440.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661366.247187285.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.996562655.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.746235145.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.495782775.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.245020006.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.994791945.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.744308177.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.493819003.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.243285492.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.992703829.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.742320059.flb",
+        "bytes": 0
+      }
+    ]
+  },
+  "checkpoint": {
+    "sourceIds": [
+      "p10-event-000001",
+      "p10-event-000002",
+      "p10-event-000003",
+      "p10-event-000004",
+      "p10-event-000201",
+      "p10-event-000202",
+      "p10-event-000203",
+      "p10-event-000204",
+      "p10-event-000205",
+      "p10-event-000206",
+      "p10-event-000207",
+      "p10-event-000208",
+      "p10-event-000209",
+      "p10-event-000210",
+      "p10-event-000211",
+      "p10-event-000212"
+    ],
+    "sourceBytes": 1733,
+    "offsets": [
+      [
+        "/source/events.json",
+        426
+      ]
+    ],
+    "sqliteIntegrity": "ok",
+    "chunks": [
+      {
+        "name": "chunks/tail.0/1-1794661366.497723440.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661366.247187285.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.996562655.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.746235145.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.495782775.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.245020006.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.994791945.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.744308177.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.493819003.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.243285492.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.992703829.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.742320059.flb",
+        "bytes": 0
+      }
+    ]
+  },
+  "after": {
+    "sourceIds": [
+      "p10-event-000001",
+      "p10-event-000002",
+      "p10-event-000003",
+      "p10-event-000004",
+      "p10-event-000201",
+      "p10-event-000202",
+      "p10-event-000203",
+      "p10-event-000204",
+      "p10-event-000205",
+      "p10-event-000206",
+      "p10-event-000207",
+      "p10-event-000208",
+      "p10-event-000209",
+      "p10-event-000210",
+      "p10-event-000211",
+      "p10-event-000212"
+    ],
+    "sourceBytes": 1733,
+    "offsets": [
+      [
+        "/source/events.json",
+        426
+      ],
+      [
+        "/source/reconcile-once.json",
+        1307
+      ]
+    ],
+    "sqliteIntegrity": "ok",
+    "chunks": [
+      {
+        "name": "chunks/tail.0/1-1794661366.497723440.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661366.247187285.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.996562655.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.746235145.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.495782775.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.245020006.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.994791945.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.744308177.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.493819003.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.243285492.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.992703829.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.742320059.flb",
+        "bytes": 0
+      }
+    ]
+  },
+  "committed": {
+    "sourceIds": [
+      "p10-event-000001",
+      "p10-event-000002",
+      "p10-event-000003",
+      "p10-event-000004",
+      "p10-event-000201",
+      "p10-event-000202",
+      "p10-event-000203",
+      "p10-event-000204",
+      "p10-event-000205",
+      "p10-event-000206",
+      "p10-event-000207",
+      "p10-event-000208",
+      "p10-event-000209",
+      "p10-event-000210",
+      "p10-event-000211",
+      "p10-event-000212",
+      "p10-event-000401",
+      "p10-event-000402",
+      "p10-event-000403",
+      "p10-event-000404"
+    ],
+    "sourceBytes": 2167,
+    "offsets": [
+      [
+        "/source/events.json",
+        2167
+      ],
+      [
+        "/source/reconcile-once.json",
+        1307
+      ]
+    ],
+    "sqliteIntegrity": "ok",
+    "chunks": [
+      {
+        "name": "chunks/tail.0/1-1794661366.497723440.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661366.247187285.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.996562655.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.746235145.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.495782775.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661365.245020006.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.994791945.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.744308177.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.493819003.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661364.243285492.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.992703829.flb",
+        "bytes": 0
+      },
+      {
+        "name": "chunks/tail.0/1-1794661363.742320059.flb",
+        "bytes": 0
+      }
+    ]
+  },
+  "afterRestart": {
+    "sourceIds": [
+      "p10-event-000001",
+      "p10-event-000002",
+      "p10-event-000003",
+      "p10-event-000004",
+      "p10-event-000201",
+      "p10-event-000202",
+      "p10-event-000203",
+      "p10-event-000204",
+      "p10-event-000205",
+      "p10-event-000206",
+      "p10-event-000207",
+      "p10-event-000208",
+      "p10-event-000209",
+      "p10-event-000210",
+      "p10-event-000211",
+      "p10-event-000212",
+      "p10-event-000401",
+      "p10-event-000402",
+      "p10-event-000403",
+      "p10-event-000404"
+    ],
+    "sourceBytes": 2167,
+    "offsets": [
+      [
+        "/source/events.json",
+        2167
+      ],
+      [
+        "/source/reconcile-once.json",
+        1307
+      ]
+    ],
+    "sqliteIntegrity": "ok",
+    "chunks": []
+  },
+  "metricsBefore": "# HELP fluentbit_filter_add_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_add_records_total counter\nfluentbit_filter_add_records_total{name=\"lua.0\"} 0 1794661362131\n# HELP fluentbit_filter_bytes_total Fluentbit metrics.\n# TYPE fluentbit_filter_bytes_total counter\nfluentbit_filter_bytes_total{name=\"lua.0\"} 0 1794661362131\n# HELP fluentbit_filter_drop_bytes_total Fluentbit metrics.\n# TYPE fluentbit_filter_drop_bytes_total counter\nfluentbit_filter_drop_bytes_total{name=\"lua.0\"} 0 1794661362131\n# HELP fluentbit_filter_drop_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_drop_records_total counter\nfluentbit_filter_drop_records_total{name=\"lua.0\"} 0 1794661362131\n# HELP fluentbit_filter_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_records_total counter\nfluentbit_filter_records_total{name=\"lua.0\"} 0 1794661362131\n# HELP fluentbit_input_bytes_total Number of input bytes.\n# TYPE fluentbit_input_bytes_total counter\nfluentbit_input_bytes_total{name=\"storage_backlog.2\"} 0 1794661362131\nfluentbit_input_bytes_total{name=\"tail.0\"} 420 1794661362131\nfluentbit_input_bytes_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_input_files_closed_total Fluentbit metrics.\n# TYPE fluentbit_input_files_closed_total counter\nfluentbit_input_files_closed_total{name=\"tail.0\"} 0 1794661362131\nfluentbit_input_files_closed_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_input_files_opened_total Fluentbit metrics.\n# TYPE fluentbit_input_files_opened_total counter\nfluentbit_input_files_opened_total{name=\"tail.0\"} 1 1794661362131\nfluentbit_input_files_opened_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_input_files_rotated_total Fluentbit metrics.\n# TYPE fluentbit_input_files_rotated_total counter\nfluentbit_input_files_rotated_total{name=\"tail.0\"} 0 1794661362131\nfluentbit_input_files_rotated_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_input_long_line_skipped_total Fluentbit metrics.\n# TYPE fluentbit_input_long_line_skipped_total counter\nfluentbit_input_long_line_skipped_total{name=\"tail.0\"} 0 1794661362131\nfluentbit_input_long_line_skipped_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_input_long_line_truncated_total Fluentbit metrics.\n# TYPE fluentbit_input_long_line_truncated_total counter\nfluentbit_input_long_line_truncated_total{name=\"tail.0\"} 0 1794661362131\nfluentbit_input_long_line_truncated_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_input_multiline_truncated_total Fluentbit metrics.\n# TYPE fluentbit_input_multiline_truncated_total counter\nfluentbit_input_multiline_truncated_total{name=\"tail.0\"} 0 1794661362131\nfluentbit_input_multiline_truncated_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_input_records_total Number of input records.\n# TYPE fluentbit_input_records_total counter\nfluentbit_input_records_total{name=\"storage_backlog.2\"} 0 1794661362131\nfluentbit_input_records_total{name=\"tail.0\"} 4 1794661362131\nfluentbit_input_records_total{name=\"tail.1\"} 0 1794661362131\n# HELP fluentbit_output_dropped_records_total Number of dropped records.\n# TYPE fluentbit_output_dropped_records_total counter\nfluentbit_output_dropped_records_total{name=\"opensearch.0\"} 0 1794661362131\nfluentbit_output_dropped_records_total{name=\"opensearch.1\"} 0 1794661362131\n# HELP fluentbit_output_errors_total Number of output errors.\n# TYPE fluentbit_output_errors_total counter\nfluentbit_output_errors_total{name=\"opensearch.0\"} 0 1794661362131\nfluentbit_output_errors_total{name=\"opensearch.1\"} 0 1794661362131\n# HELP fluentbit_output_proc_bytes_total Number of processed output bytes.\n# TYPE fluentbit_output_proc_bytes_total counter\nfluentbit_output_proc_bytes_total{name=\"opensearch.0\"} 420 1794661362131\nfluentbit_output_proc_bytes_total{name=\"opensearch.1\"} 0 1794661362131\n# HELP fluentbit_output_proc_records_total Number of processed output records.\n# TYPE fluentbit_output_proc_records_total counter\nfluentbit_output_proc_records_total{name=\"opensearch.0\"} 4 1794661362131\nfluentbit_output_proc_records_total{name=\"opensearch.1\"} 0 1794661362131\n# HELP fluentbit_output_retried_records_total Number of retried records.\n# TYPE fluentbit_output_retried_records_total counter\nfluentbit_output_retried_records_total{name=\"opensearch.0\"} 0 1794661362131\nfluentbit_output_retried_records_total{name=\"opensearch.1\"} 0 1794661362131\n# HELP fluentbit_output_retries_failed_total Number of abandoned batches because the maximum number of re-tries was reached.\n# TYPE fluentbit_output_retries_failed_total counter\nfluentbit_output_retries_failed_total{name=\"opensearch.0\"} 0 1794661362131\nfluentbit_output_retries_failed_total{name=\"opensearch.1\"} 0 1794661362131\n# HELP fluentbit_output_retries_total Number of output retries.\n# TYPE fluentbit_output_retries_total counter\nfluentbit_output_retries_total{name=\"opensearch.0\"} 0 1794661362131\nfluentbit_output_retries_total{name=\"opensearch.1\"} 0 1794661362131\n# HELP fluentbit_uptime Number of seconds that Fluent Bit has been running.\n# TYPE fluentbit_uptime counter\nfluentbit_uptime 13\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1794661349\n# HELP fluentbit_build_info Build version information.\n# TYPE fluentbit_build_info gauge\nfluentbit_build_info{version=\"4.2.5\",edition=\"Community\"} 1\n",
+  "metricsDuring": "# HELP fluentbit_filter_add_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_add_records_total counter\nfluentbit_filter_add_records_total{name=\"lua.0\"} 0 1794661368634\n# HELP fluentbit_filter_bytes_total Fluentbit metrics.\n# TYPE fluentbit_filter_bytes_total counter\nfluentbit_filter_bytes_total{name=\"lua.0\"} 0 1794661368634\n# HELP fluentbit_filter_drop_bytes_total Fluentbit metrics.\n# TYPE fluentbit_filter_drop_bytes_total counter\nfluentbit_filter_drop_bytes_total{name=\"lua.0\"} 0 1794661368634\n# HELP fluentbit_filter_drop_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_drop_records_total counter\nfluentbit_filter_drop_records_total{name=\"lua.0\"} 0 1794661368634\n# HELP fluentbit_filter_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_records_total counter\nfluentbit_filter_records_total{name=\"lua.0\"} 0 1794661368634\n# HELP fluentbit_input_bytes_total Number of input bytes.\n# TYPE fluentbit_input_bytes_total counter\nfluentbit_input_bytes_total{name=\"storage_backlog.2\"} 0 1794661368634\nfluentbit_input_bytes_total{name=\"tail.0\"} 420 1794661368634\nfluentbit_input_bytes_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_input_files_closed_total Fluentbit metrics.\n# TYPE fluentbit_input_files_closed_total counter\nfluentbit_input_files_closed_total{name=\"tail.0\"} 0 1794661368634\nfluentbit_input_files_closed_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_input_files_opened_total Fluentbit metrics.\n# TYPE fluentbit_input_files_opened_total counter\nfluentbit_input_files_opened_total{name=\"tail.0\"} 1 1794661368634\nfluentbit_input_files_opened_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_input_files_rotated_total Fluentbit metrics.\n# TYPE fluentbit_input_files_rotated_total counter\nfluentbit_input_files_rotated_total{name=\"tail.0\"} 0 1794661368634\nfluentbit_input_files_rotated_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_input_long_line_skipped_total Fluentbit metrics.\n# TYPE fluentbit_input_long_line_skipped_total counter\nfluentbit_input_long_line_skipped_total{name=\"tail.0\"} 0 1794661368634\nfluentbit_input_long_line_skipped_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_input_long_line_truncated_total Fluentbit metrics.\n# TYPE fluentbit_input_long_line_truncated_total counter\nfluentbit_input_long_line_truncated_total{name=\"tail.0\"} 0 1794661368634\nfluentbit_input_long_line_truncated_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_input_multiline_truncated_total Fluentbit metrics.\n# TYPE fluentbit_input_multiline_truncated_total counter\nfluentbit_input_multiline_truncated_total{name=\"tail.0\"} 0 1794661368634\nfluentbit_input_multiline_truncated_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_input_records_total Number of input records.\n# TYPE fluentbit_input_records_total counter\nfluentbit_input_records_total{name=\"storage_backlog.2\"} 0 1794661368634\nfluentbit_input_records_total{name=\"tail.0\"} 4 1794661368634\nfluentbit_input_records_total{name=\"tail.1\"} 0 1794661368634\n# HELP fluentbit_output_dropped_records_total Number of dropped records.\n# TYPE fluentbit_output_dropped_records_total counter\nfluentbit_output_dropped_records_total{name=\"opensearch.0\"} 0 1794661368634\nfluentbit_output_dropped_records_total{name=\"opensearch.1\"} 0 1794661368634\n# HELP fluentbit_output_errors_total Number of output errors.\n# TYPE fluentbit_output_errors_total counter\nfluentbit_output_errors_total{name=\"opensearch.0\"} 0 1794661368634\nfluentbit_output_errors_total{name=\"opensearch.1\"} 0 1794661368634\n# HELP fluentbit_output_proc_bytes_total Number of processed output bytes.\n# TYPE fluentbit_output_proc_bytes_total counter\nfluentbit_output_proc_bytes_total{name=\"opensearch.0\"} 420 1794661368634\nfluentbit_output_proc_bytes_total{name=\"opensearch.1\"} 0 1794661368634\n# HELP fluentbit_output_proc_records_total Number of processed output records.\n# TYPE fluentbit_output_proc_records_total counter\nfluentbit_output_proc_records_total{name=\"opensearch.0\"} 4 1794661368634\nfluentbit_output_proc_records_total{name=\"opensearch.1\"} 0 1794661368634\n# HELP fluentbit_output_retried_records_total Number of retried records.\n# TYPE fluentbit_output_retried_records_total counter\nfluentbit_output_retried_records_total{name=\"opensearch.0\"} 0 1794661368634\nfluentbit_output_retried_records_total{name=\"opensearch.1\"} 0 1794661368634\n# HELP fluentbit_output_retries_failed_total Number of abandoned batches because the maximum number of re-tries was reached.\n# TYPE fluentbit_output_retries_failed_total counter\nfluentbit_output_retries_failed_total{name=\"opensearch.0\"} 0 1794661368634\nfluentbit_output_retries_failed_total{name=\"opensearch.1\"} 0 1794661368634\n# HELP fluentbit_output_retries_total Number of output retries.\n# TYPE fluentbit_output_retries_total counter\nfluentbit_output_retries_total{name=\"opensearch.0\"} 0 1794661368634\nfluentbit_output_retries_total{name=\"opensearch.1\"} 0 1794661368634\n# HELP fluentbit_uptime Number of seconds that Fluent Bit has been running.\n# TYPE fluentbit_uptime counter\nfluentbit_uptime 19\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1794661349\n# HELP fluentbit_build_info Build version information.\n# TYPE fluentbit_build_info gauge\nfluentbit_build_info{version=\"4.2.5\",edition=\"Community\"} 1\n",
+  "metricsAfter": "# HELP fluentbit_filter_add_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_add_records_total counter\nfluentbit_filter_add_records_total{name=\"lua.0\"} 0 1794661383348\n# HELP fluentbit_filter_bytes_total Fluentbit metrics.\n# TYPE fluentbit_filter_bytes_total counter\nfluentbit_filter_bytes_total{name=\"lua.0\"} 0 1794661383348\n# HELP fluentbit_filter_drop_bytes_total Fluentbit metrics.\n# TYPE fluentbit_filter_drop_bytes_total counter\nfluentbit_filter_drop_bytes_total{name=\"lua.0\"} 0 1794661383348\n# HELP fluentbit_filter_drop_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_drop_records_total counter\nfluentbit_filter_drop_records_total{name=\"lua.0\"} 0 1794661383348\n# HELP fluentbit_filter_records_total Fluentbit metrics.\n# TYPE fluentbit_filter_records_total counter\nfluentbit_filter_records_total{name=\"lua.0\"} 0 1794661383348\n# HELP fluentbit_input_bytes_total Number of input bytes.\n# TYPE fluentbit_input_bytes_total counter\nfluentbit_input_bytes_total{name=\"storage_backlog.2\"} 0 1794661383348\nfluentbit_input_bytes_total{name=\"tail.0\"} 1692 1794661383348\nfluentbit_input_bytes_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_input_files_closed_total Fluentbit metrics.\n# TYPE fluentbit_input_files_closed_total counter\nfluentbit_input_files_closed_total{name=\"tail.0\"} 0 1794661383348\nfluentbit_input_files_closed_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_input_files_opened_total Fluentbit metrics.\n# TYPE fluentbit_input_files_opened_total counter\nfluentbit_input_files_opened_total{name=\"tail.0\"} 2 1794661383348\nfluentbit_input_files_opened_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_input_files_rotated_total Fluentbit metrics.\n# TYPE fluentbit_input_files_rotated_total counter\nfluentbit_input_files_rotated_total{name=\"tail.0\"} 0 1794661383348\nfluentbit_input_files_rotated_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_input_long_line_skipped_total Fluentbit metrics.\n# TYPE fluentbit_input_long_line_skipped_total counter\nfluentbit_input_long_line_skipped_total{name=\"tail.0\"} 0 1794661383348\nfluentbit_input_long_line_skipped_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_input_long_line_truncated_total Fluentbit metrics.\n# TYPE fluentbit_input_long_line_truncated_total counter\nfluentbit_input_long_line_truncated_total{name=\"tail.0\"} 0 1794661383348\nfluentbit_input_long_line_truncated_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_input_multiline_truncated_total Fluentbit metrics.\n# TYPE fluentbit_input_multiline_truncated_total counter\nfluentbit_input_multiline_truncated_total{name=\"tail.0\"} 0 1794661383348\nfluentbit_input_multiline_truncated_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_input_records_total Number of input records.\n# TYPE fluentbit_input_records_total counter\nfluentbit_input_records_total{name=\"storage_backlog.2\"} 0 1794661383348\nfluentbit_input_records_total{name=\"tail.0\"} 16 1794661383348\nfluentbit_input_records_total{name=\"tail.1\"} 0 1794661383348\n# HELP fluentbit_output_dropped_records_total Number of dropped records.\n# TYPE fluentbit_output_dropped_records_total counter\nfluentbit_output_dropped_records_total{name=\"opensearch.0\"} 0 1794661383348\nfluentbit_output_dropped_records_total{name=\"opensearch.1\"} 0 1794661383348\n# HELP fluentbit_output_errors_total Number of output errors.\n# TYPE fluentbit_output_errors_total counter\nfluentbit_output_errors_total{name=\"opensearch.0\"} 0 1794661383348\nfluentbit_output_errors_total{name=\"opensearch.1\"} 0 1794661383348\n# HELP fluentbit_output_proc_bytes_total Number of processed output bytes.\n# TYPE fluentbit_output_proc_bytes_total counter\nfluentbit_output_proc_bytes_total{name=\"opensearch.0\"} 1692 1794661383348\nfluentbit_output_proc_bytes_total{name=\"opensearch.1\"} 0 1794661383348\n# HELP fluentbit_output_proc_records_total Number of processed output records.\n# TYPE fluentbit_output_proc_records_total counter\nfluentbit_output_proc_records_total{name=\"opensearch.0\"} 16 1794661383348\nfluentbit_output_proc_records_total{name=\"opensearch.1\"} 0 1794661383348\n# HELP fluentbit_output_retried_records_total Number of retried records.\n# TYPE fluentbit_output_retried_records_total counter\nfluentbit_output_retried_records_total{name=\"opensearch.0\"} 0 1794661383348\nfluentbit_output_retried_records_total{name=\"opensearch.1\"} 0 1794661383348\n# HELP fluentbit_output_retries_failed_total Number of abandoned batches because the maximum number of re-tries was reached.\n# TYPE fluentbit_output_retries_failed_total counter\nfluentbit_output_retries_failed_total{name=\"opensearch.0\"} 0 1794661383348\nfluentbit_output_retries_failed_total{name=\"opensearch.1\"} 0 1794661383348\n# HELP fluentbit_output_retries_total Number of output retries.\n# TYPE fluentbit_output_retries_total counter\nfluentbit_output_retries_total{name=\"opensearch.0\"} 0 1794661383348\nfluentbit_output_retries_total{name=\"opensearch.1\"} 0 1794661383348\n# HELP fluentbit_uptime Number of seconds that Fluent Bit has been running.\n# TYPE fluentbit_uptime counter\nfluentbit_uptime 34\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1794661349\n# HELP fluentbit_build_info Build version information.\n# TYPE fluentbit_build_info gauge\nfluentbit_build_info{version=\"4.2.5\",edition=\"Community\"} 1\n",
+  "sourcePersistence": "flush + fsync on each synthetic source record",
+  "docsBeforeReplay": [
+    "p10-event-000001",
+    "p10-event-000002",
+    "p10-event-000003",
+    "p10-event-000004"
+  ],
+  "docsAfterReplay": [
+    "p10-event-000001",
+    "p10-event-000002",
+    "p10-event-000003",
+    "p10-event-000004",
+    "p10-event-000201",
+    "p10-event-000202",
+    "p10-event-000203",
+    "p10-event-000204",
+    "p10-event-000205",
+    "p10-event-000206",
+    "p10-event-000207",
+    "p10-event-000208",
+    "p10-event-000209",
+    "p10-event-000210",
+    "p10-event-000211",
+    "p10-event-000212"
+  ]
+}

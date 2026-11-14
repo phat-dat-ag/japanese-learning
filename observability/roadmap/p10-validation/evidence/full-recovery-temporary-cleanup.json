@@ -1,0 +1,40 @@
+{
+  "utc": "2026-11-14T15:19:50.0272825Z",
+  "removed": [
+    {
+      "run": "jp_obs_validation_20261114150429_7a6de3bb",
+      "path": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114150429_7a6de3bb\\recovered",
+      "files": 304,
+      "bytes": 3624226
+    },
+    {
+      "run": "jp_obs_validation_20261114150429_7a6de3bb",
+      "path": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114150429_7a6de3bb\\samples.om",
+      "files": 1,
+      "bytes": 108214021,
+      "originalCounter": {
+        "files": 2,
+        "bytes": 216428042
+      }
+    },
+    {
+      "run": "jp_obs_validation_20261114150620_955b6d3f",
+      "path": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114150620_955b6d3f\\recovered",
+      "files": 304,
+      "bytes": 3624226
+    },
+    {
+      "run": "jp_obs_validation_20261114150620_955b6d3f",
+      "path": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114150620_955b6d3f\\samples.om",
+      "files": 1,
+      "bytes": 108214021,
+      "originalCounter": {
+        "files": 2,
+        "bytes": 216428042
+      }
+    }
+  ],
+  "preserved": "All public receipts, failed attempts, private configuration/diagnostics, original backup generations and keys",
+  "scope": "Exact newly owned restored-data copies and generated OpenMetrics inputs only",
+  "measurementCorrection": "The PowerShell counter enumerated a leaf file twice (Get-Item plus Get-ChildItem). OpenMetrics input counts are corrected to one file each; original counter values retained. Removal operated once per exact path."
+}

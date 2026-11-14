@@ -1,0 +1,70 @@
+{
+  "phase": "P10",
+  "status": "BLOCKED",
+  "utc": "2026-11-14T09:38:17.236Z",
+  "scope": "Local development only",
+  "checks": {
+    "guardPredicateTests": 13,
+    "guardPredicateTotal": 13,
+    "tmpfsEnospc": true,
+    "syntheticQueueAccounting": true,
+    "syntheticIntegrity": true,
+    "runtimePreserved": true,
+    "originalContainers": 52,
+    "developmentContainers": 21
+  },
+  "measurements": {
+    "scope": "Synthetic Python queue and Linux tmpfs only; no Fluent Bit/OTel/backend loss claim",
+    "enospc": true,
+    "bytes_written": 8388608,
+    "queue_capacity": 16,
+    "generated": 24,
+    "recovered": 16,
+    "dropped": 8,
+    "duplicates": 0,
+    "integrity": true,
+    "payload_sha256": "c93a97baab10624bb22a6d2d17dc91d1682535dc1606e908e249e8dd65032eb0",
+    "pressure_seconds": 0.01183239799996727,
+    "write_recovery_seconds": 0.06931500399997503,
+    "total_seconds": 0.08166214799996396
+  },
+  "blockers": [
+    "Approved integrated workload, fault durations, peak event rate/size, drain deadline and latency/drop budgets not identified; P01 gate requires them before integrated fault/load execution.",
+    "Integrated native backend/application outage, pressure, alert routing/resolution and restoration remain NOT VERIFIED."
+  ],
+  "exceptions": [
+    "P07-DEV-QUOTA unchanged",
+    "P08-DEV-LOCAL-STORAGE unchanged"
+  ],
+  "privacy": "Only selective metadata, synthetic payload hash and aggregate health retained; no telemetry documents, credentials, environment dumps or database contents exported. Full outage sentinel regression NOT VERIFIED.",
+  "artifacts": [
+    {
+      "path": "baseline.json",
+      "sha256": "d05fd4b3d71276f0e8a717c0b9642ee37e9d0092dccd242a5814e70184275689"
+    },
+    {
+      "path": "bounded-fixture.json",
+      "sha256": "e0204de735c9d0d0b6ba43ebaa7f177f81a7747b85c6548e9e694b1b5cb79358"
+    },
+    {
+      "path": "failure.json",
+      "sha256": "ce8d617492e481cbc7006bd4df9a5dae2f665f0286149e6f03e788f6585f999e"
+    },
+    {
+      "path": "guards.json",
+      "sha256": "fc1f03ebb53333867e3540caafbe4a76a899e9a636296d0c2bbab2c2f12caebd"
+    },
+    {
+      "path": "health.json",
+      "sha256": "cf829509ad91baf2ecab869b9f2265f7c4c9076e9c7d87e3de42a377201fdc78"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "032bf12037605136462d32e2147e7c0065d6f1a24ffe78f8cad0df403ff1ca56"
+    },
+    {
+      "path": "post-test.json",
+      "sha256": "a2222548a0888fc9b8f649ebf934095a1a4ab5ebfb41f0893a639e58e8befdcd"
+    }
+  ]
+}

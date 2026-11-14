@@ -1,0 +1,60 @@
+{
+  "utc": "2026-11-14T15:16:29.299Z",
+  "artifacts": [
+    {
+      "file": "observability/roadmap/p10-validation/full-recovery.cjs",
+      "bytes": 9012,
+      "sha256": "b216dd94d1902f2af9c3ffaddac676068d86c75850276b3620dd3b6657fe3274"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/full-recovery-worker.cjs",
+      "bytes": 3650,
+      "sha256": "a5b28e72cec0281d4d4c6ed01329bffa5def83d4d9ea9371c93aad04ef6d5b50"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/full-recovery-safety.cjs",
+      "bytes": 8316,
+      "sha256": "f5274c492e6809d1a6a0c57c1fbee1ec03d0d780c710f9f801a4cdfdadf7a002"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/finalize-full-recovery.cjs",
+      "bytes": 4171,
+      "sha256": "4ecb936a2e1f3604d3f169b3534a8161fcde807169ea0c4b20c9f6e05b3769e9"
+    },
+    {
+      "file": "observability/p08/local-drill.cjs",
+      "bytes": 20670,
+      "sha256": "99bd64a67230ebcdfe705fb6182343460f98525804ff801c3f23d282bf2d523c"
+    },
+    {
+      "file": "observability/p08/recovery-agent.py",
+      "bytes": 7598,
+      "sha256": "116057bbf81533a450ea7f5aa310ee60e58efee5388319f968ceb36d0b733caa"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/evidence/jp_obs_validation_20261114150620_955b6d3f/acceptance.json",
+      "bytes": 1901,
+      "sha256": "0c3d448e5eaa0487d510f5e47abb8d57df8446a1a5b3e29734c6832981fe161a"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/evidence/jp_obs_validation_20261114150620_955b6d3f/model-bounds.json",
+      "bytes": 222,
+      "sha256": "66aeaf3ad59bc0b0f769ab7590610c8ba2a65b17018e31c5f022868717531508"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/evidence/jp_obs_validation_20261114150620_955b6d3f/ownership.json",
+      "bytes": 432,
+      "sha256": "3b099b404bb94616c6006fffca57adf432beadc6eb1569d3b2f7b0a60a2c209d"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/evidence/jp_obs_validation_20261114150620_955b6d3f/restore.json",
+      "bytes": 22444,
+      "sha256": "f1afccc0f1d1be94a47c0fc55a175b6a3135ecfc789b635dc0eee14ba394a989"
+    },
+    {
+      "file": "observability/roadmap/p10-validation/evidence/jp_obs_validation_20261114150620_955b6d3f/results.json",
+      "bytes": 46649,
+      "sha256": "63de7d645d8e592f586fb5c393bfb231f9a1d610a890c41bc125f6a96ba41199"
+    }
+  ]
+}

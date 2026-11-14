@@ -1,0 +1,406 @@
+{
+  "modelSha256": "821474fa754306dcf159ac65c1ca9702be7e31a843679da4bdfdc02a0f2015c8",
+  "resources": [
+    {
+      "service": "agent",
+      "id": "41c8755e0b16cd79dce95b34b5e0125446286854ff605f7eb7b357e49de4ee67",
+      "mounts": [
+        {
+          "Destination": "/agent.py",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\roadmap\\p10-validation\\native-agent.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/private",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/queue",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_obs_validation_20261114100614_0f855f4d_queue",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_obs_validation_20261114100614_0f855f4d_queue/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/source",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_obs_validation_20261114100614_0f855f4d_source",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_obs_validation_20261114100614_0f855f4d_source/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "jp_obs_validation_20261114100614_0f855f4d_isolated": {
+          "Aliases": [
+            "jp_obs_validation_20261114100614_0f855f4d-agent-1",
+            "agent"
+          ],
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": ""
+        }
+      },
+      "hostConfig": true
+    },
+    {
+      "service": "prometheus",
+      "id": "ca938026f70fa984958f1be063fd86593a18accbe5e1d7a4b2915a9a132f90f6",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_obs_validation_20261114100614_0f855f4d_isolated": {
+          "Aliases": [
+            "jp_obs_validation_20261114100614_0f855f4d-prometheus-1",
+            "prometheus"
+          ],
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": ""
+        }
+      },
+      "hostConfig": true
+    },
+    {
+      "service": "collector",
+      "id": "b2f6cb3d05397cb4abfc36e1ee7cbdcd2654bd33d758747632f9f2f75c6bdc1e",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_obs_validation_20261114100614_0f855f4d_isolated": {
+          "Aliases": [
+            "jp_obs_validation_20261114100614_0f855f4d-collector-1",
+            "collector"
+          ],
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": ""
+        }
+      },
+      "hostConfig": true
+    },
+    {
+      "service": "tempo",
+      "id": "94f37ed8afae18376ef8d463290782900526869a9cda20100bf919cab43efe80",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_obs_validation_20261114100614_0f855f4d_isolated": {
+          "Aliases": [
+            "jp_obs_validation_20261114100614_0f855f4d-tempo-1",
+            "tempo"
+          ],
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": ""
+        }
+      },
+      "hostConfig": true
+    },
+    {
+      "service": "restore",
+      "id": "09b2bafb684fff1562d269dc556d3bd40a71b9645c044c279e48567764ad21b0",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p10",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_obs_validation_20261114100614_0f855f4d_isolated": {
+          "Aliases": [
+            "jp_obs_validation_20261114100614_0f855f4d-restore-1",
+            "restore"
+          ],
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": ""
+        }
+      },
+      "hostConfig": true
+    },
+    {
+      "service": "fluent",
+      "id": "9c3193986872bab2dafe7a5aee1ed3ebcc454c591454fa02d8aeb1db6bd1b104",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/queue",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_obs_validation_20261114100614_0f855f4d_queue",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_obs_validation_20261114100614_0f855f4d_queue/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/source",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_obs_validation_20261114100614_0f855f4d_source",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_obs_validation_20261114100614_0f855f4d_source/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "jp_obs_validation_20261114100614_0f855f4d_isolated": {
+          "Aliases": [
+            "jp_obs_validation_20261114100614_0f855f4d-fluent-1",
+            "fluent"
+          ],
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": ""
+        }
+      },
+      "hostConfig": true
+    },
+    {
+      "service": "grafana",
+      "id": "50f9e2e5b72addf8ba2d9b9b4c2aefbac00e324ffa350418c550f2e32eafea2f",
+      "mounts": [
+        {
+          "Destination": "/dashboards/p09-api-operations.json",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\dashboards\\p09-api-operations.json",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/dashboards/p09-telemetry-capacity.json",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\dashboards\\p09-telemetry-capacity.json",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning/dashboards/p10.yaml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private\\provider.json",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning/datasources/p10.yaml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\jp_obs_validation_20261114100614_0f855f4d\\private\\datasource.json",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_obs_validation_20261114100614_0f855f4d_isolated": {
+          "Aliases": [
+            "jp_obs_validation_20261114100614_0f855f4d-grafana-1",
+            "grafana"
+          ],
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": ""
+        }
+      },
+      "hostConfig": true
+    }
+  ],
+  "volumes": [
+    {
+      "name": "jp_obs_validation_20261114100614_0f855f4d_queue",
+      "driver": "local",
+      "options": {
+        "device": "tmpfs",
+        "o": "size=8m,mode=1777",
+        "type": "tmpfs"
+      },
+      "mountpoint": "/var/lib/docker/volumes/jp_obs_validation_20261114100614_0f855f4d_queue/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "c72f79e4f0c76cc179ec7c450603fecd8573671e3db26e512ee7373e306d2559",
+        "com.docker.compose.project": "jp_obs_validation_20261114100614_0f855f4d",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "queue",
+        "jp.p10.run": "jp_obs_validation_20261114100614_0f855f4d"
+      }
+    },
+    {
+      "name": "jp_obs_validation_20261114100614_0f855f4d_source",
+      "driver": "local",
+      "options": {
+        "device": "tmpfs",
+        "o": "size=8m,mode=1777",
+        "type": "tmpfs"
+      },
+      "mountpoint": "/var/lib/docker/volumes/jp_obs_validation_20261114100614_0f855f4d_source/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "6c0f31f991fdf0383cb6f7685d212cd8f683fbbb6141469216c85bb9e251055b",
+        "com.docker.compose.project": "jp_obs_validation_20261114100614_0f855f4d",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "source",
+        "jp.p10.run": "jp_obs_validation_20261114100614_0f855f4d"
+      }
+    }
+  ],
+  "network": {
+    "id": "8468f5e4496c9148c78dc28ab422a723f673e7a2d159b9e8ca47f790d350e5d8",
+    "internal": true,
+    "labels": {
+      "com.docker.compose.config-hash": "061f9815e6a00a092c8119166a1f1ee207b9a219643b40ec7a8629221a396103",
+      "com.docker.compose.network": "isolated",
+      "com.docker.compose.project": "jp_obs_validation_20261114100614_0f855f4d",
+      "com.docker.compose.version": "5.7.0",
+      "jp.p10.run": "jp_obs_validation_20261114100614_0f855f4d"
+    }
+  },
+  "storagePlan": {
+    "hardFilesystemsMiB": 364,
+    "logAllowanceMiB": 7,
+    "hostArtifactsAndConfigurationAllowanceMiB": 72,
+    "totalMiB": 443,
+    "maximumMiB": 512
+  }
+}

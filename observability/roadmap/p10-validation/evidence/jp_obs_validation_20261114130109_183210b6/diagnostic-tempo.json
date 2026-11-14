@@ -1,0 +1,3 @@
+{
+  "logs": "level=warn ts=2026-11-14T13:01:29.05134922Z caller=modules.go:460 msg=\"Worker address is empty in single binary mode. Attempting automatic worker configuration. If queries are unresponsive consider configuring the worker explicitly.\" address=127.0.0.1:9095\nlevel=warn ts=2026-11-14T13:01:29.055291675Z caller=modules.go:359 msg=\"metrics-generator is not configured.\" err=\"no metrics_generator.storage.path configured, metrics generator will be disabled\"\nlevel=warn ts=2026-11-14T13:01:29.058227647Z caller=wal.go:103 msg=\"unowned file entry ignored during wal replay\" file=blocks err=null\n"
+}

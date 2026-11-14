@@ -1,0 +1,41 @@
+{
+  "phase": "P10",
+  "project": "jp_obs_validation_20261114150313_c99b07f8",
+  "utc": "2026-11-14T15:03:13.057Z",
+  "status": "PARTIAL",
+  "fullRecoveryExecuted": false,
+  "samples": [
+    {
+      "utc": "2026-11-14T15:03:33.688Z",
+      "windowsAvailableBytes": 5082460160,
+      "nodeBytes": 47345664,
+      "dockerRamBytes": 0,
+      "cpuCores": 0,
+      "hostStagingBytes": 0,
+      "storageBytes": 1042
+    }
+  ],
+  "peaks": {
+    "dockerRamBytes": 0,
+    "hostNodeBytes": 47345664,
+    "cpuCores": 0,
+    "storageBytes": 1042,
+    "hostStagingBytes": 0
+  },
+  "minimumHostAvailableBytes": 5082460160,
+  "sampling": "Sequential samples approximately every 3–8 seconds; sampled peaks are not continuous high-water marks. Hard model caps bound between-sample consumption.",
+  "cleanup": [],
+  "preflightEvidence": "full-recovery-start-c99b07f8.json",
+  "workerPid": 23840,
+  "error": "ENOENT: no such file or directory, open 'D:\\japanese-learning\\observability\\roadmap\\p10-validation\\evidence\\jp_obs_validation_20261114150313_c99b07f8\\restore.json'",
+  "finalEvidence": "full-recovery-finish-c99b07f8.json",
+  "preservation": {
+    "containers": true,
+    "volumes": true,
+    "backups": true,
+    "schedules": true,
+    "git": true,
+    "noDisposableContainers": true
+  },
+  "finishedUtc": "2026-11-14T15:03:54.343Z"
+}

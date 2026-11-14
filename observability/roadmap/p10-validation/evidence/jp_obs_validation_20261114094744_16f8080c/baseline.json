@@ -1,0 +1,3574 @@
+{
+  "utc": "2026-11-14T09:47:50.877Z",
+  "inventory": [
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "image": "sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "reference": "otel/opentelemetry-collector-contrib:0.145.0@sha256:ac7ad5529b8cf522aa03792bb6d667a7df7d2c3f3da40b2746c51c113ea28c8c",
+      "started": "2026-11-14T09:29:25.959474894Z",
+      "state": "running",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/otelcol/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-otel-collector-1",
+            "otel-collector"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-otel-collector-1",
+            "otel-collector",
+            "0825f1575433"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "2bdc1b21bcdc745bb233c6fb5a036344e4032422773c3c97a3e565e2f567ad43",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.9",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "06:78:47:bb:b9:29",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        },
+        "jp_learning_dev_p06-tracing": {
+          "Aliases": [
+            "jp_learning_dev-otel-collector-1",
+            "otel-collector"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-otel-collector-1",
+            "otel-collector",
+            "0825f1575433"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "233721dd4f6fbedebab341f4bccef043ec6946da2026282bc57b439d0bdd2b6f",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.3",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "6e:28:79:3c:42:ad",
+          "NetworkID": "7ba1864861f224301dc274a8b4a8f7c0c07610672271ed5d7339a50500556c83"
+        }
+      }
+    },
+    {
+      "id": "0e3e7081e6afb683d85e22efa629d3e382236ad5a223b84bc4565e7ae2d60cbb",
+      "name": "/p08_local_b6f800537e4b146e-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "reference": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T05:36:52.100747354Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/restored",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\recovered\\configuration\\observability\\p07",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/samples.om",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\samples.om",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_b6f800537e4b146e_recovery": {
+          "Aliases": [
+            "p08_local_b6f800537e4b146e-prometheus-1",
+            "prometheus"
+          ],
+          "DNSNames": [
+            "p08_local_b6f800537e4b146e-prometheus-1",
+            "prometheus",
+            "0e3e7081e6af"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "36379b7b6ab661d20c7635612ee0ad30d3d79e723676a90366c429606ff12a49"
+        }
+      }
+    },
+    {
+      "id": "150cd5baed5c7d2ba0506b2de0b35088d36f44223d0a2ffd6336317271f78847",
+      "name": "/p08_local_a7b020597ef5a943-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "reference": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T05:21:56.872278746Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_a7b020597ef5a943_recovery": {
+          "Aliases": [
+            "p08_local_a7b020597ef5a943-restore-1",
+            "restore"
+          ],
+          "DNSNames": [
+            "p08_local_a7b020597ef5a943-restore-1",
+            "restore",
+            "150cd5baed5c"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "26429dbe5122ebc23bb9609745b117a7f2294593d434e81026b07dca4d200eb4"
+        }
+      }
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "reference": "mcr.microsoft.com/mssql/server:2022-latest@sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-14T03:40:03.657946174Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-sqlserver-init-1",
+            "sqlserver-init"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-sqlserver-init-1",
+            "sqlserver-init",
+            "17f08e4ed9dc"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "reference": "flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-14T03:40:04.468052653Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-flyway-user-1",
+            "flyway-user"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-flyway-user-1",
+            "flyway-user",
+            "18babbc67581"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "1ce5a367777adbc7b7a30ab72f83ce0dd346a170aeca5a0e27a68b9c28a4d289",
+      "name": "/p08_local_a7b020597ef5a943-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "reference": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:21:57.230506977Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private\\tempo.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_a7b020597ef5a943_recovery": {
+          "Aliases": [
+            "p08_local_a7b020597ef5a943-tempo-1",
+            "tempo"
+          ],
+          "DNSNames": [
+            "p08_local_a7b020597ef5a943-tempo-1",
+            "tempo",
+            "1ce5a367777a"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "26429dbe5122ebc23bb9609745b117a7f2294593d434e81026b07dca4d200eb4"
+        }
+      }
+    },
+    {
+      "id": "21ce59e0cdbb472bb8fb6e8cd2aca8b1f1498288932bd3261d22be2c22523717",
+      "name": "/p08-sqlite-validation-20261114",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "016508ba505d",
+      "started": "2026-11-14T03:38:26.918697697Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/work/observability",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:/japanese-learning/observability",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "none": {
+          "Aliases": null,
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c41df4572ee8a5b63bed1db9ac7977ce3c4e55c5733f660c78ea8ea54161764d"
+        }
+      }
+    },
+    {
+      "id": "224f3bda9210e0f4825fed93c0c08d7ee0d1949f4061253ddaebbbc4e0cd0102",
+      "name": "/p08_local_b6f800537e4b146e-collector",
+      "image": "sha256:7aa3a705cd19cf734b841721ce0ac046bd7439296f31141117cce1c1215372e5",
+      "reference": "sha256:7aa3a705cd19cf734b841721ce0ac046bd7439296f31141117cce1c1215372e5",
+      "started": "2026-11-14T05:45:16.674259329Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_b6f800537e4b146e_recovery": {
+          "Aliases": null,
+          "DNSNames": [
+            "p08_local_b6f800537e4b146e-collector",
+            "224f3bda9210"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "36379b7b6ab661d20c7635612ee0ad30d3d79e723676a90366c429606ff12a49"
+        }
+      }
+    },
+    {
+      "id": "24ab6bfaa069ed6f1a254648ca8880e0b030d7be225d9ca3f872f869784728a7",
+      "name": "/p08_local_293e6c6e6df6c3cf-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "reference": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T04:12:18.906985107Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\recovered\\configuration\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_293e6c6e6df6c3cf_recovery": {
+          "Aliases": [
+            "p08_local_293e6c6e6df6c3cf-grafana-1",
+            "grafana"
+          ],
+          "DNSNames": [
+            "p08_local_293e6c6e6df6c3cf-grafana-1",
+            "grafana",
+            "24ab6bfaa069"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "90da970b2799eeada763bfd5b61676b4df830202dbb07e008e973d912fbe8bca"
+        }
+      }
+    },
+    {
+      "id": "29662d70196b54d59e7450ec9569093fc873b1fe80dccaa7299b5237bb573cf5",
+      "name": "/p08_local_293e6c6e6df6c3cf-agent-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T04:12:14.90539258Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/agent.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p08\\recovery-agent.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/recovered",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\recovered",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_293e6c6e6df6c3cf_recovery": {
+          "Aliases": [
+            "p08_local_293e6c6e6df6c3cf-agent-1",
+            "agent"
+          ],
+          "DNSNames": [
+            "p08_local_293e6c6e6df6c3cf-agent-1",
+            "agent",
+            "29662d70196b"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "90da970b2799eeada763bfd5b61676b4df830202dbb07e008e973d912fbe8bca"
+        }
+      }
+    },
+    {
+      "id": "2b16139c7183f866882a9de73a6be3d41d50ae7159ef2a160a570d2bf1402aa0",
+      "name": "/p08_local_293e6c6e6df6c3cf-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "reference": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T04:12:17.827565953Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private\\tempo.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_293e6c6e6df6c3cf_recovery": {
+          "Aliases": [
+            "p08_local_293e6c6e6df6c3cf-tempo-1",
+            "tempo"
+          ],
+          "DNSNames": [
+            "p08_local_293e6c6e6df6c3cf-tempo-1",
+            "tempo",
+            "2b16139c7183"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "90da970b2799eeada763bfd5b61676b4df830202dbb07e008e973d912fbe8bca"
+        }
+      }
+    },
+    {
+      "id": "318c57b515aee2e1ab4587ce8582bb97f1e58d75789e6d0ecb3b71527d415ec2",
+      "name": "/p08_drill_5ffec34627f7f0c1-rules",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "reference": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T03:46:11.896859096Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "",
+          "Name": "7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\unsealed\\configuration\\observability\\p07\\prometheus",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "none": {
+          "Aliases": null,
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c41df4572ee8a5b63bed1db9ac7977ce3c4e55c5733f660c78ea8ea54161764d"
+        }
+      }
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "image": "sha256:d0458aba3b5a034808369b7feb73cf1b3438b96e01d5b975ac712d530d196f68",
+      "reference": "jp_learning_dev-opensearch-dashboards",
+      "started": "2026-11-14T09:29:25.970724517Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch-dashboards/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_dashboards_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_log-storage": {
+          "Aliases": [
+            "jp_learning_dev-opensearch-dashboards-1",
+            "opensearch-dashboards"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-opensearch-dashboards-1",
+            "opensearch-dashboards",
+            "3a6c42728e92"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "e2b123ea07edecf516ded09f7139c135537cc0a9d09dac19859fd99d2984ae1e",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.21.0.4",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "5e:7f:2f:7a:d1:b8",
+          "NetworkID": "12f1e8daae31402f6bca0d7d14d88697791eb0bf4de9bd3090cf52c7f5284df3"
+        },
+        "jp_learning_dev_log-ui": {
+          "Aliases": [
+            "jp_learning_dev-opensearch-dashboards-1",
+            "opensearch-dashboards"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-opensearch-dashboards-1",
+            "opensearch-dashboards",
+            "3a6c42728e92"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "5a8514894da82a3b98976a75548b817ba039a94a1c244b09e842a562457273bf",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.23.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "0e:b4:13:d9:28:a7",
+          "NetworkID": "66dfb67a9683640e8155d2a843b7d34b34f2966a37d518cb615d42b63e0b10da"
+        }
+      }
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "name": "/jp_learning_dev-opensearch-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "reference": "jp_learning_dev-opensearch",
+      "started": "2026-11-14T09:29:25.97533868Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_log-storage": {
+          "Aliases": [
+            "jp_learning_dev-opensearch-1",
+            "opensearch"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-opensearch-1",
+            "opensearch",
+            "3b44d22c3c04"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "66100cd9fc43cfe514e1f91466c312ed7a82ba31b78df655194afcfd96257c4a",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.21.0.3",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "c6:61:04:39:57:7b",
+          "NetworkID": "12f1e8daae31402f6bca0d7d14d88697791eb0bf4de9bd3090cf52c7f5284df3"
+        }
+      }
+    },
+    {
+      "id": "40bc6c63fb021260786254527a09126eb3209b85d2d0903f5bc82dbd53e0a47b",
+      "name": "/p08_drill_4c41444f416bb565-source-1",
+      "image": "sha256:64ab620a7c28c2bf955d78b6df9753c858e4d1a16bb8d82c3477fff1b11271e0",
+      "reference": "sha256:64ab620a7c28c2bf955d78b6df9753c858e4d1a16bb8d82c3477fff1b11271e0",
+      "started": "2026-11-14T03:39:21.078977448Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_4c41444f416bb565\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_drill_4c41444f416bb565_drill": {
+          "Aliases": [
+            "p08_drill_4c41444f416bb565-source-1",
+            "source"
+          ],
+          "DNSNames": [
+            "p08_drill_4c41444f416bb565-source-1",
+            "source",
+            "40bc6c63fb02"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "19442b28e2a81a358e01d3561f7a12b5721f4be3c57c7f6b5c2813ce15306946"
+        }
+      }
+    },
+    {
+      "id": "41dfd98716fc7a0997813cb11999a311ce1b6f2e8d611bb32bfb9ae917cfa92d",
+      "name": "/p07_recovery_916fd74a-restore-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "reference": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T03:01:13.590947433Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "p07_recovery_916fd74a_restore_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "p07_recovery_916fd74a_restore_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/recovery",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p07_recovery_916fd74a_recovery": {
+          "Aliases": [
+            "p07_recovery_916fd74a-restore-1",
+            "restore"
+          ],
+          "DNSNames": [
+            "p07_recovery_916fd74a-restore-1",
+            "restore",
+            "41dfd98716fc"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "5cb752eca3b8a1d7d8240267be0b266a9c0f3be466579ab58a7a6a7449e14c59"
+        }
+      }
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "image": "sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "reference": "mcr.microsoft.com/mssql/server:2022-latest@sha256:ba4c8329f48fb8f02e1416be6a930ebfd71268caee78aa985f3af4315e457c89",
+      "started": "2026-11-14T09:29:25.966593536Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/var/opt/mssql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_sqlserver_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-sqlserver-1",
+            "sqlserver"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-sqlserver-1",
+            "sqlserver",
+            "46aa76144deb"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "4fd6fa0213a4811699735959e4a212c5f13fbc31a8dcef227ddbb274cabba0fc",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.8",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "1e:16:a0:ab:03:d0",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "reference": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-14T09:29:25.942095483Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/logs.htpasswd",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_log-access": {
+          "Aliases": [
+            "jp_learning_dev-logs-ui-1",
+            "logs-ui"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-logs-ui-1",
+            "logs-ui",
+            "4a7e82a13a94"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "744383fbf4f05f3991cee8c98b280c27b869bb86dd4fab2c150fc44ec8136f14",
+          "Gateway": "172.22.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.22.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "ce:f1:14:69:ef:0b",
+          "NetworkID": "47d995c89da9784b11dce904422008761cc0e803294fd3777849ee0fc4d7badc"
+        },
+        "jp_learning_dev_log-ui": {
+          "Aliases": [
+            "jp_learning_dev-logs-ui-1",
+            "logs-ui"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-logs-ui-1",
+            "logs-ui",
+            "4a7e82a13a94"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "b40dbaf15b9ebe35a0740e1b29f5a9da440fb7901588620623287ec9a5a2d7d7",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.23.0.3",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "6e:3f:a9:54:89:04",
+          "NetworkID": "66dfb67a9683640e8155d2a843b7d34b34f2966a37d518cb615d42b63e0b10da"
+        }
+      }
+    },
+    {
+      "id": "4a841486f57ff448f9fc600fcd8ab987b0d541eecc9588d56df3510bffb3edd5",
+      "name": "/p08_local_b6f800537e4b146e-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "reference": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T05:36:51.938458051Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_b6f800537e4b146e_recovery": {
+          "Aliases": [
+            "p08_local_b6f800537e4b146e-restore-1",
+            "restore"
+          ],
+          "DNSNames": [
+            "p08_local_b6f800537e4b146e-restore-1",
+            "restore",
+            "4a841486f57f"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "36379b7b6ab661d20c7635612ee0ad30d3d79e723676a90366c429606ff12a49"
+        }
+      }
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "name": "/jp_learning_dev-frontend-1",
+      "image": "sha256:fe3d2786bf4eebf1f2b3e6545fef52b38112d3c55354dbc95128fa2de03fbed6",
+      "reference": "jp_learning_dev-frontend",
+      "started": "2026-11-14T09:29:25.917084909Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-frontend-1",
+            "frontend"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-frontend-1",
+            "frontend",
+            "4e9c586148e6"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "bb38a47b7605838a6df6e2f3a1b53715ca969827a319092d2ddc2c748caf1a60",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.4",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "ba:77:4e:4e:8a:b1",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "530d92fe0b10426b3524eb5193807f34e147d31a8a00ebcc0e49732fa88c8cbd",
+      "name": "/p08_local_a7b020597ef5a943-agent-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T05:21:56.70271302Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/agent.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p08\\recovery-agent.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/recovered",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\recovered",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_a7b020597ef5a943_recovery": {
+          "Aliases": [
+            "p08_local_a7b020597ef5a943-agent-1",
+            "agent"
+          ],
+          "DNSNames": [
+            "p08_local_a7b020597ef5a943-agent-1",
+            "agent",
+            "530d92fe0b10"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "26429dbe5122ebc23bb9609745b117a7f2294593d434e81026b07dca4d200eb4"
+        }
+      }
+    },
+    {
+      "id": "537e2d7ebbff78c226ad2cef9a4ef85cb76cb3db639c4d4980896df8726ac7e4",
+      "name": "/p08_local_b6f800537e4b146e-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "reference": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:36:52.334418022Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private\\tempo.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_b6f800537e4b146e_recovery": {
+          "Aliases": [
+            "p08_local_b6f800537e4b146e-tempo-1",
+            "tempo"
+          ],
+          "DNSNames": [
+            "p08_local_b6f800537e4b146e-tempo-1",
+            "tempo",
+            "537e2d7ebbff"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "36379b7b6ab661d20c7635612ee0ad30d3d79e723676a90366c429606ff12a49"
+        }
+      }
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "image": "sha256:a414d16af32cb5d7fc797bc688b0108e0dbdf37633cf485dc8300395847a22f6",
+      "reference": "jp_learning_dev-fluent-bit",
+      "started": "2026-11-14T09:29:25.952685535Z",
+      "state": "running",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/state",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/jwks",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/user",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/vocabulary",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_log-storage": {
+          "Aliases": [
+            "jp_learning_dev-fluent-bit-1",
+            "fluent-bit"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-fluent-bit-1",
+            "fluent-bit",
+            "605bb21e8fbe"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "bcdf72226cbc363d9ac5bd885765e0ab823f76129892695947e78082903db457",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.21.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "a6:ec:db:e1:e5:25",
+          "NetworkID": "12f1e8daae31402f6bca0d7d14d88697791eb0bf4de9bd3090cf52c7f5284df3"
+        }
+      }
+    },
+    {
+      "id": "660c30a91bd9812d4ccc405d76e54a662383aa069fc7959c1240ae96af8ce273",
+      "name": "/p08_profile_ecb2beee5957efee-prometheus",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "reference": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T05:58:34.181402624Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "",
+          "Name": "d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "none": {
+          "Aliases": null,
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c41df4572ee8a5b63bed1db9ac7977ce3c4e55c5733f660c78ea8ea54161764d"
+        }
+      }
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "name": "/jp_learning_dev-logging-init-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "python:3.14-alpine@sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T03:40:03.45946961Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/p07",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_log-storage": {
+          "Aliases": [
+            "jp_learning_dev-logging-init-1",
+            "logging-init"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-logging-init-1",
+            "logging-init",
+            "6781af78bf91"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "12f1e8daae31402f6bca0d7d14d88697791eb0bf4de9bd3090cf52c7f5284df3"
+        }
+      }
+    },
+    {
+      "id": "71841ec0461d97351694df894e36dcd0146ebd4e48e96e8d9a9a85012506e2cd",
+      "name": "/p08_drill_5ffec34627f7f0c1-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "reference": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T03:45:07.334722276Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\unsealed\\logs",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_drill_5ffec34627f7f0c1_drill": {
+          "Aliases": [
+            "p08_drill_5ffec34627f7f0c1-restore-1",
+            "restore"
+          ],
+          "DNSNames": [
+            "p08_drill_5ffec34627f7f0c1-restore-1",
+            "restore",
+            "71841ec0461d"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "901600f69cd40f8812d85f08ba65bc2214c21d6a6bc47304588dc03aa21686b1"
+        }
+      }
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "image": "sha256:c189edf950aacd300b3b0f0dda36d077013fe91fefca874af2e6a7bfbdd1c717",
+      "reference": "jp_learning_dev-jwks-api",
+      "started": "2026-11-14T09:29:25.873421933Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/app/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-1.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-2.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-3.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-jwks-api-1",
+            "jwks-api"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-jwks-api-1",
+            "jwks-api",
+            "75e87b13b349"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "dc116da9932bfd0381a75291387a61e37e8026c7e09668f726a8c1520590c8a9",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.3",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "b2:bb:b6:a7:11:04",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "python:3.14-alpine@sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T03:40:04.708527429Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_log-ui": {
+          "Aliases": [
+            "jp_learning_dev-logging-ui-init-1",
+            "logging-ui-init"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-logging-ui-init-1",
+            "logging-ui-init",
+            "7e63fc5112fd"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "66dfb67a9683640e8155d2a843b7d34b34f2966a37d518cb615d42b63e0b10da"
+        }
+      }
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "python:3.14-alpine@sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T09:29:25.956986547Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/host-docker-data",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/config/storage-monitor.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/stores/fluent-bit",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/grafana",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/opensearch",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/prometheus",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/tempo",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_p05-monitoring": {
+          "Aliases": [
+            "jp_learning_dev-storage-monitor-1",
+            "storage-monitor"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-storage-monitor-1",
+            "storage-monitor",
+            "83033855dac0"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "6b08fc82937296f8da34d64b4b37ca6d4d10e33af2f916dba5fcd510994f7696",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.18.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "76:16:b8:09:21:5d",
+          "NetworkID": "caa66d0f0d313503b0ac36aa693bac630830b735505d9bd3043186ebc498d2f3"
+        }
+      }
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "name": "/jp_learning_dev-mysql-1",
+      "image": "sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "reference": "mysql:8.4@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb",
+      "started": "2026-11-14T09:29:25.963969386Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/var/lib/mysql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_mysql_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-mysql-1",
+            "mysql"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-mysql-1",
+            "mysql",
+            "84b98ea41601"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "00fbabe3af0ba6d90dadcabd1bca420a26280fa2ef18ac2fc84b6c8f81aa6ccd",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.11",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "aa:76:d7:51:47:b5",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "84f859e23591ccaead62afd0cf3a92a0001ac272b7018b23e3321dda3eb1ab99",
+      "name": "/p08_automated_f69dcb8839b4b03e",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T03:45:02.950997687Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/work/observability",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "none": {
+          "Aliases": null,
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c41df4572ee8a5b63bed1db9ac7977ce3c4e55c5733f660c78ea8ea54161764d"
+        }
+      }
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "name": "/jp_learning_dev-user-api-1",
+      "image": "sha256:627d12a7a76db96278ac918e0bfa5b339a279f170bc5c1abd3804d240c84519b",
+      "reference": "jp_learning_dev-user-api",
+      "started": "2026-11-14T09:29:25.97693223Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/app/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwt",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-user-api-1",
+            "user-api"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-user-api-1",
+            "user-api",
+            "8c85bc3b117a"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "8ecc96580ad454632c0ebea3adb2fd06de5a92b7fde603f332422325a6edc3f2",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.10",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "36:88:dd:b7:f5:65",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "94cbbb768368e0043808280a3418d1a5a8d1bad2f31330f2ac4e207a2dfd909d",
+      "name": "/p08_local_b6f800537e4b146e-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "reference": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T05:36:52.499800265Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\recovered\\configuration\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_b6f800537e4b146e_recovery": {
+          "Aliases": [
+            "p08_local_b6f800537e4b146e-grafana-1",
+            "grafana"
+          ],
+          "DNSNames": [
+            "p08_local_b6f800537e4b146e-grafana-1",
+            "grafana",
+            "94cbbb768368"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "36379b7b6ab661d20c7635612ee0ad30d3d79e723676a90366c429606ff12a49"
+        }
+      }
+    },
+    {
+      "id": "a18dfbb28a9119db5775290122c03c0526ddf955a1a7aa37be5004934b2ba640",
+      "name": "/p08_profile_ecb2beee5957efee-probe",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T05:58:17.514107589Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [],
+      "networks": {
+        "p08_profile_ecb2beee5957efee": {
+          "Aliases": null,
+          "DNSNames": [
+            "p08_profile_ecb2beee5957efee-probe",
+            "a18dfbb28a91"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c240dc37d782c3d4b24ebf663803cb9e39b9f1a3c011b3754d81aab36c2a2cc5"
+        }
+      }
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "image": "sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "reference": "flyway/flyway:latest@sha256:c748a1e82c40d4ee63b2f02a78295cf2460e8b4f1abae8abcd7ad5d6e879f959",
+      "started": "2026-11-14T03:40:03.275109096Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-flyway-vocabulary-1",
+            "flyway-vocabulary"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-flyway-vocabulary-1",
+            "flyway-vocabulary",
+            "a5dcce7aaaa5"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "a76c14f355554d3b55bb4c92c28e54fa688d32eb50261bbcb505e0ef0067e776",
+      "name": "/p08_drill_659e384d40ef3d70-restore-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "reference": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T03:35:03.513542369Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\unsealed\\logs",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_drill_659e384d40ef3d70_drill": {
+          "Aliases": [
+            "p08_drill_659e384d40ef3d70-restore-1",
+            "restore"
+          ],
+          "DNSNames": [
+            "p08_drill_659e384d40ef3d70-restore-1",
+            "restore",
+            "a76c14f35555"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "5e2aa86317e88088137501dff2bad3d08086a21e83191d8ba8e47c9a5e6eea83"
+        }
+      }
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "image": "sha256:bfb79dc85bc1e1977496c82a94936e77c65e095ecc9d59e4a30db901f3ee9687",
+      "reference": "jp_learning_dev-vocabulary-api",
+      "started": "2026-11-14T09:29:25.890657602Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/deployments/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-vocabulary-api-1",
+            "vocabulary-api"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-vocabulary-api-1",
+            "vocabulary-api",
+            "b198d608d42e"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "bf8745c3d72be83473ee8901f2c80e84001ff509f18cf1ea050964f72a452e34",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "86:bf:75:e9:ef:c3",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "b439fbab2bcf0aba1e3105dfa60c7330ab4757e0d9bddf96fd6753e97a0dd79e",
+      "name": "/p08_drill_5ffec34627f7f0c1-source-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "reference": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T03:44:00.603358458Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_5ffec34627f7f0c1\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_drill_5ffec34627f7f0c1_drill": {
+          "Aliases": [
+            "p08_drill_5ffec34627f7f0c1-source-1",
+            "source"
+          ],
+          "DNSNames": [
+            "p08_drill_5ffec34627f7f0c1-source-1",
+            "source",
+            "b439fbab2bcf"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "901600f69cd40f8812d85f08ba65bc2214c21d6a6bc47304588dc03aa21686b1"
+        }
+      }
+    },
+    {
+      "id": "bc2c6567fc5dfa5127e0f5850698b1add4bf9c6c2d2bb8ef56a742f0eb7aa72e",
+      "name": "/p08_local_b6f800537e4b146e-agent-1",
+      "image": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "reference": "sha256:016508ba505da24f7139765bc4bb669df4e88eb2f12eeadd571bf2f88d7533df",
+      "started": "2026-11-14T05:36:51.781669448Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/agent.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p08\\recovery-agent.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/recovered",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_b6f800537e4b146e\\recovered",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_b6f800537e4b146e_recovery": {
+          "Aliases": [
+            "p08_local_b6f800537e4b146e-agent-1",
+            "agent"
+          ],
+          "DNSNames": [
+            "p08_local_b6f800537e4b146e-agent-1",
+            "agent",
+            "bc2c6567fc5d"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "36379b7b6ab661d20c7635612ee0ad30d3d79e723676a90366c429606ff12a49"
+        }
+      }
+    },
+    {
+      "id": "bfabc10fab3bbbdaba3018fe79badbb10ebe6721adac05a9ccc1e93724fe3652",
+      "name": "/p08_local_293e6c6e6df6c3cf-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "reference": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T04:12:16.804175911Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/restored",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\recovered\\configuration\\observability\\p07",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/samples.om",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\samples.om",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_293e6c6e6df6c3cf_recovery": {
+          "Aliases": [
+            "p08_local_293e6c6e6df6c3cf-prometheus-1",
+            "prometheus"
+          ],
+          "DNSNames": [
+            "p08_local_293e6c6e6df6c3cf-prometheus-1",
+            "prometheus",
+            "bfabc10fab3b"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "90da970b2799eeada763bfd5b61676b4df830202dbb07e008e973d912fbe8bca"
+        }
+      }
+    },
+    {
+      "id": "c0bc27011f2b09c3dcb50de11cf97f748441b9132a8f254e4214bbaa76c48392",
+      "name": "/p08_drill_659e384d40ef3d70-rules",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "reference": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T03:36:11.766318737Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "",
+          "Name": "23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\unsealed\\configuration\\observability\\p07\\prometheus",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "none": {
+          "Aliases": null,
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c41df4572ee8a5b63bed1db9ac7977ce3c4e55c5733f660c78ea8ea54161764d"
+        }
+      }
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "name": "/jp_learning_dev-gateway-1",
+      "image": "sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "reference": "nginx:stable-alpine@sha256:73c75df4075c918f91017fdda46ad81e55e5af77ba3a64ca3d5014bd9244fe7f",
+      "started": "2026-11-14T09:29:25.929463807Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-gateway-1",
+            "gateway"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-gateway-1",
+            "gateway",
+            "cea182cbaac2"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "7083bc5410c70019848d13a72a10d950bce8b4b3aca593b86932b55bab317cf7",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.5",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "06:56:bf:9b:a2:59",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        }
+      }
+    },
+    {
+      "id": "d633a8152081e5a2ddb19e4a35293e867d8428d42e3769a4724635ed26dac254",
+      "name": "/p08_local_293e6c6e6df6c3cf-restore-1",
+      "image": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "reference": "sha256:9d7dcf60dbdac122598a7d739d4414c609cc715e55bfe84f9b0036af2ae5ef3a",
+      "started": "2026-11-14T04:12:15.876954429Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_293e6c6e6df6c3cf\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_293e6c6e6df6c3cf_recovery": {
+          "Aliases": [
+            "p08_local_293e6c6e6df6c3cf-restore-1",
+            "restore"
+          ],
+          "DNSNames": [
+            "p08_local_293e6c6e6df6c3cf-restore-1",
+            "restore",
+            "d633a8152081"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "90da970b2799eeada763bfd5b61676b4df830202dbb07e008e973d912fbe8bca"
+        }
+      }
+    },
+    {
+      "id": "da2d72fa7d55d519802568b99a2cc19b8a3ff8f2188c4c5ae335198f482c734a",
+      "name": "/p08_profile_ecb2beee5957efee-tempo",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "reference": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:58:16.860923151Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_profile_ecb2beee5957efee\\tempo.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_profile_ecb2beee5957efee": {
+          "Aliases": [
+            "tempo-profile"
+          ],
+          "DNSNames": [
+            "p08_profile_ecb2beee5957efee-tempo",
+            "tempo-profile",
+            "da2d72fa7d55"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c240dc37d782c3d4b24ebf663803cb9e39b9f1a3c011b3754d81aab36c2a2cc5"
+        }
+      }
+    },
+    {
+      "id": "dddbe69396577c9f47621342487a93d57768d328c751f8c22ef8488a94542319",
+      "name": "/p08_local_a7b020597ef5a943-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "reference": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T05:21:57.018504323Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/private",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/restored",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\recovered\\configuration\\observability\\p07",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/samples.om",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\samples.om",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_a7b020597ef5a943_recovery": {
+          "Aliases": [
+            "p08_local_a7b020597ef5a943-prometheus-1",
+            "prometheus"
+          ],
+          "DNSNames": [
+            "p08_local_a7b020597ef5a943-prometheus-1",
+            "prometheus",
+            "dddbe6939657"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "26429dbe5122ebc23bb9609745b117a7f2294593d434e81026b07dca4d200eb4"
+        }
+      }
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "name": "/jp_learning_dev-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "reference": "grafana/grafana:13.2.2@sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T09:29:25.931636125Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/p05-dashboards",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-grafana-1",
+            "grafana"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-grafana-1",
+            "grafana",
+            "e069b646cb21"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "3252cba58add548a8dfe02992fbd618813a7dd97852c795c6bb24803944960ca",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.6",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "d2:b7:5e:9c:33:8f",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        },
+        "jp_learning_dev_p05-monitoring": {
+          "Aliases": [
+            "jp_learning_dev-grafana-1",
+            "grafana"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-grafana-1",
+            "grafana",
+            "e069b646cb21"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "943ca6ea3b7f402f172a0f2b2a769a9014bf53c0dbe2bcb440d338b55d36a0c9",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.18.0.3",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "16:37:bc:2e:a0:07",
+          "NetworkID": "caa66d0f0d313503b0ac36aa693bac630830b735505d9bd3043186ebc498d2f3"
+        },
+        "jp_learning_dev_p06-tracing": {
+          "Aliases": [
+            "jp_learning_dev-grafana-1",
+            "grafana"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-grafana-1",
+            "grafana",
+            "e069b646cb21"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "4110a6e6e35f3bc9d4040c65f576ec33c88b1788d6ae95db3336d1f4d74c33fb",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.4",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "ae:ab:5e:33:15:c2",
+          "NetworkID": "7ba1864861f224301dc274a8b4a8f7c0c07610672271ed5d7339a50500556c83"
+        }
+      }
+    },
+    {
+      "id": "e1d3718930bb2e55fd4568be6350ac21fc3b188d436cd762781e995de0419643",
+      "name": "/p07_recovery_916fd74a-source-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "reference": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T02:56:03.610208594Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "p07_recovery_916fd74a_source_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "p07_recovery_916fd74a_source_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/recovery",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p07_recovery_916fd74a\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p07_recovery_916fd74a_recovery": {
+          "Aliases": [
+            "p07_recovery_916fd74a-source-1",
+            "source"
+          ],
+          "DNSNames": [
+            "p07_recovery_916fd74a-source-1",
+            "source",
+            "e1d3718930bb"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "5cb752eca3b8a1d7d8240267be0b266a9c0f3be466579ab58a7a6a7449e14c59"
+        }
+      }
+    },
+    {
+      "id": "e62ec03bd3368fa3f4243c449eb494998022fdcef9ac0b28f9f1c85c64bbe495",
+      "name": "/p08_profile_141e7b7c226ef32d-tempo",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "reference": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T05:55:05.452324543Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_profile_141e7b7c226ef32d\\tempo.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "none": {
+          "Aliases": null,
+          "DNSNames": null,
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "c41df4572ee8a5b63bed1db9ac7977ce3c4e55c5733f660c78ea8ea54161764d"
+        }
+      }
+    },
+    {
+      "id": "eba199e092e954f50311005a533be97568d19a0c2806c683afc150a94259ff50",
+      "name": "/p08_local_a7b020597ef5a943-grafana-1",
+      "image": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "reference": "sha256:ac461fb352abc50da10a51c7d02462e9c05488f11f53f14b3ad79a8145f638a0",
+      "started": "2026-11-14T05:21:57.398993958Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08-development\\staging\\drill-p08_local_a7b020597ef5a943\\recovered\\configuration\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_local_a7b020597ef5a943_recovery": {
+          "Aliases": [
+            "p08_local_a7b020597ef5a943-grafana-1",
+            "grafana"
+          ],
+          "DNSNames": [
+            "p08_local_a7b020597ef5a943-grafana-1",
+            "grafana",
+            "eba199e092e9"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "26429dbe5122ebc23bb9609745b117a7f2294593d434e81026b07dca4d200eb4"
+        }
+      }
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "name": "/jp_learning_dev-tempo-1",
+      "image": "sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "reference": "grafana/tempo:2.10.3@sha256:eb7af49e427880ef9457631ef35b120ddcc74736cbd75866bd54f335b0e448a7",
+      "started": "2026-11-14T09:29:25.876913962Z",
+      "state": "running",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/var/tempo",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/tempo/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_p06-tracing": {
+          "Aliases": [
+            "jp_learning_dev-tempo-1",
+            "tempo"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-tempo-1",
+            "tempo",
+            "ed12a0929c49"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "526afe517b364362898aa8f92c1e37cc7c30efce278a384a5b2b172a17e03837",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "26:5a:b7:b4:e2:d1",
+          "NetworkID": "7ba1864861f224301dc274a8b4a8f7c0c07610672271ed5d7339a50500556c83"
+        }
+      }
+    },
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "name": "/jp_learning_dev-prometheus-1",
+      "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "reference": "prom/prometheus:v3.14.0@sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+      "started": "2026-11-14T09:29:25.918999767Z",
+      "state": "running",
+      "health": "healthy",
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/monitor.token",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "jp_learning_dev_default": {
+          "Aliases": [
+            "jp_learning_dev-prometheus-1",
+            "prometheus"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-prometheus-1",
+            "prometheus",
+            "fe3e899eb918"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "9a89d6cc9478cdf8ac8b40ba178a6c0007b88f6dd8091001b865401a78b84c44",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.7",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "f6:5b:c9:76:da:19",
+          "NetworkID": "e39fb68cf97e03051c706f1cd79a9662e9b2d253a40b4fc9fccd257597a725b5"
+        },
+        "jp_learning_dev_p05-monitoring": {
+          "Aliases": [
+            "jp_learning_dev-prometheus-1",
+            "prometheus"
+          ],
+          "DNSNames": [
+            "jp_learning_dev-prometheus-1",
+            "prometheus",
+            "fe3e899eb918"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "e43e85779174934df8ecb98ee248327df5de548dab577f946112c5216060ec9b",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.18.0.4",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "4e:c7:a7:de:34:49",
+          "NetworkID": "caa66d0f0d313503b0ac36aa693bac630830b735505d9bd3043186ebc498d2f3"
+        }
+      }
+    },
+    {
+      "id": "fea2e46f6255e57f68359606f6d4134721ca35224b65d1fd96958a38acc542b4",
+      "name": "/p08_drill_659e384d40ef3d70-source-1",
+      "image": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "reference": "sha256:fbd6981a19952cb409b1e812663f9208947470238032e0bac5e3ac32beecd2d0",
+      "started": "2026-11-14T03:33:53.172534607Z",
+      "state": "exited",
+      "health": null,
+      "restarts": 0,
+      "mounts": [
+        {
+          "Destination": "/snapshots",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\snapshots",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p08",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\.local\\p08_drill_659e384d40ef3d70\\private\\internal_users.yml",
+          "Type": "bind"
+        }
+      ],
+      "networks": {
+        "p08_drill_659e384d40ef3d70_drill": {
+          "Aliases": [
+            "p08_drill_659e384d40ef3d70-source-1",
+            "source"
+          ],
+          "DNSNames": [
+            "p08_drill_659e384d40ef3d70-source-1",
+            "source",
+            "fea2e46f6255"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "",
+          "NetworkID": "5e2aa86317e88088137501dff2bad3d08086a21e83191d8ba8e47c9a5e6eea83"
+        }
+      }
+    }
+  ],
+  "volumes": [
+    {
+      "name": "23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/23fc4a3194342f88a2966a3ca426389f405704513f4a9d74dd48498f0c14b405/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "2d15cd3117b3d3f9fe09cbef36732d78cc36d63e00767cb8efa8c4e46435be9e",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/2d15cd3117b3d3f9fe09cbef36732d78cc36d63e00767cb8efa8c4e46435be9e/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "337bb8674a175e5850d030c13b8824992193899e36dcede55e1b9e0ca883f876",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/337bb8674a175e5850d030c13b8824992193899e36dcede55e1b9e0ca883f876/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "3a36a6a20a31e9582887f884ad1e7bea7352e345365e267a4df0de21b7190e8d",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/3a36a6a20a31e9582887f884ad1e7bea7352e345365e267a4df0de21b7190e8d/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "3eea3a93206f25b07833c3c803811e915efb4c00b0b7f132757641eb23d7002d",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/3eea3a93206f25b07833c3c803811e915efb4c00b0b7f132757641eb23d7002d/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "5fc743c5d97c628f48db026a16ac38b2546e1b084ba85da5e7c30df7a4672a8d",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/5fc743c5d97c628f48db026a16ac38b2546e1b084ba85da5e7c30df7a4672a8d/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/7273ee5a355c4eea9a00b8689081f1f99a0c47ff5da87ef31b5b1b488b284eb5/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "85408976df5d85d6b6a6ea143f1a7dd109ed3782b78d243d9c7709d1c32f4f75",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/85408976df5d85d6b6a6ea143f1a7dd109ed3782b78d243d9c7709d1c32f4f75/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "94af83a914e49df556783526e1f51ab66a61ed5e54ed6e669806f4d86503312b",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/94af83a914e49df556783526e1f51ab66a61ed5e54ed6e669806f4d86503312b/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "b7be45dc3b8f4ecd93897e9f08a253ec0874fe98d3f6200cfda31458304a56c1",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/b7be45dc3b8f4ecd93897e9f08a253ec0874fe98d3f6200cfda31458304a56c1/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "c2d5f63dbee36dfa9f4d98ee8757031e89eef6555e2b78336ff9c1227fbabe6f",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/c2d5f63dbee36dfa9f4d98ee8757031e89eef6555e2b78336ff9c1227fbabe6f/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/d04e70e5079ab11b76f4b3e17d6abd4addc154f70d6428fe39e2d958bc9735fe/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      }
+    },
+    {
+      "name": "jp_learning_dev_dashboards_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "baf9dbbd771205b04334a165b4722a59fae518707eae50aa1a0c2ae155988da5",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "dashboards_data"
+      }
+    },
+    {
+      "name": "jp_learning_dev_fluent_bit_state",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "45bd8f1bf3af1e2a8e3c5d8c678b7055d644798d8dd407a4b966f5156c77eb95",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "fluent_bit_state"
+      }
+    },
+    {
+      "name": "jp_learning_dev_grafana_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "d968b27361d5bede62702738afee8e9c8b373f829a6581483dc0e89da3da0b0d",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "grafana_data",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      }
+    },
+    {
+      "name": "jp_learning_dev_jwks_api_logs",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "4b0760ada4f5788beee9bc0884dd9cdecae195a4f13e187000685aaddec27f78",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "jwks_api_logs"
+      }
+    },
+    {
+      "name": "jp_learning_dev_mysql_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "bedc6a017795dac640a2d43aa80dd32f8f38d1079eebb97fa620ce606e3ddc4b",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "mysql_data"
+      }
+    },
+    {
+      "name": "jp_learning_dev_opensearch_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "09176b45ca724e6f59c2c44db7b9bdcf80b175197972f84216ecd109a92cf651",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "opensearch_data"
+      }
+    },
+    {
+      "name": "jp_learning_dev_prometheus_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "04b442cb413a18e3148607282cd869b977ba9ef1aa7c07921825eed6b6b3c06b",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "prometheus_data",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P05"
+      }
+    },
+    {
+      "name": "jp_learning_dev_sqlserver_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "5d1fb48be9dc2ffaf74135c94a333e1634429acae086314e44a831e093284d6d",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "sqlserver_data"
+      }
+    },
+    {
+      "name": "jp_learning_dev_tempo_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "c98f42b2f979373ec313d4abf3bb2cdb2a5df7979edd79fc95ca56440eb5a1eb",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "tempo_data",
+        "jp.observability.owner": "japanese-learning",
+        "jp.observability.phase": "P06"
+      }
+    },
+    {
+      "name": "jp_learning_dev_user_api_logs",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "ecf36ba5233e1d0569f80ca6178787530d89b0575547d0c2332b8a1583262d6d",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "user_api_logs"
+      }
+    },
+    {
+      "name": "jp_learning_dev_vocabulary_api_logs",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "fc4d2225007f4e255f3f4dbb3b5b8ca126334869b9bfbe73f8d8f14422709258",
+        "com.docker.compose.project": "jp_learning_dev",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "vocabulary_api_logs"
+      }
+    },
+    {
+      "name": "p07_recovery_916fd74a_restore_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/p07_recovery_916fd74a_restore_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "d121a91cb61c430d7f51a98b4d4de854347242c72303c06d8176ac6a711b7a18",
+        "com.docker.compose.project": "p07_recovery_916fd74a",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "restore_data",
+        "jp.p07.recovery": "p07_recovery_916fd74a"
+      }
+    },
+    {
+      "name": "p07_recovery_916fd74a_source_data",
+      "driver": "local",
+      "options": null,
+      "mountpoint": "/var/lib/docker/volumes/p07_recovery_916fd74a_source_data/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "3adf9debf154dc7b1e03d090ea49923145a556ae60fa6ea99927f62c22780bee",
+        "com.docker.compose.project": "p07_recovery_916fd74a",
+        "com.docker.compose.version": "5.7.0",
+        "com.docker.compose.volume": "source_data",
+        "jp.p07.recovery": "p07_recovery_916fd74a"
+      }
+    }
+  ],
+  "repositories": [
+    {
+      "path": ".",
+      "head": "1ba53cf0d1e472e7639e2de03370605512367b11",
+      "status": "M observability/roadmap/implementation-roadmap.md\n?? observability/roadmap/p10-validation/\n?? observability/roadmap/p10-verification.md",
+      "gitlinks": [
+        "160000 7d25cfe4830da3856661f7449260e9027c596afb 0\tangular",
+        "160000 bbbab2f4dc80c0275152d4bf008f52b75c5778d6 0\tdotnet",
+        "160000 e3836080a3214ff029d81e0676e6bb925ab4a1c5 0\tquarkus",
+        "160000 e9b90c31dfa311e0121285c8b7caa37c09cf4287 0\tspringboot-jwks-api"
+      ]
+    },
+    {
+      "path": "angular",
+      "head": "7d25cfe4830da3856661f7449260e9027c596afb",
+      "status": "",
+      "gitlinks": []
+    },
+    {
+      "path": "dotnet",
+      "head": "bbbab2f4dc80c0275152d4bf008f52b75c5778d6",
+      "status": "",
+      "gitlinks": []
+    },
+    {
+      "path": "quarkus",
+      "head": "e3836080a3214ff029d81e0676e6bb925ab4a1c5",
+      "status": "",
+      "gitlinks": []
+    },
+    {
+      "path": "springboot-jwks-api",
+      "head": "e9b90c31dfa311e0121285c8b7caa37c09cf4287",
+      "status": "",
+      "gitlinks": []
+    }
+  ],
+  "backupFiles": [
+    {
+      "name": "p08-local-4815fdd93d5a35541e7ee661f3e94c40.enc",
+      "bytes": 4851499,
+      "modified": 1794634482657.1892,
+      "sha256": "e8b8f657c5d4ced23340ce88c19cfc260b8ef2c20b82363a6a7a69e5fd891a89"
+    },
+    {
+      "name": "p08-local-4f57d1d3100becc9abf017bc2b8ef3d1.enc",
+      "bytes": 17926457,
+      "modified": 1794629506142.9358,
+      "sha256": "2249d6f22f7437e5fd80643582270f5d4157dfb7cea1aa07c326c56d3bcdfb41"
+    }
+  ],
+  "taskXmlSha256": "c01f4025dd3914ea0db564952665142b544fc8398006ad53a4300e6a80611f86",
+  "node": "v24.20.0",
+  "docker": {
+    "Client": {
+      "Version": "29.9.3",
+      "ApiVersion": "1.56",
+      "DefaultAPIVersion": "1.56",
+      "GitCommit": "5457199",
+      "GoVersion": "go1.26.10",
+      "Os": "windows",
+      "Arch": "amd64",
+      "BuildTime": "Tue Nov  3 21:46:10 2026",
+      "Context": "desktop-linux"
+    },
+    "Server": {
+      "Platform": {
+        "Name": "Docker Desktop 4.99.0 (245822)"
+      },
+      "Version": "29.9.3",
+      "ApiVersion": "1.56",
+      "MinAPIVersion": "1.40",
+      "Os": "linux",
+      "Arch": "amd64",
+      "Components": [
+        {
+          "Name": "Engine",
+          "Version": "29.9.3",
+          "Details": {
+            "ApiVersion": "1.56",
+            "Arch": "amd64",
+            "BuildTime": "Tue Nov  3 21:41:42 2026",
+            "Experimental": "false",
+            "GitCommit": "70efc0e",
+            "GoVersion": "go1.26.10",
+            "KernelVersion": "6.18.33.2-microsoft-standard-WSL2",
+            "MinAPIVersion": "1.40",
+            "Module": "github.com/moby/moby/v2",
+            "ModuleVersion": "v2.0.0+unknown",
+            "Os": "linux"
+          }
+        },
+        {
+          "Name": "containerd",
+          "Version": "v2.4.2",
+          "Details": {
+            "GitCommit": "b7a25261e029d68978bbf290df0a62fc819b3c51"
+          }
+        },
+        {
+          "Name": "runc",
+          "Version": "1.5.2",
+          "Details": {
+            "GitCommit": "v1.5.2-0-g29dd3dc2"
+          }
+        },
+        {
+          "Name": "docker-init",
+          "Version": "0.19.0",
+          "Details": {
+            "GitCommit": "de40ad0"
+          }
+        }
+      ],
+      "GitCommit": "70efc0e",
+      "GoVersion": "go1.26.10",
+      "KernelVersion": "6.18.33.2-microsoft-standard-WSL2",
+      "BuildTime": "2026-11-03T21:41:42.000000000+00:00"
+    }
+  },
+  "capacity": {
+    "engine": "8165945344 16",
+    "existingUsage": "jp_learning_dev-prometheus-1 55.56MiB / 512MiB\njp_learning_dev-opensearch-dashboards-1 270.6MiB / 1GiB\njp_learning_dev-logs-ui-1 10.36MiB / 128MiB\njp_learning_dev-fluent-bit-1 10.01MiB / 512MiB\njp_learning_dev-opensearch-1 1.088GiB / 2GiB\njp_learning_dev-storage-monitor-1 27.5MiB / 64MiB\njp_learning_dev-grafana-1 351.1MiB / 512MiB\njp_learning_dev-frontend-1 16.28MiB / 256MiB\njp_learning_dev-gateway-1 16.5MiB / 256MiB\njp_learning_dev-vocabulary-api-1 250.1MiB / 1GiB\njp_learning_dev-user-api-1 104.9MiB / 512MiB\njp_learning_dev-mysql-1 461.3MiB / 1GiB\njp_learning_dev-jwks-api-1 223.2MiB / 512MiB\njp_learning_dev-otel-collector-1 173.3MiB / 256MiB\njp_learning_dev-tempo-1 128.4MiB / 512MiB\njp_learning_dev-sqlserver-1 1.141GiB / 3GiB",
+    "host": "[\r\n    {\r\n        \"Name\":  \"C\",\r\n        \"Free\":  49548644352,\r\n        \"Used\":  137851092992\r\n    },\r\n    {\r\n        \"Name\":  \"D\",\r\n        \"Free\":  152939347968,\r\n        \"Used\":  169184243712\r\n    }\r\n]"
+  }
+}

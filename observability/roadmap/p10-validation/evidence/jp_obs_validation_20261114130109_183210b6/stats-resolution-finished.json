@@ -1,0 +1,79 @@
+[
+  {
+    "BlockIO": "3.28MB / 0B",
+    "CPUPerc": "0.01%",
+    "Container": "3af699cb6a36ed9a4f41ddd0e3b994d07642f6102bd56edfc0f72122ac42244b",
+    "ID": "3af699cb6a36",
+    "MemPerc": "13.48%",
+    "MemUsage": "17.25MiB / 128MiB",
+    "Name": "jp_obs_validation_20261114130109_183210b6-agent-1",
+    "NetIO": "439kB / 373kB",
+    "PIDs": "1"
+  },
+  {
+    "BlockIO": "8.85MB / 0B",
+    "CPUPerc": "0.18%",
+    "Container": "55421dc1c2af977a2fccc07826ba9379434a1f8c40e2a8dc38558e44e10a334d",
+    "ID": "55421dc1c2af",
+    "MemPerc": "15.10%",
+    "MemUsage": "38.64MiB / 256MiB",
+    "Name": "jp_obs_validation_20261114130109_183210b6-prometheus-1",
+    "NetIO": "426kB / 187kB",
+    "PIDs": "6"
+  },
+  {
+    "BlockIO": "15.6MB / 0B",
+    "CPUPerc": "0.04%",
+    "Container": "1f10b27eb28b7eefb38858ffde28d7fe86be82c9f6ee278a88bcedb9a6f77b44",
+    "ID": "1f10b27eb28b",
+    "MemPerc": "20.09%",
+    "MemUsage": "51.42MiB / 256MiB",
+    "Name": "jp_obs_validation_20261114130109_183210b6-collector-1",
+    "NetIO": "49.5kB / 93.2kB",
+    "PIDs": "16"
+  },
+  {
+    "BlockIO": "9.8MB / 0B",
+    "CPUPerc": "0.18%",
+    "Container": "05a174578ba178f613ff21728d2affad673d7da8274d64cf6a402622ccc57234",
+    "ID": "05a174578ba1",
+    "MemPerc": "10.61%",
+    "MemUsage": "40.75MiB / 384MiB",
+    "Name": "jp_obs_validation_20261114130109_183210b6-tempo-1",
+    "NetIO": "15kB / 16.5kB",
+    "PIDs": "8"
+  },
+  {
+    "BlockIO": "30.9MB / 0B",
+    "CPUPerc": "0.79%",
+    "Container": "cacefa75d285d99c4234fd2097895f21dd1746da223faefa5eae0117e8efed94",
+    "ID": "cacefa75d285",
+    "MemPerc": "67.32%",
+    "MemUsage": "689.4MiB / 1GiB",
+    "Name": "jp_obs_validation_20261114130109_183210b6-restore-1",
+    "NetIO": "277kB / 282kB",
+    "PIDs": "64"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "0.04%",
+    "Container": "31a37c37f61301fa2f496a8dc9b435bf21a2d02e48c4a8ce372323d16902b978",
+    "ID": "31a37c37f613",
+    "MemPerc": "5.04%",
+    "MemUsage": "6.449MiB / 128MiB",
+    "Name": "jp_obs_validation_20261114130109_183210b6-fluent-1",
+    "NetIO": "37kB / 217kB",
+    "PIDs": "6"
+  },
+  {
+    "BlockIO": "84.2MB / 0B",
+    "CPUPerc": "0.93%",
+    "Container": "46781bbd5498fc0c059178a60d33cb8b0aad956d8ba7371a847dec2130aa1b59",
+    "ID": "46781bbd5498",
+    "MemPerc": "51.77%",
+    "MemUsage": "265.1MiB / 512MiB",
+    "Name": "jp_obs_validation_20261114130109_183210b6-grafana-1",
+    "NetIO": "6.02kB / 5.14kB",
+    "PIDs": "100"
+  }
+]
