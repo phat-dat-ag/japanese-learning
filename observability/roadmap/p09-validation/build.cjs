@@ -1,0 +1,37 @@
+'use strict';
+const fs=require('node:fs');
+const dir='observability/p05-candidate/grafana/dashboards/';
+const service='{job=~"${service:regex}"}';
+const api=[
+ ['Scrape availability (not application readiness)','short',`max by(job)(up${service})`,'One means scrape succeeded; zero failed. Missing series is UNKNOWN. JWKS has no scrape job.'],
+ ['HTTP throughput / 5m','reqps',`sum by(job)(rate(http_requests_received_total${service}[5m])) or sum by(job)(rate(http_server_requests_seconds_count${service}[5m]))`,'HTTP completed requests; bounded job aggregation.'],
+ ['HTTP 5xx fraction / 5m','percentunit',`sum by(job)(rate(http_requests_received_total{job=~"${'${service:regex}'}",code=~"5.."}[5m])) / sum by(job)(rate(http_requests_received_total${service}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~"${'${service:regex}'}",status=~"5.."}[5m])) / sum by(job)(rate(http_server_requests_seconds_count${service}[5m]))`,'Absent error counters or no traffic give UNKNOWN, not a fabricated zero.'],
+ ['HTTP p95 / 5m','s',`histogram_quantile(0.95,sum by(job,le)(rate(http_request_duration_seconds_bucket${service}[5m]))) or histogram_quantile(0.95,sum by(job,le)(rate(http_server_requests_seconds_bucket${service}[5m])))`,'Histogram estimate in seconds. No observations gives a gap.'],
+ ['Managed / JVM heap memory','bytes',`sum by(job)(dotnet_total_memory_bytes${service}) or sum by(job)(jvm_memory_used_bytes{job=~"${'${service:regex}'}",area="heap"})`,'Heap only; excludes native memory.'],
+ ['User API CPU / 5m','short','sum by(job)(rate(process_cpu_seconds_total{job="user-api"}[5m]))','Core-seconds per second; two cores are 2. Service selector does not apply to this service-specific panel.'],
+ ['Vocabulary process CPU fraction','percentunit','max by(job)(process_cpu_usage{job="vocabulary-api"})','Native JVM fraction; not a measured cgroup saturation ratio. Service-specific panel.'],
+ ['SQL Server client pool connections','short','sum by(state)(app_database_pool_connections{job="user-api"})','Client active/idle/pooled; no database-server health claim. Service-specific panel.'],
+ ['Vocabulary pool queue','short','sum(sql_pool_queue_size{job="vocabulary-api"})','Queued acquisitions; not all database operations. Service-specific panel.'],
+ ['Vocabulary pool utilization','percentunit','max(sql_pool_ratio{job="vocabulary-api"})','Native default reactive-pool ratio. Service-specific panel.']
+];
+const ops=[
+ ['Telemetry scrape availability','short','max by(job)(up{job=~"prometheus|p07-storage"})','Missing scrape is UNKNOWN. No direct collector/Tempo/OpenSearch scrape exists.'],
+ ['Physical backing disk free','bytes','min(p07_backing_disk_available_bytes)','Physical Windows backing drive measurement supplied by existing monitor.'],
+ ['Telemetry stored bytes','bytes','max by(store)(p07_telemetry_storage_used_bytes)','Measured stores only. Missing Tempo/Grafana measurements are gaps.'],
+ ['Telemetry budget utilization','percentunit','max by(store)(p07_telemetry_storage_used_bytes / p07_telemetry_storage_budget_bytes)','Operating budget, not a hard quota; P07 development exception persists.'],
+ ['Storage measurement errors','short','max by(store)(p07_telemetry_storage_measurement_error)','Absent means no error metric emitted; use storage coverage panel too.'],
+ ['Storage measurement coverage','short','count by(store)(p07_telemetry_storage_used_bytes)','Expected stores: opensearch, prometheus, tempo, grafana, fluent-bit. Missing stores require investigation.'],
+ ['Alert states','short','count by(alertstate,severity)(ALERTS)','Absent can mean no active alerts. Confirm rules and scrape health separately; not proof of healthy services.'],
+ ['Notification delivery failures / 5m','ops','sum(rate(prometheus_notifications_errors_total{job="prometheus"}[5m]))','Existing local authenticated sink only; no external paging claim.'],
+ ['Local sink notifications / 5m','ops','sum(rate(p07_notifications_received_total[5m]))','Receipts are not human acknowledgement or external paging.'],
+ ['Prometheus rule evaluation failures / 5m','ops','sum(rate(prometheus_rule_evaluation_failures_total{job="prometheus"}[5m]))','Missing metric is UNKNOWN.']
+];
+function dashboard(uid,title,spec,selectors){
+ const panels=spec.map(([title,unit,expr,description],i)=>({id:i+1,title,type:'timeseries',description:description+' Window: '+(expr.includes('[5m]')?'5m rolling rate':'current gauge, displayed over selected time range')+'. Gaps/NaN mean unknown; no zero fill.',gridPos:{x:i%2*12,y:Math.floor(i/2)*8,w:12,h:8},datasource:{type:'prometheus',uid:'jp-dev-prometheus'},targets:[{refId:'A',expr,legendFormat:'{{job}} {{state}} {{store}} {{alertstate}} {{severity}}',range:true}],fieldConfig:{defaults:{unit,noValue:'UNKNOWN / no series',min:0,custom:{spanNulls:false}},overrides:[]},options:{legend:{displayMode:'list',placement:'bottom'},tooltip:{mode:'multi'}}}));
+ panels.push({id:100,title:'Incident navigation and signal gaps',type:'text',gridPos:{x:0,y:40,w:24,h:7},options:{mode:'markdown',content:'Environment: development / jp_learning_dev (fixed datasource; no environment label exists).\n\n[OpenSearch Discover](http://127.0.0.1:5601/app/discover#/?_a=(index:application-logs)) · [Tempo Explore](/explore?left=%7B%22datasource%22%3A%22jp-dev-tempo%22%7D) · [Prometheus alerts](http://127.0.0.1:9091/alerts)\n\nRunbook: observability/roadmap/p09-incident-runbooks.md. Owners: jp-operations (telemetry/capacity), jp-application (API/database), jp-security (access/JWKS).\n\nJWKS metrics, DB-server health, direct Fluent Bit/OTel/Tempo/OpenSearch metrics are **unavailable**. Tempo/Grafana storage measurements may be missing. Use authenticated health checks from the runbook. No missing signal is a healthy zero.\n\nSearch logs by bounded service/environment/time first. Only validated nonzero 32-hex `trace_id` values identify OTel traces. `correlation_id` and legacy X-Trace-Id are independent; unsampled/missing traces are expected. Never place credentials or personal identifiers into URLs.'}});
+ for(const panel of panels.filter(p=>p.targets)){const expr=panel.targets[0].expr;panel.targets[0].legendFormat=expr.includes('by(job')?'{{job}}':expr.includes('by(store)')?'{{store}}':expr.includes('by(state)')?'{{state}}':expr.includes('by(alertstate,severity)')?'{{alertstate}} / {{severity}}':panel.title;}
+ return {uid,title,schemaVersion:39,version:1,editable:false,refresh:'30s',time:{from:'now-1h',to:'now'},timezone:'browser',tags:['japanese-learning','P09','development'],links:[{title:'API operations',type:'link',url:'/d/jp-dev-p09-apis',keepTime:true},{title:'Telemetry and capacity',type:'link',url:'/d/jp-dev-p09-telemetry',keepTime:true},{title:'Log search',type:'link',url:'http://127.0.0.1:5601/app/discover#/?_a=(index:application-logs)',targetBlank:true}],templating:{list:selectors?[{name:'service',label:'Service (shared API panels)',type:'custom',query:'user-api,vocabulary-api',multi:true,includeAll:true,allValue:'user-api|vocabulary-api',current:{text:'All',value:'$__all'}}]:[]},panels};
+}
+fs.writeFileSync(dir+'p09-api-operations.json',JSON.stringify(dashboard('jp-dev-p09-apis','JP Dev P09 API Operations',api,true),null,2)+'\n');
+fs.writeFileSync(dir+'p09-telemetry-capacity.json',JSON.stringify(dashboard('jp-dev-p09-telemetry','JP Dev P09 Telemetry and Capacity',ops,false),null,2)+'\n');
+console.log('Built two P09 dashboards; existing dashboard retained.');

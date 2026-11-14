@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-14T06:51:11.425Z",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "sampled",
+      "status": "PASS"
+    },
+    {
+      "name": "unsampled/missing",
+      "status": "PASS"
+    },
+    {
+      "name": "all-zero",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy-correlation",
+      "status": "PASS"
+    },
+    {
+      "name": "private-url",
+      "status": "PASS"
+    }
+  ],
+  "views": 3,
+  "limitation": "Manual validated trace-ID navigation; no automated log-to-trace datasource or trace sampling claim."
+}

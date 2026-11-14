@@ -1,0 +1,56 @@
+{
+  "purpose": "Reproducible Discover views using existing patterns; no saved-object writes or overwrite",
+  "views": [
+    {
+      "id": "all-services",
+      "title": "All Japanese service logs",
+      "indexPattern": "application-logs",
+      "timeField": "@timestamp",
+      "query": "service_name:(\"user-api\" OR \"vocabulary-api\" OR \"jwks-api\")",
+      "columns": [
+        "service_name",
+        "environment",
+        "level",
+        "event_name",
+        "http_status",
+        "duration_ms",
+        "trace_id"
+      ],
+      "url": "http://127.0.0.1:5601/app/discover#/?_g=(time%3A(from%3Anow-1h%2Cto%3Anow))&_a=(index%3Aapplication-logs%2Cquery%3A(language%3Akuery%2Cquery%3A'service_name%3A(%22user-api%22%20OR%20%22vocabulary-api%22%20OR%20%22jwks-api%22)'))"
+    },
+    {
+      "id": "errors",
+      "title": "Japanese warnings and errors",
+      "indexPattern": "application-logs",
+      "timeField": "@timestamp",
+      "query": "service_name:(\"user-api\" OR \"vocabulary-api\" OR \"jwks-api\") AND level:(\"WARN\" OR \"ERROR\")",
+      "columns": [
+        "service_name",
+        "environment",
+        "level",
+        "event_name",
+        "http_status",
+        "duration_ms",
+        "trace_id"
+      ],
+      "url": "http://127.0.0.1:5601/app/discover#/?_g=(time%3A(from%3Anow-1h%2Cto%3Anow))&_a=(index%3Aapplication-logs%2Cquery%3A(language%3Akuery%2Cquery%3A'service_name%3A(%22user-api%22%20OR%20%22vocabulary-api%22%20OR%20%22jwks-api%22)%20AND%20level%3A(%22WARN%22%20OR%20%22ERROR%22)'))"
+    },
+    {
+      "id": "trace-candidates",
+      "title": "Logs with potential trace context",
+      "indexPattern": "application-logs",
+      "timeField": "@timestamp",
+      "query": "service_name:(\"user-api\" OR \"vocabulary-api\" OR \"jwks-api\") AND trace_id:*",
+      "columns": [
+        "service_name",
+        "environment",
+        "level",
+        "event_name",
+        "http_status",
+        "duration_ms",
+        "trace_id"
+      ],
+      "url": "http://127.0.0.1:5601/app/discover#/?_g=(time%3A(from%3Anow-1h%2Cto%3Anow))&_a=(index%3Aapplication-logs%2Cquery%3A(language%3Akuery%2Cquery%3A'service_name%3A(%22user-api%22%20OR%20%22vocabulary-api%22%20OR%20%22jwks-api%22)%20AND%20trace_id%3A*'))"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-14T06:46:52.283Z",
+  "image": "sha256:5ce7540c3c00ef4ab0c9d2c995c6a5b9c421f44b4a115d97a2c7af3b1c21cbb0",
+  "panels": 20,
+  "scenarios": [
+    {
+      "name": "data",
+      "assertions": 22
+    },
+    {
+      "name": "no-data",
+      "assertions": 20
+    },
+    {
+      "name": "counter-reset",
+      "assertions": 21
+    }
+  ],
+  "output": "  SUCCESS\n\n",
+  "status": "PASS"
+}
