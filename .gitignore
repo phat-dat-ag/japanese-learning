@@ -82,3 +82,5 @@ application-local.yml
 /observability/roadmap/p10-validation/evidence/jp_obs_validation_20261114131728_dc5f783a/diagnostic-agent.json
 /observability/roadmap/p10-validation/evidence/jp_obs_validation_20261114131728_dc5f783a/diagnostic-prometheus.json
 # END P10 VERIFIED DUPLICATE EVIDENCE
+
+/observability/local-test-credentials.json

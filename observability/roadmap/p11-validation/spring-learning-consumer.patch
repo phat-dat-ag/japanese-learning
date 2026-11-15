@@ -1,0 +1,107 @@
+diff --git a/src/test/java/com/japaneselearning/learning/controller/JwtAuthenticationTest.java b/src/test/java/com/japaneselearning/learning/controller/JwtAuthenticationTest.java
+index 53a9ba8..4f307a4 100644
+--- a/src/test/java/com/japaneselearning/learning/controller/JwtAuthenticationTest.java
++++ b/src/test/java/com/japaneselearning/learning/controller/JwtAuthenticationTest.java
+@@ -1,5 +1,8 @@
+ package com.japaneselearning.learning.controller;
+ 
++import com.japaneselearning.learning.client.JwksServiceClient;
++import com.japaneselearning.learning.config.ServiceEndpointProperties;
++import com.japaneselearning.learning.dto.response.PublicKeyDTO;
+ import com.japaneselearning.learning.config.JwtDecoderConfig;
+ import com.japaneselearning.learning.config.JwtSecurityProperties;
+ import com.nimbusds.jose.*;
+@@ -25,6 +28,8 @@ import java.util.*;
+ import java.util.concurrent.atomic.AtomicInteger;
+ 
+ import static org.assertj.core.api.Assertions.*;
++import static org.hamcrest.Matchers.hasItem;
++import static org.hamcrest.Matchers.not;
+ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+ 
+@@ -43,9 +48,18 @@ class JwtAuthenticationTest {
+     @Autowired
+     MockMvc mvc;
+ 
++    @Autowired
++    JwksServiceClient client;
++
++    @Autowired
++    ServiceEndpointProperties endpoints;
++
+     @DynamicPropertySource
+     static void properties(DynamicPropertyRegistry registry) {
+         registry.add("app.security.jwt.jwk-set-uri", JwtAuthenticationTest::uri);
++        registry.add("services.jwks.base-url",
++                () -> "http://127.0.0.1:" + SERVER.getAddress().getPort());
++        registry.add("services.jwks.get-public-keys", () -> "/api/v1/jwks/user");
+     }
+ 
+     @AfterAll
+@@ -59,6 +73,16 @@ class JwtAuthenticationTest {
+         jwks = publicKeys(V1, V2);
+     }
+ 
++    @Test
++    void httpClientUsesTheSameOwnerScopedPathAsJwtVerification() {
++        assertThat(endpoints.getJwks().getPublicKeys()).isEqualTo("/api/v1/jwks/user");
++        assertThat(endpoints.getJwks().baseUrl() + endpoints.getJwks().getPublicKeys())
++                .isEqualTo(uri());
++        assertThat(client.getPublicKeys().keys())
++                .extracting(PublicKeyDTO::kid)
++                .containsExactlyInAnyOrder("test-v1", "test-v2");
++    }
++
+     @Test
+     void missingToken() throws Exception {
+         mvc.perform(get("/api/v1/learning/me")).andExpect(status().isUnauthorized());
+@@ -74,7 +98,8 @@ class JwtAuthenticationTest {
+         mvc.perform(get("/api/v1/learning/me").header("Authorization", "Bearer " + token(V1, claims())))
+                 .andExpect(status().isOk()).andExpect(jsonPath("$.success").value(true))
+                 .andExpect(jsonPath("$.data.userId").value("42"))
+-                .andExpect(jsonPath("$.data.authorities[0]").value("ROLE_USER"))
++                .andExpect(jsonPath("$.data.authorities").value(hasItem("ROLE_USER")))
++                .andExpect(jsonPath("$.data.authorities").value(not(hasItem("ROLE_ADMIN"))))
+                 .andExpect(jsonPath("$.data.issuer").value(ISSUER))
+                 .andExpect(jsonPath("$.data.token").doesNotExist())
+                 .andExpect(cookie().doesNotExist("JSESSIONID"));
+@@ -84,7 +109,8 @@ class JwtAuthenticationTest {
+     void adminTokenWithV2() throws Exception {
+         mvc.perform(get("/api/v1/learning/me").header("Authorization", "Bearer " +
+                         token(V2, claims().claim("role", 2))))
+-                .andExpect(status().isOk()).andExpect(jsonPath("$.data.authorities[0]").value("ROLE_ADMIN"));
++                .andExpect(status().isOk()).andExpect(jsonPath("$.data.authorities").value(hasItem("ROLE_ADMIN")))
++                .andExpect(jsonPath("$.data.authorities").value(not(hasItem("ROLE_USER"))));
+     }
+ 
+     @Test
+@@ -241,13 +267,13 @@ class JwtAuthenticationTest {
+     }
+ 
+     private static String uri() {
+-        return "http://127.0.0.1:" + SERVER.getAddress().getPort() + "/jwks";
++        return "http://127.0.0.1:" + SERVER.getAddress().getPort() + "/api/v1/jwks/user";
+     }
+ 
+     private static HttpServer server() {
+         try {
+             HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
+-            server.createContext("/jwks", exchange -> {
++            server.createContext("/api/v1/jwks/user", exchange -> {
+                 REQUESTS.incrementAndGet();
+                 byte[] body = (unavailable ? "unavailable" : jwks).getBytes(StandardCharsets.UTF_8);
+                 exchange.getResponseHeaders().set("Content-Type", "application/json");
+diff --git a/src/test/resources/application.properties b/src/test/resources/application.properties
+index c997cec..6beda35 100644
+--- a/src/test/resources/application.properties
++++ b/src/test/resources/application.properties
+@@ -1,6 +1,6 @@
+ services.jwks.base-url=http://127.0.0.1:1
+-services.jwks.get-public-keys=/.well-known/jwks.json
+-app.security.jwt.jwk-set-uri=http://127.0.0.1:1/.well-known/jwks.json
++services.jwks.get-public-keys=/api/v1/jwks/user
++app.security.jwt.jwk-set-uri=http://127.0.0.1:1/api/v1/jwks/user
+ app.security.jwt.issuer=japaneselearning-user-service
+ app.security.jwt.clock-skew=60s
+ spring.jackson.default-property-inclusion=non_null
