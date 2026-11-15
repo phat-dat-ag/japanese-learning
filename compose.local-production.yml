@@ -1,0 +1,31 @@
+# Local workstation deployment, NOT the Linux release overlay.
+# Load .env then .env.db.production. Heavy observability remains owned by DEV.
+services:
+  user-api:
+    environment:
+      DOTNET_ENVIRONMENT: Production
+  sqlserver:
+    environment:
+      MSSQL_PID: ${MSSQL_PID:-Express}
+  opensearch:
+    profiles: [standalone-observability]
+  logging-init:
+    profiles: [standalone-observability]
+  fluent-bit:
+    profiles: [standalone-observability]
+  opensearch-dashboards:
+    profiles: [standalone-observability]
+  logs-ui:
+    profiles: [standalone-observability]
+  logging-ui-init:
+    profiles: [standalone-observability]
+  otel-collector:
+    profiles: [standalone-observability]
+  tempo:
+    profiles: [standalone-observability]
+  prometheus:
+    profiles: [standalone-observability]
+  grafana:
+    profiles: [standalone-observability]
+  storage-monitor:
+    profiles: [standalone-observability]

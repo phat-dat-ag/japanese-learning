@@ -57,3 +57,15 @@ SQL Server's database owner owns database-native full/differential/transaction-l
 MySQL's database owner owns supported consistent logical/physical backup choice, transaction/binlog/GTID boundaries, encryption/custody, schema/version compatibility and isolated point-in-time restore validation. A future integration consumes only approved job status, backup/recovery-point identifiers and timing metadata. Do not copy `mysql_data`, execute dumps, change binlogs, acquire business content or install backup jobs here.
 
 Business DB schedules/RPO/RTO remain separately approved. P08 neither coordinates cross-database transactions nor promises recovery of application data. JWKS endpoint/token contracts remain unchanged; reference only committed observability metadata and externally reprovisioned service identities, never JWT public/private key bodies or Spring Boot resources.
+
+## Current local environment boundary (configuration audit addendum)
+
+The optional local production-like deployment uses a separate project and database
+volumes; the existing P08 tasks/configuration above remain DEV-scoped and unchanged.
+They do not back up the production-like application databases. When observability
+is shared, telemetry exports may contain both environments and retain the existing
+shared retention policy. Do not repoint the DEV destination, rotate its backup key,
+reuse generation paths or restore across projects. A separate reviewed application
+backup policy is still required. See the root
+[environment guide](../../README.md#environment-configuration). This addendum changes
+no historical recovery acceptance or unresolved production gate.

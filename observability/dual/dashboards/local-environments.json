@@ -1,0 +1,244 @@
+{
+  "uid": "jp-dual-environment-apis",
+  "title": "JP Local Environments",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": false,
+  "refresh": "30s",
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timezone": "browser",
+  "tags": [
+    "japanese-learning",
+    "local-environments"
+  ],
+  "links": [
+    {
+      "title": "API operations",
+      "type": "link",
+      "url": "/d/jp-dev-p09-apis",
+      "keepTime": true
+    },
+    {
+      "title": "Telemetry and capacity",
+      "type": "link",
+      "url": "/d/jp-dev-p09-telemetry",
+      "keepTime": true
+    },
+    {
+      "title": "Log search",
+      "type": "link",
+      "url": "http://127.0.0.1:5601/app/discover#/?_a=(index:application-logs)",
+      "targetBlank": true
+    }
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "environment",
+        "label": "Environment",
+        "type": "custom",
+        "query": "development,production",
+        "multi": false,
+        "includeAll": false,
+        "current": {
+          "text": "development",
+          "value": "development"
+        }
+      },
+      {
+        "name": "service",
+        "label": "Service (shared API panels)",
+        "type": "custom",
+        "query": "user-api,vocabulary-api",
+        "multi": true,
+        "includeAll": true,
+        "allValue": "user-api|vocabulary-api",
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        }
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Scrape availability (not application readiness)",
+      "type": "timeseries",
+      "description": "One means scrape succeeded; zero failed. Missing series is UNKNOWN. JWKS has no scrape job. Window: current gauge, displayed over selected time range. Gaps/NaN mean unknown; no zero fill.",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "jp-dev-prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max by(job)(up{job=~\"(production-)?${service:regex}\",environment=\"$environment\"})",
+          "legendFormat": "{{job}}",
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "UNKNOWN / no series",
+          "min": 0,
+          "custom": {
+            "spanNulls": false
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "HTTP throughput / 5m",
+      "type": "timeseries",
+      "description": "HTTP completed requests; bounded job aggregation. Window: 5m rolling rate. Gaps/NaN mean unknown; no zero fill.",
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "jp-dev-prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(job)(rate(http_requests_received_total{job=~\"(production-)?${service:regex}\",environment=\"$environment\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"(production-)?${service:regex}\",environment=\"$environment\"}[5m]))",
+          "legendFormat": "{{job}}",
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "noValue": "UNKNOWN / no series",
+          "min": 0,
+          "custom": {
+            "spanNulls": false
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "HTTP 5xx fraction / 5m",
+      "type": "timeseries",
+      "description": "Absent error counters or no traffic give UNKNOWN, not a fabricated zero. Window: 5m rolling rate. Gaps/NaN mean unknown; no zero fill.",
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "jp-dev-prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(job)(rate(http_requests_received_total{job=~\"(production-)?${service:regex}\",environment=\"$environment\",code=~\"5..\"}[5m])) / sum by(job)(rate(http_requests_received_total{job=~\"(production-)?${service:regex}\",environment=\"$environment\"}[5m])) or sum by(job)(rate(http_server_requests_seconds_count{job=~\"(production-)?${service:regex}\",environment=\"$environment\",status=~\"5..\"}[5m])) / sum by(job)(rate(http_server_requests_seconds_count{job=~\"(production-)?${service:regex}\",environment=\"$environment\"}[5m]))",
+          "legendFormat": "{{job}}",
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "noValue": "UNKNOWN / no series",
+          "min": 0,
+          "custom": {
+            "spanNulls": false
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "title": "HTTP p95 / 5m",
+      "type": "timeseries",
+      "description": "Histogram estimate in seconds. No observations gives a gap. Window: 5m rolling rate. Gaps/NaN mean unknown; no zero fill.",
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "jp-dev-prometheus"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95,sum by(job,le)(rate(http_request_duration_seconds_bucket{job=~\"(production-)?${service:regex}\",environment=\"$environment\"}[5m]))) or histogram_quantile(0.95,sum by(job,le)(rate(http_server_requests_seconds_bucket{job=~\"(production-)?${service:regex}\",environment=\"$environment\"}[5m])))",
+          "legendFormat": "{{job}}",
+          "range": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "noValue": "UNKNOWN / no series",
+          "min": 0,
+          "custom": {
+            "spanNulls": false
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      }
+    }
+  ]
+}

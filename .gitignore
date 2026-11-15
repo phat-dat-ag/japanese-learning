@@ -84,3 +84,5 @@ application-local.yml
 # END P10 VERIFIED DUPLICATE EVIDENCE
 
 /observability/local-test-credentials.json
+
+!.env.vocabulary-api.example

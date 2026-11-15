@@ -119,3 +119,15 @@ has no public-key mount or legacy signing environment variables. Full login,
 protected requests to both APIs, authorization, refresh/logout and invalid-signature
 checks passed. All seven development services remain healthy. Compose rejects a
 missing signing env file, and five production-operation tests still pass.
+
+## Environment audit preservation
+
+All real root and child `.env` files, including the production-like override,
+are ignored; examples contain only safe defaults and blank required passwords.
+Root service files carry runtime options, while CLI interpolation files require
+explicit Compose environment mappings. Existing raw assignments were compared
+against a private hash baseline; none were overwritten or removed. The root
+[environment guide](../README.md#environment-configuration) documents synchronization,
+the preserved local signing trust domain, shared telemetry credentials and required
+user-supplied paths/passwords. No credentials or signing keys were generated,
+rotated, copied into templates or staged.

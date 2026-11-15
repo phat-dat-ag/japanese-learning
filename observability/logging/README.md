@@ -3,7 +3,7 @@
 Fluent Bit reads the three existing application log volumes, normalizes JSON, and
 sends it to OpenSearch. OpenSearch Dashboards provides Discover and visualization.
 These services are included in `docker-compose.yml` and start with the application.
-This is independent of the optional Grafana/Prometheus metrics stack.
+The base file also includes the existing P07 Prometheus/Grafana and collector/Tempo services.
 
 ## Start locally
 
@@ -11,11 +11,11 @@ From the repository root, with Docker running:
 
 ```sh
 python -B scripts/setup-log-access.py
-docker compose -p jp_dev up --build -d
+docker compose up --build -d
 ```
 
 Use the **same Compose project name as your application containers** so their log
-volumes are shared. The current local stack uses `jp_dev`; replace that name if
+volumes are shared. The current local stack uses `jp_learning_dev`; replace that name if
 your deployment uses another project. A different project creates empty log volumes.
 
 The setup script refuses to replace credentials. It generates a random password
@@ -178,3 +178,15 @@ own diagnostics, not the collected application records.
 References: [Fluent Bit OpenSearch output](https://docs.fluentbit.io/manual/4.2/data-pipeline/outputs/opensearch),
 [Tail input](https://docs.fluentbit.io/manual/4.2/data-pipeline/inputs/tail),
 [OpenSearch ISM policies](https://docs.opensearch.org/latest/im-plugin/ism/policies/).
+
+## Local production-like telemetry
+
+Follow the root [environment guide](../../README.md#optional-shared-observability)
+for provider/consumer overlay commands. Production-like normally persists separate
+log volumes without a second OpenSearch stack. The optional lightweight Fluent Bit
+consumer shares the existing TLS writer boundary and per-service indices, with
+separate offsets and source log volumes. Filter Discover by
+`environment: development` or `environment: production`; retention is shared.
+No index/security migration or active observability restart was performed.
+INFO is the API default; service templates expose log-level and rotation settings.
+Live dual collection remains unverified. Historical P00–P11 evidence is unchanged.
