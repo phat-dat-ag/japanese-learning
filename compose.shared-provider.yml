@@ -1,0 +1,22 @@
+# DEV only. Applying this recreates Prometheus/Grafana; requires maintenance.
+# No application/database network membership changes in DEV.
+services:
+  prometheus:
+    networks: [default, p05-monitoring, dual-metrics]
+    volumes:
+      - type: bind
+        source: ./observability/dual/prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+        read_only: true
+        bind: {create_host_path: false}
+  grafana:
+    volumes:
+      - type: bind
+        source: ./observability/dual/dashboards/local-environments.json
+        target: /etc/grafana/p05-dashboards/local-environments.json
+        read_only: true
+        bind: {create_host_path: false}
+networks:
+  dual-metrics:
+    name: ${SHARED_METRICS_NETWORK:-jp_learning_dev_dual-metrics}
+    internal: true

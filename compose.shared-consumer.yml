@@ -1,0 +1,30 @@
+# After base + local-production. Requires the DEV provider networks to exist.
+# Only lightweight shippers run here; storage and UIs remain in DEV.
+services:
+  user-api:
+    networks:
+      default:
+      dual-metrics:
+        aliases: [production-user-api]
+  vocabulary-api:
+    networks:
+      default:
+      dual-metrics:
+        aliases: [production-vocabulary-api]
+  fluent-bit:
+    profiles: !reset []
+    depends_on: !reset {}
+    networks: !override [shared-log-storage]
+  otel-collector:
+    profiles: !reset []
+    networks: !override [default, shared-tracing]
+networks:
+  dual-metrics:
+    external: true
+    name: ${SHARED_METRICS_NETWORK:-jp_learning_dev_dual-metrics}
+  shared-log-storage:
+    external: true
+    name: ${SHARED_LOG_NETWORK:-jp_learning_dev_log-storage}
+  shared-tracing:
+    external: true
+    name: ${SHARED_TRACING_NETWORK:-jp_learning_dev_p06-tracing}

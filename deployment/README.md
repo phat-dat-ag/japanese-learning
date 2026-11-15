@@ -126,7 +126,7 @@ Run Python with `-X utf8` on Windows if using the scripts with Docker Desktop.
 - Use a unique `RELEASE_TAG` for each build. Never reuse a tag or use `latest`.
   Build refuses an already-existing application tag to preserve rollback images.
   If a build partially succeeds, select a new tag for the retry.
-- Optional `GRAFANA_ADMIN_PASSWORD` must be at least 24 characters. Existing Grafana
+- `GRAFANA_ADMIN_PASSWORD` is required by the base P07 stack and must be at least 24 characters. Existing Grafana
   accounts require password rotation inside Grafana; changing dotenv is not rotation.
 - Existing database passwords must match persisted data. Editing dotenv alone does
   not rotate database credentials. Back up configuration securely before changing it.
@@ -291,3 +291,18 @@ and authenticated Dashboards on loopback port 5601. This is independent of
 `--monitoring`. Generate credentials first with
 `python3 -B scripts/setup-log-access.py`; then follow the
 [logging deployment guide](../observability/logging/README.md).
+
+## Local workstation production-like profile
+
+This Linux release runbook is separate from the local Windows/Docker Desktop
+workflow. Use the root [environment guide](../README.md#environment-configuration)
+for `.env` then `.env.db.production` and `compose.local-production.yml`.
+That workflow does not use release tags or authorize remote deployment. Never
+mix the local and release overlays. Native service env pairs do not override
+root Compose interpolation. Fresh releases also need root
+`.env.vocabulary-api` copied from its example; Compose overrides its internal
+database/JWKS/logging/tracing wiring. Review service-file defaults per release.
+The base monitoring ports are now configurable through
+`MONITORING_PROMETHEUS_HOST_PORT` / `MONITORING_GRAFANA_HOST_PORT`; legacy
+overlay ports retain their older variable names. Local dual-stack configuration
+validation does not close production TLS, custody, capacity or recovery gates.

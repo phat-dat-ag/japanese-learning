@@ -176,24 +176,189 @@ Host port overrides do not change internal service ports. Changing `GATEWAY_HOST
 
 ## Environment configuration
 
-[.env.example](.env.example) supplies local Compose defaults. Root `.env` is used for Compose interpolation; it is not automatically loaded by native .NET or Angular processes. Shell variables take precedence over dotenv values. Keep actual environment files and PEM files out of Git and never publish resolved Compose output; use `config --quiet`.
+Root `.env` is the default DEV interpolation file; its project name is
+`jp_learning_dev`, matching the existing volumes. Templates are safe to commit;
+all real `.env*` files, keys and `.local/` audit artifacts are ignored.
+Never print `docker compose config` output: use `config --quiet`.
 
-| Settings | Consumers / behavior |
+| Template / local pair | Purpose and loading |
 | --- | --- |
-| `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` | MySQL initialization; application user/password also used by vocabulary Flyway and Quarkus |
-| `MSSQL_SA_PASSWORD`, `MSSQL_DATABASE` | SQL Server initialization, user Flyway and .NET; database defaults to `JapaneseLearningUser` |
-| `JWT_ISSUER`, `JWT_AUDIENCE` | Shared .NET issuance and Quarkus verification contract |
-| `USER_API_SIGNING_ENV_FILE`, `JWT_ACCESS_TOKEN_EXPIRATION_MINUTES` | Required indexed signing-key file and access lifetime |
-| `QUARKUS_MIGRATION_PATH`, `DOTNET_MIGRATION_PATH` | Read-only Flyway SQL mounts; defaults point into the submodules |
-| Host port variables above | Local published ports |
-| `GRAFANA_ADMIN_PASSWORD` | Required only with the monitoring overlay |
-| `MSSQL_PID`, `RELEASE_TAG`, `JWT_REFRESH_TOKEN_EXPIRATION_DAYS` | Consumed by the production overlay; present in the local template but **not passed by base Compose** |
+| `.env.example` / `.env` | Complete Compose inputs, including fallback values; default DEV |
+| `.env.db.production.example` / `.env.db.production` | Partial local production-like override; load **after** base |
+| `.env.user-api.example` / `.env.user-api` | .NET indexed signing keys and runtime options; service `env_file` |
+| `.env.jwks-api.example` / `.env.jwks-api` | Spring public-key list and runtime options; service `env_file` |
+| `.env.vocabulary-api.example` / `.env.vocabulary-api` | Quarkus runtime options, import limits and SRS policy; service `env_file` |
+| `.env.logging.example` / `.env.logging` | Generated viewer credential receipt; NGINX uses its matching bcrypt file, not dotenv |
+| `.env.p07.example` / `.env.p07` | Security setup reference; not read by Compose. Setup generates `secrets/p07/*.env` instead |
+| Child `.env.example` / `.env` | Native/service templates in Angular, Quarkus, .NET and Spring JWKS; loading differs below |
+| `deployment/production.env.example` | Separate Linux release workflow, copied to ignored `.env.production` only when provisioning that workflow |
 
-MySQL names accept 1–64 ASCII letters, digits, underscores or hyphens. Its initializer rejects blank passwords, quotes, backslashes and control characters. SQL Server requires a password accepted by its password policy. Single-quote dotenv values containing `$` to prevent interpolation. Editing dotenv does not rotate credentials already stored in database volumes.
+Use uppercase existing names; .NET nested options retain `Section__Property`.
+Keep identity/ports, database, authentication, logging and telemetry groups together.
+Blank required passwords/key paths have no safe defaults. Other values document
+application defaults, including import limits, log retention and sampling. Indexed
+key lists are extensible; preserve contiguous indices, IDs and existing active selection.
+`APP_INSTANCE_ID` is an optional Quarkus instance override; leave it absent to use
+container `HOSTNAME`. Image launcher variables and fixed privacy/metrics policies
+remain image/framework configuration, rather than extra operator knobs.
 
-Compose supplies .NET split `Database__*` settings, signing PEM paths, and `Jwt__JwksUrl`. Quarkus receives `DB_USERNAME`, `DB_PASSWORD`, `DB_REACTIVE_URL=mysql://mysql:3306/<database>`, `AUTH_SERVER_URL=http://jwks-api:8080`, and `AUTH_JWKS_URL=http://jwks-api:8080/api/v1/jwks/user`. Private signing keys are mounted only into .NET; JWKS binds only the three configured public files read-only; see [owner-specific configuration](docs/JWKS.md).
+After editing a template, run `node scripts/audit-environment.cjs sync`, then
+`node scripts/audit-environment.cjs`. Synchronization preserves every existing raw
+assignment, fills missing names from safe examples, refuses duplicates/local-only
+names, and never removes old settings. The logging credential receipt is never
+rewritten. For a new audit, `snapshot` saves assignment hashes privately and
+refuses to overwrite a baseline. The initial audit baseline verified all original
+assignments unchanged. A later deliberate value change requires reviewing/replacing
+that private baseline manually; it is not a permanent credential-change policy.
 
-For native configuration, follow the [.NET environment guide](dotnet/README.md#environment-configuration) and [Quarkus environment guide](quarkus/README.md#environment-configuration). Use host database addresses and explicit matching issuer/audience values; .NET accepts either a full connection string or split settings, not both. Angular has no dotenv or runtime environment loader and needs no secrets.
+Quarkus reads its working-directory `.env` through SmallRye. Spring, .NET,
+Angular and npm do **not** automatically load these files: export the reviewed
+values through the launcher/IDE environment for native runs. Angular's four
+variables configure test runners only; its browser API root stays same-origin
+`/api`. Do not copy secrets into public assets. Root service files are explicitly
+loaded by Compose; `environment` overrides `env_file`, which overrides image
+`ENV`. CLI interpolation files are not container environment injection.
+Shell variables override interpolation files; clear conflicting shell overrides
+before validation. Explicit `-p` overrides the project variable.
+
+MySQL names accept 1–64 ASCII letters, digits, underscores or hyphens. Its initializer
+rejects blank passwords, quotes, backslashes and control characters. SQL Server
+enforces its password policy. Quote dotenv values containing `$` appropriately.
+Changing an env password does not change a password stored in an existing volume.
+Never set `Database__ConnectionString` alongside nonempty split database fields.
+
+### Local DEV and production-like deployments
+
+The installed Compose v5.7.0 accepts repeated `--env-file` and reset/override tags.
+Production-like uses **both** files in order: later values win; using only the
+override file does not merge the default `.env`. Keep DEV the normal default.
+`compose.local-production.yml` is separate from the Linux release overlay
+`compose.production.yml`; do not combine those two workflows.
+
+Run from the root. These are operating commands for the user; validation did not
+execute startup, stop or recreation. Review RAM headroom before starting a second
+application stack (SQL Server alone reserves a 3 GiB container budget).
+
+~~~powershell
+# DEV (default .env)
+docker compose up -d --build
+docker compose config --quiet
+docker compose ps -a
+docker compose stop
+
+# PRODUCTION-like (base, then overrides)
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml up -d --build
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml config --quiet
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml ps -a
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml stop
+
+# Both concurrently: run the two respective up commands above; stop independently.
+# Static, secret-safe validation; never starts containers
+node scripts/audit-environment.cjs
+node scripts/verify-dual-environment.cjs
+~~~
+
+| Published loopback listener | Existing DEV | Local production-like |
+| --- | --- | --- |
+| Frontend | 8088 | 1888 |
+| Gateway | 8080 | 1880 |
+| User API | 8081 | 1881 |
+| Vocabulary API | 8082 | 1882 |
+| JWKS | 8083 | 1883 |
+| MySQL | 3306 | 1806 |
+| SQL Server | 1433 | 1833 |
+| Prometheus / Grafana / Logs UI | 9091 / 3001 / 5601 | Shared, no second UI |
+
+The audit resolved these local port assignments without disclosing credentials.
+Base monitoring uses `MONITORING_PROMETHEUS_HOST_PORT` and
+`MONITORING_GRAFANA_HOST_PORT`; older `PROMETHEUS_HOST_PORT` and
+`GRAFANA_HOST_PORT` remain inputs to the legacy optional overlay. Their existing
+local values were preserved. Root `APP_OTEL_EXPORT_ENABLED` is a retained legacy
+assignment: Compose uses `JP_TRACE_EXPORT_ENABLED` for both runtime and the
+Quarkus build argument. `FLUENT_BIT_STORAGE_LIMIT` is retained compatibility
+configuration; the current P07 tail inputs use bounded memory buffering.
+
+Projects `jp_learning_dev` and `jp_learning_prod` scope all application networks,
+database/log volumes, Fluent Bit offsets and temporary files separately. Production-like
+database names come from its override; neither database shares a storage volume.
+Internal URLs remain `mysql`, `sqlserver`, `jwks-api` and `gateway` in the
+owning project's default network. No fixed container names or shared mutable host
+application mounts are introduced. Shared source/configuration binds are read-only.
+
+Existing signing keys and public files are deliberately reused read-only, without
+copying/rotating keys or changing issuer/audience/JWKS contracts. This is **one local
+authentication trust domain**: a valid access token can be accepted in both
+deployments, although their users/refresh-token data are separate. Do not use this
+setup to test mutually untrusted tenants. A separate trust domain requires an
+approved key/issuer/audience migration. No shared auth service is called: each
+project has its own issuer process and public-only JWKS process.
+
+### Optional shared observability
+
+Base DEV owns OpenSearch, Prometheus, Tempo, Grafana and their storage. Local
+production-like excludes them using an inactive `standalone-observability` profile;
+do not enable that profile as part of this dual-stack workflow. Without the optional
+sharing overlays, production logs stay in its own volumes, metrics remain internal,
+and tracing export stays disabled. No second heavy observability stack is started.
+
+Sharing needs the DEV provider overlay and two lightweight production shippers.
+Applying the provider recreates Prometheus and Grafana to add a dedicated internal metrics
+bridge and the dual-target scrape configuration. **This change was not applied to
+the active stack.** Use only in an approved maintenance window; the provider must
+exist before starting the shared consumer:
+
+~~~powershell
+docker compose -f docker-compose.yml -f compose.shared-provider.yml up -d --build
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml -f compose.shared-consumer.yml up -d --build
+# Inspect/stop using the same file sets; do not remove shared networks/volumes.
+docker compose -f docker-compose.yml -f compose.shared-provider.yml ps -a
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml -f compose.shared-consumer.yml ps -a
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml -f compose.shared-consumer.yml stop
+docker compose -f docker-compose.yml -f compose.shared-provider.yml stop
+~~~
+
+The internal metrics bridge connects only DEV Prometheus and production API
+listeners; use unique `production-user-api` / `production-vocabulary-api` aliases.
+No DEV API or database joins it. DEV scrape targets use the verified unique container
+names `jp_learning_dev-user-api-1` / `jp_learning_dev-vocabulary-api-1`, avoiding
+Docker's automatic service aliases on the shared bridge. This configuration is
+for one instance of each service under the preserved DEV project name. The existing privacy/cardinality filters are copied
+unchanged. Scrape labels carry `environment=development|production` and unique jobs.
+The **JP Local Environments** dashboard filters by environment; original P09 API
+panels retain their DEV jobs. Do not treat existing DEV alerts as production coverage.
+Fluent Bit uses separate production offsets/log volumes but shares the existing
+least-privileged writer and OpenSearch TLS boundary. Indices retain the existing
+per-service naming; filter records by `environment` in Discover. No security-role
+or index migration is performed. Shared retention applies to both environments.
+Each API emits matching log and trace environment metadata; .NET telemetry identity
+is independent of its Production host mode. INFO/Information remains the default;
+set service log-level variables for DEBUG. Ratios are DEV 0.1 and production-like
+0.01, with existing bounded root limits and sensitive-data filtering preserved.
+Export remains opt-in: changing `JP_TRACE_EXPORT_ENABLED` requires rebuilding
+Quarkus because exporter enablement is fixed at augmentation. The collector already
+allows the `production` environment; JWKS trace export remains independently off.
+
+These shared networks are telemetry trust bridges between local deployments, not
+tenant isolation. Never share them with an unrelated checkout or the separate
+Spring deployment. Losing/stopping DEV storage interrupts production telemetry;
+bounded buffers and retention are not lossless delivery. Existing P08 schedules,
+backup keys, destination and generations remain untouched and DEV-scoped. Shared
+telemetry backups can contain both environments; **production application databases
+are not covered by those telemetry backups**. A separate reviewed backup policy
+and destination are required before relying on production-like application recovery.
+
+Fresh checkouts require database passwords in both environment files, dedicated
+DEV Grafana credentials, existing matching signing/public key files and the P07
+generated security files. Standalone Spring key paths must exist; standalone .NET
+private-key paths must be supplied. Existing local values were not replaced.
+Static configuration is validated; dual startup, RAM capacity, database readiness,
+live dual telemetry and dashboard queries remain unverified. Historical P00–P11
+acceptance results and outstanding production gates are unchanged.
+
+During this audit Grafana auto-provisioned **JP Local Environments** from a watched
+directory. The user approved retaining it; its source now lives outside the active
+directory and is mounted only by the optional provider overlay. No container was
+restarted. Without the provider's scrape labels its panels may have no data.
 
 ## Local development workflow
 
@@ -244,7 +409,7 @@ For schema changes, explicitly rerun the relevant Flyway job before restarting d
 | Frontend / Gateway process health | http://localhost:8088/health / http://localhost:8080/health |
 | Auth liveness / readiness | http://localhost:8081/health/live / http://localhost:8081/health/ready |
 | Learning liveness / readiness | http://localhost:8082/q/health/live / http://localhost:8082/q/health/ready |
-| Auth Swagger | http://localhost:8081/swagger |
+| Auth Swagger (Development host mode only) | http://localhost:8081/swagger |
 | Learning Swagger / OpenAPI | http://localhost:8082/q/swagger-ui / http://localhost:8082/q/openapi |
 | Public JWKS (independent service) | http://localhost:8083/api/v1/jwks/user |
 
@@ -279,20 +444,21 @@ Named volumes preserve `mysql_data`, `sqlserver_data`, `user_api_logs` and `voca
 
 The current .NET runtime and user migration job use SQL `sa`; the MySQL application account also runs migrations. Separate runtime/migration privileges require coordinated database configuration. Containers use non-root users, read-only root filesystems, explicit writable mounts, resource limits and dropped capabilities; SQL Server retains `NET_BIND_SERVICE`.
 
-### Optional monitoring and logging
+### Monitoring and logging
 
-Set `GRAFANA_ADMIN_PASSWORD` in `.env`, then:
+The base P07 stack already includes Prometheus, Grafana, Fluent Bit/OpenSearch and
+collector/Tempo. Configure dedicated Grafana credentials in root `.env`; normal
+`docker compose up -d` includes monitoring. Prometheus is loopback-only at 9091,
+Grafana at 3001, and Logs UI at 5601 with separately provisioned viewer access.
+The two API scrape endpoints are internal `/metrics` and `/q/metrics`;
+availability does not establish database readiness. Retention is two days / 512 MB
+by default. The existing P09 dashboards use the current datasource. The optional shared
+provider adds **JP Local Environments** with environment labels. Do not apply legacy `compose.observability.yml` to the active P07 stack:
+it is retained for the separate release workflow and replaces security/storage
+configuration. Use the environment section's optional sharing overlays for local
+dual telemetry. Changing a Grafana password env variable does not rotate an account.
 
-```sh
-docker compose -f docker-compose.yml -f compose.observability.yml config --quiet
-docker compose -f docker-compose.yml -f compose.observability.yml up -d --build
-```
-
-Prometheus is at http://localhost:9090 and Grafana at http://localhost:3000 (user `admin`, configured password), both loopback-only. Prometheus scrapes `user-api:8080/metrics` and `vocabulary-api:8080/q/metrics` every 15 seconds. Grafana provisions the **Japanese Learning APIs** dashboard. Monitoring adds `prometheus_data` and `grafana_data`; Prometheus retention is bounded to two days / 512 MB. Scrape availability does not prove database readiness.
-
-Use the same two-file Compose combination for monitoring status/stop operations. Omitting the overlay later does not stop existing monitoring containers. Changing the initial Grafana password variable does not rotate an existing account.
-
-Both APIs write console and retained file logs. Gateway logs fixed route families, status, timings and correlation IDs instead of request bodies or arbitrary URLs. Use `X-Correlation-ID` to relate proxy/backend events. API file retention is documented in each submodule; Quarkus age-based retention does not impose a total disk quota. Production additionally rotates Docker logs at 10 MB × 5 files per service. No central logging or tracing backend is provided.
+Both APIs write console and retained file logs. Gateway logs fixed route families, status, timings and correlation IDs instead of request bodies or arbitrary URLs. Use `X-Correlation-ID` to relate proxy/backend events. API file retention is documented in each submodule; Quarkus age-based retention does not impose a total disk quota. Production additionally rotates Docker logs at 10 MB × 5 files per service. The base P07 stack provides OpenSearch/Fluent Bit log collection and an opt-in OpenTelemetry collector/Tempo pipeline. See the environment section for shared local telemetry.
 
 ## Build and testing
 

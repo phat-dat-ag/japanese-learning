@@ -45,6 +45,8 @@ services:
       # Logging and readiness.
       APP_LOG_DIR: /app/data/logs
       LOG_LEVEL: ${JWKS_API_LOG_LEVEL:-INFO}
+      LOGGING_LEVEL_COM_JAPANESELEARNING_JWKS: ${JWKS_API_LOG_LEVEL:-INFO}
+      DEPLOYMENT_ENVIRONMENT: ${LOG_ENVIRONMENT:-development}
       MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: health
       MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED: "true"
     ports:
@@ -319,6 +321,9 @@ services:
       args:
         APP_OTEL_EXPORT_ENABLED: ${JP_TRACE_EXPORT_ENABLED:-false}
     restart: unless-stopped
+    env_file:
+      - path: ${VOCABULARY_API_ENV_FILE:-./.env.vocabulary-api}
+        required: true
     depends_on:
       mysql:
         condition: service_healthy
@@ -753,7 +758,7 @@ services:
       - --query.max-concurrency=4
       - --query.max-samples=5000000
       - --rules.max-concurrent-evals=2
-    ports: ["127.0.0.1:9091:9090"]
+    ports: ["127.0.0.1:${MONITORING_PROMETHEUS_HOST_PORT:-9091}:9090"]
     volumes:
       - prometheus_data:/prometheus
       - type: bind
@@ -811,7 +816,7 @@ services:
       GF_LOG_MODE: console
       GF_LOG_LEVEL: ${GRAFANA_LOG_LEVEL:-warn}
       GF_PATHS_LOGS: /tmp/grafana-logs
-    ports: ["127.0.0.1:3001:3000"]
+    ports: ["127.0.0.1:${MONITORING_GRAFANA_HOST_PORT:-3001}:3000"]
     volumes:
       - grafana_data:/var/lib/grafana
       - type: bind

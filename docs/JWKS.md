@@ -121,3 +121,13 @@ No custom diagnostic JWKS-fetching endpoint or additional JWT gateway exists her
 The custom .NET JwksConfigurationRetriever and named jwt-jwks HttpClient retain
 their timeout, size bound, caching and validation policy. Test fixtures, isolated
 Angular quiz runner and root operational fetch scripts use the User endpoint.
+
+## Local dual-deployment boundary
+
+The root [environment guide](../README.md#environment-configuration) describes
+`jp_learning_dev` and `jp_learning_prod`. Each has its own JWKS and issuer
+process and isolated user data. Existing public/private files remain read-only
+mounts, and indexed key IDs, active selection, issuer and audience are preserved.
+This deliberately remains one local token trust domain; access tokens may validate
+in both deployments. It is not tenant isolation. No key copy/rotation or migration
+is part of the environment audit. Separate trust requires explicit approval.
