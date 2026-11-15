@@ -1,0 +1,2288 @@
+{
+  "phase": "P08",
+  "runId": "229585c66aadaca21030d0c983730dc6",
+  "createdUtc": "2026-11-14T22:16:48.733Z",
+  "scope": "Actual local development telemetry; same-disk, not off-host",
+  "checks": {
+    "authenticated": true,
+    "livePreserved": true
+  },
+  "before": [
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "testOwner": null,
+      "service": "otel-collector",
+      "started": "2026-11-14T22:12:13.3472794Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/otelcol/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "testOwner": null,
+      "service": "sqlserver-init",
+      "started": "2026-11-14T03:40:03.657946174Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": []
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "testOwner": null,
+      "service": "flyway-user",
+      "started": "2026-11-14T03:40:04.468052653Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "testOwner": null,
+      "service": "opensearch-dashboards",
+      "started": "2026-11-14T22:12:13.355454766Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_dashboards_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "name": "/jp_learning_dev-opensearch-1",
+      "testOwner": null,
+      "service": "opensearch",
+      "started": "2026-11-14T22:12:13.332072269Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "testOwner": null,
+      "service": "sqlserver",
+      "started": "2026-11-14T22:12:13.320482115Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/opt/mssql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_sqlserver_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "testOwner": null,
+      "service": "logs-ui",
+      "started": "2026-11-14T22:12:13.264234832Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/logs.htpasswd",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "name": "/jp_learning_dev-frontend-1",
+      "testOwner": null,
+      "service": "frontend",
+      "started": "2026-11-14T22:12:13.325388449Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": []
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "testOwner": null,
+      "service": "fluent-bit",
+      "started": "2026-11-14T22:12:13.292278888Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/logs/jwks",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/user",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/vocabulary",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/state",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "name": "/jp_learning_dev-logging-init-1",
+      "testOwner": null,
+      "service": "logging-init",
+      "started": "2026-11-14T03:40:03.45946961Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/p07",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "testOwner": null,
+      "service": "jwks-api",
+      "started": "2026-11-14T22:12:13.30254554Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-1.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-2.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-3.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "testOwner": null,
+      "service": "logging-ui-init",
+      "started": "2026-11-14T03:40:04.708527429Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "testOwner": null,
+      "service": "storage-monitor",
+      "started": "2026-11-14T22:12:13.337613959Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/config/storage-monitor.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/host-docker-data",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/stores/fluent-bit",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/grafana",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/opensearch",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/prometheus",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/tempo",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "name": "/jp_learning_dev-mysql-1",
+      "testOwner": null,
+      "service": "mysql",
+      "started": "2026-11-14T22:12:13.290699251Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/lib/mysql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_mysql_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "name": "/jp_learning_dev-user-api-1",
+      "testOwner": null,
+      "service": "user-api",
+      "started": "2026-11-14T22:12:13.32994027Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwt",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "testOwner": null,
+      "service": "flyway-vocabulary",
+      "started": "2026-11-14T03:40:03.275109096Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "testOwner": null,
+      "service": "vocabulary-api",
+      "started": "2026-11-14T22:12:13.283421484Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/deployments/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "name": "/jp_learning_dev-gateway-1",
+      "testOwner": null,
+      "service": "gateway",
+      "started": "2026-11-14T22:12:13.258576442Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "name": "/jp_learning_dev-grafana-1",
+      "testOwner": null,
+      "service": "grafana",
+      "started": "2026-11-14T22:12:13.340939264Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/p05-dashboards",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "name": "/jp_learning_dev-tempo-1",
+      "testOwner": null,
+      "service": "tempo",
+      "started": "2026-11-14T22:12:13.35226184Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/tempo/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/tempo",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "name": "/jp_learning_dev-prometheus-1",
+      "testOwner": null,
+      "service": "prometheus",
+      "started": "2026-11-14T22:12:13.314833719Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/monitor.token",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "Type": "bind"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "logs": {
+      "indices": [
+        {
+          "name": "application-logs-jwks-api-2026.11.14",
+          "count": 57,
+          "sha256": "44f5cea6d71e9fe76ed8411a5118152c4ab95686ba0a7826f3a35c2bbeca23b0"
+        },
+        {
+          "name": "application-logs-p07-security",
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "name": "application-logs-user-api-2026.11.14",
+          "count": 5598,
+          "sha256": "78a6e4566e9481d73cb70d5b96505545a486bf975e073a9c3e2b275a6a3d4919"
+        },
+        {
+          "name": "application-logs-vocabulary-api-2026.11.14",
+          "count": 116,
+          "sha256": "6597f5e298d6faa1fcb350f7340dcd6f16df2d25e43ec9e023ace9255803385f"
+        }
+      ],
+      "total": 5771,
+      "pointUtc": "2026-11-14T22:16:50.069Z",
+      "filter": "Canonical allowlisted fields; collected_at <= acquisition start"
+    },
+    "metrics": {
+      "chunks": [
+        {
+          "file": "series-0.json.gz",
+          "end": 1794543410.069,
+          "rangeSeconds": 21600,
+          "samples": 0,
+          "series": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "file": "series-1.json.gz",
+          "end": 1794565010.069,
+          "rangeSeconds": 21600,
+          "samples": 0,
+          "series": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "file": "series-2.json.gz",
+          "end": 1794586610.069,
+          "rangeSeconds": 21600,
+          "samples": 0,
+          "series": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "file": "series-3.json.gz",
+          "end": 1794608210.069,
+          "rangeSeconds": 21600,
+          "samples": 0,
+          "series": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "file": "series-4.json.gz",
+          "end": 1794629810.069,
+          "rangeSeconds": 21600,
+          "samples": 586747,
+          "series": 1209,
+          "sha256": "a3ea8d8a9c7666b1fe13fa54ec30f6054005d4601c268ba02f253a5f77267cc3"
+        },
+        {
+          "file": "series-5.json.gz",
+          "end": 1794651410.069,
+          "rangeSeconds": 21600,
+          "samples": 948439,
+          "series": 1282,
+          "sha256": "15074b525831e5e8abe691b5bfa7a32c4f28c206e7ae456ee5936353824d8c9d"
+        },
+        {
+          "file": "series-6.json.gz",
+          "end": 1794673010.069,
+          "rangeSeconds": 21600,
+          "samples": 1071757,
+          "series": 1187,
+          "sha256": "d8267d1dd6a432f724ba3e8368ba1ac31f7cdb8cf77688e268d68caad79f0de1"
+        },
+        {
+          "file": "series-7.json.gz",
+          "end": 1794694610.069,
+          "rangeSeconds": 21600,
+          "samples": 18741,
+          "series": 1076,
+          "sha256": "b695655991fa65c8542ffa77cf29b72f6d95294899ea4d3d15295e024044f805"
+        }
+      ],
+      "series": 1282,
+      "samples": 2625684,
+      "pointUtc": "2026-11-14T22:16:50.069Z",
+      "rangeSeconds": 172800,
+      "encoding": "gzip JSON original samples, eight native six-hour range vectors"
+    },
+    "traces": {
+      "ids": [
+        "000000000000000103278d788ccb4c03",
+        "00000000000000010497a064fa00c338",
+        "000000000000000105198d1fdd8d4d90",
+        "000000000000000107bae597d9abc324",
+        "000000000000000107dc4c1157ae612a",
+        "00000000000000011070375703efa65f",
+        "000000000000000110e0ea97040b59b7",
+        "0000000000000001119bdeca11b5dc5e",
+        "00000000000000011202df4e32efbb34",
+        "0000000000000001126144d234219b9d",
+        "000000000000000113419983300dabd7",
+        "000000000000000114ecb9d0c455b199",
+        "000000000000000119b435d26d599d8b",
+        "00000000000000011c7c99e8f38e9a10",
+        "0000000000000001208c8d7a4641965b",
+        "000000000000000122e7b76e4443c183",
+        "0000000000000001291602c217630cf4",
+        "00000000000000012b9cafffb8d53489",
+        "00000000000000012c9839959f188356",
+        "00000000000000012f90a555d9d62c8e",
+        "00000000000000012fc6d05e5146f06f",
+        "0000000000000001344b42550ea35726",
+        "000000000000000136d5ac1798e5a1dc",
+        "00000000000000013e01cdc7a793a7e9",
+        "0000000000000001410aaae0e0d0e4e5",
+        "0000000000000001463f97e8c5050640",
+        "00000000000000014a2bdeeb89a6ef6a",
+        "00000000000000014cf9f5f31b50e45e",
+        "00000000000000014d2bda9b5ff9793c",
+        "0000000000000001518fb800482a97e4",
+        "0000000000000001522417bbca1ded4a",
+        "000000000000000153138bd2bed5fc43",
+        "000000000000000153b8ced5d3ef63aa",
+        "0000000000000001587200b1b5941acf",
+        "00000000000000015bc2eb589b377fe5",
+        "00000000000000015bd0082eb1ceaf4d",
+        "000000000000000166bd930d9906da38",
+        "0000000000000001677d1f1170b03d41",
+        "00000000000000016784b6390e160aa3",
+        "00000000000000016887b93bd364912f",
+        "00000000000000016c35c8075e02fe9c",
+        "00000000000000016dd3f3049909b41b",
+        "0000000000000001708d0b0e1264a6eb",
+        "000000000000000170ac75e712cc2f65",
+        "000000000000000170baeac9446c9c9a",
+        "00000000000000017298201a3b263cc2",
+        "000000000000000174c4fbd916bb6699",
+        "000000000000000176c8693fe4d37645",
+        "000000000000000179cd71b0234ed4f7",
+        "00000000000000017a075d344b7b3f10",
+        "00000000000000017dbafa632b2ca5a0",
+        "00000000000000017f8acb6c0923dd09",
+        "00000000000000018123afa473997a13",
+        "00000000000000018416287faafc1ddb",
+        "000000000000000185c73252a7518ea1",
+        "000000000000000187af76e53b6533c0",
+        "000000000000000189718815bf925f97",
+        "0000000000000001898d395d59c76348",
+        "00000000000000018cbfe0b7cc88fe57",
+        "00000000000000018cc738cb5fc5fe22",
+        "00000000000000018e4fee2d71b1fab0",
+        "000000000000000193ff539769b2e0ff",
+        "0000000000000001974de3290fbb305d",
+        "000000000000000199a2487403b11fbb",
+        "00000000000000019f186643b31e4bf1",
+        "0000000000000001a528544005a2bf2a",
+        "0000000000000001a93addff6431992f",
+        "0000000000000001a9f6683f955f8b58",
+        "0000000000000001ac3d53763717b836",
+        "0000000000000001af9c41ea3ad6c476",
+        "0000000000000001b1f6cb8a1373480e",
+        "0000000000000001ba39f573d7502a0e",
+        "0000000000000001bcde6bcf04b0a3b8",
+        "0000000000000001be53a336e05aecce",
+        "0000000000000001bef9d3eb5eb264a6",
+        "0000000000000001bf52350b8ecdbc4c",
+        "0000000000000001c96e0eb41af5db1c",
+        "0000000000000001ca6568b086bb8815",
+        "0000000000000001d2ce24375b4cc7e0",
+        "0000000000000001d5192755d6f633f8",
+        "0000000000000001d551bf52dfe3110d",
+        "0000000000000001da72e6889263efd5",
+        "0000000000000001dc108de9a58fca65",
+        "0000000000000001dc197ecb9aa89ac1",
+        "0000000000000001e49d52d318eb1d89",
+        "0000000000000001e5a189bc2f858c2a",
+        "0000000000000001e626c22c4b2237bf",
+        "0000000000000001e8e4bc9647b2dfe1",
+        "0000000000000001ec030a29b0920ecd",
+        "0000000000000001ed94066f62d83654",
+        "0000000000000001f0060d588a707199",
+        "0000000000000001f250e491476ec9de",
+        "0000000000000001f445e9e34cf8d4ac",
+        "0000000000000001f4889fa5329feae3",
+        "0000000000000001ff121b3e9ac3d10e",
+        "0000000000000001ff8c6352771efec0",
+        "000513c325089dc69340359bfd67b3a9",
+        "000a7fa4e53209f6937f1d88bb22b2a5",
+        "001af066f5666e871a4cfa16774dcea7",
+        "001e21833ea9d903b456425f7d904aa7",
+        "005f2389550a4841495c1dc0b579a1c7",
+        "0065fcc084f00e9b7aafd8c2ef4850ce",
+        "00a659e2a149f44e6199e961b93421fe",
+        "00b4e426269823a3e85be8c114bb0132",
+        "00bebbb8b6ffd5dfc7177498e6913f52",
+        "00c4126a2493ffd4be5c69e3f0986a57",
+        "00c6b2f57827793a883d9b555ade4032",
+        "00c9bb9108c5ee00b621946b5a8bdffd",
+        "00cb1c18d47461202f729f1aff228cc0",
+        "00ced99d532ac563c7569e8c71c61c78",
+        "00de1729a103ded1b368246365f35789",
+        "00de9ab43b17250f16b870e813699d90",
+        "00e5223a7ca77e21c885f0ce4df2430e",
+        "00ebe7bc1bde0da9adaada99452e43f1",
+        "0104926ce08568b2bf4557399253b84e",
+        "011e0ed6c80c083b22110112cfdc9ac6",
+        "0123f90ec31e49e904d639595fb15622",
+        "013181ed623809599cc62c5f42871a67",
+        "014c7e775d70d203dc8f1aca495e3ad8",
+        "0153cd7a4c69b1175205613e541a378e",
+        "0154cb90e383571676183556004e00b3",
+        "016cd5c4b24735552c4a84a2afe08802",
+        "0176162f2a69af920970fb3dd61ee642",
+        "018cb75498c3f75603c86a860876cf8e",
+        "01b0bfe7bc0a49a78b142fa6bbb66d25",
+        "01b637c5491a280ec9b219a6eb3bee03",
+        "01b772d31b5fef0453336e3356ace2e2",
+        "01d9eb9ccc687094200d0958151101e6",
+        "01e15889df431a56f80e65503cd7ef36",
+        "01e4b84328917b3b739c78b524eddf5b",
+        "01fd66e706d8c4faa0f3053ba28ef57c",
+        "02018135ba98b1f8d0e55c18f333d89b",
+        "02018d24ecd43818db003e78104227a4",
+        "0203d5f9fb1ba8ed5de1b45f75e61243",
+        "0204f12b4b3729ffaf58bea646ffe27b",
+        "020533567056c85ecb02832581208d3e",
+        "0214fda1d6eef97be330966a8dfbee23",
+        "0225b53130fc19f780e8c1808e440508",
+        "0229652e0e08a896ea95af0332c82532",
+        "022a578df2badb798b2bb6adc9a6a933",
+        "022c7a7509c9883122fa1ff9ff46b99d",
+        "022eeac657298be4e95ba9a7cb7928c2",
+        "022f0d1df26b73a7f0dcaf5f8df0409b",
+        "02331295ae3842bce97499763a8ab4ba",
+        "0236c52b93c26eb79d5f342211bf5eea",
+        "02380c830821d07d30c38be97504763f",
+        "02403838543bc7a99ee36b27c275ae62",
+        "0241a8eab7b248378d747911ee9be999",
+        "0241d99a7d5729bb36d98014252c7bde",
+        "024fef99dc9de6d74670a69aea16af8c",
+        "0264b5e37d8fbe7a9585781c524a95ed",
+        "027d7edf1f91b8f5e62d312ebaeb4577",
+        "0283d1c8b290d0155f0c52293da2f3c9",
+        "028b9db9012c9edd9a6e6c3cb607502a",
+        "029a4f8d7f27fd1f487b376a5de45d70",
+        "02bd5f05472365e6b2840a70e387df86",
+        "02c5ef691200e207b780909c4dd4a26e",
+        "02c96c00f042ad063388fb4405c9bf6c",
+        "02d163617458135a518e03e28992f4a6",
+        "02e7ebbf0c1aa8e066f49332a81e3420",
+        "02ef0ffb347bc720cb2693be1350ad2a",
+        "02fb8926ccc7f550941b61f4a0eb1a19",
+        "030959e14db94cd9a81e2ec5c5cfb6e7",
+        "030965ff0d2d6cbef01f7beb188f65a8",
+        "031191a5c2796569ff245df09972d03c",
+        "0311ec326b3d5ed27921f43e3cff7021",
+        "0313fa1d04bd115023865b7fbe7cf66d",
+        "031f06fdd6a2d0791d654c1f7253caa5",
+        "032d3301352569a44d08973e95d5e618",
+        "0334752ec2379deec140381f27cd7b31",
+        "0340eb67cda69cd2a1358579813085ad",
+        "0347cb0b117aaf5963b6e6baad54ca46",
+        "034bb57f32b68eea4ef27a37a92643f1",
+        "03536042737a1839310e79336a6764b0",
+        "0354d8f87dcd551a58245c0556e12380",
+        "035af2763acc01b7d046143633debb54",
+        "035e776fb89e2ed257537fcb3bd278ab",
+        "0382f96219ec00e3171d74e3715e16ec",
+        "0384770178d741557d2365d95be4c564",
+        "038db7dafb777450233788eda6636511",
+        "038feacb7f1d52f34ccce5352b601d6b",
+        "039aac7086b520d05d1eeed8075c1b5c",
+        "03aa62e81d19b17ffca49a6126498f36",
+        "03ab264bae512916952c4bb22718298b",
+        "03c521e877ccf73716cc88b939fcd671",
+        "03d1734f1086ab421202c38aef4d3cb4",
+        "03faf803537b4f1e53e21c0840363cbc",
+        "040cc866e4acef1af1f9d1136da51733",
+        "0426143735cfac0027ef852f35e4ed90",
+        "04404a8dc88b2ab1b3a7b54eba3f30fb",
+        "04450c963a48b330a1277202403388c4",
+        "046efbc93f4d5e34e5234eeb0682659e",
+        "048039cb625478d4d304113f8de66e5b",
+        "048a9047e452cbe443daf3760c00da69",
+        "048f50225aed3ab579b0799f4c7d68f1",
+        "0495d4f5dcf5d136284ac070ff5a3549",
+        "049606bd34995f658423367a88cff40c",
+        "049895a122f136ce01dc77e59a7af984",
+        "049f69044ff3938da06de9e6cbc1b26d",
+        "04aa32b6885b7ea1f4959715df980267",
+        "04b17016a071f3e3851d015e8459a9d4",
+        "04b3a835c69eed386b3d9d49a282db70",
+        "04b48dfb2110b342998f1841045bf690",
+        "04b72b1b0f5cbe6768e86e0d7ed56f68",
+        "04c735b32eaac65d7402b8aaa6c2a62b",
+        "04d26090e2b5d679b9e5f8a77ca77cc2",
+        "04d40afe4a82e84e1257ffce1f498218",
+        "04dce8f52802642d5a4a5100bf9c456b",
+        "04deb77eaf0deea9a51ad04191262a4a",
+        "04fd437e8426b9d73bedd8647bc0c3b8",
+        "05255f33a162413f229811b431cb0229",
+        "0535e7321d605c3356ac4e7b676ea597",
+        "0558a0afb71e1d6a9163f8c7f349f11a",
+        "055a35fd7d6a2e50728ca68795e116e6",
+        "055be6668f0ad168c13107cfe941ae6c",
+        "055c7516b22e38104fb28b2991beec4e",
+        "0561383cc3d7f0fcc06dbb648ac1ed46",
+        "056d1e138744ac912e71b5415f8998d8",
+        "0576b78794dc196d9a052fa8b88d0564",
+        "05827b9f6b44ee3f5263f65ba71f317e",
+        "05916b4161189168edf2fadf7707c7c2",
+        "059e0014819b10b348fb5c794af2f9c4",
+        "05a21d8e846a7ffac3b62c0077ffc093",
+        "05aa9373de6f077cbdfc6bef6504905e",
+        "05d4743dd0c414c812db124856abec35",
+        "06074092127b3f3fee456db673f86deb",
+        "060daf9513c4f27e0ce6874abb2ace84",
+        "0622642c06e3400b5891e7fa8f44854c",
+        "0624281a191f42b09d12bde2061c7595",
+        "0624a2f67ccd46ff3238f5d7f1055580",
+        "062eb762121b5d4450eef1d7024b0544",
+        "0641f3b435156db91c6c4033ef4d7ec0",
+        "0645cbcfccb1f3613f4d3a3c1ad5033c",
+        "06509829eaba5567b92bf0ae3d32a414",
+        "06541da9835261e2ee1e131b32ea0ab3",
+        "0676052c3875313be8c40094efd200fe",
+        "0677bd1e8203829d7cdf3eb670d14398",
+        "067ec84cdc3794793067904959db6112",
+        "067f62c7f08e3131a8117df18a4630b0",
+        "06a06eb23c835a201897689dbfd4238f",
+        "06ae26a055bcc8944aa5685cc4438d68",
+        "06b355e2142008fc9d3fa9ec1dae48a9",
+        "06b6bd03172d986cb0d88b8f799bdc93",
+        "06cc4a6337f3f9b0ff64382152d1ec71",
+        "06e42d0ae1700406bf10c8976487e4f7",
+        "06edc155a424748061d3263c16fbe71c",
+        "06fe6fb8442d23c913f1cc1bf6ed4ba7",
+        "0717f899ceb355da4c4e4471564efebf",
+        "071e4fc95cac782625a6ba328079608d",
+        "07415a1536d6259d1c48d30ab8ab3382",
+        "074b6864c64c7fd27462d825c126699d",
+        "075348c3e35cbc7fb55a019631afddab",
+        "075865620648d85ee218f1b348e3bb6d",
+        "076546686c17d0501eda78caac5f7004",
+        "076ee303483d3a67cac64ecbec8e8acd",
+        "078aeb5c5e5698aacc90c424928e2c71",
+        "078fa222affe878a44009d970e13b94c",
+        "0793bd271a9a3a4d2185c3a80fb76e06",
+        "079b32a2d3e273ebd372ee3c6cce95ce",
+        "07a4592881e29c31f2eac63076ea25b8",
+        "07a626633ec43237d966b9129fe8ceaf",
+        "07aa19abaf6c149fe1b013227066fe46",
+        "07ab5c9fc77670ab96776c6baefc2c9d",
+        "07af129d7f678503298192e892668a78",
+        "07c5853c26a7bb15235011d5404cc43e",
+        "07c9740d057cbd06b2dd1e52b6ff784d",
+        "07cfe733820753d101e9b23537ca30fa",
+        "07e7ce3e37fac07d48306ff3aafed5c1",
+        "07f41a1a4bfb4ee4071526cf786a00a4",
+        "080453a7ef5f2c10fbb7f34f3a69f18a",
+        "08129b30d4793b01fe4d3012719692fd",
+        "08191d47af6b6d3ab7138df32ef05549",
+        "0826af965bd49c0df280ac00cb8b93d5",
+        "0827e1d63f71d409cb010974a0c6df5b",
+        "082e831344b046364a1a2bce6c4ccf09",
+        "083f1df4d633b57c4662bf0185eb5b71",
+        "0844258d99034c6b640dab0dcc9d4050",
+        "085ee02050c8dd3bc0d7b992a6a126a4",
+        "086a278cff6efdf8e1ccf43fbb98291c",
+        "0881d13c41f28e262e62bc92ba29e975",
+        "088e571c361b7db8b996cf9f16872027",
+        "0896b0819cd6a5e8ce1a009a215e2c37",
+        "089b3cb4b92a2eb4a6fa4e0b4daf1073",
+        "08a6eabd44aa01c98018581d95e9127a",
+        "08b54c5069a6b391af3bb1d14dbe7595",
+        "08c2febb2fa4703a36b08703df3bb120",
+        "08ccb962e5836ea5f28fcf563e7e7953",
+        "08e0a860db10d13506fbdd48b8aab259",
+        "08ed9106df07cffcf222bf82858ad502",
+        "090214a80ee2299aec43a04350085075",
+        "0918863046b44e09d334a45f94f48d4b",
+        "092be40346240a969b313cd35c8c8e4e",
+        "092c4eec7cda35aac004b2658a3ae687",
+        "0937d51c6e6cb7b2164a2f5e40634d3d",
+        "096528e48da7c71bc9c845632f90d748",
+        "097e8d7f82287679791f703598f82620",
+        "0987b654abf4d18e7d1c0735ec75d11b",
+        "099503150906938416d346dd4f1e607d",
+        "099975bfb5d19fa39cad5dcc2b084ff7",
+        "09af50004ae4c3add7fe959b483b793b",
+        "09b1a35561bffed92421bf0647919876",
+        "09bba35ebcbf3c5bf078ff9d42e656d4",
+        "09c3d464cdd2194285307742b89714ef",
+        "09d3706c07e72a205b4e99ea926dd242",
+        "09d6b106afabae2b72da0119c2284ded",
+        "09e1b28e676122ffcef332e1e50ccb49",
+        "09e6943afc634eb2b9fe4a589fa79458",
+        "09f936288f8aa6e0bbe0aa94b92bfbb3",
+        "09fd7897767431ce526d4983d4b44d15",
+        "0a0599fba4656ce354294d8eedfb251d",
+        "0a067935a58fb070dd5a3c1cc2aba233",
+        "0a0afc36a6d0cbba34dc2f46bb0bb09d",
+        "0a2e0a830511b0724f74f90c58439509",
+        "0a37ad0508a6ef49a939c765c01bb74e",
+        "0a3830d603b7a5f4084473a31b1e9883",
+        "0a3c6464489a8e9e9c31ec7dcf805404",
+        "0a53ed046ec94325969f29b73a7954e1",
+        "0a672f1cbd397626dcbf243d709d31f8",
+        "0a7b06d6db5147c6b01fc48635625026",
+        "0a7c7b218badffad40ca97fe05d2ea63",
+        "0a800d1f9f56893c666f8f6a8e2d9494",
+        "0a8cface09fe981ea8a02f97dfdacac2",
+        "0a99783e609033a45cd07fbefd31beb1",
+        "0aaada45796900f1b65eda9dd7e9bcb6",
+        "0aca4051425ea530255f25344d05d4a1",
+        "0acf1ca407a5fb7f1a3e930398c084cc",
+        "0ad1e50b605fb359f8a20b320f7d69d5",
+        "0ae1e59698705f39e5ee7cc5ad997bf8",
+        "0aed0e229e4941626a4e5cfc4a2d2110",
+        "0af5aafbbe7ac4fae4624fae76a91f4a",
+        "0b04ce0704b03c457a7eafdac96be305",
+        "0b0cf5d36fffa517ca7911f74195d905",
+        "0b122c63449b04d838813c65f998dd74",
+        "0b1523b6879d64531ec64aa5c33ba2d9",
+        "0b20fedc725eed3c860d64c0a34f71a4",
+        "0b2a52c267c445a2968c9c680f5ada19",
+        "0b2cb78f5032d076eb2e194952410db6",
+        "0b2f1d03fef603c194c0a9bd3fd28717",
+        "0b347d97e90e72ddc3aa3970fd941927",
+        "0b38ff2efddc3a5d5cb5230a9d9943d6",
+        "0b4170ebee9d88c2a2b881dc9c28ea92",
+        "0b4331f7167d6aafbe5ac70d098a4c76",
+        "0b5128c366b99d2c701afa8afd44ca6c",
+        "0b55231081d9e745a99cba8d8e57fca4",
+        "0b6240b824a06240a7739791f9bc74e2",
+        "0b7a82845c497855813a0298647983cf",
+        "0b90c9c3f5a314b4bdb77ab3e75a81a7",
+        "0b920feef69f70c46b36e465a8634154",
+        "0ba7fe9d2a07f64da09a683b5ffd891b",
+        "0ba8e5821edab37f6c052323d97d8eab",
+        "0bb19bb6578ab1a468f0648f64ceeec2",
+        "0bbef238bfc11fd34fce46d83f160590",
+        "0bc12905789ed74076dbdfdd78473fe7",
+        "0bca1954f3f04e4662f1cecb6e2a70d8",
+        "0bccd6e0a2907d41c6918dfc07cdcf22",
+        "0bcd4d8c51bca46740e7ff437f2f21c6",
+        "0bd01291de3d80b2fe59ff6938433df1",
+        "0be5a734b5916408e3416a9563dff5ba",
+        "0bf9b3304eb3498a0b1a0274de91b491",
+        "0c00af699b4e5f0a8cb64d65db22a1c0",
+        "0c0c6afd27a75b39930882b40af4bf02",
+        "0c1fbe73339e6858e8cb6defbba64aab",
+        "0c249508ef5298f955ac9c0409e37f10",
+        "0c24952ac8b3dab88424640bf7aab73d",
+        "0c2b484856338ee1aaba93a40940b0d7",
+        "0c3c3947f92ae3cd0a44d0310189acb7",
+        "0c3e3822c49910ac02084d2c2febdfb8",
+        "0c3f39d46d0a0a0f245c088276c84864",
+        "0c44b5f74198c2160c7a0075f972d809",
+        "0c7a19589bae3399517aa728dc4b0cc9",
+        "0c7d17041a794eb0dfc2b184f4e64c0c",
+        "0c81db3c8f5f28fdd6d0da741c8d8e67",
+        "0c850583565d0744bf06bc183efcc879",
+        "0c8f74fa5dbb418ef64330d8e3329645",
+        "0c92527ee9040b5e074536baf6b3ed11",
+        "0c992b61a2d8a6bf56ed644405f33800",
+        "0c9cb9519e89e1678a142ef8f75ae2c2",
+        "0ca343d89a1b280088588d9726cb6065",
+        "0cb0df284aaa5c1ec6be66de32072fd6",
+        "0cb3796d179ec0bed6043b0530ca2212",
+        "0cb6bd02c99e55a5e5c962355b04241a",
+        "0cd902a2c4fb869754b72a076286e571",
+        "0cdc38ca019c66db643b36a4324c1f41",
+        "0cde525bcb9021a0e7fc8c4ab2401b1d",
+        "0cec96f73c0d319b850bdea8104c36f9",
+        "0cef5aff36b4f863c3c2122713b596a4",
+        "0cf5342a5bdd1e3664b9bf0249b01dff",
+        "0cf5ce32b90c6b7a82826768453a1df2",
+        "0d0bea03dcbe31ab55f7d3b87cbbc699",
+        "0d0d92e7fb70e05d28813d277d07bdfc",
+        "0d23012baf0f3a37a21cac4a4a8e953a",
+        "0d288e91184b6a9526a4297cb01e39ea",
+        "0d39af4a1cf18d239dd28633fa43f83c",
+        "0d4fd6b81d976b5624565a8429f93f8e",
+        "0d6a17915b977e5e174d584b7b91efbe",
+        "0d761e02d07700bdd75befaabea9c333",
+        "0d7e9919d932cbe212d40f907af817ed",
+        "0d7ebb760213060eab992ad7057b3c54",
+        "0d8a18b8252589baa3700aeff89d0656",
+        "0d96aa2b6942087b5c57e114c781fd6d",
+        "0d9cd6c73e0e3dae16e788bfd0adbb8e",
+        "0da6387183bf12f97f11ed0ed29c17cd",
+        "0dacd7ed32fc3d5b3fdc0eb381ca63de",
+        "0daea95c9cecbb14607fa6311c81fbe6",
+        "0dc1868cfbf450b6ac5d91d885ae4d74",
+        "0deaf734642e3bf06099b1d0b74ec1d9",
+        "0debf063dace417a22eb240d5cf03158",
+        "0dfa37da14a8c0d0cd8402cc011aecff",
+        "0e271173978077d13bfa97bccdf94bfe",
+        "0e276a6e912987788e4208cc32997def",
+        "0e3dcbe0b22d2db35aa720d042bdfc0e",
+        "0e44d550981e5919ad124bc2fc41730a",
+        "0e4ba6896d44a01f3226d9384dbea9fb",
+        "0e67e7e58005a92f4529e89c15da83e7",
+        "0e7423a648386c471ec1f1e7e9de31b8",
+        "0e85aed2592aeae03cc84b58d99add2a",
+        "0e8c2b2450938cd39ca055fe28665ecc",
+        "0e9aa59bcfff6a7b8afa89144dfaf447",
+        "0eba7206d548c9a39bbd19acb4545517",
+        "0ebba0f0dfc9791a8efe6e73470cc842",
+        "0ebc7410146841cdd070c8e3e2220774",
+        "0ec9b9ea2b222e1d0a5b24e9aeb542e2",
+        "0ecf94a582157244b4dd178ee23ecd7d",
+        "0ed39dee909c6940e79fe51fe53c2d40",
+        "0ee2341d56be4323c1f01f22efb31542",
+        "0f068fc45d3193aae049702e2360ab24",
+        "0f09f5022486b54133cfbbf09ad0c28d",
+        "0f2a08b81de3e437a0519221e559d989",
+        "0f3c26373950ded86a76d6d4206d5188",
+        "0f3e57a4a6c0f4eb0a969bf80b2838a3",
+        "0f433582ff9acb26401e86f7adb404bb",
+        "0f56b01ce736967a2e01bbcddd165eaf",
+        "0f595dd4dfe8f8ecabda8d713f286acd",
+        "0f6b1bdd6139df554e31feacc5af5b00",
+        "0fa707addeac630d8c16106f6b627ce1",
+        "0fae609bdeff2770b86f76d94e6e4929",
+        "0fbc4283a0fc886e9959e99460e114b4",
+        "0fdb02ce57cedce4ae2b54ea0b412459",
+        "0fe24a57772822d12eb20e0462ecf8e6",
+        "0ffa356df0c6d7d3da4e0edde58b61dd",
+        "0ffb423ec5311c3b0d8674ba9ec73591",
+        "1008f4f71f4367d3dfd9606bfef4ee76",
+        "100e3b75f1201adc941f2f6f03d8107d",
+        "101bec5d1d6b301f2e5a1d45be2da523",
+        "1022ecacaabe44e380f6566f2dd7db1c",
+        "102f45bf9da0da9a56ffa529c4a9dfe3",
+        "1034927c2d6e89d32efc4b8f61f6ec32",
+        "1034bb8a86bc2ed1038943421a97c3a1",
+        "106a6fe2a6f9639d1e65fc4ed028391e",
+        "1079e2cf784bc534298c315c1a7693ff",
+        "108cbfb0f03101f986bd614cd5d8217d",
+        "10af68948a828694ea2104bdb1ea2cc4",
+        "10c821dd3f14709d42f7cb475c0a361a",
+        "10d90eecf3b76b4a6c457131110f56f9",
+        "10def04b248ddb79816b4534f8948e09",
+        "10e90763fece9bb341778e923a3a88e7",
+        "11134ca3767d9e47bc79a6b5064b86d2",
+        "1120b5b00e9fc9d45c9b3e8a5307bb21",
+        "112fe7ac751ed3f18c2de4679e99eba4",
+        "1137990776f99b8ac00035d81e27192c",
+        "1138b339401e225672be37bd5df53287",
+        "1144dfcd2e15ef0963700bcfc566a36a",
+        "1150323470b78da25cacb0e12b5fe42e",
+        "1155c161a0904ee20d7a255eafb28a5b",
+        "1156c29e72ee94f541901a7b9d956915",
+        "11576abc0237cb2c335b33056f771791",
+        "1168896ca4047d062516512379a4265e",
+        "1170873eb3c3357bd753a7d8e28241a6",
+        "117baba7143086a0ddf5304b47d58145",
+        "1190e6843f4a8f27913f9767778ed142",
+        "1197cbb078021b4e38fd3a283459bda4",
+        "119810fc7a8097bcb4d03935c1353e20",
+        "11abbced94ac1b458ca7fb897d97a0a3",
+        "11c57665083028df62bfbe5ed7dcfbf0",
+        "11c74ed9f24a81e86c2c2a850d7f5539",
+        "11d42ccf4c6370df05c7fba2a0afc1f5",
+        "11d53f3ca1ef49c74f6b63a34ebace60",
+        "11e476eaec55e8a3f9c58904987dcd5f",
+        "120df08c5924191970fc21bced882eb6",
+        "122c1aa851ed7eb3d52221c699e47584",
+        "12353e522ee7c2aa1637accc0ae9e162",
+        "1235f9c415d09af6816225a7ccc0a6cc",
+        "123f911a85e34834c1512281b1100635",
+        "124355a56aedb11a2506af594d46b1f4",
+        "1244562efdbf2ebe72061ab49e5d9023",
+        "124716e08e03d86fcdb9e9eb73ce5422",
+        "125decce54211759f2571acd3282daf6",
+        "12639f17af39e2601a7f90095ee70b82",
+        "1269c45d1a9de4fc32b9ace0c8cb01fc",
+        "126e01f39f4a16efc1e2fe415f1eb0f7",
+        "127edd5e23afeec95c20335574049b9c",
+        "128541637706f02553f1204cc2b22216",
+        "129a8dce06249720875b1932711f1238",
+        "12aa8a69b2bf62161e980070c99399eb",
+        "12b2fc9a2421198fa939eee989f6f8b4",
+        "12ce793e5aec213cd8db0f74ef64c535",
+        "12d5751c75fee3e382a7b3dce2695105",
+        "12dc05ef03101617a34541e01616c807",
+        "12e433f36cfe10a0aab8aa4242c7687a",
+        "12ea2868261103fd6deb97430b50700d",
+        "12fdea26ba0ce1182bc6ca33caa34095",
+        "1305a8fcd202a45c07a6280ddee9295f",
+        "13103800f3539268e3cc2fcf22241ff7",
+        "133cae664dcd8bc5fc5c091fbb71f0bb",
+        "136727c371b4839fbd41610a0b7273d8",
+        "1370e0c45f779121500141d2993229ed",
+        "137138f83ac355a540d08c25c8f2eb71",
+        "137e4ebc5ce0c783f5a3d92d06bb8cae",
+        "13933cd73331f4c05fb5f9033576bd6e",
+        "13aabc37e4b0db1b0cdc8af854c09438",
+        "13c21dd892a05d33fb107e2c18648d00",
+        "13ce76898fb3a246b2189edaf77c9a58",
+        "13dcc414cbd032f426b84e5596e9c7ff",
+        "13e64e6c20b11d6e3d28e0d02945bcd7",
+        "13e9d590b628bdc6f6bfb68e05fdbec8",
+        "1404782e8ec9e5889efe1c5fca9e559c",
+        "14075cfc3277f929fd522f8fda430b4d",
+        "140eacd431f31dec9484fa9ee2b24cc7",
+        "14177fd0c854f20b2a5c7008140b1e07",
+        "141a44bbf13fe3afe373c33944b66dc2",
+        "143be3d5cbf1c6a581cdfd03b3ddf242",
+        "144b68e965085a394e51ff60e311eb80",
+        "1451aed577f8f2cf8b480b0baeb36089",
+        "1459a441e6bba93098c40cc54a7e5dc5",
+        "14603fb55a6d9e3ba03349003c86f71d",
+        "146060b068c8c341835ecbd535fc1fe2",
+        "1464eaf626b2675beb964edafc6ada8f",
+        "14660cbd17833a0f1864a02c73a567ae",
+        "146a1cc9109eae95eb297dc68900533a",
+        "147160998ae616c90ae9b1c9bda28729",
+        "1488bc78528e6d6c6f1c2fc5bcbf9d56",
+        "1491ff6aff8210d5cef60ec9089ce6ac",
+        "149332a086d270301f16e4988213fc45",
+        "1499d5e9db1ccf28a511b2f5e1a8367e",
+        "149d8047e95068d85515fde208091606",
+        "14aa68312a192387061ed6fe577af21f",
+        "14bcf6d519d9841b920b91c1817b780b",
+        "14c8f46ac844b01d270e9220a3bb2d8f",
+        "14de355f3bff594c2d3b755c0b248d2d",
+        "14eadeeb8756e1913fd731c9f15152ca",
+        "14eb96dfe10faef449d74c388645df5a",
+        "15010bdc07ef7f0a8ad8fc60bd4516f1",
+        "150520a07dcedb31a09a6eb008b5dc3c",
+        "15116e0d4cfecedd2d0d7b0481ed5e8a",
+        "151b7064c49000a387373a918a39e11a",
+        "152a6f4ef1e4a22da5e3f80c59ea3e7b",
+        "152fb583ba19cbf868d41c09e1a2c41e",
+        "15318612da65da1ba22288289bb0095c",
+        "1534db4d2ea59352d5ee119fdcf84039",
+        "1536b4f4f3cca7c646a582110906edef",
+        "153f9713f0941886565d126f53e5ddac",
+        "1545b465f11452d04e4269449ab099c0",
+        "155ff377b1003f3c9844edb1df0eeebb",
+        "1563621d65d90ea4ca8f5e46c5582ad6",
+        "156624ba2509932500d636c3fb19f09b",
+        "1590832d14b4873435dd464b660900d1",
+        "15a2202bbec9b11847a7b6402e2364f0",
+        "15a36d6148b0fc6b8d35f0dc180e5bd8",
+        "15caace755f8489bb761f31e2dd2a8af",
+        "15d1ce274add1bf2f385e24fc908f187",
+        "15e2f2d3a66872ea2955b1b6a1ec2804",
+        "15e92fd506b069df8d7e22ff0046abb5",
+        "15f7466bd0dce66e5faff42bb9a366be",
+        "16037f84af3934edd252ea15b44c0a10",
+        "1603d3792df24d3fc971908092305320",
+        "1628420ca9dac549536987b117eadc16",
+        "163898ac45c9beb45c80a48388e26db4",
+        "163f78a3331daa7a9e2b02cf9a5c1a6a",
+        "1657eaddd251a692f195369acd9f911b",
+        "16662085e1b7968fee1c1f60a1ef9c08",
+        "166c90a01f01ebac3c6adf8147c02081",
+        "1676656d056a3dcc44a0be111b2a5b6c",
+        "1689e92d7d25abf403efef395c9ab03b",
+        "16aa67e864b630985003d642860171af",
+        "16adf6ef87ee3991b0f9c98ed7308341",
+        "16b8b106a6588d48108810abe6dc2b63",
+        "16bdeef33bd901e24767e22258156a86",
+        "16c7b64f97a3f61d3b922c85b1bd993a",
+        "16da875ab0a45bd2cf1cc8f393a1c517",
+        "16e917ef3a7811a22e9f7a6232511e5f",
+        "16f857527cf0abfd60c3d32ec4ed3edb",
+        "16f98f180e461a9ac344442975fee6cf",
+        "1705e65ca2df11da320e0e86897103d2",
+        "170746df30d438e69afaece5af4d5ab3",
+        "17198a0d2faa62a15c035ce248183222",
+        "171fd27f3a27ac461eba9fafd638b1ce",
+        "17250bf77944b88713724fa6574a9e64",
+        "17250ff035b89d111c9036ca6b9baee8",
+        "17271494ba73e3447f9ec7a92bc31fae",
+        "17429afc9dd0f9979ade8a82a6197856",
+        "1752b99918ed3a067680d6a7be8e1d39",
+        "1757fecd627cfcc22c273922d80294fd",
+        "17669fdfe4c8971eb71edfc7540e0e5d",
+        "1768b959b246edfc5b9b2f61b6931c71",
+        "17700212648e487f3c0e8a77da07c53a",
+        "177d3ab419389bcda4634360711e7c04",
+        "178e2f4f4dfd1f31575df0dd06cd50fd",
+        "1797f69fbf96465225026ddcbd6daab9",
+        "179a560daa8782ce705440e1ed7b16a8",
+        "179f9a414f370e737aeaa0a1a97525ec",
+        "17a36e8fd1025204c9d42226e1c7a3f6",
+        "17a3ce2ea6e532dd45993cd6f6371738",
+        "17aa0de9e3e1e652b2ea56defa6be7a6",
+        "17b6a57ad543196759c251b671aec0d2",
+        "17b732531c192f8b74210b6f71571127",
+        "17bc92639a4843f38c2ef0f4aae06867",
+        "17c236957c588eff1275833dfa6767a6",
+        "17cfc112e3e53dbc96a305af5fd19dda",
+        "17db010665fa81bf423ff4df35c2aae2",
+        "17dd0eac5deffde5d8c3a2e5554875a2",
+        "17dfe7e0fbb9aecbb20f1f7ec638d513",
+        "17e521c84104406b7987e973ba464424",
+        "17edb42b91e931530eeed657ee7cf90d",
+        "1810fbd0cdbca007a844ee5ae9dbf1ff",
+        "181e9ae40e89d672b4779a7967145884",
+        "18204e9f7fb3b28421581fb4ffd1e9f1",
+        "182b57896cec4bcf1bc698cca3f2e4c5",
+        "182c3d184a27e50879aa5b6fa711303d",
+        "183add533946ad52b4ca339f383f2a3f",
+        "1843142f3283c4ddaeef565ce6ff2ac5",
+        "1846d367b880da2f2056d3d86010d748",
+        "1861d7d01ecdc626790b61f970591d67",
+        "18846c23a939dc33f44f61672d9acdce",
+        "189b2938a731c0f0e166edb99d48606e",
+        "189f0e272f26113d7efb0ec58ead7785",
+        "18ac75351d318585c142e296b5984e8a",
+        "18bf3b0a2e073b2af6e35cf07dbf9436",
+        "18c9cff795ec4e76c511eb9d5b340979",
+        "18d427357ad0ad77d676ad62b7b28791",
+        "18d614001271c04ee3a1b5574ac29ec9",
+        "1906815bfb34c62296e974732e7f5adb",
+        "19175677d6baf0bf1381c41846ee2dd0",
+        "19180e323917cde7a7e027d54cada112",
+        "193dd64a8e297c05808f79974e7d4c63",
+        "19460082ee00555f9b56d9840ad63c8a",
+        "19553a917f607fe61977e0e7c25fe4dd",
+        "19635d8402853671c90e85e439db79d1",
+        "197c6e6779bee98d38854b5a29cbd31b",
+        "1987605cfa4a2c8118526aa3e6a025b7",
+        "199121b51ce3c7f19197509451f354f2",
+        "1993203071e9f0a7c038af5a07e89647",
+        "1995b53887f0792d4bffc792f5f4c2c5"
+      ],
+      "windows": [
+        {
+          "start": 1794608210,
+          "end": 1794694610,
+          "count": 642
+        }
+      ],
+      "pointUtc": "2026-11-14T22:16:50.069Z"
+    },
+    "dashboards": {
+      "uids": [
+        "jp-dev-p05-health",
+        "jp-dev-p09-apis",
+        "jp-dev-p09-telemetry"
+      ],
+      "pointUtc": "2026-11-14T22:16:50.069Z"
+    },
+    "offsets": {
+      "databases": [
+        "user",
+        "vocabulary",
+        "jwks"
+      ],
+      "pointUtc": "2026-11-14T22:16:50.069Z",
+      "nativeIntegrity": "ok",
+      "scope": "Read-only online SQLite backups, no raw log/chunk payload"
+    }
+  },
+  "package": {
+    "file": "D:\\JapaneseLearningBackups\\p08-local-229585c66aadaca21030d0c983730dc6.enc",
+    "sha256": "aadf215b8b2e0f59bf175d433b68f071066d235f46c407bde66c00263a39d074",
+    "bytes": 14689981,
+    "rawBytes": 10686626,
+    "files": 676
+  },
+  "after": [
+    {
+      "id": "0825f15754330557d110f2f15cbb08cb168544071f12cb71d6f8017cb356a8e6",
+      "name": "/jp_learning_dev-otel-collector-1",
+      "testOwner": null,
+      "service": "otel-collector",
+      "started": "2026-11-14T22:12:13.3472794Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/otelcol/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\collector.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "17f08e4ed9dc42c733cc1621c8069a4906f4abfda32b0d66dd5d4cdb25a75fb1",
+      "name": "/jp_learning_dev-sqlserver-init-1",
+      "testOwner": null,
+      "service": "sqlserver-init",
+      "started": "2026-11-14T03:40:03.657946174Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": []
+    },
+    {
+      "id": "18babbc6758125b7b0eac5c9ee9ba878eb1cd7a053a274e28b3486be9803e388",
+      "name": "/jp_learning_dev-flyway-user-1",
+      "testOwner": null,
+      "service": "flyway-user",
+      "started": "2026-11-14T03:40:04.468052653Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\dotnet\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "3a6c42728e92491ae37370999b2f9e7f8b502308f38e76c0a10eec372d698d1b",
+      "name": "/jp_learning_dev-opensearch-dashboards-1",
+      "testOwner": null,
+      "service": "opensearch-dashboards",
+      "started": "2026-11-14T22:12:13.355454766Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/dashboards.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/config/p07/dashboards.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\dashboards.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch-dashboards/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_dashboards_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_dashboards_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "3b44d22c3c0446569c5ddb7316594c4c994cd0c0582b7eb88a14aec51cc6f4c8",
+      "name": "/jp_learning_dev-opensearch-1",
+      "testOwner": null,
+      "service": "opensearch",
+      "started": "2026-11-14T22:12:13.332072269Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch-security/internal_users.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\internal_users.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/opensearch.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/opensearch/opensearch.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/config/p07/node.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\node.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/usr/share/opensearch/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "46aa76144deb98ddfc41e3fa1b69004eb612554a642ccc63f868766dfb989ac5",
+      "name": "/jp_learning_dev-sqlserver-1",
+      "testOwner": null,
+      "service": "sqlserver",
+      "started": "2026-11-14T22:12:13.320482115Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/opt/mssql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_sqlserver_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_sqlserver_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "4a7e82a13a94f2ecb66d1c1ebace4eab5f7800687538aae83ce7906155009529",
+      "name": "/jp_learning_dev-logs-ui-1",
+      "testOwner": null,
+      "service": "logs-ui",
+      "started": "2026-11-14T22:12:13.264234832Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/logs-ui-entrypoint.sh",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\logs-ui-entrypoint.sh",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/logs.htpasswd",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\logging\\htpasswd.recovered",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging\\nginx.conf",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "4e9c586148e61ef5f031af8beb5c26a41c4051e0d915524204473a457c852ef8",
+      "name": "/jp_learning_dev-frontend-1",
+      "testOwner": null,
+      "service": "frontend",
+      "started": "2026-11-14T22:12:13.325388449Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": []
+    },
+    {
+      "id": "605bb21e8fbe1ee6c8aee1eb0e3fe61ca4ed1c9747148bfae95ff28c4eb15c5c",
+      "name": "/jp_learning_dev-fluent-bit-1",
+      "testOwner": null,
+      "service": "fluent-bit",
+      "started": "2026-11-14T22:12:13.292278888Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/logs/jwks",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/user",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/logs/vocabulary",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/state",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "6781af78bf91c2e44ad3d8bb8e96385252d38d63775af68be3380d9ae013f3ea",
+      "name": "/jp_learning_dev-logging-init-1",
+      "testOwner": null,
+      "service": "logging-init",
+      "started": "2026-11-14T03:40:03.45946961Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/p07",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\opensearch",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "75e87b13b3496a1ed5a59ec060d8a26e51102473615582cf763975af98ad93eb",
+      "name": "/jp_learning_dev-jwks-api-1",
+      "testOwner": null,
+      "service": "jwks-api",
+      "started": "2026-11-14T22:12:13.30254554Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_jwks_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_jwks_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-1.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-1.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-2.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-2.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/keys/jwks/user-publickey-3.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\public\\user-publickey-3.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "7e63fc5112fd05d90719769d75e1167596085555702798e80e1f79a3aa4523f5",
+      "name": "/jp_learning_dev-logging-ui-init-1",
+      "testOwner": null,
+      "service": "logging-ui-init",
+      "started": "2026-11-14T03:40:04.708527429Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/config",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\logging",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.key",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.key",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/admin.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\admin.pem",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/run/p07/ca.pem",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\ca.pem",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "83033855dac07d4d854d3020ee80b943549eb6d4d2c34d702b7b498daa3dba25",
+      "name": "/jp_learning_dev-storage-monitor-1",
+      "testOwner": null,
+      "service": "storage-monitor",
+      "started": "2026-11-14T22:12:13.337613959Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/config/storage-monitor.py",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/japanese-learning/observability/p07/storage-monitor.py",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/host-docker-data",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/d/DockerData/DockerDesktopWSL/disk",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/stores/fluent-bit",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_fluent_bit_state",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_fluent_bit_state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/grafana",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/opensearch",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_opensearch_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_opensearch_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/prometheus",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/stores/tempo",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "84b98ea41601c4061b68a3bf6fc491a0c4e5dada124f0370af44f6bfe4c0b1f2",
+      "name": "/jp_learning_dev-mysql-1",
+      "testOwner": null,
+      "service": "mysql",
+      "started": "2026-11-14T22:12:13.290699251Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/var/lib/mysql",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_mysql_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_mysql_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "8c85bc3b117aed673dbfed791f4834bd80472199859fe6668a65b1d0973bc045",
+      "name": "/jp_learning_dev-user-api-1",
+      "testOwner": null,
+      "service": "user-api",
+      "started": "2026-11-14T22:12:13.32994027Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/app/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_user_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_user_api_logs/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/keys/jwt",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\private\\user-api",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "a5dcce7aaaa501b0534491afa186fe34e090b7c777d751824d55044139c5fdb0",
+      "name": "/jp_learning_dev-flyway-vocabulary-1",
+      "testOwner": null,
+      "service": "flyway-vocabulary",
+      "started": "2026-11-14T03:40:03.275109096Z",
+      "restarts": 0,
+      "state": "exited",
+      "mounts": [
+        {
+          "Destination": "/flyway/sql",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\quarkus\\src\\main\\resources\\db\\migration",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "b198d608d42e96063fc2c283e1036d6b812f86b729263b643fa562a668f46520",
+      "name": "/jp_learning_dev-vocabulary-api-1",
+      "testOwner": null,
+      "service": "vocabulary-api",
+      "started": "2026-11-14T22:12:13.283421484Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/deployments/data/logs",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_vocabulary_api_logs",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_vocabulary_api_logs/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "cea182cbaac2f6f3f75607b88603e99fedf1f616fc13a23d76eb702ef958347f",
+      "name": "/jp_learning_dev-gateway-1",
+      "testOwner": null,
+      "service": "gateway",
+      "started": "2026-11-14T22:12:13.258576442Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/nginx/nginx.conf",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\gateway\\nginx.conf",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "id": "e069b646cb21e5d8345a91066db1d57d9b84a8936714e70e280accb1852546c6",
+      "name": "/jp_learning_dev-grafana-1",
+      "testOwner": null,
+      "service": "grafana",
+      "started": "2026-11-14T22:12:13.340939264Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/p05-dashboards",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p05-candidate\\grafana\\dashboards",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\grafana\\provisioning",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_grafana_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_grafana_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "ed12a0929c49601d3badf3e2c28a637cd419493addd83a10c420e951aef1f864",
+      "name": "/jp_learning_dev-tempo-1",
+      "testOwner": null,
+      "service": "tempo",
+      "started": "2026-11-14T22:12:13.35226184Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/tempo/config.yml",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\tempo.yml",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/tempo",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_tempo_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_tempo_data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "id": "fe3e899eb9183e8328bc24e0dbbaac307d47604f16c53d4ca21bf23260128564",
+      "name": "/jp_learning_dev-prometheus-1",
+      "testOwner": null,
+      "service": "prometheus",
+      "started": "2026-11-14T22:12:13.314833719Z",
+      "restarts": 0,
+      "state": "running",
+      "mounts": [
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\observability\\p07\\prometheus",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "jp_learning_dev_prometheus_data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/jp_learning_dev_prometheus_data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/run/p07/monitor.token",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "D:\\japanese-learning\\secrets\\p07\\monitor.token",
+          "Type": "bind"
+        }
+      ]
+    }
+  ],
+  "retention": {
+    "retentionDays": 7,
+    "newestPreserved": "p08-local-229585c66aadaca21030d0c983730dc6.enc",
+    "deleted": [],
+    "unrelatedFilesNeverSelected": true,
+    "dryRun": false
+  },
+  "status": "PASS",
+  "finishedUtc": "2026-11-14T22:19:54.617Z",
+  "stagingCleanup": {
+    "directory": "229585c66aadaca21030d0c983730dc6",
+    "temporaryFilesRemoved": 663,
+    "evidence": "observability\\roadmap\\p08-validation\\evidence\\local-backup-229585c66aadaca21030d0c983730dc6.json",
+    "liveOrBackupFilesDeleted": 0
+  }
+}

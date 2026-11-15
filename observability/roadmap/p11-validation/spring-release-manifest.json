@@ -1,0 +1,86 @@
+{
+  "phase": "P11",
+  "status": "PARTIAL",
+  "productionStatus": "BLOCKED",
+  "immutableIdentity": {
+    "file": ".local/p11-spring-adoption-20261115/release-manifest-93b6a61989c0a1a5e4bb6d0c25ff2de05a6f459c7ed2652fc7ba75e8009aff73.json",
+    "sha256": "93b6a61989c0a1a5e4bb6d0c25ff2de05a6f459c7ed2652fc7ba75e8009aff73",
+    "mechanism": "Create-only content-addressed local evidence; not signed/WORM storage"
+  },
+  "springParent": "4053199a18cae4e1ee3e3f81cafca4d360469c52",
+  "springLearning": "f3cf9fe3e85acbef12e5e9743a89ebd18ea19793",
+  "jwksJapanese": "e9b90c31dfa311e0121285c8b7caa37c09cf4287",
+  "jwksSpring": "a62361ab5a41fbd20f8f2f1e7ade1f57220a6a73",
+  "sourceArchiveSha256": "40756fe1195797655c37631f79bb7067a21853dcd447d285944ad64618d69c86",
+  "testPatchSha256": "43755010b011e510c076b31135226e9afa377cce33b3d9b83378fb05e900900f",
+  "artifacts": [
+    {
+      "file": ".local/p11-spring-adoption-20261115/learning-a/target/learning-api-0.0.1-SNAPSHOT.jar",
+      "bytes": 66322391,
+      "sha256": "a0314c68cd015789707ed84f443e46244a86f697c1b218d51a7c8f95ffdb69bd"
+    }
+  ],
+  "sameHostReproduction": true,
+  "independentHashes": [
+    {
+      "build": "a",
+      "sha256": "a0314c68cd015789707ed84f443e46244a86f697c1b218d51a7c8f95ffdb69bd",
+      "pass": true
+    },
+    {
+      "build": "b",
+      "sha256": "a0314c68cd015789707ed84f443e46244a86f697c1b218d51a7c8f95ffdb69bd",
+      "pass": true
+    }
+  ],
+  "tests": {
+    "learning-regression": {
+      "pass": true,
+      "exitCode": 0,
+      "tests": 25
+    },
+    "user-regression": {
+      "pass": true,
+      "exitCode": 0,
+      "tests": 26
+    },
+    "jwks-user-context": {
+      "pass": true,
+      "exitCode": 0,
+      "tests": 21
+    },
+    "quarkus-regression": {
+      "pass": true,
+      "exitCode": 0,
+      "tests": 21
+    },
+    "dotnet-restored": {
+      "pass": false,
+      "exitCode": 1,
+      "tests": {
+        "expected": 81,
+        "tests": 79,
+        "passed": 14,
+        "failed": 65,
+        "errors": 0,
+        "skipped": 0,
+        "pass": false
+      }
+    }
+  },
+  "preservation": {
+    "containers": true,
+    "volumes": true,
+    "originalBackups": true,
+    "schedules": true,
+    "revisions": true
+  },
+  "limitations": [
+    "Uncommitted base revision plus exact test patch; not an approved committed release",
+    "Same host/cache/toolchain only; no Linux OCI or independent-host build",
+    "Existing unlocked dependency/toolchain/base-image inputs remain",
+    "Fresh .NET execution blocked by Application Control; no bypass",
+    "Owner overlay inactive; old Spring publisher pin retained",
+    "Production authorization, independent review, custody, host/TLS/capacity, rollback and business signoff absent"
+  ]
+}

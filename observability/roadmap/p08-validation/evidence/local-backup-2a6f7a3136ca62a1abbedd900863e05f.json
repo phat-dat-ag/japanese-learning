@@ -1,0 +1,16 @@
+{
+  "phase": "P08",
+  "runId": "2a6f7a3136ca62a1abbedd900863e05f",
+  "createdUtc": "2026-11-14T22:05:17.688Z",
+  "scope": "Actual local development telemetry; same-disk, not off-host",
+  "checks": {},
+  "status": "FAIL",
+  "error": "Docker operation failed: ps -aq --filter label=com.docker.compose.project=jp_learning_dev (private diagnostics; no credential output)",
+  "finishedUtc": "2026-11-14T22:05:18.512Z",
+  "stagingCleanup": {
+    "directory": "2a6f7a3136ca62a1abbedd900863e05f",
+    "temporaryFilesRemoved": 0,
+    "evidence": "observability\\roadmap\\p08-validation\\evidence\\local-backup-2a6f7a3136ca62a1abbedd900863e05f.json",
+    "liveOrBackupFilesDeleted": 0
+  }
+}

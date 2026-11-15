@@ -1,0 +1,211 @@
+{
+  "phase": "P11",
+  "status": "LOCAL BUILD REPRODUCTION PASS; PRODUCTION RELEASE NOT ACCEPTED",
+  "createdUtc": "2026-11-14T22:52:22.894Z",
+  "immutableIdentity": {
+    "file": ".local/p11-rc-20261115/release-manifest-fd1fb9cd79084abe9b0ab73dda778383cc620194eb2ccd3d472fed14bffb9176.json",
+    "sha256": "fd1fb9cd79084abe9b0ab73dda778383cc620194eb2ccd3d472fed14bffb9176",
+    "mechanism": "Create-only content-addressed manifest; no signed/WORM/registry immutability claim"
+  },
+  "sources": {
+    "root": {
+      "sha": "e97aa876aaf1458813fcf5610d762a5456c71c26",
+      "commitUtc": "2026-11-14T22:28:31+07:00",
+      "gitlinks": [
+        "160000 commit 7d25cfe4830da3856661f7449260e9027c596afb\tangular",
+        "160000 commit bbbab2f4dc80c0275152d4bf008f52b75c5778d6\tdotnet",
+        "160000 commit e3836080a3214ff029d81e0676e6bb925ab4a1c5\tquarkus",
+        "160000 commit e9b90c31dfa311e0121285c8b7caa37c09cf4287\tspringboot-jwks-api"
+      ],
+      "archive": ".local/p11-rc-20261115/root.tar",
+      "bytes": 22312960,
+      "sha256": "3cbebd76dafeffdddd2a607bf4ecf551b3618378f658a95301b0015efd00fd5b",
+      "independentlyReproduced": true
+    },
+    "dotnet": {
+      "sha": "bbbab2f4dc80c0275152d4bf008f52b75c5778d6",
+      "commitUtc": "2026-11-13T14:23:43+07:00",
+      "gitlinks": [],
+      "archive": ".local/p11-rc-20261115/dotnet.tar",
+      "bytes": 430080,
+      "sha256": "a6acda64b859a80d9ed79df42cabf680149cbf4edb944391e8c1b6e85a191b2a",
+      "independentlyReproduced": true
+    },
+    "quarkus": {
+      "sha": "e3836080a3214ff029d81e0676e6bb925ab4a1c5",
+      "commitUtc": "2026-11-14T10:18:42+07:00",
+      "gitlinks": [],
+      "archive": ".local/p11-rc-20261115/quarkus.tar",
+      "bytes": 2498560,
+      "sha256": "749363eb4dcbfbc14702d0d86ee39ab8ccdf0f27b91b09cbc3d3b1c2b0a162e1",
+      "independentlyReproduced": true
+    },
+    "angular": {
+      "sha": "7d25cfe4830da3856661f7449260e9027c596afb",
+      "commitUtc": "2026-11-12T16:19:56+07:00",
+      "gitlinks": [],
+      "archive": ".local/p11-rc-20261115/angular.tar",
+      "bytes": 2078720,
+      "sha256": "98cd349f4f9834d8298f6dc5b5b7921724d2a67d382720657c551f4288dd2ca4",
+      "independentlyReproduced": true
+    },
+    "jwks-new": {
+      "sha": "e9b90c31dfa311e0121285c8b7caa37c09cf4287",
+      "commitUtc": "2026-11-12T14:41:34+07:00",
+      "gitlinks": [],
+      "archive": ".local/p11-rc-20261115/jwks-new.tar",
+      "bytes": 317440,
+      "sha256": "04e5ac798c4dece1157f0e60a4d17c91fdca539906ddea3e9d08b94c4219fc3f",
+      "independentlyReproduced": true
+    },
+    "jwks-old": {
+      "sha": "a62361ab5a41fbd20f8f2f1e7ade1f57220a6a73",
+      "commitUtc": "2026-10-29T15:33:36+07:00",
+      "gitlinks": [],
+      "archive": ".local/p11-rc-20261115/jwks-old.tar",
+      "bytes": 153600,
+      "sha256": "c1ff9054d2e491886bc25fbb37e6eece74637132c78fcaadbac4d6081e3ea908",
+      "independentlyReproduced": true
+    },
+    "spring-learning": {
+      "sha": "f3cf9fe3e85acbef12e5e9743a89ebd18ea19793",
+      "commitUtc": "2026-10-29T21:11:11+07:00",
+      "gitlinks": [],
+      "archive": ".local/p11-rc-20261115/spring-learning.tar",
+      "bytes": 133120,
+      "sha256": "40756fe1195797655c37631f79bb7067a21853dcd447d285944ad64618d69c86",
+      "independentlyReproduced": true
+    },
+    "spring-user": {
+      "sha": "07019d56c46a4954aae35511b675e73547be54d1",
+      "commitUtc": "2026-10-26T11:37:47+07:00",
+      "gitlinks": [],
+      "archive": ".local/p11-rc-20261115/spring-user.tar",
+      "bytes": 204800,
+      "sha256": "2f981ca4e6262bb67525f6c29a2398b24c1a790b96f3f29cf3199d306ccb72ab",
+      "independentlyReproduced": true
+    }
+  },
+  "tools": {
+    "node": "v24.20.0",
+    "dotnet": "9.0.317",
+    "java": "openjdk version \"17.0.20.1\" 2026-08-18\r\nOpenJDK Runtime Environment Temurin-17.0.20.1+1 (build 17.0.20.1+1)\r\nOpenJDK 64-Bit Server VM Temurin-17.0.20.1+1 (build 17.0.20.1+1, mixed mode, sharing)",
+    "git": "git version 2.55.0.windows.5",
+    "npm": "11.19.0"
+  },
+  "reproducibility": {
+    "verifiedUtc": "2026-11-14T22:48:19.428Z",
+    "sourceArchives": 8,
+    "artifacts": 862,
+    "comparisons": {
+      "dotnet": {
+        "equal": true,
+        "filesA": 101,
+        "filesB": 101,
+        "differences": []
+      },
+      "quarkus": {
+        "equal": true,
+        "filesA": 254,
+        "filesB": 254,
+        "differences": []
+      },
+      "angular": {
+        "equal": true,
+        "filesA": 74,
+        "filesB": 74,
+        "differences": []
+      },
+      "jwks-new": {
+        "equal": true,
+        "filesA": 1,
+        "filesB": 1,
+        "differences": []
+      },
+      "jwks-old": {
+        "equal": true,
+        "filesA": 1,
+        "filesB": 1,
+        "differences": []
+      }
+    }
+  },
+  "independentIntegrity": {
+    "checked": 870,
+    "failed": 0,
+    "implementation": "PowerShell Get-FileHash SHA256"
+  },
+  "artifacts": [
+    {
+      "name": "dotnet-a-retry",
+      "root": ".local/p11-rc-20261115/dotnet-a-retry/publish",
+      "files": 101,
+      "bytes": 17039894,
+      "treeSha256": "7b089f3bea3dd194d1b328f89df05973d52bf41e6abf55861b5059390592ca03"
+    },
+    {
+      "name": "quarkus-a-retry",
+      "root": ".local/p11-rc-20261115/quarkus-a-retry/target/quarkus-app",
+      "files": 254,
+      "bytes": 63109921,
+      "treeSha256": "545202e2f147083db2e9efc97b8a3eb06e6bebb69803b76a773a34a0055a1c1e"
+    },
+    {
+      "name": "angular-a",
+      "root": ".local/p11-rc-20261115/angular-a/dist",
+      "files": 74,
+      "bytes": 995497,
+      "treeSha256": "0ad3a1f4a376c6e20b0eaf090559439688beab441a24cc0d1ab37523af666dd3"
+    },
+    {
+      "name": "jwks-new-a-online",
+      "root": ".local/p11-rc-20261115/jwks-new-a-online/target",
+      "files": 1,
+      "bytes": 44168685,
+      "treeSha256": "effc03a44d955d2237d35dc79c803906c7f5039a481c0129fa17f6d693b4cb53",
+      "sha256": "558f1824d5dd7128984d9284455c92611102a3e388e6d3bcce94245d03aa5678"
+    },
+    {
+      "name": "jwks-old-a-online",
+      "root": ".local/p11-rc-20261115/jwks-old-a-online/target",
+      "files": 1,
+      "bytes": 33943932,
+      "treeSha256": "3ed58e1e6e6d65687eabef8988748c20f547a48e33e48b11a898721a57fa2ed0",
+      "sha256": "da1bfe34531c085e4314dce7ff73d2289a83c71767cc9a143cfda1782baa5c7f"
+    }
+  ],
+  "dependencyClosure": {
+    "dotnetPackages": 74,
+    "angular": {
+      "lockfileSha256": "c5c68f4ec4b50ef86b56f2a048c93a1ce94d6235c93a55edbc539dde3cb542f1",
+      "lockfileVersion": 3,
+      "packages": 524,
+      "angularCore": "22.1.1",
+      "angularBuild": "22.1.3"
+    },
+    "mavenWrappers": {
+      "jwks-new-a-online": {
+        "distribution": "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.10.0/apache-maven-3.10.0-bin.zip",
+        "sha256": null
+      },
+      "jwks-old-a-online": {
+        "distribution": "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.10.0/apache-maven-3.10.0-bin.zip",
+        "sha256": null
+      },
+      "quarkus-a-retry": {
+        "distribution": "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.16/apache-maven-3.9.16-bin.zip",
+        "sha256": "5af3b743dd8b876b5c45da33b676251e5f1687712644abb4ee519ca56e1d89ce"
+      }
+    }
+  },
+  "uncommittedWork": "Root is dirty with P11 changes. These are clean committed application-source candidates; P11 working changes and test overlays are not mislabelled as committed release inputs.",
+  "limitations": [
+    "Windows host builds, not rebuilt Linux OCI images",
+    "Not independent-host, offline-from-empty-cache or cross-toolchain reproduction",
+    "Local writable storage; hashes detect changes but provide no WORM/signature/registry immutability guarantee",
+    "Shared JWKS Dockerfile uses floating base tags; apt packages are not snapshot-pinned; JWKS Maven wrapper lacks distribution checksum",
+    "No NuGet package lock/global SDK pin; Maven transitive/plugin resolution is not a locked offline closure",
+    "Original Spring Learning security regression fails; Application Control blocks extended .NET execution and actual issuer-to-Quarkus proof",
+    "No publishing, registry mutation, deployment, business approval or production acceptance"
+  ]
+}

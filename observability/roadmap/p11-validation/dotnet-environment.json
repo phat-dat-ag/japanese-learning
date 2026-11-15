@@ -1,0 +1,677 @@
+{
+  "phase": "P11",
+  "status": "SPECIFICATION ONLY; EXECUTION BLOCKED",
+  "productionStatus": "BLOCKED",
+  "sourceCommit": "bbbab2f4dc80c0275152d4bf008f52b75c5778d6",
+  "project": "tests/JapaneseLearning.User.UnitTests/JapaneseLearning.User.UnitTests.csproj",
+  "solution": "JapaneseLearning.User.sln",
+  "inventoryKind": "Static source-derived; runtime discovery/execution NOT VERIFIED",
+  "expectedCases": 151,
+  "methods": 62,
+  "suites": [
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Health/HealthEndpointTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Health.HealthEndpointTests",
+      "sha256": "886399e50dc52df5eae231dfb9917f8b9632fc0ac1355c1154f7b6155c77e896",
+      "methods": [
+        {
+          "name": "ReadinessReflectsDatabaseFailureAndRecoveryWhileLivenessStaysHealthy",
+          "kind": "Theory",
+          "cases": 2
+        }
+      ],
+      "cases": 2
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Logging/AuthSuccessContractTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Logging.AuthSuccessContractTests",
+      "sha256": "fbd23ab4de39b0068e0a2b8382d6174845bcb9d46dbc722844eeedef5c807dba",
+      "methods": [
+        {
+          "name": "AuthSuccessesWrapTheirDataAndShareRequestMetadata",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "LogoutKeepsItsEmpty204Response",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 2
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Logging/AuthenticationLoggingTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Logging.AuthenticationLoggingTests",
+      "sha256": "964d784d614c279bc413105189de13ab0317d43e819b495171ae83b1851868da",
+      "methods": [
+        {
+          "name": "SuccessEventsExcludeUserIdAndPreserveAuthenticationResults",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "LoginRejectionsLogReasonsWithoutCredentials",
+          "kind": "Theory",
+          "cases": 3
+        },
+        {
+          "name": "RefreshAndLogoutRejectBadTokensWithoutLoggingThem",
+          "kind": "Theory",
+          "cases": 3
+        }
+      ],
+      "cases": 7
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Logging/CanonicalLoggingTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Logging.CanonicalLoggingTests",
+      "sha256": "a44c14952e58f60ea7ca16259c6e1d35ee532898c8865c459b2a5a26033465d0",
+      "methods": [
+        {
+          "name": "CompletionIsTypedPrivateAndScoped",
+          "kind": "Theory",
+          "cases": 4
+        },
+        {
+          "name": "AttributeRouteTemplatesHaveOneCanonicalLeadingSlash",
+          "kind": "Theory",
+          "cases": 2
+        },
+        {
+          "name": "SyntheticFallbackWithoutActivityIsNotATrace",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "SensitiveStructuredArgumentsAreNotRendered",
+          "kind": "Theory",
+          "cases": 7
+        }
+      ],
+      "cases": 14
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Logging/CorrelationIdTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Logging.CorrelationIdTests",
+      "sha256": "5e1577b7bcc3529715fd02949496eaa99a9cd8a76c1084c217fc8658e8e7cd63",
+      "methods": [
+        {
+          "name": "ResponseAndErrorBodyUseTheSameSafeId",
+          "kind": "Theory",
+          "cases": 9
+        },
+        {
+          "name": "DuplicateHeadersAreReplacedAndConcurrentScopesStayIsolated",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "ErrorsAreSafeCorrelatedAndLoggedOnce",
+          "kind": "Theory",
+          "cases": 8
+        },
+        {
+          "name": "BindingAndMethodErrorsPreserveStatusWithoutReflectingInput",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "AuthenticationKeepsChallengesAndRoleDecisions",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "IncomingServiceTraceAndControllerMetadataAreAvailableInRequestLogs",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "ErrorMetadataUsesDistributedTraceAndKeepsCorrelationSeparate",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 22
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Logging/DetailedLoggingTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Logging.DetailedLoggingTests",
+      "sha256": "90b1ed28fae14e394e44f5f076f73e2578c50c8d785e9d90fc26e89700ff37af",
+      "methods": [
+        {
+          "name": "RequestContextCarriesPeerRouteAndParentTraceWithoutTrustingHeaders",
+          "kind": "Theory",
+          "cases": 3
+        },
+        {
+          "name": "FailedOperationIsTimedAndCorrelatedWithoutSerializingPayloadOrExceptionMessage",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "ClientCancellationDoesNotBecomeAnInternalServerFailure",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 5
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Logging/JwksLoggingTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Logging.JwksLoggingTests",
+      "sha256": "f2ed04122ddd3d862609c89163b2a7d3cf7898d04a273fa83ff6052811b8ad93",
+      "methods": [
+        {
+          "name": "PropagatesOnlyCorrelationAndPreservesResponseOrException",
+          "kind": "Theory",
+          "cases": 2
+        }
+      ],
+      "cases": 2
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Logging/SerilogLoggingTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Logging.SerilogLoggingTests",
+      "sha256": "5dbdd07862ce85c1b300f925332118a147c4c6b189951f0df85e648fe34aa10f",
+      "methods": [
+        {
+          "name": "RequestAndFailureShareActivityAndCorrelationWithoutCredentials",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "SqlDiagnosticsPreserve18456AndExcludeMessagesAndData",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "MediatRLoggingNeverSerializesCommandOrResponse",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "FilesAreJsonRetainedByAgeAndCountAndRolledBySize",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 4
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Observability/ApplicationMetricsTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Observability.ApplicationMetricsTests",
+      "sha256": "a690b289a4a43bb0104bf19a41b9fb3f213716af51d6dd1ce8b8b8d0b4627f03",
+      "methods": [
+        {
+          "name": "MetricsCountFinalStatusesAndLatencyWithoutSensitiveOrUnboundedLabels",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 1
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Observability/DependencyMetricsTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Observability.DependencyMetricsTests",
+      "sha256": "e10bcb6979519d017693c41c3858ce4e0ff094a1b8d51d5b4f1ae10f2e468861",
+      "methods": [
+        {
+          "name": "ActualJwksAttemptsHaveOneBoundedDurationObservation",
+          "kind": "Theory",
+          "cases": 5
+        },
+        {
+          "name": "SqlProviderDiagnosticsNeverInspectPayloadAndOnlyExposeApprovedCounters",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "InvalidDurationAndUnknownOutcomeCannotExpandLabels",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 7
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Observability/TracingTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Observability.TracingTests",
+      "sha256": "737bb7a5bac3afdfa3d090d4fc139c615b6f3fe2b8cedffc448d08bacca994eb",
+      "methods": [
+        {
+          "name": "HttpStatusClassificationDoesNotTreatServerRejectionsAsUnhandledErrors",
+          "kind": "Theory",
+          "cases": 4
+        },
+        {
+          "name": "CrossStackRatioVectorsAndFixedWindowBudgetAgree",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "RealHttpCreatesOneClientBetweenTwoServersAndKeepsCorrelationIndependent",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "InvalidContextIsRejected",
+          "kind": "Theory",
+          "cases": 4
+        },
+        {
+          "name": "ValidContextPreservesLineageAndInjectsChildWithoutBaggage",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "DuplicateContextIsRejected",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "PublicSampledParentCannotForceRecordingAndLocalChildrenAgree",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "DatabasePrivacyRunsBeforeExport",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "ActualOtlpSerializationKeepsResourceAndFailsClosedOnEvents",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 15
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Security/DatabaseConfigurationTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Security.DatabaseConfigurationTests",
+      "sha256": "45b77a1fb98698d0b449f58e6dc7472a5b9bb5bd7d6b0fcccff98d6f3300a745",
+      "methods": [
+        {
+          "name": "SplitSettingsPreservePasswordAndPreventConnectionStringInjection",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "MissingOrMalformedConnectionStringHasSafeError",
+          "kind": "Theory",
+          "cases": 5
+        },
+        {
+          "name": "IntegratedAuthenticationRemainsSupportedWithoutPassword",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "AmbiguousSourcesFailInsteadOfSilentlyUsingStaleCredentials",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 8
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Security/JwtContractTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Security.JwtContractTests",
+      "sha256": "f620cfbebba0804d7697cd6eda980a77ab007078eab6b52940686ba2d3019296",
+      "methods": [
+        {
+          "name": "GeneratedTokenContainsExpectedContract",
+          "kind": "Theory",
+          "cases": 2
+        },
+        {
+          "name": "NewlyIssuedTokensHaveDifferentIdentifiers",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "CustomConfigurationControlsIssuerAudienceAndLifetime",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "ValidTokenPopulatesCurrentUserAndAuthorizesExpectedRole",
+          "kind": "Theory",
+          "cases": 2
+        },
+        {
+          "name": "InvalidTokensAreRejected",
+          "kind": "Theory",
+          "cases": 6
+        },
+        {
+          "name": "PreviouslyIssuedDotNetRoleClaimRemainsSupported",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "MissingHttpContextIsUnauthenticated",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "MalformedUserIdReturnsNull",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "NonPositiveAccessTokenLifetimeIsRejected",
+          "kind": "Theory",
+          "cases": 2
+        },
+        {
+          "name": "OtherRsaAlgorithmsAreRejected",
+          "kind": "Theory",
+          "cases": 2
+        },
+        {
+          "name": "LegacySymmetricTokensAreRejected",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "RefreshTokenGenerationAndHashingRemainUnchanged",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "UnknownKidIsRejectedEvenWhenSignatureMatchesPublishedKey",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "CachedKeyWorksDuringOutageButColdVerifierFailsClosed",
+          "kind": "Fact",
+          "cases": 1
+        },
+        {
+          "name": "RemoteKeysAreAuthoritativeAndRefreshSupportsRotation",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 24
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Security/JwtRsaStartupTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Security.JwtRsaStartupTests",
+      "sha256": "8f45e43a3e7823847bb55a30fd725747c0bb3c6c35fd108ae1502227e604da27",
+      "methods": [
+        {
+          "name": "InvalidConfigurationFailsDuringStartup",
+          "kind": "Theory",
+          "cases": 17
+        },
+        {
+          "name": "StartupLoadsKeysFromContentRootOrAbsolutePaths",
+          "kind": "Theory",
+          "cases": 2
+        }
+      ],
+      "cases": 19
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Security/RetiredJwksEndpointTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Security.RetiredJwksEndpointTests",
+      "sha256": "ddf6dffc806583575a100c03452f4c02b5ad152d63be3e1a343e4ed0c5a46358",
+      "methods": [
+        {
+          "name": "LegacyRouteIsAbsentWhileRemoteJwksAuthenticationStillWorks",
+          "kind": "Fact",
+          "cases": 1
+        }
+      ],
+      "cases": 1
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/Security/SigningKeyListTests.cs",
+      "className": "JapaneseLearning.User.UnitTests.Security.SigningKeyListTests",
+      "sha256": "283fc9047ef2045f3aa72f569ceb4bce9db0f2a4036377bd647f5f0031119c37",
+      "methods": [
+        {
+          "name": "IssuesRs256TokenWithSelectedActiveKeyAndUnchangedClaims",
+          "kind": "Theory",
+          "cases": 2
+        },
+        {
+          "name": "InvalidSigningListFailsStartupWithoutExposingRejectedValues",
+          "kind": "Theory",
+          "cases": 16
+        }
+      ],
+      "cases": 18
+    }
+  ],
+  "dependencies": [
+    {
+      "file": "src/JapaneseLearning.User.Api/JapaneseLearning.User.Api.csproj",
+      "target": "net9.0",
+      "packages": [
+        {
+          "name": "OpenTelemetry.Extensions.Hosting",
+          "version": "1.15.3"
+        },
+        {
+          "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+          "version": "1.15.3"
+        },
+        {
+          "name": "OpenTelemetry.Instrumentation.AspNetCore",
+          "version": "1.15.0"
+        },
+        {
+          "name": "OpenTelemetry.Instrumentation.Http",
+          "version": "1.15.0"
+        },
+        {
+          "name": "OpenTelemetry.Instrumentation.SqlClient",
+          "version": "1.15.0"
+        },
+        {
+          "name": "Serilog.AspNetCore",
+          "version": "9.0.0"
+        },
+        {
+          "name": "Serilog.Sinks.File",
+          "version": "7.0.0"
+        },
+        {
+          "name": "prometheus-net.AspNetCore",
+          "version": "8.2.1"
+        },
+        {
+          "name": "FluentValidation",
+          "version": "12.1.1"
+        },
+        {
+          "name": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "version": "9.0.8"
+        },
+        {
+          "name": "Microsoft.AspNetCore.OpenApi",
+          "version": "9.0.17"
+        },
+        {
+          "name": "Swashbuckle.AspNetCore",
+          "version": "9.0.6"
+        }
+      ]
+    },
+    {
+      "file": "src/JapaneseLearning.User.Application/JapaneseLearning.User.Application.csproj",
+      "target": "net9.0",
+      "packages": [
+        {
+          "name": "FluentValidation",
+          "version": "12.1.1"
+        },
+        {
+          "name": "FluentValidation.DependencyInjectionExtensions",
+          "version": "12.1.1"
+        },
+        {
+          "name": "MediatR",
+          "version": "14.2.0"
+        }
+      ]
+    },
+    {
+      "file": "src/JapaneseLearning.User.Domain/JapaneseLearning.User.Domain.csproj",
+      "target": "net9.0",
+      "packages": []
+    },
+    {
+      "file": "src/JapaneseLearning.User.Infrastructure/JapaneseLearning.User.Infrastructure.csproj",
+      "target": "net9.0",
+      "packages": [
+        {
+          "name": "Dapper",
+          "version": "2.1.79"
+        },
+        {
+          "name": "Microsoft.Data.SqlClient",
+          "version": "7.0.2"
+        },
+        {
+          "name": "Microsoft.Extensions.Configuration.Abstractions",
+          "version": "9.0.17"
+        },
+        {
+          "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+          "version": "9.0.17"
+        },
+        {
+          "name": "Microsoft.Extensions.Identity.Core",
+          "version": "9.0.17"
+        },
+        {
+          "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+          "version": "9.0.17"
+        }
+      ]
+    },
+    {
+      "file": "tests/JapaneseLearning.User.UnitTests/JapaneseLearning.User.UnitTests.csproj",
+      "target": "net9.0",
+      "packages": [
+        {
+          "name": "AutoFixture",
+          "version": "4.18.1"
+        },
+        {
+          "name": "AutoFixture.Xunit2",
+          "version": "4.18.1"
+        },
+        {
+          "name": "coverlet.collector",
+          "version": "6.0.2"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.12.0"
+        },
+        {
+          "name": "Moq",
+          "version": "4.20.72"
+        },
+        {
+          "name": "xunit",
+          "version": "2.9.2"
+        },
+        {
+          "name": "xunit.runner.visualstudio",
+          "version": "2.8.2"
+        }
+      ]
+    }
+  ],
+  "toolchain": {
+    "requestedSdk": "9.0.317",
+    "target": "net9.0",
+    "windowsRuntimeObserved": "9.0.19",
+    "repositoryImage": "mcr.microsoft.com/dotnet/sdk:9.0@sha256:01fabc4758d1d74e39eda700c8463dae6241a61481f973683692ddcb59a5eeb7",
+    "imageAuthorization": "NOT APPROVED for test workload; digest presence is not execution authorization",
+    "imageSdkVersion": "NOT VERIFIED offline; require9.0.317 or explicit reviewed specification revision",
+    "proposedPlatform": "linux/amd64",
+    "testSdk": "17.12.0",
+    "xunit": "2.9.2",
+    "adapter": "2.8.2"
+  },
+  "availableApprovedEnvironments": [],
+  "executedHere": false,
+  "limitations": [
+    "Linux/platform dependency closure and security provenance remain unqualified",
+    "No approved independent runner or artifact custody workflow",
+    "No test image/workload executed",
+    "151 remains static source-derived inventory; no runtime substitution"
+  ],
+  "currentPinOverlay": {
+    "baseCommit": "bbbab2f4dc80c0275152d4bf008f52b75c5778d6",
+    "files": [
+      {
+        "file": "global.json",
+        "sha256": "8986711779649b04bd30b9d45f5aec7493668ee00d3998b60d7eb79e372c4bcc"
+      },
+      {
+        "file": "src/JapaneseLearning.User.Api/packages.lock.json",
+        "sha256": "9d42385299838a18062e4398fcf1f0054bfd2bfc7d01c4585d6c1c13373d4e7d"
+      },
+      {
+        "file": "src/JapaneseLearning.User.Application/packages.lock.json",
+        "sha256": "bb4bb809f04bc91618c5b526222a8134e8cfe6dbe6300ee3cc0d87b641103e42"
+      },
+      {
+        "file": "src/JapaneseLearning.User.Domain/packages.lock.json",
+        "sha256": "21309355e77d26df68664ac0899fbbacb314b0354d4a65cf8406751d68bd5ad8"
+      },
+      {
+        "file": "src/JapaneseLearning.User.Infrastructure/packages.lock.json",
+        "sha256": "096a6b7a41475c63346d5c2541d4704ea5dbffdf9c42785142db5eb65cb94f5a"
+      },
+      {
+        "file": "tests/JapaneseLearning.User.UnitTests/packages.lock.json",
+        "sha256": "c8edf3da79661ffc72727bbe8666f9c66109c809656a10524bd09c2337d1340e"
+      }
+    ],
+    "package": {
+      "file": "D:\\japanese-learning\\.local\\p11-final-acceptance-20261115\\dotnet-pins.tar",
+      "sha256": "a641542bb8599111d239a430d9b884f9e54d6697c88a8141d0b0af1a2a970d98",
+      "bytes": 128000,
+      "pass": true,
+      "files": [
+        {
+          "file": "global.json",
+          "sha256": "8986711779649b04bd30b9d45f5aec7493668ee00d3998b60d7eb79e372c4bcc"
+        },
+        {
+          "file": "src/JapaneseLearning.User.Api/packages.lock.json",
+          "sha256": "9d42385299838a18062e4398fcf1f0054bfd2bfc7d01c4585d6c1c13373d4e7d"
+        },
+        {
+          "file": "src/JapaneseLearning.User.Application/packages.lock.json",
+          "sha256": "bb4bb809f04bc91618c5b526222a8134e8cfe6dbe6300ee3cc0d87b641103e42"
+        },
+        {
+          "file": "src/JapaneseLearning.User.Domain/packages.lock.json",
+          "sha256": "21309355e77d26df68664ac0899fbbacb314b0354d4a65cf8406751d68bd5ad8"
+        },
+        {
+          "file": "src/JapaneseLearning.User.Infrastructure/packages.lock.json",
+          "sha256": "096a6b7a41475c63346d5c2541d4704ea5dbffdf9c42785142db5eb65cb94f5a"
+        },
+        {
+          "file": "tests/JapaneseLearning.User.UnitTests/packages.lock.json",
+          "sha256": "c8edf3da79661ffc72727bbe8666f9c66109c809656a10524bd09c2337d1340e"
+        }
+      ],
+      "scope": "Exact-byte configuration transfer package; Git review patch may normalize line endings, tar preserves bytes"
+    },
+    "qualification": "Windows offline locked restore and native publish only; independent execution still BLOCKED"
+  }
+}

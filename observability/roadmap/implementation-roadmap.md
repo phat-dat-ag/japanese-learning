@@ -1,3 +1,40 @@
+## Final local implementation handover — 2026-11-15
+
+**OBSERVABILITY LOCAL IMPLEMENTATION: CLOSED WITH KNOWN LIMITATIONS**  
+**P11 LOCAL ACCEPTANCE: 11/15 PASS**  
+**P11 PRODUCTION ACCEPTANCE: PARTIAL/BLOCKED**  
+**PRODUCTION READINESS: NOT APPROVED**
+
+Closed by explicit user decision. P00-P10 PASS and original scopes remain intact. LD-09 FAIL; LD-10/LD-11/LD-14 BLOCKED; other11 gates PASS. Four unresolved gates are deferred, not waived. See [final handover and reopening conditions](p11-local-development-acceptance.md) and [machine record](p11-validation/local-development-acceptance.json). No further implementation/testing/runtime actions. Earlier entries below are historical; original production criteria/evidence remain unchanged.
+
+## LD-09 Tempo backup remediation — pending server qualification
+
+**P11-LOCAL-DEV remains BLOCKED:11 PASS/1 FAIL/3 BLOCKED/0 NOT VERIFIED.** Afternoon isolated six-store qualification PASS:620 manifest files,600 traces,2057 samples,3 dashboards,3 SQLite integrity checks; cached native-trace provenance recorded. Active Tempo unchanged; LD-09 needs separate restart/change approval and active backup proof. LD-10/14 lack full-stack capacity; LD-11 lacks approved independent SDK9.0.317 execution. All52/25/three backups preserved;15 owned resources cleaned. [Current local evidence](p11-local-development-acceptance.md). Original production PARTIAL/BLOCKED; readiness NOT APPROVED.
+
+## Separate local development final acceptance — P11-LOCAL-DEV
+
+**Local acceptance: BLOCKED** (11 PASS/1 FAIL/3 BLOCKED/0 NOT VERIFIED across15 mandatory local gates). [Local matrix and evidence](p11-local-development-acceptance.md), [local machine result](p11-validation/local-development-acceptance.json). Daily backup retry failed safely; full .NET151 regression remains policy-blocked; current-candidate rollback/startup proof is not verified. P00-P10 retain PASS in their existing scopes; local final completion is pending. **Original P11 production: PARTIAL; production acceptance: BLOCKED; readiness: NOT APPROVED.** Original20-clause matrix and production acceptance records are unchanged. No12/12 production completion or unconditional P11 PASS is claimed.
+
+## Final local P11 closure review — 2026-11-15
+
+**P11 PARTIAL; production BLOCKED; 11/12.** The [definitive 20-requirement matrix](p11-readiness.md) preserves every original mandatory gate and names missing decisions. Local SDK9.0.317 plus five NuGet lockfiles now restore offline from 168 existing packages; two publishes match 101 files and 202 independent hashes. 23 local regression checks and 9 result-gate checks pass. Full 151-case .NET execution remains BLOCKED by policy with no approved independent runner. Historical patch-provenance/byte-check failures are retained; exact six-file transfer package and corrected scratch patch handling are documented. All 52 containers / 25 volumes / three backups/tasks/revisions and observed JWT file hashes compare unchanged; active DB/telemetry bytes are not claimed identical. Shared pins/overlay stay unchanged/inactive. Production host/security/recovery, tested rollback/handover and accountable business/release approvals remain absent.
+
+## Current independent .NET environment qualification — 2026-11-15
+
+**P11 PARTIAL; production BLOCKED; 11/12.** [Independent test specification and approval request](p11-dotnet-environment.md) records no established approved independent runner. Static inventory is 151 expected cases across 62 methods/16 classes; runtime discovery is not claimed. Nine offline result-gate checks and 443 retained artifact/manifest/source hash checks pass. Security-owner approval of environment/image, dependency closure, isolation, resource limits and evidence handling is pending; no workload or image was downloaded/executed. Latest Windows regression remains 14 passed/65 policy-blocked failures. All 52 containers, 25 volumes, three backups, schedules and revisions compare unchanged. Owner overlay stays inactive and JWKS pins unchanged. Earlier evidence below remains historical.
+
+## Current .NET diagnosis and rollout gate — 2026-11-15
+
+**P11 PARTIAL; production BLOCKED; 11/12.** [Execution diagnosis and ordered JWKS rollout/rollback proposal](p11-dotnet-rollout-readiness.md) confirms Code Integrity policy denial in all 65 failed .NET records. Two enum-valued theory discovery errors explain the 81-to-79 count; no independent code assertion failure is established. Existing signed SDK was already used; no approved alternative execution environment is established. Fresh selected and full-solution regression remain BLOCKED; no new test execution or runtime migration occurred. The owner overlay remains inactive and pins unchanged. All 52 containers, 25 volumes, three backups, schedules and revisions compare unchanged. Explicit deployment approval and all remaining production gates remain required. Earlier evidence below remains historical.
+
+## Current Spring source migration — 2026-11-15
+
+**P11 PARTIAL; production BLOCKED; 11/12.** [Spring migration and regression](p11-spring-migration.md) now records actual source adoption: opt-in two-path owner overlay, test-only order correction, unchanged pins and inactive rollout. Fresh Learning 25/25, User 26/26, JWKS 21/21 and Quarkus 21/21 pass. Fresh .NET is NOT PASS: Application Control blocks the Domain DLL (14 passed, 65 failed; discovery errors, expected 81 not met). Existing real-token/gateway proof remains valid without another login. Two Learning builds match and independent hashes pass; [candidate manifest](p11-validation/spring-release-manifest.json) identifies the uncommitted source and artifacts. All 52 containers, 25 volumes, three backups, schedules and revisions are preserved. Production/shared-publisher adoption and remaining authoritative gates stay open. Earlier statements below are historical and are superseded within this explicit scope.
+
+# P11 readiness review — 2026-11-15
+
+**P11 PARTIAL; production acceptance BLOCKED.** [Actual .NET-issued token -> existing Quarkus proof](p11-live-token.md) now **PASS** with the provided development account: direct/gateway requests succeed, both APIs deny User-to-Admin access, and the new refresh session is logged out. No credentials/keys/claims changed and no tokens persisted. [Spring consumer closure](p11-consumer-closure.md) retains the opt-in two-path migration and **44/44 passing** correction candidate, not adopted/deployed source. Native Application Control, remaining negative/regression scope, release qualification, production/ownership/signoff gates remain open. [Prior release](p11-jwks-release.md) and [remediation](p11-technical-remediation.md) evidence remain intact. All 52 containers, 25 volumes, backups, schedules and revisions are preserved; normal login/logout and telemetry advancement is explicit. See [readiness](p11-readiness.md), [verification](p11-verification.md) and [acceptance](p11-validation/acceptance.json). P00–P10 retain development acceptance; **11/12 phases complete**. Earlier status statements below are historical.
+
 # P10 completed resilience validation — 2026-11-14
 
 **P10 PASS for approved local development.** The remaining [full native multi-store recovery](p10-full-recovery.md) passed fresh resource/isolation guards and actual encrypted checkpoint integrity: **1,867 logs, 828,320 metric samples, 271 trace payloads, one backed-up dashboard/datasources, collector offsets/resumed ingestion and isolated alert firing/resolution**. Measured **RPO 34,403.272s / RTO 544.245s** satisfy 24h/4h targets. Resource caps and sampled Windows headroom pass; exact owned cleanup and all 52 original containers, original volumes, backups, schedules and revisions are preserved. [Immutable acceptance](p10-validation/evidence/jp_obs_validation_20261114150620_955b6d3f/acceptance.json) retains prior native outage, ENOSPC correction, privacy and retention evidence, including all failures. **11/12 phases complete; P11 remains unstarted and untouched.** Existing local exceptions/loss boundaries remain explicit; production readiness is not claimed.

@@ -1,0 +1,13 @@
+diff --git a/compose.jwks-owner-consumer.yml b/compose.jwks-owner-consumer.yml
+new file mode 100644
+index 0000000..2d16a9c
+--- /dev/null
++++ b/compose.jwks-owner-consumer.yml
+@@ -0,0 +1,7 @@
++# Opt-in consumer-only candidate. Requires an independently approved owner-partitioned publisher.
++# Do not apply to the currently pinned legacy publisher; no deployment is authorized here.
++services:
++  learning-api:
++    environment:
++      JWT_JWK_SET_URI: http://jwks-api:8080/api/v1/jwks/user
++      JWKS_SERVICE_GET_PUBLIC_KEYS: /api/v1/jwks/user

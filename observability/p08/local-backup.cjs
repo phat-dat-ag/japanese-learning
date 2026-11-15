@@ -7,6 +7,17 @@ function write(file,value){fs.writeFileSync(file,JSON.stringify(value),{flag:'wx
 function canonical(value){if(Array.isArray(value))return value.map(canonical);if(value&&typeof value==='object')return Object.fromEntries(Object.keys(value).sort().map(k=>[k,canonical(value[k])]));return value;}
 const digest=value=>r.hash(Buffer.from(JSON.stringify(canonical(value))));
 function artifacts(c){return c.artifacts.map(a=>({id:a.id,type:a.type,root:a.root,consistency:'immutable-native-export',classification:'reviewed-telemetry'}));}
+function publish(spec,keyFile,output){
+  // Link publication is atomic and create-only; a partial write never has a generation name.
+  const pending=path.join(path.dirname(output),'.'+path.basename(output)+'.pending-'+crypto.randomBytes(8).toString('hex'));
+  try{
+    const packed=backup.create(spec,keyFile,pending);
+    const verified=backup.verify(pending,keyFile);
+    if(verified.manifest.files.length!==packed.manifest.files.length)throw Error('Backup authentication completeness mismatch');
+    fs.linkSync(pending,output); // EEXIST refuses replacement, including a racing creator.
+    return packed;
+  }finally{if(fs.existsSync(pending))fs.unlinkSync(pending);}
+}
 function retention(destination,keyFile,days,now=Date.now(),remove=true){
   const root=fs.realpathSync(destination),owned=[];
   if(fs.lstatSync(destination).isSymbolicLink())throw Error('Retention rejects linked destination');
@@ -29,7 +40,7 @@ function retention(destination,keyFile,days,now=Date.now(),remove=true){
   }
   return {retentionDays:days,newestPreserved:owned[0]?.name,deleted,unrelatedFilesNeverSelected:true,dryRun:!remove};
 }
-async function acquire(stage,c){
+async function acquire(stage,c,progress){
   const started=new Date().toISOString(),cutoff=Date.parse(started),sources={},roots=[];
   function root(id,type){const p=path.join(stage,id);fs.mkdirSync(p);roots.push({id,type,root:p});return p;}
   const logs=root('logs','opensearch-logical');
@@ -72,15 +83,7 @@ async function acquire(stage,c){
   if(!totalSamples)throw Error('Empty metric history');
   write(path.join(metrics,'chunks.json'),chunks);sources.metrics={chunks,series:maxSeries,samples:totalSamples,pointUtc:started,rangeSeconds:172800,encoding:'gzip JSON original samples, eight native six-hour range vectors'};
   const traces=root('traces','tempo-otlp');
-  const found=new Map(),windows=[];
-  function search(start,end){const q=r.internal('http://tempo:3200/api/search?'+new URLSearchParams({start:String(start),end:String(end),limit:'1000'}));
-    if((q.traces||[]).length>=1000){if(end-start<=1)throw Error('Trace search saturated; no truncation allowed');const mid=Math.floor((start+end)/2);search(start,mid);search(mid,end);return;}
-    if(q.metrics?.completedJobs!==q.metrics?.totalJobs)throw Error('Incomplete trace search');
-    for(const t of q.traces||[])found.set(t.traceID.padStart(32,'0'),t);windows.push({start,end,count:q.traces?.length||0});
-  }
-  search(Math.floor(cutoff/1000)-86400,Math.floor(cutoff/1000));
-  for(const id of [...found.keys()].sort()){const trace=r.internal('http://tempo:3200/api/traces/'+id);write(path.join(traces,id+'.json'),trace);await new Promise(resolve=>setTimeout(resolve,100));}
-  if(!found.size)throw Error('No actual traces exported');sources.traces={ids:[...found.keys()].sort(),windows,pointUtc:started};
+  sources.traces=await require('./tempo-export.cjs').acquire({directory:traces,cutoff,request:r.internal,limits:c.tempoExport,evidence:progress});
   const dashboards=root('dashboards','grafana-dashboards');
   const list=await r.grafana('/api/search?type=dash-db&limit=1000');if(list.length>=1000)throw Error('Dashboard export pagination required');
   for(const d of list){const value=await r.grafana('/api/dashboards/uid/'+encodeURIComponent(d.uid));delete value.dashboard.id;write(path.join(dashboards,d.uid+'.json'),value.dashboard);}
@@ -127,13 +130,13 @@ async function main(configFile){
       const owner=JSON.parse(fs.readFileSync(path.join(existing,'recovery/ownership.json')));if(owner.generation!==c.generation||owner.project!=='jp_learning_dev'||owner.owner!=='japanese-learning-P08')throw Error('Export ownership mismatch');
       data={sources,newestRecoverableUtc:sources.logs.pointUtc,roots:[['logs','opensearch-logical'],['metrics','prometheus-series'],['traces','tempo-otlp'],['dashboards','grafana-dashboards'],['offsets','fluentbit-sqlite'],['recovery','opensearch-logical']].map(([id,type])=>({id,type,root:path.join(existing,id)}))};
       report.resumedImmutableExport=exportId;
-    }else data=await acquire(stage,c);
+    }else data=await acquire(stage,c,value=>{report.tempoAcquisition=value;});
     report.sources=data.sources;
     const bytes=data.roots.reduce((n,a)=>n+fs.readdirSync(a.root).reduce((s,f)=>s+fs.statSync(path.join(a.root,f)).size,0),0);
     const used=fs.readdirSync(destination).reduce((n,f)=>{const p=path.join(destination,f);return n+(fs.lstatSync(p).isFile()?fs.statSync(p).size:0);},0);
     if(used+bytes*2>c.policy.maxDestinationBytes)throw Error('Configured backup storage safety budget exceeded');
     const output=path.join(destination,c.generation);
-    const packed=backup.create({artifacts:artifacts({artifacts:data.roots}),configFiles:c.configFiles,newestRecoverableUtc:data.newestRecoverableUtc,maxBytes:67108864},c.keyFile,output);
+    const packed=publish({artifacts:artifacts({artifacts:data.roots}),configFiles:c.configFiles,newestRecoverableUtc:data.newestRecoverableUtc,maxBytes:67108864},c.keyFile,output);
     const verified=backup.verify(output,c.keyFile);report.checks.authenticated=verified.manifest.files.length===packed.manifest.files.length;
     report.package={file:output,sha256:packed.encryptedSha256,bytes:packed.bytes,rawBytes:bytes,files:packed.manifest.files.length};
     report.after=r.inventory();report.checks.livePreserved=JSON.stringify(report.before)===JSON.stringify(report.after);
@@ -147,5 +150,5 @@ async function main(configFile){
     fs.writeFileSync(evidence,JSON.stringify(report,null,2)+'\n');fs.closeSync(fd);fs.unlinkSync(lock);console.log(JSON.stringify({status:report.status,evidence,package:report.package},null,2));
   }
 }
-module.exports={acquire,main,retention,digest};
+module.exports={acquire,main,retention,digest,publish};
 if(require.main===module)main(process.argv[2]).catch(e=>{console.error(e.message);process.exitCode=1;});
