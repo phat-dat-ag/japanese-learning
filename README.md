@@ -174,6 +174,12 @@ Do not run these first-time generators against an existing deployment.
    P07 helper creates its own separate TLS/account material, fills blank P07
    credentials, and refuses existing real security files. Viewer credentials are
    generated into ignored `.env.logging`; read them locally, never print them.
+   Log access has two separate logins: the browser authentication popup uses
+   `LOGS_UI_USERNAME` / `LOGS_UI_PASSWORD` from `.env.logging`; the OpenSearch
+   Dashboards login page uses `dashboard_reader` and the password under that key
+   in ignored `secrets/p07/credentials.json`, created by the local P07 helper.
+   Read the password locally in your editor; never commit or share it. See the
+   [logging guide](observability/logging/README.md#start-locally).
    On Linux, generating application keys needs permission to set group 1654 and
    private-directory traversal; follow [key permissions](docs/SECRETS.md).
 

@@ -30,7 +30,26 @@ in your editor for `LOGS_UI_USERNAME` and `LOGS_UI_PASSWORD`; neither is printed
 committed. The file contains viewer credentials, not Compose interpolation inputs.
 NGINX reads only `secrets/logging/htpasswd` (a hash, not the password).
 
-Visit **http://127.0.0.1:5601**, authenticate, then open **Discover**. The
+Visit **http://127.0.0.1:5601**. The local P07 setup has two separate logins:
+
+| Login | Credentials |
+| --- | --- |
+| Browser authentication popup (NGINX) | `LOGS_UI_USERNAME` and `LOGS_UI_PASSWORD` from `.env.logging` |
+| OpenSearch Dashboards login page | Username `dashboard_reader`; password under the `dashboard_reader` key in `secrets/p07/credentials.json` |
+
+The local P07 provisioning helper creates the Dashboards account credentials;
+the security bootstrap installs the account. Read passwords locally in your
+editor; never print, commit or share them. The `.env.logging` credentials do not
+authenticate the Dashboards login page. `kibanaserver` is an internal service
+account, not the viewer login. Other deployments must use their separately
+provisioned Dashboards user account.
+
+If the browser popup repeats, open a private window and complete both logins.
+An upstream Dashboards `401` can reach the browser even after NGINX accepts its
+credentials; repeated prompts alone do not prove the `.env.logging` password is
+wrong.
+
+After signing in, open **Discover**. The
 Combined `application-logs-*` and three per-service index patterns, using the
 `@timestamp` time field, are provisioned by
 `logging-ui-init`. The command above starts the complete application and logging
