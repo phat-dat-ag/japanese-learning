@@ -11,4 +11,5 @@ opensearch.ssl.verificationMode: full
 opensearch.ssl.certificateAuthorities: ["/usr/share/opensearch-dashboards/config/p07/ca.pem"]
 opensearch.requestHeadersAllowlist: [authorization, securitytenant]
 opensearch_security.cookie.secure: false
-opensearch_security.readonly_mode.roles: [p07_reader]
+# UI read-only mode hides Discover; backend p07_reader permissions enforce read-only access.
+opensearch_security.readonly_mode.roles: []

@@ -56,6 +56,21 @@ Combined `application-logs-*` and three per-service index patterns, using the
 stack. A new installation can show no
 results until applications write logs. Adjust Discover's time range for old logs.
 
+The `p07_reader` role enforces read-only access through backend permissions.
+It must not be listed in `opensearch_security.readonly_mode.roles`: that UI mode
+hides Discover and can cause "Application Not Found" when opening it. The supplied
+Dashboards configuration uses an empty list so the reader can access Discover.
+Visible UI actions still require the corresponding backend permissions.
+
+After changing this bind-mounted configuration in an existing local stack, run:
+
+```sh
+docker compose -p jp_learning_dev restart opensearch-dashboards
+```
+
+Use your actual Compose project name. Wait for Dashboards to become healthy,
+then sign out and back in and open **http://127.0.0.1:5601/app/discover**.
+
 Linux hosts require `vm.max_map_count >= 262144`; configure it in host sysctl, not
 by granting containers extra privileges. Budget an additional 4 GiB RAM plus disk
 headroom for this single-node stack. Heap defaults to 512 MiB inside a 2 GiB
