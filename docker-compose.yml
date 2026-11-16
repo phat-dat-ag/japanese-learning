@@ -853,7 +853,13 @@ services:
     entrypoint: ["python", "-B", "/config/storage-monitor.py"]
     volumes:
       - ./observability/p07/storage-monitor.py:/config/storage-monitor.py:ro
-      - ${DOCKER_DATA_HOST_PATH:-D:/DockerData/DockerDesktopWSL/disk}:/host-docker-data:ro
+      # Portable default: monitor the checkout's filesystem. Override to monitor
+      # the Docker backing drive when it is on a different filesystem.
+      - type: bind
+        source: ${DOCKER_DATA_HOST_PATH:-.}
+        target: /host-docker-data
+        read_only: true
+        bind: {create_host_path: false}
       - opensearch_data:/stores/opensearch:ro
       - prometheus_data:/stores/prometheus:ro
       - tempo_data:/stores/tempo:ro

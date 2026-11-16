@@ -146,11 +146,14 @@ Do not run these first-time generators against an existing deployment.
    `MSSQL_SA_PASSWORD` and `GRAFANA_ADMIN_PASSWORD` with distinct strong credentials.
    SQL Server requires a strong password satisfying its complexity policy. Use
    dotenv quoting when values contain `$` or `#`; never paste credentials in chat.
-   Set `DOCKER_DATA_HOST_PATH` to the **existing directory containing this machine's
-   Docker Desktop disk image**, as configured in Docker Desktop's disk-image
-   location settings. The example's `D:/...` location is machine-specific; do not
-   create an empty directory just to pass validation. Linux hosts must select the
-   actual Docker backing filesystem directory. Review published ports for conflicts
+   Use `DOCKER_DATA_HOST_PATH=.` in root `.env` for the portable default. The dot
+   resolves to the checkout directory (for example, `C:/Personal/japanese-learning`)
+   on each computer. This read-only input controls disk-space monitoring only;
+   application data stays in Docker-managed named volumes. If Docker stores data
+   on another filesystem, override it with an **existing directory on that
+   filesystem** for accurate backing-disk alerts. For Docker Desktop, check its
+   disk-image location settings. Windows dotenv paths can use forward slashes.
+   Invalid override paths fail without creating directories. Review published ports for conflicts
    and choose one stable `COMPOSE_PROJECT_NAME` before first startup.
 
    The commands below use `jp_learning_dev`, the example's new-clone project name.
