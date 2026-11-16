@@ -2,6 +2,15 @@
 
 ## Architecture and exposure
 
+After cloning, run `python scripts/initialize-environment.py` from the root to
+create missing static inputs without replacing existing files. The release
+template selects `.env.user-api.production`, whose separate example contains no
+credentials; provision the target deployment's signing keys separately. P07
+service dotenv files, matching TLS material/accounts and monitor token also need
+secure provisioning. See the root [environment audit](../docs/environment-file-audit.md).
+Blank examples do not establish runtime readiness. Do not repair existing
+deployments by running the historical P07 credential/CA generator.
+
 Browser -> HTTPS host reverse proxy -> frontend NGINX (compiled Angular)
 -> NGINX API Gateway -> .NET / Quarkus -> SQL Server / MySQL.
 Both .NET and Quarkus fetch verification keys from the independent `jwks-api`
@@ -51,6 +60,16 @@ remove that shared bottleneck. Do not globally trust X-Forwarded-For to bypass i
 restoring client identity requires a separately reviewed exact-proxy trust boundary.
 
 ## Fresh Linux host
+
+The root [Getting started](../README.md#getting-started) sequence provisions a
+fresh **local development** stack. Its generated P07 development certificates do
+not establish production readiness. For this release workflow, provision the
+target's matching service dotenv files, indexed signing/public keys, P07 TLS and
+accounts, and logging viewer hash separately. Configure real host mount paths,
+permissions and release secrets before using this runbook; do not reuse DEV
+credentials. Local production-like testing instead uses `.env` followed by
+`.env.db.production` and `compose.local-production.yml`; run
+`python -B scripts/preflight-compose.py --local-production` before those commands.
 
 Use an x86-64 Linux VM supported by the pinned SQL Server image, Docker Engine with
 Compose plugin >= 2.24.4, Git, Python >= 3.10, Bash and OpenSSL. Budget at least 12 GiB

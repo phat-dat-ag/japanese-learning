@@ -120,44 +120,103 @@ Native backends still need initialized databases and matching authentication con
 
 ## Getting started
 
-Run root commands from this directory. The following starts the complete local system, including migrations.
+For a **new local deployment** on Windows, use PowerShell from the root repository.
+Install Git (including OpenSSL), Python 3.10+ and Docker Desktop with Linux containers
+and a current Compose plugin. Docker builds supply Node, Java and .NET; host SDKs
+are only needed for native development. Allow sufficient Docker memory/disk for
+both databases, OpenSearch and image builds (see the deployment resource guidance).
+Do not run these first-time generators against an existing deployment.
 
-1. Clone and initialize the pinned submodule revisions:
+1. Clone the root and all four pinned submodules:
 
-   ```sh
+   ```powershell
    git clone --recurse-submodules https://github.com/phat-dat-ag/japanese-learning.git
    cd japanese-learning
    git submodule update --init --recursive
+   git submodule status
+   python -B scripts/initialize-environment.py
    ```
 
-2. Copy the environment template, unless a configured `.env` already exists:
+   This creates absent static dotenv files, including root service inputs and child
+   native templates, without replacing existing files. Child `.env` files are not
+   required by the root Docker builds. Do not copy `.env.logging.example` to
+   `.env.logging`; that receipt must be generated with its matching bcrypt file.
+
+2. Edit root `.env` privately. Supply `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`,
+   `MSSQL_SA_PASSWORD` and `GRAFANA_ADMIN_PASSWORD` with distinct strong credentials.
+   SQL Server requires a strong password satisfying its complexity policy. Use
+   dotenv quoting when values contain `$` or `#`; never paste credentials in chat.
+   Set `DOCKER_DATA_HOST_PATH` to the **existing directory containing this machine's
+   Docker Desktop disk image**, as configured in Docker Desktop's disk-image
+   location settings. The example's `D:/...` location is machine-specific; do not
+   create an empty directory just to pass validation. Linux hosts must select the
+   actual Docker backing filesystem directory. Review published ports for conflicts
+   and choose one stable `COMPOSE_PROJECT_NAME` before first startup.
+
+   The commands below use `jp_learning_dev`, the example's new-clone project name.
+   **This repaired workstation uses `jp_dev`; use `-p jp_dev` here instead.** Never
+   change project names to fix a startup error: that selects different volumes.
+
+3. Create fresh matching application keys and P07 security material once:
 
    ```powershell
-   Copy-Item .env.example .env
-   ```
-
-   On Unix use `cp .env.example .env`. Edit the file privately and set `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, and `MSSQL_SA_PASSWORD`. Preserve existing credentials when reusing database volumes. See [Environment configuration](#environment-configuration).
-
-3. For a new deployment, provision the matching indexed User key pairs and public filenames described in [JWKS setup](docs/JWKS.md). Preserve existing deployments' keys. The following helper provisions a single pair; adapt individual Compose file mounts and indexed examples before using its output. Provision a matching, unencrypted RSA PEM pair of at least 2048 bits at `secrets/private/user-api/private.pem` and `secrets/public/user-api-public.pem`. See [key storage conventions](docs/SECRETS.md). Alternatively, with PowerShell and .NET 9 installed:
-
-   ```powershell
-   pwsh -File ./scripts/generate-jwt-keys.ps1
-   ```
-
-   The helper refuses existing keys. Both files must be readable by the .NET container user (UID 1654), with directory traversal permission. On Linux, grant narrowly scoped ownership/ACL access; the generated private key starts owner-only. Restart Auth after replacing keys.
-
-4. Validate and start:
-
-   ```sh
+   python -B scripts/generate-compose-jwt-keys.py --new-local-deployment
+   python -B scripts/provision-p07-local.py --apply
    python -B scripts/setup-log-access.py
-   docker compose config --quiet
-   docker compose up -d --build
-   docker compose ps -a
    ```
 
-   Compose starts databases, runs initialization/migrations, then gates API, Gateway and frontend startup on readiness. Initialization and Flyway containers should finish with exit code **0**; they do not remain running.
+   The first helper creates the three indexed key pairs expected by the unmodified
+   Compose templates. The older PowerShell single-key helper does not match those
+   filenames. No key IDs, active selection or existing keys are overwritten. The
+   P07 helper creates its own separate TLS/account material, fills blank P07
+   credentials, and refuses existing real security files. Viewer credentials are
+   generated into ignored `.env.logging`; read them locally, never print them.
+   On Linux, generating application keys needs permission to set group 1654 and
+   private-directory traversal; follow [key permissions](docs/SECRETS.md).
 
-5. Open **http://localhost:8088**, register, then sign in. Registration creates a `User`, not an `Admin`. No automatic Admin provisioning procedure is supplied. Fresh migrations seed reference data, but do not populate lessons, vocabulary or quiz questions; an authorized Admin must supply learning content.
+4. Check paths, then bootstrap only OpenSearch before starting its clients:
+
+   ```powershell
+   python -B scripts/preflight-compose.py --project jp_learning_dev
+   docker compose -p jp_learning_dev up -d --build --no-deps opensearch
+   python -B scripts/bootstrap-p07-local.py --project jp_learning_dev
+   ```
+
+   Preflight rejects missing/empty files, directories mounted as files, blank
+   required settings and missing indexed signing keys. It does not start containers.
+   The bootstrap waits for TLS readiness and initializes P07 security accounts/roles.
+   Starting everything before this step can leave logging services waiting or failing.
+
+5. Start and verify the complete stack:
+
+   ```powershell
+   docker compose -p jp_learning_dev config --quiet
+   docker compose -p jp_learning_dev up -d --build
+   docker compose -p jp_learning_dev ps -a
+   ```
+
+   Databases start first, initialization/migration jobs must exit **0**, and APIs,
+   Gateway and frontend must become healthy. `otel-collector`, `tempo` and
+   `fluent-bit` have no Docker health check; a running state is not an end-to-end
+   telemetry guarantee. Never use `down -v` or remove volumes to repair startup.
+
+Open **http://localhost:8088** (or the `FRONTEND_PORT` chosen in `.env`). Register,
+then sign in. Registration creates a User, not an Admin; fresh migrations do not
+populate lessons, vocabulary or quiz questions. Logs UI defaults to port 5601 and
+uses the generated viewer receipt. Current workstation overrides are frontend
+8099 and Logs UI 5661.
+
+For subsequent starts, keep the same project name and run only `preflight-compose.py`,
+`docker compose ... config --quiet` and `docker compose ... up -d`. Do not rerun key,
+P07 or viewer generators. If a new step fails, fix its reported cause before moving
+on; parsing alone cannot verify database credentials or existing volume contents.
+
+To **move an existing deployment** to another Windows machine, securely restore
+its matching root dotenv files, `secrets/` material and database/observability
+backups instead of running fresh generators. Git clone does not contain those
+ignored files or Docker volume data. Do not borrow another project's credentials.
+Native service development, local production-like and Linux release setup are
+separate workflows described below and in the child READMEs.
 
 ### Local addresses
 
@@ -192,6 +251,48 @@ Never print `docker compose config` output: use `config --quiet`.
 | `.env.p07.example` / `.env.p07` | Security setup reference; not read by Compose. Setup generates `secrets/p07/*.env` instead |
 | Child `.env.example` / `.env` | Native/service templates in Angular, Quarkus, .NET and Spring JWKS; loading differs below |
 | `deployment/production.env.example` | Separate Linux release workflow, copied to ignored `.env.production` only when provisioning that workflow |
+| `.env.user-api.production.example` / `.env.user-api.production` | Linux release signing input selected by the release template; provision production keys separately |
+| `secrets/p07/{admin,writer,dashboards,monitor}.env.example` / matching `.env` files | Mandatory base Compose service inputs, including profiled production-like services |
+| `quarkus/.env.docker.example` / `quarkus/.env.docker` | Explicit standalone Docker input; provide container-reachable database/Auth/JWKS URLs |
+
+After cloning with submodules, run `python scripts/initialize-environment.py` from
+the root on Windows or Linux. It creates missing static files only, including child
+native files and optional Linux release inputs. It preserves existing values,
+comments and local-only variables. Review reported blank settings; some are optional.
+The complete [environment audit](docs/environment-file-audit.md) records consumers,
+required inputs, generation exceptions and validation limits.
+
+Before startup, securely provision `secrets/p07/admin.env` with
+`P07_ADMIN_PASSWORD` for OpenSearch `administrator`, `writer.env` with
+`P07_WRITER_PASSWORD` for `ingestion_writer`, and `dashboards.env` with
+`P07_DASHBOARDS_PASSWORD` for `kibanaserver`. `monitor.env` requires a dedicated
+`P07_MONITOR_TOKEN`, matching the securely provisioned `secrets/p07/monitor.token`.
+The CA, node/admin/Dashboards certificates and keys, and OpenSearch accounts/roles
+must match this deployment. Copying blank examples satisfies file paths only.
+Recover existing credentials rather than generating replacements. The historical
+`setup-p07-security.cjs` rewrites credential files and can regenerate CA material;
+do not use it as an automatic missing-file repair. `.env.p07` is a reference file,
+not the source of these service credentials. Keep generated `.env.logging` paired
+with its htpasswd; do not initialize that receipt by copying its example.
+
+If the original P07 material cannot be recovered, the explicitly authorized
+[fresh local P07 procedure](docs/SECRETS.md#fresh-local-p07-provisioning) creates
+matching certificates and accounts without changing application JWT keys or
+deleting volumes. It refuses replacement of existing real security files.
+
+Validate without displaying credentials:
+
+```powershell
+docker compose -p jp_dev config --quiet
+docker compose --env-file .env --env-file .env.db.production -f docker-compose.yml -f compose.local-production.yml config --quiet
+python scripts/verify-environment-portability.py
+```
+
+`jp_dev` is a parsing check; use the documented project names below for existing
+storage. The portability check uses isolated template copies and synthetic
+in-memory interpolation inputs. It does not start containers or establish runtime
+readiness. Once required values and secure mounts are provisioned, use the existing
+DEV or production-like start commands below; keep their environment files separate.
 
 Use uppercase existing names; .NET nested options retain `Section__Property`.
 Keep identity/ports, database, authentication, logging and telemetry groups together.
@@ -202,14 +303,11 @@ key lists are extensible; preserve contiguous indices, IDs and existing active s
 container `HOSTNAME`. Image launcher variables and fixed privacy/metrics policies
 remain image/framework configuration, rather than extra operator knobs.
 
-After editing a template, run `node scripts/audit-environment.cjs sync`, then
-`node scripts/audit-environment.cjs`. Synchronization preserves every existing raw
-assignment, fills missing names from safe examples, refuses duplicates/local-only
-names, and never removes old settings. The logging credential receipt is never
-rewritten. For a new audit, `snapshot` saves assignment hashes privately and
-refuses to overwrite a baseline. The initial audit baseline verified all original
-assignments unchanged. A later deliberate value change requires reviewing/replacing
-that private baseline manually; it is not a permanent credential-change policy.
+Use the initializer above for missing-file repair. The historical
+`audit-environment.cjs` checks root-level `.env*.example` name equality and does not
+discover nested P07 files. Its `sync` mode rewrites local files; it is not the
+preservation-safe initialization procedure. Review verified required additions to
+existing files individually rather than regenerating local configuration.
 
 Quarkus reads its working-directory `.env` through SmallRye. Spring, .NET,
 Angular and npm do **not** automatically load these files: export the reviewed
@@ -254,7 +352,7 @@ docker compose --env-file .env --env-file .env.db.production -f docker-compose.y
 
 # Both concurrently: run the two respective up commands above; stop independently.
 # Static, secret-safe validation; never starts containers
-node scripts/audit-environment.cjs
+python scripts/verify-environment-portability.py
 node scripts/verify-dual-environment.cjs
 ~~~
 
