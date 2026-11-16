@@ -24,7 +24,8 @@ configuration still requires exactly one `ACTIVE=true` entry to choose the
 issuer's signer. Keep retired signers' public keys while their tokens remain
 valid; removing a public key takes effect after verifier caches refresh.
 
-Everything under `secrets/` remains ignored by Git, including public keys, because
+Everything under `secrets/` except the four safe `secrets/p07/*.env.example`
+templates remains ignored by Git, including public keys, because
 these files are specific to this deployment. Environment examples contain paths
 and IDs only. Actual `.env*` files, private keys and `.local/` artifacts remain
 untracked. Do not upload private material in application images or copy it into
@@ -35,6 +36,40 @@ The legacy single-key fallback, its local public-key settings and its public
 mount have been removed. `secrets/public` remains required by Spring JWKS.
 
 ## Docker mapping
+
+### Fresh local P07 provisioning
+
+For a new workstation with no recoverable P07 security material, explicitly
+authorize fresh P07 identities before using this procedure. It does not recover
+historical identities. Keep the existing Compose project name so volumes remain
+attached to the intended deployment; the repaired workstation uses `jp_dev`.
+
+```powershell
+python -B scripts/provision-p07-local.py --apply
+docker compose -p jp_dev up -d --no-deps opensearch
+python -B scripts/bootstrap-p07-local.py --project jp_dev
+```
+
+Provisioning refuses existing certificate/key files and nonempty placeholder
+directories. It generates matching P07-only TLS material, fills blank service
+credentials while preserving nonblank values, and backs up empty placeholder
+directories and original dotenv bytes under ignored `.local/p07-provision-*`.
+It never changes application JWT keys, root dotenv values or Docker volumes.
+The bootstrap handles an uninitialized OpenSearch security index, applies P07
+accounts/roles over verified TLS, preserves unrelated role-mapping members and
+does not print credentials. It is separate from certificate generation and
+requires the selected project's OpenSearch to be running.
+
+Keep `.env.logging` paired with its existing htpasswd. Verify it using
+`node scripts/log-access.cjs validate --auth-file secrets/logging/htpasswd`.
+If only the hash is missing, use the documented `recover --auth-file` operation
+with an unused file path and existing parent directory; preserve the viewer
+password. Generate a new receipt/hash with `setup-log-access.py` only when both
+are absent. Once service credentials and mounts are ready, start the selected
+project normally with `docker compose -p jp_dev up -d`. Recreating Prometheus and
+storage-monitor is necessary if they were started with placeholder token mounts
+or blank credentials. Provisioning is a one-time operation, not a routine startup
+command; existing real keys cause it to refuse replacement.
 
 | Host setting | Default | Container mount |
 | --- | --- | --- |

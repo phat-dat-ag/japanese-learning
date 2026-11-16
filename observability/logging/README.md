@@ -9,6 +9,12 @@ The base file also includes the existing P07 Prometheus/Grafana and collector/Te
 
 From the repository root, with Docker running:
 
+First run `python scripts/initialize-environment.py` and complete the P07
+credential/TLS requirements in the root
+[environment guide](../../README.md#environment-configuration). The command below
+creates only the separate viewer receipt and matching htpasswd; it does not
+provision P07 accounts, service passwords or certificates.
+
 ```sh
 python -B scripts/setup-log-access.py
 docker compose up --build -d
@@ -57,20 +63,17 @@ redeploying applications, use:
 docker compose --env-file .env.production -p japanese-learning-production -f docker-compose.yml -f compose.production.yml up -d --build opensearch logging-init fluent-bit opensearch-dashboards logs-ui logging-ui-init
 ```
 
-OpenSearch's native Security plugin is disabled deliberately: its API is
-unpublished on `log-storage`, an internal network containing only trusted logging
-components. The separate internal `log-ui` network connects Dashboards and NGINX.
-Applications do not join either network. NGINX authenticates all UI/API routes
-except its minimal `/health` response and publishes **127.0.0.1 only**. It strips
-the Basic authorization header before forwarding. Use the SSH tunnel or an
-authenticated HTTPS host proxy; do not expose the HTTP listener publicly.
+The current base stack enables OpenSearch Security and internal TLS through P07.
+Its API is unpublished on internal `log-storage`; clients need matching CA
+material and separately provisioned accounts. Dashboards uses `kibanaserver` with
+`P07_DASHBOARDS_PASSWORD` from `secrets/p07/dashboards.env`. The separate internal
+`log-ui` network connects Dashboards and NGINX. NGINX also requires its matching
+htpasswd and publishes **127.0.0.1 only**. Use an SSH tunnel or authenticated HTTPS
+host proxy; do not expose the HTTP listener publicly.
 
-This is a single-operator boundary: authenticated viewer access includes Dashboards
-administration and its developer console. It does not provide per-user OpenSearch
-roles, tenants, internal TLS or protection against a compromised logging container
-or Docker administrator. Multi-user/untrusted-network deployments require native
-OpenSearch Security, managed certificates and least-privilege accounts instead.
-No demo certificates or demo admin passwords are installed.
+P07 certificate/account provisioning and security roles must match the deployment.
+Copying blank dotenv examples does not provision accounts or TLS. Docker
+administrators remain trusted. Templates contain no demo credentials.
 
 All long-running logging containers use non-root users, read-only root
 filesystems, dropped capabilities, resource limits and bounded Docker logs.

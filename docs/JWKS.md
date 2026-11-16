@@ -52,6 +52,16 @@ Examples updated: root `.env.example`, `.env.jwks-api.example`, deployment
 
 ## Mounts and rotation
 
+For a **new local deployment using the default Compose templates**, run
+`python -B scripts/generate-compose-jwt-keys.py --new-local-deployment` from the
+root once. It creates all three numbered private/public pairs below, preserves
+the configured IDs and active index, and refuses existing paths. Do not use the
+older single-pair PowerShell helper with these mounts without adapting the entire
+configuration. Restore original keys for an existing deployment; never regenerate
+them just because a machine was recloned. Custom paths and release identities
+require their own matching provisioning. See the root
+[first-time guide](../README.md#getting-started) for the complete startup order.
+
 `JWKS_API_PUBLIC_KEYS_HOST_PATH` is the host parent directory, default
 `./secrets/public`. Compose binds only the three individual public files read-only
 at matching `/run/keys/jwks/user-publickey-N.pem` paths, with `create_host_path: false`.
